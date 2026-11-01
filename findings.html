@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Independent Tucson housing research findings, source-linked observations, calculations, and open verification tasks.">
+<title>Research Findings v0.5 | Housing Accountability Project</title>
+<style>
+:root{
+ --navy:#102e3d;--teal:#166267;--ink:#17303d;
+ --muted:#4d646a;--bg:#f7faf9;--line:#d7e5e2;
+ --soft:#edf5f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--ink);
+ font:16px/1.65 system-ui,Arial,sans-serif;
+}
+a{color:#095e68;text-underline-offset:3px}
+a:focus-visible{outline:3px solid #d6aa40;outline-offset:3px}
+.skip{
+ position:absolute;left:-9999px;background:white;
+ padding:12px;z-index:10;
+}
+.skip:focus{left:12px;top:12px}
+header{
+ background:var(--navy);color:white;padding:19px 6%;
+ display:flex;flex-wrap:wrap;justify-content:space-between;
+ align-items:center;gap:15px;
+}
+header strong{font-size:14px;letter-spacing:.4px}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a,footer a{color:#c0e8de}
+nav a{text-decoration:none;font-size:14px}
+nav a[aria-current="page"]{
+ color:white;font-weight:700;text-decoration:underline;
+}
+.hero{
+ background:linear-gradient(120deg,#102e3d,#166267);
+ color:white;padding:51px 6%;
+}
+.hero-inner{max-width:1180px;margin:auto}
+.eyebrow{
+ text-transform:uppercase;letter-spacing:1.1px;
+ font-weight:700;font-size:12px;color:#c0e8de;
+}
+h1{
+ font-size:clamp(34px,5vw,52px);
+ line-height:1.15;margin:9px 0 16px;
+}
+.hero p{max-width:800px}
+main{max-width:1250px;margin:auto;padding:15px 6% 55px}
+section{margin-top:35px;scroll-margin-top:15px}
+h2{font-size:clamp(23px,3vw,29px);line-height:1.3}
+h3{font-size:20px;line-height:1.3;margin:12px 0}
+.muted,.fine-print{color:var(--muted);font-size:13px}
+.note{
+ padding:17px 20px;background:var(--soft);
+ border-left:4px solid #2d8276;margin:12px 0;
+}
+.warning{background:#fff6e8;border-color:#a67925}
+.jump{
+ display:flex;flex-wrap:wrap;gap:11px;margin:20px 0;
+}
+.jump a{
+ display:inline-block;border:1px solid #aac9c1;
+ border-radius:6px;padding:6px 12px;
+ text-decoration:none;background:white;
+}
+.grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+article{
+ border:1px solid var(--line);border-radius:10px;
+ background:white;padding:22px;
+}
+.tag{
+ display:inline-block;padding:3px 10px;border-radius:20px;
+ background:#e0eee9;color:#14594f;font-size:12px;
+ font-weight:700;
+}
+.tag.review{background:#fff0d4;color:#765019}
+.id{
+ margin-left:8px;font:700 12px/1.3 ui-monospace,monospace;
+ color:#546c71;
+}
+.fact{font-size:19px;font-weight:750;line-height:1.45}
+.detail{
+ border-top:1px solid var(--line);
+ padding-top:13px;margin-top:14px;
+}
+.detail strong{display:block}
+.source{
+ background:#f2f7f6;border-radius:6px;
+ padding:10px 13px;margin-top:14px;font-size:14px;
+}
+.calc{
+ background:#f0f5f3;padding:14px;border-radius:7px;
+ font:700 16px/1.6 ui-monospace,monospace;
+ text-align:center;
+}
+.summary{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;margin:20px 0;
+}
+.summary-item{
+ border:1px solid var(--line);border-radius:8px;
+ background:white;padding:14px;
+}
+.summary-item strong{
+ display:block;font-size:23px;line-height:1.35;
+}
+.summary-item span{
+ display:block;font-size:13px;color:var(--muted);
+}
+.table-wrap{
+ overflow-x:auto;border:1px solid var(--line);
+ border-radius:8px;background:white;
+}
+table{width:100%;min-width:660px;border-collapse:collapse}
+caption{text-align:left;padding:12px;font-weight:700}
+th,td{
+ border-bottom:1px solid var(--line);
+ padding:13px;text-align:left;vertical-align:top;
+ font-size:14px;
+}
+th{background:#e8f2ef}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot th,tfoot td{background:#e6f0ed;font-weight:700}
+.table-wrap:focus-visible{outline:3px solid #d6aa40}
+.action{
+ display:inline-block;border:1px solid #aac9c1;
+ padding:8px 14px;border-radius:6px;background:white;
+}
+footer{
+ background:var(--navy);color:#d9ebe6;padding:24px 6%;
+}
+@media(max-width:740px){
+ .grid,.summary{grid-template-columns:1fr}
+ main{padding:14px 5% 50px}
+ .hero{padding:38px 5%}
+ article{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+}
+@media print{
+ body{background:white;color:black;font:11px/1.4 Arial,sans-serif}
+ header,.jump,.action,.skip{display:none}
+ .hero{background:white;color:black;padding:0}
+ main{padding:0}
+ .grid,.summary{display:block}
+ article{break-inside:avoid;margin:8px 0;padding:12px}
+ .tag,.source,.note,.calc{color:black;background:white}
+ a{color:black}
+ footer{background:white;color:black;padding:8px 0}
+ thead{display:table-header-group}
+ tr{break-inside:avoid}
+ .table-wrap{overflow:visible}
+ table{min-width:0}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+<strong>HOUSING ACCOUNTABILITY PROJECT</strong>
+<nav aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="research.html">Research Library</a>
+<a href="evidence.html">Evidence Index</a>
+<a href="findings.html" aria-current="page">Research Findings</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="hero-inner">
+<div class="eyebrow">
+Independent public-interest research · Tucson / Pima County
+</div>
+<h1>Research Findings</h1>
+<p>
+What published records document, what the project has
+calculated, and what remains unanswered.
+</p>
+<p>
+Public research release v0.5 · Source cutoff:
+October 31, 2026 · Not updated automatically
+</p>
+</div>
+</div>
+
+<main id="main">
+
+<section id="read-first">
+<h2>How to interpret these findings</h2>
+<p>
+This page presents selected, source-linked observations,
+not an official financial audit, a finding of wrongdoing,
+or a live housing-availability service.
+</p>
+<p>
+<strong>Source reviewed</strong> confirms a limited statement
+in an agency publication, not implementation or an
+independently audited outcome.
+Financial categories and project-unit categories are not
+additive unless their definitions and periods match.
+</p>
+
+<div class="note">
+<strong>Three evidence levels:</strong>
+Source reviewed — an agency publication was examined for
+the stated fact.
+Workbook assessment — an internal comparison was
+documented but not fully reproduced from primary records.
+Open question — additional information is needed before
+reaching a conclusion.
+</div>
+
+<div class="summary" aria-label="Research snapshot">
+<div class="summary-item">
+<strong>9</strong>
+<span>Dated agency-report observations, including draft figures</span>
+</div>
+<div class="summary-item">
+<strong>3</strong>
+<span>Open accounting or construction-cohort comparisons</span>
+</div>
+<div class="summary-item">
+<strong>0</strong>
+<span>Findings of wrongdoing or certified available funds</span>
+</div>
+</div>
+
+<div class="jump" aria-label="On this page">
+<a href="#documented">Documented observations</a>
+<a href="#financial-register">Financial reconciliation</a>
+<a href="#project-stages">Housing projects</a>
+<a href="#reconciliation">Open comparisons</a>
+<a href="#next-records">Records needed</a>
+<a href="#methods">Methodology</a>
+</div>
+</section>
+
+<section id="documented">
+<h2>Documented observations</h2>
+<p>
+Each observation specifies what a dated agency record
+establishes. Figures in the PY2025 draft CAPER remain
+draft figures, including those whose arithmetic
+has been independently checked.
+</p>
+
+<div class="grid">
+
+<article id="f-001">
+<span class="tag">Source reviewed</span>
+<span class="id">F-001 · CDBG · PY2026</span>
+<h3>City approved a $1.5 million CDBG reallocation</h3>
+<p class="fact">
+The City's October 9 update reports that Mayor and Council
+approved shifting $1.5 million in previously planned
+CDBG funding within the FY2027/PY2026 Annual Action Plan.
+</p>
+<p>
+The City reported moving the allocation from Community
+Facilities to Decent Affordable Rental and Homeowner Housing,
+including potential preservation or rehabilitation activities.
+The housing category gains $1.5 million in planned capacity
+while the facilities category loses the same amount.
+Total CDBG resources do not increase.
+</p>
+<div class="calc">
+Housing category: +$1,500,000
+<br>
+Facilities category: −$1,500,000
+<br>
+Net new CDBG funding: $0
+</div>
+<div class="detail">
+<strong>What this does not prove</strong>
+HUD implementation, unobligated cash, a new federal award,
+completed rehabilitation, or housing openings.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627"
+target="_blank" rel="noopener noreferrer">
+City Council member update, October 9, 2026
+</a>
+· <a href="evidence.html#q-006">Q-006</a>
+</div>
+</article>
+
+<article id="f-002">
+<span class="tag">Source reviewed</span>
+<span class="id">F-002 · PBV / HOME · 2025–2026</span>
+<h3>Amazon Flats: construction started; vouchers proposed</h3>
+<p class="fact">
+The City announced an April 17, 2026 groundbreaking
+for a 59-apartment building. A December 2025 environmental
+notice proposed using 39 project-based vouchers.
+</p>
+<p>
+The earlier notice described $500,000 in HOME funds
+and two HOME-designated units within the 59 planned apartments.
+The City estimated completion in fall 2027.
+</p>
+<p>
+<strong>Do not add 59 + 39 + 2.</strong>
+These refer to overlapping apartment and subsidy categories,
+not separate sets of homes.
+</p>
+<p>
+<strong>Financing classification:</strong>
+The City reported an overall development cost of approximately
+$24.4 million. The earlier environmental notice identified
+a proposed $500,000 HOME contribution and estimated
+$6,645,600 in PBV assistance over 20 years.
+</p>
+<p>
+These figures describe development cost, a proposed capital
+source, and projected future rental assistance.
+They do not establish a combined balance of
+currently available housing funds.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+Construction completion, executed voucher contracts,
+current applications, or vacant apartments.
+</div>
+<div class="source">
+<strong>Sources:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Intent-to-Request-Release-of-Funds-for-Project-Based-Vouchers"
+target="_blank" rel="noopener noreferrer">
+December 22, 2025 funding notice
+</a>
+·
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Breaks-Ground-for-59-New-Affordable-Housing-Apartments"
+target="_blank" rel="noopener noreferrer">
+April 17, 2026 groundbreaking
+</a>
+· <a href="evidence.html#q-009">Q-009</a>
+</div>
+</article>
+
+<article id="f-003">
+<span class="tag">Source reviewed</span>
+<span class="id">F-003 · PBV / RAD · August 2026</span>
+<h3>Craycroft and Lee Street: allocated vouchers</h3>
+<p class="fact">
+The City's August 3, 2026 notice describes 74 existing
+Craycroft Towers apartments and eight Lee Street Duplex
+apartments, with 82 project-based vouchers allocated
+over 15 years.
+</p>
+<p>
+The notice identifies nine RAD units and 65 Section 18
+units in the Craycroft conversion categories and says
+the project will have four HOME units.
+</p>
+<p>
+HOME units and PBV subsidies can overlap within the same
+apartments. These numbers must not be added together
+to imply additional homes.
+The work concerns preservation and conversion,
+not 82 newly constructed apartments.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+Executed assistance-payment agreements, completed
+conversion, current occupancy, or 82 vacant apartments.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Copy-of-Notice-of-Intent-to-Request-Release-of-Funds-August-2026-"
+target="_blank" rel="noopener noreferrer">
+City project notice, August 3, 2026
+</a>
+· <a href="evidence.html#q-009">Q-009</a>
+</div>
+</article>
+
+<article id="f-004">
+<span class="tag">Source reviewed</span>
+<span class="id">F-004 · Housing delivery · 2025</span>
+<h3>Milagro on Oracle: documented housing delivery</h3>
+<p class="fact">
+The City reports that this 63-unit affordable housing
+development opened to residents in January 2025.
+</p>
+<p>
+City announcements credit El Pueblo Housing Development
+and Gorman &amp; Company with developing this housing,
+combining new construction and adaptive reuse
+of two historic motor courts.
+</p>
+<p>
+This is a documented positive housing-delivery milestone,
+although the City announcement is not an independently
+audited occupancy report.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+Current vacancies, present occupancy, resident income levels,
+or remaining available subsidy.
+</div>
+<div class="source">
+<strong>Sources:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Receives-State-Award-for-Adaptive-Reuse-of-Old-Motel-for-Affordable-Housing"
+target="_blank" rel="noopener noreferrer">
+City announcement, August 2025
+</a>
+·
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucsons-Milagro-on-Oracle-Receives-Second-Award"
+target="_blank" rel="noopener noreferrer">
+City co-developer recognition, August 2026
+</a>
+</div>
+</article>
+
+<article id="f-005">
+<span class="tag">Source reviewed</span>
+<span class="id">F-005 · CAPER · PY2025</span>
+<h3>PY2025 CAPER: public-comment stage documented</h3>
+<p class="fact">
+The City announced a draft CAPER covering
+July 1, 2025 through June 30, 2026,
+with comments accepted September 1–17, 2026.
+</p>
+<p>
+The 33-page draft indicates that certain CR-05,
+CR-10, and CR-15 tables would be available
+in the final report.
+Their absence from the draft does not establish
+that the City failed to file a final CAPER.
+</p>
+<div class="detail">
+<strong>What remains unverified</strong>
+The final CAPER, submission date, HUD receipt or acceptance,
+and supporting appendices. Failure to locate a record
+does not prove non-submission.
+</div>
+<div class="source">
+<strong>Sources:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
+target="_blank" rel="noopener noreferrer">
+City public notice, August 2026
+</a>
+·
+<a href="https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+target="_blank" rel="noopener noreferrer">
+Draft CAPER, pages 3–4
+</a>
+· <a href="evidence.html#q-005">Q-005</a>
+</div>
+</article>
+
+<article id="f-009">
+<span class="tag">Draft arithmetic checked</span>
+<span class="id">F-009 · HOME · PY2025</span>
+<h3>HOME carryforwards: amounts and limitations</h3>
+<p class="fact">
+The PY2025 draft reports two separate HOME carryforward
+figures, not a verified current subsidy balance.
+</p>
+<p>
+<strong>Program income:</strong>
+$534,792.63 received − $7,548.34 applied =
+<strong>$527,244.29</strong> carryforward.
+</p>
+<p>
+<strong>Recaptured funds:</strong>
+$373,430.46 received − $65,866.33 applied =
+<strong>$307,564.13</strong> carryforward.
+</p>
+<div class="detail">
+<strong>Limits and uses</strong>
+The draft states that program income supported
+tenant-based rental assistance and recaptured funds
+supported down-payment assistance.
+Neither year-end figure proves currently unobligated
+cash or eligibility for any particular household.
+HOME matching credits are a separate noncash category.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+target="_blank" rel="noopener noreferrer">
+Draft CAPER, PDF page 26
+</a>
+· <a href="evidence.html#q-011">Q-011</a>
+</div>
+</article>
+
+<article id="f-010">
+<span class="tag">Draft arithmetic checked</span>
+<span class="id">F-010 · HOME · PY2025</span>
+<h3>Nine HOME activities: 44 designated units</h3>
+<p class="fact">
+The PY2025 draft lists nine open HOME activities
+whose designated HOME-unit counts total 44.
+</p>
+<p>
+The nine listed project amounts total
+<strong>$5,470,000</strong>.
+These are activity amounts, not independently confirmed
+expenditures or a present grant balance.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+That 44 designated HOME units equal all apartments,
+that units are currently occupied or available,
+or that $5.47 million has been fully spent.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+target="_blank" rel="noopener noreferrer">
+Draft CAPER, PDF page 26
+</a>
+· <a href="#home-unit-detail">See calculation table</a>
+</div>
+</article>
+
+<article id="f-011">
+<span class="tag">Source reviewed</span>
+<span class="id">F-011 · Supportive housing · 2025</span>
+<h3>Amazon Motel: a separate 30-apartment project</h3>
+<p class="fact">
+The City reports that the former Amazon Motel was
+converted into 30 permanent supportive housing
+studio apartments, completed in September 2025.
+</p>
+<p>
+Amazon Motel is an existing-building conversion,
+distinct from Amazon Flats, the separate 59-apartment
+development on the adjoining site.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+Current resident numbers, vacancies, retention rates,
+or apartments available for new referrals.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Breaks-Ground-for-59-New-Affordable-Housing-Apartments"
+target="_blank" rel="noopener noreferrer">
+City April 2026 announcement
+</a>
+· <a href="#f-002">Amazon Flats distinction</a>
+</div>
+</article>
+
+<article id="f-012">
+<span class="tag">Source reviewed</span>
+<span class="id">F-012 · Housing preservation · October 2026</span>
+<h3>Tucson House: renovation milestone</h3>
+<p class="fact">
+On October 16, 2026, the City reported 24 renovated
+apartments on Tucson House's 15th floor and stated
+that 25 households would be moving into renovated housing.
+</p>
+<p>
+The work involves rehabilitation of existing public
+housing, not 24 newly constructed apartments.
+The broader project concerns 358 apartments,
+with further renovation milestones anticipated
+through summer 2028.
+</p>
+<p>
+The difference between 24 apartments and 25 households
+requires clarification, not an assumption of error.
+</p>
+<div class="detail">
+<strong>What this does not prove</strong>
+That all 25 households already moved by October 16,
+that these were newly admitted applicants,
+or that apartments remain available for external referrals.
+</div>
+<div class="source">
+<strong>Source:</strong>
+<a href="https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Tucson-House-Welcomes-Residents-to-Newly-Remodeled-Apartments"
+target="_blank" rel="noopener noreferrer">
+City Tucson House announcement, October 16, 2026
+</a>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="home-unit-detail">
+<h2>HOME activity calculation</h2>
+<p>
+The following nine activities are identified on page 26
+of the City's PY2025 draft CAPER.
+HOME-designated units are not all apartments in a project.
+</p>
+
+<div class="table-wrap" tabindex="0" role="region"
+aria-label="HOME activity calculation table">
+<table>
+<caption>Nine HOME activities</caption>
+<thead>
+<tr>
+<th scope="col">Activity</th>
+<th scope="col">HOME units</th>
+<th scope="col">Listed HOME amount</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Rincon Manor Apartments</td><td>2</td><td>$500,000</td></tr>
+<tr><td>Corazon Del Pueblo</td><td>7</td><td>$280,000</td></tr>
+<tr><td>Rodeo Addition</td><td>11</td><td>$440,000</td></tr>
+<tr><td>Lariat Village</td><td>4</td><td>$1,000,000</td></tr>
+<tr><td>Casa del Pueblo</td><td>11</td><td>$500,000</td></tr>
+<tr><td>Amazon Flats</td><td>2</td><td>$500,000</td></tr>
+<tr><td>Shasta Apartments</td><td>2</td><td>$500,000</td></tr>
+<tr><td>Elstone II Houses</td><td>3</td><td>$750,000</td></tr>
+<tr><td>Tucson House</td><td>2</td><td>$1,000,000</td></tr>
+</tbody>
+<tfoot>
+<tr>
+<th scope="row">Arithmetic total</th>
+<td>44</td>
+<td>$5,470,000</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<p class="fine-print">
+Source: PY2025 public-comment draft CAPER, page 26.
+Reported activity amounts are not necessarily amounts spent.
+</p>
+</section>
+
+<section id="reconciliation">
+<h2>Reconciliations still under review</h2>
+<div class="note warning">
+<strong>Not established findings of error:</strong>
+The following comparisons raise questions about reporting
+definitions, periods, and accounting populations.
+They are not conclusions about missing funds or misconduct.
+</div>
+
+<div class="grid">
+
+<article id="f-006">
+<span class="tag review">Workbook assessment</span>
+<span class="id">F-006 · CDBG · PY2024</span>
+<h3>Program income: preventing double counting</h3>
+<p>
+The master workbook records a $5,418,132 CDBG resource
+subtotal consisting of $5,068,664 in its comparison base
+plus $349,468 in program income.
+</p>
+<div class="calc">
+$5,068,664 + $349,468 = $5,418,132
+</div>
+<p>
+The internal arithmetic reconciles with a zero residual.
+Program income must not be counted a second time.
+</p>
+<div class="detail">
+<strong>Next verification</strong>
+Reproduce the PY2024 CR-15 resource table
+and supporting financial schedules.
+</div>
+<div class="source">
+<a href="evidence.html#q-001">Q-001</a>
+· <a href="evidence.html#src-023">SRC-023</a>
+</div>
+</article>
+
+<article id="f-007">
+<span class="tag review">Open comparison</span>
+<span class="id">F-007 · CDBG · PY2024</span>
+<h3>Different expenditure statements</h3>
+<p>
+The October 31 workbook extracts reference
+$4,717,936.37 from a corrected PR-26 and
+$3,433,346.66 from a CR-15 narrative.
+</p>
+<div class="calc">
+$4,717,936.37 − $3,433,346.66 =
+$1,284,589.71
+</div>
+<p>
+This numerical difference is a reconciliation question.
+It does not prove missing or improperly spent funds.
+</p>
+<div class="detail">
+<strong>Next verification</strong>
+Match expenditures by activity, reporting period,
+voucher date, scope, and version before drawing conclusions.
+</div>
+<div class="source">
+<a href="evidence.html#q-007">Q-007</a>
+· <a href="evidence.html#src-023">SRC-023</a>
+</div>
+</article>
+
+<article id="f-008">
+<span class="tag review">Open draft-report comparison</span>
+<span class="id">F-008 · Housing production · PY2025</span>
+<h3>Different construction-unit counts</h3>
+<p>
+The PY2025 draft CAPER describes 378 affordable
+housing units as constructed on PDF page 3,
+including 59 Amazon Flats apartments.
+</p>
+<p>
+Page 5 states that Amazon Flats construction had begun,
+while page 26 separately reports 483 units
+of construction activity.
+</p>
+<p>
+These statements may refer to different construction
+stages or project populations. They do not establish
+comparable completed or occupied unit totals.
+</p>
+<div class="detail">
+<strong>Next verification</strong>
+Obtain project-specific construction, completion,
+certificate-of-occupancy, and occupancy records.
+The 105-unit arithmetic difference is not evidence
+of unreported or missing apartments.
+</div>
+<div class="source">
+<a href="evidence.html#q-008">Q-008</a>
+· <a href="#construction-detail">Construction calculation</a>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="construction-detail">
+<h2>Construction-count crosswalk</h2>
+<p>
+The five project counts on page 3 of the
+PY2025 draft CAPER total 378.
+The reporting stage for each project requires separate
+verification before treating these figures as
+completed or occupied homes.
+</p>
+<div class="table-wrap" tabindex="0" role="region"
+aria-label="Construction unit crosswalk">
+<table>
+<caption>Draft CAPER's 378-unit breakdown</caption>
+<thead>
+<tr>
+<th scope="col">Project</th>
+<th scope="col">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Lariat Village Apartments</td><td>120</td></tr>
+<tr><td>Casa del Pueblo Apartments</td><td>96</td></tr>
+<tr><td>Shasta Apartments</td><td>100</td></tr>
+<tr><td>Elstone II Houses</td><td>3</td></tr>
+<tr><td>Amazon Flats Apartments</td><td>59</td></tr>
+</tbody>
+<tfoot>
+<tr><th scope="row">Reported arithmetic total</th><td>378</td></tr>
+</tfoot>
+</table>
+</div>
+<p class="fine-print">
+Source: City PY2025 draft CAPER, PDF pages 3, 5, and 26.
+The reported 483-unit construction category still requires
+a project-level crosswalk.
+</p>
+</section>
+
+<section id="project-stages">
+<h2>Housing delivery and preservation</h2>
+<p>
+A development may be proposed, under construction,
+completed, rehabilitated, occupied, or awaiting
+voucher-contract implementation.
+These are different outcomes and should not be
+added into a single housing-production number.
+</p>
+
+<div class="table-wrap" tabindex="0" role="region"
+aria-label="Housing development status comparison">
+<table>
+<caption>Selected Tucson housing project milestones</caption>
+<thead>
+<tr>
+<th scope="col">Property</th>
+<th scope="col">Apartment count</th>
+<th scope="col">Documented stage</th>
+<th scope="col">Unverified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Milagro on Oracle</td>
+<td>63</td>
+<td>City-reported opening to residents, January 2025</td>
+<td>Present occupancy and referral availability</td>
+</tr>
+<tr>
+<td>Amazon Motel</td>
+<td>30</td>
+<td>Existing motel converted to supportive housing in 2025</td>
+<td>Current occupancy and vacancies</td>
+</tr>
+<tr>
+<td>Amazon Flats</td>
+<td>59</td>
+<td>Groundbreaking April 2026; anticipated fall 2027 completion</td>
+<td>Completion, PBV contracts, lease-up</td>
+</tr>
+<tr>
+<td>Craycroft / Lee Street</td>
+<td>82 existing</td>
+<td>Rehabilitation and voucher conversion</td>
+<td>Agreement execution and occupancy transitions</td>
+</tr>
+<tr>
+<td>Tucson House, 15th floor</td>
+<td>24 renovated</td>
+<td>Renovation milestone reported October 2026</td>
+<td>Actual moves and applicant access</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="fine-print">
+The listed units represent different stages and
+project types. They must not be summed as net-new
+housing or available vacancies.
+</p>
+</section>
+
+<section id="financial-register">
+<h2>Financial reconciliation register</h2>
+<p>
+The register below distinguishes each reported amount,
+its accounting meaning, verification status,
+and the evidence required to resolve remaining questions.
+</p>
+
+<div class="table-wrap" tabindex="0" role="region"
+aria-label="Financial reconciliation register">
+<table>
+<caption>Seven financial reconciliation entries</caption>
+<thead>
+<tr>
+<th scope="col">Reference</th>
+<th scope="col">Reported figures</th>
+<th scope="col">Current assessment</th>
+<th scope="col">Required evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#f-001">F-001 · CDBG reallocation</a></td>
+<td>+$1.5m housing; −$1.5m facilities</td>
+<td>Council approval reported; no net new CDBG funding</td>
+<td>Amended AAP, HUD/IDIS implementation and draws</td>
+</tr>
+<tr>
+<td><a href="#f-006">F-006 · CDBG resources</a></td>
+<td>$5,418,132 including $349,468 program income</td>
+<td>Workbook arithmetic reconciles; source replay needed</td>
+<td>PY2024 CR-15 and financial schedules</td>
+</tr>
+<tr>
+<td><a href="#f-007">F-007 · CDBG expenditures</a></td>
+<td>$4,717,936.37 versus $3,433,346.66</td>
+<td>$1,284,589.71 difference; not yet comparable</td>
+<td>Corrected PR-26, CR-15 and activity-level records</td>
+</tr>
+<tr>
+<td><a href="#f-009">F-009 · HOME program income</a></td>
+<td>$527,244.29 draft carryforward</td>
+<td>Arithmetic checked; current availability unverified</td>
+<td>Final CAPER and IDIS balances</td>
+</tr>
+<tr>
+<td><a href="#f-009">F-009 · HOME recapture</a></td>
+<td>$307,564.13 draft carryforward</td>
+<td>Separate restricted source; commitments unknown</td>
+<td>Final CAPER and eligible-use records</td>
+</tr>
+<tr>
+<td><a href="#f-010">F-010 · HOME activities</a></td>
+<td>44 designated units; $5.47m listed amounts</td>
+<td>Draft totals checked; expenditures not verified</td>
+<td>HOME IDIS activity commitments and draws</td>
+</tr>
+<tr>
+<td><a href="#f-002">F-002 · Amazon Flats</a></td>
+<td>$24.4m development; $500,000 proposed HOME; $6,645,600 estimated 20-year PBV assistance</td>
+<td>Different financial measures; not one available funding pool</td>
+<td>Final sources and uses, commitments, PBV contracts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="fine-print">
+PY2024 comparisons originate in workbook extracts.
+PY2025 HOME figures originate in the draft CAPER.
+The Amazon Flats figures come from dated City notices
+and announcements. None establishes unrestricted
+funding currently available to applicants.
+</p>
+</section>
+
+<section id="next-records">
+<h2>What we need to verify next</h2>
+
+<div class="table-wrap">
+<table>
+<caption>Priority verification queue</caption>
+<thead>
+<tr>
+<th scope="col">Priority</th>
+<th scope="col">Records needed</th>
+<th scope="col">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Final PY2025 CAPER, attachments and submission receipt</td>
+<td>Verify final outcomes, funding and filing status</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Corrected PY2024 PR-26 and CR-15 activity details</td>
+<td>Reconcile resource and expenditure measures</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Amended PY2026 AAP and HUD/IDIS transactions</td>
+<td>Trace the $1.5m CDBG reallocation into implementation</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Executed PBV agreements, occupancy and referral rules</td>
+<td>Separate allocated vouchers from applicant opportunities</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Construction and occupancy milestones by project</td>
+<td>Explain the 378-versus-483 reporting comparison</td>
+</tr>
+<tr>
+<td>6</td>
+<td>HOME project commitments, receipts, draws and balances</td>
+<td>Trace restricted financial resources and unit designations</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Tucson House floor-turnover and relocation summaries</td>
+<td>Distinguish renovated apartments and household moves</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="methods">
+<h2>Methodology and correction policy</h2>
+
+<p>
+Every finding should be reproducible using a
+document title, reporting period, source page,
+quantitative inputs, and a documented interpretation.
+</p>
+<p>
+Plans, awards, commitments, expenditures,
+project costs, available cash, new apartments,
+rehabilitated apartments, occupied apartments,
+HOME-designated units, and PBV-supported units
+are different measures.
+</p>
+<p>
+This project documents legitimate agency achievements
+and possible explanations alongside discrepancies.
+An unresolved research question is not an allegation
+of misconduct or noncompliance.
+</p>
+<p>
+No private housing, medical, court, or personal
+correspondence is published in this page.
+</p>
+
+<h3>Correction policy</h3>
+<p>
+Material revisions will preserve the finding ID
+and identify the previous wording, revised statement,
+reason for the correction, supporting records,
+and correction date.
+</p>
+
+<h3>Research revision history</h3>
+<p>
+<strong>v0.5 · October 31, 2026:</strong>
+Added the financial reconciliation register,
+housing-project stage comparison, Tucson House finding,
+and separate Amazon Flats financing measures.
+Preserved findings F-001 through F-011 and added F-012.
+</p>
+<p>
+<strong>v0.3:</strong>
+Added Amazon Motel and reproducible HOME/construction
+calculation tables, and strengthened distinction between
+funding categories and housing-unit classifications.
+</p>
+<p>
+<strong>v0.2:</strong>
+Clarified Craycroft's existing apartments,
+Milagro developer attribution, HOME carryforwards,
+and construction-reporting differences.
+</p>
+<p>
+<strong>v0.1:</strong>
+Established the initial source-reviewed observations
+and provisional reconciliation questions.
+</p>
+
+<div class="note">
+<strong>Review boundary:</strong>
+Research is based on selected City announcements,
+the 33-page PY2025 public-comment draft CAPER,
+and the October 31, 2026 research workbooks.
+It does not certify the final CAPER,
+independently audit every workbook cell,
+verify current vacancies, or establish
+unrestricted available funds.
+</div>
+
+<p>
+<a class="action" href="evidence.html">
+Explore the Public Evidence Index
+</a>
+</p>
+<p class="muted">
+Public research release v0.5 · Source cutoff October 31, 2026
+</p>
+</section>
+
+</main>
+
+<footer>
+<strong>Housing Accountability Project</strong>
+<p>
+Independent, nonpartisan research ·
+<a href="index.html">Home</a> ·
+<a href="research.html">Research Library</a> ·
+<a href="evidence.html">Evidence Index</a>
+</p>
+<p>
+Not affiliated with HUD, the City of Tucson,
+Pima County, or a governmental auditing agency.
+Historical information is subject to correction.
+</p>
+</footer>
+
+</body>
+</html>
