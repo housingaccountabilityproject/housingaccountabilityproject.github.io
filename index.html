@@ -4,105 +4,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Housing Accountability Project</title>
+<meta name="description" content="Independent research into housing funding, transparency, and outcomes, beginning in Tucson, Arizona.">
+<title>Housing Accountability Project | Tucson Research</title>
 <style>
+:root{--navy:#102e3d;--teal:#166267;--mint:#b9e9db;--ink:#17303d;--bg:#f7faf9}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:#17303d;line-height:1.65;background:#f7faf9}
-header{background:#102e3d;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-nav a{color:#d5efea;text-decoration:none;margin-right:15px;font-size:14px}
-.hero{background:linear-gradient(125deg,#102e3d,#166267);color:white;padding:85px 8%}
-.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.15;max-width:760px}
-.hero p{max-width:670px;font-size:18px}
-.tag{color:#a7e2d8;font-weight:bold;letter-spacing:2px;font-size:12px}
-.button{display:inline-block;background:#b9e9db;color:#102e3d;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:20px}
-section{padding:55px 8%}
-h2{font-size:29px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Arial,sans-serif}
+header{background:var(--navy);color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header strong{font-size:15px;letter-spacing:.5px}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{color:#d5efea;text-decoration:none;font-size:14px}
+a{color:#075f69}
+a:focus-visible{outline:3px solid #e5b85c;outline-offset:3px}
+.hero{background:linear-gradient(125deg,#102e3d,#166267);color:white;padding:80px 8%}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.15;max-width:800px}
+.hero p{max-width:700px;font-size:18px}
+.tag{color:#b9e9db;font-weight:bold;letter-spacing:1.5px;font-size:12px}
+.button{display:inline-block;background:var(--mint);color:var(--navy);padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:20px}
+section{padding:55px 8%;max-width:1400px;margin:auto}
+section h2{font-size:30px;line-height:1.3}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .card{background:white;border:1px solid #dce8e5;border-radius:10px;padding:25px}
 .card h3{margin-top:0}
-.alt{background:#edf4f2}
-.notice{background:white;border-left:4px solid #268277;padding:20px}
-footer{background:#102e3d;color:#d5e9e5;padding:30px 8%}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding:60px 8%}}
+.alt{background:#edf4f2;max-width:none}
+.alt .inner{max-width:1180px;margin:auto}
+.status{display:inline-block;background:#e4f2ee;color:#155b51;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:bold}
+.pending{background:#fff2d7;color:#755116}
+.note{background:white;border-left:4px solid #268277;padding:20px;margin:20px 0}
+.source{font-size:14px;color:#48636b}
+footer{background:var(--navy);color:#d5e9e5;padding:35px 8%}
+footer a{color:#b9e9db}
+@media(max-width:760px){
+.grid{grid-template-columns:1fr}
+.hero{padding:55px 8%}
+}
 </style>
 </head>
 <body>
+
 <header>
 <strong>HOUSING ACCOUNTABILITY PROJECT</strong>
-<nav>
+<nav aria-label="Main navigation">
 <a href="#research">Research</a>
+<a href="#findings">Research Notes</a>
 <a href="#records">Public Records</a>
 <a href="#methodology">Methodology</a>
 <a href="#about">About</a>
 </nav>
 </header>
 
+<main>
 <div class="hero">
 <div class="tag">INDEPENDENT PUBLIC RESEARCH · TUCSON, ARIZONA</div>
 <h1>Follow the funding.<br>Understand the outcomes.</h1>
-<p>Independent research into affordable housing programs, public funding, transparency, and documented housing outcomes.</p>
-<a class="button" href="#research">Explore the Research</a>
+<p>Examining how public housing resources are allocated, administered, and translated into measurable community benefits.</p>
+<p>Our founding research focuses on Tucson and Pima County, with a methodology designed for future expansion.</p>
+<a class="button" href="#findings">Explore Initial Research</a>
 </div>
 
 <section id="research">
-<h2>Research Areas</h2>
-<p>Our founding research focuses on Tucson, Arizona.</p>
+<h2>Our Research Priorities</h2>
+<p>We examine housing systems through public records, financial reporting, program documentation, and measurable outcomes.</p>
 <div class="grid">
-<div class="card">
-<h3>Housing Funding</h3>
-<p>Review housing allocations, expenditures, funding transfers, and reporting records.</p>
-<p><small>Research in progress</small></p>
-</div>
-<div class="card">
-<h3>Programs & Outcomes</h3>
-<p>Examine housing assistance programs and measurable outcomes documented in public records.</p>
-<p><small>Research in progress</small></p>
-</div>
-<div class="card">
-<h3>Accountability & Timelines</h3>
-<p>Track research questions, public records requests, official responses, and unresolved issues.</p>
-<p><small>Research in progress</small></p>
-</div>
+<article class="card">
+<h3>Funding Transparency</h3>
+<p>Trace housing allocations, obligations, expenditures, and documented funding adjustments.</p>
+</article>
+<article class="card">
+<h3>Programs and Outcomes</h3>
+<p>Examine how housing assistance translates into services, placements, and sustained housing outcomes.</p>
+</article>
+<article class="card">
+<h3>Public Accountability</h3>
+<p>Track research questions, public records requests, official explanations, and unresolved reporting issues.</p>
+</article>
 </div>
 </section>
 
-<section class="alt" id="records">
-<h2>Public Records Library</h2>
-<p>Our future publications will provide supporting documents, research summaries, and source references.</p>
-<div class="notice">
-<strong>Publication status:</strong>
-This is an initial website prototype. No financial findings or agency conclusions have been published yet.
-</div>
-</section>
+<section class="alt" id="findings">
+<div class="inner">
+<h2>Initial Tucson Research Notes</h2>
+<p>Research snapshot: October 31, 2026. These are preliminary summaries, not final audit conclusions.</p>
 
-<section id="methodology">
-<h2>Research Methodology</h2>
 <div class="grid">
-<div class="card">
-<h3>Evidence</h3>
-<p>Connect material findings to identifiable and dated source documents.</p>
+<article class="card">
+<span class="status">Document identified</span>
+<h3>PY2025 CAPER Review</h3>
+<p>The City of Tucson's draft PY2025 Consolidated Annual Performance and Evaluation Report covers the July 2025–June 2026 program year.</p>
+<p>Our review examines CDBG, HOME, ESG, and HOPWA reporting and the relationship between expenditures and reported outcomes.</p>
+<p><strong>Next step:</strong> Obtain and review the final CAPER and supporting financial records.</p>
+</article>
+
+<article class="card">
+<span class="status">Research reconciliation</span>
+<h3>CDBG Resource Comparison</h3>
+<p>Our internal research workbook records that an earlier apparent difference in CDBG resources was explained by program income.</p>
+<p>This is a preliminary reconciliation recorded in our research materials, not a finding of financial misconduct.</p>
+<p><strong>Next step:</strong> Publish the underlying source comparison after independent verification.</p>
+</article>
+
+<article class="card">
+<span class="status pending">Further records needed</span>
+<h3>Housing Outcomes</h3>
+<p>Additional documentation is needed to consistently connect funding awards, provider agreements, expenditures, services delivered, and sustained housing outcomes.</p>
+<p><strong>Next step:</strong> Obtain comparable implementation and outcome records for matching reporting periods.</p>
+</article>
 </div>
-<div class="card">
-<h3>Accuracy</h3>
-<p>Distinguish verified facts, interpretations, and unresolved questions.</p>
-</div>
-<div class="card">
-<h3>Fairness</h3>
-<p>Document relevant agency explanations and correct findings when new information becomes available.</p>
+
+<div class="note">
+<strong>Important distinction:</strong> An unanswered research question, a reporting difference, or a missing document does not by itself establish misuse of funds, discrimination, or regulatory noncompliance.
 </div>
 </div>
 </section>
 
-<section class="alt" id="about">
-<h2>About the Project</h2>
+<section id="records">
+<h2>Public Records and Primary Sources</h2>
+<p>Our research draws on official government publications and documented public records. Source-specific citations and downloadable research exhibits will be added after verification and publication review.</p>
+
+<div class="grid">
+<article class="card">
+<h3>City of Tucson</h3>
+<p>Housing plans, CAPER publications, program documents, and public records.</p>
+<p><a href="https://www.tucsonaz.gov/" target="_blank" rel="noopener noreferrer">City of Tucson official website</a></p>
+</article>
+<article class="card">
+<h3>U.S. Department of HUD</h3>
+<p>Federal housing program guidance, reporting requirements, and public housing resources.</p>
+<p><a href="https://www.hud.gov/" target="_blank" rel="noopener noreferrer">HUD official website</a></p>
+</article>
+<article class="card">
+<h3>Research Publications</h3>
+<p>Our public research summaries, reconciliations, and evidence references will appear here as they are approved for release.</p>
+<p><span class="status pending">Publication in preparation</span></p>
+</article>
+</div>
+</section>
+
+<section class="alt" id="methodology">
+<div class="inner">
+<h2>Our Research Methodology</h2>
+<p>Our research follows a structured evidence and quality-control process.</p>
+<div class="grid">
+<article class="card">
+<h3>Traceable Evidence</h3>
+<p>Identify source documents, reporting dates, jurisdictions, and applicable program periods.</p>
+</article>
+<article class="card">
+<h3>Comparable Financial Data</h3>
+<p>Compare matching funding categories and time periods, distinguishing awards, obligations, payments, and expenditures.</p>
+</article>
+<article class="card">
+<h3>Fair and Correctable Findings</h3>
+<p>Recognize documented achievements, include relevant agency explanations, identify limitations, and correct errors when verified.</p>
+</article>
+</div>
+<div class="note">
+<strong>Publication policy:</strong> Private case records, personal identifiers, and sensitive correspondence are excluded from public releases unless separately reviewed and expressly authorized for publication.
+</div>
+</div>
+</section>
+
+<section id="about">
+<h2>About the Initiative</h2>
 <p>The Housing Accountability Project is an emerging independent public-interest research initiative beginning in Tucson, Arizona.</p>
-<p>Our purpose is to make complex housing funding and program information understandable and accessible to the public.</p>
-<p>This initiative is not currently represented as a registered nonprofit or government agency.</p>
+<p>Our purpose is to make public housing funding, administration, and outcomes easier to understand through accessible, evidence-based research.</p>
+<p>The initiative is not currently represented as a registered nonprofit, government agency, or official auditing authority.</p>
+<p>Our long-term research framework is designed to accommodate additional communities while maintaining consistent documentation and publication standards.</p>
 </section>
+</main>
 
 <footer>
-Housing Accountability Project · Tucson, Arizona · 2026
+<strong>Housing Accountability Project</strong>
+<p>Independent Public Research · Tucson, Arizona</p>
+<p>Research website prototype v0.3 · November 2026</p>
+<p>Published research is subject to continuing verification and correction.</p>
 </footer>
+
 </body>
 </html>
