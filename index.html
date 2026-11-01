@@ -17,6 +17,9 @@ nav{display:flex;gap:17px;flex-wrap:wrap}
 nav a{color:#d5efea;text-decoration:none;font-size:14px}
 a{color:#075f69}
 a:focus-visible{outline:3px solid #e5b85c;outline-offset:3px}
+.skip{position:absolute;left:-9999px;background:white;padding:12px;z-index:10}
+.skip:focus{left:12px;top:12px}
+nav a[aria-current="page"]{font-weight:700;text-decoration:underline;color:white}
 .hero{background:linear-gradient(125deg,#102e3d,#166267);color:white;padding:80px 8%}
 .hero h1{font-size:clamp(34px,5vw,58px);line-height:1.15;max-width:800px}
 .hero p{max-width:700px;font-size:18px}
@@ -43,10 +46,15 @@ footer a{color:#b9e9db}
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to main content</a>
+
 <header>
 <strong>HOUSING ACCOUNTABILITY PROJECT</strong>
 <nav aria-label="Main navigation">
+<a href="index.html" aria-current="page">Home</a>
 <a href="research.html">Research Library</a>
+<a href="evidence.html">Evidence Index</a>
+<a href="findings.html">Research Findings</a>
 <a href="#findings">Research Notes</a>
 <a href="#records">Public Records</a>
 <a href="#methodology">Methodology</a>
@@ -54,7 +62,7 @@ footer a{color:#b9e9db}
 </nav>
 </header>
 
-<main>
+<main id="main">
 <div class="hero">
 <div class="tag">INDEPENDENT PUBLIC RESEARCH · TUCSON, ARIZONA</div>
 <h1>Follow the funding.<br>Understand the outcomes.</h1>
@@ -135,8 +143,8 @@ footer a{color:#b9e9db}
 </article>
 <article class="card">
 <h3>Research Publications</h3>
-<p>Our public research summaries, reconciliations, and evidence references will appear here as they are approved for release.</p>
-<p><span class="status pending">Publication in preparation</span></p>
+<p>Explore our published <a href="findings.html">Research Findings</a> and <a href="evidence.html">Public Evidence Index</a>, including source-linked observations, calculations, and unresolved research questions.</p>
+<p>Public research is subject to continued verification and dated corrections.</p>
 </article>
 </div>
 </section>
@@ -177,7 +185,7 @@ footer a{color:#b9e9db}
 <footer>
 <strong>Housing Accountability Project</strong>
 <p>Independent Public Research · Tucson, Arizona</p>
-<p>Research website prototype v0.3 · November 2026</p>
+<p>Public research website · November 2026</p>
 <p>Published research is subject to continuing verification and correction.</p>
 </footer>
 
