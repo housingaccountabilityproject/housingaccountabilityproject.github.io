@@ -17,6 +17,9 @@ nav{display:flex;gap:17px;flex-wrap:wrap}
 nav a{color:#d5efea;text-decoration:none;font-size:14px}
 a{color:#075f69}
 a:focus-visible{outline:3px solid #e5b85c;outline-offset:3px}
+.skip{position:absolute;left:-9999px;background:white;padding:12px;z-index:10}
+.skip:focus{left:12px;top:12px}
+nav a[aria-current="page"]{font-weight:700;text-decoration:underline;color:white}
 .hero{background:linear-gradient(125deg,#102e3d,#166267);color:white;padding:65px 8%}
 .hero h1{font-size:clamp(32px,5vw,52px);line-height:1.2;max-width:850px}
 .hero p{max-width:780px;font-size:18px}
@@ -34,6 +37,7 @@ table{width:100%;border-collapse:collapse;background:white}
 th,td{text-align:left;padding:13px;border-bottom:1px solid #dce8e5;vertical-align:top}
 th{background:#e8f1ef}
 .table-wrap{overflow-x:auto}
+caption{text-align:left;padding:12px;font-weight:700;background:white}
 .small{font-size:14px;color:#4d646b}
 footer{background:var(--navy);color:#d5e9e5;padding:35px 8%}
 footer a{color:var(--mint)}
@@ -42,20 +46,23 @@ footer a{color:var(--mint)}
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to main content</a>
+
 <header>
 <strong>HOUSING ACCOUNTABILITY PROJECT</strong>
 <nav aria-label="Main navigation">
 <a href="index.html">Home</a>
+<a href="research.html" aria-current="page">Research Library</a>
+<a href="evidence.html">Evidence Index</a>
+<a href="findings.html">Research Findings</a>
 <a href="#funding">Funding</a>
 <a href="#questions">Research Questions</a>
 <a href="#sources">Sources</a>
 <a href="#standards">Standards</a>
-
-<a href="evidence.html">Evidence Index</a>
 </nav>
 </header>
 
-<main>
+<main id="main">
 <div class="hero">
 <div class="tag">INDEPENDENT RESEARCH · TUCSON / PIMA COUNTY</div>
 <h1>Housing Research Library</h1>
@@ -118,11 +125,12 @@ footer a{color:var(--mint)}
 
 <div class="table-wrap">
 <table>
+<caption>Research questions, current status, and next records needed</caption>
 <thead>
 <tr>
-<th>Research topic</th>
-<th>Current status</th>
-<th>Next evidence needed</th>
+<th scope="col">Research topic</th>
+<th scope="col">Current status</th>
+<th scope="col">Next evidence needed</th>
 </tr>
 </thead>
 <tbody>
