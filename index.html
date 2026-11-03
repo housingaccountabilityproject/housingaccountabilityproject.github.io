@@ -55,6 +55,61 @@ footer a{color:#b9e9db}
 .page-jump{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;padding:12px 6%;background:#edf5f2;border-bottom:1px solid #d7e5e2;font-size:14px}
 .page-jump a{color:#075f69}
 .page-jump strong{color:#17303d}
+
+/* Public research dashboard — published snapshot */
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.hero-secondary{color:#dcf7ef;font-weight:700;text-underline-offset:4px;margin-top:20px;display:inline-block}
+.dash{padding-top:48px;padding-bottom:58px;scroll-margin-top:15px}
+.dash-heading{display:flex;gap:25px;align-items:start;justify-content:space-between;max-width:1180px;margin:0 auto 22px}
+.dash-heading h2{margin:4px 0 10px;font-size:clamp(26px,3vw,35px)}
+.dash-heading p{max-width:810px;margin:0;color:#445f66}
+.dash-eyebrow{font-size:12px!important;letter-spacing:1.1px;text-transform:uppercase;color:#166267!important;font-weight:800}
+.dash-stamp{display:flex;flex-direction:column;flex-shrink:0;gap:2px;padding:12px 16px;border:1px solid #d4e4df;border-radius:8px;background:white;font-size:13px!important;min-width:169px}
+.dash-stamp strong{color:#17303d;font-size:14px}
+.dash-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;max-width:1180px;margin:0 auto 37px}
+.dash-metric{display:flex;flex-direction:column;gap:3px;background:white;border:1px solid #d7e5e2;border-radius:10px;padding:20px;color:#17303d;text-decoration:none;min-height:158px}
+.dash-metric:hover{border-color:#288878;background:#f8fcfb}
+.dash-number{color:#166267;font-size:clamp(32px,4vw,42px);line-height:1.1;font-variant-numeric:tabular-nums}
+.dash-metric-label{font-weight:750;font-size:15px;line-height:1.4}
+.dash-metric-note{font-size:12px;color:#4d646a;line-height:1.45;margin-top:4px}
+.dash-subhead{max-width:1180px;margin:0 auto 15px;display:flex;gap:15px;align-items:end;justify-content:space-between}
+.dash-subhead h3{font-size:24px;margin:0 0 4px}
+.dash-subhead p{color:#4d646a;margin:0}
+.dash-subhead>a{font-weight:700;flex-shrink:0}
+.dash-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:1180px;margin:auto}
+.dash-feature{padding:24px;background:white;border:1px solid #d7e5e2;border-radius:10px;display:flex;flex-direction:column;min-width:0}
+.dash-feature h4{font-size:19px;line-height:1.3;margin:7px 0 8px}
+.dash-feature>p:not(.dash-state):not(.dash-links){margin:0 0 17px;color:#334d56}
+.dash-state{margin:0;font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.45px;color:#176257}
+.dash-state-open{color:#815b1b}
+.dash-links{display:flex;flex-wrap:wrap;gap:9px 18px;margin:auto 0 0;padding-top:12px;border-top:1px solid #e4eeeb}
+.dash-links a{font-size:14px;font-weight:700}
+.dash-bottom{max-width:1180px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:28px auto 0}
+.dash-panel{background:#edf5f2;border:1px solid #d0e1dc;border-radius:10px;padding:24px;min-width:0}
+.dash-panel h3{font-size:22px;margin:0 0 12px}
+.dash-updates{list-style:none;padding:0;margin:0}
+.dash-updates li{display:flex;flex-direction:column;border-bottom:1px solid #cdded8;padding:12px 0}
+.dash-updates time{color:#4d646a;font-size:12px;font-weight:700}
+.dash-updates li a{font-weight:700}
+.dash-updates li span{font-size:14px;color:#405c63;line-height:1.5}
+.dash-panel-intro{font-size:14px;margin:0 0 10px}
+.dash-records{padding-left:19px}
+.dash-records li{margin-bottom:12px}
+.dash-panel-link{margin:15px 0 0;font-weight:700}
+.dash-how{max-width:1180px;margin:28px auto 0;border-top:1px solid #d7e5e2;padding-top:21px}
+.dash-how h3{font-size:21px;margin:0 0 15px}
+.dash-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.dash-steps p{padding:15px 16px;border:1px solid #d7e5e2;border-radius:8px;background:white;margin:0}
+.dash-steps strong,.dash-steps span{display:block}
+.dash-steps strong{margin-bottom:5px}
+.dash-steps span{font-size:14px;color:#4d646a}
+.dash-footnote{margin:16px 0 0;font-size:13px;color:#4d646a}
+@media(max-width:1010px){.dash-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-steps{grid-template-columns:1fr}}
+@media(max-width:760px){.dash-heading{flex-direction:column;gap:16px}.dash-stamp{width:100%}.dash-features,.dash-bottom{grid-template-columns:1fr}.dash-subhead{align-items:start;flex-direction:column}.dash-feature,.dash-panel{padding:20px}}
+@media(max-width:440px){.dash-metrics{grid-template-columns:1fr}.dash-metric{min-height:0}.dash{padding-left:5%;padding-right:5%}.dash-links{gap:6px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.dash-metric,.dash-feature,.dash-panel,.dash-steps p{break-inside:avoid}.dash-metrics,.dash-features,.dash-bottom,.dash-steps{display:block}.dash-metric,.dash-feature,.dash-panel,.dash-steps p{margin:0 0 10px}.dash-stamp{border:0;padding:0}}
+
 </style>
 </head>
 <body>
@@ -80,15 +135,129 @@ footer a{color:#b9e9db}
 <h1>Follow the funding.<br>Understand the outcomes.</h1>
 <p>Examining how public housing resources are allocated, administered, and translated into measurable community benefits.</p>
 <p>Our founding research focuses on Tucson and Pima County, with a methodology designed for future expansion.</p>
-<a class="button" href="#findings">Explore Initial Research</a>
+<div class="hero-actions"><a class="button" href="#dashboard">Explore the research dashboard</a><a class="hero-secondary" href="findings.html">Read research findings</a></div>
 </div>
 <div class="page-jump" aria-label="Sections on this page">
 <strong>On this page:</strong>
+<a href="#dashboard">Dashboard</a>
 <a href="#findings">Research Notes</a>
 <a href="#records">Public Records</a>
 <a href="#methodology">Methodology</a>
 <a href="#about">About</a>
 </div>
+
+<section id="dashboard" class="dash" aria-labelledby="dashboard-title">
+  <div class="dash-heading">
+    <div>
+      <p class="dash-eyebrow">Public research dashboard</p>
+      <h2 id="dashboard-title">Research at a glance</h2>
+      <p>Explore what the published records establish, which questions remain open, and where to examine the underlying evidence. These are <strong>research inventory counts</strong>, not available housing units or funding balances.</p>
+    </div>
+    <p class="dash-stamp"><span>Published snapshot</span><strong><time datetime="2026-11-03">November 3, 2026</time></strong></p>
+  </div>
+
+  <div class="dash-metrics" aria-label="Published research inventory">
+    <a class="dash-metric" href="findings.html#documented">
+      <strong class="dash-number">12</strong>
+      <span class="dash-metric-label">Finding entries</span>
+      <span class="dash-metric-note">Includes conclusions under review</span>
+    </a>
+    <a class="dash-metric" href="evidence.html#questions-section">
+      <strong class="dash-number">11</strong>
+      <span class="dash-metric-label">Tracked research questions</span>
+      <span class="dash-metric-note">Open and internally reconciled items</span>
+    </a>
+    <a class="dash-metric" href="evidence.html#sources-section">
+      <strong class="dash-number">13</strong>
+      <span class="dash-metric-label">Indexed source records</span>
+      <span class="dash-metric-note">Includes reference and quality-control entries</span>
+    </a>
+    <a class="dash-metric" href="research-updates.html">
+      <strong class="dash-number">3</strong>
+      <span class="dash-metric-label">Research update entries</span>
+      <span class="dash-metric-note">Plus a November 3 clarification</span>
+    </a>
+  </div>
+
+  <div class="dash-subhead">
+    <div>
+      <h3>Featured research</h3>
+      <p>A selection of documented actions, reported housing milestones, and questions requiring additional records.</p>
+    </div>
+    <a href="findings.html">View all findings</a>
+  </div>
+  <div class="dash-features">
+    <article class="dash-feature">
+      <p class="dash-state">Agency action reported</p>
+      <h4>Planned CDBG reallocation</h4>
+      <p>The City reported approving a <strong>$1.5 million</strong> shift toward eligible housing activities. This reallocates planned resources; it does not create $1.5 million in new federal funding.</p>
+      <p class="dash-links"><a href="findings.html#f-001">Finding F-001</a><a href="evidence.html#q-006">Question Q-006</a></p>
+    </article>
+    <article class="dash-feature">
+      <p class="dash-state">Allocation, not vacancy</p>
+      <h4>Craycroft and Lee Street</h4>
+      <p>A City notice describes <strong>82 allocated Section 8 project-based vouchers</strong> across 74 existing Craycroft apartments and eight Lee Street apartments. The notice does not establish vacant or newly built units.</p>
+      <p class="dash-links"><a href="findings.html#f-003">Finding F-003</a><a href="evidence.html#q-009">Question Q-009</a></p>
+    </article>
+    <article class="dash-feature">
+      <p class="dash-state">Housing milestone reported</p>
+      <h4>Milagro on Oracle</h4>
+      <p>The City reported that a <strong>63-apartment</strong> affordable housing development opened in January 2025. That historical milestone does not verify today's occupancy or available apartments.</p>
+      <p class="dash-links"><a href="findings.html#f-004">Finding F-004</a><a href="evidence.html#sources-section">Explore sources</a></p>
+    </article>
+    <article class="dash-feature">
+      <p class="dash-state dash-state-open">Open source reconciliation</p>
+      <h4>PY2024 CDBG expenditure comparisons</h4>
+      <p>Two arithmetic differences use <strong>different reporting bases</strong>. The original Tucson PR-26 report remains an outstanding source. Neither comparison is proof of missing funds.</p>
+      <p class="dash-links"><a href="findings.html#f-007">Finding F-007</a><a href="evidence.html#q-007">Question Q-007</a></p>
+    </article>
+  </div>
+
+  <div class="dash-bottom">
+    <div class="dash-panel" role="region" aria-labelledby="dash-latest-title">
+      <h3 id="dash-latest-title">Latest research updates</h3>
+      <ol class="dash-updates">
+        <li>
+          <time datetime="2026-11-03">Nov. 3, 2026</time>
+          <a href="research-updates.html#cdbg-reconciliation">Clarification: CDBG comparisons</a>
+          <span>Explains differing arithmetic bases and the remaining PR-26 source dependency.</span>
+        </li>
+        <li>
+          <time datetime="2026-11-02">Nov. 2, 2026</time>
+          <a href="research-updates.html#pub-003">HOME activity classifications</a>
+          <span>Distinguishes HOME-assisted units from project totals and available homes.</span>
+        </li>
+        <li>
+          <time datetime="2026-11-02">Nov. 2, 2026</time>
+          <a href="research-updates.html#pub-001">Historical federal program reporting</a>
+          <span>Summarizes PY2024 reported resources and expenditures.</span>
+        </li>
+      </ol>
+      <p class="dash-panel-link"><a href="research-updates.html">Browse all research updates</a></p>
+    </div>
+    <div class="dash-panel" role="region" aria-labelledby="dash-records-title">
+      <h3 id="dash-records-title">Records still needed</h3>
+      <p class="dash-panel-intro">These are verification priorities, not evidence of wrongdoing or presently available housing assistance.</p>
+      <ul class="dash-records">
+        <li><strong>PY2024 PR-26:</strong> Original Tucson report, any corrected runs, and a CR-15 expenditure calculation bridge.</li>
+        <li><strong>PY2025 CAPER:</strong> Final report, supporting schedules, and documented submission status.</li>
+        <li><strong>Project-based vouchers:</strong> Executed agreements, occupancy figures, and referral or eligibility procedures.</li>
+      </ul>
+      <p class="dash-panel-link"><a href="findings.html#next-records">View the full verification queue</a></p>
+    </div>
+  </div>
+
+  <div class="dash-how" aria-labelledby="dash-how-title">
+    <h3 id="dash-how-title">How to check a research claim</h3>
+    <div class="dash-steps">
+      <p><strong>1. Read the finding.</strong><span>See the dated claim and its limitations.</span></p>
+      <p><strong>2. Follow the evidence ID.</strong><span>Open the source references and linked questions.</span></p>
+      <p><strong>3. Review what's unresolved.</strong><span>Check the records still required before drawing conclusions.</span></p>
+    </div>
+    <p class="dash-footnote">This dashboard is a dated publication snapshot. Research labels and counts may change as records are reviewed. The project does not certify funding availability, active vacancies, or legal violations. <a href="glossary.html">Understand the terminology</a>.</p>
+  </div>
+</section>
+
 <section id="research">
 <h2>Our Research Priorities</h2>
 <p>We examine housing systems through public records, financial reporting, program documentation, and measurable outcomes.</p>
