@@ -39,10 +39,35 @@ table{min-width:480px}th,td{padding:10px;font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{header nav,.skip{display:none}body{background:white;color:black}article{break-inside:avoid}tr{break-inside:avoid}.table-wrap{overflow:visible}table{min-width:0}}
-</style></head>
+
+/* Option A: Evidence & Accountability visual identity */
+header .brand-home{display:inline-flex;align-items:center;gap:11px;min-width:0;color:#f7faf9;text-decoration:none;flex-shrink:0}
+header .brand-home img{width:54px;height:54px;display:block;object-fit:contain}
+header .brand-home .brand-name{font:750 14px/1.17 system-ui,Arial,sans-serif;letter-spacing:.1px}
+header .brand-home:hover .brand-name{text-decoration:underline;text-underline-offset:3px}
+header nav{align-items:center}
+header nav a{white-space:nowrap}
+@media(max-width:620px){header{gap:13px}header .brand-home img{width:48px;height:48px}header .brand-home .brand-name{font-size:13px}header nav{gap:9px 12px}}
+@media print{header .brand-home .brand-name{color:#102e3d}}
+
+</style><link rel="icon" type="image/svg+xml" href="assets/brand/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#102e3d">
+<meta property="og:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:secure_url" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Housing Accountability Project — Follow the funding. Understand the outcomes. Independent, nonpartisan public-interest research.">
+<meta name="twitter:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta name="twitter:image:alt" content="Housing Accountability Project, independent nonpartisan housing research.">
+<meta name="twitter:card" content="summary_large_image">
+</head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
-<header><strong>HOUSING ACCOUNTABILITY PROJECT</strong><nav aria-label="Main navigation">
+<header><a class="brand-home" href="index.html" aria-label="Housing Accountability Project home"><img src="assets/brand/logo-mark.svg" width="54" height="54" alt="" decoding="async"><span class="brand-name">Housing<br>Accountability<br>Project</span></a><nav aria-label="Main navigation">
 <a href="index.html">Home</a>
 <a href="research.html">Research Library</a>
 <a href="evidence.html">Evidence Index</a>
