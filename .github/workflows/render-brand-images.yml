@@ -1,0 +1,56 @@
+name: Render approved brand images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/brand/*.svg'
+      - '.github/workflows/render-brand-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: render-brand-images
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SVG renderer
+        run: python -m pip install "CairoSVG==2.8.2"
+      - name: Render raster images from versioned vector sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import cairosvg
+          root = Path("assets/brand")
+          outputs = [
+              ("social-preview.svg", "social-preview.png", 1200, 630),
+              ("logo-mark.svg", "logo-mark-512.png", 512, 512),
+              ("logo-mark.svg", "apple-touch-icon.png", 180, 180),
+              ("logo-mark.svg", "favicon-32.png", 32, 32),
+              ("logo-mark.svg", "favicon-16.png", 16, 16),
+              ("logo-lockup-light.svg", "logo-lockup-light.png", 960, 270),
+          ]
+          for source, output, width, height in outputs:
+              cairosvg.svg2png(
+                  url=str(root / source),
+                  write_to=str(root / output),
+                  output_width=width,
+                  output_height=height,
+              )
+              print("Rendered", output, (root / output).stat().st_size, "bytes")
+          PY
+      - name: Commit generated images
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/brand/*.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Render branded PNG previews and favicons"
+            git push origin HEAD:main
+          else
+            echo "Raster assets already up to date"
+          fi

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+<title id="title">Housing Accountability Project emblem</title>
+<desc id="desc">A research document with rising data bars, examined by a magnifying glass containing a house.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102e3d"/><stop offset="1" stop-color="#166267"/></linearGradient></defs>
+<rect x="0" y="0" width="128" height="128" rx="22" fill="url(#bg)"/>
+<path d="M25 16 H72 L92 37 V99 H25 Q19 99 19 93 V22 Q19 16 25 16 Z" fill="none" stroke="#f7faf9" stroke-width="6" stroke-linejoin="round"/>
+<path d="M72 17 V37 H91" fill="none" stroke="#f7faf9" stroke-width="5" stroke-linejoin="round"/>
+<path d="M33 36 H60 M33 47 H52" stroke="#b9e9db" stroke-width="5" stroke-linecap="round"/>
+<rect x="34" y="70" width="10" height="19" rx="2" fill="#b9e9db"/>
+<rect x="50" y="62" width="10" height="27" rx="2" fill="#5bd2bd"/>
+<rect x="66" y="52" width="10" height="37" rx="2" fill="#1bb6aa"/>
+<path d="M66 104 L56 116" stroke="#f7faf9" stroke-width="9" stroke-linecap="round"/>
+<circle cx="85" cy="86" r="21" fill="#102e3d" stroke="#f7faf9" stroke-width="6"/>
+<path d="M74 85 L85 75 L96 85 M77 83 V96 H93 V83" fill="none" stroke="#b9e9db" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="83" y="88" width="5" height="8" rx="1" fill="#b9e9db"/>
+</svg>
