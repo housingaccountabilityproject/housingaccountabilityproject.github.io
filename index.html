@@ -121,6 +121,21 @@ header nav a{white-space:nowrap}
 @media(max-width:620px){header{gap:13px}header .brand-home img{width:48px;height:48px}header .brand-home .brand-name{font-size:13px}header nav{gap:9px 12px}}
 @media print{header .brand-home .brand-name{color:#102e3d}}
 
+
+/* Founder story — homepage introduction */
+.founder-intro{max-width:none;background:#eef6f3;border-top:1px solid #d6e7e1}
+.founder-intro-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(255px,.85fr);gap:40px;align-items:center}
+.founder-intro h2{max-width:730px;margin:9px 0 18px}
+.founder-intro p{max-width:740px}
+.founder-kicker{color:#155e63;font-size:12px;letter-spacing:1.5px;font-weight:800;margin:0}
+.founder-promise{font-weight:bold;font-style:italic;color:#16595c}
+.founder-link{display:inline-block;padding:11px 19px;border-radius:7px;background:#166267;color:#fff;text-decoration:none;font-weight:bold;margin-top:3px}
+.founder-link:hover{text-decoration:underline}
+.founder-side{background:#fff;border:1px solid #d7e5e2;border-radius:12px;padding:26px}
+.founder-side strong{font-size:19px;line-height:1.4;display:block}
+.founder-side p{font-size:15px;margin:14px 0}
+@media(max-width:800px){.founder-intro-inner{grid-template-columns:1fr;gap:20px}}
+
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/brand/logo-mark.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
@@ -165,6 +180,7 @@ header nav a{white-space:nowrap}
 <a href="findings.html">Research Findings</a>
 <a href="research-updates.html">Research Updates</a>
 <a href="glossary.html">Glossary</a>
+<a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header>
@@ -183,7 +199,7 @@ header nav a{white-space:nowrap}
 <a href="#findings">Research Notes</a>
 <a href="#records">Public Records</a>
 <a href="#methodology">Methodology</a>
-<a href="#about">About</a>
+<a href="about.html">Our Story</a>
 </div>
 
 <section id="dashboard" class="dash" aria-labelledby="dashboard-title">
@@ -406,12 +422,16 @@ header nav a{white-space:nowrap}
 </div>
 </section>
 
-<section id="about">
-<h2>About the Initiative</h2>
-<p>The Housing Accountability Project is an emerging independent public-interest research initiative beginning in Tucson, Arizona.</p>
-<p>Our purpose is to make public housing funding, administration, and outcomes easier to understand through accessible, evidence-based research.</p>
-<p>The initiative is not currently represented as a registered nonprofit, government agency, or official auditing authority.</p>
-<p>Our long-term research framework is designed to accommodate additional communities while maintaining consistent documentation and publication standards.</p>
+<section id="about" class="founder-intro" aria-labelledby="founder-title">
+<div class="founder-intro-inner">
+<div><p class="founder-kicker">THE STORY BEHIND THE RESEARCH</p>
+<h2 id="founder-title">From Personal Experience to Public Accountability</h2>
+<p>Founded by William Connell, the Housing Accountability Project began with firsthand questions about housing assistance in Tucson. What began as an effort to understand an unsuccessful housing opportunity grew into an independent, nonpartisan initiative examining public housing funding, transparency, and outcomes.</p>
+<p class="founder-promise">The project was born from personal experience, but its mission is much larger.</p>
+<a class="founder-link" href="about.html">Read Our Story <span aria-hidden="true">↗</span></a>
+</div><aside class="founder-side" aria-label="Our research commitment"><strong>Independent research. Public understanding.</strong>
+<p>We document sources, acknowledge program successes, identify open questions, and distinguish evidence from uncertainty.</p>
+<a href="evidence.html">Explore the evidence index</a></aside></div>
 </section>
 </main>
 
