@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "publication_scope": "development_preview_only",
+  "snapshot_date": "2026-11-03",
+  "generated_for": "Housing Accountability Project — Phase 0/1",
+  "source_policy": "Curated, already-public claims only. Does not reflect full internal master or audit workbooks.",
+  "counts": {
+    "published_finding_entries": 12,
+    "public_question_entries": 11,
+    "public_source_entries": 13
+  },
+  "records": [
+    {
+      "public_id": "F-001",
+      "record_type": "finding",
+      "title": "City-approved CDBG reallocation",
+      "program": "CDBG",
+      "jurisdiction": "City of Tucson",
+      "period": "PY2026 / City FY2027",
+      "measure_type": "planned reallocation",
+      "amount": 1500000,
+      "units": null,
+      "unit_definition": null,
+      "source_ids": [
+        "SRC-071"
+      ],
+      "source_pages": [],
+      "verification_level": "original checked in published findings",
+      "publication_status": "ready with context",
+      "as_of_date": "2026-11-03",
+      "limitations": "Reported approval is not an executed award, draw, newly appropriated revenue, or verified project expenditure.",
+      "linked_findings": [
+        "F-001"
+      ],
+      "linked_questions": [
+        "Q-006"
+      ],
+      "page_url": "findings.html#f-001"
+    },
+    {
+      "public_id": "F-003",
+      "record_type": "finding",
+      "title": "Craycroft and Lee Street PBV allocations",
+      "program": "PBV",
+      "jurisdiction": "City of Tucson",
+      "period": "August 2026 agency notice",
+      "measure_type": "allocated project-based vouchers",
+      "amount": null,
+      "units": 82,
+      "unit_definition": "74 existing Craycroft apartments and 8 Lee Street apartments referenced in City notice; neither vacancy nor newly constructed units",
+      "source_ids": [
+        "SRC-064",
+        "SRC-065"
+      ],
+      "source_pages": [],
+      "verification_level": "agency notice reviewed in published findings",
+      "publication_status": "ready with context",
+      "as_of_date": "2026-11-03",
+      "limitations": "No confirmed executed HAP contracts, current occupancy counts, or application availability.",
+      "linked_findings": [
+        "F-003"
+      ],
+      "linked_questions": [
+        "Q-009"
+      ],
+      "page_url": "findings.html#f-003"
+    },
+    {
+      "public_id": "F-005",
+      "record_type": "finding",
+      "title": "PY2025 draft CAPER reporting stage",
+      "program": "CAPER",
+      "jurisdiction": "City of Tucson / HUD",
+      "period": "PY2025: 2025-07-01 to 2026-06-30",
+      "measure_type": "document status",
+      "amount": null,
+      "units": null,
+      "unit_definition": null,
+      "source_ids": [
+        "SRC-061"
+      ],
+      "source_pages": [],
+      "verification_level": "public-comment draft reviewed in published findings",
+      "publication_status": "ready with context",
+      "as_of_date": "2026-11-03",
+      "limitations": "Final HUD submission, missing schedules, and HUD review/acceptance status not verified by this publication.",
+      "linked_findings": [
+        "F-005"
+      ],
+      "linked_questions": [
+        "Q-005"
+      ],
+      "page_url": "findings.html#f-005"
+    },
+    {
+      "public_id": "F-007",
+      "record_type": "finding",
+      "title": "PY2024 CDBG expenditure presentations",
+      "program": "CDBG",
+      "jurisdiction": "City of Tucson",
+      "period": "PY2024",
+      "measure_type": "cross-presentation arithmetic only",
+      "amount": 944972.6,
+      "units": null,
+      "unit_definition": null,
+      "source_ids": [
+        "SRC-023"
+      ],
+      "source_pages": [
+        "PDF p.13; narrative sections"
+      ],
+      "verification_level": "arithmetic from published figures",
+      "publication_status": "open question only",
+      "as_of_date": "2026-11-03",
+      "limitations": "Numbers may cover different accounting scopes. Not a verified accounting discrepancy, loss, fraud finding, or available cash balance; original PR-26 outstanding.",
+      "linked_findings": [
+        "F-007"
+      ],
+      "linked_questions": [
+        "Q-007"
+      ],
+      "page_url": "findings.html#f-007"
+    }
+  ]
+}
