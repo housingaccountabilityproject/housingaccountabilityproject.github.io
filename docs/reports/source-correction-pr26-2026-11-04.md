@@ -25,8 +25,8 @@ Both arithmetic differences are directly reproducible from the now-located sourc
 - Inspect final PY2025 CAPER and review status when available.
 - Verify project and service outcome cohorts separately.
 
-## Corrections prepared on draft branch
+## Published research corrections
 
-F-007 research finding, SRC-023 evidence source record, Q-007 research question, November 3 research update, Research Center, homepage verification queue, curated public data, and inaugural review draft are updated in this branch.
+The first public research review, F-007 research finding, SRC-023 evidence source record, Q-007 question, Research Updates, Research Center, homepage source notes, and curated public data have been updated to use the corrected source status.
 
-**Publication status:** Draft corrections only, not live, until the report/site release passes testing and publication authorization.
+**Publication status:** Source correction reviewed and published with the November 4, 2026 inaugural research review. Financial presentation scopes remain unresolved.
