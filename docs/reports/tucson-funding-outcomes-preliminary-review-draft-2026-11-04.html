@@ -21,14 +21,14 @@ header{background:var(--navy);color:#eaf6f2;padding:14px 6%;display:flex;align-i
 aside{align-self:start;position:sticky;top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;max-height:calc(100vh - 34px);overflow:auto}
 aside h2{font-size:17px;margin:0 0 12px}aside a{display:flex;gap:10px;align-items:start;padding:7px 0;color:#244b51;text-decoration:none;font-size:13px;line-height:1.35}
 aside a:hover{text-decoration:underline}aside a span{color:var(--teal);font-weight:800}
-article{background:#fff;border:1px solid var(--line);border-radius:13px;padding:clamp(21px,4vw,48px);min-width:0}
+article{background:#fff;border:1px solid var(--line);border-radius:13px;padding:clamp(21px,4vw,48px);min-width:0;overflow-wrap:anywhere}
 article .report-title{font-size:30px;font-weight:800;line-height:1.2;margin:0 0 12px}article h2{font-size:clamp(25px,3vw,32px);line-height:1.2;margin:42px 0 14px;padding-top:4px;border-top:1px solid var(--line)}
 article h3{font-size:21px;line-height:1.32;margin:25px 0 10px}article p{margin:0 0 18px}
 article p:first-of-type{color:#354e57}article blockquote{background:#edf5f2;padding:20px;border-left:5px solid #2c8078;margin:24px 0;font-size:15px;line-height:1.65}
 article pre{background:#102e3d;color:#f2faf7;padding:21px;border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;font-size:14px}
-article p code{background:#edf5f2;padding:2px 5px;border-radius:4px}
+article p code{background:#edf5f2;padding:2px 5px;border-radius:4px;white-space:normal;overflow-wrap:anywhere}
 article ul,article ol{padding-left:24px;margin:15px 0 22px}article li{margin-bottom:8px}
-.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:21px 0 28px}
+.table-scroll{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:10px;margin:21px 0 28px}
 table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}th,td{vertical-align:top;text-align:left;padding:11px 13px;border-bottom:1px solid var(--line)}
 th{background:#edf5f2;color:#164d52;font-weight:800}tr:last-child td{border-bottom:0}
 article hr{border:0;border-top:1px solid var(--line);margin:32px 0}
