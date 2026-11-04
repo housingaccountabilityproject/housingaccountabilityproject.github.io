@@ -1,0 +1,33 @@
+name: Research Center rendering and interaction QA
+on:
+  pull_request:
+    paths:
+      - '**.html'
+      - 'assets/research-center*'
+      - 'scripts/site-smoke-test.mjs'
+  push:
+    branches:
+      - research-center-phase0-phase1-2026-11-04
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install browser test tools
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Check responsive rendering and interaction
+        run: node scripts/site-smoke-test.mjs
+      - name: Save screenshots for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-center-site-qa-screenshots
+          path: site-qa-screenshots/
+          if-no-files-found: ignore

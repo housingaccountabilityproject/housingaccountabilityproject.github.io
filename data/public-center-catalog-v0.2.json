@@ -1,0 +1,486 @@
+{
+  "schema_version": "0.2.0",
+  "publication_scope": "development_preview_curated",
+  "snapshot_date": "2026-11-03",
+  "description": "Selected published HAP research with dates, source pointers and explicit limitations. Not a raw workbook or live funding ledger.",
+  "funding": [
+    {
+      "id": "FUND-PUB-001",
+      "group": "cdbg",
+      "title": "CDBG — PY2024 reported resources and spending",
+      "meta": "CDBG · PY2024 · City CAPER",
+      "measure": "$5,418,132 current-resource subtotal",
+      "detail": "The published research cites $4,717,936 in CR-15 CDBG expenditures (rounded), a separate reporting measure. The $349,468 program-income component is already included in the resource subtotal and must not be added again.",
+      "limit": "Resource totals and expenditure measures cannot be treated as an unobligated or currently available balance.",
+      "links": [
+        [
+          "F-006 — program income",
+          "findings.html#f-006"
+        ],
+        [
+          "Q-001 — reconciliation",
+          "evidence.html#q-001"
+        ]
+      ],
+      "source": "SRC-023 · PY2024 CAPER CR-15"
+    },
+    {
+      "id": "FUND-PUB-002",
+      "group": "cdbg",
+      "title": "CDBG — planned reallocation to housing",
+      "meta": "CDBG · PY2026 / FY2027 · October 2026",
+      "measure": "$1,500,000 reallocated, not newly awarded",
+      "detail": "A City communication reported a council-approved change moving planned funds from community facilities toward eligible housing activities.",
+      "limit": "Implementation, amended-plan status, IDIS activity records and actual draws must still be verified. This is not an additional $1.5 million in federal revenue.",
+      "links": [
+        [
+          "F-001 — finding",
+          "findings.html#f-001"
+        ],
+        [
+          "Q-006 — open records",
+          "evidence.html#q-006"
+        ]
+      ],
+      "source": "F-001 / Q-006 · City communication"
+    },
+    {
+      "id": "FUND-PUB-003",
+      "group": "home",
+      "title": "HOME — PY2024 resources and expenditures",
+      "meta": "HOME · PY2024 · City CAPER",
+      "measure": "$3,148,083 resources / $479,243 expended",
+      "detail": "These rounded figures are reported in the project's historical research summary for the PY2024 CAPER. Matching activity commitments, draws and completion records are still needed.",
+      "limit": "The difference is not proof of free cash, unobligated funds, or assistance available to applicants.",
+      "links": [
+        [
+          "Funding analysis",
+          "research.html#funding"
+        ],
+        [
+          "Q-002 — source gap",
+          "evidence.html#q-002"
+        ]
+      ],
+      "source": "SRC-023 · PY2024 CAPER"
+    },
+    {
+      "id": "FUND-PUB-004",
+      "group": "home",
+      "title": "HOME — program income carried forward",
+      "meta": "HOME · PY2025 draft CAPER",
+      "measure": "$527,244.29 draft carryforward",
+      "detail": "The draft CAPER reports $534,792.63 received and $7,548.34 applied in its program-income presentation. The arithmetic produces a reported carryforward, not a cash availability test.",
+      "limit": "Current commitments, draw dates, restrictions and usable balances have not been independently established.",
+      "links": [
+        [
+          "F-009 — calculation",
+          "findings.html#f-009"
+        ],
+        [
+          "Q-011 — classification",
+          "evidence.html#q-011"
+        ]
+      ],
+      "source": "Draft PY2025 CAPER · F-009"
+    },
+    {
+      "id": "FUND-PUB-005",
+      "group": "home",
+      "title": "HOME — recaptured funds carried forward",
+      "meta": "HOME · PY2025 draft CAPER",
+      "measure": "$307,564.13 draft carryforward",
+      "detail": "The draft separately reports $373,430.46 received and $65,866.33 applied in recaptured funds. These funds are distinct from HOME program income.",
+      "limit": "No unrestricted rental subsidy or current household eligibility is established by this report.",
+      "links": [
+        [
+          "F-009 — calculation",
+          "findings.html#f-009"
+        ],
+        [
+          "Q-011 — classification",
+          "evidence.html#q-011"
+        ]
+      ],
+      "source": "Draft PY2025 CAPER · F-009"
+    },
+    {
+      "id": "FUND-PUB-006",
+      "group": "esg",
+      "title": "ESG — rapid-rehousing performance",
+      "meta": "ESG · PY2024 · grant-draw date differs",
+      "measure": "30 planned / 18 actual households",
+      "detail": "The historical CAPER performance comparison and later-dated ESG grant draw records have different reporting periods and must not be combined into an unsupported cost-per-household figure.",
+      "limit": "These figures do not establish why reported actual households fell below the target or whether all relevant services were captured.",
+      "links": [
+        [
+          "Q-004 — performance question",
+          "evidence.html#q-004"
+        ],
+        [
+          "Research Library",
+          "research.html#funding"
+        ]
+      ],
+      "source": "SRC-023 · CAPER / PR-91"
+    },
+    {
+      "id": "FUND-PUB-007",
+      "group": "hcv",
+      "title": "Housing Choice Vouchers — reported funding comparisons",
+      "meta": "HCV · FY2026 / PY2025 · Tucson and Pima scopes",
+      "measure": "Different PHA periods and accounting measures",
+      "detail": "The research question compares an approximately $62.8 million HCV funding narrative with separate payment measures of $49.54 million for Tucson and $9.16 million for Pima County.",
+      "limit": "Different fiscal periods, PHA jurisdictions, restrictions and accounting categories prevent interpreting the arithmetic as an unspent or available amount.",
+      "links": [
+        [
+          "Q-010 — source comparison",
+          "evidence.html#q-010"
+        ],
+        [
+          "Evidence Index",
+          "evidence.html#sources-section"
+        ]
+      ],
+      "source": "Published Q-010 · scope verification open"
+    }
+  ],
+  "projects": [
+    {
+      "id": "PROJECT-PUB-001",
+      "group": "construction",
+      "title": "Amazon Flats",
+      "meta": "Announced groundbreaking · April 2026",
+      "measure": "59 apartments described",
+      "detail": "The City announced the start of construction in April 2026. An earlier environmental notice proposed 39 project-based vouchers and identified two HOME-designated apartments within the 59 planned apartments.",
+      "limit": "The City projected fall 2027 completion; a projection is not confirmation of completion, executed contracts, vacancies or current applications. Do not add 59, 39 and 2 as distinct apartment counts.",
+      "links": [
+        [
+          "F-002 — project finding",
+          "findings.html#f-002"
+        ],
+        [
+          "Q-009 — PBV status",
+          "evidence.html#q-009"
+        ]
+      ],
+      "source": "City notices cited in F-002"
+    },
+    {
+      "id": "PROJECT-PUB-002",
+      "group": "preservation",
+      "title": "Craycroft Towers and Lee Street Duplexes",
+      "meta": "Existing housing · August 2026 notice",
+      "measure": "74 + 8 existing apartments; 82 PBVs allocated",
+      "detail": "City notices describe 74 Craycroft and eight Lee Street apartments. The 82 Section 8 project-based vouchers concern the existing units, with RAD and Section 18 classifications also described for Craycroft.",
+      "limit": "Not 82 newly constructed units or 82 available vacancies. Executed HAP contracts, occupancy and application procedures remain unverified.",
+      "links": [
+        [
+          "F-003 — project finding",
+          "findings.html#f-003"
+        ],
+        [
+          "Q-009 — PBV question",
+          "evidence.html#q-009"
+        ]
+      ],
+      "source": "City notice cited in F-003"
+    },
+    {
+      "id": "PROJECT-PUB-003",
+      "group": "opened",
+      "title": "Milagro on Oracle",
+      "meta": "Reported opened · January 2025",
+      "measure": "63 affordable apartments",
+      "detail": "City announcements describe a housing-delivery milestone, crediting El Pueblo Housing Development and Gorman & Company and a combination of new construction and adaptive reuse.",
+      "limit": "A reported opening is not an independently audited resident count or evidence of currently available apartments.",
+      "links": [
+        [
+          "F-004 — housing delivery",
+          "findings.html#f-004"
+        ],
+        [
+          "Research Findings",
+          "findings.html#documented"
+        ]
+      ],
+      "source": "City announcements cited in F-004"
+    },
+    {
+      "id": "PROJECT-PUB-004",
+      "group": "completed",
+      "title": "Amazon Motel conversion",
+      "meta": "Reported completed · September 2025",
+      "measure": "30 supportive-housing studios",
+      "detail": "A former motel was converted to permanent supportive housing according to City reporting. This is a separate existing-building conversion, not the adjacent Amazon Flats development.",
+      "limit": "Current vacancies, resident retention and new-referral capacity are not established by a historical completion announcement.",
+      "links": [
+        [
+          "F-011 — conversion finding",
+          "findings.html#f-011"
+        ],
+        [
+          "Other project milestones",
+          "findings.html#project-stages"
+        ]
+      ],
+      "source": "City announcement cited in F-011"
+    },
+    {
+      "id": "PROJECT-PUB-005",
+      "group": "renovation",
+      "title": "Tucson House renovation",
+      "meta": "Reported milestone · October 16, 2026",
+      "measure": "24 renovated apartments on the 15th floor",
+      "detail": "The City stated that 25 households would be moving into renovated housing; it also described a broader 358-apartment rehabilitation project. The reported 24-versus-25 figures require clarification.",
+      "limit": "Renovated units are not newly constructed apartments. A future move statement is not proof that all moves occurred or that external vacancies existed.",
+      "links": [
+        [
+          "F-012 — renovation finding",
+          "findings.html#f-012"
+        ],
+        [
+          "Research milestones",
+          "findings.html#project-stages"
+        ]
+      ],
+      "source": "City October 2026 announcement · F-012"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-001",
+      "title": "CDBG program income double count?",
+      "group": "cdbg",
+      "period": "PY2024",
+      "status": "Internally reconciled",
+      "detail": "$349,468 program income is already part of the $5,418,132 resource subtotal.",
+      "limit": "Publish reproducible source arithmetic; do not count it twice.",
+      "source": "SRC-023",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-001"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-002",
+      "title": "Do HOME resources minus expenditures show usable cash?",
+      "group": "home",
+      "period": "PY2024",
+      "status": "Open interpretation",
+      "detail": "Rounded historical amounts cannot be interpreted as a live cash balance.",
+      "limit": "Obligations, draws, eligible-use restrictions and comparable accounting periods.",
+      "source": "SRC-023",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-002"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-003",
+      "title": "Why do homebuyer outcome counts differ?",
+      "group": "home",
+      "period": "PY2024",
+      "status": "Open source comparison",
+      "detail": "A narrative reports four households, while a program table shows 32 planned and zero actual.",
+      "limit": "Matched reporting definitions, dates and beneficiary cohorts.",
+      "source": "SRC-023",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-003"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-004",
+      "title": "What explains ESG rapid-rehousing plan versus actual?",
+      "group": "esg",
+      "period": "PY2024",
+      "status": "Open performance question",
+      "detail": "The published comparison is 30 planned versus 18 actual households.",
+      "limit": "Comparable outcome cohorts and any documented agency explanation.",
+      "source": "SRC-023",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-004"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-005",
+      "title": "Where is the final PY2025 CAPER and its omitted tables?",
+      "group": "caper",
+      "period": "PY2025",
+      "status": "Final records unconfirmed",
+      "detail": "The City draft references schedules expected in the final report.",
+      "limit": "Final document, HUD receipt or acceptance and supporting attachments.",
+      "source": "SRC-024 / SRC-071",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-005"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-006",
+      "title": "Was the $1.5 million CDBG transfer new funding?",
+      "group": "cdbg",
+      "period": "PY2026",
+      "status": "Approval reported; implementation open",
+      "detail": "A planned reallocation changes categories without increasing total CDBG funding.",
+      "limit": "Amended plan, HUD/IDIS entries, project commitments and actual draws.",
+      "source": "SRC-071",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-006"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-007",
+      "title": "Why do CDBG expenditure presentations differ?",
+      "group": "cdbg",
+      "period": "PY2024",
+      "status": "Open source reconciliation",
+      "detail": "The $944,972.60 cross-presentation arithmetic compares potentially different accounting scopes.",
+      "limit": "Original PR-26, CR-15 workpapers, IDIS details and classification reconciliation.",
+      "source": "SRC-023",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-007"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-008",
+      "title": "Are reported 378 and 483 construction units comparable?",
+      "group": "caper",
+      "period": "PY2025 draft",
+      "status": "Open cohort reconciliation",
+      "detail": "Counts may describe different stages of construction or project populations.",
+      "limit": "Project IDs, construction dates, completion and occupancy milestones.",
+      "source": "SRC-024",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-008"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-009",
+      "title": "Do announced project-based vouchers represent vacancies?",
+      "group": "pbv",
+      "period": "2025–2026",
+      "status": "Contract and availability unverified",
+      "detail": "39 proposed Amazon Flats and 82 allocated Craycroft/Lee Street PBVs do not establish open units.",
+      "limit": "Executed contracts, dated occupancy counts and referral rules.",
+      "source": "SRC-034 / SRC-064 / SRC-065",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-009"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-010",
+      "title": "How should HCV funding and payments be compared?",
+      "group": "hcv",
+      "period": "FY2026",
+      "status": "Open accounting/scope comparison",
+      "detail": "City and County figures may be drawn from different periods, PHA jurisdictions and measures.",
+      "limit": "Comparable ACC/LOCCS receipts, spending and restricted reserve records.",
+      "source": "SRC-024",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-010"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    },
+    {
+      "id": "Q-011",
+      "title": "How are HOME matching credits and carryforwards classified?",
+      "group": "home",
+      "period": "PY2025 draft",
+      "status": "Open funding classification",
+      "detail": "HOME match credits are distinct from program income and recaptured funds.",
+      "limit": "Governed restrictions, commitments, activity IDs and actual balances.",
+      "source": "SRC-024",
+      "links": [
+        [
+          "Open original Q record",
+          "evidence.html#Q-011"
+        ],
+        [
+          "Browse evidence index",
+          "evidence.html#sources-section"
+        ]
+      ]
+    }
+  ],
+  "records_requests": [
+    {
+      "id": "RECORD-PUB-001",
+      "agency": "HUD",
+      "subject": "Tucson PY2025 CAPER",
+      "submission_date": "2026-11-03",
+      "submission_basis": "project reported",
+      "acknowledged": false,
+      "tracking_number_public": null,
+      "production_verified": false,
+      "publication_status": "development preview",
+      "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
+    }
+  ]
+}
