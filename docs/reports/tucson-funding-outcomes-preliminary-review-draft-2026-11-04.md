@@ -4,7 +4,7 @@
 **Housing Accountability Project**  
 **Draft prepared:** November 4, 2026  
 **Research periods:** Primarily PY2024 and the PY2025 public-comment draft, with selected 2026 decisions and housing milestones  
-**Status:** Editorial draft for verification and review — **not approved for public publication**  
+**Status:** Source-updated editorial draft (Revision 0.2, November 4, 2026) — **not approved for public publication**  
 **Research identity:** Independent, nonpartisan public-interest research; not a governmental, financial, or compliance audit.
 
 > **Publication note.** This document summarizes selected existing public records and the project's research registers. Its numerical comparisons are limited to their stated reporting periods and categories. It does not establish currently available housing assistance, program misconduct, discrimination, or regulatory noncompliance.
@@ -15,7 +15,7 @@ The City of Tucson and its regional partners administer or participate in multip
 
 The Housing Accountability Project reviewed selected City reports, HUD-related reporting references, City announcements, and the project's cross-referenced research records. The review establishes several practical distinctions:
 
-1. **Reported spending needs accounting context.** The City's PY2024 CDBG resource subtotal includes program income. A separate difference between the CAPER's expenditure table and narrative figures remains an *unreconciled reporting comparison*, not a finding that money is missing.
+1. **Reported spending needs accounting context.** The City's PY2024 CDBG resource subtotal includes program income. The corrected PR-26 financial summary is present within the published CAPER PDF (pages 148–150), resolving an earlier source-location gap. A separate difference between CR-15 and narrative figures remains an *unreconciled reporting-scope comparison*, not a finding that money is missing.
 2. **Reallocations are not new awards.** A City Council communication reports an October 2026 shift of $1.5 million in planned CDBG funds toward housing-related activities. The shift does not add $1.5 million to the federal award.
 3. **Housing outcomes have stages.** Public announcements identify apartments opened, motel units converted, buildings under construction, and existing units undergoing preservation. These stages should not be combined into a single total of new or vacant apartments.
 4. **Final reporting remains a priority.** The publicly examined PY2025 CAPER is a draft referencing tables intended for the final submission. The final HUD-submitted version, related schedules, and review history were not verified in the project's November 3 source snapshot.
@@ -54,9 +54,21 @@ $4,717,936.00
 =   $944,972.60
 ```
 
-**This is an arithmetic difference between published presentations, not a verified accounting discrepancy or missing-money finding.** The figures may use different program, adjustment, or reporting scopes. An original Tucson PR-26 report, corrected runs if applicable, detailed IDIS activity records, and a City or HUD explanation of the reporting bases are still needed.
+**This is an arithmetic difference between published presentations, not a verified accounting discrepancy or missing-money finding.** The figures may use different program, adjustment, or reporting scopes.
 
-An earlier internal workbook also used a more precise, purported PR-26 amount to make a **different comparison**. Because that original source was not independently located in the public source review, this report does not treat that second arithmetic comparison as independently validated evidence.
+**Primary-source correction (November 4, 2026):** The City's full PY2024 CAPER PDF *does* include an appended corrected Tucson PR-26 Financial Summary Report, on **PDF page 149 (printed CAPER page 146)**, dated **March 13, 2026**. The report shows **$4,717,936.37** in total expenditures, **$349,468.00** in current-year CDBG program income, and **$5,418,132.00** as the current entitlement-plus-program-income basis used for the planning/administration cap calculation. PDF page **148** contains the City's narrative explaining a **$102,106.09 public-service expense coding adjustment from PY2024 back to PY2023**; the City states its HUD field representative reviewed and approved the adjustment. That is a City-authored claim in the CAPER, not a separately reviewed HUD determination.
+
+The more precise, source-located PR-26 expenditure figure supports a *different arithmetic comparison* with the standard CDBG narrative alone:
+
+```text
+$4,717,936.37 corrected PR-26 total expenditures
+− $3,433,346.66 standard CDBG narrative expenditures
+= $1,284,589.71 arithmetic difference, excluding CDBG-CV narrative
+```
+
+The difference is mathematically reproducible, but **the two measures are not established as like-for-like accounting scopes**. The comparison with both CDBG and CDBG-CV narrative amounts, using the rounded CR-15 table figure, remains **$944,972.60**. Neither comparison proves a shortfall, unspent funding, improper use, or fraud.
+
+**What remains open is no longer locating the included PR-26**. It is matching the reporting scopes and calculation bridge, including CDBG-CV classification, period cutoffs, activity-level IDIS draw entries, and any separate report versions outside this CAPER attachment.
 
 ### October 2026 CDBG reallocation
 
@@ -81,9 +93,9 @@ The project's arithmetic on the two carryforwards checks against figures present
 
 ## 4. ESG and HOPWA: measurable outcomes and supporting reports
 
-The PY2024 ESG rapid-rehousing performance comparison in the project's source register shows **30 planned households and 18 actual households**. The source material also contains a separately dated grant-draw report. These measures should not be divided together to infer an exact cost per household or treated as proof that an agency failed to serve particular applicants.
+The PY2024 ESG rapid-rehousing table on **CAPER PDF page 9** shows **30 planned households and 18 actual households**. The source material also contains a separately dated grant-draw report. These measures should not be divided together to infer an exact cost per household or treated as proof that an agency failed to serve particular applicants.
 
-The project's PY2024 HOPWA review records **$1,054,399 in reported resources** and **$858,254 in expenditures**. However, the separate HOPWA outcome/performance documentation was not fully available in the reviewed source package. Financial totals alone cannot establish the full range of housing and service outcomes.
+The City's **PY2024 CAPER PDF page 41** directly reports a HOPWA household table with **248 one-year goal households and 124 actual households across four housing assistance categories**; its categories and definitions must be retained when discussing targets. The same CAPER's CR-15 table reports **$1,054,399 in HOPWA resources** and **$858,254 in expenditures** (PDF page 13). The fuller *separate* HOPWA CAPER referenced in the annual report was not independently inspected. These reported household counts and financial measures should not be divided or compared without matched cohorts and activity costs.
 
 A useful public assessment requires comparable expenditure periods, clear program categories, relevant outcome cohorts, and any available agency explanation of differences between targets and reported results.
 
@@ -121,7 +133,7 @@ This uncertainty is about the **records available for this research**, not evide
 
 | Priority | Existing research question | Records or explanation needed |
 |---|---|---|
-| 1 | PY2024 CDBG expenditure narratives versus CR-15 | Original/corrected PR-26, program scopes, activity draws, reconciliation workpapers |
+| 1 | PY2024 CDBG expenditure narratives versus CR-15 | **PR-26 located in CAPER PDF pp. 148–150**; obtain matched scope bridge, IDIS draws, CDBG-CV classification, and any other report versions |
 | 2 | Final PY2025 CAPER status | HUD-submitted final report, CR-15 and outcomes schedules, date and review correspondence |
 | 3 | HOME financial and unit interpretation | Activity-level commitments, draws, restrictions, unique project/unit cohorts |
 | 4 | CDBG reallocation implementation | Adopted amendment, IDIS activity updates, contracts and actual draws |
@@ -160,11 +172,16 @@ The next contribution of the Housing Accountability Project should be to make th
 
 This section is a working source list, **not** a representation that every original PDF page was independently retrieved on November 4, 2026.
 
-1. [City of Tucson PY2024 CAPER PDF](https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf) — program financial reporting, CR-15, CDBG and HOME observations; project reference SRC-023.
+1. [City of Tucson PY2024 CAPER PDF](https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf) — **original file directly examined from the project's source library:** PDF p. 9 ESG outcomes; p. 13 CR-15 program resources and CDBG narratives; p. 41 HOPWA outcome table; p. 148 City explanation of PY2023/2024 coding adjustment; **p. 149 corrected Tucson PR-26**, including $4,717,936.37 expenditures; p. 150 PR-26 detail. Project source identifier SRC-023.
 2. [City of Tucson PY2025 public-comment draft CAPER](https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf) — preliminary reporting, HOME carryforwards, unit totals and draft status.
 3. [City Council member's October 9, 2026 bulletin](https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627) — October 6 CDBG reallocation as reported by the City.
 4. [Project Research Findings](https://housingaccountabilityproject.github.io/findings.html) — F-001 through F-012, including linked original official announcements.
 5. [Public Evidence Index](https://housingaccountabilityproject.github.io/evidence.html) — SRC source IDs, Q-001 through Q-011, and verification limitations.
 6. Internal research control only: `Tucson_Housing_Research_MasterWork_v13.3_2026-11-03.xlsx`, `Tucson_Housing_Public_Accountability_Audit_v2.4_2026-11-03.xlsx`, and `Housing_Website_Publication_Readiness_Register_2026-11-02.csv`. **Do not publish these private workbooks in full.**
 
-**Editorial hold:** Recheck source pages directly, final-versus-draft AAP terminology, HOPWA supplemental documentation, HUD FOIA status, and unit cohort definitions before any public release. Preserve prior calculations as labeled provisional research, not conclusions of wrongdoing.
+**Editorial hold:** Direct checks of the CAPER tables and the appended PR-26 now support the corrected source-status description above. Final-versus-draft AAP terminology, separate HOPWA supplemental documentation, any HUD FOIA agency response, and unit cohort definitions still require further review before any public release. Preserve historical arithmetic as non-comparable comparison data, not conclusions of wrongdoing.
+
+### Revision history — November 4, 2026
+- **v0.2 source correction:** Located the corrected original Tucson PY2024 PR-26 in the 2024 CAPER PDF, page 149, and the City's coding adjustment narrative on page 148. Reclassified the $4,717,936.37 figure as original-source visible, without assuming that it resolves the CDBG/CDBG-CV narrative comparison.
+- **v0.2 performance clarification:** Added the PY2024 HOPWA 248/124 goal-versus-actual table reference from PDF page 41; separate HOPWA CAPER remains uninspected.
+- Retained the $944,972.60 rounded CR-15 cross-presentation arithmetic as an open scope comparison and rejected any missing-money inference.

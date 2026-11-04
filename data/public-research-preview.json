@@ -107,12 +107,14 @@
         "SRC-023"
       ],
       "source_pages": [
-        "PDF p.13; narrative sections"
+        "CAPER PDF p. 13, CR-15 and narratives",
+        "CAPER PDF p. 148, City coding-adjustment explanation",
+        "CAPER PDF p. 149, corrected PR-26"
       ],
-      "verification_level": "arithmetic from published figures",
+      "verification_level": "corrected PR-26 and CR-15 directly checked, accounting-scope bridge outstanding",
       "publication_status": "open question only",
-      "as_of_date": "2026-11-03",
-      "limitations": "Numbers may cover different accounting scopes. Not a verified accounting discrepancy, loss, fraud finding, or available cash balance; original PR-26 outstanding.",
+      "as_of_date": "2026-11-04",
+      "limitations": "Corrected PR-26 located in Tucson PY2024 CAPER (PDF p. 149). Different accounting-scope presentations remain unreconciled and do not imply missing funds, wrongdoing, or cash available for housing.",
       "linked_findings": [
         "F-007"
       ],

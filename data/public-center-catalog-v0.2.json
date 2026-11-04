@@ -375,7 +375,7 @@
       "period": "PY2024",
       "status": "Open source reconciliation",
       "detail": "The $944,972.60 cross-presentation arithmetic compares potentially different accounting scopes.",
-      "limit": "Original PR-26, CR-15 workpapers, IDIS details and classification reconciliation.",
+      "limit": "Corrected PR-26 located in CAPER (PDF pp. 148-150); match CR-15 and narrative accounting scopes, IDIS draw records and CDBG-CV classification.",
       "source": "SRC-023",
       "links": [
         [
