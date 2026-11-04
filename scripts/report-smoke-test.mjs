@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { mkdir } from 'node:fs/promises';
 
-const path='docs/reports/tucson-funding-outcomes-preliminary-review-draft-2026-11-04.html';
+const path='reports/tucson-housing-funding-outcomes-2026.html';
 const errors=[];
 const browser=await chromium.launch({headless:true});
 await mkdir('report-qa-screenshots',{recursive:true});
@@ -25,11 +25,11 @@ for (const width of [390,768,1280]) {
       brokenAnchors:links.map(x=>x.hash.substring(1)).filter(id=>!ids.includes(id)),
       duplicatedIds:ids.filter((x,i)=>ids.indexOf(x)!==i),
       correctionVisible:document.body.textContent.includes('Primary-source correction (November 4, 2026)'),
-      draftLabel:document.body.textContent.includes('not approved for publication')
+      publicationLabel:document.body.textContent.includes('First Public Edition')&&document.body.textContent.includes('Findings remain subject to verification')
    };
  });
  if(checks.documentWidth>checks.viewportWidth+2)errors.push(`Report overflow at ${width}: ${JSON.stringify(checks)}`);
- if(checks.h1!==1||checks.main!==1||checks.tables!==3||checks.brokenAnchors.length||checks.duplicatedIds.length||!checks.correctionVisible||!checks.draftLabel)errors.push(`Report semantic check failed at ${width}: ${JSON.stringify(checks)}`);
+ if(checks.h1!==1||checks.main!==1||checks.tables!==3||checks.brokenAnchors.length||checks.duplicatedIds.length||!checks.correctionVisible||!checks.publicationLabel)errors.push(`Report semantic check failed at ${width}: ${JSON.stringify(checks)}`);
  if(runtime.length)errors.push(`Browser JS error ${runtime.join(',')}`);
  await page.screenshot({path:`report-qa-screenshots/report-${width}.png`,fullPage:true});
  console.log('Report at '+width,JSON.stringify(checks));
