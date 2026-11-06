@@ -7,7 +7,7 @@
   "counts": {
     "published_finding_entries": 12,
     "public_question_entries": 20,
-    "public_source_entries": 13
+    "public_source_entries": 14
   },
   "records": [
     {
@@ -22,10 +22,12 @@
       "units": null,
       "unit_definition": null,
       "source_ids": [
-        "SRC-071"
+        "SRC-060"
       ],
-      "source_pages": [],
-      "verification_level": "original checked in published findings",
+      "source_pages": [
+        "Mayor and Council Recap → Additional items → HUD Annual Action Plan"
+      ],
+      "verification_level": "October 9 City approval recap directly reviewed; implementation unverified",
       "publication_status": "ready with context",
       "as_of_date": "2026-11-03",
       "limitations": "Reported approval is not an executed award, draw, newly appropriated revenue, or verified project expenditure.",
@@ -49,8 +51,7 @@
       "units": 82,
       "unit_definition": "74 existing Craycroft apartments and 8 Lee Street apartments referenced in City notice; neither vacancy nor newly constructed units",
       "source_ids": [
-        "SRC-064",
-        "SRC-065"
+        "SRC-064"
       ],
       "source_pages": [],
       "verification_level": "agency notice reviewed in published findings",
@@ -136,6 +137,14 @@
       ]
     }
   ],
-  "updated_at": "2026-11-06T07:42:17-07:00",
-  "counts_scope": "Finding and source counts refer to the original indexed registers; additional dated sources are in research-updates.html#tracker-sources-2026-11-06. Question count includes Q-001 through Q-020."
+  "updated_at": "2026-11-06T14:41:18-07:00",
+  "counts_scope": "Finding and source counts refer to the current indexed registers; additional dated sources are in research-updates.html#tracker-sources-2026-11-06. Question count includes Q-001 through Q-020.",
+  "correction_history": [
+    {
+      "date": "2026-11-06",
+      "updated_at": "2026-11-06T14:41:18-07:00",
+      "correction": "Aligned approval-recap source with workbook SRC-060, removed unrelated SRC-065 from F-003 where present, and clarified memo attribution and indexed-source count where applicable. Historical figures and original source dates preserved.",
+      "public_note": "research-updates.html#audit-corrections-2026-11-06"
+    }
+  ]
 }

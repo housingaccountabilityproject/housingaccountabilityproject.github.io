@@ -40,9 +40,13 @@
         [
           "Q-006 — open records",
           "evidence.html#q-006"
+        ],
+        [
+          "Indexed approval recap",
+          "evidence.html#src-060"
         ]
       ],
-      "source": "F-001 / Q-006 · City communication"
+      "source": "SRC-060 · October 9, 2026 City approval recap"
     },
     {
       "id": "FUND-PUB-003",
@@ -356,7 +360,7 @@
       "status": "Approval reported; implementation open",
       "detail": "A planned reallocation changes categories without increasing total CDBG funding.",
       "limit": "Amended plan, HUD/IDIS entries, project commitments and actual draws.",
-      "source": "SRC-071",
+      "source": "SRC-071 (proposal) / SRC-060 (approval recap)",
       "links": [
         [
           "Open original Q record",
@@ -365,6 +369,10 @@
         [
           "Browse evidence index",
           "evidence.html#sources-section"
+        ],
+        [
+          "October 9 approval recap",
+          "evidence.html#src-060"
         ]
       ]
     },
@@ -581,7 +589,7 @@
       "group": "pbv hcv",
       "period": "2026–2027 plan years",
       "status": "Plan authority documented; contracts and placements unverified",
-      "detail": "Documented: The August 18, 2026 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. A later, October 30 memo estimates 181 planned voucher units across two phases. It does not establish an exact unit count for each phase.",
+      "detail": "Documented: The October 30, 2026 HCD memo reports that the August 18 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. The memo estimates 181 planned voucher units across two phases. The 120-unit statement is attributed to that memo, not independently established here from the August 18 plan. Neither figure establishes placements or an exact unit count for each phase.",
       "limit": "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed. Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
       "source": "Tracker sources 7",
       "source_links": [
@@ -711,7 +719,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-06T08:09:09-07:00",
+  "updated_at": "2026-11-06T14:41:18-07:00",
   "question_led_review": {
     "review_date": "2026-11-06",
     "scope": "Public-record research; unknown means not established by the records reviewed. Source dates differ.",
@@ -770,7 +778,7 @@
           "id": "el-portal-review-2026",
           "question": "What assistance is authorized for El Portal homes?",
           "statements": [
-            "Documented: The August 18, 2026 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. A later, October 30 memo estimates 181 planned voucher units across two phases. It does not establish an exact unit count for each phase.",
+            "Documented: The October 30, 2026 HCD memo reports that the August 18 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. The memo estimates 181 planned voucher units across two phases. The 120-unit statement is attributed to that memo, not independently established here from the August 18 plan. Neither figure establishes placements or an exact unit count for each phase.",
             "The memo forecasts about $1.15 million in additional annual rental revenue across both phases, subject to rent reasonableness. A second phase is anticipated in a subsequent plan year, subject to vouchers, program limits and required plan approvals.",
             "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed.",
             "Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
@@ -847,6 +855,12 @@
       "date": "2026-11-06",
       "correction": "Replaced recipient- and occupied-unit-identification requests with aggregate counts and public or redacted records; clarified small-group protection, outcome denominators and neutral question wording. Question IDs, source dates and documented figures are unchanged.",
       "corrected_at": "2026-11-06T08:09:09-07:00"
+    },
+    {
+      "date": "2026-11-06",
+      "updated_at": "2026-11-06T14:41:18-07:00",
+      "correction": "Aligned approval-recap source with workbook SRC-060, removed unrelated SRC-065 from F-003 where present, and clarified memo attribution and indexed-source count where applicable. Historical figures and original source dates preserved.",
+      "public_note": "research-updates.html#audit-corrections-2026-11-06"
     }
   ]
 }
