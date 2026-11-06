@@ -1,12 +1,12 @@
 {
   "schema_version": "0.1.0",
   "publication_scope": "development_preview_only",
-  "snapshot_date": "2026-11-03",
+  "snapshot_date": "2026-11-06",
   "generated_for": "Housing Accountability Project — Phase 0/1",
   "source_policy": "Curated, already-public claims only. Does not reflect full internal master or audit workbooks.",
   "counts": {
     "published_finding_entries": 12,
-    "public_question_entries": 11,
+    "public_question_entries": 20,
     "public_source_entries": 13
   },
   "records": [
@@ -95,12 +95,12 @@
     {
       "public_id": "F-007",
       "record_type": "finding",
-      "title": "PY2024 CDBG expenditure presentations",
+      "title": "PY2024 formula-CDBG expenditure reconciliation",
       "program": "CDBG",
       "jurisdiction": "City of Tucson",
       "period": "PY2024",
-      "measure_type": "cross-presentation arithmetic only",
-      "amount": 944972.6,
+      "measure_type": "formula-CDBG narrative-to-corrected-PR-26 arithmetic difference",
+      "amount": 1284589.71,
       "units": null,
       "unit_definition": null,
       "source_ids": [
@@ -111,17 +111,31 @@
         "CAPER PDF p. 148, City coding-adjustment explanation",
         "CAPER PDF p. 149, corrected PR-26"
       ],
-      "verification_level": "corrected PR-26 and CR-15 directly checked, accounting-scope bridge outstanding",
+      "verification_level": "Corrected PR-26, CR-15 narrative and OMB reporting scope checked; transaction bridge outstanding",
       "publication_status": "open question only",
-      "as_of_date": "2026-11-04",
-      "limitations": "Corrected PR-26 located in Tucson PY2024 CAPER (PDF p. 149). Different accounting-scope presentations remain unreconciled and do not imply missing funds, wrongdoing, or cash available for housing.",
+      "as_of_date": "2026-11-06",
+      "limitations": "This is not a finding of missing funds, currently available assistance or a cost per housing outcome. CDBG-CV is reported separately. The public-service-limit adjustment does not change total expenditures.",
       "linked_findings": [
         "F-007"
       ],
       "linked_questions": [
         "Q-007"
       ],
-      "page_url": "findings.html#f-007"
+      "page_url": "findings.html#f-007",
+      "source_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=149",
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=13",
+        "https://www.whitehouse.gov/wp-content/uploads/2025/05/Part-4-Department-of-Housing-and-Urban-Development-HUD.pdf#page=61"
+      ],
+      "correction_history": [
+        {
+          "date": "2026-11-06",
+          "previous_amount": 944972.6,
+          "correction": "Withdrew mixed formula-CDBG/CDBG-CV comparison. Standard PR-26 formula-CDBG total less formula narrative is $1,284,589.71; transaction explanation remains open."
+        }
+      ]
     }
-  ]
+  ],
+  "updated_at": "2026-11-06T07:42:17-07:00",
+  "counts_scope": "Finding and source counts refer to the original indexed registers; additional dated sources are in research-updates.html#tracker-sources-2026-11-06. Question count includes Q-001 through Q-020."
 }

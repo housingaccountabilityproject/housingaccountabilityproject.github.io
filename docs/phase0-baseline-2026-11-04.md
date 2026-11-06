@@ -1,4 +1,6 @@
 # Phase 0 — Baseline, evidence and publication controls
+
+**Correction added November 6, 2026:** This is a historical November 4 record. Its $944,972.60 mixed formula-CDBG/CDBG-CV comparison is superseded and withdrawn as a comparable spending gap. OMB guidance establishes separate reports. The current formula-CDBG difference is $1,284,589.71 and still needs transaction-level reconciliation; it is not a missing-money finding. See the [corrected public review](https://housingaccountabilityproject.github.io/research-updates.html#cdbg-review-2026-11-06).
 Date: 2026-11-04
 Repository: housingaccountabilityproject/housingaccountabilityproject.github.io
 Working branch: research-center-phase0-phase1-2026-11-04
