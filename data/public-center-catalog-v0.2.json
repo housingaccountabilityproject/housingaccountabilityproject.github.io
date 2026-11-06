@@ -711,7 +711,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-06T08:01:40-07:00",
+  "updated_at": "2026-11-06T08:09:09-07:00",
   "question_led_review": {
     "review_date": "2026-11-06",
     "scope": "Public-record research; unknown means not established by the records reviewed. Source dates differ.",
@@ -846,7 +846,7 @@
     {
       "date": "2026-11-06",
       "correction": "Replaced recipient- and occupied-unit-identification requests with aggregate counts and public or redacted records; clarified small-group protection, outcome denominators and neutral question wording. Question IDs, source dates and documented figures are unchanged.",
-      "corrected_at": "2026-11-06T08:01:40-07:00"
+      "corrected_at": "2026-11-06T08:09:09-07:00"
     }
   ]
 }
