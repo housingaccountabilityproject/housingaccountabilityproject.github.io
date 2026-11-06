@@ -250,7 +250,7 @@
   "questions": [
     {
       "id": "Q-001",
-      "title": "CDBG program income double count?",
+      "title": "How is CDBG program income included in reported resources?",
       "group": "cdbg",
       "period": "PY2024",
       "status": "Source arithmetic reproduced",
@@ -330,7 +330,7 @@
     },
     {
       "id": "Q-005",
-      "title": "Where is the final PY2025 CAPER and its omitted tables?",
+      "title": "Where can the final PY2025 CAPER and its supporting tables be verified?",
       "group": "caper",
       "period": "PY2025",
       "status": "Final records unconfirmed",
@@ -401,7 +401,7 @@
       "period": "PY2025 draft",
       "status": "Open cohort reconciliation",
       "detail": "Counts may describe different stages of construction or project populations.",
-      "limit": "Project IDs, construction dates, completion and occupancy milestones.",
+      "limit": "Project IDs, construction and completion dates, and nonduplicative aggregate unit and occupancy counts, with an explanation of how overlaps are removed.",
       "source": "SRC-024",
       "links": [
         [
@@ -421,7 +421,7 @@
       "period": "2025–2026",
       "status": "Contract and availability unverified",
       "detail": "39 proposed Amazon Flats and 82 allocated Craycroft/Lee Street PBVs do not establish open units.",
-      "limit": "Executed contracts, dated occupancy counts and referral rules.",
+      "limit": "Public or appropriately redacted contract records, dated aggregate unit and occupancy counts, and published referral rules.",
       "source": "SRC-034 / SRC-064 / SRC-065",
       "links": [
         [
@@ -481,7 +481,7 @@
       "period": "FY2026 / City FY2027–PY2026",
       "status": "Allocations verified; receipts and outcomes open",
       "detail": "Documented: HUD and the City plan agree on CDBG $4,962,047, HOME $3,061,840.81 for the Tucson/Pima consortium, ESG $448,998 and HOPWA $1,140,597, totaling $9,613,482.81. Forecast program income is separate: CDBG $200,000 and HOME $500,000. These are allocations and forecasts, not verified receipts or spending.",
-      "limit": "Unknown: How much has been received, committed or spent is not established by these allocations and forecasts. Next: Match receipts and spending to completed activities and the households served.",
+      "limit": "Unknown: How much has been received, committed or spent is not established by these allocations and forecasts. Next: Match receipts and spending to completed activities and aggregate household counts for the same reporting period.",
       "source": "Tracker sources 1, 2",
       "source_links": [
         "research-updates.html#tracker-source-1",
@@ -557,7 +557,7 @@
       "period": "2026",
       "status": "Governing budget and bedroom count unresolved",
       "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.",
-      "limit": "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million. Next: Confirm the governing budget and bedroom count, then document contracts, occupancy and resident access.",
+      "limit": "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.",
       "source": "Tracker sources 5, 6",
       "source_links": [
         "research-updates.html#tracker-source-5",
@@ -582,7 +582,7 @@
       "period": "2026–2027 plan years",
       "status": "Plan authority documented; contracts and placements unverified",
       "detail": "Documented: The August 18, 2026 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. A later, October 30 memo estimates 181 planned voucher units across two phases. It does not establish an exact unit count for each phase.",
-      "limit": "Unknown: Which homes have signed assistance contracts, and which residents receive the new assistance? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed. Next: Identify the units under signed contracts and verify dated placements, inspections and effective policies.",
+      "limit": "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed. Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
       "source": "Tracker sources 7",
       "source_links": [
         "research-updates.html#tracker-source-7"
@@ -606,7 +606,7 @@
       "period": "FY2026; measure-specific cohorts",
       "status": "Dated outcomes checked; exclusions and later outcomes open",
       "detail": "Documented: Housing First recorded 21 permanent-housing exits among 36 counted leavers (58.3%), after excluding eight of 44 leavers, and all 26 openings filled through Coordinated Entry for July 1, 2025–June 1, 2026. Separately, seven of 43 people in the June 1, 2024–June 1, 2025 permanent-housing exit cohort returned within 12 months (16.3%). These are different groups and periods; weighted scores are not housing-success percentages or evidence of underspending.",
-      "limit": "Unknown: The eight excluded destinations are not identified. Later outcomes and costs for the same people and period also remain unverified. Next: Obtain the destination breakdown and updated outcomes, keeping each group, period and cost comparison separate.",
+      "limit": "Unknown: The aggregate destination categories accounting for the eight excluded exits are not established. Later aggregate outcomes and costs for comparable groups and reporting periods also remain unverified. Next: Obtain an agency-prepared aggregate breakdown by broad destination category and updated outcome totals, with inclusion rules, denominators and reporting periods. Combine or suppress small groups where individuals could be identified; do not request participant records.",
       "source": "Tracker sources 8, 9",
       "source_links": [
         "research-updates.html#tracker-source-8",
@@ -626,7 +626,7 @@
     },
     {
       "id": "Q-018",
-      "title": "Why does the project cost table not add up?",
+      "title": "What explains the project-cost total and unit categories?",
       "group": "projects",
       "period": "November 2026",
       "status": "Cost total and unit categories unresolved",
@@ -674,7 +674,7 @@
     },
     {
       "id": "Q-020",
-      "title": "Which projects are behind the CoC funding decisions?",
+      "title": "Which projects do the CoC funding decisions concern?",
       "group": "coc",
       "period": "FY2026",
       "status": "Unnamed decisions; project identities unverified",
@@ -711,7 +711,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-06T07:42:17-07:00",
+  "updated_at": "2026-11-06T08:01:40-07:00",
   "question_led_review": {
     "review_date": "2026-11-06",
     "scope": "Public-record research; unknown means not established by the records reviewed. Source dates differ.",
@@ -728,7 +728,7 @@
             "HOPWA: $1,140,597 for housing assistance and services for low-income people with HIV/AIDS and their families.",
             "Together, the allocations total $9,613,482.81. The City separately forecasts $200,000 in CDBG income and $500,000 in HOME income. Each program has its own eligible uses and service area.",
             "Unknown: How much has been received, committed or spent is not established by these allocations and forecasts.",
-            "Next: Match receipts and spending to completed activities and the households served.",
+            "Next: Match receipts and spending to completed activities and aggregate household counts for the same reporting period.",
             "Source date: HUD FY2026 allocations; City plan May 2026, covering July 1, 2026–June 30, 2027. [1–2]"
           ],
           "public_id": "Q-012"
@@ -761,7 +761,7 @@
           "statements": [
             "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.",
             "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
-            "Next: Confirm the governing budget and bedroom count, then document contracts, occupancy and resident access.",
+            "Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.",
             "Source date: EPHD project page update August 6, 2026; presentation November 5, 2026, PDF pp. 12 and 31. [5–6]"
           ],
           "public_id": "Q-015"
@@ -772,8 +772,8 @@
           "statements": [
             "Documented: The August 18, 2026 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. A later, October 30 memo estimates 181 planned voucher units across two phases. It does not establish an exact unit count for each phase.",
             "The memo forecasts about $1.15 million in additional annual rental revenue across both phases, subject to rent reasonableness. A second phase is anticipated in a subsequent plan year, subject to vouchers, program limits and required plan approvals.",
-            "Unknown: Which homes have signed assistance contracts, and which residents receive the new assistance? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed.",
-            "Next: Identify the units under signed contracts and verify dated placements, inspections and effective policies.",
+            "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed.",
+            "Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
             "Source date: City memo October 30, 2026, pp. 1–2; it reports the August 18 plan approval. [7]"
           ],
           "public_id": "Q-016"
@@ -787,8 +787,8 @@
             "How were openings filled? All 26 recorded openings were filled through Coordinated Entry in the same period. That describes the referral route into those openings, not access for everyone waiting.",
             "Did people return to homelessness? Seven of 43 people who exited to permanent housing in the earlier June 1, 2024–June 1, 2025 period returned within 12 months, or 16.3%. This is a different group and reporting period.",
             "Housing First’s 50/100 and MDOT’s 10/40 are weighted scores, not housing-success percentages. Both programs were exempt from the grant-expenditure measure. Their scores do not establish underspending.",
-            "Unknown: The eight excluded destinations are not identified. Later outcomes and costs for the same people and period also remain unverified.",
-            "Next: Obtain the destination breakdown and updated outcomes, keeping each group, period and cost comparison separate.",
+            "Unknown: The aggregate destination categories accounting for the eight excluded exits are not established. Later aggregate outcomes and costs for comparable groups and reporting periods also remain unverified.",
+            "Next: Obtain an agency-prepared aggregate breakdown by broad destination category and updated outcome totals, with inclusion rules, denominators and reporting periods. Combine or suppress small groups where individuals could be identified; do not request participant records.",
             "Source date: TPCH scorecard July 13, 2026; FY2026 methodology pp. 24–26. Exact cells and definitions appear in sources 8–9."
           ],
           "public_id": "Q-017"
@@ -797,7 +797,7 @@
       "Questions and records": [
         {
           "id": "project-cost-table-2026",
-          "question": "Why does the project cost table not add up?",
+          "question": "What explains the project-cost total and unit categories?",
           "statements": [
             "Documented: The November EPHD presentation’s project-cost entries sum to 590.8; its printed total is 593.5. Several entries omit the millions label. Its 1,326-unit total includes projects at different stages and rehabilitation work.",
             "Unknown: The cost unit and total need clarification. The unit total alone does not show how many new homes were completed.",
@@ -817,7 +817,7 @@
         },
         {
           "id": "unnamed-coc-decisions-2026",
-          "question": "Which projects are behind the CoC funding decisions?",
+          "question": "Which projects do the CoC funding decisions concern?",
           "statements": [
             "Documented: The FY2026 Continuum of Care application describes a 50% funding reallocation from one unnamed first-year project. Another unnamed project retained funding after documenting spending despite a lockout from HUD’s payment system.",
             "Unknown: The passage names neither project and cannot be attributed to Housing First or MDOT. Final awards and implementation remain unverified.",
@@ -840,5 +840,13 @@
       ]
     },
     "sources_page": "research-updates.html#tracker-sources-2026-11-06"
-  }
+  },
+  "resident_privacy_policy": "Resident outcomes are researched through aggregate counts, reporting periods, inclusion rules and denominators. We do not seek resident names, occupied-unit identifiers, tenant rosters or individual case files. Use public or appropriately redacted records and combine or suppress small groups whenever totals or linked information could identify someone. Project and agency identities remain part of public accountability.",
+  "correction_history": [
+    {
+      "date": "2026-11-06",
+      "correction": "Replaced recipient- and occupied-unit-identification requests with aggregate counts and public or redacted records; clarified small-group protection, outcome denominators and neutral question wording. Question IDs, source dates and documented figures are unchanged.",
+      "corrected_at": "2026-11-06T08:01:40-07:00"
+    }
+  ]
 }

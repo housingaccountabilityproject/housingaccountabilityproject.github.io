@@ -30,6 +30,8 @@ This document describes a **curated publication extract**, not the research mast
 7. All visible public numbers should trace to stable records and preserve a clear "as of" date.
 8. Preserve all old publication pages and anchors unless redirects are installed and verified.
 
+9. Resident outcomes are researched through aggregate counts, reporting periods, inclusion rules and denominators. We do not seek resident names, occupied-unit identifiers, tenant rosters or individual case files. Use public or appropriately redacted records and combine or suppress small groups whenever totals or linked information could identify someone. Project and agency identities remain part of public accountability.
+
 ## Current preview boundary
 The initial JSON contains four already-published research findings only. It is an example of structured data, not a verified financial dataset for the broader region. Its source IDs, where available, are pointers to the site's existing evidence register, and source page details still require review before expanded release.
 
