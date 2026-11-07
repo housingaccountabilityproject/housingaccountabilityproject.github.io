@@ -44,5 +44,33 @@ for(const width of [390,768,1280]) {
  assert((await page.locator('#counts').textContent()).includes('49 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
-console.log('PASS: all pages desktop/tablet/mobile overflow/landmarks, reader-panel text contrast, search flows, details, screenshots and no JS errors.');
+// The homepage title must reflow without reducing its existing font sizes.
+for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zoom:2},{width:640,zoom:1}]) {
+ const page=await browser.newPage({viewport:{width,height:900}});
+ await page.route(/^https?:/,route=>route.abort());
+ await page.goto(pathToFileURL(resolve('index.html')).href);
+ if(zoom!==1)await page.evaluate(z=>{document.body.style.zoom=String(z)},zoom);
+ const heading=page.getByRole('heading',{level:1});
+ assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where do housing funds go? What do they deliver?');
+ const metrics=await heading.evaluate(el=>{
+  const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);
+  return {font:parseFloat(getComputedStyle(el).fontSize),color:getComputedStyle(el).color,
+   overflow:document.documentElement.scrollWidth>innerWidth+2,
+   clipped:[...range.getClientRects()].some(r=>r.left<box.left-1||r.right>box.right+1||r.bottom>box.bottom+1),
+   lines:new Set([...range.getClientRects()].filter(r=>r.width>0).map(r=>Math.round(r.top))).size};
+ });
+ assert(!metrics.overflow,`Home overflow at ${width}, zoom ${zoom}`);
+ assert(!metrics.clipped,`Heading clipped at ${width}, zoom ${zoom}`);
+ assert(metrics.font>=34);assert.equal(metrics.color,'rgb(255, 255, 255)');
+ if(width===1280&&zoom===1)assert.equal(metrics.lines,2,'Desktop headline should have two lines');
+ await page.screenshot({path:`reader-qa-screenshots/home-heading-${width}-zoom-${zoom}.png`,fullPage:true});
+ const more=page.locator('nav .more-nav'),summary=more.locator('summary');
+ await summary.focus();await page.keyboard.press('Enter');assert.notEqual(await more.getAttribute('open'),null);
+ await page.keyboard.press('Enter');assert.equal(await more.getAttribute('open'),null);
+ await summary.click();await more.getByRole('link',{name:'Research Findings',exact:true}).click();
+ assert(page.url().endsWith('/findings.html'));await page.goBack();assert(page.url().endsWith('/index.html'));
+ console.log('Homepage heading and keyboard navigation',JSON.stringify({width,zoom,...metrics}));
+ await page.close();
+}
+console.log('PASS: all pages desktop/tablet/mobile overflow/landmarks, reader-panel text contrast, search flows, details, homepage 320px reflow and 200% CSS zoom, screenshots and no JS errors.');
 } finally {await browser.close();}
