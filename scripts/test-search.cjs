@@ -14,6 +14,14 @@ const document={getElementById:id=>elements[id],createElement:tag=>new Element(t
 const context={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/search-index.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),context);
 const data=context.window.HAP_SEARCH_INDEX.records;const query=(q,category='all')=>{elements['site-query'].value=q;elements['search-category'].value=category;let prevented=false;elements['site-search-form'].events.submit({preventDefault(){prevented=true;}});assert(prevented);return elements['search-results'].children;};
 assert.match(elements['search-status'].textContent,/15 published pages/);
+for(const r of data){assert(!['catalog-empty','catalog-count','empty','count'].includes(r.url.split('#')[1]),r.url);assert(!r.text.includes('No matching records'),r.url);}
+for(const [term,url,title] of [
+ ['"Tucson House Renovation"','housing-projects.html#project-pub-005','Tucson House Renovation'],
+ ['"Housing Choice Vouchers"','funding-explorer.html#fund-pub-007','Housing Choice Vouchers — Reported Funding Comparisons'],
+ ['"Which Projects Do the CoC Funding Decisions Concern"','questions-records.html#q-020','Which Projects Do the CoC Funding Decisions Concern?']
+]){const matches=query(term);assert(matches.some(x=>x.querySelector('a').href===url&&x.querySelector('a').textContent===title),term);}
+
+const reportResults=query('','Report');assert(reportResults.length>0);assert(reportResults.every(x=>x.children[0].textContent.includes('First edition, November 4; later corrections retained')));
 let results=query('F-007','Findings');assert(results.length>=1);assert.equal(results[0].querySelector('a').href,'findings.html#f-007');assert.equal(results[0].querySelector('a').textContent,'What Still Needs Explaining in CDBG Spending?');assert(!results[0].className.includes('historical'));
 results=query('Q-007','Evidence');assert(results.some(x=>x.querySelector('a').href==='evidence.html#q-007'));
 for(const q of ['"El Portal"','SRC-094','1,284,589.71','CDBG formula','housing help'])assert(query(q).length>0,q);

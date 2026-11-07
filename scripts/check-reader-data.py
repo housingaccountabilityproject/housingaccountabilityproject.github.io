@@ -27,7 +27,15 @@ index=json.loads(idx);expected=set(pages)-{'search.html'}
 assert set(x['page'] for x in index['coverage'])==expected
 for r in index['records']:
  path,_,anchor=r['url'].partition('#');assert path in expected
- if anchor:assert pages[path].xpath('//*[@id=$id]',id=anchor),r['url']
+ if anchor:
+  targets=pages[path].xpath('//*[@id=$id]',id=anchor);assert targets,r['url']
+  target=targets[0]
+  for e in [target,*target.iterancestors()]:
+   assert e.tag not in {'label','input','select','button','form','nav','template'},('UI search target',r['url'])
+   assert e.get('role') not in {'status','navigation','search'},('UI search target',r['url'])
+   assert 'hidden' not in e.attrib and e.get('aria-hidden')!='true',('hidden search target',r['url'])
+   assert not set(e.get('class','').split()) & {'toolbar','subnav','counter','empty','empty-state'},('UI search target',r['url'])
+  assert anchor not in {'catalog-empty','catalog-count','empty','count'},('UI search target',r['url'])
 assert any('Q-020' in x['text'] for x in index['records'])
 assert any('SRC-094' in x['text'] for x in index['records'])
 assert any('1,284,589.71' in x['text'] for x in index['records'])
@@ -46,6 +54,8 @@ for e in entries:
  assert aid not in ['verified-funding-2026-11-05','audit-2026-11-03','cdbg-review-2026-11-05']
  content=html.fromstring(get('content'))
  assert all(urlsplit(x).scheme in ('http','https','mailto') for x in content.xpath('.//a/@href'))
+# Generator fixture tests exercise UI removal without touching public artifacts.
+subprocess.run(['python','scripts/test-search-data.py'],cwd=ROOT,check=True)
 # Generated output must be deterministic.
 old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json']}
 subprocess.run(['python','scripts/build-reader-data.py'],cwd=ROOT,check=True)

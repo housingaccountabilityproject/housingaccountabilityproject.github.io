@@ -23,4 +23,19 @@ function apply(){
 search.addEventListener('input',apply);
 filter.addEventListener('change',apply);
 apply();
+// A stable question/project URL must reveal its record, including historical aliases.
+function revealAnchor(hash){
+ let id;try{id=decodeURIComponent((hash||'').replace(/^#/,''));}catch{return;}
+ const target=document.getElementById(id);
+ const card=target&&target.closest('[data-catalog-entry]');
+ if(!card)return;
+ if(card.hidden){search.value='';filter.value='';apply();}
+ requestAnimationFrame(()=>card.scrollIntoView({block:'start'}));
+}
+window.addEventListener('hashchange',()=>revealAnchor(location.hash));
+document.addEventListener('click',event=>{
+ const link=event.target.closest('a[href^="#"]');
+ if(link)revealAnchor(link.getAttribute('href'));
+});
+revealAnchor(location.hash);
 })();
