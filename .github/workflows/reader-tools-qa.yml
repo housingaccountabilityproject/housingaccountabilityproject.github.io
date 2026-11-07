@@ -1,0 +1,45 @@
+name: Reader tools regression checks
+on:
+  pull_request:
+    paths:
+      - '**.html'
+      - 'assets/**'
+      - 'data/**'
+      - 'feed.xml'
+      - 'scripts/**'
+      - 'requirements-dev.txt'
+      - '.github/workflows/reader-tools-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reader-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/check-reader-data.py
+      - run: python scripts/check-reader-contrast.py
+      - run: node scripts/test-search.cjs
+      - name: Ensure generated files are committed
+        run: git diff --exit-code -- assets/search-index.js data/search-coverage.json feed.xml
+      - name: Install browser runner
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - run: node scripts/reader-browser-test.mjs
+      - run: node scripts/report-smoke-test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-tools-browser-qa
+          path: |
+            reader-qa-screenshots/
+            report-qa-screenshots/
+          if-no-files-found: ignore

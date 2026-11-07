@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "scope": "Mapping of existing published public citations; not a new source-content verification.",
+  "source_dates_through": "2026-11-06",
+  "resident_privacy": "Aggregate counts and appropriately redacted public records only. No resident names, occupied-unit identifiers, tenant rosters or individual case files; combine or suppress identifiable small groups.",
+  "tracker_to_source": {
+    "1": "SRC-074",
+    "2": "SRC-075",
+    "3": "SRC-076",
+    "4": "SRC-077",
+    "5": "SRC-078",
+    "6": "SRC-079",
+    "7": "SRC-080",
+    "8": "SRC-081",
+    "9": "SRC-082",
+    "10": "SRC-083",
+    "11": "SRC-023",
+    "12": "SRC-040",
+    "13": "SRC-084",
+    "14": "SRC-085",
+    "15": "SRC-086"
+  },
+  "sources": [
+    {
+      "public_id": "County FY27 Q1 memo",
+      "title": "One Pima Initiative: Fiscal Year 27 First Quarter Update",
+      "period": "FY2027 Q1",
+      "topic": "cdbg county",
+      "source_context": "Memo dated November 5, 2026, pages 2–3.",
+      "limitations": "Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse.",
+      "urls": [
+        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2",
+        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+      ],
+      "citation_url": "research-updates.html#county-housing-fy27-q1-2026-11-06",
+      "aliases": [],
+      "page_url": "evidence.html#county-fy27-q1-source",
+      "mapping_basis": "Carried forward from published County update f69fd33af440c114402f2179f3d18d768a8c9ef3; no new source-content verification.",
+      "review_attribution": "Published November 6, 2026 at 4:48 p.m. MST (Tucson)."
+    },
+    {
+      "public_id": "SRC-023",
+      "aliases": [],
+      "title": "PY2024 CAPER and corrected PR-26 / PR-91",
+      "period": "PY2024",
+      "review_scope": "Corrected Tucson PR-26 and CR-15 narrative rechecked November 6, 2026; broader CAPER verification remains selective  The City CAPER includes its prior-year coding adjustment explanation on PDF page 148, the corrected Tucson PR-26 Financial Summary on page 149 and supporting detail on page 150. The original PR-26 shows $4,717,936.37 in expenditures and $349,468 in current-year program income. Other schedules, including PR-91 details, are not all re-verified in this update.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf"
+      ],
+      "page_url": "evidence.html#src-023",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-024",
+      "aliases": [
+        "SRC-061",
+        "SRC-073"
+      ],
+      "title": "PY2025 CAPER public-comment draft (also indexed as SRC-061 / SRC-073)",
+      "period": "PY2025 · Jul 2025–Jun 2026",
+      "review_scope": "Original City PDF selectively reviewed  Original City draft PDF opened; selected pages checked; NOT the final report",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+      ],
+      "page_url": "evidence.html#src-024",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-025",
+      "aliases": [],
+      "title": "FY2027/PY2026 Annual Action Plan notice (draft-stage link)",
+      "period": "PY2026 · City FY2027",
+      "review_scope": "Agency notice checked; plan tables not rechecked  Official City announcement and plan index located; original numeric tables not independently rechecked in this release The linked announcement points to a public-comment draft, not a certified final plan.",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Fiscal-Year-2027-PY2026-TucsonPima-Annual-Action-Plan"
+      ],
+      "page_url": "evidence.html#src-025",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-026",
+      "aliases": [],
+      "title": "Proposed substantial amendment to PY2026 AAP",
+      "period": "PY2026",
+      "review_scope": "Proposal located; implementation not checked  Proposal identified; superseded for City adoption status by October 6 council action; HUD implementation remains unverified",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Plans"
+      ],
+      "page_url": "evidence.html#src-026",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-027",
+      "aliases": [],
+      "title": "Tucson–Pima HOME-ARP Allocation Plan",
+      "period": "HOME-ARP · historical",
+      "review_scope": "Agency link identified; document not rechecked  Official document link located; current approved amendments and spending remain to be checked",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson-pima_county_home-arp_allocation_plan.pdf"
+      ],
+      "page_url": "evidence.html#src-027",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-029",
+      "aliases": [],
+      "title": "2024 HCD Annual Report",
+      "period": "2024",
+      "review_scope": "Official PDF linked in City reports directory  The City lists this report, but it has not been independently analyzed for this index.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf"
+      ],
+      "page_url": "evidence.html#src-029",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-036",
+      "aliases": [
+        "SRC-038"
+      ],
+      "title": "October 6 council action: Resolution 24188",
+      "period": "PY2026 · adopted Oct 6, 2026",
+      "review_scope": "City communication reviewed; minutes not independently replayed  An October 9 City Council member update confirms approval of a $1.5 million CDBG reallocation. The workbook also references Resolution 24188; HUD implementation and actual expenditures remain open.",
+      "urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627",
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+      ],
+      "page_url": "evidence.html#src-036",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-040",
+      "aliases": [],
+      "title": "AZ-501 / TPCH FY2026 CoC priority listing",
+      "period": "FY2026 CoC competition",
+      "review_scope": "Selected pages rechecked November 6, 2026  PDF page 17 names Housing First PSH for partial reallocation; page 36 gives the $22,827,346 total request. These are submitted requests, not final HUD awards. See the  named reallocation  and  total request . Other pages have not all been reverified.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf"
+      ],
+      "page_url": "evidence.html#src-040",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-034",
+      "aliases": [
+        "SRC-070"
+      ],
+      "title": "City PBV program / historical RFP results",
+      "period": "Multiple years",
+      "review_scope": "City PBV page identified; status not independently rechecked  Useful program background only; historical award lists are not a current vacancy or HAP-contract register The current PBV award and availability status is not established here.",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Project-Based-Vouchers"
+      ],
+      "page_url": "evidence.html#src-034",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-064",
+      "aliases": [],
+      "title": "Craycroft Towers and Lee Street PBV conversion notice",
+      "period": "Aug 2026",
+      "review_scope": "Original City notice directly reviewed  Official City HTML notice checked; 82 PBVs allocated in project notice; neither HAP execution nor vacancy checked",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Copy-of-Notice-of-Intent-to-Request-Release-of-Funds-August-2026-"
+      ],
+      "page_url": "evidence.html#src-064",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-065",
+      "aliases": [],
+      "title": "Amazon Flats proposed PBV/HOME release-of-funds notice",
+      "period": "Dec 2025",
+      "review_scope": "Original City notice directly reviewed  Official City notice checked; 39 proposed PBVs for 59 units; no current availability established",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Intent-to-Request-Release-of-Funds-for-Project-Based-Vouchers"
+      ],
+      "page_url": "evidence.html#src-065",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-071",
+      "aliases": [],
+      "title": "City notice for PY2025 CAPER and proposed CDBG amendment",
+      "period": "Aug 31, 2026",
+      "review_scope": "Original City notice directly reviewed  Official announcement checked; establishes public-comment timetable and proposal wording, not final HUD implementation",
+      "urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
+      ],
+      "page_url": "evidence.html#src-071",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-060",
+      "aliases": [],
+      "title": "City Ward 6 Mayor and Council recap: FY27 HUD Annual Action Plan adjustment",
+      "period": "Oct 9, 2026",
+      "review_scope": "Original City recap directly reviewed  Reports Council approval of the $1.5 million category transfer; distinct from the August 31 proposal notice (SRC-071). Does not establish HUD/IDIS implementation or expenditure.",
+      "urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627"
+      ],
+      "page_url": "evidence.html#src-060",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-QC31-06",
+      "aliases": [],
+      "title": "HUD CPD Public System (alternate CAPER verification route)",
+      "period": "Ongoing lookup",
+      "review_scope": "HUD portal identified; final filing not located  Official portal identified; a specific Tucson PY2025 final document or submission date has NOT been obtained An unresolved lookup does not establish non-submission.",
+      "urls": [
+        "https://cpd.hud.gov/cpd-public/consolidated-plans"
+      ],
+      "page_url": "evidence.html#src-qc31-06",
+      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+    },
+    {
+      "public_id": "SRC-074",
+      "title": "HUD FY2026 formula allocations",
+      "period": "FY2026",
+      "topic": "cdbg home esg hopwa",
+      "source_context": "Tucson row 41. HUD fiscal-year allocation file.",
+      "limitations": "Allocations, not verified receipts, spending or outcomes.",
+      "urls": [
+        "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx"
+      ],
+      "citation_url": "research-updates.html#tracker-source-1",
+      "aliases": [],
+      "page_url": "evidence.html#src-074",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-075",
+      "title": "Tucson and Pima Annual Action Plan",
+      "period": "PY2026",
+      "topic": "cdbg home esg hopwa",
+      "source_context": "May 2026; FY2027/PY2026, July 1, 2026–June 30, 2027. Cover and AP-15, PDF pp. 29–32. The URL retains an older filename.",
+      "limitations": "Later plan version; subject to HUD review and approval. Forecast program income is not collected revenue; HOME covers the consortium.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-2",
+      "aliases": [],
+      "page_url": "evidence.html#src-075",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-076",
+      "title": "Arizona Finance Authority volume cap tracker",
+      "period": "other",
+      "topic": "bonds",
+      "source_context": "October 7, 2026; project BX260130022, PDF p. 1.",
+      "limitations": "Financing capacity, not grant funding or closed financing. Blank closing fields in this dated snapshot do not establish current status.",
+      "urls": [
+        "https://afa.az.gov/sites/default/files/users/user21/2026%20Volume%20Cap%20Tracking%2010.7.2026.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-3",
+      "aliases": [],
+      "page_url": "evidence.html#src-076",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-077",
+      "title": "Tucson Council agenda",
+      "period": "other",
+      "topic": "bonds",
+      "source_context": "November 4, 2026; item 7(j), proposed Resolution 24206. Agenda status only.",
+      "limitations": "Agenda proposal only; adoption, bond issuance and proceeds received remain unverified.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeeting?doctype=1&id=1962"
+      ],
+      "citation_url": "research-updates.html#tracker-source-4",
+      "aliases": [],
+      "page_url": "evidence.html#src-077",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-078",
+      "title": "EPHD Craycroft Towers project page",
+      "period": "other",
+      "topic": "pbv projects",
+      "source_context": "Latest dated update reviewed: August 6, 2026.",
+      "limitations": "Project-page update, not proof of completed rehabilitation, signed HAP contracts or current vacancies.",
+      "urls": [
+        "https://www.elpueblohousing.org/home/craycrofttowers"
+      ],
+      "citation_url": "research-updates.html#tracker-source-5",
+      "aliases": [],
+      "page_url": "evidence.html#src-078",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-079",
+      "title": "EPHD project and board presentation",
+      "period": "other",
+      "topic": "projects pbv",
+      "source_context": "November 5, 2026; PDF pp. 12 and 31.",
+      "limitations": "Reported project estimates and units; bedroom totals and cost versions need reconciliation. Not verified final cost or outcomes.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/ephd-project-and-board-presentation-for-cehd-november-2026-1.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-6",
+      "aliases": [],
+      "page_url": "evidence.html#src-079",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-080",
+      "title": "El Portal operating policies memo",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "October 30, 2026; PDF pp. 1–2. Page 2 reports the August 18 PHA plan approval, the up-to-120 limit for the 2026 plan year and 181 planned across two phases; the memo is the source of those figures, not a placement count.",
+      "limitations": "The memo reports the August 18 approval and up-to-120 limit; 181 is planned across phases, not verified placements or vacancies.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/el-portal-operating-policies-cehd-memo-10.30.26.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-7",
+      "aliases": [],
+      "page_url": "evidence.html#src-080",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-081",
+      "title": "TPCH FY2026 performance scorecard",
+      "period": "FY2026",
+      "topic": "coc",
+      "source_context": "Final July 13, 2026; Data Back Up D7:H7 (exits), AA7:AC7 (returns), BC7:BF7 (referrals); definitions in rows 3–4. FY 26 Scorecard O18:O21 and T18:T21 (points and exemptions).",
+      "limitations": "Measure-specific cohorts and exclusions apply; exits and returns use different periods. Grant-expenditure exemptions do not establish underspending.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/TPCH-FY-2026-CoC-Performance-Score-Card-Final-7.13.26.xlsx"
+      ],
+      "citation_url": "research-updates.html#tracker-source-8",
+      "aliases": [],
+      "page_url": "evidence.html#src-081",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-082",
+      "title": "TPCH FY2026 competition methodology",
+      "period": "FY2026",
+      "topic": "coc",
+      "source_context": "FY2026, version 1; pp. 24–26. Reporting periods differ by measure.",
+      "limitations": "Definitions and reporting periods vary by measure; use matched denominators and aggregate counts.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/TPCH-FY-2026-NOFO-Competition-Overview-Instructions-and-Process-v1.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-9",
+      "aliases": [],
+      "page_url": "evidence.html#src-082",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-083",
+      "title": "FY2026 CoC consolidated application",
+      "period": "FY2026",
+      "topic": "coc",
+      "source_context": "September 28, 2026; PDF p. 44.",
+      "limitations": "The 50% reallocation case is unnamed. This passage does not identify it as Housing First or MDOT or establish final awards.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Consolidated-Application-APPROVED.pdf"
+      ],
+      "citation_url": "research-updates.html#tracker-source-10",
+      "aliases": [],
+      "page_url": "evidence.html#src-083",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-084",
+      "title": "TPCH submission confirmation",
+      "period": "FY2026",
+      "topic": "coc",
+      "source_context": "CoC Priority Listing and CoC Application FY2026 show submission on September 29, 2026.",
+      "limitations": "Submission confirmation, not HUD award or funding received.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/submission-confirmation.jpg"
+      ],
+      "citation_url": "research-updates.html#tracker-source-13",
+      "aliases": [],
+      "page_url": "evidence.html#src-084",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-085",
+      "title": "HUD CoC notice of waiver",
+      "period": "FY2026",
+      "topic": "coc",
+      "source_context": "November 3, 2026; Federal Register p. 69268, PDF p. 2. States the congressional December 1, 2026 award deadline.",
+      "limitations": "States the congressional December 1, 2026 award deadline; does not establish a local award outcome.",
+      "urls": [
+        "https://www.govinfo.gov/content/pkg/FR-2026-11-03/pdf/2026-22417.pdf#page=2"
+      ],
+      "citation_url": "research-updates.html#tracker-source-14",
+      "aliases": [],
+      "page_url": "evidence.html#src-085",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-086",
+      "title": "OMB 2025 Compliance Supplement",
+      "period": "other",
+      "topic": "cdbg",
+      "source_context": "HUD, CDBG reporting, printed p. 4-14.218-28, PDF p. 61. Separate PR-26 reports for annual formula grants and CARES Act grants.",
+      "limitations": "Separates formula-CDBG and CDBG-CV reports. Does not reconcile Tucson transactions or establish missing funds.",
+      "urls": [
+        "https://www.whitehouse.gov/wp-content/uploads/2025/05/Part-4-Department-of-Housing-and-Urban-Development-HUD.pdf#page=61"
+      ],
+      "citation_url": "research-updates.html#tracker-source-15",
+      "aliases": [],
+      "page_url": "evidence.html#src-086",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-087",
+      "title": "PHA August 18 Legal Action Report",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "August 18, 2026; PHA2026-56 as amended.",
+      "limitations": "Records an 8–0 plan-change vote. El Portal’s up-to-120 figure is attributed separately to the October 30 memo.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeeting?id=1981&doctype=2"
+      ],
+      "citation_url": "research-updates.html#housing-plans-2026-11-05-0839",
+      "aliases": [],
+      "page_url": "evidence.html#src-087",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-088",
+      "title": "El Portal operating policies draft",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "October 22, 2026 package; PDF pp. 3 and 5.",
+      "limitations": "Marked REVIEW AND APPROVAL DRAFT. December 1 effective date and 70 or more additional units in 2027 are proposals; adoption is not established.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/ep-operating-policies-package-10.22.26.pdf"
+      ],
+      "citation_url": "research-updates.html#housing-plans-2026-11-05-0839",
+      "aliases": [],
+      "page_url": "evidence.html#src-088",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-089",
+      "title": "Craycroft Towers environmental review",
+      "period": "other",
+      "topic": "projects pbv",
+      "source_context": "August 2026 environmental review; PDF p. 4.",
+      "limitations": "The $33,894,857 estimate is not verified final spending; relationship to November estimates remains open.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/2026-8-3-craycroft-towers-err-web.pdf"
+      ],
+      "citation_url": "research-updates.html#housing-plans-2026-11-05-0839",
+      "aliases": [],
+      "page_url": "evidence.html#src-089",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-090",
+      "title": "Community Preference Policy engagement update",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "November 5, 2026 Community Preference Policy engagement update; PDF pp. 3 and 10.",
+      "limitations": "Reports no established policy or predetermined design; May–June 2027 is a recommendation target, not a current applicant preference.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/2026.11.05_cpp-engagement-update_cehd.pdf"
+      ],
+      "citation_url": "research-updates.html#housing-plans-2026-11-05-0839",
+      "aliases": [],
+      "page_url": "evidence.html#src-090",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-091",
+      "title": "CEHD regular meeting agenda",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "November 5, 2026 CEHD agenda; meeting listed for 4–6 p.m. Tucson time.",
+      "limitations": "Agenda does not establish meeting outcomes or adoption of proposals.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/2026.11.5-cehd-regular-agenda.pdf"
+      ],
+      "citation_url": "research-updates.html#housing-plans-2026-11-05-0839",
+      "aliases": [],
+      "page_url": "evidence.html#src-091",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-092",
+      "title": "Pima County’s February 17 funding announcement",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "February 17, 2026; “Existing, preservation.”",
+      "limitations": "Reports a $500,000 approved County award for preservation of 82 Craycroft/Lee Street apartments; not verified disbursement, completed work or vacancies.",
+      "urls": [
+        "https://content.govdelivery.com/accounts/AZPIMA/bulletins/40a43d2"
+      ],
+      "citation_url": "research-updates.html#verified-funding-2026-11-05",
+      "aliases": [],
+      "page_url": "evidence.html#src-092",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-093",
+      "title": "HUD CDBG-CV PR-26 instructions",
+      "period": "other",
+      "topic": "cdbg",
+      "source_context": "CDBG-CV instructions; PDF p. 2.",
+      "limitations": "Cumulative life-of-grant reporting guidance, not a transaction reconciliation of Tucson’s formula-CDBG figures.",
+      "urls": [
+        "https://www.hud.gov/sites/dfiles/CPD/documents/CDBG-CV-PR26-Instructions-with-AltText.pdf"
+      ],
+      "citation_url": "research-updates.html#verified-funding-2026-11-05",
+      "aliases": [],
+      "page_url": "evidence.html#src-093",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+    },
+    {
+      "public_id": "SRC-094",
+      "title": "March FY2027 plan draft",
+      "period": "PY2026",
+      "topic": "cdbg home esg hopwa",
+      "source_context": "March 2026 public-comment draft; FY2027/PY2026.",
+      "limitations": "Earlier planning version. Differences from the later plan do not establish spending discrepancies.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/py2026-annual-action-plan-public-comment-draft.pdf"
+      ],
+      "citation_url": "research-updates.html#audit-2026-11-03",
+      "aliases": [],
+      "page_url": "evidence.html#src-094",
+      "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
+      "review_attribution": "Existing site review dated November 5–6, 2026; March draft referenced in November 3 review."
+    }
+  ],
+  "unmapped_links": [
+    {
+      "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Reports",
+      "reason": "General navigation directory; individual CAPER and annual-report documents retain their own IDs. No new document ID assigned."
+    }
+  ]
+}

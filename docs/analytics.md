@@ -12,7 +12,9 @@ The standard asynchronous GoatCounter script is included once before `</body>` o
 <script data-goatcounter="https://housingaccountabilityproject.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 ```
 
-Dashboard visibility is restricted to logged-in users. Individual pageview exports, browser/system details, screen size, region and language collection are disabled. Aggregate sessions, referrers/campaigns and country-level counts remain enabled. GoatCounter uses no tracking cookies; its documentation describes short-lived visitor deduplication: https://www.goatcounter.com/help/sessions
+Configuration inspected read-only on November 6, 2026: dashboard visibility is restricted to logged-in users. Individual pageview storage for exports and language collection are disabled. Aggregate sessions (up to 8 hours), referrers/campaign parameters, browser/system, screen size, country and region collection are enabled. Regions are restricted to US, RU and CN. Retention is set to 0 (never delete). Visitor-count embedding is unchecked. No settings were changed.
+
+This corrects the earlier repository note claiming browser/system, screen size and region collection were disabled. The public wording in `privacy.html` reflects the inspected configuration. Disabled individual-pageview export storage is not a claim that no aggregate export or session processing exists. Do not claim anonymity, no personal data or no cookies solely from these settings.
 
 Campaign links may use `utm_source`, `utm_medium` and `utm_campaign`. Do not put personal information in campaign values. Use the dashboard's Campaigns view to check results; visits blocked by browsers/ad blockers are not counted, so counts are estimates.
 
