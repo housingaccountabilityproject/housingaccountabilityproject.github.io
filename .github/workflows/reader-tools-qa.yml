@@ -35,6 +35,7 @@ jobs:
           npx playwright install --with-deps chromium
       - run: node scripts/reader-browser-test.mjs
       - run: node scripts/report-smoke-test.mjs
+      - run: node scripts/organization-browser-test.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -42,4 +43,5 @@ jobs:
           path: |
             reader-qa-screenshots/
             report-qa-screenshots/
+            organization-qa-screenshots/
           if-no-files-found: ignore

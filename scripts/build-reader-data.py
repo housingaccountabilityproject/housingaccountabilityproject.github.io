@@ -9,18 +9,31 @@ import json,re
 ROOT=Path(__file__).resolve().parents[1]
 SITE='https://housingaccountabilityproject.github.io/'
 CATEGORIES={'findings.html':'Findings','research-updates.html':'Updates','questions-records.html':'Questions','evidence.html':'Evidence','funding-explorer.html':'Funding','housing-projects.html':'Projects','reports/tucson-housing-funding-outcomes-2026.html':'Report'}
+EDITION_LABELS={'reports/tucson-housing-funding-outcomes-2026.html':'First edition, November 4; later corrections retained'}
 HISTORICAL={'verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
 def clean(s):return ' '.join(s.split())
 def write(path,content):
  f=ROOT/path;f.parent.mkdir(parents=True,exist_ok=True);f.write_text(content,encoding='utf-8')
+# Exclude interface text, not collapsed research disclosures. Closed <details>
+# remain searchable: historical wording and source limitations live inside them.
+UI_TAGS={'script','style','nav','form','button','select','input','textarea','label','noscript','template'}
+UI_ROLES={'status','navigation','search','button','combobox','listbox','textbox'}
+UI_CLASSES={'toolbar','subnav','counter','empty','empty-state','filter-controls','search-controls'}
+def is_search_ui(e):
+ if not isinstance(e.tag,str):return True
+ style=e.get('style','').lower()
+ return (e.tag in UI_TAGS or e.get('role','').lower() in UI_ROLES
+         or 'hidden' in e.attrib or e.get('aria-hidden','').lower()=='true'
+         or bool(set(e.get('class','').split()) & UI_CLASSES)
+         or bool(re.search(r'(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\s*(?:!important\s*)?(?:;|$)',style)))
 records=[];coverage=[]
 for p in sorted([*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]):
  rel=p.relative_to(ROOT).as_posix()
  if p.name.startswith('google') or p.name=='search.html':continue
  doc=html.parse(str(p)); main=doc.xpath('//main')[0]; title=clean(' '.join(doc.xpath('//h1//text()')))
  # Index rendered public content only, never repository notes or personal records.
- for unwanted in main.xpath('.//script|.//style|.//nav|.//form|.//button|.//select|.//input|.//noscript'):
-  unwanted.drop_tree()
+ for unwanted in list(main.iterdescendants()):
+  if is_search_ui(unwanted) and unwanted.getparent() is not None:unwanted.drop_tree()
  current=title;heading_anchor='';buckets=OrderedDict();count=0
  def add_text(parent,value):
   global count
@@ -51,11 +64,14 @@ for p in sorted([*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]):
   for child in e:
    walk(child);add_text(e,child.tail)
  walk(main)
+ # Keep original section titles and historical flags; edition context belongs
+ # in page metadata, not a blanket superseded label on the report.
+ page_label=title+(' · '+EDITION_LABELS[rel] if rel in EDITION_LABELS else '')
  # Header/hero h1 is represented by the page title on every result.
  for (anchor,historical),b in buckets.items():
   text=' '.join(b['parts'])
   if not text:continue
-  records.append({'url':rel+('#'+anchor if anchor else ''),'page':title,'title':b['title'],'category':CATEGORIES.get(rel,'Other'),'text':text,'historical':b['historical']})
+  records.append({'url':rel+('#'+anchor if anchor else ''),'page':page_label,'title':b['title'],'category':CATEGORIES.get(rel,'Other'),'text':text,'historical':b['historical']})
  coverage.append({'page':rel,'records':len(buckets),'text_nodes':count})
 # Deliberately no generated-at time: reproducible content, not a new evidence review date.
 payload={'version':1,'coverage':coverage,'records':records}

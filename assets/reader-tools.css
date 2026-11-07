@@ -10,3 +10,17 @@
 @media print{.reader-tools,.site-search-form,#more-results{display:none}.current-status,.reader-callout{break-inside:avoid}}
 
 .topic-status details{border-top:1px solid #bbd5ce;padding:12px 0}.topic-status summary{font-size:18px;font-weight:750;cursor:pointer;padding:8px 0}.topic-status p{margin:10px 0}.topic-status details:last-child{padding-bottom:0}
+
+/* Organization pass: focusable main, existing table regions and local section links. */
+main[tabindex="-1"]:focus{outline:none}
+.table-wrap:focus-visible,.table-scroll:focus-visible{outline:3px solid #be6500;outline-offset:4px}
+.local-links,.section-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 0 24px;line-height:1.6}
+.local-links a,.section-links a{color:#075f69;font-weight:700}
+.directory-support{margin-top:14px}
+.compact-features{grid-template-columns:repeat(2,minmax(0,1fr))}
+#correction-history{max-width:1200px;margin:0 auto;padding:35px 6%}
+main>.update-archive{max-width:1060px;margin:0 auto;padding:0 6% 28px}
+@media(max-width:700px){.compact-features{grid-template-columns:1fr}}
+
+main .page-jump{display:flex;flex-wrap:wrap;gap:8px 18px;line-height:1.6}
+main .page-jump a{color:#075f69;font-weight:700}
