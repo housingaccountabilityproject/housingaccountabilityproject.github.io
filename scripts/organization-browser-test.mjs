@@ -23,8 +23,8 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
   for(const region of await page.locator('.table-wrap,.table-scroll').all()){
    assert.equal(await region.getAttribute('tabindex'),'0');assert.equal(await region.getAttribute('role'),'region');assert(await region.getAttribute('aria-label'));
    // Historical tables can be inside a collapsed disclosure. Open it by keyboard first.
-   for(const disclosure of await region.locator('xpath=ancestor::details[not(@open)]').all()){
-    await disclosure.locator(':scope > summary').focus();await page.keyboard.press('Enter');assert.notEqual(await disclosure.getAttribute('open'),null);
+   for(const disclosure of await region.locator('xpath=ancestor::details').all()){
+    if(await disclosure.getAttribute('open')===null){await disclosure.locator(':scope > summary').focus();await page.keyboard.press('Enter');assert.notEqual(await disclosure.getAttribute('open'),null);}
    }
    assert(await region.isVisible(),`${file}: table region visible after opening disclosure`);
    const before=await region.evaluate(el=>({overflow:el.scrollWidth>el.clientWidth+2,x:el.scrollLeft}));
@@ -43,12 +43,12 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
   assert(await page.locator('#'+canonical).isVisible(),`${alias}: reveals canonical entry`);
   assert.equal(await page.locator('#catalog-search').inputValue(),'');
  }
+ await page.goBack();assert(page.url().endsWith('#housing-first-reallocation-2026'));assert(await page.locator('#q-019').isVisible());
+ await page.goForward();assert(page.url().endsWith('#unnamed-coc-decisions-2026'));assert(await page.locator('#q-020').isVisible());
  // The same hash does not fire hashchange; a repeated in-page link must still reveal it.
  await page.locator('#catalog-search').fill('no-record-983489');
  await page.evaluate(()=>{const a=document.createElement('a');a.href='#unnamed-coc-decisions-2026';a.id='repeat-alias-test';a.textContent='Return to the same question';document.querySelector('.section-links').append(a);});
  await page.locator('#repeat-alias-test').click();await page.waitForTimeout(100);assert(await page.locator('#q-020').isVisible());assert.equal(await page.locator('#catalog-search').inputValue(),'');
- await page.goBack();assert(page.url().endsWith('#housing-first-reallocation-2026'));assert(await page.locator('#q-019').isVisible());
- await page.goForward();assert(page.url().endsWith('#unnamed-coc-decisions-2026'));assert(await page.locator('#q-020').isVisible());
  for(const file of ['funding-explorer.html','housing-projects.html','questions-records.html']){
   await page.goto(url(file));const cards=page.locator('[data-catalog-entry]');const n=await cards.count();
   await page.locator('#catalog-filter').selectOption({index:1});await page.locator('#catalog-search').fill('no-record-983489');assert(await page.locator('#catalog-empty').isVisible());
