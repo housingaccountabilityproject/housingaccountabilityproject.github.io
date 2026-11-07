@@ -32,12 +32,12 @@ assert any('Q-020' in x['text'] for x in index['records'])
 assert any('SRC-094' in x['text'] for x in index['records'])
 assert any('1,284,589.71' in x['text'] for x in index['records'])
 register=json.loads((ROOT/'data/source-register.json').read_text());rows=pages['evidence.html'].xpath('//tr[contains(concat(" ", normalize-space(@class), " "), " source-row ")]')
-assert len(rows)==36==len(register['sources'])
+assert len(rows)==49==len(register['sources'])
 assert len(register['tracker_to_source'])==15
 for n,src in register['tracker_to_source'].items():
  assert pages['research-updates.html'].xpath('//*[@id=$id]//a[@href=$url]',id='tracker-source-'+n,url='evidence.html#'+src.lower()),(n,src)
 ns={'a':'http://www.w3.org/2005/Atom'};feed=etree.parse(str(ROOT/'feed.xml'));entries=feed.xpath('//a:entry',namespaces=ns)
-assert len(entries)==6
+assert len(entries)==7
 for e in entries:
  get=lambda k:e.findtext('{'+ns['a']+'}'+k)
  assert datetime.fromisoformat(get('published'))<=datetime.fromisoformat(get('updated'))
@@ -50,4 +50,4 @@ for e in entries:
 old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json']}
 subprocess.run(['python','scripts/build-reader-data.py'],cwd=ROOT,check=True)
 assert all((ROOT/p).read_bytes()==b for p,b in old.items())
-print(f'PASS: {len(pages)} pages; local links, unique IDs, landmarks, analytics/discovery; {len(index["records"])} search sections; 36 sources; 15 mappings; 6 timestamp-verified feed entries; deterministic generation.')
+print(f'PASS: {len(pages)} pages; local links, unique IDs, landmarks, analytics/discovery; {len(index["records"])} search sections; 49 sources; 15 mappings; 7 timestamp-verified feed entries; deterministic generation.')

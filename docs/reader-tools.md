@@ -52,3 +52,9 @@ The browser suite now includes computed text-color contrast checks at desktop, t
 ## Release checks
 
 The release candidate was checked against all 43 blobs in the current main snapshot. All 249 existing IDs, all 41 recorded timestamps and 74 article texts are preserved, apart from the approved added canonical evidence links in the tracker source article. The 36 source-register rows match the Evidence Index URLs and aliases. Both pre-existing public data JSON files and the Google verification file are unchanged. Local link, search, feed, deterministic-build and light-panel color checks pass.
+
+## November 7 research publication
+
+The approved five-part update and targeted current summaries add SRC-095–SRC-107 without repurposing existing IDs. Current inventory: 49 source rows, 20 numbered questions, 12 findings and 15 research-update articles. The source appendix and separate clarification are not counted as updates. Rows can share documents; aliases are not additional rows. Q-001's arithmetic remains resolved; the other 19 numbered questions retain open dependencies.
+
+The current structured catalogs, search index and seven-entry Atom feed are aligned with the approved update. Original dated archive text and prior corrections are retained with follow-up pointers. Older evidence dates are preserved. New timestamps use actual Tucson time for this publication revision, not the dates of source actions.

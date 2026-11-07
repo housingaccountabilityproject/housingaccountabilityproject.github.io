@@ -1,13 +1,13 @@
 {
   "schema_version": "0.1.0",
   "publication_scope": "development_preview_only",
-  "snapshot_date": "2026-11-06",
+  "snapshot_date": "2026-11-07",
   "generated_for": "Housing Accountability Project — Phase 0/1",
   "source_policy": "Curated, already-public claims only. Does not reflect full internal master or audit workbooks.",
   "counts": {
     "published_finding_entries": 12,
     "public_question_entries": 20,
-    "public_source_entries": 14
+    "public_source_entries": 49
   },
   "records": [
     {
@@ -22,14 +22,18 @@
       "units": null,
       "unit_definition": null,
       "source_ids": [
-        "SRC-060"
+        "SRC-060",
+        "SRC-102",
+        "SRC-103",
+        "SRC-104"
       ],
       "source_pages": [
-        "Mayor and Council Recap → Additional items → HUD Annual Action Plan"
+        "Mayor and Council Recap → Additional items → HUD Annual Action Plan",
+        "October 6 Council action report, Resolution 24188 and Exhibit A"
       ],
-      "verification_level": "October 9 City approval recap directly reviewed; implementation unverified",
+      "verification_level": "Direct adopted-action records reviewed November 7; HUD submission, implementation and spending unverified",
       "publication_status": "ready with context",
-      "as_of_date": "2026-11-03",
+      "as_of_date": "2026-11-07",
       "limitations": "Reported approval is not an executed award, draw, newly appropriated revenue, or verified project expenditure.",
       "linked_findings": [
         "F-001"
@@ -51,12 +55,15 @@
       "units": 82,
       "unit_definition": "74 existing Craycroft apartments and 8 Lee Street apartments referenced in City notice; neither vacancy nor newly constructed units",
       "source_ids": [
-        "SRC-064"
+        "SRC-064",
+        "SRC-098",
+        "SRC-099",
+        "SRC-100"
       ],
       "source_pages": [],
-      "verification_level": "agency notice reviewed in published findings",
+      "verification_level": "Original notice plus posted resolution, RAD financing-plan status and environmental milestone reviewed; closing and contracts unverified",
       "publication_status": "ready with context",
-      "as_of_date": "2026-11-03",
+      "as_of_date": "2026-11-07",
       "limitations": "No confirmed executed HAP contracts, current occupancy counts, or application availability.",
       "linked_findings": [
         "F-003"
@@ -137,14 +144,20 @@
       ]
     }
   ],
-  "updated_at": "2026-11-06T14:41:18-07:00",
-  "counts_scope": "Finding and source counts refer to the current indexed registers; additional dated sources are in research-updates.html#tracker-sources-2026-11-06. Question count includes Q-001 through Q-020.",
+  "updated_at": "2026-11-07T08:53:20-07:00",
+  "counts_scope": "Counts refer to current indexed registers: 12 findings, 20 numbered questions and 49 source rows. Aliases are not counted twice; rows may share documents.",
   "correction_history": [
     {
       "date": "2026-11-06",
       "updated_at": "2026-11-06T14:41:18-07:00",
       "correction": "Aligned approval-recap source with workbook SRC-060, removed unrelated SRC-065 from F-003 where present, and clarified memo attribution and indexed-source count where applicable. Historical figures and original source dates preserved.",
       "public_note": "research-updates.html#audit-corrections-2026-11-06"
+    },
+    {
+      "date": "2026-11-07",
+      "updated_at": "2026-11-07T08:53:20-07:00",
+      "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
+      "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
   ]
 }
