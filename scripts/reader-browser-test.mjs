@@ -58,7 +58,7 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  await page.goto(pathToFileURL(resolve('index.html')).href);
  if(zoom!==1)await page.evaluate(z=>{document.body.style.zoom=String(z)},zoom);
  const heading=page.getByRole('heading',{level:1});
- assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where do housing funds go? What do they deliver?');
+ assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where Do Housing Funds Go? What Do They Deliver?');
  const metrics=await heading.evaluate(el=>{
   const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);
   return {font:parseFloat(getComputedStyle(el).fontSize),color:getComputedStyle(el).color,
