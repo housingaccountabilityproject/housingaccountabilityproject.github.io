@@ -64,5 +64,5 @@ if __name__ == "__main__":
             for element in [panel, *panel.iterdescendants()]:
                 assert not re.search(r"(?:^|;)\s*(?:color|background(?:-color)?)\s*:", element.get("style", "")), (path, "inline panel color requires review")
         panel_count += len(panels)
-    assert panel_count == 6, ("panel inventory changed; review new uses", panel_count)
+    assert panel_count == 8, ("panel inventory changed; review new uses", panel_count)
     print(f"PASS: {panel_count} light reader panels; explicit foreground and child/link rules; calculated WCAG contrast {ratios}. Source checks only, not a rendered accessibility audit.")

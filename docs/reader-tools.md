@@ -58,3 +58,12 @@ The release candidate was checked against all 43 blobs in the current main snaps
 The approved five-part update and targeted current summaries add SRC-095–SRC-107 without repurposing existing IDs. Current inventory: 49 source rows, 20 numbered questions, 12 findings and 15 research-update articles. The source appendix and separate clarification are not counted as updates. Rows can share documents; aliases are not additional rows. Q-001's arithmetic remains resolved; the other 19 numbered questions retain open dependencies.
 
 The current structured catalogs, search index and seven-entry Atom feed are aligned with the approved update. Original dated archive text and prior corrections are retained with follow-up pointers. Older evidence dates are preserved. New timestamps use actual Tucson time for this publication revision, not the dates of source actions.
+
+
+## November 7 additional-record publication
+
+Adds an independently checked payments/project/outcomes review and a separate preview of the November 10 County and November 12 TPCH discussions. Ten original source rows (SRC-108–SRC-117) extend the current Evidence register to 59 rows. Existing source IDs, 12 findings and 20 numbered questions remain intact. There are 17 research-update articles plus the separate source appendix; the Atom feed has nine explicitly timestamped entries. HOME and County budget final-download limitations are stated on their new source rows; retained original records were inspected.
+
+The homepage keeps three current research stories prominent, separates correction history, links its On This Page list only to local sections, and shortens repeated historical teasers while retaining archive links. Both existing navigation dropdowns are unchanged. Research Center’s dated November 6 inventory is deliberately unchanged in this scoped release.
+
+Static link, ID, inventory, search, feed determinism and eight light-panel contrast checks pass locally. Local Chromium cannot start because its process socket is restricted; browser CI must pass for the exact release commit before merge. The browser suite covers current homepage links, separate correction history, responsive pages, search, keyboard/dropdown navigation and print/report rendering.

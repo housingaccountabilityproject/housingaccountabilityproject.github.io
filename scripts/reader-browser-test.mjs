@@ -31,17 +31,24 @@ for(const width of [390,768,1280]) {
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(pathToFileURL(resolve('index.html')).href);
  await page.screenshot({path:`reader-qa-screenshots/home-nov7-${width}.png`,fullPage:true});
+ const homeAnchors=await page.locator('.page-jump a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
+ assert(homeAnchors.every(href=>href.startsWith('#')));
+ assert.equal(await page.locator('#latest-updates > ol > li').count(),3);
+ assert.equal(await page.locator('#correction-history > ol > li').count(),3);
+ for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
+ await page.goto(pathToFileURL(resolve('index.html')).href);
+
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
- assert(page.url().endsWith('#records-clarified-2026-11-07'));
- assert.equal(await page.locator('#records-clarified-2026-11-07 h3').count(),5);
- assert((await page.locator('#records-clarified-2026-11-07').textContent()).includes('$792,695'));
+ assert(page.url().endsWith('#payments-projects-outcomes-2026-11-07'));
+ assert.equal(await page.locator('#payments-projects-outcomes-2026-11-07 h3').count(),5);
+ assert((await page.locator('#payments-projects-outcomes-2026-11-07').textContent()).includes('$58,701,289'));
  await page.screenshot({path:`reader-qa-screenshots/update-nov7-${width}.png`,fullPage:true});
  await page.goto(pathToFileURL(resolve('evidence.html')).href);
- assert((await page.locator('#counts').textContent()).includes('49 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('59 source rows and 20 question rows'));
  await page.locator('#search').fill('AVP');
  assert(await page.locator('#q-020').isVisible());
  await page.getByRole('button',{name:'Clear',exact:false}).click();
- assert((await page.locator('#counts').textContent()).includes('49 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('59 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
 // The homepage title must reflow without reducing its existing font sizes.
