@@ -22,8 +22,13 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
   await page.keyboard.press('Enter');assert(await page.locator('main').evaluate(el=>document.activeElement===el),`${file}: skip moves focus to main`);
   for(const region of await page.locator('.table-wrap,.table-scroll').all()){
    assert.equal(await region.getAttribute('tabindex'),'0');assert.equal(await region.getAttribute('role'),'region');assert(await region.getAttribute('aria-label'));
+   // Historical tables can be inside a collapsed disclosure. Open it by keyboard first.
+   for(const disclosure of await region.locator('xpath=ancestor::details[not(@open)]').all()){
+    await disclosure.locator(':scope > summary').focus();await page.keyboard.press('Enter');assert.notEqual(await disclosure.getAttribute('open'),null);
+   }
+   assert(await region.isVisible(),`${file}: table region visible after opening disclosure`);
    const before=await region.evaluate(el=>({overflow:el.scrollWidth>el.clientWidth+2,x:el.scrollLeft}));
-   if(before.overflow){await region.focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(180);assert(await region.evaluate(el=>el.scrollLeft)>before.x,`${file}: arrow-key table scroll`);}
+   if(before.overflow){await region.focus();assert(await region.evaluate(el=>document.activeElement===el));await page.keyboard.press('ArrowRight');await page.waitForTimeout(350);assert(await region.evaluate(el=>el.scrollLeft)>before.x,`${file}: arrow-key table scroll for ${await region.getAttribute('aria-label')}`);}
   }
   await page.screenshot({path:`organization-qa-screenshots/${file.replaceAll('/','-').replace('.html','')}-${width}-zoom-${zoom}.png`,fullPage:false});
  }

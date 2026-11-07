@@ -12,12 +12,12 @@
   {
     "page": "evidence.html",
     "records": 89,
-    "text_nodes": 797
+    "text_nodes": 791
   },
   {
     "page": "findings.html",
     "records": 28,
-    "text_nodes": 497
+    "text_nodes": 489
   },
   {
     "page": "funding-explorer.html",
@@ -27,7 +27,7 @@
   {
     "page": "glossary.html",
     "records": 7,
-    "text_nodes": 95
+    "text_nodes": 92
   },
   {
     "page": "housing-help.html",
@@ -42,7 +42,7 @@
   {
     "page": "index.html",
     "records": 15,
-    "text_nodes": 186
+    "text_nodes": 178
   },
   {
     "page": "privacy.html",
@@ -67,11 +67,11 @@
   {
     "page": "research-updates.html",
     "records": 41,
-    "text_nodes": 720
+    "text_nodes": 712
   },
   {
     "page": "research.html",
     "records": 6,
-    "text_nodes": 148
+    "text_nodes": 142
   }
 ]

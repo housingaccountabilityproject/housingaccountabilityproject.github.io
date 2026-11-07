@@ -26,7 +26,7 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  <form><p>excluded-form</p></form><button>excluded-button</button>
  <select><option>excluded-option</option></select><textarea>excluded-textarea</textarea>
  <nav>excluded-navigation</nav><div role="search">excluded-search-role</div>
- <div class="subnav">excluded-subnav</div><p class="counter">excluded-counter</p>
+ <div class="subnav">excluded-subnav</div><div class="page-jump">excluded-page-jump</div><div class="jump">excluded-jump</div><div class="section-links">excluded-section-links</div><p class="counter">excluded-counter</p>
  <details><summary>Substantive source disclosure</summary><p>preserved-disclosure</p></details>
  <details><summary>Historical wording</summary><p>preserved-history</p></details>
  <p>preserved-final</p></section>'''
