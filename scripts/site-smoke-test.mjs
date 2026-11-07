@@ -44,7 +44,7 @@ for (const width of [390,1280]) {
   await page.locator('#search').fill('nonmatching-phrase-124124');
   if(await page.locator('#cards article').filter({visible:true}).count()!==0) failures.push('research-center search did not filter');
   await page.locator('#search').fill('');
-  await page.getByRole('button',{name:'Housing projects'}).click();
+  await page.getByRole('button',{name:'Housing Projects'}).click();
   const selected=await page.locator('#cards article').filter({visible:true}).count();
   if(selected!==1) failures.push('research center housing filter expected 1, got '+selected);
   console.log('Research Center filter at',width,'selected',selected);
