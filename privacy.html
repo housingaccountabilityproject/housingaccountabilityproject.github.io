@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visitor analytics and privacy | Housing Accountability Project</title>
+<meta name="description" content="What this website’s GoatCounter settings collect and how research questions protect residents.">
+<link rel="canonical" href="https://housingaccountabilityproject.github.io/privacy.html">
+<style>
+:root{--navy:#102e3d;--teal:#166267;--ink:#17303d;--muted:#4a626a;--bg:#f7faf9;--line:#dce8e5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:#075f69;text-underline-offset:3px}
+a:focus-visible{outline:3px solid #d6aa40;outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:auto;background:white;color:var(--navy);padding:12px;z-index:10}
+.skip:focus{left:12px;top:12px}
+header,footer{background:var(--navy);color:white;padding:19px 6%}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}
+header strong{font-size:14px;letter-spacing:.4px}
+header nav{display:flex;gap:15px;flex-wrap:wrap}
+header nav a,footer a{color:#d5efea;text-decoration:none;font-size:14px}
+header nav a[aria-current="page"]{font-weight:700;color:white;text-decoration:underline}
+main{max-width:1150px;margin:auto;padding:30px 6% 65px}
+h1{font-size:clamp(30px,4vw,43px);line-height:1.2}
+h2{font-size:clamp(21px,2.7vw,27px);line-height:1.3}
+article{background:white;border:1px solid var(--line);border-radius:9px;padding:22px;margin:20px 0}
+small,.meta{color:var(--muted);font-size:14px}
+.tag{font-weight:bold;color:var(--teal)}
+.warning{border-left:4px solid #b98b38;padding:12px 18px;background:#fff9eb}
+.note{border-left:4px solid var(--teal);padding:14px 18px;background:#edf5f2}
+.table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:15px 0}
+table{border-collapse:collapse;width:100%;min-width:540px;background:white}
+caption{text-align:left;font-weight:700;padding:12px 14px}
+th,td{text-align:left;border-bottom:1px solid #ccd9d7;padding:12px;vertical-align:top}
+thead th{background:#e9f2f0}
+section,article{scroll-margin-top:12px}
+@media(max-width:650px){
+header,footer{padding:17px 5%}main{padding:24px 5% 50px}
+header nav{gap:9px 13px}article{padding:17px}
+table{min-width:480px}th,td{padding:10px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header nav,.skip{display:none}body{background:white;color:black}article{break-inside:avoid}tr{break-inside:avoid}.table-wrap{overflow:visible}table{min-width:0}}
+
+/* Option A: Evidence & Accountability visual identity */
+header .brand-home{display:inline-flex;align-items:center;gap:11px;min-width:0;color:#f7faf9;text-decoration:none;flex-shrink:0}
+header .brand-home img{width:54px;height:54px;display:block;object-fit:contain}
+header .brand-home .brand-name{font:750 14px/1.17 system-ui,Arial,sans-serif;letter-spacing:.1px}
+header .brand-home:hover .brand-name{text-decoration:underline;text-underline-offset:3px}
+header nav{align-items:center}
+header nav a{white-space:nowrap}
+@media(max-width:620px){header{gap:13px}header .brand-home img{width:48px;height:48px}header .brand-home .brand-name{font-size:13px}header nav{gap:9px 12px}}
+@media print{header .brand-home .brand-name{color:#102e3d}}
+
+</style><link rel="icon" type="image/svg+xml" href="assets/brand/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#102e3d">
+<meta property="og:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:secure_url" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Housing Accountability Project — Follow the funding. Understand the outcomes. Independent, nonpartisan public-interest research.">
+<meta name="twitter:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta name="twitter:image:alt" content="Housing Accountability Project, independent nonpartisan housing research.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/usability.css">
+<link rel="stylesheet" href="assets/reader-tools.css">
+<link rel="alternate" type="application/atom+xml" title="HAP research updates" href="feed.xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><a class="brand-home" href="index.html" aria-label="Housing Accountability Project home"><img src="assets/brand/logo-mark.svg" width="54" height="54" alt="" decoding="async"><span class="brand-name">Housing<br>Accountability<br>Project</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="research-center.html">Research Center</a><a href="research-updates.html">Research Updates</a><a href="about.html">About</a><details class="more-nav"><summary>More research &amp; contact</summary><div><a href="research.html">Research Library</a><a href="evidence.html">Evidence Index</a><a href="findings.html">Research Findings</a><a href="glossary.html">Glossary</a><a href="contact.html">Contact</a></div></details></nav></header><nav class="reader-tools" aria-label="Reader tools"><a href="search.html">Search all research</a><a href="housing-help.html">Looking for housing help?</a><a href="research-updates.html#follow-updates">Follow updates</a></nav>
+<main id="main"><p class="tag">INDEPENDENT PUBLIC RESEARCH · TUCSON, ARIZONA</p><h1>Visitor analytics and privacy</h1>
+<section aria-labelledby="analytics"><h2 id="analytics">Visitor analytics</h2>
+<p>This site uses GoatCounter to measure visits and referring links, including campaign parameters. Analytics include session estimates, browser and operating system, screen size, country, and region in the United States, Russia, and China.</p>
+<p>The dashboard is restricted to logged-in users. Individual-pageview export storage and language collection are disabled; automatic data deletion is not configured.</p>
+<p class="meta">These settings were checked on <time datetime="2026-11-06">November 6, 2026</time>. They describe the configuration, not a guarantee that every visit is counted. Browsers and blockers can prevent measurement. See <a href="https://www.goatcounter.com/help/privacy">GoatCounter’s privacy information</a>.</p></section>
+<section aria-labelledby="search-privacy"><h2 id="search-privacy">Website search</h2><p>The <a href="search.html">website search</a> runs in your browser using a copy of the public search index. The search feature does not send your search terms to a server, add them to the page address, or save them in browser storage. Opening a result is a normal page visit and may be counted by GoatCounter.</p></section>
+<section aria-labelledby="research-privacy"><h2 id="research-privacy">People in the research</h2><p>Research questions seek aggregate counts and public or appropriately redacted records, not residents’ identities or individual case records. Read the <a href="evidence.html#resident-privacy">resident privacy standard</a>.</p></section>
+</main>
+<footer>Housing Accountability Project · Independent research · <a href="/">Return home</a><p><a href="https://www.facebook.com/HousingAccountabilityProject">Follow Housing Accountability Project on Facebook</a></p>
+<p class="reader-footer"><a href="privacy.html">Visitor analytics &amp; privacy</a><a href="housing-help.html">Housing help</a><a href="feed.xml">Atom update feed</a></p></footer><script data-goatcounter="https://housingaccountabilityproject.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>

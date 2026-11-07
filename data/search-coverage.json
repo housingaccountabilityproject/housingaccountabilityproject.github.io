@@ -1,0 +1,77 @@
+[
+  {
+    "page": "about.html",
+    "records": 1,
+    "text_nodes": 55
+  },
+  {
+    "page": "contact.html",
+    "records": 4,
+    "text_nodes": 29
+  },
+  {
+    "page": "evidence.html",
+    "records": 68,
+    "text_nodes": 576
+  },
+  {
+    "page": "findings.html",
+    "records": 25,
+    "text_nodes": 425
+  },
+  {
+    "page": "funding-explorer.html",
+    "records": 19,
+    "text_nodes": 170
+  },
+  {
+    "page": "glossary.html",
+    "records": 7,
+    "text_nodes": 92
+  },
+  {
+    "page": "housing-help.html",
+    "records": 2,
+    "text_nodes": 14
+  },
+  {
+    "page": "housing-projects.html",
+    "records": 15,
+    "text_nodes": 135
+  },
+  {
+    "page": "index.html",
+    "records": 14,
+    "text_nodes": 224
+  },
+  {
+    "page": "privacy.html",
+    "records": 4,
+    "text_nodes": 18
+  },
+  {
+    "page": "questions-records.html",
+    "records": 33,
+    "text_nodes": 347
+  },
+  {
+    "page": "reports/tucson-housing-funding-outcomes-2026.html",
+    "records": 21,
+    "text_nodes": 300
+  },
+  {
+    "page": "research-center.html",
+    "records": 14,
+    "text_nodes": 96
+  },
+  {
+    "page": "research-updates.html",
+    "records": 38,
+    "text_nodes": 577
+  },
+  {
+    "page": "research.html",
+    "records": 5,
+    "text_nodes": 112
+  }
+]
