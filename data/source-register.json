@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "scope": "Mapping of existing published public citations; not a new source-content verification.",
-  "source_dates_through": "2026-11-06",
+  "scope": "Stable mapping of published source rows. Selected November 7 additions and earlier records retain their individual review limits.",
+  "source_dates_through": "2026-11-07",
   "resident_privacy": "Aggregate counts and appropriately redacted public records only. No resident names, occupied-unit identifiers, tenant rosters or individual case files; combine or suppress identifiable small groups.",
   "tracker_to_source": {
     "1": "SRC-074",
@@ -126,7 +126,8 @@
         "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
       ],
       "page_url": "evidence.html#src-036",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "limitations": " Earlier composite review. SRC-102 separately indexes the direct November 7 Council action-report review; shared source URLs are not extra unique documents."
     },
     {
       "public_id": "SRC-040",
@@ -138,7 +139,10 @@
         "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf"
       ],
       "page_url": "evidence.html#src-040",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "source_context": "September 28, 2026 priority listing: PDF p. 8 SAAF AVP-RRH; p. 17 Housing First; p. 36 total request.",
+      "limitations": "Submitted reallocations and funding requests, not final HUD awards. The separate payment-system-lockout case remains unidentified.",
+      "review_attribution": "Selected pages reviewed November 6–7, 2026."
     },
     {
       "public_id": "SRC-034",
@@ -268,7 +272,7 @@
       "period": "other",
       "topic": "bonds",
       "source_context": "November 4, 2026; item 7(j), proposed Resolution 24206. Agenda status only.",
-      "limitations": "Agenda proposal only; adoption, bond issuance and proceeds received remain unverified.",
+      "limitations": "Agenda proposal only. Posted Resolution 24206 (SRC-098) separately states adoption; closing and proceeds remain unverified.",
       "urls": [
         "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeeting?doctype=1&id=1962"
       ],
@@ -364,7 +368,7 @@
       "period": "FY2026",
       "topic": "coc",
       "source_context": "September 28, 2026; PDF p. 44.",
-      "limitations": "The 50% reallocation case is unnamed. This passage does not identify it as Housing First or MDOT or establish final awards.",
+      "limitations": "Application p. 44 names neither case. Priority-list p. 8 (SRC-040) identifies SAAF AVP-RRH; the separate lockout case remains unidentified. Final awards unverified.",
       "urls": [
         "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Consolidated-Application-APPROVED.pdf"
       ],
@@ -549,6 +553,214 @@
       "page_url": "evidence.html#src-094",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
       "review_attribution": "Existing site review dated November 5–6, 2026; March draft referenced in November 3 review."
+    },
+    {
+      "public_id": "SRC-095",
+      "title": "Casa del Pueblo rehabilitation permit",
+      "period": "PY2025",
+      "topic": "home caper",
+      "source_context": "Permit TC-COM-1224-02366; status reviewed November 7, 2026.",
+      "limitations": "Classifies 96 existing apartments as rehabilitation. It does not establish completion or additional new homes.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-1224-02366/"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-095",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-096",
+      "title": "Lariat construction permit",
+      "period": "PY2025",
+      "topic": "home caper",
+      "source_context": "Permit TC-COM-0225-00403; status reviewed November 7, 2026.",
+      "limitations": "Continuing construction; not a verified completed-home or occupancy count.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0225-00403/"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-096",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-097",
+      "title": "Shasta construction permit",
+      "period": "PY2025",
+      "topic": "home caper",
+      "source_context": "Permit TC-COM-0925-01751; status reviewed November 7, 2026.",
+      "limitations": "Continuing construction; not a verified completed-home or occupancy count.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0925-01751/"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-097",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-098",
+      "title": "Posted City Resolution 24206",
+      "period": "other",
+      "topic": "bonds",
+      "source_context": "November 4, 2026 resolution; reviewed November 7.",
+      "limitations": "States adoption of authorization for up to $10 million in Craycroft/Lee Street bonds. Formal Council action summary not retrieved; not proof of closing or proceeds.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024206.pdf?meetingId=1962&documentType=1&itemId=80698&publishId=207080&isSection=false"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-098",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-099",
+      "title": "HUD-linked RAD public data",
+      "period": "other",
+      "topic": "pbv hcv bonds",
+      "source_context": "November 7, 2026 data retrieval; Craycroft/Lee Street, 82 units.",
+      "limitations": "Lists Financing Plan Submitted without a closing date. A blank field does not prove no closing; signed assistance contracts are unverified.",
+      "urls": [
+        "https://www.radresource.net/pha_data.cfm"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-099",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-100",
+      "title": "Craycroft/Lee Street federal environmental record",
+      "period": "other",
+      "topic": "pbv hcv bonds",
+      "source_context": "Federal environmental record; September 1, 2026 authorization for use of grant funds.",
+      "limitations": "Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts.",
+      "urls": [
+        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-100",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-101",
+      "title": "City report of El Portal summer placements",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "City newsletter dated October 1, 2026.",
+      "limitations": "Reports 41 households placed in existing apartments over the summer with Housing First assistance. Separate from planned new PBVs; not a housing-stability measure.",
+      "urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42a9889"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-101",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-102",
+      "title": "October 6 Council action report",
+      "period": "PY2026",
+      "topic": "cdbg",
+      "source_context": "October 6, 2026 action report; Resolution 24188.",
+      "limitations": "Records 7–0 adoption of the $1.5 million CDBG category transfer. No increase in total funding; HUD submission, implementation and spending remain unverified.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-102",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-103",
+      "title": "City Resolution 24188",
+      "period": "PY2026",
+      "topic": "cdbg",
+      "source_context": "Adopted October 6, 2026.",
+      "limitations": "Adopted CDBG amendment; does not by itself establish HUD submission, implementation or spending.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206197&isSection=false"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-103",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-104",
+      "title": "Exhibit A to Resolution 24188",
+      "period": "PY2026",
+      "topic": "cdbg",
+      "source_context": "Adopted amendment exhibit, October 6, 2026.",
+      "limitations": "Documents the $1.5 million category transfer with no increase in total CDBG resources; actual spending remains unverified.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/EXHIBIT%20A%20TO%20RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206198&isSection=false"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-104",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-105",
+      "title": "August 18 PHA plan packet",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "August 18, 2026 original agenda packet.",
+      "limitations": "Supports the up-to-120 El Portal plan. Attached amendment is a public-comment draft, not final HUD approval. Local action was adopted as amended; see SRC-087.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeetingAgendaItem?meetingId=1981&itemId=78584&isSection=false&type=agenda"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-105",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-106",
+      "title": "October 20 PHA update",
+      "period": "other",
+      "topic": "pbv hcv",
+      "source_context": "October 20, 2026 report, PDF page 5.",
+      "limitations": "Anticipated related HUD approvals during October–December. A dated expectation is not final approval or proof of assistance contracts.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False#page=5"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-106",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-107",
+      "title": "October 15 IDA action report",
+      "period": "other",
+      "topic": "bonds",
+      "source_context": "October 15, 2026; PDF page 2.",
+      "limitations": "Records earlier final financing approval. The IDA vote is not the Council vote and does not establish bond closing or proceeds.",
+      "urls": [
+        "https://assets.tucsonaz.gov/share/bcc/43232.pdf#page=2"
+      ],
+      "citation_url": "research-updates.html#records-clarified-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-107",
+      "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
+      "review_attribution": "Selected source content reviewed November 7, 2026."
     }
   ],
   "unmapped_links": [

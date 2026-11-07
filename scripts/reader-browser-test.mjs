@@ -28,7 +28,20 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Clear',exact:true}).click();await page.locator('#site-query').fill('CDBG');await page.locator('#site-query').press('Enter');
  await page.getByRole('button',{name:'Show more results'}).click();assert((await page.locator('#search-results article').count())>20);
  await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
- const closed=page.locator('.topic-status details').nth(1);await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
+ const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and final reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
+ await page.goto(pathToFileURL(resolve('index.html')).href);
+ await page.screenshot({path:`reader-qa-screenshots/home-nov7-${width}.png`,fullPage:true});
+ await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
+ assert(page.url().endsWith('#records-clarified-2026-11-07'));
+ assert.equal(await page.locator('#records-clarified-2026-11-07 h3').count(),5);
+ assert((await page.locator('#records-clarified-2026-11-07').textContent()).includes('$792,695'));
+ await page.screenshot({path:`reader-qa-screenshots/update-nov7-${width}.png`,fullPage:true});
+ await page.goto(pathToFileURL(resolve('evidence.html')).href);
+ assert((await page.locator('#counts').textContent()).includes('49 source rows and 20 question rows'));
+ await page.locator('#search').fill('AVP');
+ assert(await page.locator('#q-020').isVisible());
+ await page.getByRole('button',{name:'Clear',exact:false}).click();
+ assert((await page.locator('#counts').textContent()).includes('49 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
 console.log('PASS: all pages desktop/tablet/mobile overflow/landmarks, reader-panel text contrast, search flows, details, screenshots and no JS errors.');

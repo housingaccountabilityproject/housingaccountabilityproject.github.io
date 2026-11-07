@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2.0",
   "publication_scope": "development_preview_curated",
-  "snapshot_date": "2026-11-06",
+  "snapshot_date": "2026-11-07",
   "description": "Selected published HAP research with dates, source pointers and explicit limitations. Not a raw workbook or live funding ledger.",
   "funding": [
     {
@@ -27,11 +27,11 @@
     {
       "id": "FUND-PUB-002",
       "group": "cdbg",
-      "title": "CDBG — planned reallocation to housing",
+      "title": "CDBG — adopted reallocation to housing",
       "meta": "CDBG · PY2026 / FY2027 · October 2026",
       "measure": "$1,500,000 reallocated, not newly awarded",
-      "detail": "A City communication reported a council-approved change moving planned funds from community facilities toward eligible housing activities.",
-      "limit": "Implementation, amended-plan status, IDIS activity records and actual draws must still be verified. This is not an additional $1.5 million in federal revenue.",
+      "detail": "The October 6 Council action report, Resolution 24188 and Exhibit A document adoption of the $1.5 million transfer between CDBG categories, with no increase in total resources. The action report records a 7–0 vote.",
+      "limit": "HUD submission/receipt, implementation, IDIS activity records and actual draws must still be verified. This is not an additional $1.5 million in federal revenue.",
       "links": [
         [
           "F-001 — finding",
@@ -44,9 +44,13 @@
         [
           "Indexed approval recap",
           "evidence.html#src-060"
+        ],
+        [
+          "Original adopted-action records",
+          "evidence.html#src-102"
         ]
       ],
-      "source": "SRC-060 · October 9, 2026 City approval recap"
+      "source": "SRC-060 · October 9 recap; SRC-102–SRC-104 · October 6 adopted-action records"
     },
     {
       "id": "FUND-PUB-003",
@@ -357,10 +361,10 @@
       "title": "Was the $1.5 million CDBG transfer new funding?",
       "group": "cdbg",
       "period": "PY2026",
-      "status": "Approval reported; implementation open",
-      "detail": "A planned reallocation changes categories without increasing total CDBG funding.",
-      "limit": "Amended plan, HUD/IDIS entries, project commitments and actual draws.",
-      "source": "SRC-071 (proposal) / SRC-060 (approval recap)",
+      "status": "Adopted amendment verified; implementation open",
+      "detail": "The October 6 Council action report, Resolution 24188 and Exhibit A document adoption of the $1.5 million transfer between CDBG categories, with no increase in total resources. The action report records a 7–0 vote.",
+      "limit": "HUD submission/receipt and IDIS implementation records, project commitments and actual draws.",
+      "source": "SRC-060 · SRC-071 · SRC-102 · SRC-103 · SRC-104",
       "links": [
         [
           "Open original Q record",
@@ -373,8 +377,13 @@
         [
           "October 9 approval recap",
           "evidence.html#src-060"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
-      ]
+      ],
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-007",
@@ -407,10 +416,10 @@
       "title": "Are reported 378 and 483 construction units comparable?",
       "group": "caper",
       "period": "PY2025 draft",
-      "status": "Open cohort reconciliation",
-      "detail": "Counts may describe different stages of construction or project populations.",
+      "status": "Classification conflict documented; cohort and completion reconciliation open",
+      "detail": "The draft’s 378-unit list includes 96 existing Casa del Pueblo apartments being rehabilitated. Current Lariat and Shasta permit records show continuing construction. The 378 figure is not a verified count of completed new homes; neither a revised completed-new-home total nor its relationship to 483 is verified.",
       "limit": "Project IDs, construction and completion dates, and nonduplicative aggregate unit and occupancy counts, with an explanation of how overlaps are removed.",
-      "source": "SRC-024",
+      "source": "SRC-095 · SRC-096 · SRC-097",
       "links": [
         [
           "Open original Q record",
@@ -419,8 +428,13 @@
         [
           "Browse evidence index",
           "evidence.html#sources-section"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
-      ]
+      ],
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-009",
@@ -512,10 +526,10 @@
       "title": "What do the two Craycroft financing records mean?",
       "group": "bonds",
       "period": "2026",
-      "status": "Financing relationship qualified; closing unverified",
-      "detail": "Documented: The records appear to concern the same financing. The Arizona Finance Authority lists a $10 million volume-cap allocation, approved February 9 and expiring December 15, 2026. The November 4 Council agenda proposed up to $10 million in project revenue bonds for the same project. They should not be added as separate funding.",
-      "limit": "Unknown: The adopted action, bond closing and proceeds received remain unverified. Blank closing fields in the older AFA tracker do not establish current status. Next: Check the adopted action, closing documents and use of proceeds.",
-      "source": "Tracker sources 3, 4",
+      "status": "Official resolution and IDA approval located; closing and proceeds unverified",
+      "detail": "Documented: The Arizona Finance Authority’s $10 million volume-cap allocation and the City’s bond authorization concern the same financing and must not be added as separate funding. Posted Resolution 24206 states adoption on November 4 of authorization for up to $10 million in bonds. The IDA’s October 15 action report records its earlier final approval. Next: Obtain the formal Council action summary, closing documents and use-of-proceeds records.",
+      "limit": "The formal Council action summary has not been retrieved. Bond closing, proceeds received and signed assistance contracts remain unverified. Blank tracker closing fields do not prove that no closing occurred.",
+      "source": "SRC-098 · SRC-107",
       "source_links": [
         "research-updates.html#tracker-source-3",
         "research-updates.html#tracker-source-4"
@@ -528,9 +542,14 @@
         [
           "Full question and source limits",
           "funding-explorer.html#craycroft-financing-2026"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "review_date": "2026-11-06"
+      "review_date": "2026-11-06",
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-014",
@@ -563,10 +582,10 @@
       "title": "What is planned for Craycroft and Lee Street?",
       "group": "pbv hcv",
       "period": "2026",
-      "status": "Governing budget and bedroom count unresolved",
-      "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.",
-      "limit": "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.",
-      "source": "Tracker sources 5, 6",
+      "status": "Financing and environmental stages documented; budget and bedroom count unresolved",
+      "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.",
+      "limit": "Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
+      "source": "SRC-098 · SRC-099 · SRC-100",
       "source_links": [
         "research-updates.html#tracker-source-5",
         "research-updates.html#tracker-source-6"
@@ -579,19 +598,24 @@
         [
           "Full question and source limits",
           "housing-projects.html#craycroft-review-2026"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "review_date": "2026-11-06"
+      "review_date": "2026-11-06",
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-016",
       "title": "What assistance is authorized for El Portal homes?",
       "group": "pbv hcv",
       "period": "2026–2027 plan years",
-      "status": "Plan authority documented; contracts and placements unverified",
-      "detail": "Documented: The October 30, 2026 HCD memo reports that the August 18 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. The memo estimates 181 planned voucher units across two phases. The 120-unit statement is attributed to that memo, not independently established here from the August 18 plan. Neither figure establishes placements or an exact unit count for each phase.",
-      "limit": "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed. Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
-      "source": "Tracker sources 7",
+      "status": "Local plan action and separate placements reported; new PBV implementation unverified",
+      "detail": "Documented: The August 18 PHA packet supports the up-to-120 El Portal voucher plan; its attached amendment is a public-comment draft, and the local action was adopted as amended. The October 30 memo estimates 181 planned voucher units across two phases, not delivered new homes. Separately, the City’s October 1 newsletter reports 41 households placed in existing El Portal apartments over the summer with Housing First assistance. That report does not establish implementation of the planned voucher expansion. Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
+      "limit": "Final HUD approval, signed assistance contracts and dated totals of households receiving the new PBV assistance remain unverified. The October 20 PHA report anticipated related HUD approvals during October–December; that expectation is not approval. Final effective operating policies, completed inspections and rent determinations remain to be verified.",
+      "source": "SRC-101 · SRC-105 · SRC-106",
       "source_links": [
         "research-updates.html#tracker-source-7"
       ],
@@ -603,9 +627,14 @@
         [
           "Full question and source limits",
           "housing-projects.html#el-portal-review-2026"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "review_date": "2026-11-06"
+      "review_date": "2026-11-06",
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-017",
@@ -662,7 +691,7 @@
       "group": "coc",
       "period": "FY2026",
       "status": "Named partial reallocation submitted; award unverified",
-      "detail": "Documented: The submitted FY2026 priority listing names Housing First PSH for partial reallocation: $4,706,481 in annual renewal funding, $3,485,762 retained and $1,220,719 available for new projects. The Board cites the amount available for renewals in Tier 1 and says the applicant was notified June 25. This is a submitted funding decision, not a final HUD award. [12, p. 17]",
+      "detail": "Documented: The submitted FY2026 priority listing names Housing First PSH for partial reallocation: $4,706,481 in annual renewal funding, $3,485,762 retained and $1,220,719 available for new projects. The Board cites the amount available for renewals in Tier 1 and says the applicant was notified June 25. This is a submitted funding decision, not a final HUD award. [12, p. 17] Next: Verify the final award and resulting service capacity. The separate roughly 50% case is identified as SAAF AVP-RRH in Q-020, not Housing First.",
       "limit": " Next: Verify the final award and resulting service capacity. This named record does not identify the unnamed 50% case below.",
       "source": "Tracker sources 12",
       "source_links": [
@@ -685,10 +714,10 @@
       "title": "Which projects do the CoC funding decisions concern?",
       "group": "coc",
       "period": "FY2026",
-      "status": "Unnamed decisions; project identities unverified",
-      "detail": "Documented: The FY2026 Continuum of Care application describes a 50% funding reallocation from one unnamed first-year project. Another unnamed project retained funding after documenting spending despite a lockout from HUD’s payment system.",
-      "limit": "Unknown: The passage names neither project and cannot be attributed to Housing First or MDOT. Final awards and implementation remain unverified. Next: Match project IDs to the approved decisions and final award records.",
-      "source": "Tracker sources 10",
+      "status": "One project identified; other decision and final outcomes open",
+      "detail": "Documented: The submitted priority listing identifies SAAF AVP-RRH, grant AZ0268D9T012501, as the roughly 50% underspending-reallocation case: $792,695 from a $1,585,389 annual renewal amount, followed by reallocation of the balance because of limited Tier 1 renewal space. The separate payment-system-lockout case remains unidentified. Next: Obtain the underlying Board decisions and recipient notices, identify the retained-funding case, and verify final awards and implementation.",
+      "limit": "The application passage itself names neither project; the priority listing supplies the AVP-RRH identification. It does not identify the retained-funding lockout case. Final HUD awards and implementation remain unverified.",
+      "source": "SRC-040",
       "source_links": [
         "research-updates.html#tracker-source-10"
       ],
@@ -700,9 +729,14 @@
         [
           "Full question and source limits",
           "questions-records.html#unnamed-coc-decisions-2026"
+        ],
+        [
+          "November 7 source review",
+          "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "review_date": "2026-11-06"
+      "review_date": "2026-11-06",
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     }
   ],
   "records_requests": [
@@ -719,10 +753,10 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-06T14:41:18-07:00",
+  "updated_at": "2026-11-07T09:26:59-07:00",
   "question_led_review": {
-    "review_date": "2026-11-06",
-    "scope": "Public-record research; unknown means not established by the records reviewed. Source dates differ.",
+    "review_date": "2026-11-07",
+    "scope": "Selected housing and funding questions updated November 7; other source-review dates remain attached. Unknown means not established by the reviewed records.",
     "sections": {
       "Funding Explorer": [
         {
@@ -745,10 +779,11 @@
           "id": "craycroft-financing-2026",
           "question": "What do the two Craycroft financing records mean?",
           "statements": [
-            "Documented: The records appear to concern the same financing. The Arizona Finance Authority lists a $10 million volume-cap allocation, approved February 9 and expiring December 15, 2026. The November 4 Council agenda proposed up to $10 million in project revenue bonds for the same project. They should not be added as separate funding.",
-            "Unknown: The adopted action, bond closing and proceeds received remain unverified. Blank closing fields in the older AFA tracker do not establish current status.",
-            "Next: Check the adopted action, closing documents and use of proceeds.",
-            "Source date: AFA tracker October 7, 2026; Council agenda November 4, 2026. [3–4]"
+            "Documented: The Arizona Finance Authority’s $10 million volume-cap allocation and the City’s bond authorization concern the same financing and must not be added as separate funding. Posted Resolution 24206 states adoption on November 4 of authorization for up to $10 million in bonds. The IDA’s October 15 action report records its earlier final approval.",
+            "Unknown: The formal Council action summary has not been retrieved. Bond closing, proceeds received and signed assistance contracts remain unverified. Blank tracker closing fields do not prove that no closing occurred.",
+            "Next: Obtain the formal Council action summary, closing documents and use-of-proceeds records.",
+            "Source date: AFA tracker October 7, 2026; Council agenda November 4, 2026. [3, 4]",
+            "The separately documented $500,000 Pima County preservation award is distinct from these bond-financing records."
           ],
           "public_id": "Q-013"
         },
@@ -770,7 +805,8 @@
             "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.",
             "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
             "Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.",
-            "Source date: EPHD project page update August 6, 2026; presentation November 5, 2026, PDF pp. 12 and 31. [5–6]"
+            "Source date: EPHD project page update August 6, 2026; presentation November 5, 2026, PDF pp. 12 and 31. [5, 6]",
+            "Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified."
           ],
           "public_id": "Q-015"
         },
@@ -778,9 +814,9 @@
           "id": "el-portal-review-2026",
           "question": "What assistance is authorized for El Portal homes?",
           "statements": [
-            "Documented: The October 30, 2026 HCD memo reports that the August 18 PHA plan approval permits project-based vouchers in up to 120 El Portal units during the 2026 plan year. The memo estimates 181 planned voucher units across two phases. The 120-unit statement is attributed to that memo, not independently established here from the August 18 plan. Neither figure establishes placements or an exact unit count for each phase.",
+            "Documented: The August 18 PHA packet supports the up-to-120 El Portal voucher plan; its attached amendment is a public-comment draft, and the local action was adopted as amended. The October 30 memo estimates 181 planned voucher units across two phases, not delivered new homes. Separately, the City’s October 1 newsletter reports 41 households placed in existing El Portal apartments over the summer with Housing First assistance. That report does not establish implementation of the planned voucher expansion.",
             "The memo forecasts about $1.15 million in additional annual rental revenue across both phases, subject to rent reasonableness. A second phase is anticipated in a subsequent plan year, subject to vouchers, program limits and required plan approvals.",
-            "Unknown: How many units are covered by signed assistance contracts, and how many households are receiving the new assistance, as of the reporting date? Plan approval does not establish either. The October 30 operating policies were still proposed. Eligibility reviews, inspections and rent determinations are also needed.",
+            "Unknown: Final HUD approval, signed assistance contracts and dated totals of households receiving the new PBV assistance remain unverified. The October 20 PHA report anticipated related HUD approvals during October–December; that expectation is not approval. Final effective operating policies, completed inspections and rent determinations remain to be verified.",
             "Next: Obtain aggregate counts of contracted units and households assisted, with reporting dates, inspection-completion totals and effective program policies. Do not request resident names, unit-level addresses or individual case records.",
             "Source date: City memo October 30, 2026, pp. 1–2; it reports the August 18 plan approval. [7]"
           ],
@@ -818,8 +854,8 @@
           "id": "housing-first-reallocation-2026",
           "question": "What funding change is proposed for Housing First?",
           "statements": [
-            "Documented: The submitted FY2026 priority listing names Housing First PSH for partial reallocation: $4,706,481 in annual renewal funding, $3,485,762 retained and $1,220,719 available for new projects. The Board cites the amount available for renewals in Tier 1 and says the applicant was notified June 25. This is a submitted funding decision, not a final HUD award. [12, p. 17]",
-            "Next: Verify the final award and resulting service capacity. This named record does not identify the unnamed 50% case below."
+            "Documented: The submitted FY2026 priority listing names Housing First PSH for partial reallocation: $4,706,481 in annual renewal funding, $3,485,762 retained and $1,220,719 available for new projects. The Board cites the amount available for renewals in Tier 1 and says the applicant was notified June 25. This is a submitted funding decision, not a final HUD award. [12]",
+            "Next: Verify the final award and resulting service capacity. The separate roughly 50% case is identified as SAAF AVP-RRH in Q-020, not Housing First."
           ],
           "public_id": "Q-019"
         },
@@ -827,9 +863,9 @@
           "id": "unnamed-coc-decisions-2026",
           "question": "Which projects do the CoC funding decisions concern?",
           "statements": [
-            "Documented: The FY2026 Continuum of Care application describes a 50% funding reallocation from one unnamed first-year project. Another unnamed project retained funding after documenting spending despite a lockout from HUD’s payment system.",
-            "Unknown: The passage names neither project and cannot be attributed to Housing First or MDOT. Final awards and implementation remain unverified.",
-            "Next: Match project IDs to the approved decisions and final award records.",
+            "Documented: The submitted priority listing identifies SAAF AVP-RRH, grant AZ0268D9T012501, as the roughly 50% underspending-reallocation case: $792,695 from a $1,585,389 annual renewal amount, followed by reallocation of the balance because of limited Tier 1 renewal space. The separate payment-system-lockout case remains unidentified.",
+            "Unknown: The application passage itself names neither project; the priority listing supplies the AVP-RRH identification. It does not identify the retained-funding lockout case. Final HUD awards and implementation remain unverified.",
+            "Next: Obtain the underlying Board decisions and recipient notices, identify the retained-funding case, and verify final awards and implementation.",
             "Source date: FY2026 CoC application September 28, 2026, PDF p. 44. [10]"
           ],
           "public_id": "Q-020"
@@ -861,6 +897,12 @@
       "updated_at": "2026-11-06T14:41:18-07:00",
       "correction": "Aligned approval-recap source with workbook SRC-060, removed unrelated SRC-065 from F-003 where present, and clarified memo attribution and indexed-source count where applicable. Historical figures and original source dates preserved.",
       "public_note": "research-updates.html#audit-corrections-2026-11-06"
+    },
+    {
+      "date": "2026-11-07",
+      "updated_at": "2026-11-07T09:26:59-07:00",
+      "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
+      "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
   ]
 }
