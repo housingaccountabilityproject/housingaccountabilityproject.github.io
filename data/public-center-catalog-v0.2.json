@@ -117,9 +117,9 @@
       "group": "esg",
       "title": "ESG — rapid-rehousing performance",
       "meta": "ESG · PY2024 · grant-draw date differs",
-      "measure": "30 planned / 18 actual households",
-      "detail": "The historical CAPER performance comparison and later-dated ESG grant draw records have different reporting periods and must not be combined into an unsupported cost-per-household figure.",
-      "limit": "These figures do not establish why reported actual households fell below the target or whether all relevant services were captured.",
+      "measure": "Target definition unresolved / 18 actual households reported",
+      "detail": "The original PY2024 Annual Action Plan describes the rapid-rehousing target as 30 individuals in its project narrative but 30 households in its goal table; another entry gives 10 households for combined rapid rehousing and prevention. The comparison with 18 reported actual households therefore needs a clarified target definition.",
+      "limit": "The CAPER’s PR-91 shows the entire $48,734 rapid-rehousing budget drawn by September 23, 2025. That later grant-draw checkpoint does not explain the outcome count or establish cost per household.",
       "links": [
         [
           "Q-004 — performance question",
@@ -130,16 +130,16 @@
           "research.html#funding"
         ]
       ],
-      "source": "SRC-023 · CAPER / PR-91"
+      "source": "SRC-023 · SRC-115"
     },
     {
       "id": "FUND-PUB-007",
       "group": "hcv",
       "title": "Housing Choice Vouchers — reported funding comparisons",
       "meta": "HCV · FY2026 / PY2025 · Tucson and Pima scopes",
-      "measure": "Different PHA periods and accounting measures",
-      "detail": "The research question compares an approximately $62.8 million HCV funding narrative with separate payment measures of $49.54 million for Tucson and $9.16 million for Pima County.",
-      "limit": "Different fiscal periods, PHA jurisdictions, restrictions and accounting categories prevent interpreting the arithmetic as an unspent or available amount.",
+      "measure": "$58,701,289 FY2026 owner/manager payments",
+      "detail": "The October 20 PHA report records $49,539,339 in Tucson and $9,161,950 in Pima County payments to property owners or managers for FY2026 (July 1, 2025–June 30, 2026), totaling $58,701,289. It reports $614,215 plus $306,275, totaling $920,490, as unaudited unspent assistance or next-year reserves, while its narrative calls the amount an operating surplus. Those labels still need reconciliation.",
+      "limit": "The FY2025 Single Audit separately reports $62,789,037 in Housing Choice Voucher federal expenditures for July 1, 2024–June 30, 2025. Its accrual or modified-accrual measure is not FY2026 cash receipts. The near-match to the draft’s approximately $62.8 million narrative is a source-year question, not proof of an error. No usable-cash inference; reconcile matching periods and accounting categories.",
       "links": [
         [
           "Q-010 — source comparison",
@@ -150,7 +150,7 @@
           "evidence.html#sources-section"
         ]
       ],
-      "source": "Published Q-010 · scope verification open"
+      "source": "SRC-024 · SRC-106 · SRC-108"
     }
   ],
   "projects": [
@@ -160,8 +160,8 @@
       "title": "Amazon Flats",
       "meta": "Announced groundbreaking · April 2026",
       "measure": "59 apartments described",
-      "detail": "The City announced the start of construction in April 2026. An earlier environmental notice proposed 39 project-based vouchers and identified two HOME-designated apartments within the 59 planned apartments.",
-      "limit": "The City projected fall 2027 completion; a projection is not confirmation of completion, executed contracts, vacancies or current applications. Do not add 59, 39 and 2 as distinct apartment counts.",
+      "detail": "The County’s PO2500016491 packet uses the name “Amazon Flats” but describes $749,625 for conversion of a 30-room motel into 30 studios. That physical scope is the Amazon Motel conversion, separate from the 59-apartment Flats construction project. The April 8, 2026 EPHD legal action report records a 5–0 ratification of Amazon Flats’ financial closing.",
+      "limit": "The action report does not supply the closing package or precise closing date, signed assistance contracts or actual Flats occupancy. The published County packet has blank signature and covenant lines; executed documents, completion reporting and certificates of occupancy remain record targets. Do not add 59 apartments, 39 proposed PBVs and two HOME-designated units as distinct homes.",
       "links": [
         [
           "F-002 — project finding",
@@ -172,7 +172,7 @@
           "evidence.html#q-009"
         ]
       ],
-      "source": "City notices cited in F-002"
+      "source": "F-002 · SRC-113"
     },
     {
       "id": "PROJECT-PUB-002",
@@ -220,8 +220,8 @@
       "title": "Amazon Motel conversion",
       "meta": "Reported completed · September 2025",
       "measure": "30 supportive-housing studios",
-      "detail": "A former motel was converted to permanent supportive housing according to City reporting. This is a separate existing-building conversion, not the adjacent Amazon Flats development.",
-      "limit": "Current vacancies, resident retention and new-referral capacity are not established by a historical completion announcement.",
+      "detail": "The City reports the 30-studio motel conversion completed in September 2025. County contract PO2500016491 uses the name “Amazon Flats” but describes $749,625 for the 30-room motel-to-studio conversion, separate from the 59-apartment construction project.",
+      "limit": "Published signature and covenant lines are blank. Executed documents, completion evidence, current vacancies and retention remain unverified.",
       "links": [
         [
           "F-011 — conversion finding",
@@ -232,7 +232,7 @@
           "findings.html#project-stages"
         ]
       ],
-      "source": "City announcement cited in F-011"
+      "source": "F-011 · SRC-112"
     },
     {
       "id": "PROJECT-PUB-005",
@@ -240,8 +240,8 @@
       "title": "Tucson House renovation",
       "meta": "Reported milestone · October 16, 2026",
       "measure": "24 renovated apartments on the 15th floor",
-      "detail": "The City stated that 25 households would be moving into renovated housing; it also described a broader 358-apartment rehabilitation project. The reported 24-versus-25 figures require clarification.",
-      "limit": "Renovated units are not newly constructed apartments. A future move statement is not proof that all moves occurred or that external vacancies existed.",
+      "detail": "City permit TC-CFO-1026-00207 is listed as Issued for temporary occupancy associated with Tucson House’s 15th-floor Level 4 renovation. The register lists a November 15, 2026 expiration. The October 20 PHA report says the renovation was 30% complete, the 15th floor was finished and residents were moving back.",
+      "limit": "The October 16 announcement’s 24 apartments and 25 households remain unreconciled. Neither the permit register nor the later narrative verifies a completed move count, new admissions or current vacancies. The original certificate and any conditions or renewal still need verification.",
       "links": [
         [
           "F-012 — renovation finding",
@@ -252,7 +252,7 @@
           "findings.html#project-stages"
         ]
       ],
-      "source": "City October 2026 announcement · F-012"
+      "source": "F-012 · SRC-106 · SRC-109 · SRC-110"
     }
   ],
   "questions": [
@@ -322,9 +322,9 @@
       "group": "esg",
       "period": "PY2024",
       "status": "Open performance question",
-      "detail": "The published comparison is 30 planned versus 18 actual households.",
-      "limit": "Comparable outcome cohorts and any documented agency explanation.",
-      "source": "SRC-023",
+      "detail": "The original PY2024 Annual Action Plan describes the rapid-rehousing target as 30 individuals in its project narrative but 30 households in its goal table; another entry gives 10 households for combined rapid rehousing and prevention. The comparison with 18 reported actual households therefore needs a clarified target definition.",
+      "limit": "The CAPER’s PR-91 shows the entire $48,734 rapid-rehousing budget drawn by September 23, 2025. That later grant-draw checkpoint does not explain the outcome count or establish cost per household. Comparable outcome definitions and an agency explanation remain needed.",
+      "source": "SRC-023 · SRC-115",
       "links": [
         [
           "Open original Q record",
@@ -462,9 +462,9 @@
       "group": "hcv",
       "period": "FY2026",
       "status": "Open accounting/scope comparison",
-      "detail": "City and County figures may be drawn from different periods, PHA jurisdictions and measures.",
-      "limit": "Comparable ACC/LOCCS receipts, spending and restricted reserve records.",
-      "source": "SRC-024",
+      "detail": "The October 20 PHA report records $49,539,339 in Tucson and $9,161,950 in Pima County payments to property owners or managers for FY2026 (July 1, 2025–June 30, 2026), totaling $58,701,289. It reports $614,215 plus $306,275, totaling $920,490, as unaudited unspent assistance or next-year reserves, while its narrative calls the amount an operating surplus. Those labels still need reconciliation.",
+      "limit": "The FY2025 Single Audit separately reports $62,789,037 in Housing Choice Voucher federal expenditures for July 1, 2024–June 30, 2025. Its accrual or modified-accrual measure is not FY2026 cash receipts. The near-match to the draft’s approximately $62.8 million narrative is a source-year question, not proof of an error. Match FY2026 receipts, HAP, administration and restricted-reserve roll-forwards.",
+      "source": "SRC-024 · SRC-106 · SRC-108",
       "links": [
         [
           "Open original Q record",
@@ -482,9 +482,9 @@
       "group": "home",
       "period": "PY2025 draft",
       "status": "Open funding classification",
-      "detail": "HOME match credits are distinct from program income and recaptured funds.",
-      "limit": "Governed restrictions, commitments, activity IDs and actual balances.",
-      "source": "SRC-024",
+      "detail": "HUD’s HOME match workbook, FY2024 sheet row 24, lists a 50% fiscal-distress reduction for the Tucson Consortium, supporting a 12.5% required match rate. This does not validate accumulated match-credit eligibility or make credits available cash.",
+      "limit": "Confirm credit eligibility, restrictions, commitments, activity IDs and actual balances.",
+      "source": "SRC-024 · SRC-114",
       "links": [
         [
           "Open original Q record",
@@ -753,7 +753,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-07T09:30:55-07:00",
+  "updated_at": "2026-11-07T14:06:02-07:00",
   "question_led_review": {
     "review_date": "2026-11-07",
     "scope": "Selected housing and funding questions updated November 7; other source-review dates remain attached. Unknown means not established by the reviewed records.",
@@ -904,5 +904,27 @@
       "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
       "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
-  ]
+  ],
+  "additional_records_review": {
+    "published_at": "2026-11-07T14:06:02-07:00",
+    "update_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+    "upcoming_url": "research-updates.html#upcoming-housing-measures-2026-11-07",
+    "one_stop_rrh": {
+      "detail": "The TPCH FY2026 scorecard reports 17 of 24 County One Stop rapid-rehousing leavers exiting to permanent housing (70.8%) for July 1, 2025–June 1, 2026, with no excluded leavers. A separate earlier group had 13 of 24 people return to homelessness within 12 months (54.2%); that cohort exited to permanent housing during June 1, 2024–June 1, 2025.",
+      "limit": "These are people in one project and two different cohorts, not a Countywide success rate or one group’s retention result. Matched reporting periods, inclusion rules and aggregate follow-up outcomes are needed before comparing costs or broader program performance.",
+      "source": "SRC-081"
+    },
+    "source_ids": [
+      "SRC-108",
+      "SRC-109",
+      "SRC-110",
+      "SRC-111",
+      "SRC-112",
+      "SRC-113",
+      "SRC-114",
+      "SRC-115",
+      "SRC-116",
+      "SRC-117"
+    ]
+  }
 }

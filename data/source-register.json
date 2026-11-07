@@ -335,7 +335,7 @@
       "title": "TPCH FY2026 performance scorecard",
       "period": "FY2026",
       "topic": "coc",
-      "source_context": "Final July 13, 2026; Data Back Up D7:H7 (exits), AA7:AC7 (returns), BC7:BF7 (referrals); definitions in rows 3–4. FY 26 Scorecard O18:O21 and T18:T21 (points and exemptions).",
+      "source_context": "Final July 13, 2026; Data Back Up D7:H7 (exits), AA7:AC7 (returns), BC7:BF7 (referrals); definitions in rows 3–4. FY 26 Scorecard O18:O21 and T18:T21 (points and exemptions). Additional November 7 review: Data Back Up row 18 supplies County One Stop RRH exits and a separate earlier return cohort. These are persons in one project, not Countywide rates.",
       "limitations": "Measure-specific cohorts and exclusions apply; exits and returns use different periods. Grant-expenditure exemptions do not establish underspending.",
       "urls": [
         "https://tpch.net/wp-content/uploads/TPCH-FY-2026-CoC-Performance-Score-Card-Final-7.13.26.xlsx"
@@ -735,10 +735,11 @@
       "title": "October 20 PHA update",
       "period": "other",
       "topic": "pbv hcv",
-      "source_context": "October 20, 2026 report, PDF page 5.",
+      "source_context": "October 20, 2026 report, PDF page 5. Additional November 7 review: pp. 1–2 give FY2026 owner/manager payments and unaudited carryover labels; p. 3 reports Tucson House progress. Source periods and accounting labels remain separate.",
       "limitations": "Anticipated related HUD approvals during October–December. A dated expectation is not final approval or proof of assistance contracts.",
       "urls": [
-        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False#page=5"
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False#page=5",
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?documentType=2&meetingId=1987&itemId=80770&publishId=207173&isSection=False&isAttachment=True"
       ],
       "citation_url": "research-updates.html#records-clarified-2026-11-07",
       "aliases": [],
@@ -761,6 +762,167 @@
       "page_url": "evidence.html#src-107",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
       "review_attribution": "Selected source content reviewed November 7, 2026."
+    },
+    {
+      "public_id": "SRC-108",
+      "title": "Tucson FY2025 Single Audit",
+      "period": "FY2025",
+      "topic": "hcv",
+      "source_context": "Fiscal year ended June 30, 2025; SEFA and basis notes.",
+      "limitations": "$62,789,037 HCV federal expenditures is a prior-year accrual/modified-accrual measure, not FY2026 receipts; HCV is not listed as a major program.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/city-of-tucson-fy2025-single-audit-final.pdf#page=5"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-108",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-109",
+      "title": "Tucson House 15th-floor temporary occupancy",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "TC-CFO-1026-00207; register accessed November 7, 2026.",
+      "limitations": "Listed Issued; November 15 expiration. Embedded register data stamp November 5. Original certificate, conditions, renewal and completed move counts unverified.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/",
+        "https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-109",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-110",
+      "title": "Tucson House renovation permit",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "TC-COM-0624-01123; related permits and inspections through November 6.",
+      "limitations": "Associates temporary occupancy with 15th-floor Level 4. Inspection permission to apply for 14th-floor occupancy is not certificate issuance.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0624-01123/"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-110",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-111",
+      "title": "Tucson House 14th-floor application",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
+      "limitations": "Submitted – Online, not issued in the reviewed register. Status can change.",
+      "urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-111",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-112",
+      "title": "Amazon Motel County contract packet",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "PO2500016491; County action October 14, 2025.",
+      "limitations": "Packet uses the name “Amazon Flats,” but its $749,625 scope is the 30-room motel conversion, not the 59-unit construction project. Published signature/covenant lines blank; execution and completion records unverified.",
+      "urls": [
+        "https://pima.legistar.com/View.ashx?GUID=80D3F3D1-9596-4022-96DF-DA9601753215&ID=14847770&M=F"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-112",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-113",
+      "title": "EPHD Amazon Flats closing action",
+      "period": "other",
+      "topic": "projects",
+      "source_context": "April 8, 2026 legal action report; PDF p. 1, item 4(b).",
+      "limitations": "Records 5–0 ratification of financial closing; not the closing package, precise closing date, HAP contract or occupancy.",
+      "urls": [
+        "https://assets.tucsonaz.gov/share/bcc/41977.pdf"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-113",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-114",
+      "title": "HUD HOME match reductions",
+      "period": "FY2024",
+      "topic": "home",
+      "source_context": "FY2024 sheet row 24; retained original workbook reviewed November 7.",
+      "limitations": "50% Tucson Consortium fiscal-distress reduction supports 12.5% match rate. Accumulated match-credit eligibility not verified; live download unavailable at final check.",
+      "urls": [
+        "https://www.hud.gov/sites/default/files/CPD/documents/HOME-Match-Reductions.xlsx"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-114",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-115",
+      "title": "Tucson/Pima PY2024 Annual Action Plan",
+      "period": "PY2024",
+      "topic": "esg",
+      "source_context": "ESG goal table and project entries; PDF pp. 39, 50 and 55.",
+      "limitations": "Target alternates between people and households; another combined RRH/prevention entry uses 10 households. Clarify before comparing to 18 actual households.",
+      "urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/city-of-tucson_pima-county-py24-annual-action-plan.pdf"
+      ],
+      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-115",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-116",
+      "title": "County preliminary budget priorities packet",
+      "period": "other",
+      "topic": "county",
+      "source_context": "November 3 memo for November 10, 2026 study session; PDF pp. 4, 7 and 10.",
+      "limitations": "Draft FY2026/27 measures support FY2027/28 planning. No adopted measures or newly approved housing funding established. Retained original reviewed; direct asset download unavailable at final check.",
+      "urls": [
+        "https://content.civicplus.com/api/assets/e0db1c11-8466-40a6-84b8-2d3988de7556"
+      ],
+      "citation_url": "research-updates.html#upcoming-housing-measures-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-116",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+    },
+    {
+      "public_id": "SRC-117",
+      "title": "TPCH November 12 General Council agenda",
+      "period": "other",
+      "topic": "coc",
+      "source_context": "November 12, 2026 agenda, PDF p. 1; retrieved November 7.",
+      "limitations": "Schedules PIT strategy and unsheltered evaluation presentations. Planned discussion, not adopted methodology or evaluation findings.",
+      "urls": [
+        "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda.pdf"
+      ],
+      "citation_url": "research-updates.html#upcoming-housing-measures-2026-11-07",
+      "aliases": [],
+      "page_url": "evidence.html#src-117",
+      "mapping_basis": "Original source for the approved additional November 7 review.",
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
     }
   ],
   "unmapped_links": [

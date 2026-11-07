@@ -7,7 +7,7 @@
   "counts": {
     "published_finding_entries": 12,
     "public_question_entries": 20,
-    "public_source_entries": 49
+    "public_source_entries": 59
   },
   "records": [
     {
@@ -144,7 +144,7 @@
       ]
     }
   ],
-  "updated_at": "2026-11-07T09:30:55-07:00",
+  "updated_at": "2026-11-07T14:06:02-07:00",
   "counts_scope": "Counts refer to current indexed registers: 12 findings, 20 numbered questions and 49 source rows. Aliases are not counted twice; rows may share documents.",
   "correction_history": [
     {
@@ -159,5 +159,10 @@
       "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
       "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
-  ]
+  ],
+  "additional_records_review": {
+    "published_at": "2026-11-07T14:06:02-07:00",
+    "url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+    "limits": "Each source retains its reporting period and verification limits. Existing finding IDs unchanged."
+  }
 }
