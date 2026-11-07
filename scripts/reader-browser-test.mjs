@@ -28,7 +28,7 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Clear',exact:true}).click();await page.locator('#site-query').fill('CDBG');await page.locator('#site-query').press('Enter');
  await page.getByRole('button',{name:'Show more results'}).click();assert((await page.locator('#search-results article').count())>20);
  await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
- const closed=page.locator('.topic-status details:not([open])').first();await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
+ const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and final reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(pathToFileURL(resolve('index.html')).href);
  await page.screenshot({path:`reader-qa-screenshots/home-nov7-${width}.png`,fullPage:true});
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();

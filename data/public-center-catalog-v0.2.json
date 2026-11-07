@@ -383,7 +383,7 @@
           "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-007",
@@ -434,7 +434,7 @@
           "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-009",
@@ -549,7 +549,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-014",
@@ -582,7 +582,7 @@
       "title": "What is planned for Craycroft and Lee Street?",
       "group": "pbv hcv",
       "period": "2026",
-      "status": "Governing budget and bedroom count unresolved",
+      "status": "Financing and environmental stages documented; budget and bedroom count unresolved",
       "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.",
       "limit": "Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
       "source": "SRC-098 · SRC-099 · SRC-100",
@@ -605,7 +605,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-016",
@@ -634,7 +634,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     },
     {
       "id": "Q-017",
@@ -736,7 +736,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T08:53:20-07:00"
+      "reviewed_at": "2026-11-07T09:26:59-07:00"
     }
   ],
   "records_requests": [
@@ -753,7 +753,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-07T08:53:20-07:00",
+  "updated_at": "2026-11-07T09:26:59-07:00",
   "question_led_review": {
     "review_date": "2026-11-07",
     "scope": "Selected housing and funding questions updated November 7; other source-review dates remain attached. Unknown means not established by the reviewed records.",
@@ -900,7 +900,7 @@
     },
     {
       "date": "2026-11-07",
-      "updated_at": "2026-11-07T08:53:20-07:00",
+      "updated_at": "2026-11-07T09:26:59-07:00",
       "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
       "public_note": "research-updates.html#records-clarified-2026-11-07"
     }

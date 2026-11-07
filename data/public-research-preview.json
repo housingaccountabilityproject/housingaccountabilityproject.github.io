@@ -144,7 +144,7 @@
       ]
     }
   ],
-  "updated_at": "2026-11-07T08:53:20-07:00",
+  "updated_at": "2026-11-07T09:26:59-07:00",
   "counts_scope": "Counts refer to current indexed registers: 12 findings, 20 numbered questions and 49 source rows. Aliases are not counted twice; rows may share documents.",
   "correction_history": [
     {
@@ -155,7 +155,7 @@
     },
     {
       "date": "2026-11-07",
-      "updated_at": "2026-11-07T08:53:20-07:00",
+      "updated_at": "2026-11-07T09:26:59-07:00",
       "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
       "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
