@@ -383,7 +383,7 @@
           "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     },
     {
       "id": "Q-007",
@@ -434,7 +434,7 @@
           "research-updates.html#records-clarified-2026-11-07"
         ]
       ],
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     },
     {
       "id": "Q-009",
@@ -549,7 +549,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     },
     {
       "id": "Q-014",
@@ -605,7 +605,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     },
     {
       "id": "Q-016",
@@ -634,7 +634,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     },
     {
       "id": "Q-017",
@@ -736,7 +736,7 @@
         ]
       ],
       "review_date": "2026-11-06",
-      "reviewed_at": "2026-11-07T09:26:59-07:00"
+      "reviewed_at": "2026-11-07T09:30:55-07:00"
     }
   ],
   "records_requests": [
@@ -753,7 +753,7 @@
       "limitations": "Portal submission not equal to acknowledgment or HUD acceptance."
     }
   ],
-  "updated_at": "2026-11-07T09:26:59-07:00",
+  "updated_at": "2026-11-07T09:30:55-07:00",
   "question_led_review": {
     "review_date": "2026-11-07",
     "scope": "Selected housing and funding questions updated November 7; other source-review dates remain attached. Unknown means not established by the reviewed records.",
@@ -900,7 +900,7 @@
     },
     {
       "date": "2026-11-07",
-      "updated_at": "2026-11-07T09:26:59-07:00",
+      "updated_at": "2026-11-07T09:30:55-07:00",
       "correction": "Aligned approved housing-count, SAAF AVP-RRH, Craycroft, El Portal and CDBG source findings across current summaries. Preserved stable IDs, older correction history and resident privacy.",
       "public_note": "research-updates.html#records-clarified-2026-11-07"
     }
