@@ -1,0 +1,107 @@
+/* Reading and navigation refinements shared by the Phoenix research pages. */
+.research-detail { --detail-accent: #954522; }
+.research-detail .header-inner { min-height: 106px; }
+.research-detail .main-nav a { font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; }
+.research-detail .main-nav a:hover { text-decoration: underline; }
+.research-detail .breadcrumbs { font-size: 13px; padding-top: 28px; }
+.research-detail .breadcrumbs a { display: inline-block; padding: 8px 0; text-decoration: underline; }
+.research-detail .phoenix-hero,
+.research-detail .project-hero,
+.research-detail .funding-hero { padding-top: 48px; padding-bottom: 52px; }
+.research-detail .scope-box,
+.research-detail .funding-scope { border: 1px solid #c0d1c5; border-top: 4px solid var(--detail-accent); padding: 26px; font-size: 14px; line-height: 1.7; }
+.research-detail .scope-box .eyebrow,
+.research-detail .funding-scope .eyebrow { color: var(--detail-accent); font-size: 11px; }
+.research-detail .section-nav { box-shadow: 0 4px 12px #18383c08; }
+.research-detail .section-nav .wrap { gap: 8px 28px; }
+.research-detail .section-nav a { display: inline-flex; align-items: center; min-height: 56px; padding: 14px 0; font-size: 13px; }
+.research-detail .section-nav a:hover { color: var(--detail-accent); border-bottom-color: var(--detail-accent); }
+.research-detail .section-title p,
+.research-detail .project-section-heading p,
+.research-detail .funding-source-layout p,
+.research-detail .project-source-summary { font-size: 15px; line-height: 1.75; }
+.research-detail .claim,
+.research-detail .funding-card { border-color: #c8d6ce; }
+.research-detail .claim h3 { line-height: 1.4; }
+.research-detail .label { font-size: 11px; line-height: 1.5; letter-spacing: .04em; }
+.research-detail .claim-meta { gap: 20px; font-size: 13px; line-height: 1.7; padding-top: 20px; }
+.research-detail .claim-meta strong { font-size: 11px; margin-bottom: 6px; }
+.research-detail .claim-meta .source-scope { font-size: 12px; }
+.research-detail .record-id,
+.research-detail .evidence-id { font-size: 11px; line-height: 1.65; overflow-wrap: anywhere; }
+.research-detail .caveat { padding: 14px 16px; border-left: 3px solid var(--detail-accent); background: #faf0e2; font-size: 13px; line-height: 1.75; }
+.research-detail .source-links { gap: 4px 24px; }
+.research-detail .source-links a,
+.research-detail .fact-source-list a { display: inline-block; padding: 8px 0; font-size: 13px; line-height: 1.6; }
+.research-detail .fact-source-list small,
+.research-detail .funding-card .fact-source-list small { font-size: 12px; line-height: 1.7; margin-top: 0; }
+.research-detail .fact-source-list li { padding-top: 14px; }
+.research-detail .fact-source-list li + li { border-top: 1px solid var(--line); margin-top: 14px; }
+.research-detail .project-link { padding: 28px; border-left: 4px solid var(--teal); }
+.research-detail .project-link p { font-size: 14px; line-height: 1.7; }
+.research-detail .project-link .entry { font-size: 13px; }
+.research-detail .money-record { padding: 24px; background: #edf2eb; }
+.research-detail .money-record .record-amount { font-variant-numeric: lining-nums tabular-nums; }
+.research-detail .money-record .record-period { font-size: 12px; line-height: 1.7; }
+.research-detail .funding-card .record-text { font-size: 15px; line-height: 1.75; }
+.research-detail .funding-limit { font-size: 13px; line-height: 1.75; }
+.research-detail .funding-limit strong { font-size: 12px; }
+.research-detail .funding-card .claim-meta { font-size: 13px; }
+.research-detail .record-stage,
+.research-detail .project-scope { font-size: 13px; line-height: 1.75; }
+.research-detail .project-stat { border-top: 4px solid #bdcfc0; padding: 30px; }
+.research-detail .project-stat .stat-label { font-size: 12px; max-width: none; line-height: 1.7; }
+.research-detail .project-stat .stat-source { font-size: 11px; line-height: 1.6; }
+.research-detail .timeline-date small { font-size: 12px; }
+.research-detail .unknown p,
+.research-detail .question-item p { font-size: 14px; line-height: 1.75; }
+.research-detail .unknown h3,
+.research-detail .question-item h3 { font-size: 18px; line-height: 1.4; }
+.research-detail .source-index li { padding: 20px 0; }
+.research-detail .source-index a,
+.research-detail .project-sources-layout .source-index a { display: inline-block; padding: 6px 0; font-size: 15px; line-height: 1.6; }
+.research-detail .source-index small { font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.research-detail .sources p { font-size: 14px; line-height: 1.75; }
+.research-detail .review-date { font-size: 12px; }
+.research-detail .needed-list p { font-size: 14px; line-height: 1.75; }
+.research-detail .needed-list a { display: inline-block; padding: 7px 0; font-size: 13px; }
+.research-detail .needed-list small { font-size: 12px; line-height: 1.7; }
+.research-detail .scope-boundary { font-size: 13px; line-height: 1.75; }
+.research-detail .site-footer a { display: inline-block; padding: 8px 0; font-size: 13px; }
+.research-detail .back-top { padding: 12px 0; font-size: 14px; }
+.research-detail a:focus-visible { outline: 3px solid var(--detail-accent); outline-offset: 5px; }
+.research-detail .site-footer a:focus-visible { outline-color: #f0bf87; }
+@media (max-width: 1000px) and (min-width: 701px) {
+  .research-detail .funding-grid { grid-template-columns: 1fr; }
+  .research-detail .money-record .record-amount { font-size: 39px; }
+}
+@media (max-width: 700px) {
+  .research-detail .header-inner { min-height: 0; }
+  .research-detail .main-nav { padding-bottom: 8px; }
+  .research-detail .main-nav a { font-size: 13px; }
+  .research-detail .breadcrumbs { padding-top: 18px; }
+  .research-detail .phoenix-hero,
+  .research-detail .project-hero,
+  .research-detail .funding-hero { padding: 28px 0 36px; }
+  .research-detail .scope-box,
+  .research-detail .funding-scope { padding: 22px; font-size: 13px; }
+  .research-detail .section-nav { position: static; box-shadow: none; }
+  .research-detail .section-nav .wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; padding: 10px 0; }
+  .research-detail .section-nav a { font-size: 12px; min-height: 46px; white-space: normal; padding: 10px 0; }
+  .research-detail .section-title h2 { line-height: 1.15; }
+  .research-detail .claim-meta { gap: 16px; }
+  .research-detail .money-record { padding: 18px; }
+  .research-detail .money-record .record-amount { font-size: clamp(28px, 8.5vw, 39px); white-space: normal; overflow-wrap: anywhere; }
+  .research-detail .project-link { padding: 22px; }
+  .research-detail .project-stat { padding: 26px; }
+  .research-detail .project-fact .record-text { font-size: 16px; }
+  .research-detail .project-notice { font-size: 14px; line-height: 1.7; }
+  .research-detail .funding-source-layout,
+  .research-detail .project-sources-layout,
+  .research-detail .sources { gap: 26px; }
+}
+@media print {
+  .research-detail .section-nav { display: none; }
+  .research-detail .claim, .research-detail .funding-card { break-inside: avoid; }
+  .research-detail .scope-box, .research-detail .funding-scope { background: transparent; }
+}
