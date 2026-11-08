@@ -51,7 +51,7 @@ def check_css(css):
 
 if __name__ == "__main__":
     ratios = check_css((ROOT / "assets/reader-tools.css").read_text())
-    pages = [*ROOT.glob("*.html"), *ROOT.glob("reports/*.html")]
+    pages = [*ROOT.glob("*.html"), *ROOT.glob("reports/*.html"), ROOT/"tucson/index.html"]
     panel_count = 0
     for path in pages:
         doc = html.parse(str(path))

@@ -71,3 +71,12 @@ Static link, ID, inventory, search, feed determinism and eight light-panel contr
 ## Source namespace and inventory correction (November 7, 2026, 8:26 p.m. MST (Tucson))
 
 The current register contains 59 website source rows, 20 numbered questions and 12 findings. The earlier 36-row and 49-row counts above are dated release snapshots. Website source IDs are a distinct namespace from the private workbooks: same-numbered SRC-074–117 refer to different documents. The public crosswalk covers every website row, maps only verified registered locations, and leaves unmatched documents explicitly unassigned. No private workbook is published. Q-001 is resolved for resource arithmetic only; Q-006 implementation and Q-007 spending reconciliation remain open. Evidence filters now include FY2024 and FY2025. Historical search labels cover the archived journal entries and historical inventory note without marking current source records or the entire first-edition report superseded.
+
+
+## Two-city navigation and Tucson-only search (November 8, 2026)
+
+The shared homepage now links to a dedicated `/tucson/` landing and the Phoenix overview. Existing flat Tucson pages, report URLs, data and feed remain in place. Fourteen legacy homepage fragments bridge to the corresponding Tucson sections; no-JavaScript fallback links remain available. The generic `#main` anchor stays the shared homepage skip target.
+
+Search remains Tucson/Pima County only: 319 sections from the existing 15-page inventory, with no city field or Phoenix records. `build-reader-data.py` uses an explicit legacy page list and reads the old homepage content from `tucson/index.html`. Search result rendering maps its retained `index.html` URLs to `tucson/index.html`. The generated search index, coverage file and Atom feed retain their previous bytes. New research-area content must not be added to this index without a separately reviewed search design.
+
+The browser regression checks follow the relocated Tucson homepage, and also include the shared homepage and three Phoenix pages. Phoenix source IDs remain separate. Source dates, draft status, financial stages and limitations remain attached to the findings.

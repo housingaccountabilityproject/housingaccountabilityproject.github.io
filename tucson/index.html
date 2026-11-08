@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Independent research into housing funding, transparency, and outcomes, beginning in Tucson, Arizona.">
+<title>Housing Accountability Project | Tucson Research</title>
+<link rel="canonical" href="https://housingaccountabilityproject.github.io/tucson/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Housing Accountability Project">
+<meta property="og:title" content="Housing Accountability Project | Independent Tucson Housing Research">
+<meta property="og:description" content="Independent, nonpartisan research into Tucson housing funding, program transparency, and measurable community outcomes.">
+<meta property="og:url" content="https://housingaccountabilityproject.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Housing Accountability Project | Independent Tucson Housing Research">
+<meta name="twitter:description" content="Independent, nonpartisan research into Tucson housing funding, program transparency, and measurable community outcomes.">
+<style>
+:root{--navy:#102e3d;--teal:#166267;--mint:#b9e9db;--ink:#17303d;--bg:#f7faf9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Arial,sans-serif}
+header{background:var(--navy);color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header strong{font-size:15px;letter-spacing:.5px}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{color:#d5efea;text-decoration:none;font-size:14px}
+a{color:#075f69}
+a:focus-visible{outline:3px solid #e5b85c;outline-offset:3px}
+.skip{position:absolute;left:-9999px;background:white;padding:12px;z-index:10}
+.skip:focus{left:12px;top:12px}
+nav a[aria-current="page"]{font-weight:700;text-decoration:underline;color:white}
+.hero{background:linear-gradient(125deg,#102e3d,#166267);color:white;padding:80px 8%}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.15;max-width:1000px;text-wrap:balance}
+.hero p{max-width:700px;font-size:18px}
+.hero .hero-slogan{max-width:none;margin:20px 0 30px;color:#b9e9db;font-size:clamp(22px,2.25vw,26px);font-style:italic;font-weight:400;line-height:1.4;text-wrap:balance}
+.tag{color:#b9e9db;font-weight:bold;letter-spacing:1.5px;font-size:12px}
+.button{display:inline-block;background:var(--mint);color:var(--navy);padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:20px}
+section{padding:55px 8%;max-width:1400px;margin:auto}
+section h2{font-size:30px;line-height:1.3}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:white;border:1px solid #dce8e5;border-radius:10px;padding:25px}
+.card h3{margin-top:0}
+.alt{background:#edf4f2;max-width:none}
+.alt .inner{max-width:1180px;margin:auto}
+.status{display:inline-block;background:#e4f2ee;color:#155b51;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:bold}
+.pending{background:#fff2d7;color:#755116}
+.note{background:white;border-left:4px solid #268277;padding:20px;margin:20px 0}
+.source{font-size:14px;color:#48636b}
+footer{background:var(--navy);color:#d5e9e5;padding:35px 8%}
+footer a{color:#b9e9db}
+@media(max-width:760px){
+.grid{grid-template-columns:1fr}
+.hero{padding:55px 8%}
+}
+
+.page-jump{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;padding:12px 6%;background:#edf5f2;border-bottom:1px solid #d7e5e2;font-size:14px}
+.page-jump a{color:#075f69}
+.page-jump strong{color:#17303d}
+
+/* Published research snapshot — published snapshot */
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.hero-secondary{color:#dcf7ef;font-weight:700;text-underline-offset:4px;margin-top:20px;display:inline-block}
+.dash{padding-top:48px;padding-bottom:58px;scroll-margin-top:15px}
+.dash-heading{display:flex;gap:25px;align-items:start;justify-content:space-between;max-width:1180px;margin:0 auto 22px}
+.dash-heading h2{margin:4px 0 10px;font-size:clamp(26px,3vw,35px)}
+.dash-heading p{max-width:810px;margin:0;color:#445f66}
+.dash-eyebrow{font-size:12px!important;letter-spacing:1.1px;text-transform:uppercase;color:#166267!important;font-weight:800}
+.dash-stamp{display:flex;flex-direction:column;flex-shrink:0;gap:2px;padding:12px 16px;border:1px solid #d4e4df;border-radius:8px;background:white;font-size:13px!important;min-width:169px}
+.dash-stamp strong{color:#17303d;font-size:14px}
+.dash-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;max-width:1180px;margin:0 auto 37px}
+.dash-metric{display:flex;flex-direction:column;gap:3px;background:white;border:1px solid #d7e5e2;border-radius:10px;padding:20px;color:#17303d;text-decoration:none;min-height:158px}
+.dash-metric:hover{border-color:#288878;background:#f8fcfb}
+.dash-number{color:#166267;font-size:clamp(32px,4vw,42px);line-height:1.1;font-variant-numeric:tabular-nums}
+.dash-metric-label{font-weight:750;font-size:15px;line-height:1.4}
+.dash-metric-note{font-size:12px;color:#4d646a;line-height:1.45;margin-top:4px}
+.dash-subhead{max-width:1180px;margin:0 auto 15px;display:flex;gap:15px;align-items:end;justify-content:space-between}
+.dash-subhead h3{font-size:24px;margin:0 0 4px}
+.dash-subhead p{color:#4d646a;margin:0}
+.dash-subhead>a{font-weight:700;flex-shrink:0}
+.dash-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:1180px;margin:auto}
+.dash-feature{padding:24px;background:white;border:1px solid #d7e5e2;border-radius:10px;display:flex;flex-direction:column;min-width:0}
+.dash-feature h4{font-size:19px;line-height:1.3;margin:7px 0 8px}
+.dash-feature>p:not(.dash-state):not(.dash-links){margin:0 0 17px;color:#334d56}
+.dash-state{margin:0;font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.45px;color:#176257}
+.dash-state-open{color:#815b1b}
+.dash-links{display:flex;flex-wrap:wrap;gap:9px 18px;margin:auto 0 0;padding-top:12px;border-top:1px solid #e4eeeb}
+.dash-links a{font-size:14px;font-weight:700}
+.dash-bottom{max-width:1180px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:28px auto 0}
+.dash-panel{background:#edf5f2;border:1px solid #d0e1dc;border-radius:10px;padding:24px;min-width:0}
+.dash-panel h3{font-size:22px;margin:0 0 12px}
+.dash-updates{list-style:none;padding:0;margin:0}
+.dash-updates li{display:flex;flex-direction:column;border-bottom:1px solid #cdded8;padding:12px 0}
+.dash-updates time{color:#4d646a;font-size:12px;font-weight:700}
+.dash-updates li a{font-weight:700}
+.dash-updates li span{font-size:14px;color:#405c63;line-height:1.5}
+.dash-panel-intro{font-size:14px;margin:0 0 10px}
+.dash-records{padding-left:19px}
+.dash-records li{margin-bottom:12px}
+.dash-panel-link{margin:15px 0 0;font-weight:700}
+.dash-how{max-width:1180px;margin:28px auto 0;border-top:1px solid #d7e5e2;padding-top:21px}
+.dash-how h3{font-size:21px;margin:0 0 15px}
+.dash-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.dash-steps p{padding:15px 16px;border:1px solid #d7e5e2;border-radius:8px;background:white;margin:0}
+.dash-steps strong,.dash-steps span{display:block}
+.dash-steps strong{margin-bottom:5px}
+.dash-steps span{font-size:14px;color:#4d646a}
+.dash-footnote{margin:16px 0 0;font-size:13px;color:#4d646a}
+@media(max-width:1010px){.dash-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-steps{grid-template-columns:1fr}}
+@media(max-width:760px){.dash-heading{flex-direction:column;gap:16px}.dash-stamp{width:100%}.dash-features,.dash-bottom{grid-template-columns:1fr}.dash-subhead{align-items:start;flex-direction:column}.dash-feature,.dash-panel{padding:20px}}
+@media(max-width:440px){.dash-metrics{grid-template-columns:1fr}.dash-metric{min-height:0}.dash{padding-left:5%;padding-right:5%}.dash-links{gap:6px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.dash-metric,.dash-feature,.dash-panel,.dash-steps p{break-inside:avoid}.dash-metrics,.dash-features,.dash-bottom,.dash-steps{display:block}.dash-metric,.dash-feature,.dash-panel,.dash-steps p{margin:0 0 10px}.dash-stamp{border:0;padding:0}}
+
+
+/* Option A: Evidence & Accountability visual identity */
+header .brand-home{display:inline-flex;align-items:center;gap:11px;min-width:0;color:#f7faf9;text-decoration:none;flex-shrink:0}
+header .brand-home img{width:54px;height:54px;display:block;object-fit:contain}
+header .brand-home .brand-name{font:750 14px/1.17 system-ui,Arial,sans-serif;letter-spacing:.1px}
+header .brand-home:hover .brand-name{text-decoration:underline;text-underline-offset:3px}
+header nav{align-items:center}
+header nav a{white-space:nowrap}
+@media(max-width:620px){header{gap:13px}header .brand-home img{width:48px;height:48px}header .brand-home .brand-name{font-size:13px}header nav{gap:9px 12px}}
+@media print{header .brand-home .brand-name{color:#102e3d}}
+
+
+/* Founder story — homepage introduction */
+.founder-intro{max-width:none;background:#eef6f3;border-top:1px solid #d6e7e1}
+.founder-intro-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(255px,.85fr);gap:40px;align-items:center}
+.founder-intro h2{max-width:730px;margin:9px 0 18px}
+.founder-intro p{max-width:740px}
+.founder-kicker{color:#155e63;font-size:12px;letter-spacing:1.5px;font-weight:800;margin:0}
+.founder-promise{font-weight:bold;font-style:italic;color:#16595c}
+.founder-link{display:inline-block;padding:11px 19px;border-radius:7px;background:#166267;color:#fff;text-decoration:none;font-weight:bold;margin-top:3px}
+.founder-link:hover{text-decoration:underline}
+.founder-side{background:#fff;border:1px solid #d7e5e2;border-radius:12px;padding:26px}
+.founder-side strong{font-size:19px;line-height:1.4;display:block}
+.founder-side p{font-size:15px;margin:14px 0}
+@media(max-width:800px){.founder-intro-inner{grid-template-columns:1fr;gap:20px}}
+
+</style>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#102e3d">
+<meta property="og:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:secure_url" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Housing Accountability Project — Follow the funding. Understand the outcomes. Independent, nonpartisan public-interest research.">
+<meta name="twitter:image" content="https://housingaccountabilityproject.github.io/assets/brand/social-preview.png">
+<meta name="twitter:image:alt" content="Housing Accountability Project, independent nonpartisan housing research.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Housing Accountability Project",
+  "url": "https://housingaccountabilityproject.github.io/",
+  "description": "Independent, nonpartisan public-interest research on housing funding, program administration, and outcomes, beginning in Tucson, Arizona.",
+  "inLanguage": "en-US",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Housing Accountability Project",
+    "url": "https://housingaccountabilityproject.github.io/",
+    "logo": "https://housingaccountabilityproject.github.io/assets/brand/logo-mark-512.png"
+  }
+}
+</script>
+<link rel="stylesheet" href="../assets/usability.css">
+<link rel="stylesheet" href="../assets/reader-tools.css">
+<link rel="alternate" type="application/atom+xml" title="HAP research updates" href="../feed.xml">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to Main Content</a><nav aria-label="Research areas" style="padding:10px 6%;background:#edf5f2"><a href="../index.html">All research areas</a> · <a href="../phoenix/index.html">Phoenix</a> · <strong>Tucson &amp; Pima County</strong></nav>
+
+<header>
+<a class="brand-home" href="index.html" aria-label="Housing Accountability Project home"><img src="../assets/brand/logo-mark.svg" width="54" height="54" alt="" decoding="async"><span class="brand-name">Housing<br>Accountability<br>Project</span></a>
+<nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="../research-center.html">Research Center</a><a href="../research-updates.html">Research Updates</a><a href="../about.html">About</a><details class="more-nav"><summary>More Research &amp; Contact</summary><div><a href="../research.html">Research Library</a><a href="../evidence.html">Evidence Index</a><a href="../findings.html">Research Findings</a><a href="../glossary.html">Glossary</a><a href="../contact.html">Contact</a></div></details></nav>
+</header><nav class="reader-tools" aria-label="Reader tools"><a href="../search.html">Search All Research</a><a href="../housing-help.html">Looking for Housing Help?</a><a href="../research-updates.html#follow-updates">Follow Updates</a></nav>
+
+<main id="main" tabindex="-1">
+<div class="hero">
+<div class="tag">INDEPENDENT PUBLIC RESEARCH · TUCSON, ARIZONA</div>
+<h1>Where Do Housing Funds Go?<br>What Do They Deliver?</h1>
+<p class="hero-slogan">Public Funding Deserves Public Understanding</p>
+<p>Examining how public housing resources are allocated, administered, and translated into measurable community benefits.</p>
+<p>Our founding research focuses on Tucson and Pima County, with a methodology designed for future expansion.</p>
+<div class="question-paths" aria-label="Choose a research question">
+<a href="../funding-explorer.html"><strong>Where did the money go?</strong><span>Trace reported allocations, spending and the limits of each financial measure.</span></a>
+<a href="../housing-projects.html"><strong>What housing was delivered?</strong><span>Separate documented outcomes from plans, approvals and unverified placements.</span></a>
+<a href="../questions-records.html"><strong>What questions remain unanswered?</strong><span>See what is known, what is unknown and which records are still needed.</span></a>
+</div><p class="service-note">This is an independent research site, not a housing application or placement service. Reported funding and project plans do not establish that assistance or homes are currently available.</p><details class="hero-more"><summary>More Ways to Explore the Project</summary><div class="hero-actions"><a class="button" href="../research-center.html">Explore the Research Center</a><a class="hero-secondary" href="#dashboard">View Research Snapshot</a><a class="hero-secondary" href="../reports/tucson-housing-funding-outcomes-2026.html">Read Inaugural Research Review</a><a class="hero-secondary" href="../findings.html">Read Research Findings</a><a class="hero-secondary" href="https://www.facebook.com/HousingAccountabilityProject">Follow on Facebook</a></div></details>
+</div>
+<div class="page-jump" aria-label="Sections on this page">
+<strong>On This Page:</strong>
+<a href="#latest-updates">Latest Updates</a><a href="#dashboard">Research Snapshot</a>
+<a href="#correction-history">Corrections</a>
+<a href="#findings">Historical Notes</a>
+<a href="#records">Public Records</a>
+<a href="#methodology">Methodology</a>
+<a href="#about">Our Story</a>
+</div>
+
+<section id="latest-updates" class="latest-summary" aria-labelledby="dash-latest-title"><h2 id="dash-latest-title">Latest Research Updates</h2>
+<ol class="dash-updates"><li><span>Published <time datetime="2026-11-08T10:48:00-07:00" data-publication="true">November 8, 2026, 10:48 a.m. MST (Tucson)</time></span><a href="../research-updates.html#county-housing-funding-2026-11-08">County Housing Funding: What the Records Show</a><span>$8.7 million in approved allocations, a separately tabled request and PRICE agreement scopes. City-award federal outlays remain distinct from County spending.</span></li><li><time datetime="2026-11-07T14:06:02-07:00">November 7, 2026, 2:06 p.m. MST (Tucson)</time><a href="../research-updates.html#payments-projects-outcomes-2026-11-07">More Records Clarify Payments, Project Progress and Housing Outcomes</a><span>Voucher payments, Tucson House temporary occupancy, separate Amazon projects and project-specific housing outcomes. Accounting and outcome definitions remain open.</span></li><li><time datetime="2026-11-07T09:30:55-07:00">November 7, 2026, 9:30 a.m. MST (Tucson)</time><a href="../research-updates.html#records-clarified-2026-11-07">New Records Clarify Housing Counts and Funding Decisions</a><span>New records clarify housing counts, a grant reduction and the status of several projects. Key approvals, contracts and outcomes remain under review.</span></li><li><time datetime="2026-11-06T16:48:48-07:00">November 6, 2026, 4:48 p.m. MST (Tucson)</time><a href="../research-updates.html#county-housing-fy27-q1-2026-11-06">Pima County’s Housing Report: Counts and Averages Need Clarification</a><span>The County reported $2.49 million spent and 925 households served in FY27’s first quarter. Counts and averages need reconciliation; the discrepancies alone do not establish misuse of funds.</span></li></ol><p class="note"><strong>Upcoming Discussions:</strong> <a href="../research-updates.html#upcoming-housing-measures-2026-11-07">November 10 County budget measures and November 12 TPCH PIT strategy</a>. Draft measures and scheduled presentations, not adopted results.</p><p><a href="../research-updates.html">Browse the Complete Research Update Archive</a></p></section>
+<section id="dashboard" class="dash" aria-labelledby="dashboard-title">
+  <div class="dash-heading">
+    <div>
+      <p class="dash-eyebrow">Published research snapshot</p>
+      <h2 id="dashboard-title">Research at a Glance</h2>
+      <p>Explore what the published records establish, which questions remain open, and where to examine the underlying evidence. These are <strong>research inventory counts</strong>, not available housing units or funding balances.</p>
+    </div>
+    <p class="dash-stamp"><span>Latest research update</span><strong><time datetime="2026-11-08T10:41:35-07:00">November 8, 2026, 10:41:35 AM MST (Tucson)</time></strong><span>County allocations and PRICE records reviewed</span></p>
+  </div>
+
+  <div class="dash-metrics" aria-label="Published research inventory">
+    <a class="dash-metric" href="../findings.html#documented">
+      <strong class="dash-number">12</strong>
+      <span class="dash-metric-label">Finding Entries</span>
+      <span class="dash-metric-note">Includes conclusions under review</span>
+    </a>
+    <a class="dash-metric" href="../evidence.html#questions-section">
+      <strong class="dash-number">20</strong>
+      <span class="dash-metric-label">Indexed Research Questions</span>
+      <span class="dash-metric-note">Q-001–Q-020; source-specific verification limits</span>
+    </a>
+    <a class="dash-metric" href="../evidence.html#sources-section">
+      <strong class="dash-number">66</strong>
+      <span class="dash-metric-label">Indexed Source Rows</span>
+      <span class="dash-metric-note">66 records; source aliases are not counted twice</span>
+    </a>
+    <a class="dash-metric" href="../research-updates.html">
+      <strong class="dash-number">18</strong>
+      <span class="dash-metric-label">Research Update Entries</span>
+      <span class="dash-metric-note">18 articles; clarification and source appendix separate</span>
+    </a>
+  </div>
+
+  <div class="dash-subhead">
+    <div>
+      <h3>Featured Research</h3>
+      <p>Follow the full topic records for figures, dates, sources and limits.</p>
+    </div>
+    <a href="../findings.html">View All Findings</a>
+  </div>
+  <div class="dash-features compact-features">
+<article class="dash-feature"><h4><a href="../funding-explorer.html#review-2026-11-06">Funding and Spending</a></h4><p>Compare program-specific allocations and expenditures, with accounting limits beside each figure.</p><p><a href="../research-updates.html#cdbg-review-2026-11-06">Read the unresolved formula-CDBG spending comparison</a>.</p></article>
+<article class="dash-feature"><h4><a href="../housing-projects.html">Projects and Outcomes</a></h4><p>Follow El Portal, Craycroft and Lee Street through reported milestones, contracts and remaining verification questions.</p><p><a href="../research-updates.html#records-clarified-2026-11-07">Read the latest project and financing review</a>.</p></article>
+</div>
+
+  <div class="dash-bottom"><div class="dash-panel" role="region" aria-labelledby="dash-records-title"><h3 id="dash-records-title">Records Still Needed</h3><p class="dash-panel-intro">The <a href="../findings.html#next-records">verification queue</a> tracks accounting reconciliations, final reporting and project-level approvals still needed. An unresolved question is not evidence of wrongdoing or presently available housing assistance.</p></div></div>
+
+  <div class="dash-how" aria-labelledby="dash-how-title">
+    <h3 id="dash-how-title">How to Check a Research Claim</h3>
+    <div class="dash-steps">
+      <p><strong>1. Read the finding.</strong><span>See the dated claim and its limitations.</span></p>
+      <p><strong>2. Follow the evidence ID.</strong><span>Open the source references and linked questions.</span></p>
+      <p><strong>3. Review what's unresolved.</strong><span>Check the records still required before drawing conclusions.</span></p>
+    </div>
+    <p class="dash-footnote">Timestamp: homepage inventory check. Linked articles retain their own source dates. Counts describe research, not available funds or homes; unresolved questions do not establish wrongdoing. <a href="../glossary.html">Understand the terminology</a>.</p>
+  </div>
+</section>
+
+<section id="correction-history"><h2>Correction History</h2><p>Dated corrections remain separate from the current research above. Original articles and historical links are retained.</p><ol class="dash-updates"><li><time datetime="2026-11-06T14:41:18-07:00">November 6, 2026, 2:41 p.m. MST (Tucson)</time><a href="../research-updates.html#audit-corrections-2026-11-06">Source References and Research Status Corrected</a><span>Corrected source mappings for the CDBG approval recap and Craycroft/Lee Street finding, clarified the findings summary and completed reconciliation milestone, and attributed El Portal’s 120-unit limit to the October 30 memo. Figures and original source dates are unchanged.</span></li><li><time datetime="2026-11-06T08:09:09-07:00">November 6, 2026, 8:09 a.m. MST (Tucson)</time><a href="../research-updates.html#privacy-correction-2026-11-06">Resident Privacy Correction</a><span>We revised our questions to request aggregate counts and appropriately redacted records, without identifying residents. We also clarified other questions to avoid unsupported conclusions. The figures, sources and findings remain unchanged.</span></li><li><time datetime="2026-11-06T07:42:17-07:00">November 6, 2026, 7:42 a.m. MST (Tucson)</time><a href="../research-updates.html#cdbg-review-2026-11-06">CDBG: What Adds Up and What Still Needs Explaining</a><span>We withdrew the earlier $944,972.60 comparison because it combined regular CDBG and CDBG-CV, which are reported separately. The $1,284,589.71 difference within regular CDBG remains unexplained; it does not establish missing funds.</span></li></ol></section>
+<details class="update-archive"><summary>Earlier Updates and Correction History</summary><ol class="dash-updates"><li><time datetime="2026-11-05">Nov. 5, 2026 · Historical entry</time><a href="../research-updates.html#housing-outcomes-2026-11-05-1500">Housing Outcomes and Funding Decisions</a><span>Reported housing exits, a separate return-to-homelessness cohort, and unnamed funding reallocations.</span></li><li>
+          <time datetime="2026-11-05T08:39:00-07:00">Nov. 5, 2026, 8:39 a.m. MST · Review snapshot</time>
+          <a href="../research-updates.html#housing-plans-2026-11-05-0839">Housing Plans: Confirmed Actions and Open Questions</a>
+          <span>El Portal voucher plans, Craycroft reporting questions, bond capacity, and community preference policy status.</span>
+        </li><li>
+          <time datetime="2026-11-05T07:58:30-07:00">Nov. 5, 2026, 7:58 a.m. MST · Source verification snapshot</time>
+          <a href="../research-updates.html#verified-funding-2026-11-05">HUD Allocations, County Preservation Award, and CDBG Clarification</a>
+          <span>Verified allocation sources and a distinct $500,000 County award; November 4 bond outcome remains unverified.</span>
+        </li><li>
+          <time datetime="2026-11-05">Nov. 5, 2026</time>
+          <a href="../research-updates.html#cdbg-review-2026-11-05">Continuing the CDBG Financial Review</a>
+          <span>Existing expenditure comparisons, the located PR-26 source, and the records needed for reconciliation.</span>
+        </li><li>
+          <time datetime="2026-11-04">Nov. 4, 2026</time>
+          <a href="../reports/tucson-housing-funding-outcomes-2026.html">First Research Review: Tucson Funding and Housing Outcomes</a>
+          <span>Program-year financial context, documented housing milestones and a corrected original PR-26 source reference.</span>
+        </li><li>
+          <time datetime="2026-11-03">Nov. 3, 2026</time>
+          <a href="../research-updates.html#audit-2026-11-03">Targeted Financial and Evidence Audit Review</a>
+          <span>FY2027 planning figures, CDBG classification, arithmetic checks, and pending source records.</span>
+        </li><li>
+          <time datetime="2026-11-03">Nov. 3, 2026</time>
+          <a href="../research-updates.html#cdbg-reconciliation">Clarification: CDBG Comparisons</a>
+          <span>Explains differing arithmetic bases and newly verified PR-26 source location.</span>
+        </li><li>
+          <time datetime="2026-11-02">Nov. 2, 2026</time>
+          <a href="../research-updates.html#pub-003">HOME Activity Classifications</a>
+          <span>Distinguishes HOME-assisted units from project totals and available homes.</span>
+        </li><li>
+          <time datetime="2026-11-02">Nov. 2, 2026</time>
+          <a href="../research-updates.html#pub-001">Historical Federal Program Reporting</a>
+          <span>Summarizes PY2024 reported resources and expenditures.</span>
+        </li></ol></details>
+<section id="research">
+<h2>Our Research Priorities</h2>
+<p>We examine housing systems through public records, financial reporting, program documentation, and measurable outcomes.</p>
+<div class="grid">
+<article class="card">
+<h3>Funding Transparency</h3>
+<p>Trace housing allocations, obligations, expenditures, and documented funding adjustments.</p>
+</article>
+<article class="card">
+<h3>Programs and Outcomes</h3>
+<p>Examine how housing assistance translates into services, placements, and sustained housing outcomes.</p>
+</article>
+<article class="card">
+<h3>Public Accountability</h3>
+<p>Track research questions, public records requests, official explanations, and unresolved reporting issues.</p>
+</article>
+</div>
+</section>
+
+<section class="alt" id="findings">
+<div class="inner"><h2>Historical Notes</h2><p>The October 31, 2026 snapshot is retained through its detailed research records: <a href="../findings.html#f-005">PY2025 CAPER review</a>, <a href="../findings.html#f-006">CDBG resource arithmetic</a> and <a href="../research-updates.html#housing-outcomes-2026-11-05-1500">dated housing-outcome review</a>. Follow the <a href="../research-updates.html">complete archive</a> for later findings and corrections.</p><p class="note">An unanswered question, reporting difference or missing document does not by itself establish misuse of funds, discrimination or regulatory noncompliance.</p></div>
+</section>
+
+<section id="records">
+<h2>Public Records and Primary Sources</h2>
+<p>Follow original sources through the <a href="../evidence.html">Evidence Index</a>, <a href="../research-updates.html">Research Updates</a> and <a href="../reports/tucson-housing-funding-outcomes-2026.html">published research review</a>.</p>
+
+<div class="grid">
+<article class="card">
+<h3>City of Tucson</h3>
+<p>Housing plans, CAPER publications, program documents, and public records.</p>
+<p><a href="https://www.tucsonaz.gov/" target="_blank" rel="noopener noreferrer">City of Tucson Official Website</a></p>
+</article>
+<article class="card">
+<h3>U.S. Department of HUD</h3>
+<p>Federal housing program guidance, reporting requirements, and public housing resources.</p>
+<p><a href="https://www.hud.gov/" target="_blank" rel="noopener noreferrer">HUD Official Website</a></p>
+</article>
+<article class="card">
+<h3>Research Publications</h3>
+<p>Explore our published <a href="../findings.html">Research Findings</a> and <a href="../evidence.html">Public Evidence Index</a>, including source-linked observations, calculations, and unresolved research questions.</p>
+<p>Public research is subject to continued verification and dated corrections.</p>
+</article>
+</div>
+</section>
+
+<section class="alt" id="methodology">
+<div class="inner">
+<h2>Our Research Methodology</h2>
+<p>Our research follows a structured evidence and quality-control process.</p>
+<div class="grid">
+<article class="card">
+<h3>Traceable Evidence</h3>
+<p>Identify source documents, reporting dates, jurisdictions, and applicable program periods.</p>
+</article>
+<article class="card">
+<h3>Comparable Financial Data</h3>
+<p>Compare matching funding categories and time periods, distinguishing awards, obligations, payments, and expenditures.</p>
+</article>
+<article class="card">
+<h3>Fair and Correctable Findings</h3>
+<p>Recognize documented achievements, include relevant agency explanations, identify limitations, and correct errors when verified.</p>
+</article>
+</div>
+<div class="note">
+<strong>Publication policy:</strong> Private case records, personal identifiers, and sensitive correspondence are excluded from public releases unless separately reviewed and expressly authorized for publication.
+</div>
+</div>
+</section>
+
+<section id="about" class="founder-intro" aria-labelledby="founder-title">
+<div class="founder-intro-inner">
+<div><p class="founder-kicker">THE STORY BEHIND THE RESEARCH</p>
+<h2 id="founder-title">From Personal Experience to Public Accountability</h2>
+<p>Founded by William Connell, the Housing Accountability Project began with firsthand questions about housing assistance in Tucson. What began as an effort to understand an unsuccessful housing opportunity grew into an independent, nonpartisan initiative examining public housing funding, transparency, and outcomes.</p>
+<p class="founder-promise">The project was born from personal experience, but its mission is much larger.</p>
+<a class="founder-link" href="../about.html">Read Our Story <span aria-hidden="true">↗</span></a>
+</div><aside class="founder-side" aria-label="Our research commitment"><strong>Independent research. Public understanding.</strong>
+<p>We document sources, acknowledge program successes, identify open questions, and distinguish evidence from uncertainty.</p>
+<a href="../evidence.html">Explore the evidence index</a></aside></div>
+</section>
+<section class="reader-callout" aria-labelledby="housing-help-title"><h2 id="housing-help-title">Looking for Housing Help?</h2><p>For shelter information, rent and utility assistance, or eviction legal help, start with <a href="../housing-help.html">official Tucson and Pima County resources</a>. HAP is a research project, not a housing provider.</p></section></main>
+
+<footer>
+<strong>Housing Accountability Project</strong>
+<p>Independent Public Research · Tucson, Arizona</p>
+<p>Public Research Website</p>
+<p>Published research is subject to continuing verification and correction.</p>
+<p><a href="https://www.facebook.com/HousingAccountabilityProject">Follow Housing Accountability Project on Facebook</a></p>
+<p class="reader-footer"><a href="../privacy.html">Visitor Analytics &amp; Privacy</a><a href="../housing-help.html">Housing Help</a><a href="../feed.xml">Atom Update Feed</a></p></footer>
+
+<script data-goatcounter="https://housingaccountabilityproject.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

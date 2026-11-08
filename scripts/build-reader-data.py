@@ -27,8 +27,10 @@ def is_search_ui(e):
          or bool(set(e.get('class','').split()) & UI_CLASSES)
          or bool(re.search(r'(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\s*(?:!important\s*)?(?:;|$)',style)))
 records=[];coverage=[]
-for p in sorted([*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]):
- rel=p.relative_to(ROOT).as_posix()
+# Explicit Tucson-only inventory. Keep legacy result URLs stable; the UI maps index.html to /tucson/.
+TUCSON_PAGES=['about.html', 'contact.html', 'evidence.html', 'findings.html', 'funding-explorer.html', 'glossary.html', 'housing-help.html', 'housing-projects.html', 'index.html', 'privacy.html', 'questions-records.html', 'reports/tucson-housing-funding-outcomes-2026.html', 'research-center.html', 'research-updates.html', 'research.html']
+for rel in TUCSON_PAGES:
+ p=ROOT/('tucson/index.html' if rel=='index.html' else rel)
  if p.name.startswith('google') or p.name=='search.html':continue
  doc=html.parse(str(p)); main=doc.xpath('//main')[0]; title=clean(' '.join(doc.xpath('//h1//text()')))
  # Index rendered public content only, never repository notes or personal records.

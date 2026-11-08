@@ -1,0 +1,2 @@
+/* Preserve legacy homepage bookmarks. No network, storage or analytics. */
+(()=>{const legacy=new Set(["latest-updates", "dash-latest-title", "dashboard", "dashboard-title", "dash-records-title", "dash-how-title", "correction-history", "research", "findings", "records", "methodology", "about", "founder-title", "housing-help-title"]);function bridge(){let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}if(legacy.has(id)){location.replace(new URL("tucson/"+location.hash,location.href));}}bridge();addEventListener("hashchange",bridge);})();
