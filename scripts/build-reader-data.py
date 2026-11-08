@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SITE='https://housingaccountabilityproject.github.io/'
 CATEGORIES={'findings.html':'Findings','research-updates.html':'Updates','questions-records.html':'Questions','evidence.html':'Evidence','funding-explorer.html':'Funding','housing-projects.html':'Projects','reports/tucson-housing-funding-outcomes-2026.html':'Report'}
 EDITION_LABELS={'reports/tucson-housing-funding-outcomes-2026.html':'First edition, November 4; later corrections retained'}
-HISTORICAL={'verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
+HISTORICAL={'verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','research-review-2026-11-04','pub-001','pub-003','pub-004','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
 def clean(s):return ' '.join(s.split())
 def write(path,content):
  f=ROOT/path;f.parent.mkdir(parents=True,exist_ok=True);f.write_text(content,encoding='utf-8')
@@ -50,7 +50,7 @@ for p in sorted([*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]):
    links=container.xpath('./a');label=clean(links[0].text_content()) if links else label
   if container is not None and container.tag=='tr':label=' · '.join(clean(c.text_content()) for c in list(container)[:2])
   if container is not None and container.get('id')=='report':label=current
-  historical=any(a.get('id') in HISTORICAL or (a.tag=='details' and any(word in clean(' '.join(a.xpath('./summary//text()'))).lower() for word in ['superseded','historical'])) for a in chain)
+  historical=any(a.get('id') in HISTORICAL or a.get('data-search-history')=='true' or (a.tag=='details' and any(word in clean(' '.join(a.xpath('./summary//text()'))).lower() for word in ['superseded','historical'])) for a in chain)
   key=(anchor or '',historical)
   if key not in buckets:buckets[key]={'title':('Historical wording: ' if historical else '')+label,'parts':[],'historical':historical}
   buckets[key]['parts'].append(clean(value));count+=1
