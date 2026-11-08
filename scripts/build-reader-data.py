@@ -89,7 +89,7 @@ entries=[]
 for aid in feed_ids:
  a=source.xpath('//*[@id=$aid]',aid=aid)[0]; times=a.xpath('.//time/@datetime')
  if not times or any('T' not in x for x in times):raise ValueError('Missing exact timestamp: '+aid)
- dates=sorted(times,key=datetime.fromisoformat);published=dates[0];updated=dates[-1]
+ dates=sorted(times,key=datetime.fromisoformat);explicit_publication=a.xpath('.//time[@data-publication="true"]/@datetime');published=explicit_publication[0] if explicit_publication else dates[0];updated=dates[-1]
  copy=deepcopy(a)
  for link in copy.xpath('.//a[@href]'):
   from urllib.parse import urljoin

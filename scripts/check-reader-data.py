@@ -51,6 +51,8 @@ for e in entries:
  assert datetime.fromisoformat(get('published'))<=datetime.fromisoformat(get('updated'))
  url=get('id');aid=urlsplit(url).fragment;article=pages['research-updates.html'].xpath('//*[@id=$id]',id=aid)[0]
  times=article.xpath('.//time/@datetime');assert get('published') in times and get('updated') in times
+ explicit=article.xpath('.//time[@data-publication="true"]/@datetime')
+ if explicit:assert get('published')==explicit[0],('explicit publication date',aid)
  assert aid not in ['verified-funding-2026-11-05','audit-2026-11-03','cdbg-review-2026-11-05']
  content=html.fromstring(get('content'))
  assert all(urlsplit(x).scheme in ('http','https','mailto') for x in content.xpath('.//a/@href'))
