@@ -30,6 +30,13 @@ for(const width of [390,768,1280]) {
  await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(pathToFileURL(resolve('index.html')).href);
+ const slogan=page.locator('.hero h1 + .hero-slogan');
+ assert.equal(await slogan.textContent(),'Public Funding Deserves Public Understanding');
+ assert.equal(await slogan.evaluate(el=>getComputedStyle(el).fontStyle),'italic');
+ assert.equal(await page.locator('header .hero-slogan').count(),0);
+ const headlineBox=await page.locator('.hero h1').boundingBox(),sloganBox=await slogan.boundingBox();
+ assert(sloganBox.y>=headlineBox.y+headlineBox.height,`slogan below headline at ${width}`);
+ assert(sloganBox.x>=0&&sloganBox.x+sloganBox.width<=width,`slogan stays in viewport at ${width}`);
  await page.screenshot({path:`reader-qa-screenshots/home-nov7-${width}.png`,fullPage:true});
  const homeAnchors=await page.locator('.page-jump a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
  assert(homeAnchors.every(href=>href.startsWith('#')));

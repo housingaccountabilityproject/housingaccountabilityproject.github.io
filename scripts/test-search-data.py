@@ -38,6 +38,10 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  for term in ['preserved-before','preserved-after','preserved-disclosure','preserved-history','preserved-final','SRC-094','Q-020','1,284,589.71']:
   assert term in text,term
  assert any(r['historical'] and 'preserved-history' in r['text'] for r in records)
+ for anchor in ['audit-corrections-2026-11-06','housing-questions-2026-11-06']:
+  historical_records=[r for r in records if r['url']=='research-updates.html#'+anchor]
+  assert historical_records and all(r['historical'] for r in historical_records),anchor
+  assert all(r['title'].startswith('Historical wording: ') for r in historical_records),anchor
  for r in records:
   assert r['url'].partition('#')[2] not in {'catalog-count','catalog-empty','count','empty'}
   assert 'No matching records' not in r['text']
