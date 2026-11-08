@@ -51,7 +51,7 @@ for(const width of [390,768,1280]) {
  assert((await page.locator('#payments-projects-outcomes-2026-11-07').textContent()).includes('$58,701,289'));
  await page.screenshot({path:`reader-qa-screenshots/update-nov7-${width}.png`,fullPage:true});
  await page.goto(pathToFileURL(resolve('evidence.html')).href);
- assert((await page.locator('#counts').textContent()).includes('59 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
  for(const [period,id] of [['FY2024','src-114'],['FY2025','src-108']]){
   await page.locator('#period').selectOption(period);
   assert(await page.locator('#'+id).isVisible());
@@ -60,7 +60,7 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Clear',exact:false}).click();
  const crosswalk=page.locator('#source-id-crosswalk details');
  await crosswalk.locator('summary').click();
- assert.equal(await crosswalk.locator('tbody tr').count(),59);
+ assert.equal(await crosswalk.locator('tbody tr').count(),66);
  assert(await crosswalk.locator('table').isVisible());
  await page.screenshot({path:`reader-qa-screenshots/crosswalk-${width}.png`,fullPage:true});
  await crosswalk.locator('summary').click();
@@ -68,7 +68,7 @@ for(const width of [390,768,1280]) {
  await page.locator('#search').fill('AVP');
  assert(await page.locator('#q-020').isVisible());
  await page.getByRole('button',{name:'Clear',exact:false}).click();
- assert((await page.locator('#counts').textContent()).includes('59 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
 // The homepage title must reflow without reducing its existing font sizes.

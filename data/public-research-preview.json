@@ -1,13 +1,13 @@
 {
   "schema_version": "0.1.0",
   "publication_scope": "development_preview_only",
-  "snapshot_date": "2026-11-07",
+  "snapshot_date": "2026-11-08",
   "generated_for": "Housing Accountability Project — Phase 0/1",
   "source_policy": "Curated, already-public claims only. Does not reflect full internal master or audit workbooks.",
   "counts": {
     "published_finding_entries": 12,
     "public_question_entries": 20,
-    "public_source_entries": 59
+    "public_source_entries": 66
   },
   "records": [
     {
@@ -144,8 +144,8 @@
       ]
     }
   ],
-  "updated_at": "2026-11-07T14:06:02-07:00",
-  "counts_scope": "Current indexed registers contain 12 findings, 20 numbered questions and 59 source rows. Aliases are not counted twice; rows may share documents.",
+  "updated_at": "2026-11-08T10:05:34-07:00",
+  "counts_scope": "Current indexed registers contain 12 findings, 20 numbered questions and 66 source rows. Aliases are not counted twice; rows may share documents.",
   "correction_history": [
     {
       "date": "2026-11-06",

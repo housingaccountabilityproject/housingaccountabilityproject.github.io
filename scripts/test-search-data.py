@@ -56,6 +56,15 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
   matching=[r for r in report_records if r['url']==report_path+'#'+heading.get('id')]
   assert matching,heading.get('id')
   assert any(r['title']==' '.join(heading.text_content().split()) for r in matching),heading.get('id')
+ # Every Evidence question title must separate nested wording and metadata.
+ evidence=html.parse(str(root/'evidence.html'))
+ questions=evidence.xpath('//tr[contains(@class,"question-row")]')
+ assert len(questions)==20
+ for row in questions:
+  expected=' · '.join(' '.join(' '.join(c.itertext()).split()) for c in list(row)[:2])
+  matching=[r for r in records if r['url']=='evidence.html#'+row.get('id')]
+  assert len(matching)==1 and matching[0]['title']==expected,(row.get('id'),matching)
+  assert not __import__('re').search(r'\?\S',matching[0]['title']),matching[0]['title']
  # Real results must describe the substantive destination, not a status beneath it.
  for page,anchor in [('housing-projects.html','project-pub-005'),('funding-explorer.html','fund-pub-007'),('questions-records.html','q-020')]:
   target=html.parse(str(root/page)).xpath('//*[@id=$id]',id=anchor)[0]
