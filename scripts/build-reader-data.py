@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SITE='https://housingaccountabilityproject.github.io/'
 CATEGORIES={'findings.html':'Findings','research-updates.html':'Updates','questions-records.html':'Questions','evidence.html':'Evidence','funding-explorer.html':'Funding','housing-projects.html':'Projects','reports/tucson-housing-funding-outcomes-2026.html':'Report'}
 EDITION_LABELS={'reports/tucson-housing-funding-outcomes-2026.html':'First edition, November 4; later corrections retained'}
-HISTORICAL={'verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','research-review-2026-11-04','pub-001','pub-003','pub-004','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
+HISTORICAL={'audit-corrections-2026-11-06','housing-questions-2026-11-06','verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','research-review-2026-11-04','pub-001','pub-003','pub-004','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
 def clean(s):return ' '.join(s.split())
 def write(path,content):
  f=ROOT/path;f.parent.mkdir(parents=True,exist_ok=True);f.write_text(content,encoding='utf-8')

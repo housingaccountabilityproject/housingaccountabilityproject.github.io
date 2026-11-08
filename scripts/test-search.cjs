@@ -21,6 +21,11 @@ for(const [term,url,title] of [
  ['"Which Projects Do the CoC Funding Decisions Concern"','questions-records.html#q-020','Which Projects Do the CoC Funding Decisions Concern?']
 ]){const matches=query(term);assert(matches.some(x=>x.querySelector('a').href===url&&x.querySelector('a').textContent===title),term);}
 
+for(const [term,anchor] of [['"Source References and Research Status Corrected"','audit-corrections-2026-11-06'],['"Housing Funding and Project Questions"','housing-questions-2026-11-06']]){
+ const result=query(term,'Updates').find(x=>x.querySelector('a').href==='research-updates.html#'+anchor);
+ assert(result,anchor);assert(result.className.includes('historical'));assert.match(result.querySelector('a').textContent,/^Historical wording: /);
+ assert(result.children.some(x=>x.className==='result-caution'),anchor+' caution');
+}
 const reportResults=query('','Report');assert(reportResults.length>0);assert(reportResults.every(x=>x.children[0].textContent.includes('First edition, November 4; later corrections retained')));
 let results=query('F-007','Findings');assert(results.length>=1);assert.equal(results[0].querySelector('a').href,'findings.html#f-007');assert.equal(results[0].querySelector('a').textContent,'What Still Needs Explaining in CDBG Spending?');assert(!results[0].className.includes('historical'));
 results=query('Q-007','Evidence');assert(results.some(x=>x.querySelector('a').href==='evidence.html#q-007'));
