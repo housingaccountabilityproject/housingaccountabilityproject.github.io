@@ -1,0 +1,364 @@
+{
+  "schema_version": "1.0.0",
+  "research_snapshot": "2026-11-08",
+  "scope": "Navigation relationships among already-published Phoenix records. Slugs identify directory entries, not new research findings. No new external verification or request activity is asserted.",
+  "projects": [
+    {
+      "id": "bell",
+      "name": "25th @ Bell",
+      "kind": "development",
+      "description": "One development connects City and State HOME activities, dated ARPA statements and a draft completion report.",
+      "observations": [
+        {
+          "label": "Reported completed",
+          "text": "53 apartments in the draft FY2025–26 CAPER.",
+          "record_id": "BELL-01"
+        },
+        {
+          "label": "Separate funding activities",
+          "text": "City grantee 10659 / activity 4938 and Arizona grantee 136 / activity 7160 describe the same physical development.",
+          "record_id": "BELL-02"
+        }
+      ],
+      "limits": "The two activities do not create 106 apartments. HOME and ARPA unit overlap, current ownership, actual payments and current occupancy remain unverified.",
+      "record_ids": [
+        "PHX-WEB-002",
+        "BELL-01",
+        "BELL-02",
+        "BELL-03",
+        "BELL-04",
+        "BELL-05",
+        "BELL-06",
+        "BELL-07",
+        "BELL-08",
+        "BELL-11",
+        "HOME-dataset-vintage"
+      ],
+      "question_ids": [
+        "question-bell-01",
+        "question-bell-02",
+        "question-bell-03",
+        "question-bell-04",
+        "question-bell-05",
+        "question-bell-06"
+      ],
+      "detail_url": "projects/25th-at-bell.html"
+    },
+    {
+      "id": "pueblo",
+      "name": "Pueblo Apartments",
+      "kind": "development",
+      "description": "One of five developments in the published draft CAPER completion subtotal.",
+      "observations": [
+        {
+          "label": "Reported completed",
+          "text": "161 apartments in the draft FY2025–26 CAPER.",
+          "record_id": "PHX-WEB-002"
+        }
+      ],
+      "limits": "The grouped performance-report finding is not a separate project audit, current occupancy record or verified financing stack.",
+      "record_ids": [
+        "PHX-WEB-002"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-002"
+    },
+    {
+      "id": "garfield-ii",
+      "name": "Garfield II",
+      "kind": "development",
+      "description": "A separately named development in the published draft CAPER completion subtotal.",
+      "observations": [
+        {
+          "label": "Reported completed",
+          "text": "60 apartments in the draft FY2025–26 CAPER.",
+          "record_id": "PHX-WEB-002"
+        }
+      ],
+      "limits": "The reviewed publication does not establish a full project or financing history. Do not combine this count with another Garfield phase without matching its identity.",
+      "record_ids": [
+        "PHX-WEB-002"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-002"
+    },
+    {
+      "id": "falcon-park",
+      "name": "Residences at Falcon Park",
+      "kind": "development",
+      "description": "One of five developments in the published draft CAPER completion subtotal.",
+      "observations": [
+        {
+          "label": "Reported completed",
+          "text": "192 apartments in the draft FY2025–26 CAPER.",
+          "record_id": "PHX-WEB-002"
+        }
+      ],
+      "limits": "This is a draft reported-completion observation, not verified current occupancy or a current availability listing.",
+      "record_ids": [
+        "PHX-WEB-002"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-002"
+    },
+    {
+      "id": "harmony",
+      "name": "Harmony at the Park",
+      "kind": "development",
+      "description": "Phase III appears in the draft completion report; the directory describes inventory across all three phases.",
+      "observations": [
+        {
+          "label": "Existing inventory · May 2026 directory",
+          "text": "Phase I: 120 apartments. Phase II: 115. Phase III: 90. Combined inventory: 325.",
+          "record_id": "PHX-WEB-004"
+        },
+        {
+          "label": "Phase III · draft reported completion",
+          "text": "90 apartments in the draft FY2025–26 CAPER.",
+          "record_id": "PHX-WEB-002"
+        }
+      ],
+      "limits": "Phase III's 90 apartments appear in both observations. The 325 inventory total is not additional FY2025–26 production; do not add these figures.",
+      "record_ids": [
+        "PHX-WEB-004",
+        "PHX-WEB-002"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-004"
+    },
+    {
+      "id": "moreland",
+      "name": "The Moreland",
+      "kind": "development",
+      "description": "Two planned phases have different financing records and must remain separately identified.",
+      "observations": [
+        {
+          "label": "Planned scope · June 17, 2026 Council report",
+          "text": "Phase I: 132 apartments. Phase II: 105. Combined planned scope: 237.",
+          "record_id": "PHX-WEB-007"
+        },
+        {
+          "label": "Phase I · reported financing closing",
+          "text": "$43.1 million reportedly closed in December 2025 after approval of up to $50 million. Neither is a City spending total.",
+          "record_id": "PHX-WEB-009"
+        },
+        {
+          "label": "Phase II · June 17, 2026 authorization",
+          "text": "Up to $10 million from mixed funding sources and up to 54 project-based vouchers; execution and fund split remain unverified.",
+          "record_id": "PHX-WEB-010"
+        }
+      ],
+      "limits": "237 is the planned two-phase scope, not completed Phase I apartments. Approval, closing, assistance and payment figures are not interchangeable or additive.",
+      "record_ids": [
+        "PHX-WEB-007",
+        "PHX-WEB-009",
+        "PHX-WEB-010"
+      ],
+      "question_ids": [
+        "question-overview-03",
+        "question-overview-04"
+      ],
+      "detail_url": "index.html#PHX-WEB-007"
+    },
+    {
+      "id": "girasol",
+      "name": "Girasol",
+      "kind": "development",
+      "description": "Three redevelopment subphases on the former Sidney P. Osborn site, with dated construction forecasts.",
+      "observations": [
+        {
+          "label": "Planned gross scope · October 26, 2026",
+          "text": "364 apartments: 289 affordable and 75 market-rate.",
+          "record_id": "PHX-WEB-020"
+        },
+        {
+          "label": "Construction progress · October 26, 2026",
+          "text": "Phase I: 82% complete. Phase II: 79% complete. Early-2027 move-ins were forecast; Phase III construction was forecast for Q1 2027 and move-ins for 2028.",
+          "record_id": "PHX-WEB-020"
+        }
+      ],
+      "limits": "These are Girasol subphases, not Harmony phases. Gross redevelopment units are not net additions; construction percentages and forecasts are not occupied apartments.",
+      "record_ids": [
+        "PHX-WEB-020"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-020"
+    },
+    {
+      "id": "marcos-grant-park",
+      "name": "Marcos de Niza–Grant Park",
+      "kind": "planning-area",
+      "description": "A neighborhood planning award, kept separate from the development entries.",
+      "observations": [
+        {
+          "label": "HUD planning award · September 10, 2024",
+          "text": "$500,000 announced for planning and transformation-plan work.",
+          "record_id": "PHX-WEB-012"
+        }
+      ],
+      "limits": "This is not a construction implementation award, evidence of grant spending or an apartment-delivery count.",
+      "record_ids": [
+        "PHX-WEB-012"
+      ],
+      "question_ids": [],
+      "detail_url": "index.html#PHX-WEB-012"
+    }
+  ],
+  "question_connections": [
+    {
+      "question_id": "question-overview-01",
+      "scope": "Phoenix overview",
+      "group": "project",
+      "evidence_needed": "Appropriately redacted schedules matching assisted-unit designations across funders and programs at the same property.",
+      "would_clarify": "Whether designation counts overlap before any unique assisted-apartment count is reported.",
+      "record_ids": [
+        "BELL-03",
+        "BELL-04",
+        "BELL-05"
+      ]
+    },
+    {
+      "question_id": "question-overview-02",
+      "scope": "Phoenix overview",
+      "group": "project",
+      "evidence_needed": "Executed restriction agreements and amendments, with verified start dates and applicable terms.",
+      "would_clarify": "Which affordability restrictions apply and when they end; an authorization alone does not establish expiry.",
+      "record_ids": [
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "question_id": "question-overview-03",
+      "scope": "Phoenix overview",
+      "group": "funding",
+      "evidence_needed": "Project-specific disbursement records matched to the funder, program, phase and reporting period.",
+      "would_clarify": "What was paid, before considering any spending-per-apartment calculation.",
+      "record_ids": [
+        "PHX-WEB-009",
+        "PHX-WEB-010",
+        "PHX-CFP-WEB-004",
+        "BELL-03",
+        "BELL-04"
+      ]
+    },
+    {
+      "question_id": "question-overview-04",
+      "scope": "Phoenix overview",
+      "group": "funding",
+      "evidence_needed": "A correction, executed agreement or amendment, transaction explanation or closeout record connecting the conflicting dated statements.",
+      "would_clarify": "Whether and how the statements can be reconciled; both sources remain visible until then.",
+      "record_ids": [
+        "PHX-CFP-WEB-005",
+        "BELL-07",
+        "BELL-08",
+        "HOME-dataset-vintage"
+      ]
+    },
+    {
+      "question_id": "question-bell-01",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "Appropriately redacted City and State HOME unit schedules, and evidence connecting HOME and ARPA set-asides.",
+      "would_clarify": "Whether the six City HOME units, five State HOME units and ARPA designations overlap. No resident identities should be published.",
+      "record_ids": [
+        "BELL-03",
+        "BELL-04",
+        "BELL-05",
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "question_id": "question-bell-02",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "Executed affordability agreements and amendments, including verified restriction start dates and terms.",
+      "would_clarify": "Applicable restriction periods and expiry, without carrying an older authorization term onto changed unit or income statements.",
+      "record_ids": [
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "question_id": "question-bell-03",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "Current deed records and the parcel or legal description for the development.",
+      "would_clarify": "Current deed ownership and property identity. Program and City file identifiers are insufficient.",
+      "record_ids": [
+        "BELL-11",
+        "BELL-06"
+      ]
+    },
+    {
+      "question_id": "question-bell-04",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "An executed amendment or other explanatory record connecting the 2023 ARPA authorization to the 2025 performance statement.",
+      "would_clarify": "Why the unit and income statements changed, and which executed terms apply.",
+      "record_ids": [
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "question_id": "question-bell-05",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "City disbursement and loan-balance records, a complete financing stack and evidence of total development cost.",
+      "would_clarify": "Actual payments and financing measures, without relabeling HUD funding fields as independently verified cash disbursements.",
+      "record_ids": [
+        "BELL-03",
+        "BELL-04",
+        "BELL-06",
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "question_id": "question-bell-06",
+      "scope": "25th @ Bell",
+      "group": "bell",
+      "evidence_needed": "A dated occupancy record or inspected certificate-of-occupancy evidence appropriate to the question.",
+      "would_clarify": "What completion and current occupancy can be verified beyond the draft CAPER statement. This would not establish current vacancy availability.",
+      "record_ids": [
+        "BELL-01",
+        "BELL-02"
+      ]
+    },
+    {
+      "question_id": "capital-evidence-needed-01",
+      "scope": "Public Housing Capital Fund",
+      "group": "capital",
+      "evidence_needed": "HUD-approved grant Annual Statements/Budgets and the approved five-year plan.",
+      "would_clarify": "Which uses and budget line items were approved for each grant.",
+      "record_ids": [
+        "PHX-CFP-WEB-001",
+        "PHX-CFP-WEB-003"
+      ]
+    },
+    {
+      "question_id": "capital-evidence-needed-02",
+      "scope": "Public Housing Capital Fund",
+      "group": "capital",
+      "evidence_needed": "Grant-level Performance and Evaluation reports or LOCCS reports.",
+      "would_clarify": "Phoenix PHA obligations, draws and expenditures by grant and activity; missing amounts remain unverified, not zero.",
+      "record_ids": [
+        "PHX-CFP-WEB-001",
+        "PHX-CFP-WEB-006"
+      ]
+    },
+    {
+      "question_id": "capital-evidence-needed-03",
+      "scope": "Public Housing Capital Fund",
+      "group": "capital",
+      "evidence_needed": "A grant-to-project and City-year reconciliation supported by grant and activity records.",
+      "would_clarify": "Which grant years and activities support the annual SEFA expenditure row. A single award cannot be subtracted from it to infer a balance.",
+      "record_ids": [
+        "PHX-CFP-WEB-004",
+        "PHX-CFP-WEB-005"
+      ]
+    }
+  ]
+}

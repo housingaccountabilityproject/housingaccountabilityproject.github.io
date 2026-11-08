@@ -1,0 +1,174 @@
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {existsSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {chromium} from 'playwright';
+
+const root = fileURLToPath(new URL('../', import.meta.url));
+const base = process.env.PHOENIX_TEST_BASE_URL || 'http://127.0.0.1:8765';
+const server = process.env.PHOENIX_TEST_BASE_URL ? null : spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], {cwd: root, stdio: 'ignore'});
+let browser;
+try {
+  for (let i = 0; i < 40; i++) {
+    try { assert((await fetch(base + '/phoenix/records.html')).ok); break; }
+    catch (error) { if (i === 39) throw error; await new Promise(resolve => setTimeout(resolve, 100)); }
+  }
+  const executablePath = process.env.CHROMIUM_PATH || (existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined);
+  browser = await chromium.launch({headless: true, ...(executablePath ? {executablePath} : {})});
+  for (const width of [320, 390, 768, 1280]) {
+    const page = await browser.newPage({viewport: {width, height: 900}});
+    const errors = [];
+    const requests = [];
+    page.on('pageerror', error => errors.push(error.message));
+    page.on('request', request => requests.push(request.url()));
+    await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
+    await page.goto(base + '/phoenix/records.html');
+    const visible = page.locator('.record-card:visible');
+    assert.equal(await visible.count(), 70);
+    assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
+    await page.keyboard.press('Tab');
+    assert(await page.locator('.skip').evaluate(el => el === document.activeElement));
+    await page.keyboard.press('Enter');
+    assert(await page.locator('main').evaluate(el => el === document.activeElement));
+    await page.waitForLoadState('networkidle');
+    const initialRequests = requests.length;
+    await page.getByRole('button', {name: 'Sources', exact: true}).click();
+    assert.equal(await visible.count(), 33);
+    await page.getByRole('searchbox').fill('PHX-CFP-011');
+    assert.equal(await visible.count(), 1);
+    assert.equal(await visible.first().getAttribute('id'), 'source-PHX-CFP-011');
+    await visible.first().getByText('Findings using this source', {exact: true}).click();
+    await visible.first().getByRole('link', {name: 'Capital Fund: HUD-published award amount', exact: true}).click();
+    assert(page.url().endsWith('#PHX-CFP-WEB-001'));
+    await page.locator('#PHX-CFP-WEB-001').waitFor({state: 'visible'});
+    await page.getByRole('button', {name: 'Questions', exact: true}).click();
+    assert.equal(await visible.count(), 13);
+    await page.locator('#record-topic').selectOption('bell');
+    assert.equal(await visible.count(), 6);
+    await page.getByRole('button', {name: 'Funding', exact: true}).click();
+    assert.equal(await visible.count(), 14);
+    await page.locator('#record-kind').selectOption('expenditure');
+    assert.equal(await visible.count(), 1);
+    assert.equal(await visible.first().getAttribute('id'), 'PHX-CFP-WEB-004');
+    await page.getByRole('searchbox').fill('no-record-837462');
+    assert.equal(await visible.count(), 0);
+    assert(await page.locator('#record-empty').isVisible());
+    await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
+    assert.equal(await visible.count(), 70);
+    await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
+    assert.equal(await visible.count(), 0);
+    assert.equal(await page.locator('#record-results img').count(), 0);
+    await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
+    await page.getByRole('searchbox').fill('Moreland');
+    assert(await visible.count() > 0);
+    assert(!await page.locator('#BELL-03').isVisible());
+    // Chromium can revalidate the fixed favicon after an in-page fragment visit.
+    const extraRequests = requests.slice(initialRequests).filter(url => url !== base + '/assets/phoenix-review/favicon.svg');
+    assert.deepEqual(extraRequests, [], 'filtering must not send requests');
+    assert.equal(await page.evaluate(() => localStorage.length + sessionStorage.length), 0);
+    assert.deepEqual(errors, []);
+    await page.goto(base + '/phoenix/records.html#BELL-04');
+    await page.locator('#BELL-04').waitFor({state: 'visible'});
+    await page.getByRole('searchbox').fill('unmatched-944');
+    await page.evaluate(() => {
+      const link = document.createElement('a'); link.href = '#BELL-04'; link.id = 'repeat-test'; link.textContent = 'Repeat direct link'; document.querySelector('main').prepend(link);
+    });
+    await page.locator('#repeat-test').click();
+    await page.locator('#BELL-04').waitFor({state: 'visible'});
+    if (width === 1280) {
+      await page.evaluate(() => document.body.style.zoom = '2');
+      assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), '200% zoom overflow');
+    }
+    await page.close();
+    console.log(`PASS Phoenix index at ${width}: source lookup, reverse links, funding/questions, filters, reset, direct links, keyboard and local-only search.`);
+  }
+  for (const width of [320, 390, 768, 1280]) {
+    const page = await browser.newPage({viewport: {width, height: 900}});
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
+    await page.goto(base + '/phoenix/projects.html');
+    const projects = page.locator('[data-connection-entry]:visible');
+    assert.equal(await projects.count(), 8);
+    assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `directory overflow ${width}`);
+    await page.locator('#connection-filter').selectOption('development');
+    assert.equal(await projects.count(), 7);
+    await page.getByRole('searchbox').fill('Moreland');
+    assert.equal(await projects.count(), 1);
+    assert.equal(await projects.first().getAttribute('id'), 'project-moreland');
+    await projects.first().getByRole('link', {name: 'Read the record · PHX-WEB-010', exact: true}).click();
+    assert(page.url().endsWith('/phoenix/records.html#PHX-WEB-010'));
+    await page.locator('#PHX-WEB-010').waitFor({state: 'visible'});
+    await page.locator('#PHX-WEB-010').getByRole('link', {name: 'The Moreland', exact: true}).click();
+    assert(page.url().endsWith('/phoenix/projects.html#project-moreland'));
+    await page.locator('#project-moreland').waitFor({state: 'visible'});
+    await page.getByRole('searchbox').fill('no-project-123476');
+    assert.equal(await projects.count(), 0);
+    assert(await page.locator('#connection-empty').isVisible());
+    // Repeated direct links must reveal hidden entries without relying on hashchange.
+    await page.evaluate(() => {
+      const link = document.createElement('a'); link.href = '#project-moreland'; link.id = 'repeat-project'; link.textContent = 'Repeat project link'; document.querySelector('main').prepend(link);
+    });
+    await page.locator('#repeat-project').click();
+    await page.locator('#project-moreland').waitFor({state: 'visible'});
+    await page.locator('#connection-filter').selectOption('planning-area');
+    assert.equal(await projects.count(), 1);
+    assert.equal(await projects.first().getAttribute('id'), 'project-marcos-grant-park');
+    await page.getByRole('button', {name: 'Clear filters'}).click();
+    assert.equal(await projects.count(), 8);
+
+    await page.getByRole('navigation', {name: 'Phoenix research tools'}).getByRole('link', {name: 'Questions & evidence'}).click();
+    const questions = page.locator('[data-connection-entry]:visible');
+    assert.equal(await questions.count(), 13);
+    assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `matrix overflow ${width}`);
+    await page.locator('#connection-filter').selectOption('bell');
+    assert.equal(await questions.count(), 6);
+    await page.getByRole('searchbox').fill('amendment');
+    assert(await questions.count() > 0);
+    await page.getByRole('searchbox').fill('no-question-123476');
+    assert.equal(await questions.count(), 0);
+    await page.getByRole('button', {name: 'Clear filters'}).click();
+    await page.locator('#connection-filter').selectOption('capital');
+    assert.equal(await questions.count(), 3);
+    const need = page.locator('#need-capital-evidence-needed-03');
+    await need.getByText('Relevant published records', {exact: true}).click();
+    await need.getByRole('link', {name: 'Capital Fund: annual SEFA expenditure', exact: true}).click();
+    assert(page.url().endsWith('#PHX-CFP-WEB-004'));
+    await page.locator('#PHX-CFP-WEB-004').waitFor({state: 'visible'});
+    assert.deepEqual(errors, []);
+    if (width === 1280) {
+      for (const path of ['projects.html', 'questions.html']) {
+        await page.goto(base + '/phoenix/' + path);
+        await page.evaluate(() => document.body.style.zoom = '2');
+        assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `200% zoom overflow ${path}`);
+      }
+    }
+    for (const path of ['index.html', 'capital-fund.html', 'projects/25th-at-bell.html']) {
+      await page.goto(base + '/phoenix/' + path);
+      assert.equal(await page.locator('main h1').count(), 1);
+      assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `existing page overflow ${path} at ${width}`);
+      const navigation = page.getByRole('navigation', {name: 'Phoenix research tools'});
+      assert.equal(await navigation.getByRole('link').count(), 4);
+      await navigation.getByRole('link', {name: 'Projects & phases'}).click();
+      assert(page.url().endsWith('/phoenix/projects.html'));
+    }
+    await page.close();
+    console.log(`PASS connected Phoenix pages at ${width}: directory scope, phase links, evidence matrix, filters and direct-link recovery.`);
+  }
+  const noJS = await browser.newPage({javaScriptEnabled: false});
+  await noJS.goto(base + '/phoenix/records.html');
+  assert.equal(await noJS.locator('.record-card:visible').count(), 70);
+  assert(await noJS.locator('#record-filters').isHidden());
+  await noJS.locator('#source-PHX-CFP-011 summary').first().click();
+  assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());
+  for (const [path, count] of [['projects.html', 8], ['questions.html', 13]]) {
+    await noJS.goto(base + '/phoenix/' + path);
+    assert.equal(await noJS.locator('[data-connection-entry]:visible').count(), count);
+    assert(await noJS.locator('.connection-filters').isHidden());
+  }
+  await noJS.close();
+  console.log('PASS: all entries and source disclosures work without JavaScript.');
+} finally {
+  await browser?.close();
+  server?.kill();
+}
