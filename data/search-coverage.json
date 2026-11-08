@@ -11,8 +11,8 @@
   },
   {
     "page": "evidence.html",
-    "records": 89,
-    "text_nodes": 791
+    "records": 91,
+    "text_nodes": 1048
   },
   {
     "page": "findings.html",
@@ -52,7 +52,7 @@
   {
     "page": "questions-records.html",
     "records": 30,
-    "text_nodes": 386
+    "text_nodes": 390
   },
   {
     "page": "reports/tucson-housing-funding-outcomes-2026.html",
@@ -62,7 +62,7 @@
   {
     "page": "research-center.html",
     "records": 12,
-    "text_nodes": 110
+    "text_nodes": 115
   },
   {
     "page": "research-updates.html",

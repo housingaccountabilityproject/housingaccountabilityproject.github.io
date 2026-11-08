@@ -36,7 +36,13 @@
       "aliases": [],
       "page_url": "evidence.html#county-fy27-q1-source",
       "mapping_basis": "Carried forward from published County update f69fd33af440c114402f2179f3d18d768a8c9ef3; no new source-content verification.",
-      "review_attribution": "Published November 6, 2026 at 4:48 p.m. MST (Tucson)."
+      "review_attribution": "Published November 6, 2026 at 4:48 p.m. MST (Tucson).",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-116"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-023",
@@ -48,7 +54,13 @@
         "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf"
       ],
       "page_url": "evidence.html#src-023",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-023"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-024",
@@ -63,7 +75,14 @@
         "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
       ],
       "page_url": "evidence.html#src-024",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-024",
+        "SRC-061"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-025",
@@ -75,7 +94,13 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Fiscal-Year-2027-PY2026-TucsonPima-Annual-Action-Plan"
       ],
       "page_url": "evidence.html#src-025",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-021"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-026",
@@ -87,7 +112,14 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Plans"
       ],
       "page_url": "evidence.html#src-026",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-051",
+        "SRC-067"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Directory URL match only. Workbook SRC-051 and SRC-067 index the plan directory; the proposed-amendment PDF is separately registered as workbook SRC-026. This is not a final-adoption or implementation record."
     },
     {
       "public_id": "SRC-027",
@@ -99,7 +131,13 @@
         "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson-pima_county_home-arp_allocation_plan.pdf"
       ],
       "page_url": "evidence.html#src-027",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-027"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-029",
@@ -111,7 +149,13 @@
         "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf"
       ],
       "page_url": "evidence.html#src-029",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-029"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-036",
@@ -127,7 +171,14 @@
       ],
       "page_url": "evidence.html#src-036",
       "mapping_basis": "Existing evidence register; retained without changing its source claims.",
-      "limitations": " Earlier composite review. SRC-102 separately indexes the direct November 7 Council action-report review; shared source URLs are not extra unique documents."
+      "limitations": " Earlier composite review. SRC-102 separately indexes the direct November 7 Council action-report review; shared source URLs are not extra unique documents.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-036",
+        "SRC-060"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-040",
@@ -142,7 +193,13 @@
       "mapping_basis": "Existing evidence register; retained without changing its source claims.",
       "source_context": "September 28, 2026 priority listing: PDF p. 8 SAAF AVP-RRH; p. 17 Housing First; p. 36 total request.",
       "limitations": "Submitted reallocations and funding requests, not final HUD awards. The separate payment-system-lockout case remains unidentified.",
-      "review_attribution": "Selected pages reviewed November 6–7, 2026."
+      "review_attribution": "Selected pages reviewed November 6–7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-040"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-034",
@@ -156,7 +213,14 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Project-Based-Vouchers"
       ],
       "page_url": "evidence.html#src-034",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-034",
+        "SRC-070"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-064",
@@ -168,7 +232,13 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Copy-of-Notice-of-Intent-to-Request-Release-of-Funds-August-2026-"
       ],
       "page_url": "evidence.html#src-064",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-064"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-065",
@@ -180,7 +250,13 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Intent-to-Request-Release-of-Funds-for-Project-Based-Vouchers"
       ],
       "page_url": "evidence.html#src-065",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-065"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-071",
@@ -192,7 +268,14 @@
         "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
       ],
       "page_url": "evidence.html#src-071",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-014",
+        "SRC-071"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-060",
@@ -204,7 +287,13 @@
         "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627"
       ],
       "page_url": "evidence.html#src-060",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-060"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-QC31-06",
@@ -216,7 +305,13 @@
         "https://cpd.hud.gov/cpd-public/consolidated-plans"
       ],
       "page_url": "evidence.html#src-qc31-06",
-      "mapping_basis": "Existing evidence register; retained without changing its source claims."
+      "mapping_basis": "Existing evidence register; retained without changing its source claims.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-089"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-074",
@@ -232,7 +327,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-074",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-075",
@@ -248,7 +347,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-075",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-025"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-076",
@@ -264,7 +369,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-076",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-077",
@@ -280,7 +389,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-077",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-078",
@@ -296,7 +409,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-078",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-079",
@@ -312,7 +429,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-079",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-153"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-080",
@@ -328,7 +451,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-080",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-152"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-081",
@@ -344,7 +473,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-081",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-093"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-082",
@@ -360,7 +495,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-082",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-083",
@@ -376,7 +515,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-083",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-084",
@@ -392,7 +535,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-084",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-041"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-085",
@@ -408,7 +557,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-085",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-086",
@@ -424,7 +577,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-086",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-087",
@@ -440,7 +597,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-087",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-088",
@@ -456,7 +617,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-088",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-151"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-089",
@@ -472,7 +639,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-089",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-090",
@@ -488,7 +659,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-090",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-091",
@@ -504,7 +679,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-091",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-092",
@@ -520,7 +699,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-092",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-093",
@@ -536,7 +719,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-093",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ."
+      "review_attribution": "Existing site review dated November 5–6, 2026; source dates differ.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-094",
@@ -552,7 +739,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-094",
       "mapping_basis": "Exact URL match to the existing dated research update; source content not fetched again for this local draft.",
-      "review_attribution": "Existing site review dated November 5–6, 2026; March draft referenced in November 3 review."
+      "review_attribution": "Existing site review dated November 5–6, 2026; March draft referenced in November 3 review.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-095",
@@ -568,7 +759,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-095",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-077"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-096",
@@ -584,7 +781,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-096",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-080"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-097",
@@ -600,7 +803,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-097",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-081"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-098",
@@ -616,7 +825,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-098",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-095"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-099",
@@ -632,7 +847,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-099",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-100",
@@ -648,7 +867,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-100",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-099"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-101",
@@ -664,7 +889,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-101",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-045"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-102",
@@ -680,7 +911,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-102",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-036"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-103",
@@ -696,7 +933,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-103",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-038"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Same Resolution 24188 title, meeting 1960, item 80670 and published document 206197; documentType is expressed as Minutes on the website and 2 in the workbook. Source content not newly reverified."
     },
     {
       "public_id": "SRC-104",
@@ -712,7 +955,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-104",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-076"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-105",
@@ -728,7 +977,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-105",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-102"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-106",
@@ -745,7 +1000,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-106",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-083"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-107",
@@ -761,7 +1022,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-107",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026."
+      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-094"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-108",
@@ -777,7 +1044,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-108",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-082"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-109",
@@ -794,7 +1067,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-109",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-111"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-110",
@@ -810,7 +1089,11 @@
       "aliases": [],
       "page_url": "evidence.html#src-110",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
     },
     {
       "public_id": "SRC-111",
@@ -826,7 +1109,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-111",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-112"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-112",
@@ -842,7 +1131,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-112",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-107"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-113",
@@ -858,7 +1153,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-113",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-105"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-114",
@@ -874,7 +1175,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-114",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-087"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-115",
@@ -890,7 +1197,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-115",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-086"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-116",
@@ -906,7 +1219,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-116",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-122"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     },
     {
       "public_id": "SRC-117",
@@ -922,7 +1241,13 @@
       "aliases": [],
       "page_url": "evidence.html#src-117",
       "mapping_basis": "Original source for the approved additional November 7 review.",
-      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated."
+      "review_attribution": "Selected source content reviewed November 7, 2026; access and date limits stated.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-124"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
     }
   ],
   "unmapped_links": [
@@ -930,5 +1255,8 @@
       "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Reports",
       "reason": "General navigation directory; individual CAPER and annual-report documents retain their own IDs. No new document ID assigned."
     }
-  ]
+  ],
+  "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
+  "crosswalk_url": "data/source-id-crosswalk.json",
+  "inventory_checked_at": "2026-11-07T20:26:20-07:00"
 }

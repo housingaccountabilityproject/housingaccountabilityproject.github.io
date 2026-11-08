@@ -1,0 +1,1146 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-11-07T20:26:20-07:00",
+  "website_source_count": 59,
+  "workbook_registry_scope": "Master v13.13 and Audit v2.14, November 7, 2026 Evidence Registry; document references only, not private workbook content.",
+  "limits": "Source-location crosswalk, not a fresh source-content audit. Unverified mappings remain explicitly unassigned. Website aliases are retained and do not create extra source rows.",
+  "rows": [
+    {
+      "website_source_id": "County FY27 Q1 memo",
+      "website_title": "One Pima Initiative: Fiscal Year 27 First Quarter Update",
+      "website_page": "evidence.html#county-fy27-q1-source",
+      "website_urls": [
+        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2",
+        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+      ],
+      "workbook_source_ids": [
+        "SRC-116"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-116",
+          "title": "County FY27 Q1 One Pima report",
+          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-023",
+      "website_title": "PY2024 CAPER and corrected PR-26 / PR-91",
+      "website_page": "evidence.html#src-023",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-023"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-023",
+          "title": "PY2024 CAPER, including corrected PR26 and PR91",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-024",
+      "website_title": "PY2025 CAPER public-comment draft (also indexed as SRC-061 / SRC-073)",
+      "website_page": "evidence.html#src-024",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-024",
+        "SRC-061"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-024",
+          "title": "PY2025 CAPER public-comment draft",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+        },
+        {
+          "source_id": "SRC-061",
+          "title": "PY2025 CAPER public-comment draft (33 pp.)",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-025",
+      "website_title": "FY2027/PY2026 Annual Action Plan notice (draft-stage link)",
+      "website_page": "evidence.html#src-025",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Fiscal-Year-2027-PY2026-TucsonPima-Annual-Action-Plan"
+      ],
+      "workbook_source_ids": [
+        "SRC-021"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-021",
+          "title": "City FY2027 / PY2026 Annual Action Plan notice, 03/25/2026",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Fiscal-Year-2027-PY2026-TucsonPima-Annual-Action-Plan"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-026",
+      "website_title": "Proposed substantial amendment to PY2026 AAP",
+      "website_page": "evidence.html#src-026",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Plans"
+      ],
+      "workbook_source_ids": [
+        "SRC-051",
+        "SRC-067"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-051",
+          "title": "City HCD plans index, checked October 20, 2026",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Plans"
+        },
+        {
+          "source_id": "SRC-067",
+          "title": "City HCD plan index Oct 26 check",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Plans"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Directory URL match only. Workbook SRC-051 and SRC-067 index the plan directory; the proposed-amendment PDF is separately registered as workbook SRC-026. This is not a final-adoption or implementation record."
+    },
+    {
+      "website_source_id": "SRC-027",
+      "website_title": "Tucson–Pima HOME-ARP Allocation Plan",
+      "website_page": "evidence.html#src-027",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson-pima_county_home-arp_allocation_plan.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-027"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-027",
+          "title": "Original Tucson/Pima HOME-ARP Allocation Plan",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson-pima_county_home-arp_allocation_plan.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-029",
+      "website_title": "2024 HCD Annual Report",
+      "website_page": "evidence.html#src-029",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-029"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-029",
+          "title": "2024 HCD Annual Report",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-036",
+      "website_title": "October 6 council action: Resolution 24188",
+      "website_page": "evidence.html#src-036",
+      "website_urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627",
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+      ],
+      "workbook_source_ids": [
+        "SRC-036",
+        "SRC-060"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-036",
+          "title": "Council legal action report, October 6, 2026",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+        },
+        {
+          "source_id": "SRC-060",
+          "title": "Council-approved CDBG transfer October 6, 2026",
+          "url": "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627?reqfrom=share"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-040",
+      "website_title": "AZ-501 / TPCH FY2026 CoC priority listing",
+      "website_page": "evidence.html#src-040",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-040"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-040",
+          "title": "FY2026 AZ-501 e-snaps priority listing",
+          "url": "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-034",
+      "website_title": "City PBV program / historical RFP results",
+      "website_page": "evidence.html#src-034",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Project-Based-Vouchers"
+      ],
+      "workbook_source_ids": [
+        "SRC-034",
+        "SRC-070"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-034",
+          "title": "City of Tucson Project-Based Vouchers webpage",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Project-Based-Vouchers"
+        },
+        {
+          "source_id": "SRC-070",
+          "title": "City PBV RFP results property register",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Project-Based-Vouchers"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-064",
+      "website_title": "Craycroft Towers and Lee Street PBV conversion notice",
+      "website_page": "evidence.html#src-064",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Copy-of-Notice-of-Intent-to-Request-Release-of-Funds-August-2026-"
+      ],
+      "workbook_source_ids": [
+        "SRC-064"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-064",
+          "title": "Craycroft Towers / Lee Street PBV conversion notice 8/3/26",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Copy-of-Notice-of-Intent-to-Request-Release-of-Funds-August-2026-"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-065",
+      "website_title": "Amazon Flats proposed PBV/HOME release-of-funds notice",
+      "website_page": "evidence.html#src-065",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Intent-to-Request-Release-of-Funds-for-Project-Based-Vouchers"
+      ],
+      "workbook_source_ids": [
+        "SRC-065"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-065",
+          "title": "Amazon Flats HOME and PBV release notice 12/22/25",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/Intent-to-Request-Release-of-Funds-for-Project-Based-Vouchers"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-071",
+      "website_title": "City notice for PY2025 CAPER and proposed CDBG amendment",
+      "website_page": "evidence.html#src-071",
+      "website_urls": [
+        "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
+      ],
+      "workbook_source_ids": [
+        "SRC-014",
+        "SRC-071"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-014",
+          "title": "Draft PY25 CAPER and proposed PY26 amendment, 08/31/2026",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
+        },
+        {
+          "source_id": "SRC-071",
+          "title": "PY2025 draft CAPER comment / proposed FY27 CDBG amendment",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/HCD-News/City-of-Tucson-Accepting-Public-Comments-on-Draft-PY25-CAPER"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-060",
+      "website_title": "City Ward 6 Mayor and Council recap: FY27 HUD Annual Action Plan adjustment",
+      "website_page": "evidence.html#src-060",
+      "website_urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627"
+      ],
+      "workbook_source_ids": [
+        "SRC-060"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-060",
+          "title": "Council-approved CDBG transfer October 6, 2026",
+          "url": "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42e8627?reqfrom=share"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-QC31-06",
+      "website_title": "HUD CPD Public System (alternate CAPER verification route)",
+      "website_page": "evidence.html#src-qc31-06",
+      "website_urls": [
+        "https://cpd.hud.gov/cpd-public/consolidated-plans"
+      ],
+      "workbook_source_ids": [
+        "SRC-089"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-089",
+          "title": "HUD consolidated-plans portal",
+          "url": "https://cpd.hud.gov/cpd-public/consolidated-plans"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": false,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-074",
+      "website_title": "HUD FY2026 formula allocations",
+      "website_page": "evidence.html#src-074",
+      "website_urls": [
+        "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-075",
+      "website_title": "Tucson and Pima Annual Action Plan",
+      "website_page": "evidence.html#src-075",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-025"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-025",
+          "title": "FY2027 / PY2026 Annual Action Plan",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-076",
+      "website_title": "Arizona Finance Authority volume cap tracker",
+      "website_page": "evidence.html#src-076",
+      "website_urls": [
+        "https://afa.az.gov/sites/default/files/users/user21/2026%20Volume%20Cap%20Tracking%2010.7.2026.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-077",
+      "website_title": "Tucson Council agenda",
+      "website_page": "evidence.html#src-077",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeeting?doctype=1&id=1962"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-078",
+      "website_title": "EPHD Craycroft Towers project page",
+      "website_page": "evidence.html#src-078",
+      "website_urls": [
+        "https://www.elpueblohousing.org/home/craycrofttowers"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-079",
+      "website_title": "EPHD project and board presentation",
+      "website_page": "evidence.html#src-079",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/ephd-project-and-board-presentation-for-cehd-november-2026-1.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-153"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-153",
+          "title": "EPHD November 5 development presentation",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/ephd-project-and-board-presentation-for-cehd-november-2026-1.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-080",
+      "website_title": "El Portal operating policies memo",
+      "website_page": "evidence.html#src-080",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/el-portal-operating-policies-cehd-memo-10.30.26.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-152"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-152",
+          "title": "HCD October 30 El Portal staff memo",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/el-portal-operating-policies-cehd-memo-10.30.26.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-081",
+      "website_title": "TPCH FY2026 performance scorecard",
+      "website_page": "evidence.html#src-081",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/TPCH-FY-2026-CoC-Performance-Score-Card-Final-7.13.26.xlsx"
+      ],
+      "workbook_source_ids": [
+        "SRC-093"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-093",
+          "title": "FY2026 CoC performance scorecard",
+          "url": "https://tpch.net/wp-content/uploads/TPCH-FY-2026-CoC-Performance-Score-Card-Final-7.13.26.xlsx"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-082",
+      "website_title": "TPCH FY2026 competition methodology",
+      "website_page": "evidence.html#src-082",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/TPCH-FY-2026-NOFO-Competition-Overview-Instructions-and-Process-v1.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-083",
+      "website_title": "FY2026 CoC consolidated application",
+      "website_page": "evidence.html#src-083",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Consolidated-Application-APPROVED.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-084",
+      "website_title": "TPCH submission confirmation",
+      "website_page": "evidence.html#src-084",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/submission-confirmation.jpg"
+      ],
+      "workbook_source_ids": [
+        "SRC-041"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-041",
+          "title": "TPCH FY2026 submission confirmation",
+          "url": "https://tpch.net/wp-content/uploads/submission-confirmation.jpg"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-085",
+      "website_title": "HUD CoC notice of waiver",
+      "website_page": "evidence.html#src-085",
+      "website_urls": [
+        "https://www.govinfo.gov/content/pkg/FR-2026-11-03/pdf/2026-22417.pdf#page=2"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-086",
+      "website_title": "OMB 2025 Compliance Supplement",
+      "website_page": "evidence.html#src-086",
+      "website_urls": [
+        "https://www.whitehouse.gov/wp-content/uploads/2025/05/Part-4-Department-of-Housing-and-Urban-Development-HUD.pdf#page=61"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-087",
+      "website_title": "PHA August 18 Legal Action Report",
+      "website_page": "evidence.html#src-087",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeeting?id=1981&doctype=2"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-088",
+      "website_title": "El Portal operating policies draft",
+      "website_page": "evidence.html#src-088",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/ep-operating-policies-package-10.22.26.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-151"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-151",
+          "title": "El Portal operating policies package",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/ep-operating-policies-package-10.22.26.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-089",
+      "website_title": "Craycroft Towers environmental review",
+      "website_page": "evidence.html#src-089",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/2026-8-3-craycroft-towers-err-web.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-090",
+      "website_title": "Community Preference Policy engagement update",
+      "website_page": "evidence.html#src-090",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/nov-2026/2026.11.05_cpp-engagement-update_cehd.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-091",
+      "website_title": "CEHD regular meeting agenda",
+      "website_page": "evidence.html#src-091",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/cehd/2026/2026.11.5-cehd-regular-agenda.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-092",
+      "website_title": "Pima County’s February 17 funding announcement",
+      "website_page": "evidence.html#src-092",
+      "website_urls": [
+        "https://content.govdelivery.com/accounts/AZPIMA/bulletins/40a43d2"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-093",
+      "website_title": "HUD CDBG-CV PR-26 instructions",
+      "website_page": "evidence.html#src-093",
+      "website_urls": [
+        "https://www.hud.gov/sites/dfiles/CPD/documents/CDBG-CV-PR26-Instructions-with-AltText.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-094",
+      "website_title": "March FY2027 plan draft",
+      "website_page": "evidence.html#src-094",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/py2026-annual-action-plan-public-comment-draft.pdf"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-095",
+      "website_title": "Casa del Pueblo rehabilitation permit",
+      "website_page": "evidence.html#src-095",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-1224-02366/"
+      ],
+      "workbook_source_ids": [
+        "SRC-077"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-077",
+          "title": "Casa del Pueblo commercial permit",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-COM-1224-02366/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-096",
+      "website_title": "Lariat construction permit",
+      "website_page": "evidence.html#src-096",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0225-00403/"
+      ],
+      "workbook_source_ids": [
+        "SRC-080"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-080",
+          "title": "Lariat construction permit",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-COM-0225-00403/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-097",
+      "website_title": "Shasta construction permit",
+      "website_page": "evidence.html#src-097",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0925-01751/"
+      ],
+      "workbook_source_ids": [
+        "SRC-081"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-081",
+          "title": "Shasta construction permit",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-COM-0925-01751/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-098",
+      "website_title": "Posted City Resolution 24206",
+      "website_page": "evidence.html#src-098",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024206.pdf?meetingId=1962&documentType=1&itemId=80698&publishId=207080&isSection=false"
+      ],
+      "workbook_source_ids": [
+        "SRC-095"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-095",
+          "title": "Council Resolution 24206",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024206.pdf?meetingId=1962&documentType=1&itemId=80698&publishId=207080&isSection=false"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-099",
+      "website_title": "HUD-linked RAD public data",
+      "website_page": "evidence.html#src-099",
+      "website_urls": [
+        "https://www.radresource.net/pha_data.cfm"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-100",
+      "website_title": "Craycroft/Lee Street federal environmental record",
+      "website_page": "evidence.html#src-100",
+      "website_urls": [
+        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+      ],
+      "workbook_source_ids": [
+        "SRC-099"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-099",
+          "title": "Craycroft HEROS environmental review",
+          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-101",
+      "website_title": "City report of El Portal summer placements",
+      "website_page": "evidence.html#src-101",
+      "website_urls": [
+        "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42a9889"
+      ],
+      "workbook_source_ids": [
+        "SRC-045"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-045",
+          "title": "HCD quarterly newsletter, October 1, 2026",
+          "url": "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/42a9889"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-102",
+      "website_title": "October 6 Council action report",
+      "website_page": "evidence.html#src-102",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+      ],
+      "workbook_source_ids": [
+        "SRC-036"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-036",
+          "title": "Council legal action report, October 6, 2026",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-103",
+      "website_title": "City Resolution 24188",
+      "website_page": "evidence.html#src-103",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206197&isSection=false"
+      ],
+      "workbook_source_ids": [
+        "SRC-038"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-038",
+          "title": "Resolution 24188, adopted October 6, 2026",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024188.pdf?documentType=2&meetingId=1960&itemId=80670&publishId=206197&isSection=False"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Same Resolution 24188 title, meeting 1960, item 80670 and published document 206197; documentType is expressed as Minutes on the website and 2 in the workbook. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-104",
+      "website_title": "Exhibit A to Resolution 24188",
+      "website_page": "evidence.html#src-104",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/EXHIBIT%20A%20TO%20RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206198&isSection=false"
+      ],
+      "workbook_source_ids": [
+        "SRC-076"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-076",
+          "title": "Exhibit A to adopted Resolution 24188",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/EXHIBIT%20A%20TO%20RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206198&isSection=false"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-105",
+      "website_title": "August 18 PHA plan packet",
+      "website_page": "evidence.html#src-105",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeetingAgendaItem?meetingId=1981&itemId=78584&isSection=false&type=agenda"
+      ],
+      "workbook_source_ids": [
+        "SRC-102"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-102",
+          "title": "August 18 PHA plan packet",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Meetings/ViewMeetingAgendaItem?meetingId=1981&itemId=78584&isSection=false&type=agenda"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-106",
+      "website_title": "October 20 PHA update",
+      "website_page": "evidence.html#src-106",
+      "website_urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False#page=5",
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?documentType=2&meetingId=1987&itemId=80770&publishId=207173&isSection=False&isAttachment=True"
+      ],
+      "workbook_source_ids": [
+        "SRC-083"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-083",
+          "title": "PHA October 20 quarterly report",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?documentType=2&meetingId=1987&itemId=80770&publishId=207173&isSection=False&isAttachment=True"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-107",
+      "website_title": "October 15 IDA action report",
+      "website_page": "evidence.html#src-107",
+      "website_urls": [
+        "https://assets.tucsonaz.gov/share/bcc/43232.pdf#page=2"
+      ],
+      "workbook_source_ids": [
+        "SRC-094"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-094",
+          "title": "IDA October 15 Legal Action Report",
+          "url": "https://assets.tucsonaz.gov/share/bcc/43232.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-108",
+      "website_title": "Tucson FY2025 Single Audit",
+      "website_page": "evidence.html#src-108",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/city-of-tucson-fy2025-single-audit-final.pdf#page=5"
+      ],
+      "workbook_source_ids": [
+        "SRC-082"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-082",
+          "title": "City FY2025 Single Audit",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/city-of-tucson-fy2025-single-audit-final.pdf#page=5"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-109",
+      "website_title": "Tucson House 15th-floor temporary occupancy",
+      "website_page": "evidence.html#src-109",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/",
+        "https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD"
+      ],
+      "workbook_source_ids": [
+        "SRC-111"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-111",
+          "title": "Tucson House 15th-floor certificate register",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-110",
+      "website_title": "Tucson House renovation permit",
+      "website_page": "evidence.html#src-110",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-COM-0624-01123/"
+      ],
+      "workbook_source_ids": [],
+      "workbook_documents": [],
+      "mapping_status": "no registered equivalent verified",
+      "same_number_collision": true,
+      "basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+    },
+    {
+      "website_source_id": "SRC-111",
+      "website_title": "Tucson House 14th-floor application",
+      "website_page": "evidence.html#src-111",
+      "website_urls": [
+        "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+      ],
+      "workbook_source_ids": [
+        "SRC-112"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-112",
+          "title": "Tucson House 14th-floor certificate application",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-112",
+      "website_title": "Amazon Motel County contract packet",
+      "website_page": "evidence.html#src-112",
+      "website_urls": [
+        "https://pima.legistar.com/View.ashx?GUID=80D3F3D1-9596-4022-96DF-DA9601753215&ID=14847770&M=F"
+      ],
+      "workbook_source_ids": [
+        "SRC-107"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-107",
+          "title": "County Amazon IGA packet",
+          "url": "https://pima.legistar.com/View.ashx?GUID=80D3F3D1-9596-4022-96DF-DA9601753215&ID=14847770&M=F"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-113",
+      "website_title": "EPHD Amazon Flats closing action",
+      "website_page": "evidence.html#src-113",
+      "website_urls": [
+        "https://assets.tucsonaz.gov/share/bcc/41977.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-105"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-105",
+          "title": "EPHD April 8 Legal Action Report",
+          "url": "https://assets.tucsonaz.gov/share/bcc/41977.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-114",
+      "website_title": "HUD HOME match reductions",
+      "website_page": "evidence.html#src-114",
+      "website_urls": [
+        "https://www.hud.gov/sites/default/files/CPD/documents/HOME-Match-Reductions.xlsx"
+      ],
+      "workbook_source_ids": [
+        "SRC-087"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-087",
+          "title": "HUD HOME match reductions",
+          "url": "https://www.hud.gov/sites/default/files/CPD/documents/HOME-Match-Reductions.xlsx"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-115",
+      "website_title": "Tucson/Pima PY2024 Annual Action Plan",
+      "website_page": "evidence.html#src-115",
+      "website_urls": [
+        "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/city-of-tucson_pima-county-py24-annual-action-plan.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-086"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-086",
+          "title": "PY2024 Annual Action Plan",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/city-of-tucson_pima-county-py24-annual-action-plan.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-116",
+      "website_title": "County preliminary budget priorities packet",
+      "website_page": "evidence.html#src-116",
+      "website_urls": [
+        "https://content.civicplus.com/api/assets/e0db1c11-8466-40a6-84b8-2d3988de7556"
+      ],
+      "workbook_source_ids": [
+        "SRC-122"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-122",
+          "title": "County November 10 budget study-session packet",
+          "url": "https://content.civicplus.com/api/assets/e0db1c11-8466-40a6-84b8-2d3988de7556"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-117",
+      "website_title": "TPCH November 12 General Council agenda",
+      "website_page": "evidence.html#src-117",
+      "website_urls": [
+        "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda.pdf"
+      ],
+      "workbook_source_ids": [
+        "SRC-124"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-124",
+          "title": "TPCH November 12 General Council agenda",
+          "url": "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda.pdf"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    }
+  ]
+}

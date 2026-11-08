@@ -56,6 +56,7 @@ for e in entries:
  assert all(urlsplit(x).scheme in ('http','https','mailto') for x in content.xpath('.//a/@href'))
 # Generator fixture tests exercise UI removal without touching public artifacts.
 subprocess.run(['python','scripts/test-search-data.py'],cwd=ROOT,check=True)
+subprocess.run(['python','scripts/check-source-crosswalk.py'],cwd=ROOT,check=True)
 # Generated output must be deterministic.
 old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json']}
 subprocess.run(['python','scripts/build-reader-data.py'],cwd=ROOT,check=True)
