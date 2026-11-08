@@ -13,7 +13,7 @@ elements['search-category'].value='all';
 const document={getElementById:id=>elements[id],createElement:tag=>new Element(tag)};
 const context={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/search-index.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),context);
 const data=context.window.HAP_SEARCH_INDEX.records;const query=(q,category='all')=>{elements['site-query'].value=q;elements['search-category'].value=category;let prevented=false;elements['site-search-form'].events.submit({preventDefault(){prevented=true;}});assert(prevented);return elements['search-results'].children;};
-assert.match(elements['search-status'].textContent,/15 published pages/);
+assert.match(elements['search-status'].textContent,/15 published Tucson and Pima County pages/);
 for(const r of data){assert(!['catalog-empty','catalog-count','empty','count'].includes(r.url.split('#')[1]),r.url);assert(!r.text.includes('No matching records'),r.url);}
 for(const [term,url,title] of [
  ['"Tucson House Renovation"','housing-projects.html#project-pub-005','Tucson House Renovation'],
@@ -36,6 +36,13 @@ results=query('CDBG');assert.equal(results.length,20);assert.equal(elements['mor
 results=query('','Findings');assert(results.length>=12);
 elements['clear-search'].events.click();assert.equal(elements['site-query'].value,'');assert.equal(elements['search-category'].value,'all');assert.equal(elements['search-results'].children.length,0);assert(elements['site-query'].focused);
 const current=data.filter(x=>x.url==='findings.html#f-007'&&!x.historical);const old=data.filter(x=>x.url==='findings.html#f-007'&&x.historical);assert.equal(current.length,1);assert.equal(old.length,1);assert.match(old[0].title,/Historical wording/);
+// Legacy homepage results must open Tucson, including the unfragmented result.
+for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
+ const expected=r.url.replace(/^index\.html/, 'tucson/index.html');
+ const found=query('"'+r.title.replace(/^Historical wording: /,'')+'"');
+ assert(found.some(x=>x.querySelector('a').href===expected),expected);
+}
+assert(data.length===319);assert(data.every(r=>!r.url.startsWith('phoenix/')));
 // Missing-index state must be useful and must not submit a query.
 const failContext={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),failContext);assert(elements['site-search-form'].hidden);assert.match(elements['search-status'].textContent,/unavailable/);
 console.log('PASS: search results, titles, current/historical separation, phrases, IDs, amounts, categories, zero results, hostile input, pagination/focus, clear/reset and missing-index fallback. DOM logic test, not visual browser QA.');

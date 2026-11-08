@@ -9,6 +9,7 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  root=Path(tmp)
  for p in ROOT.glob('*.html'):shutil.copy2(p,root/p.name)
  shutil.copytree(ROOT/'reports',root/'reports')
+ shutil.copytree(ROOT/'tucson',root/'tucson')
  (root/'scripts').mkdir()
  shutil.copy2(ROOT/'scripts/build-reader-data.py',root/'scripts/build-reader-data.py')
  # Distinct sentinels prevent a UI title inheriting a preceding research heading
@@ -30,7 +31,7 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  <details><summary>Substantive source disclosure</summary><p>preserved-disclosure</p></details>
  <details><summary>Historical wording</summary><p>preserved-history</p></details>
  <p>preserved-final</p></section>'''
- p=root/'index.html';p.write_text(p.read_text().replace('</main>',fixture+'</main>'))
+ p=root/'tucson/index.html';p.write_text(p.read_text().replace('</main>',fixture+'</main>'))
  subprocess.run([sys.executable,str(root/'scripts/build-reader-data.py')],check=True)
  records=json.loads((root/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n'))['records']
  text=' '.join(r['text'] for r in records)

@@ -40,7 +40,7 @@ assert center.xpath('//div[@class="metric"]/strong/text()')==['12','20','66']
 preview=json.loads((ROOT/'data/public-research-preview.json').read_text())
 assert preview['counts']['public_source_entries']==66
 assert '66 source rows' in preview['counts_scope']
-home=html.parse(str(ROOT/'index.html'))
+home=html.parse(str(ROOT/'tucson/index.html'))
 assert home.xpath('//footer/p[text()="Public Research Website"]')
 index=json.loads((ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n'))
 for anchor in ['pub-001','pub-003','pub-004','research-review-2026-11-04','verified-funding-2026-11-05']:

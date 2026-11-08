@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import {assertReaderContrast} from './reader-contrast.mjs';
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 await mkdir('reader-qa-screenshots',{recursive:true});
-const pages=(await readdir('.')).filter(p=>p.endsWith('.html')&&!p.startsWith('google')).concat('reports/tucson-housing-funding-outcomes-2026.html');
+const pages=(await readdir('.')).filter(p=>p.endsWith('.html')&&!p.startsWith('google')).concat('reports/tucson-housing-funding-outcomes-2026.html','tucson/index.html','phoenix/index.html','phoenix/capital-fund.html','phoenix/projects/25th-at-bell.html');
 try {
 for(const width of [390,768,1280]) {
  const page=await browser.newPage({viewport:{width,height:900}});const errors=[];
@@ -29,7 +29,7 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Show More Results'}).click();assert((await page.locator('#search-results article').count())>20);
  await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
- await page.goto(pathToFileURL(resolve('index.html')).href);
+ await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
  const slogan=page.locator('.hero h1 + .hero-slogan');
  assert.equal(await slogan.textContent(),'Public Funding Deserves Public Understanding');
  assert.equal(await slogan.evaluate(el=>getComputedStyle(el).fontStyle),'italic');
@@ -43,7 +43,7 @@ for(const width of [390,768,1280]) {
  assert.equal(await page.locator('#latest-updates > ol > li').count(),4);
  assert.equal(await page.locator('#correction-history > ol > li').count(),3);
  for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
- await page.goto(pathToFileURL(resolve('index.html')).href);
+ await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
 
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
  assert(page.url().endsWith('#county-housing-funding-2026-11-08'));
@@ -80,7 +80,7 @@ for(const width of [390,768,1280]) {
 for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zoom:2},{width:640,zoom:1}]) {
  const page=await browser.newPage({viewport:{width,height:900}});
  await page.route(/^https?:/,route=>route.abort());
- await page.goto(pathToFileURL(resolve('index.html')).href);
+ await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
  if(zoom!==1)await page.evaluate(z=>{document.body.style.zoom=String(z)},zoom);
  const heading=page.getByRole('heading',{level:1});
  assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where Do Housing Funds Go? What Do They Deliver?');

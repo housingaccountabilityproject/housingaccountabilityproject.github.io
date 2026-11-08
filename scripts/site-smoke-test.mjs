@@ -3,12 +3,13 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { mkdir } from 'node:fs/promises';
 
-const tests = ['index.html','research-center.html','funding-explorer.html','housing-projects.html','questions-records.html','evidence.html'];
+const tests = ['tucson/index.html','research-center.html','funding-explorer.html','housing-projects.html','questions-records.html','evidence.html'];
 const failures = [];
-const browser = await chromium.launch({headless:true});
+const browser = await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 await mkdir('site-qa-screenshots',{recursive:true});
 for (const width of [390,1280]) {
   const page = await browser.newPage({viewport:{width,height:800},deviceScaleFactor:1});
+  await page.route(/^https?:/, route=>route.abort());
   const errors = [];
   page.on('pageerror',err=>errors.push(err.message));
   for(const path of tests) {
@@ -19,12 +20,12 @@ for (const width of [390,1280]) {
       viewportWidth:document.documentElement.clientWidth,
       headingCount:document.querySelectorAll('h1').length,
       mainCount:document.querySelectorAll('main').length,
-      researchLink:!!document.querySelector('nav a[href="research-center.html"]')
+      researchLink:!!document.querySelector('nav a[href$="research-center.html"]')
     }));
     if(metrics.documentWidth>metrics.viewportWidth+2)failures.push(`${path} horizontal overflow at ${width}: ${JSON.stringify(metrics)}`);
     if(metrics.headingCount!==1||metrics.mainCount!==1||!metrics.researchLink) failures.push(`${path} unexpected page structure ${JSON.stringify(metrics)}`);
     if(errors.length)failures.push(`${path} JS errors ${errors.join('; ')}`);
-    await page.screenshot({path:`site-qa-screenshots/${path.replace('.html','')}-${width}.png`,fullPage:true});
+    await page.screenshot({path:`site-qa-screenshots/${path.replaceAll('/','-').replace('.html','')}-${width}.png`,fullPage:true});
     console.log('Rendered',path,width,JSON.stringify(metrics));
   }
   for(const path of ['funding-explorer.html','housing-projects.html','questions-records.html']) {

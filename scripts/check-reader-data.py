@@ -7,8 +7,9 @@ from datetime import datetime
 import json,re,subprocess
 ROOT=Path(__file__).resolve().parents[1]
 files=[*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]
-pages={p.relative_to(ROOT).as_posix():html.parse(str(p)) for p in files if not p.name.startswith('google')}
+pages={p.relative_to(ROOT).as_posix():html.parse(str(ROOT/'tucson/index.html' if p.name=='index.html' else p)) for p in files if not p.name.startswith('google')}
 for rel,doc in pages.items():
+ actual_rel='tucson/index.html' if rel=='index.html' else rel
  ids=doc.xpath('//@id');assert len(ids)==len(set(ids)),('duplicate ID',rel)
  assert len(doc.xpath('//h1'))==len(doc.xpath('//main'))==1,('landmarks',rel)
  assert doc.xpath('//nav[@aria-label="Reader tools"]'),('reader tools',rel)
@@ -17,8 +18,8 @@ for rel,doc in pages.items():
  for href in doc.xpath('//a/@href|//script/@src|//link[@rel="stylesheet"]/@href|//img/@src'):
   u=urlsplit(href)
   if u.scheme or u.netloc:continue
-  dest=(ROOT/u.path.lstrip('/')) if u.path.startswith('/') else (ROOT/rel).parent/u.path
-  dest=dest.resolve() if u.path else (ROOT/rel)
+  dest=(ROOT/u.path.lstrip('/')) if u.path.startswith('/') else (ROOT/actual_rel).parent/u.path
+  dest=dest.resolve() if u.path else (ROOT/actual_rel)
   if dest.is_dir():dest=dest/'index.html'
   assert dest.exists(),('missing local link',rel,href)
   if u.fragment and dest.suffix=='.html':assert html.parse(str(dest)).xpath('//*[@id=$id]',id=unquote(u.fragment)),('missing anchor',rel,href)
