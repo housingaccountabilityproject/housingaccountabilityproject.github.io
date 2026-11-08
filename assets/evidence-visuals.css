@@ -1,5 +1,5 @@
 /* Approved evidence visuals. Scoped to these modules; no additional disclosure controls. */
-.evidence-visual{--ev-navy:#102e3d;--ev-teal:#166267;--ev-muted:#52676e;--ev-line:#cbdad9;--ev-mint:#e8f4f0;--ev-amber:#865500;--ev-warm:#fff4df;color:var(--ev-navy);margin:36px 0 44px;padding:0;max-width:none}
+.evidence-visual{--ev-navy:#102e3d;--ev-teal:#166267;--ev-muted:#52676e;--ev-line:#cbdad9;--ev-mint:#e8f4f0;--ev-amber:#865500;--ev-warm:#fff4df;container-type:inline-size;container-name:evidence-visual;color:var(--ev-navy);margin:36px 0 44px;padding:0;max-width:none}
 .evidence-visual *{box-sizing:border-box;min-width:0}
 .evidence-visual h2{color:var(--ev-navy);font-size:clamp(26px,3vw,35px);line-height:1.22;margin:0 0 13px}
 .evidence-visual h3{color:var(--ev-navy);font-size:23px;line-height:1.3;margin:0 0 16px}
@@ -15,7 +15,7 @@
 .evidence-visual .ev-mint{background:var(--ev-mint);border-color:var(--ev-mint)}
 .evidence-visual .ev-warm{background:var(--ev-warm);border-color:var(--ev-warm)}
 .evidence-visual .ev-warm p,.evidence-visual .ev-warm h3{color:var(--ev-amber)}
-.evidence-visual .ev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.evidence-visual .ev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px}
 .evidence-visual .ev-pair{display:grid;grid-template-columns:1.55fr 1fr;gap:20px;margin-top:20px}
 .evidence-visual .ev-project-pair{grid-template-columns:1fr 1.4fr}
 .evidence-visual .ev-stack{display:grid;align-content:start;gap:20px}
@@ -56,3 +56,6 @@
 @media(max-width:1100px){.evidence-visual .ev-grid{grid-template-columns:1fr}.evidence-visual .ev-funding-card h3,.evidence-visual .ev-funding-card .ev-badge{min-height:0}.evidence-visual .ev-funding-card .ev-limit{margin-top:16px}.evidence-visual .ev-money{font-size:32px}.evidence-visual .ev-timeline{gap:13px}.evidence-visual .ev-timeline h4{font-size:16px}}
 @media(max-width:780px){.evidence-visual .ev-pair{grid-template-columns:1fr}.evidence-visual .ev-timeline{grid-template-columns:1fr;gap:0;margin-bottom:10px}.evidence-visual .ev-timeline li{padding:0 0 23px 38px}.evidence-visual .ev-timeline li:after{top:22px;left:10px;width:0;height:calc(100% - 22px);border-top:0;border-left:2px dashed var(--ev-line)}.evidence-visual .ev-timeline li:last-child:after{display:none}.evidence-visual .ev-timeline h4{font-size:18px;margin:7px 0}.evidence-visual .ev-timeline p{margin:0}.evidence-visual .ev-panel{padding:20px}.evidence-visual .ev-tiles{gap:6px}.evidence-visual .ev-money{font-size:clamp(25px,7.5vw,34px)}}
 @media print{.evidence-visual .ev-panel{break-inside:avoid}.evidence-visual .ev-tiles,.evidence-visual .ev-badge{print-color-adjust:exact}.evidence-visual .ev-grid,.evidence-visual .ev-pair{display:block}.evidence-visual .ev-panel{margin-bottom:18px}}
+
+/* Reflow by the module's actual width, including 200% text/page zoom. */
+@container evidence-visual (max-width:740px){.evidence-visual .ev-pair{grid-template-columns:1fr}.evidence-visual .ev-timeline{grid-template-columns:1fr;gap:0;margin-bottom:10px}.evidence-visual .ev-timeline li{padding:0 0 23px 38px}.evidence-visual .ev-timeline li:after{top:22px;left:10px;width:0;height:calc(100% - 22px);border-top:0;border-left:2px dashed var(--ev-line)}.evidence-visual .ev-timeline li:last-child:after{display:none}.evidence-visual .ev-timeline h4{font-size:18px;margin:7px 0}.evidence-visual .ev-timeline p{margin:0}.evidence-visual .ev-funding-card h3,.evidence-visual .ev-funding-card .ev-badge{min-height:0}.evidence-visual .ev-funding-card .ev-limit{margin-top:16px}}
