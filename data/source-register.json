@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "scope": "Stable mapping of published source rows. Selected November 7 additions and earlier records retain their individual review limits.",
-  "source_dates_through": "2026-11-07",
+  "scope": "Stable mapping of 66 published source rows. Selected November 8 additions and earlier records retain their individual review limits.",
+  "source_dates_through": "2026-11-08",
   "resident_privacy": "Aggregate counts and appropriately redacted public records only. No resident names, occupied-unit identifiers, tenant rosters or individual case files; combine or suppress identifiable small groups.",
   "tracker_to_source": {
     "1": "SRC-074",
@@ -1248,6 +1248,161 @@
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
       "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "public_id": "SRC-118",
+      "title": "Pima County September 8, 2026 Meeting Summary Report",
+      "period": "FY2027",
+      "topic": "county",
+      "source_context": "September 8, 2026 meeting summary, PDF p. 6 (allocations); pp. 12–13 (PRICE approvals). Not approved minutes.",
+      "limitations": "Allocations and approval only, not spending, execution or assistance delivered.",
+      "urls": [
+        "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M"
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-118",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-165"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-119",
+      "title": "Pima County File 20746 FY27 housing-budget action",
+      "period": "FY2027",
+      "topic": "county",
+      "source_context": "September 8, 2026 final action; file 20746.",
+      "limitations": "Confirms $5 million plus $3.7 million approval. Use the separate summary for the tabled $1 million request.",
+      "urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search="
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-119",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-166"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-120",
+      "title": "Pima County PRICE Home Repair IGA packet, G-CWD-114287 / City contract 19783",
+      "period": "other",
+      "topic": "county",
+      "source_context": "September 8, 2026 agenda packet; amount/term pp. 1–2; execution p. 7; scope p. 21.",
+      "limitations": "Posted execution lines are incomplete. Plans and targets do not establish actual repairs, reimbursements or households served.",
+      "urls": [
+        "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F"
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-120",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-167"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-121",
+      "title": "Pima County PRICE EELS IGA packet, G-CWD-114286 / City contract 19782",
+      "period": "other",
+      "topic": "county",
+      "source_context": "September 8, 2026 agenda packet; amount/term pp. 1–2; execution p. 7; budget/target p. 21.",
+      "limitations": "Posted execution lines are incomplete. Plans and targets do not establish actual payments, legal outcomes or households served.",
+      "urls": [
+        "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F"
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-121",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-168"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-122",
+      "title": "Pima County File 20723 Home Repair award acceptance action",
+      "period": "other",
+      "topic": "county",
+      "source_context": "September 8, 2026 approval record; file 20723.",
+      "limitations": "Approval only, not fully executed contract, expenditure or service delivery.",
+      "urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=C68229F3-9584-4448-AA22-8BA88347C4B8&ID=8197699&Options=&Search="
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-122",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-169"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-123",
+      "title": "Pima County File 20724 EELS award acceptance action",
+      "period": "other",
+      "topic": "county",
+      "source_context": "September 8, 2026 approval record; file 20724.",
+      "limitations": "Approval only, not fully executed contract, expenditure or service delivery.",
+      "urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=AA754724-7C00-40F7-AE9E-BB698CE7F1EC&ID=8197700&Options=&Search="
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-123",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-170"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-124",
+      "title": "USAspending City of Tucson PRICE award and federal-account reporting",
+      "period": "other",
+      "topic": "county",
+      "source_context": "Award B-23-PR-04-0001. Latest funding period FY2026 month 11 (August 2026), reviewed November 8. Funding API request: POST award_id 259676177, page 1, limit 100; three rows, hasNext false.",
+      "limitations": "$78,172.27 cumulative outlays and $11,519,567.21 obligations concern the City award, not County spending. Latest period FY2026 month 11 (August 2026); monthly cumulative values are not additive. Later spending and current available balance unverified.",
+      "urls": [
+        "https://api.usaspending.gov/api/v2/awards/ASST_NON_B-23-PR-04-0001_086/",
+        "https://api.usaspending.gov/api/v2/awards/funding/"
+      ],
+      "citation_url": "research-updates.html#county-housing-funding-2026-11-08",
+      "aliases": [],
+      "page_url": "evidence.html#src-124",
+      "mapping_basis": "Official public source for the approved November 8 County housing update.",
+      "review_attribution": "Selected source content reviewed November 8, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-172"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
     }
   ],
   "unmapped_links": [

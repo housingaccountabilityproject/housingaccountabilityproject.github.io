@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-11-07T20:26:20-07:00",
-  "website_source_count": 59,
-  "workbook_registry_scope": "Master v13.13 and Audit v2.14, November 7, 2026 Evidence Registry; document references only, not private workbook content.",
+  "checked_at": "2026-11-08T10:41:35-07:00",
+  "website_source_count": 66,
+  "workbook_registry_scope": "Master v13.14 and Audit v2.15, November 8, 2026 Evidence Registry; document references only, not private workbook content.",
   "limits": "Source-location crosswalk, not a fresh source-content audit. Unverified mappings remain explicitly unassigned. Website aliases are retained and do not create extra source rows.",
   "rows": [
     {
@@ -1141,6 +1141,154 @@
       "mapping_status": "registered locator match",
       "same_number_collision": true,
       "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+    },
+    {
+      "website_source_id": "SRC-118",
+      "website_title": "Pima County September 8, 2026 Meeting Summary Report",
+      "website_page": "evidence.html#src-118",
+      "website_urls": [
+        "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M"
+      ],
+      "workbook_source_ids": [
+        "SRC-165"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-165",
+          "title": "Pima County September 8, 2026 Meeting Summary Report",
+          "url": "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-119",
+      "website_title": "Pima County File 20746 FY27 housing-budget action",
+      "website_page": "evidence.html#src-119",
+      "website_urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search="
+      ],
+      "workbook_source_ids": [
+        "SRC-166"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-166",
+          "title": "Pima County File 20746 FY27 housing-budget action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search="
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-120",
+      "website_title": "Pima County PRICE Home Repair IGA packet, G-CWD-114287 / City contract 19783",
+      "website_page": "evidence.html#src-120",
+      "website_urls": [
+        "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F"
+      ],
+      "workbook_source_ids": [
+        "SRC-167"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-167",
+          "title": "Pima County PRICE Home Repair IGA packet, G-CWD-114287 / City contract 19783",
+          "url": "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-121",
+      "website_title": "Pima County PRICE EELS IGA packet, G-CWD-114286 / City contract 19782",
+      "website_page": "evidence.html#src-121",
+      "website_urls": [
+        "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F"
+      ],
+      "workbook_source_ids": [
+        "SRC-168"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-168",
+          "title": "Pima County PRICE EELS IGA packet, G-CWD-114286 / City contract 19782",
+          "url": "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-122",
+      "website_title": "Pima County File 20723 Home Repair award acceptance action",
+      "website_page": "evidence.html#src-122",
+      "website_urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=C68229F3-9584-4448-AA22-8BA88347C4B8&ID=8197699&Options=&Search="
+      ],
+      "workbook_source_ids": [
+        "SRC-169"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-169",
+          "title": "Pima County File 20723 Home Repair award acceptance action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=C68229F3-9584-4448-AA22-8BA88347C4B8&ID=8197699&Options=&Search="
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-123",
+      "website_title": "Pima County File 20724 EELS award acceptance action",
+      "website_page": "evidence.html#src-123",
+      "website_urls": [
+        "https://pima.legistar.com/LegislationDetail.aspx?GUID=AA754724-7C00-40F7-AE9E-BB698CE7F1EC&ID=8197700&Options=&Search="
+      ],
+      "workbook_source_ids": [
+        "SRC-170"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-170",
+          "title": "Pima County File 20724 EELS award acceptance action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=AA754724-7C00-40F7-AE9E-BB698CE7F1EC&ID=8197700&Options=&Search="
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "website_source_id": "SRC-124",
+      "website_title": "USAspending City of Tucson PRICE award and federal-account reporting",
+      "website_page": "evidence.html#src-124",
+      "website_urls": [
+        "https://api.usaspending.gov/api/v2/awards/ASST_NON_B-23-PR-04-0001_086/",
+        "https://api.usaspending.gov/api/v2/awards/funding/"
+      ],
+      "workbook_source_ids": [
+        "SRC-172"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-172",
+          "title": "USAspending City of Tucson PRICE award and federal-account reporting",
+          "url": "https://api.usaspending.gov/api/v2/awards/ASST_NON_B-23-PR-04-0001_086/"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
     }
   ]
 }
