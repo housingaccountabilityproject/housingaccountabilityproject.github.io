@@ -30,6 +30,7 @@
     empty.hidden = shown > 0;
     printing?.update();
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
+    document.dispatchEvent(new Event('hapfilterschange'));
   }
 
   function clear() {

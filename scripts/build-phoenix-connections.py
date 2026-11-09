@@ -28,7 +28,7 @@ def shell(filename, title, intro, body):
 <link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css">
 <link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">
-<script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script></head>
+<script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / {escape(title)}</div>
 {navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Published research snapshot: November 8, 2026.</p></section>

@@ -1,8 +1,19 @@
 .search-print-toolbar { margin: 20px 0; }
+.search-print-toolbar button + button { margin-left: 12px; }
 .search-print-toolbar button { font: inherit; font-size: 14px; font-weight: bold; cursor: pointer; min-height: 46px; padding: 12px 18px; background: #124e52; color: white; border: 1px solid #124e52; }
 .search-print-toolbar button:disabled { opacity: .55; cursor: default; }
 .search-print-toolbar p { font-size: 13px; line-height: 1.6; margin: 8px 0; color: #566c6c; }
 #search-print-output { display: none; }
+body.previewing-search-results > :not(#search-print-output):not(#search-print-preview-controls) { display: none !important; }
+body.previewing-search-results #search-print-output { display: block; max-width: 680px; width: calc(100% - 40px); margin: 24px auto; padding: 24px; background: white; color: #111; }
+body.previewing-search-results #search-print-output > article { display: block; margin: 24px 0; border: 0; border-top: 1px solid #777; border-radius: 0; padding: 20px 0; }
+body.previewing-search-results #search-print-output .print-source-urls { display: block; }
+body.previewing-search-results #search-print-output .search-snippet { display: none; }
+body.previewing-search-results #search-print-output a { overflow-wrap: anywhere; }
+body.previewing-search-results #search-print-output a[href]::after { content: ' (' attr(href) ')'; font-size: 11px; overflow-wrap: anywhere; }
+#search-print-preview-controls { position: sticky; top: 0; z-index: 30; padding: 16px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; background: #e9f2ee; border-bottom: 1px solid #b9cdc2; }
+#search-print-preview-controls button { font: bold 14px/1.5 Arial, sans-serif; padding: 12px 18px; min-height: 46px; border: 1px solid #124e52; color: white; background: #124e52; cursor: pointer; }
+@media(max-width:500px) { .search-print-toolbar button + button { margin: 10px 0 0; } .search-print-toolbar button { display: block; } }
 @media print {
   @page { margin: 18mm; }
   .search-print-toolbar { display: none !important; }
@@ -26,5 +37,6 @@
   #search-print-output .search-result .meta { display: none; }
   #search-print-output .record-reading { display: block !important; font-size: 10pt; }
   #search-print-output .evidence-question { display: block; }
+  #search-print-output header { display: block !important; }
   #search-print-output .question-evidence, #search-print-output .question-outcome { padding-left: 0; border-left: 0; }
 }

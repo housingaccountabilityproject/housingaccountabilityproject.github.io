@@ -48,6 +48,14 @@ try {
   assert(expected > 20);
   assert.equal(await page.locator('#search-results article').count(), 20);
   const statusBefore = await page.locator('#search-status').textContent();
+  await page.getByRole('button', {name: 'Preview print results', exact: true}).click();
+  assert.equal(await page.locator('#search-print-output article').count(), expected);
+  assert.equal(await page.locator('#search-results article').count(), 20);
+  assert(await page.getByRole('button', {name: 'Return to results'}).isVisible());
+  await page.getByRole('button', {name: 'Return to results'}).click();
+  assert.equal(await page.locator('#search-print-output').count(), 0);
+  assert.equal(await page.locator('#search-results article').count(), 20);
+
   // Unsubmitted edits must not relabel the results being printed.
   await page.getByLabel('Search the Website', {exact: true}).fill('not-the-submitted-query');
   await clickPrint();
@@ -83,7 +91,7 @@ try {
 
   await page.goto(base + '/phoenix/records.html');
   await page.getByRole('button', {name: 'Funding', exact: true}).click();
-  await page.locator('#record-kind').selectOption('expenditure');
+  await page.locator('#record-kind').selectOption('expenditure', {force:true});
   const sourceDetails = page.locator('#PHX-CFP-WEB-004 details').first();
   assert.equal(await sourceDetails.getAttribute('open'), null);
   await clickPrint();

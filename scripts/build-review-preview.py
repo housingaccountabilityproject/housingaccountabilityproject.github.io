@@ -57,7 +57,7 @@ showPage('index.html');
 out.write_text(page)
 print(out, out.stat().st_size, 'bytes; pages:',len(site))
 # Validate the finished payload, included assets, all links and no active analytics.
-reconstructed=json.loads(base64.b64decode(encoded));assert len(reconstructed)==20
+reconstructed=json.loads(base64.b64decode(encoded));assert len(reconstructed)==26
 for rel,text in reconstructed.items():
  d=html.fromstring(text);assert len(d.xpath('//h1'))==1;assert not d.xpath('//script[@src]');assert not d.xpath('//script[@data-goatcounter]');assert not d.xpath('//link[@rel="stylesheet"]')
-print('PASS: all 20 pages embedded, CSS/scripts/images included, no active analytics or remote scripts.')
+print('PASS: all 26 pages embedded, CSS/scripts/images included, no active analytics or remote scripts.')

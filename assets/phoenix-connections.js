@@ -19,6 +19,7 @@
     document.querySelector('#connection-count').textContent = `${count} of ${entries.length} entries`;
     document.querySelector('#connection-empty').hidden = count > 0;
     printing?.update();
+    document.dispatchEvent(new Event('hapfilterschange'));
   }
   function reset() { query.value = ''; filter.value = ''; update(); }
   function revealHash() {

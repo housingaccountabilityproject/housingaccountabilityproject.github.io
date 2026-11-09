@@ -83,7 +83,7 @@ for comparison in comparisons:
         for paragraph in record['summary'] + record['limitations']:
             assert paragraph in card.text_content(), ('lost comparison context', statement['record_id'])
     assert all(record_map[q]['kind'] in ['question', 'needed'] for q in comparison['question_ids'])
-for doc_path in ['phoenix/records.html', 'phoenix/projects.html', 'phoenix/questions.html', 'phoenix/comparisons.html', *data['input_pages']]:
+for doc_path in sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'phoenix').rglob('*.html')):
     doc = html.parse(str(ROOT / doc_path))
     assert len(doc.xpath('//main')) == len(doc.xpath('//h1')) == 1
     all_ids = doc.xpath('//@id')

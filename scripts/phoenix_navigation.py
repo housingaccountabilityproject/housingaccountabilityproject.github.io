@@ -8,6 +8,9 @@ LINKS = [
     ('comparisons.html', 'Source comparisons'),
     ('records.html', 'Sources & records'),
     ('questions.html', 'Questions & evidence'),
+    ('glossary.html', 'Glossary'),
+    ('inaugural-report.html', 'First report'),
+    ('housing-help.html', 'Housing help'),
 ]
 
 

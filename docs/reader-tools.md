@@ -83,9 +83,9 @@ The browser regression checks follow the relocated Tucson homepage, and also inc
 
 ## Printing search results
 
-The Tucson/Pima County search and the Phoenix evidence index have a **Print search results** button. The Phoenix project directory and question/evidence matrix also support it. Use the browser's print dialog to print or save a PDF. Browser Print / Ctrl+P / Command+P prepares the same report.
+The Tucson/Pima County search and the Phoenix evidence index have a **Print search results** button. The Phoenix project directory and question/evidence matrix also support it. Use **Preview print results** to review a detached report, then print or save a PDF. Returning to results restores the original screen view. The shared print flow retains the latest reference guides, visible filter buttons and verified research-publication timestamp. Browser Print / Ctrl+P / Command+P prepares the same report.
 
-Tucson prints all matches from the submitted search and selected page category, including results beyond the 20 currently displayed. Unsubmitted edits do not relabel the existing results. Historical cautions and search excerpts are preserved; the report directs readers to the original context. Printing does not load additional results onto the screen or change pagination.
+Tucson prints all matches from the submitted search and selected page category, including results beyond the 20 currently displayed. Unsubmitted edits do not relabel the existing results. Historical cautions, full indexed record text and contextual source-page links are preserved; context links are explicitly not presented as verified evidence for every result. Printing does not load additional results onto the screen or change pagination.
 
 Phoenix prints only entries matching the active view, search and filters. Source notes and connected evidence disclosures expand in the report; the original screen disclosures stay unchanged. Both reports include search/filter descriptions, a result count, a preparation timestamp with timezone, and public canonical URLs suitable for paper or PDF references. Research dates remain separate from the preparation timestamp. Empty searches do not print stale results.
 
