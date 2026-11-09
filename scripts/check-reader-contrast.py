@@ -64,7 +64,7 @@ if __name__ == "__main__":
             continue
         styles = doc.xpath('//head/style|//head/link[@rel="stylesheet"]')
         assert any(style.get("href", "").endswith("assets/reader-tools.css") for style in styles), path
-        assert styles[-1].get("href", "").endswith("assets/city-layout.css"), path
+        assert styles[-1].get("href", "").split('?',1)[0].endswith("assets/city-layout.css"), path
         for panel in panels:
             for element in [panel, *panel.iterdescendants()]:
                 assert not re.search(r"(?:^|;)\s*(?:color|background(?:-color)?)\s*:", element.get("style", "")), (path, "inline panel color requires review")

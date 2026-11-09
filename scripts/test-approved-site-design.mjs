@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
-import {mkdirSync} from 'node:fs';
+import {mkdirSync,existsSync} from 'node:fs';
 import {chromium} from 'playwright';
 import {openNavigation} from './browser-navigation.mjs';
 import {assertReaderContrast} from './reader-contrast.mjs';
@@ -18,7 +18,8 @@ const pdfText=path=>execFileSync('pdftotext',[path,'-'],{encoding:'utf8'}).repla
 const pdfPages=path=>Number(execFileSync('pdfinfo',[path],{encoding:'utf8'}).match(/Pages:\s+(\d+)/)[1]);
 try{
   for(let i=0;i<40;i++){try{if((await fetch(base+'/index.html')).ok)break;}catch{}await new Promise(resolve=>setTimeout(resolve,100));}
-  browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium'});
+  const executablePath=process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined);
+  browser=await chromium.launch({headless:true,...(executablePath?{executablePath}:{})});
   for(const width of [320,390,700]){
     const page=await pageFor(width);await page.goto(base+'/phoenix/index.html');
     await openNavigation(page);

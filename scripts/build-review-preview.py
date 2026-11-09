@@ -12,7 +12,7 @@ for f in files:
  rel=f.relative_to(root).as_posix();doc=html.parse(str(f))
  for e in doc.xpath('//script[@data-goatcounter]|//script[@src="assets/legacy-home-bridge.js"]'):e.getparent().remove(e)
  for e in doc.xpath('//link[@rel="stylesheet"]'):
-  p=(f.parent/e.get('href')).resolve();style=html.Element('style')
+  p=(f.parent/urlsplit(e.get('href')).path).resolve();style=html.Element('style')
   def inline_css_asset(match):
    value=match.group(1).strip('"\' ')
    if urlsplit(value).scheme or value.startswith('#'):return match.group(0)
@@ -22,7 +22,7 @@ for f in files:
   style.text=re.sub(r'url\(([^)]*)\)',inline_css_asset,p.read_text());e.getparent().replace(e,style)
  for e in doc.xpath('//script[@src]'):
   src=e.get('src');assert not urlsplit(src).scheme,src
-  e.text=(f.parent/src).read_text();del e.attrib['src']
+  e.text=(f.parent/urlsplit(src).path).read_text();del e.attrib['src']
  # Inline scripts ignore defer; preserve deferred execution after the page DOM exists.
  for e in list(doc.xpath('//script[@defer]')):
   del e.attrib['defer'];e.getparent().remove(e);doc.xpath('//body')[0].append(e)

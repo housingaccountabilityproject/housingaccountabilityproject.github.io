@@ -1,8 +1,10 @@
 # A shared educational structure for Tucson and Phoenix
 
-Both city sections use the same theme, layout and six main destinations: Overview, Projects, Funding, Questions, Sources and Search. A city switcher makes the research area explicit. Glossaries, reports, comparisons, correction history and housing help sit under **Learn & resources**. The underlying records remain scoped to their city.
+Both city sections use the same theme, layout and six research destinations: Overview, Projects, Funding, Questions, Sources and Search. About remains a visible main-navigation destination alongside them, including the separately published About-navigation update. A city switcher makes the research area explicit. Glossaries, reports, comparisons, correction history and housing help sit under **Learn & resources**. The underlying records remain scoped to their city.
 
 The approved website mockups are implemented as a shared system across all 29 existing pages. City overviews have matching panoramic headings and compact reading sections. Other research and reference pages share a narrower landscape band, common typography, grouped footer links and the same navigation. The design uses the existing web landscape illustration and exact repository research rather than copying illustrative mockup text.
+
+The shared renderer appends content hashes to the changed stylesheet and interaction scripts. A new HTML release therefore requests the matching design assets instead of relying on a reader's cached earlier menu/filter code. Hashes are deterministic and do not change source or publication dates. The offline preview resolves these asset URLs locally when embedding them.
 
 At phone widths, a navigation drawer offers city switching, the six research routes, learning resources and utility links. It traps focus while open, makes the background inert, returns focus on Escape/close, and restores normal navigation on desktop resize. Without JavaScript, ordinary navigation remains visible. The glossary combines local initial-letter and text filters. Project directories combine their existing topic/type search with a separate evidence-stage filter; a phase can have more than one evidence-stage label.
 

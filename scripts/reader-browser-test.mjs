@@ -44,13 +44,16 @@ for(const width of [390,768,1280]) {
  await page.locator('.city-evidence-library > summary').click();
  const homeAnchors=await page.locator('.page-jump a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
  assert(homeAnchors.every(href=>href.startsWith('#')));
- assert.equal(await page.locator('#latest-updates > ol > li').count(),4);
+ assert.equal(await page.locator('#latest-updates > ol > li').count(),5);
  assert.equal(await page.locator('#correction-history > ol > li').count(),3);
  for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
  await page.goto(localPageUrl('tucson/index.html'));
 
  await page.locator('.city-evidence-library > summary').click();
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
+ assert(page.url().endsWith('#tucson-py2025-caper-status'));
+ assert(await page.locator('#tucson-py2025-caper-status').isVisible());
+ await page.goto(localPageUrl('research-updates.html')+'#county-housing-funding-2026-11-08');
  assert(page.url().endsWith('#county-housing-funding-2026-11-08'));
  assert.equal(await page.locator('#county-housing-funding-2026-11-08 h3').count(),3);
  const countyText=await page.locator('#county-housing-funding-2026-11-08').textContent();

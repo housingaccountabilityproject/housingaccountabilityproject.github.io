@@ -1446,6 +1446,39 @@
       "page_url": "capital-fund.html#PHX-CFP-WEB-006"
     },
     {
+      "id": "PHX-CFP-WEB-007",
+      "aliases": [],
+      "topic": "capital",
+      "kind": "reported",
+      "title": "Maryvale Parkway Terrace: reported 2025 improvements",
+      "labels": [
+        "City-reported project result · 2025"
+      ],
+      "summary": [
+        "What the record shows. Phoenix reports that it completed major improvements at Maryvale Parkway Terrace in 2025 using the Public Housing Capital Fund and Community Development Block Grant (CDBG)."
+      ],
+      "context": [
+        "Sources checked on November 9, 2026"
+      ],
+      "limitations": [
+        "What’s still open. Project payment records are needed to identify the grants and determine how much each program paid."
+      ],
+      "source_ids": [
+        "PHX-CITY-010"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-CITY-010"
+          ],
+          "title": "Phoenix’s 2026–27 Annual Agency Plan, PDF page 30",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf#page=30",
+          "locator": ""
+        }
+      ],
+      "page_url": "capital-fund.html#PHX-CFP-WEB-007"
+    },
+    {
       "id": "capital-evidence-needed-01",
       "aliases": [],
       "topic": "capital",

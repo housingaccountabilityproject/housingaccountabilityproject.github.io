@@ -5,15 +5,17 @@ from urllib.parse import urlsplit
 from lxml import html
 import posixpath
 import re
+import hashlib
 from city_reader_guide import apply as reader_guide
 from city_design import apply as site_design
 
 ROOT = Path(__file__).resolve().parents[1]
 SHARED = {'index.html', 'about.html', 'contact.html', 'privacy.html'}
+ABOUT = ('About', 'about.html')
 ROUTES = {
     'tucson': [('Overview', 'tucson/index.html'), ('Projects', 'housing-projects.html'), ('Funding', 'funding-explorer.html'), ('Questions', 'questions-records.html'), ('Sources', 'evidence.html'), ('Search', 'search.html')],
     'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/records.html')],
-    'shared': [('Research areas', 'index.html'), ('About', 'about.html'), ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
+    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
 }
 MORE = {
     'tucson': [('Glossary', 'glossary.html'), ('Reports & reading', 'research.html#publications'), ('Research method', 'research.html#standards'), ('Updates & corrections', 'research-updates.html'), ('Housing help', 'housing-help.html'), ('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html')],
@@ -41,9 +43,12 @@ def city_link(label, target, path, selected=False, extra=''):
 def header(path, city):
     name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix', 'shared': 'Independent public research'}[city]
     switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix', 'phoenix/index.html')])
-    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in ROUTES[city])
+    routes = ROUTES[city]
+    if city != 'shared':
+        routes = [routes[0], ABOUT, *routes[1:]]
+    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in routes)
     more = ''.join(city_link(label, target, path, path == target) for label, target in MORE[city])
-    utilities = ''.join(city_link(label,target,path) for label,target in [('About','about.html'),('Contact','contact.html'),('Privacy','privacy.html')])
+    utilities = ''.join(city_link(label,target,path) for label,target in [('Contact','contact.html'),('Privacy','privacy.html')])
     return f'''<header class="city-header"><div class="city-wrap city-header-inner"><a class="city-brand brand-home" href="{escape(relative('index.html', path))}" aria-label="Housing Accountability Project home"><img src="{escape(relative('assets/brand/logo-mark.svg', path))}" width="48" height="48" alt=""><span class="brand-name">Housing<br>Accountability Project</span></a><span class="city-current-city">{escape(name)}</span><button class="city-menu-toggle" type="button" aria-controls="city-navigation-panel" aria-expanded="false" hidden><span aria-hidden="true">☰</span> Menu</button><button class="city-menu-backdrop" type="button" tabindex="-1" aria-hidden="true" hidden></button><div class="city-nav-panel" id="city-navigation-panel"><div class="city-menu-heading"><span id="city-menu-title">Explore the website</span><button class="city-menu-close" type="button" aria-label="Close menu">Close ×</button></div><div class="city-identity"><span>{escape(name)}</span><nav class="city-switcher" aria-label="Research area">{switch}</nav></div><nav class="city-main-nav" aria-label="Main navigation">{nav}<details class="city-more"><summary>Learn &amp; resources</summary><div>{more}</div></details></nav><nav class="city-menu-utilities" aria-label="About this website">{utilities}</nav></div></div></header>'''
 
 
@@ -141,9 +146,14 @@ def apply(output, path):
         output = overview(output, path, city)
     output = reader_guide(output, path)
     output = site_design(output, path)
-    output = re.sub(r'<link rel="stylesheet" href="[^"]*assets/city-layout.css">', '', output)
-    output = re.sub(r'<script src="[^"]*assets/city-layout.js" defer></script>', '', output)
+    output = re.sub(r'<link rel="stylesheet" href="[^"]*assets/city-layout.css(?:\?[^"]*)?">', '', output)
+    output = re.sub(r'<script src="[^"]*assets/city-layout.js(?:\?[^"]*)?" defer></script>', '', output)
     output = output.replace('</head>', f'<link rel="stylesheet" href="{escape(relative("assets/city-layout.css", path))}"><script src="{escape(relative("assets/city-layout.js", path))}" defer></script></head>')
+    def asset_version(match):
+        attribute, url, filename = match.groups()
+        version = hashlib.sha256((ROOT/'assets'/filename).read_bytes()).hexdigest()[:12]
+        return f'{attribute}="{url}?v={version}"'
+    output = re.sub(r'(href|src)="((?:\.\./)*assets/(city-layout\.(?:css|js)|phoenix-connections\.js|phoenix-records\.js|research-center-filter\.js))(?:\?[^"]*)?"',asset_version,output)
     return output
 
 

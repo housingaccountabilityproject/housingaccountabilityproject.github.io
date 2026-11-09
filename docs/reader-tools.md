@@ -2,7 +2,7 @@
 
 ## Shared educational layout
 
-Tucson and Phoenix use one layout and theme: a city switcher, the same six main destinations, consistent reading surfaces and four learning paths. Their city-specific content, source dates and search scopes remain distinct. A decorative Arizona landscape now has a clear area of its own on the homepage and both city overviews; text sits on an opaque reading surface. The shorter city openings keep their dates visible and put longer scope notes in a disclosure.
+Tucson and Phoenix use one layout and theme: a city switcher, the same six research destinations plus About, consistent reading surfaces and four learning paths. Their city-specific content, source dates and search scopes remain distinct. A decorative Arizona landscape now has a clear area of its own on the homepage and both city overviews; text sits on an opaque reading surface. The shorter city openings keep their dates visible and put longer scope notes in a disclosure.
 
 The approved website-wide design extends this treatment to all 29 pages: a compact shared header, phone navigation drawer, panoramic city headings, reference-page landscape bands, grouped learning/footer links, and consistent report, help, glossary, contact and privacy reading surfaces. The mobile drawer handles keyboard focus, Escape, background inertness and desktop resize; navigation remains available without JavaScript.
 
