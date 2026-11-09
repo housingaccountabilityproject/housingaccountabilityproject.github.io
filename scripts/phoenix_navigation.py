@@ -6,6 +6,9 @@ LINKS = [
     ('records.html', 'Evidence index'),
     ('projects.html', 'Projects & phases'),
     ('questions.html', 'Questions & evidence'),
+    ('glossary.html', 'Glossary'),
+    ('inaugural-report.html', 'First report'),
+    ('housing-help.html', 'Housing help'),
 ]
 
 
