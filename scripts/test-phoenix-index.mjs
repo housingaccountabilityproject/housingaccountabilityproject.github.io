@@ -43,11 +43,11 @@ try {
     await page.locator('#PHX-CFP-WEB-001').waitFor({state: 'visible'});
     await page.getByRole('button', {name: 'Questions', exact: true}).click();
     assert.equal(await visible.count(), 13);
-    await page.locator('#record-topic').selectOption('bell');
+    await page.getByRole('button', {name: '25th @ Bell', exact: true}).click();
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
     assert.equal(await visible.count(), 14);
-    await page.locator('#record-kind').selectOption('expenditure');
+    await page.getByRole('button', {name: 'Annual expenditure', exact: true}).click();
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'PHX-CFP-WEB-004');
     await page.getByRole('searchbox').fill('no-record-837462');
@@ -91,7 +91,7 @@ try {
     const projects = page.locator('[data-connection-entry]:visible');
     assert.equal(await projects.count(), 8);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `directory overflow ${width}`);
-    await page.locator('#connection-filter').selectOption('development');
+    await page.getByRole('button', {name: 'Developments', exact: true}).click();
     assert.equal(await projects.count(), 7);
     await page.getByRole('searchbox').fill('Moreland');
     assert.equal(await projects.count(), 1);
@@ -111,7 +111,7 @@ try {
     });
     await page.locator('#repeat-project').click();
     await page.locator('#project-moreland').waitFor({state: 'visible'});
-    await page.locator('#connection-filter').selectOption('planning-area');
+    await page.getByRole('button', {name: 'Neighborhood planning areas', exact: true}).click();
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-marcos-grant-park');
     await page.getByRole('button', {name: 'Clear filters'}).click();
@@ -121,14 +121,14 @@ try {
     const questions = page.locator('[data-connection-entry]:visible');
     assert.equal(await questions.count(), 13);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `matrix overflow ${width}`);
-    await page.locator('#connection-filter').selectOption('bell');
+    await page.getByRole('button', {name: '25th @ Bell', exact: true}).click();
     assert.equal(await questions.count(), 6);
     await page.getByRole('searchbox').fill('amendment');
     assert(await questions.count() > 0);
     await page.getByRole('searchbox').fill('no-question-123476');
     assert.equal(await questions.count(), 0);
     await page.getByRole('button', {name: 'Clear filters'}).click();
-    await page.locator('#connection-filter').selectOption('capital');
+    await page.getByRole('button', {name: 'Public Housing Capital Fund', exact: true}).click();
     assert.equal(await questions.count(), 3);
     const need = page.locator('#need-capital-evidence-needed-03');
     await need.getByText('Relevant published records', {exact: true}).click();
@@ -148,7 +148,7 @@ try {
       assert.equal(await page.locator('main h1').count(), 1);
       assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `existing page overflow ${path} at ${width}`);
       const navigation = page.getByRole('navigation', {name: 'Phoenix research tools'});
-      assert.equal(await navigation.getByRole('link').count(), 4);
+      assert.equal(await navigation.getByRole('link').count(), 7);
       await navigation.getByRole('link', {name: 'Projects & phases'}).click();
       assert(page.url().endsWith('/phoenix/projects.html'));
     }
