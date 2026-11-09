@@ -180,10 +180,13 @@ try {
     assert(await page.locator('#'+id).isVisible(),`${id}: repeated link reveals research`);
     await page.close();
   }
-  const noScript=await browser.newContext({javaScriptEnabled:false});
+  const noScript=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}});
   await noScript.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
   const plain=await noScript.newPage();
   await plain.goto(base+'/');
+  assert(await plain.locator('.city-menu-toggle').isHidden());
+  assert(await plain.locator('.city-menu-close').isHidden(),'inactive drawer controls stay hidden without JavaScript');
+  assert(await plain.getByRole('navigation',{name:'Main navigation'}).isVisible());
   await plain.locator('.city-home-hero').getByRole('link',{name:'About the project and founder',exact:true}).click();
   assert.equal(new URL(plain.url()).pathname,'/about.html');
   assert(await plain.locator('main h1').isVisible(),'About opens without JavaScript');

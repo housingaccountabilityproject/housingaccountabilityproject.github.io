@@ -274,6 +274,7 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
  .city-site.city-design.city-menu-open .city-nav-panel{display:flex;position:fixed;z-index:101;right:0;top:0;bottom:0;width:min(420px,100%);padding:24px;overflow:auto;background:var(--paper);box-shadow:-10px 0 40px #102f3738}
  .city-site.city-design.city-menu-open .city-menu-backdrop{display:block;position:fixed;z-index:100;inset:0;width:100%;height:100%;background:#102f3766;border:0;padding:0;cursor:pointer}
  .city-site.city-design .city-menu-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;font:700 21px/1.3 Georgia,serif;color:var(--ink)}
+ .city-site.city-design:not(.city-menu-ready) .city-menu-heading{display:none}
  .city-site.city-design .city-menu-close{min-height:44px;padding:10px;border:1px solid #a9bfb3;background:white;color:var(--teal);font:600 13px/1.4 Arial,sans-serif;cursor:pointer}
  .city-site.city-design .city-identity{text-align:left}.city-site.city-design .city-identity>span{display:block;margin-bottom:8px;font-size:12px}
  .city-site.city-design .city-switcher{display:flex;justify-content:flex-start;gap:8px}.city-site.city-design .city-switcher a{min-height:44px}
