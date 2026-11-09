@@ -32,10 +32,15 @@ try {
       assert.equal(await page.locator('main h1').count(),1,path);
       assert.equal(await page.locator('.city-header').count(),1,path);
       assert.equal(await page.locator('.city-footer').count(),1,path);
+      for(const [region, name] of [['.city-main-nav','About'],['.city-footer','About the project']]) {
+        const about=page.locator(region).getByRole('link',{name,exact:true});
+        assert(await about.isVisible(),`${path}: ${name} is visible at ${width}`);
+        assert.equal(await about.evaluate(link=>link.pathname),'/about.html',path);
+      }
       if(width===320)pageIds.set(path,new Set(await page.locator('[id]').evaluateAll(nodes=>nodes.map(node=>node.id))));
       assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),`${path} overflow at ${width}`);
       if(!['index.html','about.html','contact.html','privacy.html'].includes(path)) {
-        assert.deepEqual(await page.locator('.city-main-nav>a').allTextContents(),['Overview','Projects','Funding','Questions','Sources','Search']);
+        assert.deepEqual(await page.locator('.city-main-nav>a').allTextContents(),['Overview','About','Projects','Funding','Questions','Sources','Search']);
       }
       await assertReaderContrast(page,path);
     }
@@ -167,6 +172,10 @@ try {
   const noScript=await browser.newContext({javaScriptEnabled:false});
   await noScript.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
   const plain=await noScript.newPage();
+  await plain.goto(base+'/');
+  await plain.locator('.city-home-hero').getByRole('link',{name:'About the project and founder',exact:true}).click();
+  assert.equal(new URL(plain.url()).pathname,'/about.html');
+  assert(await plain.locator('main h1').isVisible(),'About opens without JavaScript');
   await plain.goto(base+'/phoenix/index.html');
   await plain.locator('.city-evidence-library>summary').click();
   assert(await plain.locator('#PHX-WEB-009').isVisible(),'full findings are available without JavaScript');

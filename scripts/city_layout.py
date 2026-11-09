@@ -9,10 +9,11 @@ from city_reader_guide import apply as reader_guide
 
 ROOT = Path(__file__).resolve().parents[1]
 SHARED = {'index.html', 'about.html', 'contact.html', 'privacy.html'}
+ABOUT = ('About', 'about.html')
 ROUTES = {
     'tucson': [('Overview', 'tucson/index.html'), ('Projects', 'housing-projects.html'), ('Funding', 'funding-explorer.html'), ('Questions', 'questions-records.html'), ('Sources', 'evidence.html'), ('Search', 'search.html')],
     'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/records.html')],
-    'shared': [('Research areas', 'index.html'), ('About', 'about.html'), ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
+    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
 }
 MORE = {
     'tucson': [('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('Research library', 'research.html'), ('Updates & corrections', 'research-updates.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html'), ('Glossary', 'glossary.html'), ('Housing help', 'housing-help.html')],
@@ -40,14 +41,17 @@ def city_link(label, target, path, selected=False, extra=''):
 def header(path, city):
     name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix', 'shared': 'Independent public research'}[city]
     switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix', 'phoenix/index.html')])
-    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in ROUTES[city])
+    routes = ROUTES[city]
+    if city != 'shared':
+        routes = [routes[0], ABOUT, *routes[1:]]
+    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in routes)
     more = ''.join(city_link(label, target, path, path == target) for label, target in MORE[city])
     return f'''<header class="city-header"><div class="city-wrap city-masthead"><a class="city-brand brand-home" href="{escape(relative('index.html', path))}" aria-label="Housing Accountability Project home"><img src="{escape(relative('assets/brand/logo-mark.svg', path))}" width="48" height="48" alt=""><span class="brand-name">Housing<br>Accountability<br>Project</span></a><div class="city-identity"><span>{escape(name)}</span><nav class="city-switcher" aria-label="Research area">{switch}</nav></div></div><div class="city-nav-bar"><nav class="city-wrap city-main-nav" aria-label="Main navigation">{nav}<details class="city-more"><summary>Learn &amp; resources</summary><div>{more}</div></details></nav></div></header>'''
 
 
 def footer(path, city):
     route_city = city if city != 'shared' else 'tucson'
-    links = [ROUTES[route_city][-1], ('Housing help', 'phoenix/housing-help.html' if city == 'phoenix' else 'housing-help.html'), ('Privacy', 'privacy.html')]
+    links = [('About the project', ABOUT[1]), ROUTES[route_city][-1], ('Housing help', 'phoenix/housing-help.html' if city == 'phoenix' else 'housing-help.html'), ('Privacy', 'privacy.html')]
     if city == 'phoenix':
         links += [('Corrections & history', 'phoenix/corrections.html')]
     else:

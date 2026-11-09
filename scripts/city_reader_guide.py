@@ -122,7 +122,7 @@ def overviews(output, path, all_data):
 
 
 def homepage(output, path):
-    new_hero = f'''<section class="hero city-home-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Independent public research · Arizona</p><h1>Public funding.<br>Real homes.</h1><p class="hero-intro">Follow housing money, explore projects, and see what the public records establish.</p><div class="home-actions"><a class="city-primary-link" href="tucson/index.html">Tucson &amp; Pima County →</a><a class="city-primary-link" href="phoenix/index.html">Phoenix →</a></div></div></section>'''
+    new_hero = f'''<section class="hero city-home-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Independent public research · Arizona</p><h1>Public funding.<br>Real homes.</h1><p class="hero-intro">Follow housing money, explore projects, and see what the public records establish.</p><div class="home-actions"><a class="city-primary-link" href="tucson/index.html">Tucson &amp; Pima County →</a><a class="city-primary-link" href="phoenix/index.html">Phoenix →</a><a href="about.html">About the project and founder</a></div></div></section>'''
     return replace(output,'section',r'class="hero(?: city-home-hero)?"',new_hero)
 
 
