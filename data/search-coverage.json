@@ -11,8 +11,8 @@
   },
   {
     "page": "evidence.html",
-    "records": 100,
-    "text_nodes": 1156
+    "records": 101,
+    "text_nodes": 1159
   },
   {
     "page": "findings.html",
@@ -42,7 +42,7 @@
   {
     "page": "index.html",
     "records": 15,
-    "text_nodes": 171
+    "text_nodes": 175
   },
   {
     "page": "privacy.html",
@@ -66,8 +66,8 @@
   },
   {
     "page": "research-updates.html",
-    "records": 42,
-    "text_nodes": 752
+    "records": 44,
+    "text_nodes": 764
   },
   {
     "page": "research.html",

@@ -24,7 +24,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 70);
+    assert.equal(await visible.count(), 71);
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -90,7 +90,7 @@ try {
     await page.locator('#record-topic').selectOption('bell', {force:true});
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
-    assert.equal(await visible.count(), 14);
+    assert.equal(await visible.count(), 15);
     await page.locator('#record-kind').selectOption('expenditure', {force:true});
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'PHX-CFP-WEB-004');
@@ -98,7 +98,7 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 70);
+    assert.equal(await visible.count(), 71);
     await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
     assert.equal(await visible.count(), 0);
     assert.equal(await page.locator('#record-results img').count(), 0);
@@ -246,7 +246,7 @@ try {
   }
   const noJS = await browser.newPage({javaScriptEnabled: false});
   await noJS.goto(base + '/phoenix/records.html');
-  assert.equal(await noJS.locator('.record-card:visible').count(), 70);
+  assert.equal(await noJS.locator('.record-card:visible').count(), 71);
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());

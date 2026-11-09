@@ -28,6 +28,7 @@ META = {
  'PHX-CFP-WEB-004': ('capital', 'expenditure', 'Capital Fund: annual SEFA expenditure'),
  'PHX-CFP-WEB-005': ('capital', 'difference', 'Capital Fund: unexplained published-source difference'),
  'PHX-CFP-WEB-006': ('capital', 'definitions', 'Capital Fund: obligation, draw and expenditure definitions'),
+ 'PHX-CFP-WEB-007': ('capital', 'reported', 'Maryvale Parkway Terrace: reported 2025 improvements'),
  'BELL-01': ('bell', 'reported', '25th @ Bell: reported completed apartments'),
  'BELL-02': ('bell', 'dataset', '25th @ Bell: one address in two HUD activities'),
  'BELL-11': ('bell', 'identifiers', '25th @ Bell: program and City identifiers'),
