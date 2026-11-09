@@ -17,6 +17,7 @@
 .home-primary { padding: 13px 20px; background: var(--teal); color: white; text-decoration: none; border: 1px solid var(--teal); }
 .home-primary:hover { background: var(--teal-dark); color: white; }
 .home-secondary { text-decoration-thickness: 1px; }
+.city-home-hero .home-actions a[href="about.html"] { text-decoration: underline; text-decoration-thickness: 2px; }
 .research-home .pullquote { position: relative; padding: 40px 32px; background: #e9eee5; border: 1px solid var(--home-rule); border-top: 4px solid var(--home-accent); }
 .research-home .pullquote .number { color: var(--home-accent); margin-bottom: 34px; }
 .research-home .pullquote p { font-size: clamp(26px, 2.5vw, 34px); line-height: 1.25; }
