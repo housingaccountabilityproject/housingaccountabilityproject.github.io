@@ -1,6 +1,17 @@
 /* Reader tools. No requests, query URLs, storage or analytics. */
 (() => {
  'use strict';
+ // First successful deployment of this substantive research update. Metadata-only updates keep this time.
+ // https://github.com/housingaccountabilityproject/housingaccountabilityproject.github.io/actions/runs/42549105075
+ const publishedAt='2026-11-09T02:07:31Z';
+ const publicationCity=document.querySelector('.phoenix-tools')?'Phoenix':'Tucson';
+ const publicationHeading=document.querySelector('main h1');
+ if(publicationHeading){
+  const publication=document.createElement('p');publication.id='research-publication-time';
+  const time=document.createElement('time');time.dateTime=publishedAt;
+  time.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'medium'}).format(new Date(publishedAt));
+  publication.append('Research update published ',time,` ${publicationCity} time (MST).`);publicationHeading.after(publication);
+ }
  // Promote existing native filters into visible buttons, preserving their values and behavior.
  for(const id of ['record-topic','record-kind','connection-filter']){
   const select=document.getElementById(id);if(!select)continue;
