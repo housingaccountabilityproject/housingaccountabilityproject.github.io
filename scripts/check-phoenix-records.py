@@ -7,6 +7,8 @@ import hashlib
 import json
 import subprocess
 import sys
+from datetime import date
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'data/phoenix-records.json').read_text())
@@ -14,6 +16,28 @@ page = html.parse(str(ROOT / 'phoenix/records.html'))
 records = data['records']
 sources = {s['id']: s for s in data['sources']}
 assert len(sources) == len(data['sources']) == 33
+metadata = json.loads((ROOT / 'data/phoenix-source-metadata.json').read_text())
+assert set(metadata['sources']) == set(sources), 'Every indexed source needs explicit navigation metadata'
+for sid, source in sources.items():
+    value = source['metadata']
+    assert value == metadata['sources'][sid]
+    assert value['agency'] in metadata['agencies']
+    assert value['document_type'] in metadata['document_types']
+    assert value['programs'] and set(value['programs']) <= set(metadata['programs'])
+    assert all(re.fullmatch(r'20\d{2}', year) for year in value['reporting_years'])
+    assert value['year_status'] in ['stated', 'unresolved', 'not-established']
+    assert bool(value['reporting_years']) == (value['year_status'] == 'stated')
+    if value['retrieved_on']:
+        date.fromisoformat(value['retrieved_on'])
+    assert value['date_basis'] and value['date_basis_url']
+# Critical distinctions: no year extraction from file paths, publication or retrieval dates.
+assert sources['PHX-CITY-027']['metadata']['reporting_years'] == ['2024', '2025']
+assert sources['PHX-LIHTC-001']['metadata']['reporting_years'] == ['2020']
+for sid in ['PHX-CITY-013', 'PHX-CITY-003', 'PHX-EXT-PROJECT-210']:
+    assert sources[sid]['metadata']['year_status'] == 'unresolved'
+    assert sources[sid]['metadata']['reporting_years'] == []
+assert sources['PHX-CFP-014']['metadata']['year_status'] == 'not-established'
+assert sources['PHX-EXT-PROJECT-209']['metadata']['retrieved_on'] is None
 assert len({r['id'] for r in records}) == len(records) == 37
 assert sum(r['kind'] == 'question' for r in records) == 10
 assert sum(r['kind'] == 'needed' for r in records) == 3

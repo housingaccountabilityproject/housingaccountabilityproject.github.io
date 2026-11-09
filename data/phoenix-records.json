@@ -1,5 +1,54 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "source_filters": {
+    "agencies": {
+      "city-phoenix": "City of Phoenix",
+      "hud": "HUD — U.S. Department of Housing and Urban Development",
+      "phoenix-ida": "Phoenix IDA",
+      "census": "U.S. Census Bureau",
+      "arizona-housing": "Arizona Department of Housing",
+      "data-gov": "Data.gov catalog"
+    },
+    "programs": {
+      "home": "HOME",
+      "capital-fund": "Public Housing Capital Fund",
+      "arpa": "ARPA / State and Local Fiscal Recovery Funds",
+      "lihtc": "Low-Income Housing Tax Credit (LIHTC)",
+      "nsp": "Neighborhood Stabilization Program (NSP)",
+      "pbv": "Project-based vouchers",
+      "choice-neighborhoods": "Choice Neighborhoods planning",
+      "go-bond": "Phoenix GO Bond projects",
+      "public-housing": "Public housing planning",
+      "conduit-financing": "Conduit financing",
+      "inventory": "Housing inventory",
+      "housing-need": "Housing need / ACS",
+      "project-planning": "Project and phase planning",
+      "general": "General / not program-specific"
+    },
+    "document_types": {
+      "performance-report": "Performance report",
+      "source-index": "Source / document index",
+      "directory": "Property directory",
+      "council-report": "Council staff report",
+      "action-metadata": "Council action metadata",
+      "status-report": "Project status report",
+      "plan": "Annual / five-year plan",
+      "financing-schedule": "Financing schedule",
+      "award-announcement": "Award announcement",
+      "survey-data": "Survey data",
+      "award-schedule": "Award schedule / workbook",
+      "formula-workbook": "Formula calculation workbook",
+      "guidance": "Guidance / training",
+      "audit": "Single Audit / SEFA",
+      "activity-data": "Program activity data",
+      "dataset-metadata": "Dataset / catalog metadata",
+      "data-dictionary": "Data dictionary",
+      "council-minutes": "Council minutes",
+      "project-register": "Project register"
+    },
+    "year_policy": "Reporting/coverage, plan, grant and explicitly cited event years only. Publication, training, file-update and retrieval dates are described separately; unresolved and unestablished years remain separate filter choices.",
+    "program_policy": "Tags identify the program or subject used in this Phoenix research, not every program covered by a document."
+  },
   "scope": "Phoenix-only navigation extract of already-published repository HTML; not a ledger or an external source recheck.",
   "research_snapshot": "2026-11-08",
   "input_pages": [
@@ -41,231 +90,687 @@
       "title": "Draft FY2025–26 CAPER",
       "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf",
       "note": "PHX-CITY-002 · Draft on current official index | PHX-CITY-002 · PDF/printed p.49; 25th @ Bell narrative; PDF/printed p.49",
-      "page_url": "index.html#source-PHX-CITY-002"
+      "page_url": "index.html#source-PHX-CITY-002",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home"
+        ],
+        "document_type": "performance-report",
+        "reporting_years": [
+          "2025",
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-01",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-FILING-001",
       "title": "City annual reports index",
       "url": "https://www.phoenix.gov/administration/departments/nsd/maps-reports/annual-action-plan-reports.html",
       "note": "PHX-FILING-001 · Public index; current documents remain draft-labeled",
-      "page_url": "index.html#source-PHX-FILING-001"
+      "page_url": "index.html#source-PHX-FILING-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "source-index",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "A live document index; no single reporting year or separate retrieval date is established in the published note.",
+        "date_basis_url": "index.html#source-PHX-FILING-001",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-017",
       "title": "May 2026 City rental-site directory",
       "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/properties/all_sites_printable.pdf",
       "note": "PHX-EXT-PROJECT-017 · Published City rental-site directory, May 2026; addresses and inventory, not a restriction agreement",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-017"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-017",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "inventory"
+        ],
+        "document_type": "directory",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Inventory directory dated May 2026; not a restriction agreement or new-completion count.",
+        "date_basis_url": "index.html#PHX-WEB-004",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-002",
       "title": "June 17, 2026 Moreland II Council report",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297",
       "note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-002"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-002",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home",
+          "nsp",
+          "pbv"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Council action: June 17, 2026. Mixed-fund authorization and voucher ceilings are not payment or execution dates.",
+        "date_basis_url": "index.html#PHX-WEB-010",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-004",
       "title": "June 18, 2025 Moreland Council report",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581",
       "note": "PHX-EXT-PROJECT-004 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-004"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-004",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "project-planning"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "Council action: June 18, 2025. The cited report describes development scope.",
+        "date_basis_url": "index.html#PHX-WEB-007",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-001",
       "title": "Council adoption and action dates",
       "url": "https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc",
       "note": "PHX-EXT-PROJECT-001 · Council adoption status and action dates; development scope remains sourced to the separate staff texts.",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-001"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "action-metadata",
+        "reporting_years": [
+          "2025",
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Cited Moreland Council actions: June 18 and November 5, 2025, and June 17, 2026. The API query is not one transaction.",
+        "date_basis_url": "index.html#source-PHX-EXT-PROJECT-001",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-BOND-001",
       "title": "October 2026 GO Bond status report",
       "url": "https://www.phoenix.gov/content/dam/phoenix/bondsite/documents/October-2026-GO-Bond-Status-Update-2.pdf",
       "note": "PHX-BOND-001 · Official quarterly administrative status report",
-      "page_url": "index.html#source-PHX-BOND-001"
+      "page_url": "index.html#source-PHX-BOND-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "go-bond"
+        ],
+        "document_type": "status-report",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "October 2026 status report; cited Girasol project card revised October 26, 2026. Forecasts remain dated.",
+        "date_basis_url": "index.html#PHX-WEB-020",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CITY-010",
       "title": "FY2026–27 Annual Agency Plan",
       "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf",
       "note": "PHX-CITY-010 · City final-labeled plan; local AHGB approval verified; HUD approval not located",
-      "page_url": "index.html#source-PHX-CITY-010"
+      "page_url": "index.html#source-PHX-CITY-010",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "public-housing"
+        ],
+        "document_type": "plan",
+        "reporting_years": [
+          "2026",
+          "2027"
+        ],
+        "year_status": "stated",
+        "date_basis": "Plan period: FY2026–27. City final labeling and local approval do not establish HUD approval.",
+        "date_basis_url": "index.html#source-PHX-CITY-010",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-114",
       "title": "Phoenix IDA closed-bond schedule",
       "url": "https://phoenixida.com/wp-content/uploads/2026/09/Closed-Bond-Transactions-Spreadsheet_Revised_Updated-9.24.2026.pdf",
       "note": "PHX-EXT-PROJECT-114 · Official issuer publication; reported closing or meeting materials, not signed bond documents",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-114"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-114",
+      "metadata": {
+        "agency": "phoenix-ida",
+        "programs": [
+          "conduit-financing"
+        ],
+        "document_type": "financing-schedule",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "Cited Moreland I financing closing: December 2025. This is an event year, not an inferred edition or retrieval date.",
+        "date_basis_url": "index.html#PHX-WEB-009",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-003",
       "title": "November 5, 2025 Moreland I Council report",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/33449/texts/33551",
       "note": "PHX-EXT-PROJECT-003 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
-      "page_url": "index.html#source-PHX-EXT-PROJECT-003"
+      "page_url": "index.html#source-PHX-EXT-PROJECT-003",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "conduit-financing"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "Council approval: November 5, 2025. An approval ceiling is distinct from a later reported financing closing.",
+        "date_basis_url": "index.html#PHX-WEB-009",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-PROJECT-002",
       "title": "HUD September 2024 planning awards",
       "url": "https://archives.hud.gov/news/2024/pr24-231.cfm",
       "note": "PHX-PROJECT-002 · Official award announcement",
-      "page_url": "index.html#source-PHX-PROJECT-002"
+      "page_url": "index.html#source-PHX-PROJECT-002",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "choice-neighborhoods"
+        ],
+        "document_type": "award-announcement",
+        "reporting_years": [
+          "2024"
+        ],
+        "year_status": "stated",
+        "date_basis": "Planning-award announcement: September 10, 2024. Not construction delivery or verified spending.",
+        "date_basis_url": "index.html#PHX-WEB-012",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CITY-007",
       "title": "2025 ACS median gross rent, table B25064",
       "url": "https://www2.census.gov/programs-surveys/acs/summary_file/2025/table-based-SF/data/1YRData/acsdt1y2025-b25064.dat",
       "note": "PHX-CITY-007 · Official Census estimate and margin of error · GEO_ID 1600000US0455000 · file row 1,888 including header",
-      "page_url": "index.html#source-PHX-CITY-007"
+      "page_url": "index.html#source-PHX-CITY-007",
+      "metadata": {
+        "agency": "census",
+        "programs": [
+          "housing-need"
+        ],
+        "document_type": "survey-data",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "2025 ACS 1-year estimate for Phoenix city, in 2025 nominal dollars. Not current asking rent.",
+        "date_basis_url": "index.html#PHX-WEB-026",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CFP-011",
       "title": "HUD FY2026 master Capital Fund ACC grant schedule, updated September 28, 2026",
       "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
       "note": "PHX-CFP-011 · Grants!A218:D218; master Formula ACC!B69; Grants!A218:D218",
-      "page_url": "capital-fund.html#source-PHX-CFP-011"
+      "page_url": "capital-fund.html#source-PHX-CFP-011",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "award-schedule",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Federal grant year 2026. The index labels the master ACC file updated September 28, 2026; that is not a Phoenix transaction date.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-001",
+        "retrieved_on": "2026-11-08"
+      }
     },
     {
       "id": "PHX-CFP-001",
       "title": "HUD Capital Fund processing index, expanded FY2024–2026 text/link extraction",
       "url": "https://www.hud.gov/helping-americans/public-indian-housing-cfpi",
       "note": "PHX-CFP-001 · FY2026 section: “2026 ACC Amendments (MS Excel) (UPDATED AS OF 9/28/2026 )”; retained extraction line 18",
-      "page_url": "capital-fund.html#source-PHX-CFP-001"
+      "page_url": "capital-fund.html#source-PHX-CFP-001",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "source-index",
+        "reporting_years": [
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Retained index extraction covers FY2024–2026. The FY2026 ACC update label is September 28, 2026, not a verified award revision.",
+        "date_basis_url": "capital-fund.html#source-PHX-CFP-001",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CFP-012",
       "title": "HUD FY2026 PHA and development Capital Fund formula calculations",
       "url": "https://www.hud.gov/sites/default/files/PIH/documents/PHA-Level-and-Dev-Level-Funding-Report.xlsx",
       "note": "PHX-CFP-012 · PHA-Level Funding!A221:F221",
-      "page_url": "capital-fund.html#source-PHX-CFP-012"
+      "page_url": "capital-fund.html#source-PHX-CFP-012",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "formula-workbook",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Federal grant year 2026. Formula effective-date cell: April 1, 2026; not a disbursement date.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-002",
+        "retrieved_on": "2026-11-08"
+      }
     },
     {
       "id": "PHX-CFP-013",
       "title": "HUD Capital Fund formula and DDTF training, September 25, 2023",
       "url": "https://www.hud.gov/sites/dfiles/PIH/documents/Formula_DDTF_CF_Guidebook_Training2022.pdf",
       "note": "PHX-CFP-013 · Slide 11 / PDF page 4; also slide 36 / PDF page 12",
-      "page_url": "capital-fund.html#source-PHX-CFP-013"
+      "page_url": "capital-fund.html#source-PHX-CFP-013",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "guidance",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Training dated September 25, 2023. This guidance date does not establish a Phoenix reporting or transaction year.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-002",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CITY-013",
       "title": "2026-2030 Capital Fund Annual and Five-Year Plan",
       "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2030_Capital_Fund_Program_Annual_and_Five-Year_Plan_Draft.pdf",
       "note": "PHX-CITY-013 · PDF page 1, total under the 2026 column; heading “2026/2027 CFP”",
-      "page_url": "capital-fund.html#source-PHX-CITY-013"
+      "page_url": "capital-fund.html#source-PHX-CITY-013",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "plan",
+        "reporting_years": [],
+        "year_status": "unresolved",
+        "date_basis": "Draft plan titled 2026–2030, with a 2026 amount column and a 2026/2027 CFP heading. The linked City action-plan passage uses another year label; the funding-period match remains unresolved.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-003",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CITY-003",
       "title": "2026–2027 Draft Annual Action Plan",
       "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf",
       "note": "PHX-CITY-003 · Printed page 62 / PDF page 64, Capital Fund Program passage labeled “25-26 FY”",
-      "page_url": "capital-fund.html#source-PHX-CITY-003"
+      "page_url": "capital-fund.html#source-PHX-CITY-003",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "plan",
+        "reporting_years": [],
+        "year_status": "unresolved",
+        "date_basis": "Draft Annual Action Plan titled 2026–2027; the Capital Fund passage says 25–26 FY. The source-year labels remain unresolved.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-003",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CITY-027",
       "title": "FY2025 Single Audit Report: Schedule of Expenditures of Federal Awards",
       "url": "https://www.phoenix.gov/content/dam/phoenix/financesite/documents/single-audit-report/City-of-Phoenix%2CArizona%20-6-30-25-SA-Report-FINAL.pdf",
       "note": "PHX-CITY-027 · SEFA printed page 1 / PDF page 3, ALN 14.872; Notes 1–2 on printed page 7 / PDF page 9; auditor date January 21, 2026 on printed page 13 / PDF page 15; SEFA printed page 1 / PDF page 3, ALN 14.872",
-      "page_url": "capital-fund.html#source-PHX-CITY-027"
+      "page_url": "capital-fund.html#source-PHX-CITY-027",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "audit",
+        "reporting_years": [
+          "2024",
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "City FY2025 coverage: July 1, 2024–June 30, 2025. The final audit is dated January 21, 2026; that publication date is not a reporting year.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-004",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CFP-014",
       "title": "HUD Capital Fund obligations, expenditures and closeout training, September 25, 2023",
       "url": "https://www.hud.gov/sites/dfiles/PIH/documents/OEDCFGuidebookTraining2022.pdf",
       "note": "PHX-CFP-014 · Slides 5–6 / PDF page 2; slide 40 / PDF page 14",
-      "page_url": "capital-fund.html#source-PHX-CFP-014"
+      "page_url": "capital-fund.html#source-PHX-CFP-014",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "guidance",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Training dated September 25, 2023. National definitions do not establish Phoenix transaction dates or amounts.",
+        "date_basis_url": "capital-fund.html#PHX-CFP-WEB-006",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-CFP-009",
       "title": "HUD FY2026 Capital Fund processing guidance",
       "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-Capital-Fund-Processing-Guidance.pdf",
       "note": "PHX-CFP-009 · PDF page 3, “Complete the Necessary Steps in EPIC”",
-      "page_url": "capital-fund.html#source-PHX-CFP-009"
+      "page_url": "capital-fund.html#source-PHX-CFP-009",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "capital-fund"
+        ],
+        "document_type": "guidance",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "FY2026 grant-processing guidance. A guidance year does not establish that Phoenix completed a processing step.",
+        "date_basis_url": "capital-fund.html#records-needed",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-210",
       "title": "HUD HOME Program Activity dataset query: selected project names, addresses and aliases across Arizona grantees",
       "url": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HOME_Program_Activity/FeatureServer/0/query?where=STATE%3D%27AZ%27+AND+%28UPPER%28NAME%29+LIKE+%27%25PUEBLO%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FALCON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25GARFIELD%25%27+OR+UPPER%28NAME%29+LIKE+%27%2525TH%25%27+OR+UPPER%28NAME%29+LIKE+%27%25HARMONY%25%27+OR+UPPER%28NAME%29+LIKE+%27%25EDISON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FRANK+LUKE%25%27+OR+UPPER%28ADDRESS%29+LIKE+%27316+W+BROADWAY%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271220+N+34TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271510+E+PORTLAND%25%27+OR+UPPER%28ADDRESS%29+LIKE+%2716801+N+25TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271919+E+VILLA%25%27%29&outFields=%2A&returnGeometry=false&f=pjson&resultRecordCount=1000&orderByFields=GRANTEE_ID%2CIDIS_ACTV_ID",
       "note": "PHX-EXT-PROJECT-210 · ID_CHAR 900000001055151 and 900000001039206; ADDRESS and TOTAL_UNITS; ID_CHAR 900000001055151; ID_CHAR 900000001039206",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-210"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-210",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "home"
+        ],
+        "document_type": "activity-data",
+        "reporting_years": [],
+        "year_status": "unresolved",
+        "date_basis": "HUD item says September 2026 coverage; the service layer says December 2025 and Data.gov says June 2026. Exact data-refresh date is unverified.",
+        "date_basis_url": "projects/25th-at-bell.html#HOME-dataset-vintage",
+        "retrieved_on": "2026-11-08"
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-203",
       "title": "HUD HOME Program Activity: ArcGIS item metadata snapshot",
       "url": "https://www.arcgis.com/sharing/rest/content/items/3f71ffeddbc34af090cbe1a9974af7cf?f=pjson",
       "note": "PHX-EXT-PROJECT-203 · Item 3f71ffeddbc34af090cbe1a9974af7cf: description → Date of Coverage: 09/2026; owner = HUD.Official.Content; title = HOME Program Activity; url identifies the HOME_Program_Activity/FeatureServer.; Item description: Date of Coverage: 09/2026; owner = HUD.Official.Content; url = the HOME_Program_Activity/FeatureServer used by source210.",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-203"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-203",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "home"
+        ],
+        "document_type": "dataset-metadata",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Item-stated coverage: September 2026. Other official descriptors disagree; this is not a verified refresh date.",
+        "date_basis_url": "projects/25th-at-bell.html#HOME-dataset-vintage",
+        "retrieved_on": "2026-11-08"
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-209",
       "title": "HUD HOME Program Activity: published data dictionary snapshot",
       "url": "https://www.arcgis.com/sharing/rest/content/items/0171cafbb9f249ecb1da3c22beab9e74/data",
       "note": "PHX-EXT-PROJECT-209 · Sheet1!A4:B7 and A15:B18 (published field dictionary; actual worksheet name is Sheet1).",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-209"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-209",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "home"
+        ],
+        "document_type": "data-dictionary",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Published field dictionary. No separate reporting period, edition date or retrieval date is established in the published note.",
+        "date_basis_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-209",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-PROJECT-024",
       "title": "Bell HOME funding: Council metadata 20-0592, adopted April 1, 2020",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/15733",
       "note": "PHX-PROJECT-024 · Matter 15733: MatterStatusName and MatterPassedDate (adopted status and April 1, 2020 date)",
-      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-024"
+      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-024",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home"
+        ],
+        "document_type": "action-metadata",
+        "reporting_years": [
+          "2020"
+        ],
+        "year_status": "stated",
+        "date_basis": "Council adoption: April 1, 2020, ordinance S-46492. Not payment, current ownership or a restriction start date.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-06",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-PROJECT-025",
       "title": "Bell HOME funding: Council text 20-0592, authorization terms",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/15733/texts/15838",
       "note": "PHX-PROJECT-025 · MatterTextPlain: Description, Procurement Information and Financial Impact",
-      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-025"
+      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-025",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2020"
+        ],
+        "year_status": "stated",
+        "date_basis": "Terms linked to the adopted April 1, 2020 Council action. Authorization terms do not establish cash disbursement.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-06",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-PROJECT-020",
       "title": "Phoenix City Council adopted meeting minutes: June 14, 2023",
       "url": "https://www.phoenix.gov/cityclerksite/City%20Council%20Meeting%20Files/6-14-23%20Formal%20Minutes.pdf",
       "note": "PHX-PROJECT-020 · PDF/printed pp.90–92, item 82; terms on p.91",
-      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-020"
+      "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-020",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "arpa"
+        ],
+        "document_type": "council-minutes",
+        "reporting_years": [
+          "2023"
+        ],
+        "year_status": "stated",
+        "date_basis": "Council action: June 14, 2023. Its terms differ from the 2025 recovery-report statement; no executed amendment is verified.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-07",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-ARPA-001",
       "title": "Phoenix 2025 Recovery Plan Performance Report",
       "url": "https://home.treasury.gov/system/files/136/City-of-Phoenix-Arizona-2025-Recovery-Plan-SLT-0576.pdf",
       "note": "PHX-ARPA-001 · PDF/printed p.19; 25th @ Bell bullet",
-      "page_url": "projects/25th-at-bell.html#source-PHX-ARPA-001"
+      "page_url": "projects/25th-at-bell.html#source-PHX-ARPA-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "arpa"
+        ],
+        "document_type": "performance-report",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "2025 recovery-report statement. Do not carry the older authorization term onto changed unit and income statements.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-08",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-LIHTC-001",
       "title": "Arizona LIHTC project master: retained copy; October 30, 2026 is embedded file-modification metadata, not a verified edition date.",
       "url": "https://housing.az.gov/sites/default/files/2026-04/LIHTCandBond-Projects.xlsx",
       "note": "PHX-LIHTC-001 · '9% LIHTC Projects'!A507:O507",
-      "page_url": "projects/25th-at-bell.html#source-PHX-LIHTC-001"
+      "page_url": "projects/25th-at-bell.html#source-PHX-LIHTC-001",
+      "metadata": {
+        "agency": "arizona-housing",
+        "programs": [
+          "lihtc"
+        ],
+        "document_type": "project-register",
+        "reporting_years": [
+          "2020"
+        ],
+        "year_status": "stated",
+        "date_basis": "Cited Bell LIHTC award-year entry: 2020. Embedded file-modification metadata of October 30, 2026 is not a verified edition date.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-11",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-123",
       "title": "25th and Bell drainage, Ordinance S-48099: Council staff text, November 17, 2021",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/21002/texts/21105",
       "note": "PHX-EXT-PROJECT-123 · MatterTextPlain Summary, easement (a)",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-123"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-123",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2021"
+        ],
+        "year_status": "stated",
+        "date_basis": "Cited City action: November 17, 2021. A City file identifier is not a parcel number or ownership finding.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-11",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-121",
       "title": "25th and Bell drainage and zoning: Council action metadata, files 21-2531 and 17-2057",
       "url": "https://webapi.legistar.com/v1/phoenix/matters?%24filter=MatterFile+eq+%2721-2531%27+or+MatterFile+eq+%2717-2057%27",
       "note": "PHX-EXT-PROJECT-121 · Returned metadata record MatterId 21002 / MatterFile 21-2531: MatterStatusName = Adopted; MatterPassedDate = 2021-11-17T00:00:00; MatterTitle identifies Ordinance S-48099.",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-121"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-121",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "action-metadata",
+        "reporting_years": [
+          "2021"
+        ],
+        "year_status": "stated",
+        "date_basis": "Cited adoption date: November 17, 2021. An older file-number prefix does not establish an additional reviewed event year.",
+        "date_basis_url": "projects/25th-at-bell.html#BELL-11",
+        "retrieved_on": null
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-200",
       "title": "HUD HOME Program Activity: layer schema and service metadata snapshot",
       "url": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HOME_Program_Activity/FeatureServer/0?f=pjson",
       "note": "PHX-EXT-PROJECT-200 · Layer description: Date of Coverage: Up to 12/2025; serviceItemId = 3f71ffeddbc34af090cbe1a9974af7cf.",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-200"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-200",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "home"
+        ],
+        "document_type": "dataset-metadata",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "Layer-stated coverage: up to December 2025. Item and catalog descriptions disagree; this is not a verified refresh date.",
+        "date_basis_url": "projects/25th-at-bell.html#HOME-dataset-vintage",
+        "retrieved_on": "2026-11-08"
+      }
     },
     {
       "id": "PHX-EXT-PROJECT-201",
       "title": "Data.gov HOME Program Activity: official catalog metadata snapshot",
       "url": "https://catalog.data.gov/dataset/home-program-activity",
       "note": "PHX-EXT-PROJECT-201 · Dataset description: Date of Coverage: 06/2026; distribution/contentUrl points to the same HOME_Program_Activity/FeatureServer/0.",
-      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-201"
+      "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-201",
+      "metadata": {
+        "agency": "data-gov",
+        "programs": [
+          "home"
+        ],
+        "document_type": "dataset-metadata",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Data.gov-stated coverage: June 2026. This catalog descriptor is distinct from HUD item and layer descriptions.",
+        "date_basis_url": "projects/25th-at-bell.html#HOME-dataset-vintage",
+        "retrieved_on": "2026-11-08"
+      }
     }
   ],
   "records": [

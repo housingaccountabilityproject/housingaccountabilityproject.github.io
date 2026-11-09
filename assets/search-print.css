@@ -34,6 +34,7 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
   #search-print-output a[href]::after { content: ' (' attr(href) ')'; font: normal 8pt/1.4 Arial, sans-serif; overflow-wrap: anywhere; }
   #search-print-output .record-heading { display: block; }
   #search-print-output .record-heading > span { display: block; margin-bottom: 4pt; }
+  #search-print-output .source-metadata { font-size: 10pt; }
   #search-print-output .search-result .meta { display: none; }
   #search-print-output .record-reading { display: block !important; font-size: 10pt; }
   #search-print-output .evidence-question { display: block; }

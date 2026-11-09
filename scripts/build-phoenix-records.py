@@ -6,6 +6,7 @@ from lxml import html
 import json
 import re
 from urllib.parse import urldefrag
+from datetime import date
 from phoenix_navigation import navigation
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,6 +53,7 @@ def texts(el, names):
 
 def build():
  records = []
+ metadata = json.loads((ROOT / 'data/phoenix-source-metadata.json').read_text())
  sources = {}
  documents = {p: html.parse(str(ROOT / p)) for p in PAGES}
  for path, doc in documents.items():
@@ -65,6 +67,9 @@ def build():
      sources[sid]['note'] += ' | ' + entry['note']
    else:
     sources[sid] = entry
+ assert set(metadata['sources']) == set(sources), 'Classify every Phoenix source explicitly'
+ for sid, source in sources.items():
+  source['metadata'] = metadata['sources'][sid]
  for path, doc in documents.items():
   for article in doc.xpath('//article[@id]'):
    rid = article.get('id')
@@ -102,7 +107,7 @@ def build():
    source_ids = [sid for sid, source in sources.items() if urldefrag(source['url'])[0] in [urldefrag(h)[0] for h in hrefs]]
    records.append({'id': f'capital-evidence-needed-{i:02}', 'aliases': [], 'topic': 'capital', 'kind': 'needed', 'title': text(need.xpath('.//h3')[0]), 'labels': ['Evidence still needed · no submitted-request status asserted'], 'summary': [text(p) for p in need.xpath('.//p')], 'context': [], 'limitations': ['The reviewed evidence does not provide a complete award-to-project spending reconciliation. Unknown draws and project expenditure remain unverified, not zero.'], 'source_ids': source_ids, 'page_url': 'capital-fund.html#records-needed'})
  assert set(META) == {r['id'] for r in records if r['kind'] not in ['question', 'needed']}
- data = {'schema_version': '1.0.0', 'scope': 'Phoenix-only navigation extract of already-published repository HTML; not a ledger or an external source recheck.', 'research_snapshot': '2026-11-08', 'input_pages': PAGES, 'topics': TOPICS, 'kinds': KINDS, 'sources': list(sources.values()), 'records': records}
+ data = {'schema_version': '1.1.0', 'source_filters': {key: metadata[key] for key in ['agencies', 'programs', 'document_types', 'year_policy', 'program_policy']}, 'scope': 'Phoenix-only navigation extract of already-published repository HTML; not a ledger or an external source recheck.', 'research_snapshot': '2026-11-08', 'input_pages': PAGES, 'topics': TOPICS, 'kinds': KINDS, 'sources': list(sources.values()), 'records': records}
  (ROOT / 'data/phoenix-records.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
  render(data)
  print(f'Built Phoenix index: {len(META)} evidence entries, {sum(r['kind']=='question' for r in records)} questions, {sum(r['kind']=='needed' for r in records)} evidence needs, {len(sources)} unique source IDs.')
@@ -115,7 +120,7 @@ def render(data):
  source_records = []
  for source in data['sources']:
   related = [r for r in data['records'] if source['id'] in r['source_ids']]
-  source_records.append({'id': 'source-' + source['id'], 'aliases': [source['id']], 'topic': 'sources', 'topics': sorted({r['topic'] for r in related} | {'sources'}), 'kind': 'source', 'title': source['title'], 'labels': ['Published source reference · not rechecked by this index'], 'summary': [source['note']], 'context': [], 'limitations': ['Source IDs identify references, not necessarily distinct documents. Keep the linked findings’ dates and qualifications attached.'], 'source_ids': [source['id']], 'page_url': source['page_url'], 'related': related})
+  source_records.append({'id': 'source-' + source['id'], 'aliases': [source['id']], 'topic': 'sources', 'topics': sorted({r['topic'] for r in related} | {'sources'}), 'kind': 'source', 'title': source['title'], 'labels': ['Published source reference · not rechecked by this index'], 'summary': [f'Linked to {len(related)} indexed entries. Open source notes for the published locators and qualifications.' if related else 'Listed in the Phoenix source notes; no separate indexed finding is attached.'], 'source_note': source['note'], 'metadata': source['metadata'], 'context': [], 'limitations': ['Source IDs identify references, not necessarily distinct documents. Keep the linked findings’ dates and qualifications attached.'], 'source_ids': [source['id']], 'page_url': source['page_url'], 'related': related})
  for r in [*data['records'], *source_records]:
   search_fields = {key: value for key, value in r.items() if key != 'related'}
   search_fields['related_titles'] = [item['title'] for item in r.get('related', [])]
@@ -140,9 +145,25 @@ def render(data):
   for comparison in connections.get('comparisons', []):
    if r['id'] in comparison['record_ids'] or r['id'] in comparison['question_ids']:
     connected += f'<p class="record-next"><a href="comparisons.html#comparison-{escape(comparison["id"])}">Compare the dated source statements</a></p>'
-  cards.append(f'''<article class="record-card" id="{esc(r['id'])}" data-topic="{topic_keys}" data-group="{group}" data-kind="{r['kind']}" data-search="{esc(search, quote=True)}">
+  source_attributes = ''
+  source_facts = ''
+  if r['kind'] == 'source':
+   meta = r['metadata']
+   year_keys = ' '.join(meta['reporting_years']) or meta['year_status']
+   source_attributes = f'data-source-agency="{esc(meta["agency"])}" data-source-programs="{esc(" ".join(meta["programs"]))}" data-source-format="{esc(meta["document_type"])}" data-source-years="{esc(year_keys)}"'
+   years_label = ', '.join(meta['reporting_years']) if meta['reporting_years'] else 'Unresolved year labels' if meta['year_status'] == 'unresolved' else 'Not established / not a reporting period'
+   fields = [('Agency / publisher', data['source_filters']['agencies'][meta['agency']]), ('Program / subject', ', '.join(data['source_filters']['programs'][key] for key in meta['programs'])), ('Document type', data['source_filters']['document_types'][meta['document_type']]), ('Reporting / event years', years_label)]
+   source_facts = '<dl class="source-metadata">' + ''.join(f'<div><dt>{esc(label)}</dt><dd>{esc(value)}</dd></div>' for label, value in fields) + '</dl>'
+   source_facts += f'<p class="source-date-basis">{esc(meta["date_basis"])} <a href="{esc(meta["date_basis_url"], quote=True)}">Read the date context</a></p>'
+   if meta['retrieved_on']:
+    retrieved = date.fromisoformat(meta['retrieved_on'])
+    retrieved_label = f'{retrieved.strftime("%B")} {retrieved.day}, {retrieved.year}'
+    source_facts += f'<p class="source-retrieval"><strong>Recorded retrieval:</strong> <time datetime="{esc(meta["retrieved_on"])}">{esc(retrieved_label)}</time></p>'
+   else:
+    source_facts += '<p class="source-retrieval">A separate retrieval date is not recorded in the published note.</p>'
+  cards.append(f'''<article class="record-card" id="{esc(r['id'])}" data-topic="{topic_keys}" data-group="{group}" data-kind="{r['kind']}" data-search="{esc(search, quote=True)}" {source_attributes}>
 <div class="record-heading"><span>{esc(TOPICS[r['topic']])}</span><a href="#{esc(r['id'])}" aria-label="Direct link to {esc(r['title'], quote=True)}">{esc(r['id'])}</a></div>
-<h2>{esc(r['title'])}</h2><p class="record-type">{esc(KINDS[r['kind']])}</p><div class="record-labels">{labels}</div><div class="record-summary">{summary}</div>
+<h2>{esc(r['title'])}</h2><p class="record-type">{esc(KINDS[r['kind']])}</p><div class="record-labels">{labels}</div><div class="record-summary">{summary}</div>{source_facts}
 <div class="record-limits">{("<strong>Keep in mind</strong>" + limitations) if limitations else ""}</div>{details}{connected}<a class="record-reading" href="{esc(r['page_url'], quote=True)}">Read in context <span aria-hidden="true">→</span></a></article>''')
  original = (ROOT/'phoenix/index.html').read_text()
  header = '<header' + original.split('<header', 1)[1].split('</header>', 1)[0] + '</header>'
@@ -150,6 +171,16 @@ def render(data):
  header = header.replace(' aria-current="page"', '').replace('href="#sources"', 'href="index.html#sources"').replace('href="records.html"', 'href="records.html" aria-current="page"')
  footer = '<footer' + original.split('<footer', 1)[1]
  options = lambda values: ''.join(f'<option value="{key}">{esc(value)}</option>' for key, value in values.items())
+ source_options = data['source_filters']
+ year_values = sorted({year for source in data['sources'] for year in source['metadata']['reporting_years']}, reverse=True)
+ year_options = {year: year for year in year_values}
+ year_options.update({'unresolved': 'Unresolved year labels', 'not-established': 'Not established / not a reporting period'})
+ source_fields = ''.join(f'<div><label for="source-{key}">{esc(label)}</label><select id="source-{key}" aria-controls="record-results"><option value="">{esc(all_label)}</option>{options(values)}</select></div>' for key, label, all_label, values in [
+  ('agency', 'Agency / publisher', 'All agencies / publishers', source_options['agencies']),
+  ('program', 'Program / subject', 'All programs / subjects', source_options['programs']),
+  ('format', 'Document type', 'All document types', source_options['document_types']),
+  ('year', 'Reporting / event year', 'All reporting / event years', year_options)])
+ source_controls = f'<fieldset id="source-filters" hidden><legend>Source filters</legend><div class="source-filter-grid">{source_fields}</div><p class="source-filter-help">Years refer to stated coverage, plan or grant periods, or cited events. Publication, file-update and retrieval dates are kept separate. Unresolved periods remain a separate choice. Program tags describe how this research uses the source.</p></fieldset>'
  output = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Phoenix evidence browser | Housing Accountability Project</title><meta name="description" content="Explore published Phoenix housing evidence by topic and record type, with dates, source notes and limitations attached.">
@@ -161,7 +192,7 @@ def render(data):
 <section class="records-boundary"><div class="wrap"><h2>Read each figure with its date and status.</h2><p>Planned homes, reported completions and existing inventory remain separate. Funding authorizations are not payments.</p></div></section>
 <section class="wrap records-workspace" aria-label="Phoenix records">
 <div class="record-views" role="group" aria-label="Choose Phoenix index" hidden><button type="button" data-view="all" aria-pressed="true">All entries</button><button type="button" data-view="funding" aria-pressed="false">Funding</button><button type="button" data-view="source" aria-pressed="false">Sources</button><button type="button" data-view="question" aria-pressed="false">Questions</button></div>
-<form id="record-filters" class="record-filters" role="search" aria-label="Filter Phoenix evidence" hidden><div class="record-query"><label for="record-query">Search Phoenix records</label><input id="record-query" type="search" placeholder="Try Moreland, ARPA, FY2025 or a source ID" autocomplete="off" aria-controls="record-results"></div><div><label for="record-topic">Topic</label><select id="record-topic" aria-controls="record-results"><option value="">All topics</option>{options(TOPICS)}</select></div><div><label for="record-kind">Record type</label><select id="record-kind" aria-controls="record-results"><option value="">All record types</option>{options(KINDS)}</select></div><button type="reset">Clear filters</button></form>
+<form id="record-filters" class="record-filters" role="search" aria-label="Filter Phoenix evidence" hidden><div class="record-query"><label for="record-query">Search Phoenix records</label><input id="record-query" type="search" placeholder="Try Moreland, ARPA, FY2025 or a source ID" autocomplete="off" aria-controls="record-results"></div>{source_controls}<div id="record-topic-control"><label for="record-topic">Topic</label><select id="record-topic" aria-controls="record-results"><option value="">All topics</option>{options(TOPICS)}</select></div><div id="record-kind-control"><label for="record-kind">Record type</label><select id="record-kind" aria-controls="record-results"><option value="">All record types</option>{options(KINDS)}</select></div><button type="reset">Clear filters</button></form>
 <noscript><p>All entries are available below. Use your browser’s Find command to search without JavaScript.</p></noscript><p id="record-count" role="status" aria-live="polite" aria-atomic="true">{len(data['records']) + len(data['sources'])} published entries · Phoenix only</p><p id="record-empty" hidden>No entries match these filters. Try a broader term or clear the filters.</p><div class="search-print-toolbar"><button type="button" id="print-search-results" hidden>Print search results</button><p>Prints all matching entries with dates, limitations and source notes expanded. Save a PDF from the print dialog.</p></div><div id="record-results" class="record-grid">{''.join(cards)}</div>
 <p class="records-download"><a href="../data/phoenix-records.json" download>Download the Phoenix index (JSON)</a> · <a href="index.html#questions">What evidence is still needed?</a></p></section></main>{footer}'''
  (ROOT/'phoenix/records.html').write_text(output)

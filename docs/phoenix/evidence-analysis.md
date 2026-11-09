@@ -55,6 +55,20 @@ Avoid a citywide spending total, cost-per-unit rankings, a cross-city scoreboard
 
 ## Maintenance
 
+### Source discovery
+
+The Sources view adds agency/publisher, program/subject, document-type and reporting/event-year filters. These source-specific controls replace the generic topic/type buttons in this view; the other views retain their existing buttons. Source cards show classification and date context, with technical locators available in source notes. The count measures source references, not distinct documents.
+
+`data/phoenix-source-metadata.json` explicitly classifies all 33 indexed source IDs. Its program tags describe the source's use in the published Phoenix research, not every program in the underlying document. Agency labels distinguish the issuing body or catalog from a download host; a City report hosted by Treasury remains a City source. No additional external verification is asserted.
+
+Reporting/event years include stated coverage, grant/plan periods and cited events. They exclude publication, training and file-modification dates that do not establish such a period. For example, the FY2025 SEFA covers 2024–2025 even though the audit publication is dated 2026; the cited LIHTC award year is 2020 even though embedded modification metadata says 2026. Conflicting City plan-year labels and the actual HOME dataset vintage remain unresolved. The separate item/layer/catalog entries retain their own stated coverage descriptors without claiming a verified refresh date.
+
+Retrieval dates remain `null` unless separately established in the published material. They are shown separately from report/event years and the research snapshot. Every classification has a link back to its published date context. New source IDs require an explicit metadata entry before generation succeeds.
+
+The source controls combine with local text search. Clear/reset and direct-link recovery clear their state; switching index views resets them. Printing and preview retain the exact active source filters and expand the original source notes in detached copies. No search values are sent or stored.
+
+### Generation and checks
+
 Run `python scripts/build-phoenix-records.py` with the development environment's Python after editing a Phoenix source page. The script requires an explicit classification for new evidence articles. Review the generated JSON and HTML together. Preserve all existing record IDs and source links. Changing the research snapshot requires research review, not a generator run.
 
 Project and question relationships are explicitly curated in `data/phoenix-connections.json`. Its project slugs are directory navigation identifiers, not new research finding IDs. Each observation links to an existing evidence record. All 13 published questions/evidence needs must have a matrix entry. Program-wide Capital Fund records are not assigned to a development without evidence of that relationship.
