@@ -360,5 +360,84 @@
         "PHX-CFP-WEB-005"
       ]
     }
+  ],
+  "comparisons": [
+    {
+      "id": "bell-arpa",
+      "title": "25th @ Bell: different ARPA set-aside statements",
+      "group": "bell",
+      "scope": "One development · ARPA assistance",
+      "statements": [
+        {
+          "record_id": "BELL-07",
+          "label": "Adopted Council authorization",
+          "date_label": "Council action date",
+          "date_text": "June 14, 2023",
+          "source_ids": [
+            "PHX-PROJECT-020"
+          ]
+        },
+        {
+          "record_id": "BELL-08",
+          "label": "Published recovery-report statement",
+          "date_label": "Report year",
+          "date_text": "2025 recovery report",
+          "source_ids": [
+            "PHX-ARPA-001"
+          ]
+        }
+      ],
+      "difference": "The authorization describes 11 units at or below 65% AMI for at least 20 years. The later report describes 16 units at or below 40% AMI with the same $896,564 allocation.",
+      "unresolved": "An executed amendment has not been verified. The older 20-year authorization term must not be carried onto the changed unit and income statement. Neither record establishes actual payment or a verified restriction expiry.",
+      "needed": "An executed amendment or other explanatory record connecting the authorization to the performance statement.",
+      "question_ids": [
+        "question-bell-04",
+        "question-bell-02"
+      ],
+      "record_ids": [
+        "BELL-07",
+        "BELL-08"
+      ]
+    },
+    {
+      "id": "capital-fund-amounts",
+      "title": "Capital Fund: two published 2026 HUD amounts",
+      "group": "capital",
+      "scope": "Phoenix AZ001 · federal grant year 2026",
+      "statements": [
+        {
+          "record_id": "PHX-CFP-WEB-002",
+          "label": "Separate formula-calculation workbook",
+          "date_label": "Formula effective-date cell",
+          "date_text": "April 1, 2026 · retrieved November 8, 2026",
+          "source_ids": [
+            "PHX-CFP-012"
+          ]
+        },
+        {
+          "record_id": "PHX-CFP-WEB-001",
+          "label": "Current master ACC schedule",
+          "date_label": "HUD index file-update label",
+          "date_text": "Updated September 28, 2026 · retrieved November 8, 2026",
+          "source_ids": [
+            "PHX-CFP-011",
+            "PHX-CFP-001"
+          ]
+        }
+      ],
+      "difference": "The master ACC amount of $2,842,753 is $28,849 higher than the separate formula amount of $2,813,904. This is arithmetic between published sources, not a verified award-revision transaction.",
+      "unresolved": "The reviewed records do not establish the transaction, date or reason linking these amounts. A file-update label is not a Phoenix transaction date. The difference is not evidence of missing money or a cash receipt.",
+      "needed": "An explanatory transaction or revision record linking the published amounts, alongside grant-level approval and reporting records.",
+      "question_ids": [
+        "question-overview-04",
+        "capital-evidence-needed-01",
+        "capital-evidence-needed-02"
+      ],
+      "record_ids": [
+        "PHX-CFP-WEB-001",
+        "PHX-CFP-WEB-002",
+        "PHX-CFP-WEB-005"
+      ]
+    }
   ]
 }

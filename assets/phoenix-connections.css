@@ -37,6 +37,31 @@
 .question-heading > p { font-size: 14px; line-height: 1.75; color: var(--muted); }
 .question-heading > a { display: inline-block; font-size: 13px; padding: 8px 0; }
 .question-heading .question-permalink { display: block; }
+.source-comparison { border: 1px solid #c8d6ce; background: white; padding: 30px; margin-bottom: 32px; scroll-margin-top: 24px; }
+.source-comparison > h2 { font-size: clamp(30px, 3vw, 39px); line-height: 1.2; max-width: 38ch; }
+.comparison-status { display: inline-block; padding: 8px 12px; background: #fbecd8; font-size: 13px; color: #754a20; }
+.comparison-statements { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin: 20px 0 32px; }
+.comparison-statement { min-width: 0; border-top: 3px solid var(--teal); padding-top: 24px; }
+.comparison-statement h3 { font-size: 20px; line-height: 1.4; }
+.comparison-date { background: #edf2eb; padding: 14px 16px; font-size: 14px; line-height: 1.7; }
+.comparison-quote { font-size: 17px; line-height: 1.8; }
+.comparison-context { display: inline-block; font-size: 13px; padding: 10px 0; }
+.comparison-explanation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
+.comparison-explanation h3 { font-size: 17px; }
+.comparison-explanation p { font-size: 15px; line-height: 1.8; }
+.source-comparison .connection-links { overflow-wrap: anywhere; }
+.source-comparison:target { border-color: #954522; box-shadow: inset 0 3px #954522; }
+@media (max-width: 900px) {
+  .comparison-explanation { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 700px) {
+  .source-comparison { padding: 22px; }
+  .comparison-statements { grid-template-columns: 1fr; gap: 28px; }
+}
+@media print {
+  .comparison-statements, .comparison-explanation { display: block; }
+  .comparison-statement, .comparison-explanation > section { margin-bottom: 20pt; }
+}
 .question-evidence, .question-outcome { min-width: 0; padding-left: 24px; border-left: 1px solid var(--line); }
 .question-evidence h3, .question-outcome h3 { font-size: 14px; margin-bottom: 16px; }
 .question-evidence > p, .question-outcome > p { font-size: 15px; line-height: 1.75; }
@@ -61,3 +86,5 @@
   #connection-results:has(.project-directory-card) { display: block; }
   .project-directory-card, .evidence-question { break-inside: avoid; margin-bottom: 20px; }
 }
+
+.comparison-statement .connection-links p { font-size: 13px; line-height: 1.75; color: var(--muted); margin-top: 8px; }

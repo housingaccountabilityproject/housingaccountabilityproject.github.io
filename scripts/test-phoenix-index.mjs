@@ -143,12 +143,52 @@ try {
         assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `200% zoom overflow ${path}`);
       }
     }
+    await page.goto(base + '/phoenix/comparisons.html');
+    assert.equal(await page.locator('[data-connection-entry]:visible').count(), 2);
+    assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `comparison overflow ${width}`);
+    await page.locator('#connection-filter').selectOption('bell');
+    assert.equal(await page.locator('[data-connection-entry]:visible').count(), 1);
+    const bellComparison = page.locator('#comparison-bell-arpa');
+    assert.equal(await bellComparison.locator('.comparison-statement').count(), 2);
+    assert((await bellComparison.textContent()).includes('June 14, 2023'));
+    assert((await bellComparison.textContent()).includes('2025 recovery report'));
+    await bellComparison.getByRole('link', {name: 'Read the original explanation · BELL-07', exact: true}).click();
+    assert(page.url().endsWith('/phoenix/projects/25th-at-bell.html#BELL-07'));
+    await page.goto(base + '/phoenix/comparisons.html#comparison-capital-fund-amounts');
+    await page.getByRole('searchbox').fill('no-comparison-9382');
+    assert(await page.locator('#connection-empty').isVisible());
+    await page.getByRole('button', {name: 'Clear filters'}).click();
+    await page.locator('#connection-filter').selectOption('capital');
+    assert.equal(await page.locator('[data-connection-entry]:visible').count(), 1);
+    assert((await page.locator('#comparison-capital-fund-amounts').textContent()).includes('not a Phoenix transaction date'));
+    if (width === 1280) {
+      await page.evaluate(() => document.body.style.zoom = '2');
+      assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), 'comparison 200% zoom');
+    }
     for (const path of ['index.html', 'capital-fund.html', 'projects/25th-at-bell.html']) {
       await page.goto(base + '/phoenix/' + path);
       assert.equal(await page.locator('main h1').count(), 1);
       assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `existing page overflow ${path} at ${width}`);
+      const reading = await page.locator('.record-text').first().evaluate(el => ({font: parseFloat(getComputedStyle(el).fontSize), line: parseFloat(getComputedStyle(el).lineHeight)}));
+      assert(reading.font >= 17 && reading.line >= reading.font * 1.6, `reading typography ${path}`);
+      assert(await page.locator('.claim-meta').first().isVisible(), 'scope and dates remain visible');
+      const identifiers = page.locator('.technical-note').first();
+      assert.equal(await identifiers.getAttribute('open'), null);
+      await identifiers.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      assert.notEqual(await identifiers.getAttribute('open'), null, 'technical identifiers open by keyboard');
+      await page.keyboard.press('Enter');
+      const locator = page.locator('.source-locator').first();
+      await locator.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      assert(await locator.locator('small').isVisible(), 'source locators remain accessible');
+      await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+      assert.notEqual(await identifiers.getAttribute('open'), null, 'identifiers expand for printing');
+      await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+      assert.equal(await identifiers.getAttribute('open'), null, 'closed screen notes restored after print');
+      assert.notEqual(await locator.getAttribute('open'), null, 'already-open source note stays open');
       const navigation = page.getByRole('navigation', {name: 'Phoenix research tools'});
-      assert.equal(await navigation.getByRole('link').count(), 4);
+      assert.equal(await navigation.getByRole('link').count(), 6);
       await navigation.getByRole('link', {name: 'Projects & phases'}).click();
       assert(page.url().endsWith('/phoenix/projects.html'));
     }
@@ -161,7 +201,7 @@ try {
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());
-  for (const [path, count] of [['projects.html', 8], ['questions.html', 13]]) {
+  for (const [path, count] of [['projects.html', 8], ['questions.html', 13], ['comparisons.html', 2]]) {
     await noJS.goto(base + '/phoenix/' + path);
     assert.equal(await noJS.locator('[data-connection-entry]:visible').count(), count);
     assert(await noJS.locator('.connection-filters').isHidden());

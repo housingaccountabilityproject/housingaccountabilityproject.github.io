@@ -80,3 +80,13 @@ The shared homepage now links to a dedicated `/tucson/` landing and the Phoenix 
 Search remains Tucson/Pima County only: 319 sections from the existing 15-page inventory, with no city field or Phoenix records. `build-reader-data.py` uses an explicit legacy page list and reads the old homepage content from `tucson/index.html`. Search result rendering maps its retained `index.html` URLs to `tucson/index.html`. The generated search index, coverage file and Atom feed retain their previous bytes. New research-area content must not be added to this index without a separately reviewed search design.
 
 The browser regression checks follow the relocated Tucson homepage, and also include the shared homepage and three Phoenix pages. Phoenix source IDs remain separate. Source dates, draft status, financial stages and limitations remain attached to the findings.
+
+## Printing search results
+
+The Tucson/Pima County search and the Phoenix evidence index have a **Print search results** button. The Phoenix project directory and question/evidence matrix also support it. Use the browser's print dialog to print or save a PDF. Browser Print / Ctrl+P / Command+P prepares the same report.
+
+Tucson prints all matches from the submitted search and selected page category, including results beyond the 20 currently displayed. Unsubmitted edits do not relabel the existing results. Historical cautions and search excerpts are preserved; the report directs readers to the original context. Printing does not load additional results onto the screen or change pagination.
+
+Phoenix prints only entries matching the active view, search and filters. Source notes and connected evidence disclosures expand in the report; the original screen disclosures stay unchanged. Both reports include search/filter descriptions, a result count, a preparation timestamp with timezone, and public canonical URLs suitable for paper or PDF references. Research dates remain separate from the preparation timestamp. Empty searches do not print stale results.
+
+`node scripts/test-search-print.mjs` starts a local server and verifies button/browser-print behavior, complete Tucson pagination, category filters, Phoenix record filtering, source locators, historical cautions, disclosure restoration and actual PDF text. It requires Playwright/Chromium and `pdftotext` (Poppler). Sample PDFs are written to `/tmp/hap-search-print/`, or `PRINT_TEST_OUTPUT`. The shared print changes are covered by the Phoenix index CI workflow.

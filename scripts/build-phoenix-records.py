@@ -89,7 +89,7 @@ def build():
     matches = [sid for sid in source_ids if urldefrag(sources[sid]['url'])[0] == urldefrag(link.get('href'))[0]]
     if not matches:
      continue
-    notes = link.getparent().xpath('./small') if link.getparent().tag == 'li' else []
+    notes = link.getparent().xpath('.//small') if link.getparent().tag == 'li' else []
     citations.append({'source_ids': matches, 'title': text(link), 'url': link.get('href'), 'locator': ' '.join(text(n) for n in notes)})
    aliases = sorted(set(re.findall(r'\b(?:PHX-WEB-\d+|PHX-CFP-WEB-\d+|BELL-\d+)\b', ' '.join(texts(article, ['record-id'])))) - {rid})
    records.append({'id': rid, 'aliases': aliases, 'topic': topic, 'kind': kind, 'title': title, 'labels': texts(article, ['label']), 'summary': summaries, 'context': texts(article, ['claim-meta', 'record-stage', 'record-id']), 'limitations': limitations, 'source_ids': source_ids, 'citations': citations, 'page_url': path.removeprefix('phoenix/') + '#' + rid})
@@ -137,6 +137,9 @@ def render(data):
   connected = f'<div class="record-connections"><strong>Related places</strong><ul>{project_links}</ul></div>' if project_links else ''
   if r['kind'] in ['question', 'needed']:
    connected += f'<p class="record-next"><a href="questions.html#need-{escape(r["id"])}">See the evidence needed to investigate</a></p>'
+  for comparison in connections.get('comparisons', []):
+   if r['id'] in comparison['record_ids'] or r['id'] in comparison['question_ids']:
+    connected += f'<p class="record-next"><a href="comparisons.html#comparison-{escape(comparison["id"])}">Compare the dated source statements</a></p>'
   cards.append(f'''<article class="record-card" id="{esc(r['id'])}" data-topic="{topic_keys}" data-group="{group}" data-kind="{r['kind']}" data-search="{esc(search, quote=True)}">
 <div class="record-heading"><span>{esc(TOPICS[r['topic']])}</span><a href="#{esc(r['id'])}" aria-label="Direct link to {esc(r['title'], quote=True)}">{esc(r['id'])}</a></div>
 <h2>{esc(r['title'])}</h2><p class="record-type">{esc(KINDS[r['kind']])}</p><div class="record-labels">{labels}</div><div class="record-summary">{summary}</div>
@@ -151,7 +154,7 @@ def render(data):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Phoenix evidence browser | Housing Accountability Project</title><meta name="description" content="Explore published Phoenix housing evidence by topic and record type, with dates, source notes and limitations attached.">
 <link rel="canonical" href="https://housingaccountabilityproject.github.io/phoenix/records.html"><link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css"><link rel="stylesheet" href="../assets/phoenix-records.css"><script src="../assets/phoenix-records.js" defer></script></head>
+<link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css"><link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-records.js" defer></script></head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / Evidence browser</div>
 {navigation("records.html")}<section class="wrap records-intro"><span class="eyebrow accent">Phoenix / Published evidence index</span><h1>Explore Phoenix research.</h1><p class="hero-intro">Find funding records, original sources and open questions. Follow each entry back to the evidence and its published explanation.</p><p class="snapshot-note">{len(META)} evidence entries · {len(data['sources'])} source IDs · {sum(r['kind']=='question' for r in data['records'])} questions · {sum(r['kind']=='needed' for r in data['records'])} evidence needs</p><details class="index-method"><summary>About this index · November 8, 2026 snapshot</summary><p>These are navigation counts from three published pages, not counts of projects, awards or homes. Evidence entries include grouped findings. Different source IDs can reference the same document or separate metadata snapshots.</p><p>This index reorganizes published research; it does not recheck external sources or establish current housing availability. Unknown amounts remain unknown.</p></details></section>
@@ -159,7 +162,7 @@ def render(data):
 <section class="wrap records-workspace" aria-label="Phoenix records">
 <div class="record-views" role="group" aria-label="Choose Phoenix index" hidden><button type="button" data-view="all" aria-pressed="true">All entries</button><button type="button" data-view="funding" aria-pressed="false">Funding</button><button type="button" data-view="source" aria-pressed="false">Sources</button><button type="button" data-view="question" aria-pressed="false">Questions</button></div>
 <form id="record-filters" class="record-filters" role="search" aria-label="Filter Phoenix evidence" hidden><div class="record-query"><label for="record-query">Search Phoenix records</label><input id="record-query" type="search" placeholder="Try Moreland, ARPA, FY2025 or a source ID" autocomplete="off" aria-controls="record-results"></div><div><label for="record-topic">Topic</label><select id="record-topic" aria-controls="record-results"><option value="">All topics</option>{options(TOPICS)}</select></div><div><label for="record-kind">Record type</label><select id="record-kind" aria-controls="record-results"><option value="">All record types</option>{options(KINDS)}</select></div><button type="reset">Clear filters</button></form>
-<noscript><p>All entries are available below. Use your browser’s Find command to search without JavaScript.</p></noscript><p id="record-count" role="status" aria-live="polite" aria-atomic="true">{len(data['records']) + len(data['sources'])} published entries · Phoenix only</p><p id="record-empty" hidden>No entries match these filters. Try a broader term or clear the filters.</p><div id="record-results" class="record-grid">{''.join(cards)}</div>
+<noscript><p>All entries are available below. Use your browser’s Find command to search without JavaScript.</p></noscript><p id="record-count" role="status" aria-live="polite" aria-atomic="true">{len(data['records']) + len(data['sources'])} published entries · Phoenix only</p><p id="record-empty" hidden>No entries match these filters. Try a broader term or clear the filters.</p><div class="search-print-toolbar"><button type="button" id="print-search-results" hidden>Print search results</button><p>Prints all matching entries with dates, limitations and source notes expanded. Save a PDF from the print dialog.</p></div><div id="record-results" class="record-grid">{''.join(cards)}</div>
 <p class="records-download"><a href="../data/phoenix-records.json" download>Download the Phoenix index (JSON)</a> · <a href="index.html#questions">What evidence is still needed?</a></p></section></main>{footer}'''
  (ROOT/'phoenix/records.html').write_text(output)
 

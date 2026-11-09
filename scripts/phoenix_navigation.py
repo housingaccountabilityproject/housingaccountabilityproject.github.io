@@ -3,8 +3,10 @@ from html import escape
 
 LINKS = [
     ('index.html', 'Overview'),
-    ('records.html', 'Evidence index'),
     ('projects.html', 'Projects & phases'),
+    ('capital-fund.html', 'Funding'),
+    ('comparisons.html', 'Source comparisons'),
+    ('records.html', 'Sources & records'),
     ('questions.html', 'Questions & evidence'),
 ]
 

@@ -27,8 +27,8 @@ def shell(filename, title, intro, body):
 <link rel="canonical" href="https://housingaccountabilityproject.github.io/phoenix/{filename}">
 <link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css">
-<link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">
-<script src="../assets/phoenix-connections.js" defer></script></head>
+<link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">
+<script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script></head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / {escape(title)}</div>
 {navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Published research snapshot: November 8, 2026.</p></section>
@@ -48,7 +48,29 @@ def workspace(controls, cards, count):
 <noscript><p>All entries are available below. Use your browser’s Find command to search without JavaScript.</p></noscript>
 <p id="connection-count" role="status" aria-live="polite" aria-atomic="true">{count} entries</p>
 <p id="connection-empty" hidden>No entries match. Try a broader search or clear the filters.</p>
-<div id="connection-results">{''.join(cards)}</div><p class="records-download"><a href="../data/phoenix-connections.json" download>Download the project and question relationships (JSON)</a></p></section>'''
+<div class="search-print-toolbar"><button type="button" id="print-search-results" hidden>Print search results</button><p>Prints all matching entries with connected evidence expanded. Save a PDF from the print dialog.</p></div><div id="connection-results">{''.join(cards)}</div><p class="records-download"><a href="../data/phoenix-connections.json" download>Download project, question and comparison relationships (JSON)</a></p></section>'''
+
+
+def comparisons(data, records):
+    cards = []
+    for comparison in data['comparisons']:
+        panels = []
+        for statement in comparison['statements']:
+            record = records[statement['record_id']]
+            assert set(statement['source_ids']) <= set(record['source_ids'])
+            summary = ''.join(f'<p>{escape(p)}</p>' for p in record['summary'])
+            limitations = ''.join(f'<p>{escape(p)}</p>' for p in record['limitations'])
+            citations = [c for c in record.get('citations', []) if set(c['source_ids']) & set(statement['source_ids'])]
+            links = ''.join(f'<li><a href="{escape(c["url"], quote=True)}">{escape(c["title"])}</a><p>{escape(c["locator"])}</p></li>' for c in citations)
+            assert citations
+            panels.append(f'''<section class="comparison-statement"><h3>{escape(statement['label'])}</h3><p class="comparison-date"><strong>{escape(statement['date_label'])}</strong><br>{escape(statement['date_text'])}</p><div class="comparison-quote">{summary}</div><div class="connection-limit">{limitations}</div><ul class="connection-links">{links}</ul><a class="comparison-context" href="{escape(record['page_url'], quote=True)}">Read the original explanation · {escape(record['id'])}</a></section>''')
+        search = json.dumps(comparison, ensure_ascii=False) + ' '.join(' '.join(records[s['record_id']]['summary']) for s in comparison['statements'])
+        related = ''.join(f'<li><a href="questions.html#need-{escape(qid)}">{escape(records[qid]["title"])}</a></li>' for qid in comparison['question_ids'])
+        cards.append(f'''<article class="source-comparison" id="comparison-{escape(comparison['id'])}" data-connection-entry data-group="{escape(comparison['group'])}" data-search="{escape(search, quote=True)}"><div class="directory-heading"><span>{escape(comparison['scope'])}</span><a href="#comparison-{escape(comparison['id'])}">Direct link</a></div><h2>{escape(comparison['title'])}</h2><p class="comparison-status">Unresolved in the published research snapshot</p><div class="comparison-statements">{''.join(panels)}</div><div class="comparison-explanation"><section><h3>How the statements differ</h3><p>{escape(comparison['difference'])}</p></section><section><h3>What remains unresolved</h3><p>{escape(comparison['unresolved'])}</p></section><section><h3>Evidence needed</h3><p>{escape(comparison['needed'])}</p><ul class="connection-links">{related}</ul></section></div></article>''')
+    intro = 'Read the dated statements side by side, follow their sources, and see what evidence would explain the difference.'
+    note = '<section class="connections-note"><div class="wrap"><h2>A comparison keeps both statements visible.</h2><p>A later report or file-update label does not by itself reconcile the records or replace an earlier statement. Dates below identify the kind of date each source supplies.</p></div></section>'
+    controls = filters('Phoenix source comparisons', [('bell', '25th @ Bell ARPA'), ('capital', 'Public Housing Capital Fund')])
+    (ROOT / 'phoenix/comparisons.html').write_text(shell('comparisons.html', 'Dated source comparisons', intro, note + workspace(controls, cards, len(cards))))
 
 
 def build():
@@ -93,16 +115,18 @@ def build():
         assert question['kind'] in ['question', 'needed']
         assert all(rid in records for rid in entry['record_ids'])
         linked = record_links(entry['record_ids'], records)
+        comparison_links = ''.join(f'<p><a href="comparisons.html#comparison-{escape(c["id"])}">Compare the dated source statements</a></p>' for c in data['comparisons'] if entry['question_id'] in c['question_ids'])
         query = json.dumps(entry, ensure_ascii=False) + ' ' + question['title'] + ' ' + ' '.join(question['summary'])
         question_text = ''.join(f'<p>{escape(p)}</p>' for p in question['summary'])
         cards.append(f'''<article class="evidence-question" id="need-{escape(question['id'])}" data-connection-entry data-group="{escape(entry['group'])}" data-search="{escape(query, quote=True)}">
 <header class="question-heading"><span>{escape(entry['scope'])}</span><h2>{escape(question['title'])}</h2>{question_text}<a href="records.html#{escape(question['id'])}">Read the published question or evidence need</a><a class="question-permalink" href="#need-{escape(question['id'])}">Direct link</a></header>
 <div class="question-evidence"><h3>Evidence needed</h3><p>{escape(entry['evidence_needed'])}</p><details><summary>Relevant published records</summary>{linked}</details></div>
-<div class="question-outcome"><h3>What it would clarify</h3><p>{escape(entry['would_clarify'])}</p></div></article>''')
+<div class="question-outcome"><h3>What it would clarify</h3><p>{escape(entry['would_clarify'])}</p>{comparison_links}</div></article>''')
     introduction = 'See the open question, the records needed to investigate it, and what those records could establish.'
     note = '''<section class="connections-note"><div class="wrap"><h2>Research gaps, with a path to better evidence.</h2><p>These are 10 published questions and three Capital Fund evidence needs. This is not a log of submitted or received records requests. The answers remain unverified; missing evidence alone is not a finding of misuse. Each related record retains its own project and program scope.</p></div></section>'''
     controls = filters('Phoenix evidence needs', [('project', 'General project questions'), ('funding', 'General funding questions'), ('bell', '25th @ Bell'), ('capital', 'Public Housing Capital Fund')])
     (ROOT / 'phoenix/questions.html').write_text(shell('questions.html', 'Questions & evidence', introduction, note + workspace(controls, cards, len(cards))))
+    comparisons(data, records)
     print(f'Built connected Phoenix pages: {len(data["projects"])} directory entries and {len(cards)} evidence needs.')
 
 

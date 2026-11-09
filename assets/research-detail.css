@@ -1,4 +1,5 @@
 /* Reading and navigation refinements shared by the Phoenix research pages. */
+.comparison-route { padding-block: 20px; font-size: 15px; }
 .phoenix-tools { display: flex; gap: 8px 28px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-block: 12px; }
 .phoenix-tools a { display: inline-flex; align-items: center; font-size: 13px; min-height: 44px; padding: 8px 0; text-decoration: none; border-bottom: 2px solid transparent; }
 .phoenix-tools a:hover { text-decoration: underline; }
@@ -110,4 +111,45 @@
   .research-detail .section-nav { display: none; }
   .research-detail .claim, .research-detail .funding-card { break-inside: avoid; }
   .research-detail .scope-box, .research-detail .funding-scope { background: transparent; }
+}
+.research-detail { font-size: 17px; line-height: 1.75; }
+.research-detail .record-text,
+.research-detail .claim .record-text,
+.research-detail .funding-card .record-text,
+.research-detail .project-fact .record-text { font-size: 17px; line-height: 1.8; max-width: 70ch; }
+.research-detail .claim > .record-text,
+.research-detail .feature-body > .record-text { margin-bottom: 24px; }
+.research-detail .claim-meta { background: #f5f7f3; padding: 18px 20px; border-top: 0; margin: 24px 0; }
+.research-detail .caveat { background: transparent; border-left: 3px solid #aa542d; padding: 10px 18px; }
+.research-detail .section-title { align-items: start; }
+.research-detail .section-title p { max-width: 65ch; }
+.research-detail .section-title h2 { max-width: 24ch; line-height: 1.2; }
+.research-detail .technical-note { border-top: 1px solid var(--line); margin-top: 16px; }
+.research-detail .technical-note > summary,
+.research-detail .source-locator > summary { cursor: pointer; font: 600 13px/1.6 Arial, sans-serif; padding: 12px 0; color: var(--teal); }
+.research-detail .technical-note > summary:focus-visible,
+.research-detail .source-locator > summary:focus-visible { outline: 3px solid #954522; outline-offset: 3px; }
+.research-detail .technical-note .record-id { display: block; margin: 4px 0 14px; }
+.research-detail .source-locator small { display: block; padding: 0 0 12px; }
+.overview-summary { padding-block: 36px 56px; border-top: 1px solid var(--line); }
+.overview-summary-heading { max-width: 760px; margin-bottom: 30px; }
+.overview-summary-heading h2 { font-size: clamp(30px, 3vw, 40px); line-height: 1.2; }
+.overview-summary-heading > p { font-size: 15px; color: var(--muted); }
+.overview-summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.overview-summary-grid > section { border-top: 2px solid #b9cdc2; padding-top: 22px; }
+.overview-summary-grid h3 { font-size: 19px; margin-bottom: 16px; }
+.overview-summary-grid p { font-size: 16px; line-height: 1.8; }
+.overview-summary-grid a { font-size: 14px; font-weight: 600; display: inline-block; padding: 6px 0; }
+.overview-summary-grid ul { list-style: none; padding: 0; margin: 0; }
+.overview-summary-grid li { margin-bottom: 12px; }
+.phoenix-overview .claim-grid { grid-template-columns: 1fr; }
+.phoenix-overview .claim-grid .claim { max-width: none; }
+.phoenix-overview .claim { margin-bottom: 28px; }
+.phoenix-overview .section { padding-block: 60px; }
+.phoenix-overview .feature-claim { grid-template-columns: .55fr 1.65fr; }
+@media (max-width: 700px) {
+  .overview-summary { padding-block: 28px 36px; }
+  .overview-summary-grid { grid-template-columns: 1fr; gap: 24px; }
+  .phoenix-overview .section { padding-block: 38px; }
+  .phoenix-overview .feature-claim { display: block; }
 }

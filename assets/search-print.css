@@ -1,0 +1,30 @@
+.search-print-toolbar { margin: 20px 0; }
+.search-print-toolbar button { font: inherit; font-size: 14px; font-weight: bold; cursor: pointer; min-height: 46px; padding: 12px 18px; background: #124e52; color: white; border: 1px solid #124e52; }
+.search-print-toolbar button:disabled { opacity: .55; cursor: default; }
+.search-print-toolbar p { font-size: 13px; line-height: 1.6; margin: 8px 0; color: #566c6c; }
+#search-print-output { display: none; }
+@media print {
+  @page { margin: 18mm; }
+  .search-print-toolbar { display: none !important; }
+  body.printing-search-results > :not(#search-print-output) { display: none !important; }
+  body.printing-search-results { margin: 0 !important; padding: 0 !important; background: white !important; color: #111 !important; font: 11pt/1.5 Arial, sans-serif !important; }
+  #search-print-output { display: block; margin: 0; padding: 0; max-width: none; width: 100%; background: white; color: #111; }
+  #search-print-output h1 { font: bold 22pt/1.2 Georgia, serif; letter-spacing: normal; margin: 8pt 0 16pt; }
+  #search-print-output > p { margin: 5pt 0; font-size: 9pt; }
+  #search-print-output h2 { font: bold 15pt/1.3 Georgia, serif; letter-spacing: normal; }
+  #search-print-output h3 { font-size: 11pt; }
+  #search-print-output > article { display: block; padding: 14pt 0 !important; margin: 16pt 0 !important; border: 0; border-top: 1pt solid #777; border-radius: 0; box-shadow: none; background: white; break-inside: auto; }
+  #search-print-output p, #search-print-output li { font-size: 10pt; line-height: 1.5; overflow-wrap: anywhere; }
+  #search-print-output .record-limits, #search-print-output .connection-limit { background: transparent; border-left: 2pt solid #555; padding: 8pt 12pt; }
+  #search-print-output h2, #search-print-output h3, #search-print-output summary { break-after: avoid; }
+  #search-print-output details { display: block; }
+  #search-print-output details > summary { font-size: 11pt; padding: 10pt 0 4pt; }
+  #search-print-output a { color: #111; text-decoration: underline; }
+  #search-print-output a[href]::after { content: ' (' attr(href) ')'; font: normal 8pt/1.4 Arial, sans-serif; overflow-wrap: anywhere; }
+  #search-print-output .record-heading { display: block; }
+  #search-print-output .record-heading > span { display: block; margin-bottom: 4pt; }
+  #search-print-output .search-result .meta { display: none; }
+  #search-print-output .record-reading { display: block !important; font-size: 10pt; }
+  #search-print-output .evidence-question { display: block; }
+  #search-print-output .question-evidence, #search-print-output .question-outcome { padding-left: 0; border-left: 0; }
+}

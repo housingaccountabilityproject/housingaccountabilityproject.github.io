@@ -13,6 +13,7 @@
   const normalized = value => value.normalize('NFKC').toLowerCase();
   const searchable = new Map(cards.map(card => [card, normalized(card.dataset.search)]));
   let view = 'all';
+  let printing;
 
   function update() {
     const terms = normalized(query.value).trim().split(/\s+/).filter(Boolean);
@@ -27,6 +28,7 @@
     }
     count.textContent = `${shown} of ${cards.length} entries · Phoenix only`;
     empty.hidden = shown > 0;
+    printing?.update();
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
   }
 
@@ -67,4 +69,15 @@
   views.hidden = false;
   update();
   revealHash();
+  printing = window.HAPSearchPrint?.register({
+    title: 'Phoenix search results',
+    describe: () => [
+      `Search: ${query.value.trim() || '(no search terms)'}`,
+      `Index: ${buttons.find(button => button.dataset.view === view).textContent}`,
+      `Topic: ${topic.options[topic.selectedIndex].textContent}`,
+      `Record type: ${kind.options[kind.selectedIndex].textContent}`
+    ],
+    results: () => cards.filter(card => !card.hidden),
+    snapshot: 'Published research snapshot: November 8, 2026. Funding stages and project counts remain separate; source qualifications are retained.'
+  });
 })();

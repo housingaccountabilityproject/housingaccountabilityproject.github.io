@@ -70,7 +70,20 @@ for question in questions:
     row = matrix.xpath('//*[@id=$id]', id='need-' + question['question_id'])[0]
     assert record_map[question['question_id']]['title'] in row.text_content()
     assert all(rid in record_map for rid in question['record_ids'])
-for doc_path in ['phoenix/records.html', 'phoenix/projects.html', 'phoenix/questions.html', *data['input_pages']]:
+comparisons = connections['comparisons']
+assert len({c['id'] for c in comparisons}) == len(comparisons) == 2
+comparison_page = html.parse(str(ROOT / 'phoenix/comparisons.html'))
+for comparison in comparisons:
+    card = comparison_page.xpath('//*[@id=$id]', id='comparison-' + comparison['id'])[0]
+    assert len(card.xpath('.//section[@class="comparison-statement"]')) == 2
+    for statement in comparison['statements']:
+        record = record_map[statement['record_id']]
+        assert set(statement['source_ids']) <= set(record['source_ids'])
+        assert statement['date_text'] in card.text_content()
+        for paragraph in record['summary'] + record['limitations']:
+            assert paragraph in card.text_content(), ('lost comparison context', statement['record_id'])
+    assert all(record_map[q]['kind'] in ['question', 'needed'] for q in comparison['question_ids'])
+for doc_path in ['phoenix/records.html', 'phoenix/projects.html', 'phoenix/questions.html', 'phoenix/comparisons.html', *data['input_pages']]:
     doc = html.parse(str(ROOT / doc_path))
     assert len(doc.xpath('//main')) == len(doc.xpath('//h1')) == 1
     all_ids = doc.xpath('//@id')
@@ -85,10 +98,11 @@ for doc_path in ['phoenix/records.html', 'phoenix/projects.html', 'phoenix/quest
         assert dest.exists(), (doc_path, href)
         if url.fragment:
             assert html.parse(str(dest)).xpath('//*[@id=$id]', id=unquote(url.fragment)), (doc_path, href)
-outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html']
+outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html', ROOT / 'phoenix/comparisons.html']
 before = [hashlib.sha256(p.read_bytes()).digest() for p in outputs]
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)
 assert before == [hashlib.sha256(p.read_bytes()).digest() for p in outputs], 'Index is stale or nondeterministic'
 print('PASS: 24 evidence entries, 10 questions, 3 evidence needs, 33 linked source IDs; unique IDs, local destinations and deterministic generation.')
 print('PASS: 7 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')
+print('PASS: 2 dated comparisons preserve published statements, limitations, date meanings and source relationships.')

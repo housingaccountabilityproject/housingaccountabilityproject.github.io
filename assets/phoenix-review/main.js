@@ -35,3 +35,20 @@
   window.addEventListener('load', schedule);
   update();
 })();
+
+/* Keep technical notes available on paper, while preserving the reader's screen state. */
+(() => {
+  const openedForPrint = new Set();
+  window.addEventListener('beforeprint', () => {
+    for (const disclosure of document.querySelectorAll('.technical-note, .source-locator')) {
+      if (!disclosure.open) {
+        openedForPrint.add(disclosure);
+        disclosure.open = true;
+      }
+    }
+  });
+  window.addEventListener('afterprint', () => {
+    for (const disclosure of openedForPrint) disclosure.open = false;
+    openedForPrint.clear();
+  });
+})();
