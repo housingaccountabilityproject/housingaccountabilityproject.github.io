@@ -4,6 +4,7 @@
   if (!form) return;
   const query = document.querySelector('#connection-query');
   const filter = document.querySelector('#connection-filter');
+  const stage = document.querySelector('#city-project-stage');
   const entries = [...document.querySelectorAll('[data-connection-entry]')];
   const tools = window.HAPSearchText;
   const normalize = tools?.fold || (value => value.normalize('NFKC').toLowerCase());
@@ -18,6 +19,7 @@
     let count = 0;
     for (const entry of entries) {
       entry.hidden = Boolean(filter.value && entry.dataset.group !== filter.value)
+        || Boolean(stage?.value && !(entry.dataset.projectStages || '').split(' ').includes(stage.value))
         || !terms.every(term => text.get(entry).includes(term));
       if (tools) tools.clear(entry);
       const reason = reasons.get(entry); reason.hidden = entry.hidden || !terms.length;
@@ -32,7 +34,7 @@
     printing?.update();
     document.dispatchEvent(new Event('hapfilterschange'));
   }
-  function reset() { query.value = ''; filter.value = ''; update(); }
+  function reset() { query.value = ''; filter.value = ''; if(stage)stage.value=''; update(); }
   function revealHash() {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
@@ -55,7 +57,7 @@
   revealHash();
   printing = window.HAPSearchPrint?.register({
     title: `Phoenix ${document.querySelector('h1').textContent} — search results`,
-    describe: () => [`Search: ${query.value.trim() || '(no search terms)'}`, `Show: ${filter.options[filter.selectedIndex].textContent}`],
+    describe: () => [`Search: ${query.value.trim() || '(no search terms)'}`, `Show: ${filter.options[filter.selectedIndex].textContent}`,...(stage?[`Evidence stage: ${stage.options[stage.selectedIndex].textContent}`]:[])],
     results: () => entries.filter(entry => !entry.hidden),
     snapshot: 'Published research snapshot: November 8, 2026. These are research navigation records, not a log of submitted or received records requests.'
   });

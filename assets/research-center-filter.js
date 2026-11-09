@@ -3,6 +3,7 @@
 const cards=Array.from(document.querySelectorAll('[data-catalog-entry]'));
 const search=document.getElementById('catalog-search');
 const filter=document.getElementById('catalog-filter');
+const stage=document.getElementById('city-project-stage');
 const counter=document.getElementById('catalog-count');
 const empty=document.getElementById('catalog-empty');
 if(!search||!filter||!counter||!empty)return;
@@ -13,7 +14,7 @@ function apply(){
  for(const item of cards){
   const terms=(item.getAttribute('data-search')||item.textContent).toLocaleLowerCase('en-US');
   const group=(item.getAttribute('data-group')||'').split(' ');
-  const matches=(!query||terms.includes(query))&&(!selected||group.includes(selected));
+  const matches=(!query||terms.includes(query))&&(!selected||group.includes(selected))&&(!stage?.value||(item.dataset.projectStages||'').split(' ').includes(stage.value));
   item.hidden=!matches;
   if(matches)n++;
  }
@@ -22,6 +23,7 @@ function apply(){
 }
 search.addEventListener('input',apply);
 filter.addEventListener('change',apply);
+stage?.addEventListener('change',apply);
 apply();
 // A stable question/project URL must reveal its record, including historical aliases.
 function revealAnchor(hash){
@@ -29,7 +31,7 @@ function revealAnchor(hash){
  const target=document.getElementById(id);
  const card=target&&target.closest('[data-catalog-entry]');
  if(!card)return;
- if(card.hidden){search.value='';filter.value='';apply();}
+ if(card.hidden){search.value='';filter.value='';if(stage)stage.value='';apply();}
  requestAnimationFrame(()=>card.scrollIntoView({block:'start'}));
 }
 window.addEventListener('hashchange',()=>revealAnchor(location.hash));

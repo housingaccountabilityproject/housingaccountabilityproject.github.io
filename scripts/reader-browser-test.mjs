@@ -3,6 +3,7 @@ import {localPageUrl,routeLocalRequest} from './browser-test-url.mjs';
 import {mkdir,readdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {assertReaderContrast} from './reader-contrast.mjs';
+import {openNavigation} from './browser-navigation.mjs';
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 await mkdir('reader-qa-screenshots',{recursive:true});
 const pages=(await readdir('.')).filter(p=>p.endsWith('.html')&&!p.startsWith('google')).concat('reports/tucson-housing-funding-outcomes-2026.html','tucson/index.html','phoenix/index.html','phoenix/capital-fund.html','phoenix/projects/25th-at-bell.html');
@@ -87,7 +88,7 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  await page.goto(localPageUrl('tucson/index.html'));
  if(zoom!==1)await page.evaluate(z=>{document.body.style.zoom=String(z)},zoom);
  const heading=page.getByRole('heading',{level:1});
- assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where Do Housing Funds Go? What Do They Deliver?');
+ assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Tucson & Pima County');
  const metrics=await heading.evaluate(el=>{
   const box=el.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(el);
   return {font:parseFloat(getComputedStyle(el).fontSize),color:getComputedStyle(el).color,
@@ -98,8 +99,9 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  assert(!metrics.overflow,`Home overflow at ${width}, zoom ${zoom}`);
  assert(!metrics.clipped,`Heading clipped at ${width}, zoom ${zoom}`);
  assert(metrics.font>=34);assert.equal(metrics.color,'rgb(24, 56, 60)');
- if(width===1280&&zoom===1)assert(metrics.lines>=2&&metrics.lines<=4,'Desktop headline fits beside the scope panel');
+ if(width===1280&&zoom===1)assert(metrics.lines>=1&&metrics.lines<=3,'City heading fits the overview');
  await page.screenshot({path:`reader-qa-screenshots/home-heading-${width}-zoom-${zoom}.png`,fullPage:true});
+ await openNavigation(page);
  const more=page.locator('nav .city-more'),summary=more.locator('summary');
  await summary.focus();await page.keyboard.press('Enter');assert.notEqual(await more.getAttribute('open'),null);
  await page.keyboard.press('Enter');assert.equal(await more.getAttribute('open'),null);

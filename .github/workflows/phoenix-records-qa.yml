@@ -15,6 +15,9 @@ on:
       - 'data/city-reader-guide.json'
       - 'scripts/city_layout.py'
       - 'scripts/city_reader_guide.py'
+      - 'scripts/city_design.py'
+      - 'scripts/browser-navigation.mjs'
+      - 'scripts/test-approved-site-design.mjs'
       - 'scripts/test-city-reader-journeys.mjs'
       - 'assets/site-search.js'
       - 'assets/reader-tools.css'
@@ -48,6 +51,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
+      - run: node scripts/test-approved-site-design.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -6,6 +6,7 @@ from lxml import html
 import posixpath
 import re
 from city_reader_guide import apply as reader_guide
+from city_design import apply as site_design
 
 ROOT = Path(__file__).resolve().parents[1]
 SHARED = {'index.html', 'about.html', 'contact.html', 'privacy.html'}
@@ -15,8 +16,8 @@ ROUTES = {
     'shared': [('Research areas', 'index.html'), ('About', 'about.html'), ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
 }
 MORE = {
-    'tucson': [('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('Research library', 'research.html'), ('Updates & corrections', 'research-updates.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html'), ('Glossary', 'glossary.html'), ('Housing help', 'housing-help.html')],
-    'phoenix': [('Capital Fund guide', 'phoenix/capital-fund.html'), ('Source comparisons', 'phoenix/comparisons.html'), ('Corrections & history', 'phoenix/corrections.html'), ('First report', 'phoenix/inaugural-report.html'), ('Glossary', 'phoenix/glossary.html'), ('Housing help', 'phoenix/housing-help.html')],
+    'tucson': [('Glossary', 'glossary.html'), ('Reports & reading', 'research.html#publications'), ('Research method', 'research.html#standards'), ('Updates & corrections', 'research-updates.html'), ('Housing help', 'housing-help.html'), ('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html')],
+    'phoenix': [('Glossary', 'phoenix/glossary.html'), ('Reports & reading', 'phoenix/inaugural-report.html'), ('Research method', 'phoenix/index.html#sources'), ('Corrections & history', 'phoenix/corrections.html'), ('Housing help', 'phoenix/housing-help.html'), ('Capital Fund guide', 'phoenix/capital-fund.html'), ('Source comparisons', 'phoenix/comparisons.html')],
     'shared': [('Tucson & Pima County', 'tucson/index.html'), ('Phoenix', 'phoenix/index.html'), ('Housing help: Tucson', 'housing-help.html'), ('Housing help: Phoenix', 'phoenix/housing-help.html')],
 }
 
@@ -42,7 +43,8 @@ def header(path, city):
     switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix', 'phoenix/index.html')])
     nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in ROUTES[city])
     more = ''.join(city_link(label, target, path, path == target) for label, target in MORE[city])
-    return f'''<header class="city-header"><div class="city-wrap city-masthead"><a class="city-brand brand-home" href="{escape(relative('index.html', path))}" aria-label="Housing Accountability Project home"><img src="{escape(relative('assets/brand/logo-mark.svg', path))}" width="48" height="48" alt=""><span class="brand-name">Housing<br>Accountability<br>Project</span></a><div class="city-identity"><span>{escape(name)}</span><nav class="city-switcher" aria-label="Research area">{switch}</nav></div></div><div class="city-nav-bar"><nav class="city-wrap city-main-nav" aria-label="Main navigation">{nav}<details class="city-more"><summary>Learn &amp; resources</summary><div>{more}</div></details></nav></div></header>'''
+    utilities = ''.join(city_link(label,target,path) for label,target in [('About','about.html'),('Contact','contact.html'),('Privacy','privacy.html')])
+    return f'''<header class="city-header"><div class="city-wrap city-header-inner"><a class="city-brand brand-home" href="{escape(relative('index.html', path))}" aria-label="Housing Accountability Project home"><img src="{escape(relative('assets/brand/logo-mark.svg', path))}" width="48" height="48" alt=""><span class="brand-name">Housing<br>Accountability Project</span></a><span class="city-current-city">{escape(name)}</span><button class="city-menu-toggle" type="button" aria-controls="city-navigation-panel" aria-expanded="false" hidden><span aria-hidden="true">☰</span> Menu</button><button class="city-menu-backdrop" type="button" tabindex="-1" aria-hidden="true" hidden></button><div class="city-nav-panel" id="city-navigation-panel"><div class="city-menu-heading"><span id="city-menu-title">Explore the website</span><button class="city-menu-close" type="button" aria-label="Close menu">Close ×</button></div><div class="city-identity"><span>{escape(name)}</span><nav class="city-switcher" aria-label="Research area">{switch}</nav></div><nav class="city-main-nav" aria-label="Main navigation">{nav}<details class="city-more"><summary>Learn &amp; resources</summary><div>{more}</div></details></nav><nav class="city-menu-utilities" aria-label="About this website">{utilities}</nav></div></div></header>'''
 
 
 def footer(path, city):
@@ -53,7 +55,10 @@ def footer(path, city):
     else:
         links += [('Updates feed', 'feed.xml')]
     nav = ''.join(city_link(label, target, path) for label, target in links)
-    return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><p>Public Research Website</p></footer>'
+    areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix','phoenix/index.html')])
+    learn = ''.join(city_link(label,target,path) for label,target in MORE[route_city][:3])
+    about = ''.join(city_link(label,target,path) for label,target in [('About the project','about.html'),('Contact','contact.html')])
+    return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><div class="city-footer-grid"><div><p class="city-footer-label">Research areas</p><nav aria-label="Research area links">{areas}</nav></div><div><p class="city-footer-label">Learn</p><nav aria-label="Learning resources">{learn}</nav></div><div><p class="city-footer-label">Reader tools</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><div><p class="city-footer-label">About</p><nav aria-label="Project information">{about}</nav></div></div></div><p>Public Research Website</p></footer>'
 
 
 def learning(city, path):
@@ -103,11 +108,11 @@ def apply(output, path):
     city = city_for(path)
     body_match = re.search(r'<body\b([^>]*)>', output)
     attributes = body_match.group(1)
-    attributes = re.sub(r'\sclass="([^"]*)"', lambda m: ' class="' + ' '.join(c for c in m.group(1).split() if c not in ['city-site','city-tucson','city-phoenix','city-shared','city-document','city-with-hero','city-landing']) + '"', attributes)
+    attributes = re.sub(r'\sclass="([^"]*)"', lambda m: ' class="' + ' '.join(c for c in m.group(1).split() if c not in ['city-site','city-tucson','city-phoenix','city-shared','city-document','city-with-hero','city-landing','city-design']) + '"', attributes)
     doc = html.fromstring(output)
     main = doc.xpath('//main')[0]
     has_hero = city == 'phoenix' or path == 'index.html' or bool(main.xpath('./*[contains(concat(" ",normalize-space(@class)," ")," hero ")]'))
-    classes = f'city-site city-{city} ' + ('city-with-hero' if has_hero else 'city-document')
+    classes = f'city-site city-design city-{city} ' + ('city-with-hero' if has_hero else 'city-document')
     if path in ['index.html','tucson/index.html','phoenix/index.html']:
         classes += ' city-landing'
     if 'class="' in attributes:
@@ -135,6 +140,7 @@ def apply(output, path):
     if path in ['tucson/index.html','phoenix/index.html']:
         output = overview(output, path, city)
     output = reader_guide(output, path)
+    output = site_design(output, path)
     output = re.sub(r'<link rel="stylesheet" href="[^"]*assets/city-layout.css">', '', output)
     output = re.sub(r'<script src="[^"]*assets/city-layout.js" defer></script>', '', output)
     output = output.replace('</head>', f'<link rel="stylesheet" href="{escape(relative("assets/city-layout.css", path))}"><script src="{escape(relative("assets/city-layout.js", path))}" defer></script></head>')

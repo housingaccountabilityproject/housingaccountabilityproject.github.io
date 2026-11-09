@@ -45,7 +45,7 @@ def landscape(path):
 def hero(city, spec, path):
     day = date.fromisoformat(spec['date'])
     label = f'{day:%B} {day.day}, {day.year}'
-    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">{escape(spec['name'])} · Housing research</p><h1>Where Do Housing Funds Go?<br>What Do They Deliver?</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date">{escape(spec['date_label'])}: <time datetime="{spec['date']}">{label}</time> · Source periods vary.</p></div></section>'''
+    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Housing Accountability Project · City research</p><h1>{escape(spec['name'])}</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date">{escape(spec['date_label'])}: <time datetime="{spec['date']}">{label}</time> · Source periods vary.</p></div></section>'''
 
 
 def learning(spec, path):
@@ -61,7 +61,7 @@ def project_facts(project):
 
 
 def project_card(project, path):
-    return f'<article class="city-project-card"><h3>{escape(project["name"])}</h3>{project_facts(project)}<p class="city-project-caution">{escape(project["caution"])}</p><a class="city-text-link" href="{href(project["href"],path)}">Explore {escape(project["name"])} <span aria-hidden="true">→</span></a></article>'
+    return f'<article class="city-project-card"><h3>{escape(project["name"])}</h3><p class="city-overview-homes">{escape(project["homes"])}</p><p class="city-overview-stage">{escape(project["stage"])}</p><a class="city-text-link" href="{href(project["href"],path)}">Explore {escape(project["name"])} <span aria-hidden="true">→</span></a></article>'
 
 
 def stages(spec, path):
@@ -85,7 +85,7 @@ def guide(city, spec, path, projects):
     return f'''<div class="city-reading-guide city-wrap" data-city-guide-version="2">
 <nav class="city-guide-jump" aria-label="Overview sections"><a href="#guide-findings">Key findings</a><a href="#guide-projects">Projects &amp; funding</a><a href="#guide-questions">Open questions</a><a href="#guide-sources">Sources</a></nav>
 <section id="guide-findings" class="city-guide-section"><p class="city-eyebrow">01 / What the records say</p><h2>A few findings to start with.</h2><p class="city-section-intro">Selected examples from this research. Each figure keeps its date, place and limits.</p><div class="city-finding-grid">{findings}</div></section>
-<section id="guide-projects" class="city-guide-section"><div class="city-section-heading"><div><p class="city-eyebrow">02 / Projects &amp; funding</p><h2>Start with one place.</h2></div><div class="city-section-actions"><a href="{href(spec['projects_href'],path)}">All researched projects →</a><a href="{href(spec['funding_href'],path)}">Explore funding →</a></div></div><p class="city-section-intro">A selected research set, not a complete city inventory or a housing availability list.</p><div class="city-project-grid">{featured}</div>{stages(spec,path)}</section>
+<section id="guide-projects" class="city-guide-section"><div class="city-section-heading"><div><p class="city-eyebrow">02 / Projects &amp; funding</p><h2>Start with one place.</h2></div><div class="city-section-actions"><a href="{href(spec['projects_href'],path)}">All researched projects →</a><a href="{href(spec['funding_href'],path)}">Explore funding →</a></div></div><p class="city-section-intro">A selected research set, not a complete city inventory or a housing availability list.</p><div class="city-project-grid">{featured}</div><p class="city-overview-project-note">Reported milestones do not establish current vacancies.</p><details class="city-funding-explainer"><summary>How do funding records differ?</summary>{stages(spec,path)}</details></section>
 <section id="guide-questions" class="city-guide-section"><p class="city-eyebrow">03 / What remains unknown</p><h2>Good questions need the right records.</h2><p class="city-section-intro">A gap in the reviewed evidence does not by itself establish misuse.</p><div class="city-question-grid">{questions}</div><a class="city-text-link" href="{href(spec['questions_href'],path)}">See all research questions →</a></section>
 <section id="guide-sources" class="city-guide-section city-source-invitation"><div><p class="city-eyebrow">04 / Check the evidence</p><h2>Go back to the original record.</h2><p>Use the source index to find original documents and locators. Check the reporting period and read the limits attached to each finding.</p></div><div class="city-source-actions"><a class="city-primary-link" href="{href(spec['sources_href'],path)}">Browse the sources →</a><a href="#full-research">Read the full research on this page</a></div></section>
 </div>'''

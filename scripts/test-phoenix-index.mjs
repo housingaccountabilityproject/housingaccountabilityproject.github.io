@@ -3,6 +3,7 @@ import {spawn} from 'node:child_process';
 import {existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
+import {openNavigation} from './browser-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = process.env.PHOENIX_TEST_BASE_URL || 'http://127.0.0.1:8765';
@@ -162,6 +163,7 @@ try {
     await page.getByRole('button', {name: 'Clear filters'}).click();
     assert.equal(await projects.count(), 8);
 
+    await openNavigation(page);
     await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Questions'}).click();
     const questions = page.locator('[data-connection-entry]:visible');
     assert.equal(await questions.count(), 13);
@@ -237,6 +239,7 @@ try {
       assert.equal(await identifiers.getAttribute('open'), null, 'closed screen notes restored after print');
       assert.notEqual(await locator.getAttribute('open'), null, 'already-open source note stays open');
       const navigation = page.getByRole('navigation', {name: 'Main navigation'});
+      await openNavigation(page);
       assert.equal(await navigation.getByRole('link').count(), 6);
       await navigation.getByRole('link', {name: 'Projects'}).click();
       assert(page.url().endsWith('/phoenix/projects.html'));

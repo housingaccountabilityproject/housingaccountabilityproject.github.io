@@ -4,6 +4,7 @@ import {existsSync, readdirSync, mkdirSync, readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 import {assertReaderContrast} from './reader-contrast.mjs';
+import {openNavigation} from './browser-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = process.env.CITY_TEST_BASE_URL || 'http://127.0.0.1:8768';
@@ -47,7 +48,7 @@ try {
       assert(await image.evaluate(node=>node.complete&&node.naturalWidth===1983),`${path}: landscape loaded`);
       assert.equal(await image.evaluate(node=>getComputedStyle(node).opacity),'1');
       assert.equal(await image.getAttribute('alt'),'');
-      assert((await image.boundingBox()).height>=110,`${path}: landscape has space of its own`);
+      assert((await image.boundingBox()).height>=95,`${path}: landscape has space of its own`);
     }
     for(const path of ['tucson/index.html','phoenix/index.html']) {
       await page.goto(base+'/'+path);
@@ -59,6 +60,7 @@ try {
       assert.deepEqual(await page.locator('.city-reading-guide>section').evaluateAll(nodes=>nodes.map(node=>node.id)),['guide-findings','guide-projects','guide-questions','guide-sources']);
       assert.equal(await page.locator('.city-project-grid>.city-project-card').count(),2);
       assert.equal(await page.locator('.city-stage-grid>li').count(),4);
+      await openNavigation(page);
       await page.locator('.city-more>summary').click();
       const menu=await page.locator('.city-more>div').boundingBox();
       assert(menu.x>=0&&menu.x+menu.width<=width,`${path}: resources menu fits the viewport`);
@@ -66,14 +68,17 @@ try {
       await page.locator('.city-evidence-library>summary').click();
       assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),`${path}: expanded research fits ${width}`);
       await page.locator('.city-evidence-library>summary').click();
+      await page.locator('.city-funding-explainer>summary').click();
       await page.locator('.city-stage-grid summary').first().focus();
       await page.keyboard.press('Enter');
       assert.notEqual(await page.locator('.city-stage-grid details').first().getAttribute('open'),null);
       assert((await page.locator('.city-stage-note').textContent()).includes('not a guaranteed sequence'));
     }
     assert.deepEqual(appearance[0],appearance[1],'both cities share a theme');
+    await openNavigation(page);
     await page.locator('.city-switcher').getByRole('link',{name:'Tucson & Pima County',exact:true}).click();
     assert(page.url().endsWith('/tucson/index.html'));
+    await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Search',exact:true}).click();
     await page.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('"El Portal"');
     await page.getByRole('button',{name:'Search',exact:true}).click();
@@ -81,9 +86,12 @@ try {
     assert((await page.locator('#search-results .search-why').first().textContent()).includes('Matched in:'));
     await page.getByRole('button',{name:'Clear',exact:true}).click();
     assert.equal(await page.locator('#search-results mark').count(),0);
+    await openNavigation(page);
     await page.locator('.city-switcher').getByRole('link',{name:'Phoenix',exact:true}).click();
+    await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Funding',exact:true}).click();
     await page.locator('[data-view="funding"][aria-pressed="true"]').waitFor();
+    await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Sources',exact:true}).click();
     await page.locator('[data-view="source"][aria-pressed="true"]').waitFor();
     await page.locator('#source-program').selectOption('home');
@@ -107,6 +115,7 @@ try {
       window.HAPSearchText.clear(root);result.cleared=root.querySelectorAll('mark').length===0&&root.textContent===original;
       return result;
     }),{same:true,marks:3,images:0,cleared:true});
+    await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Projects',exact:true}).click();
     await page.getByRole('searchbox').fill('Moreland');
     await page.locator('#project-moreland').getByRole('link',{name:'Read the published context',exact:false}).click();

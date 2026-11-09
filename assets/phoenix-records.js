@@ -67,6 +67,10 @@
     }
   }
   function update() {
+    const primer=document.getElementById('city-funding-primer');
+    if(primer)primer.hidden=view!=='funding';
+    const title=document.querySelector('.records-intro h1');
+    if(title)title.textContent=view==='funding'?'Understand Phoenix funding':view==='source'?'Phoenix source index':view==='question'?'Phoenix research questions':'Search Phoenix research';
     if (sourceControls) sourceControls.hidden = view !== 'source';
     if (kindControl) kindControl.hidden = view === 'source';
     if (topicControl) topicControl.hidden = view === 'source';
