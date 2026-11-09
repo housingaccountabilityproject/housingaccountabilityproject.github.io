@@ -95,6 +95,19 @@ for question in questions:
     assert record_map[question['question_id']]['title'] in row.text_content()
     assert all(rid in record_map for rid in question['record_ids'])
 comparisons = connections['comparisons']
+project_specs = connections['project_details']
+assert len(project_specs) == 1 and project_specs[0]['id'] == 'moreland'
+moreland = html.parse(str(ROOT / 'phoenix/projects/moreland.html'))
+for rid in ['PHX-WEB-007','PHX-WEB-009','PHX-WEB-010']:
+    panel = moreland.xpath('//*[@data-origin-record=$id]', id=rid)[0]
+    for paragraph in record_map[rid]['summary'] + record_map[rid]['limitations']:
+        assert paragraph in panel.text_content(), ('lost Moreland context', rid)
+corrections = json.loads((ROOT / 'data/phoenix-corrections.json').read_text())
+history = html.parse(str(ROOT / 'phoenix/corrections.html'))
+if not corrections['entries']:
+    assert history.xpath('//*[@class="correction-empty"]')
+else:
+    assert len(history.xpath('//*[@class="correction-entry"]')) == len(corrections['entries'])
 assert len({c['id'] for c in comparisons}) == len(comparisons) == 2
 comparison_page = html.parse(str(ROOT / 'phoenix/comparisons.html'))
 for comparison in comparisons:
@@ -122,10 +135,11 @@ for doc_path in sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'phoenix'
         assert dest.exists(), (doc_path, href)
         if url.fragment:
             assert html.parse(str(dest)).xpath('//*[@id=$id]', id=unquote(url.fragment)), (doc_path, href)
-outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html', ROOT / 'phoenix/comparisons.html']
+outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html', ROOT / 'phoenix/comparisons.html', ROOT / 'phoenix/projects/moreland.html', ROOT / 'phoenix/corrections.html']
 before = [hashlib.sha256(p.read_bytes()).digest() for p in outputs]
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)
+subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-project-pages.py')], check=True)
 assert before == [hashlib.sha256(p.read_bytes()).digest() for p in outputs], 'Index is stale or nondeterministic'
 print('PASS: 24 evidence entries, 10 questions, 3 evidence needs, 33 linked source IDs; unique IDs, local destinations and deterministic generation.')
 print('PASS: 7 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')

@@ -9,6 +9,10 @@ on:
       - 'assets/phoenix-review/**'
       - 'assets/research-detail.css'
       - 'assets/search-print.*'
+      - 'assets/search-text.*'
+      - 'assets/city-layout.*'
+      - 'scripts/city_layout.py'
+      - 'scripts/test-city-reader-journeys.mjs'
       - 'assets/site-search.js'
       - 'assets/reader-tools.css'
       - 'search.html'
@@ -40,6 +44,7 @@ jobs:
       - name: Install PDF text verifier
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node scripts/test-search-print.mjs
+      - run: node scripts/test-city-reader-journeys.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

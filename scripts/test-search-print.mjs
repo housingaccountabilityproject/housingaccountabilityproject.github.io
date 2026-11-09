@@ -37,12 +37,12 @@ try {
     const path = `${output}/${name}.pdf`;
     await page.pdf({path, format: 'Letter', printBackground: false, tagged: true});
     // The print engine fires afterprint when PDF rendering completes.
-    return execFileSync('pdftotext', [path, '-'], {encoding: 'utf8'});
+    return execFileSync('pdftotext', [path, '-'], {encoding: 'utf8'}).replace(/\s+/g, ' ');
   }
 
   await page.goto(base + '/search.html');
   assert(await page.getByRole('button', {name: 'Print search results'}).isDisabled());
-  await page.getByLabel('Search the Website', {exact: true}).fill('CDBG');
+  await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('CDBG');
   await page.getByRole('button', {name: 'Search', exact: true}).click();
   const expected = Number((await page.locator('#search-status').textContent()).match(/^(\d+)/)[1]);
   assert(expected > 20);
@@ -57,7 +57,7 @@ try {
   assert.equal(await page.locator('#search-results article').count(), 20);
 
   // Unsubmitted edits must not relabel the results being printed.
-  await page.getByLabel('Search the Website', {exact: true}).fill('not-the-submitted-query');
+  await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('not-the-submitted-query');
   await clickPrint();
   assert.equal(await page.locator('#search-print-output article').count(), expected);
   assert((await page.locator('#search-print-output').textContent()).includes('Search: CDBG'));
@@ -159,7 +159,7 @@ try {
   }
   // Keyboard/system print invokes the same complete report without clicking a button.
   await page.goto(base + '/search.html');
-  await page.getByLabel('Search the Website', {exact: true}).fill('F-007');
+  await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('F-007');
   await page.getByRole('button', {name: 'Search', exact: true}).click();
   await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
   assert(await page.locator('#search-print-output article').count() > 0);

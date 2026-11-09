@@ -1,7 +1,7 @@
 from pathlib import Path
 from lxml import html,etree
 from urllib.parse import urlsplit
-import base64,json,mimetypes
+import base64,json,mimetypes,re
 root=Path(__file__).resolve().parents[1]
 out=root/'organization-qa-screenshots/HAP-organization-review.html'
 out.parent.mkdir(exist_ok=True)
@@ -12,7 +12,14 @@ for f in files:
  rel=f.relative_to(root).as_posix();doc=html.parse(str(f))
  for e in doc.xpath('//script[@data-goatcounter]|//script[@src="assets/legacy-home-bridge.js"]'):e.getparent().remove(e)
  for e in doc.xpath('//link[@rel="stylesheet"]'):
-  p=(f.parent/e.get('href')).resolve();style=html.Element('style');style.text=p.read_text();e.getparent().replace(e,style)
+  p=(f.parent/e.get('href')).resolve();style=html.Element('style')
+  def inline_css_asset(match):
+   value=match.group(1).strip('"\' ')
+   if urlsplit(value).scheme or value.startswith('#'):return match.group(0)
+   asset=(p.parent/value).resolve()
+   if not asset.is_file():return match.group(0)
+   return 'url("data:'+mimetypes.guess_type(asset.name)[0]+';base64,'+base64.b64encode(asset.read_bytes()).decode()+'")'
+  style.text=re.sub(r'url\(([^)]*)\)',inline_css_asset,p.read_text());e.getparent().replace(e,style)
  for e in doc.xpath('//script[@src]'):
   src=e.get('src');assert not urlsplit(src).scheme,src
   e.text=(f.parent/src).read_text();del e.attrib['src']
@@ -40,6 +47,8 @@ window.addEventListener('message',event=>{if(event.data&&event.data.type==='hap-
  doc.xpath('//body')[0].append(shim)
  site[rel]=etree.tostring(doc,encoding='unicode',method='html',doctype='<!doctype html>')
 labels={'index.html':'Shared Home','tucson/index.html':'Tucson & Pima County','phoenix/index.html':'Phoenix','phoenix/capital-fund.html':'Capital Fund','phoenix/projects/25th-at-bell.html':'25th at Bell','research-center.html':'Research Center','funding-explorer.html':'Funding','housing-projects.html':'Projects & Outcomes','questions-records.html':'Questions & Records','findings.html':'Findings','evidence.html':'Evidence','research-updates.html':'Updates','research.html':'Library','reports/tucson-housing-funding-outcomes-2026.html':'First Edition','about.html':'About','contact.html':'Contact','glossary.html':'Glossary','search.html':'Search','housing-help.html':'Housing Help','privacy.html':'Privacy'}
+for path,content in site.items():
+ if path not in labels:labels[path]=('Phoenix · ' if path.startswith('phoenix/') else '')+html.fromstring(content).xpath('//h1')[0].text_content()
 encoded=base64.b64encode(json.dumps(site).encode()).decode()
 buttons=''.join('<button type="button" data-page="'+p+'">'+label.replace('&','&amp;')+'</button>' for p,label in labels.items())
 page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HAP Organization Review · Unpublished Draft</title><style>
@@ -57,7 +66,7 @@ showPage('index.html');
 out.write_text(page)
 print(out, out.stat().st_size, 'bytes; pages:',len(site))
 # Validate the finished payload, included assets, all links and no active analytics.
-reconstructed=json.loads(base64.b64decode(encoded));assert len(reconstructed)==26
+reconstructed=json.loads(base64.b64decode(encoded));assert len(reconstructed)==len([f for f in files if not f.name.startswith('google')])
 for rel,text in reconstructed.items():
  d=html.fromstring(text);assert len(d.xpath('//h1'))==1;assert not d.xpath('//script[@src]');assert not d.xpath('//script[@data-goatcounter]');assert not d.xpath('//link[@rel="stylesheet"]')
-print('PASS: all 26 pages embedded, CSS/scripts/images included, no active analytics or remote scripts.')
+print(f'PASS: all {len(site)} pages embedded, CSS/scripts/images included, no active analytics or remote scripts.')

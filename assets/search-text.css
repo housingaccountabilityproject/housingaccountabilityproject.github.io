@@ -1,0 +1,4 @@
+mark[data-search-mark]{background:#f8e1a4;color:#18383c;padding:0 .04em;border-radius:2px}
+.search-why{font-size:13px!important;line-height:1.65!important;color:#526767;margin:12px 0!important}
+.source-filter-help .facet-note{display:block;margin-top:8px}
+@media print{mark[data-search-mark]{background:transparent;color:inherit;font-weight:bold;text-decoration:underline}.search-why{font-size:9pt!important}}

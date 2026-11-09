@@ -1,6 +1,5 @@
 import { chromium } from 'playwright';
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import {localPageUrl,routeLocalRequest} from './browser-test-url.mjs';
 import { mkdir } from 'node:fs/promises';
 
 const tests = ['tucson/index.html','research-center.html','funding-explorer.html','housing-projects.html','questions-records.html','evidence.html'];
@@ -9,11 +8,11 @@ const browser = await chromium.launch({headless:true,...(process.env.CHROMIUM_PA
 await mkdir('site-qa-screenshots',{recursive:true});
 for (const width of [390,1280]) {
   const page = await browser.newPage({viewport:{width,height:800},deviceScaleFactor:1});
-  await page.route(/^https?:/, route=>route.abort());
+  await page.route(/^https?:/, routeLocalRequest);
   const errors = [];
   page.on('pageerror',err=>errors.push(err.message));
   for(const path of tests) {
-    const url=pathToFileURL(resolve(path)).href;
+    const url=localPageUrl(path);
     const response=await page.goto(url,{waitUntil:'load'});
     const metrics=await page.evaluate(()=>({
       documentWidth:document.documentElement.scrollWidth,
@@ -29,7 +28,7 @@ for (const width of [390,1280]) {
     console.log('Rendered',path,width,JSON.stringify(metrics));
   }
   for(const path of ['funding-explorer.html','housing-projects.html','questions-records.html']) {
-    await page.goto(pathToFileURL(resolve(path)).href);
+    await page.goto(localPageUrl(path));
     const cards=page.locator('[data-catalog-entry]'),before=await cards.count();
     await page.locator('#catalog-search').fill('definitely-not-in-the-research-records');
     const shown=await cards.filter({visible:true}).count();
@@ -41,7 +40,7 @@ for (const width of [390,1280]) {
     if(filtered===0||filtered>before) failures.push(`${path}: category filter returned wrong count ${filtered}/${before}`);
     console.log('Filter checks',path,JSON.stringify({before,filtered}));
   }
-  await page.goto(pathToFileURL(resolve('research-center.html')).href);
+  await page.goto(localPageUrl('research-center.html'));
   await page.locator('#search').fill('nonmatching-phrase-124124');
   if(await page.locator('#cards article').filter({visible:true}).count()!==0) failures.push('research-center search did not filter');
   await page.locator('#search').fill('');
@@ -49,13 +48,13 @@ for (const width of [390,1280]) {
   const selected=await page.locator('#cards article').filter({visible:true}).count();
   if(selected!==1) failures.push('research center housing filter expected 1, got '+selected);
   console.log('Research Center filter at',width,'selected',selected);
-  await page.goto(pathToFileURL(resolve('housing-projects.html')).href);
+  await page.goto(localPageUrl('housing-projects.html'));
   if(await page.locator('.ev-tile').count()!==44 || await page.locator('.ev-tile-excluded').count()!==8 || await page.locator('.ev-tile-other').count()!==15) failures.push('Outcome tiles must preserve 44 total, 8 excluded and 15 other included exits');
   if(!await page.locator('.ev-definition').getByText('does not establish its cause',{exact:false}).count()) failures.push('Return definition and causal limitation missing');
-  await page.goto(pathToFileURL(resolve('funding-explorer.html')).href);
+  await page.goto(localPageUrl('funding-explorer.html'));
   if(await page.locator('.ev-funding-card').count()!==3 || !(await page.locator('.ev-calc').innerText()).includes('$58,701,289 combined.')) failures.push('Funding cards or explicit HCV calculation missing');
   for(const path of ['housing-projects.html','funding-explorer.html','evidence.html']) {
-    await page.goto(pathToFileURL(resolve(path)).href);
+    await page.goto(localPageUrl(path));
     if(await page.locator('.evidence-visual details,.evidence-visual select').count()) failures.push(path+': new visual modules must not add dropdowns');
   }
   await page.close();

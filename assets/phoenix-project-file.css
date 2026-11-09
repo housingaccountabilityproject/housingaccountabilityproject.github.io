@@ -1,0 +1,37 @@
+.project-file { max-width: 960px; padding-bottom: 60px; }
+.project-file-jump { display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 16px 0; border-block: 1px solid var(--line); }
+.project-file-jump a { padding: 10px 0; font-size: 14px; }
+.project-print button { font: bold 14px/1.5 Arial, sans-serif; padding: 12px 18px; min-height: 46px; border: 1px solid var(--teal); background: var(--teal); color: white; cursor: pointer; margin: 24px 0 0; }
+.project-file-section { padding-block: 38px; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
+.project-file h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.25; }
+.project-file h3 { font-size: 20px; }
+.project-file p { max-width: 70ch; font-size: 17px; line-height: 1.8; }
+.project-phase-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0; }
+.project-phase-summary a { display: block; text-decoration: none; background: #edf2eb; padding: 24px; border-top: 3px solid var(--teal); }
+.project-phase-summary strong, .project-phase-summary span { display: block; }
+.project-phase-summary strong { font-size: 22px; margin-bottom: 10px; }
+.project-phase-summary span { font-size: 17px; }
+.project-file .project-record > p { font-size: 17px; }
+.project-file .claim-meta p, .project-file .connection-limit p { font-size: 14px; }
+.project-record-timeline { list-style: none; padding: 0; margin: 30px 0 0; }
+.project-record-timeline li { padding: 0 0 30px 24px; border-left: 2px solid #b9cdc2; }
+.project-file .event-date { font-size: 14px; font-weight: bold; color: #954522; margin-bottom: 12px; }
+.project-file .event-id { font-size: 12px; color: var(--muted); margin-bottom: 0; }
+.project-record-timeline a { font-size: 14px; overflow-wrap: anywhere; }
+.project-file-gaps { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.project-file-gaps p { font-size: 16px; }
+.project-file .connection-links p { font-size: 13px; }
+.correction-empty, .correction-entry { border: 1px solid var(--line); padding: 28px; margin: 30px 0; background: white; }
+@media(max-width:700px) {
+  .project-phase-summary, .project-file-gaps { grid-template-columns: 1fr; }
+  .project-file-section { padding-block: 30px; }
+  .project-phase-summary a { padding: 20px; }
+}
+@media print {
+  .project-file-jump, .project-print { display: none; }
+  .project-file { max-width: none; padding: 0; }
+  .project-file-section { padding-block: 20px; }
+  .project-file p { font-size: 11pt; }
+  .project-file h2, .project-file h3 { break-after: avoid; }
+  .project-file .connection-links a[href]::after { content: ' (' attr(href) ')'; font-size: 9pt; overflow-wrap: anywhere; }
+}

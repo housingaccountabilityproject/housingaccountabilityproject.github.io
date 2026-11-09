@@ -161,7 +161,7 @@ try {
     await page.getByRole('button', {name: 'Clear filters'}).click();
     assert.equal(await projects.count(), 8);
 
-    await page.getByRole('navigation', {name: 'Phoenix research tools'}).getByRole('link', {name: 'Questions & evidence'}).click();
+    await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Questions'}).click();
     const questions = page.locator('[data-connection-entry]:visible');
     assert.equal(await questions.count(), 13);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `matrix overflow ${width}`);
@@ -231,9 +231,9 @@ try {
       await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
       assert.equal(await identifiers.getAttribute('open'), null, 'closed screen notes restored after print');
       assert.notEqual(await locator.getAttribute('open'), null, 'already-open source note stays open');
-      const navigation = page.getByRole('navigation', {name: 'Phoenix research tools'});
-      assert.equal(await navigation.getByRole('link').count(), 9);
-      await navigation.getByRole('link', {name: 'Projects & phases'}).click();
+      const navigation = page.getByRole('navigation', {name: 'Main navigation'});
+      assert.equal(await navigation.getByRole('link').count(), 6);
+      await navigation.getByRole('link', {name: 'Projects'}).click();
       assert(page.url().endsWith('/phoenix/projects.html'));
     }
     await page.close();

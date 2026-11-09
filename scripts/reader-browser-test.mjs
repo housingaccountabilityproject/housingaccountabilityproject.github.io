@@ -1,6 +1,5 @@
 import {chromium} from 'playwright';
-import {resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {localPageUrl,routeLocalRequest} from './browser-test-url.mjs';
 import {mkdir,readdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {assertReaderContrast} from './reader-contrast.mjs';
@@ -12,24 +11,24 @@ for(const width of [390,768,1280]) {
  const page=await browser.newPage({viewport:{width,height:900}});const errors=[];
  page.on('pageerror',e=>errors.push(e.message));
  // Never send local QA traffic or search tests to analytics/external hosts.
- await page.route(/^https?:/,route=>route.abort());
+ await page.route(/^https?:/,routeLocalRequest);
  for(const file of pages){
-  await page.goto(pathToFileURL(resolve(file)).href);
+  await page.goto(localPageUrl(file));
   await assertReaderContrast(page,`${file} at ${width}`);
   const info=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth+2,h1:document.querySelectorAll('h1').length,main:document.querySelectorAll('main').length}));
   assert(!info.overflow,`${file} overflow at ${width}`);assert.equal(info.h1,1);assert.equal(info.main,1);
  }
- await page.goto(pathToFileURL(resolve('search.html')).href);
- await page.getByLabel('Search the Website',{exact:true}).fill('F-007');await page.getByRole('button',{name:'Search',exact:true}).click();
+ await page.goto(localPageUrl('search.html'));
+ await page.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('F-007');await page.getByRole('button',{name:'Search',exact:true}).click();
  assert((await page.locator('#search-results article').count())>0);
  await page.screenshot({path:`reader-qa-screenshots/search-${width}.png`,fullPage:true});
  await page.getByRole('button',{name:'Clear',exact:true}).click();assert.equal(await page.locator('#site-query').inputValue(),'');
  await page.locator('#site-query').fill('impossible-match-947362');await page.locator('#site-query').press('Enter');assert.equal(await page.locator('#search-results article').count(),0);
  await page.getByRole('button',{name:'Clear',exact:true}).click();await page.locator('#site-query').fill('CDBG');await page.locator('#site-query').press('Enter');
  await page.getByRole('button',{name:'Show More Results'}).click();assert((await page.locator('#search-results article').count())>20);
- await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
+ await page.goto(localPageUrl('research-updates.html')+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
- await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
+ await page.goto(localPageUrl('tucson/index.html'));
  const slogan=page.locator('.hero h1 + .hero-slogan');
  assert.equal(await slogan.textContent(),'Public Funding Deserves Public Understanding');
  assert.equal(await slogan.evaluate(el=>getComputedStyle(el).fontStyle),'italic');
@@ -43,7 +42,7 @@ for(const width of [390,768,1280]) {
  assert.equal(await page.locator('#latest-updates > ol > li').count(),4);
  assert.equal(await page.locator('#correction-history > ol > li').count(),3);
  for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
- await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
+ await page.goto(localPageUrl('tucson/index.html'));
 
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
  assert(page.url().endsWith('#county-housing-funding-2026-11-08'));
@@ -51,11 +50,11 @@ for(const width of [390,768,1280]) {
  const countyText=await page.locator('#county-housing-funding-2026-11-08').textContent();
  for(const phrase of ['$2,986,331','$78,172.27','This is not a measure of County spending.','August 2026'])assert(countyText.includes(phrase));
  await page.screenshot({path:`reader-qa-screenshots/update-nov8-${width}.png`,fullPage:true});
- await page.goto(pathToFileURL(resolve('research-updates.html')).href+'#payments-projects-outcomes-2026-11-07');
+ await page.goto(localPageUrl('research-updates.html')+'#payments-projects-outcomes-2026-11-07');
  assert.equal(await page.locator('#payments-projects-outcomes-2026-11-07 h3').count(),5);
  assert((await page.locator('#payments-projects-outcomes-2026-11-07').textContent()).includes('$58,701,289'));
  await page.screenshot({path:`reader-qa-screenshots/update-nov7-${width}.png`,fullPage:true});
- await page.goto(pathToFileURL(resolve('evidence.html')).href);
+ await page.goto(localPageUrl('evidence.html'));
  assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
  for(const [period,id] of [['FY2024','src-114'],['FY2025','src-108']]){
   await page.locator('#period').selectOption(period);
@@ -79,8 +78,8 @@ for(const width of [390,768,1280]) {
 // The homepage title must reflow without reducing its existing font sizes.
 for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zoom:2},{width:640,zoom:1}]) {
  const page=await browser.newPage({viewport:{width,height:900}});
- await page.route(/^https?:/,route=>route.abort());
- await page.goto(pathToFileURL(resolve('tucson/index.html')).href);
+ await page.route(/^https?:/,routeLocalRequest);
+ await page.goto(localPageUrl('tucson/index.html'));
  if(zoom!==1)await page.evaluate(z=>{document.body.style.zoom=String(z)},zoom);
  const heading=page.getByRole('heading',{level:1});
  assert.equal((await heading.innerText()).replace(/\s+/g,' ').trim(),'Where Do Housing Funds Go? What Do They Deliver?');
@@ -93,13 +92,13 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  });
  assert(!metrics.overflow,`Home overflow at ${width}, zoom ${zoom}`);
  assert(!metrics.clipped,`Heading clipped at ${width}, zoom ${zoom}`);
- assert(metrics.font>=34);assert.equal(metrics.color,'rgb(255, 255, 255)');
- if(width===1280&&zoom===1)assert.equal(metrics.lines,2,'Desktop headline should have two lines');
+ assert(metrics.font>=34);assert.equal(metrics.color,'rgb(24, 56, 60)');
+ if(width===1280&&zoom===1)assert(metrics.lines>=2&&metrics.lines<=4,'Desktop headline fits beside the scope panel');
  await page.screenshot({path:`reader-qa-screenshots/home-heading-${width}-zoom-${zoom}.png`,fullPage:true});
- const more=page.locator('nav .more-nav'),summary=more.locator('summary');
+ const more=page.locator('nav .city-more'),summary=more.locator('summary');
  await summary.focus();await page.keyboard.press('Enter');assert.notEqual(await more.getAttribute('open'),null);
  await page.keyboard.press('Enter');assert.equal(await more.getAttribute('open'),null);
- await summary.click();await more.getByRole('link',{name:'Research Findings',exact:true}).click();
+ await summary.click();await more.getByRole('link',{name:'Findings',exact:true}).click();
  assert(page.url().endsWith('/findings.html'));await page.goBack();assert(page.url().endsWith('/index.html'));
  console.log('Homepage heading and keyboard navigation',JSON.stringify({width,zoom,...metrics}));
  await page.close();

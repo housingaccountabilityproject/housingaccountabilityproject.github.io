@@ -1,17 +1,17 @@
 import { chromium } from 'playwright';
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import {localPageUrl,routeLocalRequest} from './browser-test-url.mjs';
 import { mkdir } from 'node:fs/promises';
 
 const path='reports/tucson-housing-funding-outcomes-2026.html';
 const errors=[];
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 await mkdir('report-qa-screenshots',{recursive:true});
 for (const width of [390,768,1280]) {
  const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
  const runtime=[];
  page.on('pageerror',e=>runtime.push(e.message));
- await page.goto(pathToFileURL(resolve(path)).href,{waitUntil:'load'});
+ await page.route(/^https?:/,routeLocalRequest);
+ await page.goto(localPageUrl(path),{waitUntil:'load'});
  const checks=await page.evaluate(()=>{
    const links=[...document.querySelectorAll('a[href^="#"]')];
    const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);

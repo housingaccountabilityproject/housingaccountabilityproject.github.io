@@ -51,6 +51,10 @@ def check_css(css):
 
 if __name__ == "__main__":
     ratios = check_css((ROOT / "assets/reader-tools.css").read_text())
+    theme = (ROOT / "assets/city-layout.css").read_text()
+    assert '.city-site :is(.current-status,.reader-callout,.site-search-form) :is(h2,h3,p,li){color:var(--ink)}' in theme
+    for foreground in ['#18383c', '#526767', '#124e52']:
+        assert contrast(foreground, '#edf2eb') >= 4.5, ('shared-theme panel contrast', foreground)
     pages = [*ROOT.glob("*.html"), *ROOT.glob("reports/*.html"), ROOT/"tucson/index.html"]
     panel_count = 0
     for path in pages:
@@ -59,7 +63,8 @@ if __name__ == "__main__":
         if not panels:
             continue
         styles = doc.xpath('//head/style|//head/link[@rel="stylesheet"]')
-        assert styles[-1].get("href", "").endswith("assets/reader-tools.css"), path
+        assert any(style.get("href", "").endswith("assets/reader-tools.css") for style in styles), path
+        assert styles[-1].get("href", "").endswith("assets/city-layout.css"), path
         for panel in panels:
             for element in [panel, *panel.iterdescendants()]:
                 assert not re.search(r"(?:^|;)\s*(?:color|background(?:-color)?)\s*:", element.get("style", "")), (path, "inline panel color requires review")

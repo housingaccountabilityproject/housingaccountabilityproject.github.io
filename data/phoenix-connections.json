@@ -158,7 +158,7 @@
         "question-overview-03",
         "question-overview-04"
       ],
-      "detail_url": "index.html#PHX-WEB-007"
+      "detail_url": "projects/moreland.html"
     },
     {
       "id": "girasol",
@@ -438,6 +438,74 @@
         "PHX-CFP-WEB-002",
         "PHX-CFP-WEB-005"
       ]
+    }
+  ],
+  "project_details": [
+    {
+      "id": "moreland",
+      "filename": "projects/moreland.html",
+      "title": "The Moreland",
+      "intro": "Two planned phases. Separate financing records. Follow the dates, financial stages and questions that remain open.",
+      "scope_record_id": "PHX-WEB-007",
+      "phases": [
+        {
+          "id": "phase-i",
+          "title": "Phase I",
+          "planned_units": "132 planned apartments",
+          "record_id": "PHX-WEB-009",
+          "scope_note": "The reported closing and the earlier approval ceiling describe financing stages. Neither is verified City cash spending or the total development cost."
+        },
+        {
+          "id": "phase-ii",
+          "title": "Phase II",
+          "planned_units": "105 planned apartments",
+          "record_id": "PHX-WEB-010",
+          "scope_note": "The authorization combines funding sources whose split is unverified. Up to 54 vouchers is not a count of executed contracts or additional apartments."
+        }
+      ],
+      "timeline": [
+        {
+          "date": "June 18, 2025",
+          "label": "Earlier Council development-scope report",
+          "text": "An earlier Council report is one of the sources attached to the published two-phase development-scope finding.",
+          "record_id": "PHX-WEB-007",
+          "source_id": "PHX-EXT-PROJECT-004"
+        },
+        {
+          "date": "November 5, 2025",
+          "label": "Phase I financing authorization",
+          "text": "Council approval allowed up to $50 million. An authorization ceiling is not the reported closing amount or a payment.",
+          "record_id": "PHX-WEB-009",
+          "source_id": "PHX-EXT-PROJECT-003"
+        },
+        {
+          "date": "December 2025",
+          "label": "Phase I reported financing closing",
+          "text": "Phoenix IDA reports $43.1 million of Moreland I financing closed. This is not a City expenditure total.",
+          "record_id": "PHX-WEB-009",
+          "source_id": "PHX-EXT-PROJECT-114"
+        },
+        {
+          "date": "June 17, 2026",
+          "label": "Phase II assistance and voucher authorization",
+          "text": "Council authorized up to $10 million from HOME, NSP and other affordable-housing funds, plus up to 54 project-based vouchers. Execution and the fund split remain unverified.",
+          "record_id": "PHX-WEB-010",
+          "source_id": "PHX-EXT-PROJECT-002"
+        }
+      ],
+      "evidence_needed": [
+        {
+          "title": "What was actually paid?",
+          "text": "Match project-specific disbursements to the funder, program, phase and period before calculating any spending per apartment.",
+          "question_id": "question-overview-03"
+        },
+        {
+          "title": "Which terms were executed?",
+          "text": "Executed assistance agreements, fund allocations and voucher records are needed before treating authorizations as paid or contracted assistance.",
+          "question_id": "question-overview-04"
+        }
+      ],
+      "limits": "The combined 237 apartments describe planned scope across two phases. An older summary labels Phase I with 237; the published research says not to use that as completed Phase I units. No completed-apartment count, current availability, total City spending or comparable cost per apartment is established here."
     }
   ]
 }

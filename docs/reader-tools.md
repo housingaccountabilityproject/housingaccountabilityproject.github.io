@@ -1,5 +1,17 @@
 # Reader tools
 
+## Shared educational layout
+
+Tucson and Phoenix use one layout and theme: a city switcher, the same six main destinations, consistent reading surfaces and four learning paths. Their city-specific content, source dates and search scopes remain distinct. A decorative Arizona landscape backs both city overviews; the full technical evidence remains available one level deeper.
+
+Both primary searches highlight matching text and explain which fields matched. Phoenix source-filter choices show counts calculated with the query and the other source selections applied. Counts do not change the selected criteria printed in a report. Resetting clears the highlights and criteria without storing or sending search terms.
+
+The Moreland project file reuses published records for its two planned phases and separate financing stages. Phoenix correction history begins as an empty, explicitly labeled log; future corrections require preserved earlier text, corrected text, evidence and a real publication date. Unresolved source differences are not recorded as corrections.
+
+See `docs/site-information-flow.md` for the page/data flow and regeneration commands, and `docs/reader-testing.md` for the participant study protocol. Automated reader-journey checks do not constitute a usability study with unfamiliar readers.
+
+The reader, organization, research-center and report browser suites accept `SITE_TEST_BASE_URL=http://127.0.0.1:8770` when local file URLs are restricted. Start `python3 -m http.server 8770 --bind 127.0.0.1` from the repository first, and set `CHROMIUM_PATH` if using a system browser. These suites allow HTTP requests to that server only and block external analytics. Without the base URL they retain local-file testing for CI.
+
 This release contains the six approved reader improvements and the light-panel contrast correction. It is based on main `f69fd33af440c114402f2179f3d18d768a8c9ef3`, including the November 6 County update. Existing research dates, correction history and resident-privacy safeguards are retained.
 
 ## Features

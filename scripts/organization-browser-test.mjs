@@ -1,18 +1,17 @@
 import {chromium} from 'playwright';
-import {resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {localPageUrl,routeLocalRequest} from './browser-test-url.mjs';
 import {mkdir,readdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
 const pages=(await readdir('.')).filter(p=>p.endsWith('.html')&&!p.startsWith('google')).concat('reports/tucson-housing-funding-outcomes-2026.html','tucson/index.html','phoenix/index.html','phoenix/capital-fund.html','phoenix/projects/25th-at-bell.html');
-const url=file=>pathToFileURL(resolve(file)).href;
+const url=localPageUrl;
 await mkdir('organization-qa-screenshots',{recursive:true});
 execFileSync('python',['scripts/build-review-preview.py'],{stdio:'inherit'});
 try{
 for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoom:1},{width:1280,zoom:2}]){
  const page=await browser.newPage({viewport:{width,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.route(/^https?:/,route=>route.abort());
+ await page.route(/^https?:/,routeLocalRequest);
  for(const file of pages){
   await page.goto(url(file));
   if(zoom!==1)await page.evaluate(z=>document.body.style.zoom=String(z),zoom);
@@ -64,11 +63,11 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
  assert.deepEqual(errors,[]);await page.close();console.log('PASS organization browser',JSON.stringify({width,zoom,pages:pages.length}));
 }
 // Validate the deliverable itself, not just its source pages.
-const preview=await browser.newPage({viewport:{width:1280,height:900}});const previewErrors=[];preview.on('pageerror',e=>previewErrors.push(e.message));await preview.route(/^https?:/,route=>route.abort());
+const preview=await browser.newPage({viewport:{width:1280,height:900}});const previewErrors=[];preview.on('pageerror',e=>previewErrors.push(e.message));await preview.route(/^https?:/,routeLocalRequest);
 await preview.goto(url('organization-qa-screenshots/HAP-organization-review.html'));
 const embedded=preview.frameLocator('#site-preview');await embedded.locator('h1').waitFor();
 await preview.locator('[data-page="questions-records.html"]').click();await embedded.locator('#catalog-search').fill('no-record-983489');assert(await embedded.locator('#catalog-empty').isVisible());await embedded.locator('#catalog-search').fill('');
-await preview.locator('[data-page="search.html"]').click();await embedded.getByLabel('Search the Website',{exact:true}).fill('F-007');await embedded.getByRole('button',{name:'Search',exact:true}).click();await embedded.locator('#search-results article').first().waitFor();assert((await embedded.locator('#search-results article').count())>0);
+await preview.locator('[data-page="search.html"]').click();await embedded.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('F-007');await embedded.getByRole('button',{name:'Search',exact:true}).click();await embedded.locator('#search-results article').first().waitFor();assert((await embedded.locator('#search-results article').count())>0);
 await preview.locator('[data-page="tucson/index.html"]').click();await embedded.locator('.question-paths a[href$="housing-projects.html"]').click();await embedded.locator('#catalog-search').waitFor();assert((await preview.locator('#current-page').textContent()).includes('housing-projects.html'));
 await preview.locator('[data-width="390"]').click();assert.equal(Math.round((await preview.locator('#site-preview').boundingBox()).width),390);
 await preview.screenshot({path:'organization-qa-screenshots/review-artifact-390.png'});assert.deepEqual(previewErrors,[]);await preview.close();console.log('PASS: offline preview navigation, filters, search and mobile-width controls.');

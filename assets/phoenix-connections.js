@@ -5,15 +5,26 @@
   const query = document.querySelector('#connection-query');
   const filter = document.querySelector('#connection-filter');
   const entries = [...document.querySelectorAll('[data-connection-entry]')];
-  const normalize = value => value.normalize('NFKC').toLowerCase();
-  const text = new Map(entries.map(entry => [entry, normalize(entry.dataset.search)]));
+  const tools = window.HAPSearchText;
+  const normalize = tools?.fold || (value => value.normalize('NFKC').toLowerCase());
+  const text = new Map(entries.map(entry => [entry, normalize(entry.textContent)]));
+  const reasons = new Map(entries.map(entry => {
+    const reason = document.createElement('p'); reason.className = 'search-why'; reason.hidden = true;
+    entry.querySelector('h2').after(reason); return [entry,reason];
+  }));
   let printing;
   function update() {
-    const terms = normalize(query.value).trim().split(/\s+/).filter(Boolean);
+    const terms = tools ? tools.tokens(query.value) : normalize(query.value).trim().split(/\s+/).filter(Boolean);
     let count = 0;
     for (const entry of entries) {
       entry.hidden = Boolean(filter.value && entry.dataset.group !== filter.value)
         || !terms.every(term => text.get(entry).includes(term));
+      if (tools) tools.clear(entry);
+      const reason = reasons.get(entry); reason.hidden = entry.hidden || !terms.length;
+      if (!reason.hidden) {
+        reason.textContent = 'Matched in: this entry and its connected evidence.';
+        if (tools) for (const node of entry.querySelectorAll('h2,.project-observations,.question-heading>p:not(.search-why),.question-evidence>p,.question-outcome>p,.comparison-quote,.comparison-date,.comparison-explanation,.connection-links li')) tools.highlight(node,terms);
+      }
       if (!entry.hidden) count++;
     }
     document.querySelector('#connection-count').textContent = `${count} of ${entries.length} entries`;

@@ -4,6 +4,7 @@ from html import escape
 from pathlib import Path
 import json
 from phoenix_navigation import navigation
+from city_layout import apply as city_layout
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,7 +29,7 @@ def shell(filename, title, intro, body):
 <link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css">
 <link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">
-<script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
+<link rel="stylesheet" href="../assets/search-text.css"><script src="../assets/search-text.js" defer></script><script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / {escape(title)}</div>
 {navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Published research snapshot: November 8, 2026.</p></section>
@@ -70,7 +71,7 @@ def comparisons(data, records):
     intro = 'Read the dated statements side by side, follow their sources, and see what evidence would explain the difference.'
     note = '<section class="connections-note"><div class="wrap"><h2>A comparison keeps both statements visible.</h2><p>A later report or file-update label does not by itself reconcile the records or replace an earlier statement. Dates below identify the kind of date each source supplies.</p></div></section>'
     controls = filters('Phoenix source comparisons', [('bell', '25th @ Bell ARPA'), ('capital', 'Public Housing Capital Fund')])
-    (ROOT / 'phoenix/comparisons.html').write_text(shell('comparisons.html', 'Dated source comparisons', intro, note + workspace(controls, cards, len(cards))))
+    (ROOT / 'phoenix/comparisons.html').write_text(city_layout(shell('comparisons.html', 'Dated source comparisons', intro, note + workspace(controls, cards, len(cards))), 'phoenix/comparisons.html'))
 
 
 def build():
@@ -107,7 +108,7 @@ def build():
     introduction = 'Follow a development across phases, funding records and reported results. Each observation keeps its own date and evidence status.'
     note = '''<section class="connections-note"><div class="wrap"><h2>One place can appear in several records.</h2><p>Seven developments and one neighborhood planning area are listed here. They are a selected research set, not a complete Phoenix inventory. Phase, inventory, designation and completion figures are not additive.</p></div></section>'''
     controls = filters('Phoenix projects', [('development', 'Developments'), ('planning-area', 'Neighborhood planning areas')])
-    (ROOT / 'phoenix/projects.html').write_text(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))))
+    (ROOT / 'phoenix/projects.html').write_text(city_layout(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/projects.html'))
 
     cards = []
     for entry in data['question_connections']:
@@ -125,7 +126,7 @@ def build():
     introduction = 'See the open question, the records needed to investigate it, and what those records could establish.'
     note = '''<section class="connections-note"><div class="wrap"><h2>Research gaps, with a path to better evidence.</h2><p>These are 10 published questions and three Capital Fund evidence needs. This is not a log of submitted or received records requests. The answers remain unverified; missing evidence alone is not a finding of misuse. Each related record retains its own project and program scope.</p></div></section>'''
     controls = filters('Phoenix evidence needs', [('project', 'General project questions'), ('funding', 'General funding questions'), ('bell', '25th @ Bell'), ('capital', 'Public Housing Capital Fund')])
-    (ROOT / 'phoenix/questions.html').write_text(shell('questions.html', 'Questions & evidence', introduction, note + workspace(controls, cards, len(cards))))
+    (ROOT / 'phoenix/questions.html').write_text(city_layout(shell('questions.html', 'Questions & evidence', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/questions.html'))
     comparisons(data, records)
     print(f'Built connected Phoenix pages: {len(data["projects"])} directory entries and {len(cards)} evidence needs.')
 

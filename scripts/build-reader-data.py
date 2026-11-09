@@ -18,7 +18,7 @@ def write(path,content):
 # remain searchable: historical wording and source limitations live inside them.
 UI_TAGS={'script','style','nav','form','button','select','input','textarea','label','noscript','template'}
 UI_ROLES={'status','navigation','search','button','combobox','listbox','textbox'}
-UI_CLASSES={'toolbar','subnav','counter','empty','empty-state','filter-controls','search-controls','page-jump','jump','section-links'}
+UI_CLASSES={'city-learning','city-concepts','city-scope','toolbar','subnav','counter','empty','empty-state','filter-controls','search-controls','page-jump','jump','section-links'}
 def is_search_ui(e):
  if not isinstance(e.tag,str):return True
  style=e.get('style','').lower()
