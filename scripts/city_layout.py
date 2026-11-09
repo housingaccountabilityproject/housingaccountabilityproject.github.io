@@ -5,6 +5,7 @@ from urllib.parse import urlsplit
 from lxml import html
 import posixpath
 import re
+from city_reader_guide import apply as reader_guide
 
 ROOT = Path(__file__).resolve().parents[1]
 SHARED = {'index.html', 'about.html', 'contact.html', 'privacy.html'}
@@ -102,11 +103,13 @@ def apply(output, path):
     city = city_for(path)
     body_match = re.search(r'<body\b([^>]*)>', output)
     attributes = body_match.group(1)
-    attributes = re.sub(r'\sclass="([^"]*)"', lambda m: ' class="' + ' '.join(c for c in m.group(1).split() if c not in ['city-site','city-tucson','city-phoenix','city-shared','city-document','city-with-hero']) + '"', attributes)
+    attributes = re.sub(r'\sclass="([^"]*)"', lambda m: ' class="' + ' '.join(c for c in m.group(1).split() if c not in ['city-site','city-tucson','city-phoenix','city-shared','city-document','city-with-hero','city-landing']) + '"', attributes)
     doc = html.fromstring(output)
     main = doc.xpath('//main')[0]
     has_hero = city == 'phoenix' or path == 'index.html' or bool(main.xpath('./*[contains(concat(" ",normalize-space(@class)," ")," hero ")]'))
     classes = f'city-site city-{city} ' + ('city-with-hero' if has_hero else 'city-document')
+    if path in ['index.html','tucson/index.html','phoenix/index.html']:
+        classes += ' city-landing'
     if 'class="' in attributes:
         attributes = attributes.replace('class="', f'class="{classes} ', 1)
     else:
@@ -131,6 +134,7 @@ def apply(output, path):
         output = re.sub(r'(<main\b[^>]*>)', lambda m: m.group(1) + f'<nav class="city-breadcrumbs breadcrumbs" aria-label="Breadcrumb">{crumb}</nav>', output, count=1)
     if path in ['tucson/index.html','phoenix/index.html']:
         output = overview(output, path, city)
+    output = reader_guide(output, path)
     output = re.sub(r'<link rel="stylesheet" href="[^"]*assets/city-layout.css">', '', output)
     output = re.sub(r'<script src="[^"]*assets/city-layout.js" defer></script>', '', output)
     output = output.replace('</head>', f'<link rel="stylesheet" href="{escape(relative("assets/city-layout.css", path))}"><script src="{escape(relative("assets/city-layout.js", path))}" defer></script></head>')

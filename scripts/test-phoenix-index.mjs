@@ -140,6 +140,7 @@ try {
     await page.getByRole('searchbox').fill('Moreland');
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-moreland');
+    await projects.first().locator('.city-project-details > summary').click();
     await projects.first().getByRole('link', {name: 'Read the record · PHX-WEB-010', exact: true}).click();
     assert(page.url().endsWith('/phoenix/records.html#PHX-WEB-010'));
     await page.locator('#PHX-WEB-010').waitFor({state: 'visible'});
@@ -213,6 +214,10 @@ try {
       await page.goto(base + '/phoenix/' + path);
       assert.equal(await page.locator('main h1').count(), 1);
       assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `existing page overflow ${path} at ${width}`);
+      if(path==='index.html'){
+        assert(await page.locator('.city-hero-date').isVisible(),'overview date is visible before opening the full research');
+        await page.locator('.city-evidence-library>summary').click();
+      }
       const reading = await page.locator('.record-text').first().evaluate(el => ({font: parseFloat(getComputedStyle(el).fontSize), line: parseFloat(getComputedStyle(el).lineHeight)}));
       assert(reading.font >= 17 && reading.line >= reading.font * 1.6, `reading typography ${path}`);
       assert(await page.locator('.claim-meta').first().isVisible(), 'scope and dates remain visible');

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn, execFileSync} from 'node:child_process';
-import {existsSync, readdirSync, mkdirSync} from 'node:fs';
+import {existsSync, readdirSync, mkdirSync, readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 import {assertReaderContrast} from './reader-contrast.mjs';
@@ -10,6 +10,7 @@ const base = process.env.CITY_TEST_BASE_URL || 'http://127.0.0.1:8768';
 const server = process.env.CITY_TEST_BASE_URL ? null : spawn('python3',['-m','http.server','8768','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 let browser;
 const errors = [];
+const pageIds = new Map();
 function files(folder, prefix='') {
   return readdirSync(folder,{withFileTypes:true}).flatMap(entry => entry.isDirectory() ? files(folder+'/'+entry.name,prefix+entry.name+'/') : entry.name.endsWith('.html') ? [prefix+entry.name] : []);
 }
@@ -31,6 +32,7 @@ try {
       assert.equal(await page.locator('main h1').count(),1,path);
       assert.equal(await page.locator('.city-header').count(),1,path);
       assert.equal(await page.locator('.city-footer').count(),1,path);
+      if(width===320)pageIds.set(path,new Set(await page.locator('[id]').evaluateAll(nodes=>nodes.map(node=>node.id))));
       assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),`${path} overflow at ${width}`);
       if(!['index.html','about.html','contact.html','privacy.html'].includes(path)) {
         assert.deepEqual(await page.locator('.city-main-nav>a').allTextContents(),['Overview','Projects','Funding','Questions','Sources','Search']);
@@ -38,13 +40,36 @@ try {
       await assertReaderContrast(page,path);
     }
     const appearance=[];
+    for(const path of ['index.html','tucson/index.html','phoenix/index.html']) {
+      await page.goto(base+'/'+path);
+      const image=page.locator('.city-landscape img');
+      assert(await image.isVisible(),`${path}: visible landscape`);
+      assert(await image.evaluate(node=>node.complete&&node.naturalWidth===1983),`${path}: landscape loaded`);
+      assert.equal(await image.evaluate(node=>getComputedStyle(node).opacity),'1');
+      assert.equal(await image.getAttribute('alt'),'');
+      assert((await image.boundingBox()).height>=110,`${path}: landscape has space of its own`);
+    }
     for(const path of ['tucson/index.html','phoenix/index.html']) {
       await page.goto(base+'/'+path);
       appearance.push(await page.evaluate(()=>({body:getComputedStyle(document.body).backgroundColor,font:getComputedStyle(document.body).fontFamily,heading:getComputedStyle(document.querySelector('h1')).fontFamily,nav:getComputedStyle(document.querySelector('.city-header')).backgroundColor})));
       assert.equal(await page.locator('.city-learning-grid>a').count(),4);
-      await page.locator('.city-concepts summary').first().focus();
+      assert.equal(await page.locator('.city-hero-copy>.hero-intro').count(),1);
+      assert(await page.locator('.city-hero-date').isVisible());
+      assert.equal(await page.locator('.city-about').getAttribute('open'),null);
+      assert.deepEqual(await page.locator('.city-reading-guide>section').evaluateAll(nodes=>nodes.map(node=>node.id)),['guide-findings','guide-projects','guide-questions','guide-sources']);
+      assert.equal(await page.locator('.city-project-grid>.city-project-card').count(),2);
+      assert.equal(await page.locator('.city-stage-grid>li').count(),4);
+      await page.locator('.city-more>summary').click();
+      const menu=await page.locator('.city-more>div').boundingBox();
+      assert(menu.x>=0&&menu.x+menu.width<=width,`${path}: resources menu fits the viewport`);
+      await page.keyboard.press('Escape');
+      await page.locator('.city-evidence-library>summary').click();
+      assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),`${path}: expanded research fits ${width}`);
+      await page.locator('.city-evidence-library>summary').click();
+      await page.locator('.city-stage-grid summary').first().focus();
       await page.keyboard.press('Enter');
-      assert.notEqual(await page.locator('.city-concepts details').first().getAttribute('open'),null);
+      assert.notEqual(await page.locator('.city-stage-grid details').first().getAttribute('open'),null);
+      assert((await page.locator('.city-stage-note').textContent()).includes('not a guaranteed sequence'));
     }
     assert.deepEqual(appearance[0],appearance[1],'both cities share a theme');
     await page.locator('.city-switcher').getByRole('link',{name:'Tucson & Pima County',exact:true}).click();
@@ -101,12 +126,68 @@ try {
     await page.close();
     console.log(`PASS shared theme, ${all.length} pages, learning paths, city navigation and search journeys at ${width}.`);
   }
+  const editorial=JSON.parse(readFileSync(root+'/data/city-reader-guide.json','utf8'));
+  function links(value){
+    if(Array.isArray(value))return value.flatMap(links);
+    if(value&&typeof value==='object')return Object.entries(value).flatMap(([key,item])=>(key==='href'||key.endsWith('_href'))?[item]:links(item));
+    return [];
+  }
+  for(const target of new Set(links(editorial))){
+    const url=new URL(target,'https://hap.test/');
+    const ids=pageIds.get(url.pathname.slice(1));
+    assert(ids,`guide destination: ${target}`);
+    if(url.hash)assert(ids.has(decodeURIComponent(url.hash.slice(1))),`guide anchor: ${target}`);
+  }
+  for(const path of ['tucson/index.html','phoenix/index.html']) {
+    const page=await browser.newPage({viewport:{width:390,height:900}});
+    await page.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
+    await page.goto(base+'/'+path);
+    const first=await page.locator('.city-learning-grid>a').first().boundingBox();
+    assert(first.y+first.height<=900,`${path}: a learning path is visible on a phone's opening screen`);
+    const state=()=>page.locator('.city-about,.city-evidence-library,.city-stage-grid details').evaluateAll(nodes=>nodes.map(node=>node.open));
+    const before=await state();
+    await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
+    assert((await state()).every(Boolean));
+    await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+    assert.deepEqual(await state(),before,'print restores optional-reading state');
+    await page.close();
+  }
+  for(const [path,id] of [['tucson/index.html','latest-updates'],['phoenix/index.html','PHX-WEB-009']]) {
+    const page=await browser.newPage();
+    await page.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
+    await page.goto(base+'/'+path+'#'+id);
+    assert(await page.locator('#'+id).isVisible(),`${id}: saved link reveals research`);
+    await page.locator('.city-evidence-library>summary').click();
+    assert(await page.locator('#'+id).isHidden());
+    await page.evaluate(id=>{const a=document.createElement('a');a.href='#'+id;a.id='repeat-library-link';a.textContent='Read the same record';document.querySelector('main').prepend(a)},id);
+    await page.locator('#repeat-library-link').click();
+    assert(await page.locator('#'+id).isVisible(),`${id}: repeated link reveals research`);
+    await page.close();
+  }
+  const noScript=await browser.newContext({javaScriptEnabled:false});
+  await noScript.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
+  const plain=await noScript.newPage();
+  await plain.goto(base+'/phoenix/index.html');
+  await plain.locator('.city-evidence-library>summary').click();
+  assert(await plain.locator('#PHX-WEB-009').isVisible(),'full findings are available without JavaScript');
+  await plain.goto(base+'/housing-projects.html');
+  assert.equal(await plain.locator('[data-catalog-entry]:visible').count(),5);
+  await plain.locator('#project-pub-001 .city-project-details>summary').click();
+  assert(await plain.locator('#project-pub-001 .limit').isVisible());
+  await noScript.close();
+  console.log('PASS landscape loading, phone entry paths, guide links, funding-stage disclosures, saved/repeated research links, print restoration and reading without JavaScript.');
   const page=await browser.newPage();
+  await page.route('**/*',route=>route.request().url().startsWith(base+'/')?route.continue():route.abort());
   await page.goto(base+'/phoenix/projects/moreland.html');
   mkdirSync('/tmp/hap-search-print',{recursive:true});
   await page.pdf({path:'/tmp/hap-search-print/moreland-project-file.pdf',format:'Letter',tagged:true});
   const pdf=execFileSync('pdftotext',['/tmp/hap-search-print/moreland-project-file.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
   for(const term of ['132 planned apartments','105 planned apartments','$43.1 million','up to $10 million','up to 54'])assert(pdf.includes(term),term);
+  await page.goto(base+'/phoenix/index.html');
+  await page.pdf({path:'/tmp/hap-search-print/phoenix-overview-guide.pdf',format:'Letter',tagged:true});
+  const overviewPdf=execFileSync('pdftotext',['/tmp/hap-search-print/phoenix-overview-guide.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
+  for(const term of ['Four records. Four different meanings.','PHX-WEB-009','$43.1 million','Neither amount is total City assistance'])assert(overviewPdf.includes(term),term);
+  assert.equal(await page.locator('.city-evidence-library').getAttribute('open'),null,'real PDF restores the closed library');
   await page.goto(base+'/phoenix/corrections.html');
   assert((await page.locator('.correction-empty').textContent()).includes('No correction entries'));
   assert.equal(await page.locator('.correction-entry').count(),0);

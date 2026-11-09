@@ -11,6 +11,12 @@ flowchart TD
     City --> P[Phoenix]
     T --> Overview[City overview: shared educational layout]
     P --> Overview
+    Overview --> Highlights[Selected dated findings]
+    Highlights --> Projects[Project summaries: place, stage, homes, funding]
+    Projects --> Stages[Four evidence types: approval, financing, spending, delivery]
+    Stages --> Questions[Open questions]
+    Questions --> Index[Source index]
+    Overview --> Full[Expandable full research and methods]
     Overview --> Money[Follow the money]
     Overview --> Homes[Explore homes and projects]
     Overview --> Claim[Check a claim]
@@ -29,9 +35,9 @@ flowchart TD
 
 ## Content layers
 
-1. **Learn:** plain-language questions, a clear city scope and a few key concepts. Both city overviews offer the same four learning paths. Their three optional explainers distinguish approvals/payments, planned/completed housing, and geographic/reporting scope.
-2. **Understand:** a finding or project file explains what a record shows, its date and status, why it matters, and its essential limitation. The Moreland file connects existing evidence for the two planned phases without adding financing measures together.
-3. **Inspect:** document links, page/cell locators, program IDs, source comparisons and corrections are available when needed. Technical detail stays accessible without leading every page.
+1. **Learn:** an unobscured Arizona landscape, one short introduction and the same four learning paths. Both city overviews follow key findings → projects and funding → open questions → sources. A visible update/snapshot date and city label stay beside the introduction; longer scope notes are optional.
+2. **Understand:** project summaries lead with place, stage/date, homes and funding, followed by an essential qualification. Four native disclosures explain approval, financing, spending and housing-delivery records. They explicitly describe different measures, not a guaranteed sequence. The Moreland file keeps its two planned phases separate.
+3. **Inspect:** the original research, updates and methods remain in an expandable library with their original IDs. Saved and repeated links reveal the relevant disclosure; printing expands the context and restores the reader's state. Document links, locators, comparisons and corrections remain available on their existing pages.
 
 ## Evidence-to-page flow
 
@@ -52,7 +58,8 @@ There is no automatic publication from a workbook or a changing external documen
 ## Implementation and maintenance
 
 - `scripts/city_layout.py` supplies the common shell, city routes, overview learning modules and relative links. Its `apply()` function is used by generated pages; the command applies the same shell to hand-maintained pages. Research-area and program differences are encoded in destinations and content, not different visual systems.
-- `assets/city-layout.css` and `assets/city-layout.js` control the shared educational theme and navigation. The decorative Sonoran Desert landscape is a generated illustration, not a photograph or claim about a specific project location. The original generation is retained separately; `assets/arizona-landscape.webp` is the web-optimized asset. Reading surfaces and print styles keep text clear.
+- `scripts/city_reader_guide.py` renders the selected overview examples and compact project summaries from `data/city-reader-guide.json`. The JSON is an editorial layer over existing evidence, not a new research dataset. Check each summary against its linked finding when changing it. The same builder updates both city overviews, both project directories and the Bell/Moreland introductions; repeated builds are stable.
+- `assets/city-layout.css` and `assets/city-layout.js` control the shared educational theme and navigation. The decorative Sonoran Desert landscape is a generated illustration, not a photograph or claim about a specific project location. The original generation is retained separately; `assets/arizona-landscape.webp` is the web-optimized asset. The homepage and both city overviews show the image clearly in its own area, alongside or above an opaque reading surface. No white wash covers the image. The decorative image is omitted from print.
 - `assets/search-text.js` safely highlights matches using text nodes, including Unicode-normalized text. Queries remain local. Result explanations identify matching fields. Phoenix source-facet counts apply the query and all other selected source filters while varying the candidate choice; the selected criteria are kept free of counts in print reports.
 - `data/phoenix-connections.json` adds the Moreland page's explicit phase, timeline and question relationships. The page reuses the three published Moreland findings; no external recheck or new spending total is implied.
 - `data/phoenix-corrections.json` starts with an honest empty history. Every future entry requires `id`, `published_on` (an accurate publication date), `record_ids`, `previous_statement`, `corrected_statement`, `reason`, `source_ids` and an HTTPS `previous_reference_url`. Dates are not filled from the build clock. The renderer validates record/source references and preserves both statements.
@@ -69,3 +76,5 @@ python scripts/build-search-source-urls.py
 ```
 
 Then run the Phoenix data checks, existing reader/data/search checks, the browser search/print suites, and `node scripts/test-city-reader-journeys.mjs`. The shared shell is outside the indexed research; educational navigation and scope guidance are excluded from research indexing. Existing claim IDs and source dates remain attached to the research.
+
+The shared-city suite also checks image loading, the opening phone viewport, the resources menu, guide destinations, expanded research at narrow widths, saved/repeated anchors, native reading without JavaScript, and real PDF context/state restoration. Use `docs/reader-testing-session.md` with unfamiliar readers to assess comprehension; automated passes are not a participant study.

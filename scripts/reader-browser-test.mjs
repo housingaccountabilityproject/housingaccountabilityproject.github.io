@@ -29,14 +29,18 @@ for(const width of [390,768,1280]) {
  await page.goto(localPageUrl('research-updates.html')+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(localPageUrl('tucson/index.html'));
- const slogan=page.locator('.hero h1 + .hero-slogan');
+ assert(await page.locator('.city-landscape img').isVisible());
+ assert(await page.locator('.city-hero-date').isVisible());
+ await page.locator('.city-about > summary').click();
+ const slogan=page.locator('.city-about .hero-slogan');
  assert.equal(await slogan.textContent(),'Public Funding Deserves Public Understanding');
  assert.equal(await slogan.evaluate(el=>getComputedStyle(el).fontStyle),'italic');
  assert.equal(await page.locator('header .hero-slogan').count(),0);
- const headlineBox=await page.locator('.hero h1').boundingBox(),sloganBox=await slogan.boundingBox();
- assert(sloganBox.y>=headlineBox.y+headlineBox.height,`slogan below headline at ${width}`);
- assert(sloganBox.x>=0&&sloganBox.x+sloganBox.width<=width,`slogan stays in viewport at ${width}`);
+ const sloganBox=await slogan.boundingBox();
+ assert(sloganBox.x>=0&&sloganBox.x+sloganBox.width<=width,`scope notes stay in viewport at ${width}`);
+ await page.locator('.city-about > summary').click();
  await page.screenshot({path:`reader-qa-screenshots/home-nov7-${width}.png`,fullPage:true});
+ await page.locator('.city-evidence-library > summary').click();
  const homeAnchors=await page.locator('.page-jump a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
  assert(homeAnchors.every(href=>href.startsWith('#')));
  assert.equal(await page.locator('#latest-updates > ol > li').count(),4);
@@ -44,6 +48,7 @@ for(const width of [390,768,1280]) {
  for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
  await page.goto(localPageUrl('tucson/index.html'));
 
+ await page.locator('.city-evidence-library > summary').click();
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
  assert(page.url().endsWith('#county-housing-funding-2026-11-08'));
  assert.equal(await page.locator('#county-housing-funding-2026-11-08 h3').count(),3);
@@ -75,7 +80,7 @@ for(const width of [390,768,1280]) {
  assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
-// The homepage title must reflow without reducing its existing font sizes.
+// The overview title must remain readable and reflow without clipping at 200% zoom.
 for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zoom:2},{width:640,zoom:1}]) {
  const page=await browser.newPage({viewport:{width,height:900}});
  await page.route(/^https?:/,routeLocalRequest);

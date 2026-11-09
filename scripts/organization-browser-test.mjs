@@ -69,6 +69,12 @@ const embedded=preview.frameLocator('#site-preview');await embedded.locator('h1'
 await preview.locator('[data-page="questions-records.html"]').click();await embedded.locator('#catalog-search').fill('no-record-983489');assert(await embedded.locator('#catalog-empty').isVisible());await embedded.locator('#catalog-search').fill('');
 await preview.locator('[data-page="search.html"]').click();await embedded.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('F-007');await embedded.getByRole('button',{name:'Search',exact:true}).click();await embedded.locator('#search-results article').first().waitFor();assert((await embedded.locator('#search-results article').count())>0);
 await preview.locator('[data-page="tucson/index.html"]').click();await embedded.locator('.question-paths a[href$="housing-projects.html"]').click();await embedded.locator('#catalog-search').waitFor();assert((await preview.locator('#current-page').textContent()).includes('housing-projects.html'));
+await preview.locator('[data-page="phoenix/index.html"]').click();
+const fullResearch=embedded.locator('.city-evidence-library');
+const fullResearchLink=embedded.locator('.city-source-actions a[href="#full-research"]');
+await fullResearchLink.click();assert.notEqual(await fullResearch.getAttribute('open'),null);
+await fullResearch.locator(':scope > summary').click();assert.equal(await fullResearch.getAttribute('open'),null);
+await fullResearchLink.click();assert.notEqual(await fullResearch.getAttribute('open'),null,'repeated library links work in the offline preview too');
 await preview.locator('[data-width="390"]').click();assert.equal(Math.round((await preview.locator('#site-preview').boundingBox()).width),390);
 await preview.screenshot({path:'organization-qa-screenshots/review-artifact-390.png'});assert.deepEqual(previewErrors,[]);await preview.close();console.log('PASS: offline preview navigation, filters, search and mobile-width controls.');
 }finally{await browser.close();}

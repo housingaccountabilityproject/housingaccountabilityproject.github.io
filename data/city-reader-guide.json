@@ -1,0 +1,78 @@
+{
+  "scope": "Editorial summaries of existing published research. These are selected examples, not city totals, a new evidence review or current housing listings.",
+  "cities": {
+    "tucson": {
+      "name": "Tucson & Pima County",
+      "intro": "Follow housing funding, explore reported results, and see what the records still cannot tell us.",
+      "date_label": "Research update",
+      "date": "2026-11-08",
+      "findings": [
+        {"title": "$1.5 million reallocated", "text": "Tucson adopted a CDBG category transfer on October 6, 2026. It moves existing resources; it is not a new award or verified spending.", "href": "findings.html#f-001"},
+        {"title": "63 apartments reported opened", "text": "City announcements describe Milagro on Oracle opening in January 2025. An opening report does not establish current vacancies.", "href": "findings.html#f-004"},
+        {"title": "Two Amazon projects to distinguish", "text": "The 59-apartment Flats project and the 30-studio motel conversion are different physical projects. The County packet's name and scope require care.", "href": "findings.html#f-011"}
+      ],
+      "featured_projects": ["project-pub-001", "project-pub-003"],
+      "questions": [
+        {"title": "What was paid, and from which program?", "text": "Match commitments, draws and expenditure records before describing a usable balance.", "href": "questions-records.html#q-002"},
+        {"title": "Which housing assistance was executed?", "text": "Proposed vouchers, allocations and signed assistance contracts describe different stages.", "href": "questions-records.html#q-009"},
+        {"title": "Which homes and milestones can be verified?", "text": "Read the outstanding project records alongside reported openings and renovations.", "href": "findings.html#next-records"}
+      ],
+      "projects_href": "housing-projects.html",
+      "funding_href": "funding-explorer.html",
+      "sources_href": "evidence.html#sources-section",
+      "questions_href": "questions-records.html",
+      "stage_examples": [
+        {"label": "An adopted CDBG transfer", "href": "funding-explorer.html#fund-pub-002"},
+        {"label": "A reported closing ratification at Amazon Flats", "href": "housing-projects.html#project-pub-001"},
+        {"label": "CDBG resources and reported expenditures", "href": "funding-explorer.html#fund-pub-001"},
+        {"label": "Milagro's reported opening", "href": "housing-projects.html#project-pub-003"}
+      ]
+    },
+    "phoenix": {
+      "name": "Phoenix",
+      "intro": "Follow housing funding, explore reported results, and see what the records still cannot tell us.",
+      "date_label": "Evidence snapshot",
+      "date": "2026-11-08",
+      "findings": [
+        {"title": "53 apartments reported completed", "text": "The draft FY2025–26 CAPER reports 25th @ Bell completed. This is draft reporting, not a current occupancy or vacancy check.", "href": "phoenix/projects/25th-at-bell.html#BELL-01"},
+        {"title": "Two planned Moreland phases", "text": "The June 17, 2026 Council report describes 132 and 105 planned apartments. The combined 237 is not completed Phase I housing.", "href": "phoenix/projects/moreland.html#scope"},
+        {"title": "A closing is a financing record", "text": "Phoenix IDA reports a $43.1 million Moreland I closing in December 2025. It does not establish City spending or final development cost.", "href": "phoenix/records.html#PHX-WEB-009"}
+      ],
+      "featured_projects": ["project-bell", "project-moreland"],
+      "questions": [
+        {"title": "Which assisted apartments overlap?", "text": "Different programs can designate apartments at the same property. Match the schedules before counting unique homes.", "href": "phoenix/questions.html#need-question-overview-01"},
+        {"title": "What was actually paid?", "text": "Project-specific disbursements are needed before calculating spending per apartment.", "href": "phoenix/questions.html#need-question-overview-03"},
+        {"title": "How do differing records connect?", "text": "An executed amendment or explanatory transaction may be needed; a later date alone does not reconcile the statements.", "href": "phoenix/questions.html#need-question-overview-04"}
+      ],
+      "projects_href": "phoenix/projects.html",
+      "funding_href": "phoenix/records.html#view-funding",
+      "sources_href": "phoenix/records.html#view-source",
+      "questions_href": "phoenix/questions.html",
+      "stage_examples": [
+        {"label": "Moreland II's assistance authorization", "href": "phoenix/records.html#PHX-WEB-010"},
+        {"label": "Moreland I's reported financing closing", "href": "phoenix/projects/moreland.html#phase-i"},
+        {"label": "Why an annual Capital Fund expenditure row needs context", "href": "phoenix/capital-fund.html#PHX-CFP-WEB-004"},
+        {"label": "25th @ Bell's draft completion report", "href": "phoenix/projects/25th-at-bell.html#BELL-01"}
+      ]
+    }
+  },
+  "projects": {
+    "tucson": {
+      "project-pub-001": {"name": "Amazon Flats", "place": "Tucson", "stage": "Announced groundbreaking · April 2026", "homes": "59 apartments described", "funding": "Financial closing ratified April 8, 2026; actual disbursements remain unverified.", "caution": "Separate from the 30-studio Amazon Motel conversion. Proposed vouchers and HOME designations are not additional homes.", "href": "housing-projects.html#project-pub-001", "finding_href": "findings.html#f-002"},
+      "project-pub-002": {"name": "Craycroft Towers & Lee Street", "place": "Tucson", "stage": "Existing housing · August 2026 notice", "homes": "74 Craycroft + 8 Lee Street apartments", "funding": "82 project-based vouchers allocated; executed HAP contracts remain unverified.", "caution": "These are existing homes, not 82 newly constructed apartments or available vacancies.", "href": "housing-projects.html#project-pub-002", "finding_href": "findings.html#f-003"},
+      "project-pub-003": {"name": "Milagro on Oracle", "place": "Tucson", "stage": "Reported opened · January 2025", "homes": "63 affordable apartments", "funding": "A comparable spending total is not established in this project summary.", "caution": "A reported opening is not an audited resident count or a current vacancy listing.", "href": "housing-projects.html#project-pub-003", "finding_href": "findings.html#f-004"},
+      "project-pub-004": {"name": "Amazon Motel Conversion", "place": "Tucson", "stage": "Reported completed · September 2025", "homes": "30 supportive-housing studios", "funding": "$749,625 described in County packet PO2500016491; execution remains unverified.", "caution": "The packet uses the name Amazon Flats but describes the motel conversion. Published signature lines are blank.", "href": "housing-projects.html#project-pub-004", "finding_href": "findings.html#f-011"},
+      "project-pub-005": {"name": "Tucson House Renovation", "place": "Tucson · 15th floor", "stage": "Temporary-occupancy permit listed Issued · October 16, 2026", "homes": "24 renovated apartments announced", "funding": "A comparable project-spending total is not established in this summary.", "caution": "The 24 apartments and 25 announced households remain unreconciled. The permit register lists a November 15, 2026 expiration; current validity and vacancies are unverified.", "href": "housing-projects.html#project-pub-005", "finding_href": "findings.html#f-012"}
+    },
+    "phoenix": {
+      "project-bell": {"name": "25th @ Bell", "place": "16801 N. 25th Street · Phoenix", "stage": "Reported completed · draft FY2025–26 CAPER", "homes": "53 reported apartments", "funding": "Separate City and State HOME activities; funding fields are not verified cash payments.", "caution": "Assisted-unit designations can overlap. Draft completion reporting does not establish current occupancy or vacancies.", "href": "phoenix/projects/25th-at-bell.html"},
+      "project-pueblo": {"name": "Pueblo Apartments", "place": "Phoenix", "stage": "Reported completed · draft FY2025–26 CAPER", "homes": "161 reported apartments", "funding": "A complete financing history and comparable spending total are not established here.", "caution": "This is one of five reported projects, not a separate citywide housing total or a current availability listing.", "href": "phoenix/index.html#PHX-WEB-002"},
+      "project-garfield-ii": {"name": "Garfield II", "place": "Phoenix", "stage": "Reported completed · draft FY2025–26 CAPER", "homes": "60 reported apartments", "funding": "A complete financing history and comparable spending total are not established here.", "caution": "Match the project's identity before combining it with another Garfield phase.", "href": "phoenix/index.html#PHX-WEB-002"},
+      "project-falcon-park": {"name": "Residences at Falcon Park", "place": "Phoenix", "stage": "Reported completed · draft FY2025–26 CAPER", "homes": "192 reported apartments", "funding": "A comparable project-spending total is not established in the reviewed finding.", "caution": "Draft reported completion does not establish current occupancy or available apartments.", "href": "phoenix/index.html#PHX-WEB-002"},
+      "project-harmony": {"name": "Harmony at the Park", "place": "Phoenix · three phases", "stage": "Existing inventory · May 2026 directory; Phase III also in draft FY2025–26 CAPER", "homes": "120 + 115 + 90 apartments; 325 across all phases", "funding": "A comparable spending total across the three phases is not established here.", "caution": "Phase III's 90 apartments appear in both records. Do not add the draft completion count to the 325-home inventory.", "href": "phoenix/index.html#PHX-WEB-004"},
+      "project-moreland": {"name": "The Moreland", "place": "Phoenix · former Deck Park Vista site", "stage": "Planned phases · June 17, 2026 Council scope report", "homes": "132 Phase I + 105 Phase II planned apartments", "funding": "Phase I: $43.1m reported closing, December 2025. Phase II: up to $10m authorized, June 17, 2026.", "caution": "237 is planned scope, not completed Phase I housing. Closing and authorization amounts are not City spending; Phase II's fund split and execution remain unverified.", "href": "phoenix/projects/moreland.html"},
+      "project-girasol": {"name": "Girasol", "place": "Phoenix · former Sidney P. Osborn site", "stage": "Dated construction progress · October 26, 2026", "homes": "364 planned gross apartments; 289 affordable + 75 market-rate", "funding": "A comparable project-spending total is not established in this summary.", "caution": "Gross redevelopment scope is not net new housing. Construction percentages and move-in forecasts are not occupied homes.", "href": "phoenix/index.html#PHX-WEB-020"},
+      "project-marcos-grant-park": {"name": "Marcos de Niza–Grant Park", "place": "Phoenix · neighborhood planning area", "stage": "HUD planning award announced · September 10, 2024", "homes": "No apartment-delivery count established by this award", "funding": "$500,000 announced for planning and transformation-plan work.", "caution": "A planning award does not establish construction funding, grant spending or completed homes.", "href": "phoenix/index.html#PHX-WEB-012"}
+    }
+  }
+}
