@@ -14,8 +14,8 @@ SHARED = {'index.html', 'about.html', 'contact.html', 'privacy.html'}
 ABOUT = ('About', 'about.html')
 ROUTES = {
     'tucson': [('Overview', 'tucson/index.html'), ('Projects', 'housing-projects.html'), ('Funding', 'funding-explorer.html'), ('Questions', 'questions-records.html'), ('Sources', 'evidence.html'), ('Search', 'search.html')],
-    'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/records.html')],
-    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/records.html')],
+    'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/search.html')],
+    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/search.html')],
 }
 MORE = {
     'tucson': [('Glossary', 'glossary.html'), ('Reports & reading', 'research.html#publications'), ('Research method', 'research.html#standards'), ('Updates & corrections', 'research-updates.html'), ('Housing help', 'housing-help.html'), ('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html')],

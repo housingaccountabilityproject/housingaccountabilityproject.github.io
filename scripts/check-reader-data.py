@@ -24,7 +24,7 @@ for rel,doc in pages.items():
   assert dest.exists(),('missing local link',rel,href)
   if u.fragment and dest.suffix=='.html':assert html.parse(str(dest)).xpath('//*[@id=$id]',id=unquote(u.fragment)),('missing anchor',rel,href)
 idx=(ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n')
-index=json.loads(idx);expected=set(pages)-{'search.html'}
+index=json.loads(idx);expected=set(pages)-{'search.html','search-all.html'}
 assert set(x['page'] for x in index['coverage'])==expected
 for r in index['records']:
  path,_,anchor=r['url'].partition('#');assert path in expected

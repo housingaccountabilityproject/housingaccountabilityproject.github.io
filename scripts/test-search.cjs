@@ -42,7 +42,7 @@ for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
  const found=query('"'+r.title.replace(/^Historical wording: /,'')+'"');
  assert(found.some(x=>x.querySelector('a').href===expected),expected);
 }
-assert(data.length===356);assert(data.every(r=>!r.url.startsWith('phoenix/')));
+assert(data.length===358);assert(data.every(r=>!r.url.startsWith('phoenix/')));
 // Missing-index state must be useful and must not submit a query.
 const failContext={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),failContext);assert(elements['site-search-form'].hidden);assert.match(elements['search-status'].textContent,/unavailable/);
 console.log('PASS: search results, titles, current/historical separation, phrases, IDs, amounts, categories, zero results, hostile input, pagination/focus, clear/reset and missing-index fallback. DOM logic test, not visual browser QA.');

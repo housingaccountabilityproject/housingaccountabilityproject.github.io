@@ -858,22 +858,25 @@
       "title": "Craycroft/Lee Street federal environmental record",
       "period": "other",
       "topic": "pbv hcv bonds",
-      "source_context": "Federal environmental record; September 1, 2026 authorization for use of grant funds.",
+      "source_context": "HUD environmental review, HEROS 900000010528814; recorded 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026.",
       "limitations": "Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts.",
       "urls": [
-        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       ],
       "citation_url": "research-updates.html#records-clarified-2026-11-07",
       "aliases": [],
       "page_url": "evidence.html#src-100",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "review_attribution": "Source identity and certification entries rechecked November 9, 2026 (MST).",
       "namespace": "website",
       "workbook_source_ids": [
         "SRC-099"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "workbook_mapping_basis": "Corrected public Craycroft locator; website SRC-100 and workbook SRC-099 remain separate IDs. Earlier /8818 URL opened Solera Apartments, Renton.",
+      "correction_url": "evidence.html#src-100-citation-correction",
+      "previous_mismatched_url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+      "correction_note": "SRC-100 previously linked to a HUD environmental review for Solera Apartments in Renton, Washington. The correct source is HUD’s Craycroft Towers and Lee Street Duplexes environmental review, HEROS number 900000010528814. The correct document records 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. It supports the reported environmental milestone. It does not establish completion of the RAD conversion, financing closing, disbursements, executed assistance contracts, or current vacancies. Those questions remain open. Source content rechecked November 9, 2026 (MST). This correction concerns the citation and its supporting document."
     },
     {
       "public_id": "SRC-101",

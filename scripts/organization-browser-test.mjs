@@ -67,7 +67,7 @@ const preview=await browser.newPage({viewport:{width:1280,height:900}});const pr
 await preview.goto(url('organization-qa-screenshots/HAP-organization-review.html'));
 const embedded=preview.frameLocator('#site-preview');await embedded.locator('h1').waitFor();
 await preview.locator('[data-page="questions-records.html"]').click();await embedded.locator('#catalog-search').fill('no-record-983489');assert(await embedded.locator('#catalog-empty').isVisible());await embedded.locator('#catalog-search').fill('');
-await preview.locator('[data-page="search.html"]').click();await embedded.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('F-007');await embedded.getByRole('button',{name:'Search',exact:true}).click();await embedded.locator('#search-results article').first().waitFor();assert((await embedded.locator('#search-results article').count())>0);
+await preview.locator('[data-page="search.html"]').click();await embedded.getByLabel('Search these records',{exact:true}).fill('SRC-100');await embedded.getByRole('button',{name:'Search',exact:true}).click();await embedded.locator('#results article').first().waitFor();assert((await embedded.locator('#results article').count())>0);
 await preview.locator('[data-page="tucson/index.html"]').click();await embedded.locator('.question-paths a[href$="housing-projects.html"]').click();await embedded.locator('#catalog-search').waitFor();assert((await preview.locator('#current-page').textContent()).includes('housing-projects.html'));
 await preview.locator('[data-page="phoenix/index.html"]').click();
 const fullResearch=embedded.locator('.city-evidence-library');

@@ -775,7 +775,7 @@
       "website_title": "Craycroft/Lee Street federal environmental record",
       "website_page": "evidence.html#src-100",
       "website_urls": [
-        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       ],
       "workbook_source_ids": [
         "SRC-099"
@@ -784,12 +784,13 @@
         {
           "source_id": "SRC-099",
           "title": "Craycroft HEROS environmental review",
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
         }
       ],
       "mapping_status": "registered locator match",
       "same_number_collision": true,
-      "basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "basis": "Corrected official Craycroft locator; the earlier /8818 URL opened Solera Apartments, Renton. HEROS 900000010528814 and certification entries rechecked November 9, 2026 (MST). Website SRC-100 and workbook SRC-099 remain separate IDs.",
+      "previous_mismatched_url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
     },
     {
       "website_source_id": "SRC-101",
