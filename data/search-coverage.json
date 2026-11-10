@@ -11,13 +11,13 @@
   },
   {
     "page": "evidence.html",
-    "records": 102,
-    "text_nodes": 1174
+    "records": 103,
+    "text_nodes": 1186
   },
   {
     "page": "findings.html",
     "records": 28,
-    "text_nodes": 491
+    "text_nodes": 494
   },
   {
     "page": "funding-explorer.html",
@@ -37,7 +37,7 @@
   {
     "page": "housing-projects.html",
     "records": 22,
-    "text_nodes": 290
+    "text_nodes": 293
   },
   {
     "page": "index.html",
@@ -52,7 +52,7 @@
   {
     "page": "questions-records.html",
     "records": 31,
-    "text_nodes": 403
+    "text_nodes": 406
   },
   {
     "page": "reports/tucson-housing-funding-outcomes-2026.html",
@@ -66,8 +66,8 @@
   },
   {
     "page": "research-updates.html",
-    "records": 45,
-    "text_nodes": 785
+    "records": 46,
+    "text_nodes": 798
   },
   {
     "page": "research.html",

@@ -15,7 +15,7 @@ data = json.loads((ROOT / 'data/phoenix-records.json').read_text())
 page = html.parse(str(ROOT / 'phoenix/records.html'))
 records = data['records']
 sources = {s['id']: s for s in data['sources']}
-assert len(sources) == len(data['sources']) == 37
+assert len(sources) == len(data['sources']) == 43
 metadata = json.loads((ROOT / 'data/phoenix-source-metadata.json').read_text())
 assert set(metadata['sources']) == set(sources), 'Every indexed source needs explicit navigation metadata'
 for sid, source in sources.items():
@@ -38,7 +38,7 @@ for sid in ['PHX-CITY-013', 'PHX-CITY-003', 'PHX-EXT-PROJECT-210']:
     assert sources[sid]['metadata']['reporting_years'] == []
 assert sources['PHX-CFP-014']['metadata']['year_status'] == 'not-established'
 assert sources['PHX-EXT-PROJECT-209']['metadata']['retrieved_on'] is None
-assert len({r['id'] for r in records}) == len(records) == 41
+assert len({r['id'] for r in records}) == len(records) == 44
 assert sum(r['kind'] == 'question' for r in records) == 10
 assert sum(r['kind'] == 'needed' for r in records) == 3
 original_ids = set()
@@ -46,7 +46,7 @@ for path in data['input_pages']:
     original = html.parse(str(ROOT / path))
     original_ids.update(original.xpath('//article[@id]/@id'))
 assert original_ids == {r['id'] for r in records if r['kind'] not in ['question', 'needed']}
-assert len(original_ids) == 28
+assert len(original_ids) == 31
 hamc = next(r for r in records if r['id'] == 'MC-HAMC-WEB-001')
 assert hamc['kind'] == 'notice' and hamc['topic'] == 'waitlists'
 assert hamc['source_ids'] == ['PHX-HAMC-001', 'PHX-HAMC-002']
@@ -60,6 +60,18 @@ assert 'California' not in home.getroot().text_content()
 assert 'Phoenix and Maricopa County' in home.getroot().text_content()
 help_page = html.parse(str(ROOT / 'phoenix/housing-help.html'))
 assert help_page.xpath('//*[@id="hamc-waitlist-notice"]')
+findings = {r['id']: r for r in records}
+for rid, expected_sources, phrases in [
+    ('PHX-WEB-028', ['PHX-R4-001','PHX-R4-002'], ['450 existing', 'preservation', 'Occupancy, household outcomes']),
+    ('PHX-WEB-029', ['PHX-TEMPE-001'], ['two 52-apartment', '104 apartments', '19 townhomes', 'completed or occupied']),
+    ('PHX-WEB-030', ['PHX-SHELTER-001','PHX-SHELTER-002','PHX-SHELTER-003'], ['$6 million', '$2 million', '$8 million', 'future construction', 'cash paid', 'people served']),
+]:
+    record = findings[rid]
+    assert record['source_ids'] == expected_sources, rid
+    assert all(phrase in ' '.join(record['summary'] + record['limitations']) for phrase in phrases), rid
+assert sources['PHX-R4-001']['metadata']['reporting_years'] == []
+assert sources['PHX-SHELTER-001']['url'].endswith('#page=89')
+assert '7761610' in sources['PHX-SHELTER-002']['url']
 assert {sid for r in records for sid in r['source_ids']} <= set(sources)
 original_sources = set()
 for path in data['input_pages']:
@@ -82,15 +94,15 @@ for record in records:
 for sid in sources:
     assert page.xpath('//*[@id=$id]', id='source-' + sid)
     assert urlsplit(sources[sid]['url']).scheme == 'https'
-assert len(page.xpath('//*[@data-kind]')) == 78
+assert len(page.xpath('//*[@data-kind]')) == 87
 assert len(page.xpath('//h1')) == len(page.xpath('//main')) == 1
 ids = page.xpath('//@id')
 assert len(ids) == len(set(ids))
 connections = json.loads((ROOT / 'data/phoenix-connections.json').read_text())
 projects = connections['projects']
 questions = connections['question_connections']
-assert len({p['id'] for p in projects}) == len(projects) == 8
-assert sum(p['kind'] == 'development' for p in projects) == 7
+assert len({p['id'] for p in projects}) == len(projects) == 11
+assert sum(p['kind'] == 'development' for p in projects) == 10
 assert sum(p['kind'] == 'planning-area' for p in projects) == 1
 assert {p['id'] for p in projects if 'PHX-WEB-002' in p['record_ids']} == {'bell', 'pueblo', 'garfield-ii', 'falcon-park', 'harmony'}
 record_map = {r['id']: r for r in records}
@@ -154,6 +166,6 @@ subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')],
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-project-pages.py')], check=True)
 assert before == [hashlib.sha256(p.read_bytes()).digest() for p in outputs], 'Index is stale or nondeterministic'
-print('PASS: 28 evidence entries, 10 questions, 3 evidence needs, 37 linked source IDs; unique IDs, local destinations and deterministic generation.')
-print('PASS: 7 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')
+print('PASS: 31 evidence entries, 10 questions, 3 evidence needs, 43 linked source IDs; unique IDs, local destinations and deterministic generation.')
+print('PASS: 10 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')
 print('PASS: 2 dated comparisons preserve published statements, limitations, date meanings and source relationships.')

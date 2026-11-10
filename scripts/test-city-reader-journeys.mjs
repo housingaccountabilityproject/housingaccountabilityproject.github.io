@@ -87,12 +87,11 @@ try {
     assert(page.url().endsWith('/tucson/index.html'));
     await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Search',exact:true}).click();
-    await page.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('"El Portal"');
+    await page.getByLabel('Search these records',{exact:true}).fill('"El Portal"');
     await page.getByRole('button',{name:'Search',exact:true}).click();
-    assert(await page.locator('#search-results mark[data-search-mark]').count()>0);
-    assert((await page.locator('#search-results .search-why').first().textContent()).includes('Matched in:'));
-    await page.getByRole('button',{name:'Clear',exact:true}).click();
-    assert.equal(await page.locator('#search-results mark').count(),0);
+    assert(await page.locator('#results article').count()>0);
+    await page.locator('#reset').click();
+    assert.equal(await page.locator('#query').inputValue(),'');
     await openNavigation(page);
     await page.locator('.city-switcher').getByRole('link',{name:'Phoenix',exact:true}).click();
     await openNavigation(page);

@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": 1,
+  "summary": {
+    "entries": 30,
+    "supportedPeriodReferences": 16,
+    "unknownPeriods": 14
+  },
+  "records": [
+    {
+      "key": "phoenix:MC-HOME-WEB-001",
+      "id": "MC-HOME-WEB-001",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [
+          "2027",
+          "2028"
+        ],
+        "label": "HUD PY2027–2028 HOME competition",
+        "kind": "competition_program_year",
+        "status": "announced_competition",
+        "explanation": "Separate official notice and landing-page links confirm the future competition program year. This is not evidence of an award, payment or completed activity. No exact start/end dates were established. The two application packet bodies remain unverified; this check does not validate their detailed estimates or eligibility terms.",
+        "evidence": [
+          {
+            "url": "https://www.maricopa.gov/DocumentCenter/View/123881/Maricopa-County-Public-Notice-of-Funding-Availability-PY-2027-for-CDBG-HOME-UC-HOME-CHDO",
+            "locator": "PDF page 1, shared notice heading covering CDBG, HOME affordable housing development and HOME CHDO",
+            "quote": "NOTICE OF FUNDING AVAILABILITY FOR HUD PY2027-28"
+          },
+          {
+            "url": "https://www.maricopa.gov/3893/Notices-Documents",
+            "locator": "Public Notices, link text; href contains exact packet ID 124207",
+            "quote": "NOFA HOME-UC Application Information Packet (PY27-28)"
+          },
+          {
+            "url": "https://www.maricopa.gov/3893/Notices-Documents",
+            "locator": "Public Notices, link text; href contains exact packet ID 124208",
+            "quote": "NOFA HOME-CHDO Application Information Packet (PY27-28)"
+          }
+        ],
+        "programYearLabel": "HUD PY2027–2028"
+      },
+      "knownDates": [
+        {
+          "kind": "application_deadline",
+          "label": "Applications due December 8, 2026 before 5:00 p.m.",
+          "date": "2026-12-08",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.maricopa.gov/DocumentCenter/View/123881/Maricopa-County-Public-Notice-of-Funding-Availability-PY-2027-for-CDBG-HOME-UC-HOME-CHDO",
+              "locator": "PDF page 1, APPLICATION AVAILABILITY paragraph",
+              "quote": "must be submitted via Neighborly by Tuesday, December 8, 2026 before 5:00 p.m."
+            }
+          ],
+          "explanation": "The notice does not print a time zone. This deadline is not the program period."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-009",
+      "id": "PHX-WEB-009",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "Council authorization and an issuer-reported bond closing are dated, but no fiscal grant year or active financing/program term is established. Series 2025 is an issuance label, not an active period.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "authorization_event",
+          "label": "Council adopted Resolution 22343",
+          "date": "2025-11-05",
+          "years": [
+            "2025"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc",
+              "locator": "JSON record MatterId 33449 / file 25-2223 / Resolution 22343, MatterPassedDate; status Adopted",
+              "quote": "2025-11-05T00:00:00"
+            }
+          ]
+        },
+        {
+          "kind": "reported_bond_closing",
+          "label": "Issuer-reported Moreland I closing",
+          "date": "2025-12",
+          "years": [
+            "2025"
+          ],
+          "status": "issuer_reported_event",
+          "evidence": [
+            {
+              "url": "https://phoenixida.com/wp-content/uploads/2026/09/Closed-Bond-Transactions-Spreadsheet_Revised_Updated-9.24.2026.pdf",
+              "locator": "PDF page 1, The Moreland I row, Closing Date column",
+              "quote": "Dec-25"
+            },
+            {
+              "url": "https://phoenixida.com/wp-content/uploads/2026/09/Closed-Bond-Transactions-Spreadsheet_Revised_Updated-9.24.2026.pdf",
+              "locator": "PDF page 1, matched Project Name",
+              "quote": "The Moreland I"
+            }
+          ],
+          "explanation": "Month precision only. Not City expenditure or a verified overall program start/end."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-010",
+      "id": "PHX-WEB-010",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "June 17, 2026 is an authorization event, not the fiscal year of each fund or an executed agreement/voucher term. The fund split and executed agreements remain unverified.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "authorization_event",
+          "label": "Council adopted Ordinance S-53026",
+          "date": "2026-06-17",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc",
+              "locator": "JSON record MatterId 35197 / file 26-1162 / Ordinance S-53026, MatterPassedDate; status Adopted",
+              "quote": "2026-06-17T00:00:00"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-012",
+      "id": "PHX-WEB-012",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The official release dates the grant announcement but does not establish this award’s fiscal year, performance period or actual start/end. The program’s general history since 2010 is not a Phoenix grant period.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "award_announcement",
+          "label": "HUD planning-grant announcement",
+          "date": "2024-09-10",
+          "years": [
+            "2024"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://archives.hud.gov/news/2024/pr24-231.cfm",
+              "locator": "HUD No. 24-231 release header",
+              "quote": "For Release Tuesday September 10, 2024"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-001",
+      "id": "PHX-CFP-WEB-001",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [
+          "2026"
+        ],
+        "label": "Federal FY2026 Capital Fund award schedule",
+        "kind": "federal_grant_fiscal_year",
+        "status": "published_grant_year",
+        "explanation": "The original workbook explicitly establishes federal FY2026. A published schedule or formula amount is not proof of an executed Phoenix agreement, obligation, receipt or expenditure.",
+        "evidence": [
+          {
+            "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
+            "locator": "Formula ACC!G2 and D20; Grants!A218:D218",
+            "quote": "2026 Capital Fund; for Fiscal Year 2026 to be referred to under the Capital Fund Grant Number"
+          }
+        ],
+        "fiscalYearLabel": "Federal FY2026"
+      },
+      "knownDates": [
+        {
+          "kind": "stated_schedule_effective_date",
+          "label": "Master ACC schedule stated effective date",
+          "date": "2026-04-01",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
+              "locator": "Formula ACC!B69",
+              "quote": "The parties have executed this CFP Amendment, and it became effective on April 1, 2026."
+            }
+          ],
+          "explanation": "Template/schedule language does not independently verify Phoenix execution."
+        },
+        {
+          "kind": "source_listing_update",
+          "label": "HUD listing marked updated",
+          "date": "2026-09-28",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/helping-americans/public-indian-housing-cfpi",
+              "locator": "2026 Capital Fund Program Grant Awards section, ACC Amendments link",
+              "quote": "2026 ACC Amendments (MS Excel) (UPDATED AS OF 9/28/2026)"
+            }
+          ],
+          "explanation": "Source update, not a transaction date."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-002",
+      "id": "PHX-CFP-WEB-002",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [
+          "2026"
+        ],
+        "label": "Federal FY2026 Capital Fund formula calculation",
+        "kind": "federal_grant_fiscal_year",
+        "status": "published_grant_year",
+        "explanation": "The original workbook explicitly establishes federal FY2026. A published schedule or formula amount is not proof of an executed Phoenix agreement, obligation, receipt or expenditure. The development column separately says 2025; FY2026 applies to the document/PHA-level amount only. Do not add 2025 as a verified development grant year.",
+        "evidence": [
+          {
+            "url": "https://www.hud.gov/sites/default/files/PIH/documents/PHA-Level-and-Dev-Level-Funding-Report.xlsx",
+            "locator": "Tool!A1 and A3; PHA-Level Funding!A221:F221; Development Per Unit Funding!J1",
+            "quote": "FY2026 Capital Fund Formula Grant Calculations; 2025 Grant Amount Portion By Development / AMP"
+          }
+        ],
+        "fiscalYearLabel": "Federal FY2026"
+      },
+      "knownDates": [
+        {
+          "kind": "stated_formula_effective_date",
+          "label": "Phoenix formula row effective date",
+          "date": "2026-04-01",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/sites/default/files/PIH/documents/PHA-Level-and-Dev-Level-Funding-Report.xlsx",
+              "locator": "PHA-Level Funding!F1 (Effective Date), A221:F221 (Phoenix AZ001); Excel date serial with normal workbook date system",
+              "quote": "Effective Date; AZ001; City of Phoenix Housing Department; AZ20P00150126; 46113"
+            }
+          ],
+          "explanation": "Excel serial 46113 was converted in the existing v3 date audit; not evidence of disbursement."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-003",
+      "id": "PHX-CFP-WEB-003",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "proposed_plan_conflict",
+        "status": "conflicting_labels",
+        "explanation": "The selected budget column says 2026, its heading says 2026/2027 CFP, and the companion draft says 25-26 FY for the same amount. The broader draft plan title is 2026–2030. These source labels do not resolve the selected amount’s grant, expenditure or active program period; none supplies selector years.",
+        "evidence": [
+          {
+            "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2030_Capital_Fund_Program_Annual_and_Five-Year_Plan_Draft.pdf",
+            "locator": "PDF page 1, proposed-budget table; selected 2026 column",
+            "quote": "2026-2030 Capital Fund Program Proposed Budget; 2026/2027 CFP; 2026; Total $2,713,865"
+          },
+          {
+            "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf",
+            "locator": "PDF page 64, printed page 62, AP-60",
+            "quote": "For the 25-26 FY, COP HOU will submit an allocation plan to HUD for the Capital Fund Program formula grant for $2,713,865."
+          }
+        ],
+        "candidateLabels": [
+          "Selected proposed-budget column: 2026",
+          "Heading: 2026/2027 CFP",
+          "Companion draft AP-60: 25-26 FY",
+          "Enclosing draft plan: 2026–2030"
+        ],
+        "contextLabel": "Draft Capital Fund budget labels conflict"
+      },
+      "knownDates": [],
+      "periodLeads": [
+        {
+          "label": "Selected proposed-budget column: 2026",
+          "years": [
+            "2026"
+          ],
+          "status": "conflicting_proposed_label",
+          "filterEligible": false,
+          "explanation": "Not reconciled to the 2026/2027 CFP heading or companion 25-26 FY label.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2030_Capital_Fund_Program_Annual_and_Five-Year_Plan_Draft.pdf",
+              "locator": "PDF page 1, proposed-budget table; selected 2026 column",
+              "quote": "2026-2030 Capital Fund Program Proposed Budget; 2026/2027 CFP; 2026; Total $2,713,865"
+            }
+          ]
+        },
+        {
+          "label": "Proposed-budget heading: 2026/2027 CFP",
+          "years": [
+            "2026",
+            "2027"
+          ],
+          "status": "conflicting_proposed_label",
+          "filterEligible": false,
+          "explanation": "Does not resolve the selected amount’s grant or active period.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2030_Capital_Fund_Program_Annual_and_Five-Year_Plan_Draft.pdf",
+              "locator": "PDF page 1, proposed-budget table; selected 2026 column",
+              "quote": "2026-2030 Capital Fund Program Proposed Budget; 2026/2027 CFP; 2026; Total $2,713,865"
+            }
+          ]
+        },
+        {
+          "label": "Companion draft Annual Action Plan: 25-26 FY",
+          "years": [
+            "2025",
+            "2026"
+          ],
+          "status": "conflicting_proposed_label",
+          "filterEligible": false,
+          "explanation": "Same amount is labeled differently in the companion draft.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf",
+              "locator": "PDF page 64, printed page 62, AP-60",
+              "quote": "For the 25-26 FY, COP HOU will submit an allocation plan to HUD for the Capital Fund Program formula grant for $2,713,865."
+            }
+          ]
+        },
+        {
+          "label": "Enclosing draft plan: 2026–2030",
+          "years": [
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"
+          ],
+          "status": "enclosing_draft_plan_only",
+          "filterEligible": false,
+          "explanation": "The whole draft-plan horizon does not establish the selected proposed amount’s program or fiscal period.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2030_Capital_Fund_Program_Annual_and_Five-Year_Plan_Draft.pdf",
+              "locator": "PDF page 1, proposed-budget table; selected 2026 column",
+              "quote": "2026-2030 Capital Fund Program Proposed Budget; 2026/2027 CFP; 2026; Total $2,713,865"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-004",
+      "id": "PHX-CFP-WEB-004",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [
+          "2025"
+        ],
+        "label": "City FY2025 SEFA reporting year; year ended June 30, 2025",
+        "kind": "annual_reporting_year",
+        "status": "reported_expenditure_period",
+        "explanation": "The original directly establishes the annual reporting year ended June 30, 2025. It does not break the expenditure row down by Capital Fund grant year. Earlier HAP/date audits derive July 1, 2024 from a one-year period, but that start is not printed in the inspected original passages. Use the verified FY2025 label in the selector; do not assert an exact start or add 2024 solely from that inference.",
+        "evidence": [
+          {
+            "url": "https://www.phoenix.gov/content/dam/phoenix/financesite/documents/single-audit-report/City-of-Phoenix%2CArizona%20-6-30-25-SA-Report-FINAL.pdf",
+            "locator": "PDF page 3, SEFA heading and ALN 14.872 row",
+            "quote": "Year Ended June 30, 2025; Public Housing Capital Fund 14.872; 7,218,862"
+          }
+        ],
+        "fiscalYearLabel": "City FY2025",
+        "end": "2025-06-30"
+      },
+      "knownDates": [
+        {
+          "kind": "auditor_report_signature",
+          "label": "Federal-program audit report signature",
+          "date": "2026-01-21",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/financesite/documents/single-audit-report/City-of-Phoenix%2CArizona%20-6-30-25-SA-Report-FINAL.pdf",
+              "locator": "PDF page 15, signature",
+              "quote": "January 21, 2026"
+            }
+          ],
+          "explanation": "Not the program period or established website publication date."
+        },
+        {
+          "kind": "auditor_report_signature",
+          "label": "Financial-statement audit report signature",
+          "date": "2025-12-22",
+          "years": [
+            "2025"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/financesite/documents/single-audit-report/City-of-Phoenix%2CArizona%20-6-30-25-SA-Report-FINAL.pdf",
+              "locator": "PDF page 12, signature",
+              "quote": "December 22, 2025"
+            }
+          ],
+          "explanation": "Different report within the same PDF; not a Capital Fund transaction."
+        }
+      ],
+      "periodLeads": [
+        {
+          "label": "Possible July 1, 2024–June 30, 2025 annual window",
+          "years": [
+            "2024",
+            "2025"
+          ],
+          "status": "inferred_start_not_verified",
+          "filterEligible": false,
+          "explanation": "July 1, 2024 is derived from a full annual year ending June 30, 2025 and appears in HAP metadata, but was not printed in the inspected original passages. Retain only verified FY2025 in programPeriod.years.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/financesite/documents/single-audit-report/City-of-Phoenix%2CArizona%20-6-30-25-SA-Report-FINAL.pdf",
+              "locator": "PDF page 3, SEFA heading and ALN 14.872 row",
+              "quote": "Year Ended June 30, 2025; Public Housing Capital Fund 14.872; 7,218,862"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-005",
+      "id": "PHX-CFP-WEB-005",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [
+          "2026"
+        ],
+        "label": "Federal FY2026 PHA-level amounts compared",
+        "kind": "federal_grant_fiscal_year",
+        "status": "published_grant_year",
+        "explanation": "The original workbook explicitly establishes federal FY2026. A published schedule or formula amount is not proof of an executed Phoenix agreement, obligation, receipt or expenditure. The development column separately says 2025; FY2026 applies to the document/PHA-level amount only. Do not add 2025 as a verified development grant year. The amount difference has no verified transaction date or cause.",
+        "evidence": [
+          {
+            "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
+            "locator": "Formula ACC!G2 and D20; Grants!A218:D218",
+            "quote": "2026 Capital Fund; for Fiscal Year 2026 to be referred to under the Capital Fund Grant Number"
+          },
+          {
+            "url": "https://www.hud.gov/sites/default/files/PIH/documents/PHA-Level-and-Dev-Level-Funding-Report.xlsx",
+            "locator": "Tool!A1 and A3; PHA-Level Funding!A221:F221; Development Per Unit Funding!J1",
+            "quote": "FY2026 Capital Fund Formula Grant Calculations; 2025 Grant Amount Portion By Development / AMP"
+          }
+        ],
+        "fiscalYearLabel": "Federal FY2026"
+      },
+      "knownDates": [
+        {
+          "kind": "stated_schedule_effective_date",
+          "label": "Master ACC schedule stated effective date",
+          "date": "2026-04-01",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
+              "locator": "Formula ACC!B69",
+              "quote": "The parties have executed this CFP Amendment, and it became effective on April 1, 2026."
+            }
+          ],
+          "explanation": "Template/schedule language does not independently verify Phoenix execution."
+        },
+        {
+          "kind": "source_listing_update",
+          "label": "HUD listing marked updated",
+          "date": "2026-09-28",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/helping-americans/public-indian-housing-cfpi",
+              "locator": "2026 Capital Fund Program Grant Awards section, ACC Amendments link",
+              "quote": "2026 ACC Amendments (MS Excel) (UPDATED AS OF 9/28/2026)"
+            }
+          ],
+          "explanation": "Source update, not a transaction date."
+        },
+        {
+          "kind": "stated_formula_effective_date",
+          "label": "Phoenix formula row effective date",
+          "date": "2026-04-01",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/sites/default/files/PIH/documents/PHA-Level-and-Dev-Level-Funding-Report.xlsx",
+              "locator": "PHA-Level Funding!F1 (Effective Date), A221:F221 (Phoenix AZ001); Excel date serial with normal workbook date system",
+              "quote": "Effective Date; AZ001; City of Phoenix Housing Department; AZ20P00150126; 46113"
+            }
+          ],
+          "explanation": "Excel serial 46113 was converted in the existing v3 date audit; not evidence of disbursement."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-006",
+      "id": "PHX-CFP-WEB-006",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "general_guidance",
+        "status": "not_applicable",
+        "explanation": "National HUD definitions do not establish a Phoenix grant year, activity period, amount or completion date. The training-document date is separately retained.",
+        "evidence": [],
+        "contextLabel": "Not applicable: national guidance, no Phoenix program period"
+      },
+      "knownDates": [
+        {
+          "kind": "guidance_document_date",
+          "label": "HUD training materials date",
+          "date": "2023-09-25",
+          "years": [
+            "2023"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.hud.gov/sites/dfiles/PIH/documents/OEDCFGuidebookTraining2022.pdf",
+              "locator": "PDF page 1 header",
+              "quote": "Materials Prepared by the U.S. Department of Housing & Urban Development 9/25/2023"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-CFP-WEB-007",
+      "id": "PHX-CFP-WEB-007",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The City reports completion of major improvements in 2025. That is an actual project activity event, not an established grant fiscal year or active funding period. Project payments and which grants paid remain unverified.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "reported_physical_completion",
+          "label": "City-reported major improvements completed",
+          "date": "2025",
+          "years": [
+            "2025"
+          ],
+          "status": "city_reported_event",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf",
+              "locator": "PDF page 30, Progress in Meeting Goals, Maryvale Parkway Terrace paragraph",
+              "quote": "The Department successfully rehabilitated Maryvale Parkway Terrace, completing major capital improvements in 2025 using Public Housing Capital Funds and CDBG"
+            }
+          ],
+          "explanation": "Year precision only; do not use the enclosing 2026–2027 agency-plan period as the project funding period."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:BELL-03",
+      "id": "BELL-03",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The record-specific administrative completion date is verified. It does not establish a HOME program/grant year, continuous active term, construction completion or occupancy. Conflicting overall dataset-vintage descriptions remain unresolved.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "administrative_completion",
+          "label": "HUD-reported HOME activity administrative completion",
+          "date": "2026-04-28",
+          "years": [
+            "2026"
+          ],
+          "status": "administrative_event",
+          "evidence": [
+            {
+              "url": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HOME_Program_Activity/FeatureServer/0/query?where=STATE%3D%27AZ%27+AND+%28UPPER%28NAME%29+LIKE+%27%25PUEBLO%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FALCON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25GARFIELD%25%27+OR+UPPER%28NAME%29+LIKE+%27%2525TH%25%27+OR+UPPER%28NAME%29+LIKE+%27%25HARMONY%25%27+OR+UPPER%28NAME%29+LIKE+%27%25EDISON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FRANK+LUKE%25%27+OR+UPPER%28ADDRESS%29+LIKE+%27316+W+BROADWAY%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271220+N+34TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271510+E+PORTLAND%25%27+OR+UPPER%28ADDRESS%29+LIKE+%2716801+N+25TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271919+E+VILLA%25%27%29&outFields=%2A&returnGeometry=false&f=pjson&resultRecordCount=1000&orderByFields=GRANTEE_ID%2CIDIS_ACTV_ID",
+              "locator": "Feature attributes GRANTEE_ID=10659, IDIS_ACTV_ID=4938, COMPLETED_DT",
+              "quote": "COMPLETED_DT: 04/28/2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:BELL-04",
+      "id": "BELL-04",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The record-specific administrative completion date is verified. It does not establish a HOME program/grant year, continuous active term, construction completion or occupancy. Conflicting overall dataset-vintage descriptions remain unresolved.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "administrative_completion",
+          "label": "HUD-reported HOME activity administrative completion",
+          "date": "2026-08-05",
+          "years": [
+            "2026"
+          ],
+          "status": "administrative_event",
+          "evidence": [
+            {
+              "url": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HOME_Program_Activity/FeatureServer/0/query?where=STATE%3D%27AZ%27+AND+%28UPPER%28NAME%29+LIKE+%27%25PUEBLO%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FALCON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25GARFIELD%25%27+OR+UPPER%28NAME%29+LIKE+%27%2525TH%25%27+OR+UPPER%28NAME%29+LIKE+%27%25HARMONY%25%27+OR+UPPER%28NAME%29+LIKE+%27%25EDISON%25%27+OR+UPPER%28NAME%29+LIKE+%27%25FRANK+LUKE%25%27+OR+UPPER%28ADDRESS%29+LIKE+%27316+W+BROADWAY%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271220+N+34TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271510+E+PORTLAND%25%27+OR+UPPER%28ADDRESS%29+LIKE+%2716801+N+25TH%25%27+OR+UPPER%28ADDRESS%29+LIKE+%271919+E+VILLA%25%27%29&outFields=%2A&returnGeometry=false&f=pjson&resultRecordCount=1000&orderByFields=GRANTEE_ID%2CIDIS_ACTV_ID",
+              "locator": "Feature attributes GRANTEE_ID=136, IDIS_ACTV_ID=7160, COMPLETED_DT",
+              "quote": "COMPLETED_DT: 08/05/2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:BELL-06",
+      "id": "BELL-06",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "April 1, 2020 is the adopted authorization date; no HOME grant fiscal year, executed assistance term or payment period was established.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "authorization_event",
+          "label": "Council adopted HOME authorization S-46492",
+          "date": "2020-04-01",
+          "years": [
+            "2020"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://webapi.legistar.com/v1/phoenix/matters/15733",
+              "locator": "MatterId 15733; MatterPassedDate and MatterStatusName",
+              "quote": "MatterPassedDate: 2020-04-01T00:00:00; MatterStatusName: Adopted"
+            },
+            {
+              "url": "https://webapi.legistar.com/v1/phoenix/matters/15733/texts/15838",
+              "locator": "MatterTextMatterId 15733, title and authorization text",
+              "quote": "Loan Federal HOME Funds for The Bell at 25th Apartments Affordable Housing Development (Ordinance S-46492)"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:BELL-07",
+      "id": "BELL-07",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "June 14, 2023 is the authorization date. Anticipated FY2023–24 loan execution is a plan, not verified execution or activity. The authorization’s at-least-20-year condition has no verified commencement/expiry and must not be converted into an active term.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "authorization_event",
+          "label": "Council adopted ARPA authorization S-49892",
+          "date": "2023-06-14",
+          "years": [
+            "2023"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/cityclerksite/City%20Council%20Meeting%20Files/6-14-23%20Formal%20Minutes.pdf",
+              "locator": "PDF pages 90–92; item 82 and meeting header",
+              "quote": "City Council Formal Meeting Minutes June 14, 2023; Chicanos Por La Causa - 25th@Bell Apartments; This item was adopted."
+            }
+          ]
+        }
+      ],
+      "periodLeads": [
+        {
+          "label": "Loan execution anticipated in FY2023–24",
+          "years": [
+            "2023",
+            "2024"
+          ],
+          "status": "anticipated_execution_not_verified",
+          "filterEligible": false,
+          "explanation": "The source anticipates execution; it does not confirm execution or an actual active term.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/cityclerksite/City%20Council%20Meeting%20Files/6-14-23%20Formal%20Minutes.pdf",
+              "locator": "PDF page 92, item 82 financial impact",
+              "quote": "Loan execution is anticipated for Fiscal Year 2023-24."
+            }
+          ]
+        },
+        {
+          "label": "Authorized affordability condition: minimum 20 years, start unverified",
+          "years": [],
+          "status": "unanchored_duration",
+          "filterEligible": false,
+          "explanation": "No inspected signed covenant or commencement date establishes calendar years or expiry. Do not carry this older condition onto the changed 2025 statement.",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/cityclerksite/City%20Council%20Meeting%20Files/6-14-23%20Formal%20Minutes.pdf",
+              "locator": "PDF page 91, item 82 Summary",
+              "quote": "creation of affordable units serving households at or below 65 percent of the Area Median Income for a minimum period of 20 years."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "phoenix:BELL-08",
+      "id": "BELL-08",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The cover establishes a 2025 report edition, not a distinct program fiscal year, reporting-window start/end, loan payment date or proof that anticipated Fall 2025 construction completion occurred. No executed amendment was found; do not carry an older authorization term onto the changed unit/AMI statement.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "source_report_edition",
+          "label": "Recovery plan 2025 report edition",
+          "date": "2025",
+          "years": [
+            "2025"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://home.treasury.gov/system/files/136/City-of-Phoenix-Arizona-2025-Recovery-Plan-SLT-0576.pdf",
+              "locator": "PDF page 1 cover; page 19, 25th @ Bell item",
+              "quote": "State and Local Fiscal Recovery Funds 2025 Report"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-001",
+      "id": "FUND-PUB-001",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2024",
+          "2025"
+        ],
+        "label": "PY2024 CAPER: July 1, 2024–June 30, 2025",
+        "kind": "reporting_window",
+        "status": "published_report",
+        "explanation": "The CAPER explicitly gives this program year and reporting window. It dates the reported measure, not the program’s lifetime, each underlying grant’s fiscal year or a current available balance. Later draw/correction/review dates are separate.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf",
+            "locator": "PDF page 1 cover",
+            "quote": "Program Year: 2024; For the period of July 1, 2024-June 30, 2025"
+          }
+        ],
+        "programYearLabel": "PY2024",
+        "start": "2024-07-01",
+        "end": "2025-06-30"
+      },
+      "knownDates": [],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-002",
+      "id": "FUND-PUB-002",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2026",
+          "2027"
+        ],
+        "label": "FY2027 / HUD PY2026: July 1, 2026–June 30, 2027",
+        "kind": "adopted_plan_period",
+        "status": "adopted_amendment",
+        "explanation": "The plan period is explicit in Exhibit A and the resolution. Although the exhibit still says proposed, adoption is supported by the separate resolution/action report. This period does not establish implementation, draws or new revenue.",
+        "evidence": [
+          {
+            "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206197&isSection=false",
+            "locator": "PDF page 1 resolution title",
+            "quote": "PROGRAM YEAR FOR FISCAL YEAR (FY) 2027 (HUD PROGRAM YEAR 2026)"
+          },
+          {
+            "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/EXHIBIT%20A%20TO%20RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206198&isSection=false",
+            "locator": "PDF page 1 title",
+            "quote": "Fiscal Year 2027 (Program Year 2026) HUD Annual Action Plan"
+          },
+          {
+            "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/EXHIBIT%20A%20TO%20RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206198&isSection=false",
+            "locator": "PDF page 1, proposed-amendment cover under adopted Resolution 24188",
+            "quote": "Fiscal Year 2027 (Program Year 2026) HUD Annual Action Plan (July 1, 2026 – June 30, 2027)"
+          }
+        ],
+        "fiscalYearLabel": "City FY2027",
+        "programYearLabel": "HUD PY2026",
+        "start": "2026-07-01",
+        "end": "2027-06-30"
+      },
+      "knownDates": [
+        {
+          "kind": "adoption_event",
+          "label": "Council adopted Resolution 24188",
+          "date": "2026-10-06",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2",
+              "locator": "Report heading",
+              "quote": "Tuesday, October 6, 2026"
+            },
+            {
+              "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024188.pdf?meetingId=1960&documentType=Minutes&itemId=80670&publishId=206197&isSection=false",
+              "locator": "PDF page 1 adoption stamp",
+              "quote": "October 6, 2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-003",
+      "id": "FUND-PUB-003",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2024",
+          "2025"
+        ],
+        "label": "PY2024 CAPER: July 1, 2024–June 30, 2025",
+        "kind": "reporting_window",
+        "status": "published_report",
+        "explanation": "The CAPER explicitly gives this program year and reporting window. It dates the reported measure, not the program’s lifetime, each underlying grant’s fiscal year or a current available balance. Later draw/correction/review dates are separate.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf",
+            "locator": "PDF page 1 cover",
+            "quote": "Program Year: 2024; For the period of July 1, 2024-June 30, 2025"
+          }
+        ],
+        "programYearLabel": "PY2024",
+        "start": "2024-07-01",
+        "end": "2025-06-30"
+      },
+      "knownDates": [],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-004",
+      "id": "FUND-PUB-004",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2025",
+          "2026"
+        ],
+        "label": "Draft PY2025 CAPER: July 1, 2025–June 30, 2026",
+        "kind": "reporting_window",
+        "status": "public_comment_draft",
+        "explanation": "The public-comment draft explicitly defines this reporting period. Draft status remains; these are reported carryforward measures, not verified unrestricted balances or current assistance availability.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf",
+            "locator": "PDF page 1 cover",
+            "quote": "Public Comment Draft; Program Year: 2025; For the period of July 1, 2025 to June 30, 2026"
+          }
+        ],
+        "programYearLabel": "PY2025",
+        "start": "2025-07-01",
+        "end": "2026-06-30"
+      },
+      "knownDates": [],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-005",
+      "id": "FUND-PUB-005",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2025",
+          "2026"
+        ],
+        "label": "Draft PY2025 CAPER: July 1, 2025–June 30, 2026",
+        "kind": "reporting_window",
+        "status": "public_comment_draft",
+        "explanation": "The public-comment draft explicitly defines this reporting period. Draft status remains; these are reported carryforward measures, not verified unrestricted balances or current assistance availability.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/public-comment-draft/new-folder/py2025-caper-public-comment-draft.pdf",
+            "locator": "PDF page 1 cover",
+            "quote": "Public Comment Draft; Program Year: 2025; For the period of July 1, 2025 to June 30, 2026"
+          }
+        ],
+        "programYearLabel": "PY2025",
+        "start": "2025-07-01",
+        "end": "2026-06-30"
+      },
+      "knownDates": [],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-006",
+      "id": "FUND-PUB-006",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2024",
+          "2025"
+        ],
+        "label": "PY2024 CAPER: July 1, 2024–June 30, 2025",
+        "kind": "reporting_window",
+        "status": "published_report",
+        "explanation": "The CAPER explicitly gives this program year and reporting window. It dates the reported measure, not the program’s lifetime, each underlying grant’s fiscal year or a current available balance. Later draw/correction/review dates are separate.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf",
+            "locator": "PDF page 1 cover",
+            "quote": "Program Year: 2024; For the period of July 1, 2024-June 30, 2025"
+          }
+        ],
+        "programYearLabel": "PY2024",
+        "start": "2024-07-01",
+        "end": "2025-06-30"
+      },
+      "knownDates": [
+        {
+          "kind": "reported_grant_draw_checkpoint",
+          "label": "Published record cites PR-91 draw checkpoint",
+          "date": "2025-09-23",
+          "years": [
+            "2025"
+          ],
+          "status": "published_record_only",
+          "evidence": [
+            {
+              "url": "https://housingaccountabilityproject.github.io/funding-explorer.html#fund-pub-006",
+              "locator": "Existing published funding record, Important limit",
+              "quote": "The CAPER’s PR-91 shows the entire $48,734 rapid-rehousing budget drawn by September 23, 2025."
+            }
+          ],
+          "explanation": "Retained known date from the existing metadata; this classification did not independently recheck that PR-91 line. It is outside the CAPER reporting window and is not an outcome date."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#fund-pub-007",
+      "id": "FUND-PUB-007",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "label": "Two separate reporting periods: FY2025 audit and FY2026 payments",
+        "kind": "multiple_reporting_windows",
+        "status": "published_reports",
+        "explanation": "The record compares two different measures and years. FY2025 federal expenditure is not FY2026 cash receipts, owner/manager payments or available reserves. Do not extend the separate source report’s FY2027 Q1 material to this comparison. The union of selector years does not mean one continuous program/payment interval.",
+        "evidence": [
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/city-of-tucson-fy2025-single-audit-final.pdf",
+            "locator": "PDF page 3 / printed schedule page 1",
+            "quote": "Fiscal Period 7/1/2024 - 6/30/2025"
+          },
+          {
+            "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False",
+            "locator": "PDF page 1, Issue sentence defining the FY2026 report and CITY FISCAL YEAR 2026 data table",
+            "quote": "Fiscal Year 2026 (July 1, 2025-June 30, 2026)"
+          }
+        ],
+        "fiscalYearLabel": "City FY2025 and City FY2026",
+        "periods": [
+          {
+            "years": [
+              "2024",
+              "2025"
+            ],
+            "label": "FY2025 audited federal expenditures",
+            "kind": "reporting_window",
+            "status": "published_audit",
+            "fiscalYearLabel": "City FY2025",
+            "start": "2024-07-01",
+            "end": "2025-06-30",
+            "evidence": [
+              {
+                "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/city-of-tucson-fy2025-single-audit-final.pdf",
+                "locator": "PDF page 3 / printed schedule page 1",
+                "quote": "Fiscal Period 7/1/2024 - 6/30/2025"
+              }
+            ]
+          },
+          {
+            "years": [
+              "2025",
+              "2026"
+            ],
+            "label": "FY2026 owner/manager payments",
+            "kind": "reporting_window",
+            "status": "published_report",
+            "fiscalYearLabel": "City FY2026",
+            "start": "2025-07-01",
+            "end": "2026-06-30",
+            "evidence": [
+              {
+                "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False",
+                "locator": "PDF page 1, Issue sentence defining the FY2026 report and CITY FISCAL YEAR 2026 data table",
+                "quote": "Fiscal Year 2026 (July 1, 2025-June 30, 2026)"
+              }
+            ]
+          }
+        ]
+      },
+      "knownDates": [
+        {
+          "kind": "source_report_date",
+          "label": "PHA communication date",
+          "date": "2026-10-20",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/MAYOR%20AND%20COUNCIL%20COMMUNICATION_%20PHA_OCT20-26-19.pdf?meetingId=1987&documentType=Agenda&itemId=80473&publishId=206278&isSection=False",
+              "locator": "PDF page 1 heading",
+              "quote": "October 20, 2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#county-price-funding-2026",
+      "id": "county-price-funding-2026",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2026",
+          "2027",
+          "2028",
+          "2029"
+        ],
+        "label": "FY2027 County allocations; PRICE packet terms July 2026–June 2029",
+        "kind": "mixed_fiscal_and_agreement_periods",
+        "status": "approved_scopes_execution_unverified",
+        "explanation": "These are different financial scopes, not one program operating period. FY2027 labels County budget allocations. PRICE packet terms run July 1, 2026–June 30, 2029; full execution, reimbursements and outcomes remain unverified. The separate federal cumulative-outlay cutoff is August 2026. Do not add County components to the full federal award, infer continuous activity, or import unrelated award/performance dates.",
+        "evidence": [
+          {
+            "url": "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M",
+            "locator": "PDF page 1 meeting heading; PDF page 6 item 29",
+            "quote": "FY27 Housing Budget; September 8, 2026"
+          },
+          {
+            "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search=",
+            "locator": "File ID 20746; On agenda / Final action / Title fields",
+            "quote": "FY27 Housing Budget; September 8, 2026"
+          },
+          {
+            "url": "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F",
+            "locator": "PDF page 2 Contract / Award Information",
+            "quote": "07/01/2026"
+          },
+          {
+            "url": "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F",
+            "locator": "PDF page 2 Contract / Award Information",
+            "quote": "06/30/2029"
+          },
+          {
+            "url": "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F",
+            "locator": "PDF page 2 Contract / Award Information",
+            "quote": "07/01/2026"
+          },
+          {
+            "url": "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F",
+            "locator": "PDF page 2 Contract / Award Information",
+            "quote": "06/30/2029"
+          }
+        ],
+        "fiscalYearLabel": "County FY2027",
+        "periods": [
+          {
+            "years": [
+              "2027"
+            ],
+            "label": "County FY2027 housing allocations",
+            "kind": "budget_fiscal_year",
+            "status": "approved_budget",
+            "fiscalYearLabel": "County FY2027",
+            "evidence": [
+              {
+                "url": "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M",
+                "locator": "PDF page 1 meeting heading; PDF page 6 item 29",
+                "quote": "FY27 Housing Budget; September 8, 2026"
+              },
+              {
+                "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search=",
+                "locator": "File ID 20746; On agenda / Final action / Title fields",
+                "quote": "FY27 Housing Budget; September 8, 2026"
+              }
+            ]
+          },
+          {
+            "years": [
+              "2026",
+              "2027",
+              "2028",
+              "2029"
+            ],
+            "label": "PRICE home-repair packet agreement term",
+            "kind": "agreement_term",
+            "status": "execution_unverified",
+            "programNames": [
+              "PRICE"
+            ],
+            "start": "2026-07-01",
+            "end": "2029-06-30",
+            "evidence": [
+              {
+                "url": "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F",
+                "locator": "PDF page 2 Contract / Award Information",
+                "quote": "07/01/2026"
+              },
+              {
+                "url": "https://pima.legistar.com/View.ashx?GUID=6CB6109F-DD61-4602-A895-86E47EE09A10&ID=15821922&M=F",
+                "locator": "PDF page 2 Contract / Award Information",
+                "quote": "06/30/2029"
+              }
+            ]
+          },
+          {
+            "years": [
+              "2026",
+              "2027",
+              "2028",
+              "2029"
+            ],
+            "label": "PRICE eviction-prevention/legal-services packet agreement term",
+            "kind": "agreement_term",
+            "status": "execution_unverified",
+            "programNames": [
+              "PRICE"
+            ],
+            "start": "2026-07-01",
+            "end": "2029-06-30",
+            "evidence": [
+              {
+                "url": "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F",
+                "locator": "PDF page 2 Contract / Award Information",
+                "quote": "07/01/2026"
+              },
+              {
+                "url": "https://pima.legistar.com/View.ashx?GUID=7B0C0F06-0C46-4A3C-A32B-992111AE09FF&ID=15821923&M=F",
+                "locator": "PDF page 2 Contract / Award Information",
+                "quote": "06/30/2029"
+              }
+            ]
+          }
+        ]
+      },
+      "knownDates": [
+        {
+          "kind": "budget_approval_event",
+          "label": "County FY27 housing-budget action",
+          "date": "2026-09-08",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://pima.legistar.com/View.ashx?GUID=71BC6D10-BC7A-4554-9E90-CFC58BDD4BF5&ID=1381576&M=M",
+              "locator": "PDF page 1 meeting heading; PDF page 6 item 29",
+              "quote": "FY27 Housing Budget; September 8, 2026"
+            },
+            {
+              "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=715A50BA-44B5-4F32-9531-6383847F3070&ID=8197721&Options=&Search=",
+              "locator": "File ID 20746; On agenda / Final action / Title fields",
+              "quote": "FY27 Housing Budget; September 8, 2026"
+            }
+          ]
+        },
+        {
+          "kind": "federal_outlay_reporting_cutoff",
+          "label": "Federal PRICE cumulative outlays reported through August 2026",
+          "date": "2026-08",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_reporting_cutoff",
+          "evidence": [
+            {
+              "url": "https://api.usaspending.gov/api/v2/awards/funding/",
+              "locator": "POST body: award_id 259676177, page 1, limit 100; JSON $.results[2].reporting_fiscal_year and reporting_fiscal_month; $.page_metadata.hasNext=false",
+              "quote": "2026; 11"
+            }
+          ],
+          "explanation": "API reporting fiscal year 2026/month 11 converts to August 2026. This cutoff is not County spending, a single-month expense or the award performance term."
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#county-funding-fy27-q1",
+      "id": "county-funding-fy27-q1",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2026",
+          "2027"
+        ],
+        "label": "County FY27 Q1: July–September 2026",
+        "kind": "quarterly_reporting_window",
+        "status": "published_report",
+        "explanation": "The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits.",
+        "evidence": [
+          {
+            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "locator": "PDF page 1, Re line",
+            "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
+          },
+          {
+            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "locator": "PDF page 1, Table 1 heading",
+            "quote": "Maintenance Totals from July 2026 through end of September 2026"
+          },
+          {
+            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "locator": "PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading",
+            "quote": "Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics"
+          }
+        ],
+        "fiscalYearLabel": "County FY2027 Q1",
+        "start": "2026-07",
+        "end": "2026-09",
+        "datePrecision": "month",
+        "calendarYears": [
+          "2026"
+        ],
+        "fiscalYearYears": [
+          "2027"
+        ]
+      },
+      "knownDates": [
+        {
+          "kind": "source_memo_date",
+          "label": "County memo date",
+          "date": "2026-11-05",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+              "locator": "PDF page 1, memo Date and Re lines",
+              "quote": "Date: November 5, 2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#federal-allocations-2026",
+      "id": "federal-allocations-2026",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2026",
+          "2027"
+        ],
+        "label": "Federal FY2026 allocations; City FY2027 / PY2026 plan",
+        "kind": "allocation_and_plan_periods",
+        "status": "published_allocations_and_plan",
+        "explanation": "HUD’s workbook establishes allocation FY2026; the City plan establishes FY2027/PY2026 and July 1, 2026–June 30, 2027. Preserve both labels. Allocations and forecasts do not establish receipts, commitments, expenditures or assistance availability.",
+        "evidence": [
+          {
+            "url": "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx",
+            "locator": "'FY26 CPD Formula Allocations'!A1",
+            "quote": "FY 2026 Community Planning and Development Formula Program Allocations"
+          },
+          {
+            "url": "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx",
+            "locator": "'FY26 CPD Formula Allocations'!A41; fiscal-year label is A1",
+            "quote": "Tucson"
+          },
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf",
+            "locator": "PDF page 1, cover",
+            "quote": "Fiscal Year 2027 (Program Year 2026)"
+          },
+          {
+            "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf",
+            "locator": "PDF page 1, cover period",
+            "quote": "July 1, 2026 - June 30, 2027"
+          }
+        ],
+        "fiscalYearLabel": "Federal FY2026; City FY2027",
+        "programYearLabel": "City/HUD PY2026",
+        "periods": [
+          {
+            "years": [
+              "2026"
+            ],
+            "label": "Federal FY2026 formula allocations",
+            "kind": "federal_allocation_fiscal_year",
+            "status": "published_allocation",
+            "fiscalYearLabel": "Federal FY2026",
+            "evidence": [
+              {
+                "url": "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx",
+                "locator": "'FY26 CPD Formula Allocations'!A1",
+                "quote": "FY 2026 Community Planning and Development Formula Program Allocations"
+              },
+              {
+                "url": "https://www.hud.gov/sites/dfiles/CPD/documents/FY2026-Formula-Allocations-All-Grantees.xlsx",
+                "locator": "'FY26 CPD Formula Allocations'!A41; fiscal-year label is A1",
+                "quote": "Tucson"
+              }
+            ]
+          },
+          {
+            "years": [
+              "2026",
+              "2027"
+            ],
+            "label": "City FY2027 / PY2026 Annual Action Plan",
+            "kind": "plan_period",
+            "status": "published_plan",
+            "fiscalYearLabel": "City FY2027",
+            "programYearLabel": "HUD PY2026",
+            "start": "2026-07-01",
+            "end": "2027-06-30",
+            "evidence": [
+              {
+                "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf",
+                "locator": "PDF page 1, cover",
+                "quote": "Fiscal Year 2027 (Program Year 2026)"
+              },
+              {
+                "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/plans/cd/fy2026-py25-hud-annual-action-plan.pdf",
+                "locator": "PDF page 1, cover period",
+                "quote": "July 1, 2026 - June 30, 2027"
+              }
+            ]
+          }
+        ]
+      },
+      "knownDates": [],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#craycroft-financing-2026",
+      "id": "craycroft-financing-2026",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "unknown",
+        "status": "not_established",
+        "explanation": "The volume-cap approval, IDA action and Council authorization are dated events. No bond closing, proceeds, signed assistance contract, grant fiscal year or active term was verified. Do not add the volume-cap allocation and bond authorization as separate funding.",
+        "evidence": [],
+        "contextLabel": "Program period not established"
+      },
+      "knownDates": [
+        {
+          "kind": "volume_cap_approval_event",
+          "label": "Volume-cap approval",
+          "date": "2026-02-09",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://afa.az.gov/sites/default/files/users/user21/2026%20Volume%20Cap%20Tracking%2010.7.2026.pdf",
+              "locator": "PDF page 1, BX260130022 Craycroft Towers and Lee Street Duplexes row, Approval Date column",
+              "quote": "2/9/2026"
+            }
+          ]
+        },
+        {
+          "kind": "ida_approval_event",
+          "label": "IDA final approval action",
+          "date": "2026-10-15",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://assets.tucsonaz.gov/share/bcc/43232.pdf",
+              "locator": "PDF page 1 Meeting Details",
+              "quote": "Date: Thursday, October 15, 2026"
+            }
+          ]
+        },
+        {
+          "kind": "council_authorization_event",
+          "label": "Council adopted Resolution 24206",
+          "date": "2026-11-04",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024206.pdf?meetingId=1962&documentType=1&itemId=80698&publishId=207080&isSection=false",
+              "locator": "PDF page 1 adoption stamp",
+              "quote": "ADOPTED BY THE MAYOR AND COUNCIL November 4, 2026"
+            },
+            {
+              "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2",
+              "locator": "Report heading",
+              "quote": "Wednesday, November 4, 2026"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "tucson:funding-explorer.html#coc-request-2026",
+      "id": "coc-request-2026",
+      "scope": "tucson",
+      "programPeriod": {
+        "years": [
+          "2026"
+        ],
+        "label": "FY2026 Continuum of Care funding request",
+        "kind": "application_fiscal_year",
+        "status": "submitted_request_not_award",
+        "explanation": "The priority listing explicitly labels FY2026. This dates the funding request, including renewals and other categories; it is not a final award or the performance terms of the requested grants.",
+        "evidence": [
+          {
+            "url": "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf",
+            "locator": "PDF page 1, project line",
+            "quote": "AZ-501 CoC Registration FY 2026"
+          }
+        ],
+        "fiscalYearLabel": "Federal FY2026"
+      },
+      "knownDates": [
+        {
+          "kind": "source_document_date",
+          "label": "Priority listing printed date",
+          "date": "2026-09-28",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf",
+              "locator": "PDF page 1, footer",
+              "quote": "09/28/2026"
+            }
+          ]
+        },
+        {
+          "kind": "application_submission",
+          "label": "Priority listing and CoC application submitted",
+          "date": "2026-09-29",
+          "years": [
+            "2026"
+          ],
+          "status": "verified_date",
+          "evidence": [
+            {
+              "url": "https://tpch.net/wp-content/uploads/submission-confirmation.jpg",
+              "locator": "Image table, CoC Priority Listing FY2026 row, Date Submitted column",
+              "quote": "Sep 29, 2026, 11:19:21 AM"
+            },
+            {
+              "url": "https://tpch.net/wp-content/uploads/submission-confirmation.jpg",
+              "locator": "Image table, CoC Application FY2026 row, Date Submitted column",
+              "quote": "Sep 29, 2026, 11:23:18 AM"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-029",
+      "id": "PHX-WEB-029",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "April 25, 2024",
+          "label": "Tempe Council agenda and proposed ground leases",
+          "evidence": [
+            {
+              "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+              "locator": "Tempe April 25, 2024 Council agenda"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-030",
+      "id": "PHX-WEB-030",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "June 14, 2023",
+          "label": "HOME-ARP replaced the CDBG commitment",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+              "locator": "Phoenix June 14, 2023 Council minutes"
+            }
+          ]
+        },
+        {
+          "date": "December 3, 2025",
+          "label": "Council increased the HOME-ARP authority",
+          "evidence": [
+            {
+              "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+              "locator": "Phoenix December 3, 2025 Council action"
+            }
+          ]
+        },
+        {
+          "date": "May 12, 2026",
+          "label": "Site dedication for future construction",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+              "locator": "Phoenix May 12, 2026 shelter site dedication announcement"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    }
+  ]
+}

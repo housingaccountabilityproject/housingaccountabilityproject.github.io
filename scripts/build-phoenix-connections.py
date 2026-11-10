@@ -32,7 +32,7 @@ def shell(filename, title, intro, body):
 <link rel="stylesheet" href="../assets/search-text.css"><script src="../assets/search-text.js" defer></script><script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / {escape(title)}</div>
-{navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Published research snapshot: November 8, 2026.</p></section>
+{navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Original research snapshot: November 8, 2026. Later findings retain their own source dates.</p></section>
 {body}</main>{footer}'''
 
 
@@ -106,7 +106,8 @@ def build():
 <details><summary>Connected evidence ({len(project['record_ids'])})</summary>{linked}</details>{questions}
 <a class="record-reading" href="{escape(project['detail_url'], quote=True)}">Read the published context <span aria-hidden="true">→</span></a></article>''')
     introduction = 'Follow a development across phases, funding records and reported results. Each observation keeps its own date and evidence status.'
-    note = '''<section class="connections-note"><div class="wrap"><h2>One place can appear in several records.</h2><p>Seven developments and one neighborhood planning area are listed here. They are a selected research set, not a complete Phoenix inventory. Phase, inventory, designation and completion figures are not additive.</p></div></section>'''
+    development_count = sum(project['kind'] == 'development' for project in data['projects'])
+    note = f'''<section class="connections-note"><div class="wrap"><h2>One place can appear in several records.</h2><p>{development_count} developments and one neighborhood planning area are listed here. They are a selected research set, not a complete Phoenix inventory. Phase, inventory, designation and completion figures are not additive.</p></div></section>'''
     controls = filters('Phoenix projects', [('development', 'Developments'), ('planning-area', 'Neighborhood planning areas')])
     (ROOT / 'phoenix/projects.html').write_text(city_layout(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/projects.html'))
 

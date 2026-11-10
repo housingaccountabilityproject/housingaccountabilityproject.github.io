@@ -25,7 +25,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 78);
+    assert.equal(await visible.count(), 87);
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -35,7 +35,7 @@ try {
     await page.waitForLoadState('networkidle');
     const initialRequests = requests.length;
     await page.getByRole('button', {name: 'Sources', exact: true}).click();
-    assert.equal(await visible.count(), 37);
+    assert.equal(await visible.count(), 43);
     assert(await page.locator('#source-filters').isVisible());
     assert(await page.locator('#record-kind-control').isHidden());
     assert(await page.locator('#record-topic-control').isHidden());
@@ -46,7 +46,7 @@ try {
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2026');
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-203');
-    assert((await page.locator('#record-count').textContent()).startsWith('1 of 37 source references'));
+    assert((await page.locator('#record-count').textContent()).startsWith('1 of 43 source references'));
     assert.equal(await visible.first().locator('.source-retrieval time').getAttribute('datetime'), '2026-11-08');
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2025');
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-200');
@@ -91,7 +91,7 @@ try {
     await page.locator('#record-topic').selectOption('bell', {force:true});
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
-    assert.equal(await visible.count(), 16);
+    assert.equal(await visible.count(), 18);
     assert(await page.locator('#MC-HOME-WEB-001').isVisible());
     assert((await page.locator('#MC-HOME-WEB-001').textContent()).includes('not confirmed awards or spending'));
     await page.locator('#record-kind').selectOption('expenditure', {force:true});
@@ -101,7 +101,7 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 78);
+    assert.equal(await visible.count(), 87);
     await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
     assert.equal(await visible.count(), 3);
     assert(await page.locator('#MC-HAMC-WEB-001').isVisible());
@@ -146,10 +146,10 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/projects.html');
     const projects = page.locator('[data-connection-entry]:visible');
-    assert.equal(await projects.count(), 8);
+    assert.equal(await projects.count(), 11);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `directory overflow ${width}`);
     await page.locator('#connection-filter').selectOption('development', {force:true});
-    assert.equal(await projects.count(), 7);
+    assert.equal(await projects.count(), 10);
     await page.getByRole('searchbox').fill('Moreland');
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-moreland');
@@ -173,7 +173,7 @@ try {
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-marcos-grant-park');
     await page.getByRole('button', {name: 'Clear filters'}).click();
-    assert.equal(await projects.count(), 8);
+    assert.equal(await projects.count(), 11);
 
     await openNavigation(page);
     await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Questions'}).click();
@@ -261,12 +261,12 @@ try {
   }
   const noJS = await browser.newPage({javaScriptEnabled: false});
   await noJS.goto(base + '/phoenix/records.html');
-  assert.equal(await noJS.locator('.record-card:visible').count(), 78);
+  assert.equal(await noJS.locator('.record-card:visible').count(), 87);
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());
   assert(await noJS.locator('#source-PHX-CFP-011 .source-metadata').isVisible());
-  for (const [path, count] of [['projects.html', 8], ['questions.html', 13], ['comparisons.html', 2]]) {
+  for (const [path, count] of [['projects.html', 11], ['questions.html', 13], ['comparisons.html', 2]]) {
     await noJS.goto(base + '/phoenix/' + path);
     assert.equal(await noJS.locator('[data-connection-entry]:visible').count(), count);
     assert(await noJS.locator('.connection-filters').isHidden());

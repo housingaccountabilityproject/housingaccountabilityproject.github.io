@@ -12,7 +12,7 @@ const server = process.env.PRINT_TEST_BASE_URL ? null : spawn('python3', ['-m', 
 let browser;
 try {
   for (let attempt = 0; attempt < 40; attempt++) {
-    try { assert((await fetch(base + '/search.html')).ok); break; }
+    try { assert((await fetch(base + '/search-all.html')).ok); break; }
     catch (error) { if (attempt === 39) throw error; await new Promise(resolve => setTimeout(resolve, 100)); }
   }
   const executablePath = process.env.CHROMIUM_PATH || (existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined);
@@ -40,7 +40,7 @@ try {
     return execFileSync('pdftotext', [path, '-'], {encoding: 'utf8'}).replace(/\s+/g, ' ');
   }
 
-  await page.goto(base + '/search.html');
+  await page.goto(base + '/search-all.html');
   assert(await page.getByRole('button', {name: 'Print search results'}).isDisabled());
   await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('CDBG');
   await page.getByRole('button', {name: 'Search', exact: true}).click();
@@ -158,7 +158,7 @@ try {
     assert(await page.locator('#' + id).isVisible());
   }
   // Keyboard/system print invokes the same complete report without clicking a button.
-  await page.goto(base + '/search.html');
+  await page.goto(base + '/search-all.html');
   await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('F-007');
   await page.getByRole('button', {name: 'Search', exact: true}).click();
   await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));

@@ -35,6 +35,8 @@ try{
     assert(await page.locator('.city-menu-toggle').evaluate(node=>node===document.activeElement));
     assert(!await page.locator('main').evaluate(node=>node.inert));
     await openNavigation(page);await page.setViewportSize({width:1280,height:900});
+    // The viewport update is acknowledged before Chromium dispatches the media query change.
+    await page.waitForFunction(()=>document.querySelector('.city-menu-toggle').getAttribute('aria-expanded')==='false');
     assert.equal(await page.locator('.city-menu-toggle').getAttribute('aria-expanded'),'false');
     assert(await page.getByRole('navigation',{name:'Main navigation'}).getByRole('link',{name:'Projects',exact:true}).isVisible());
     assert(!await page.locator('main').evaluate(node=>node.inert));await page.close();

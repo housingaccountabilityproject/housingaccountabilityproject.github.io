@@ -27,12 +27,18 @@ jobs:
       - run: python scripts/check-reader-data.py
       - run: python scripts/check-reader-contrast.py
       - run: node scripts/test-search.cjs
+      - run: node scripts/test-category-search.cjs
+      - run: python scripts/build-category-search.py
+      - run: git diff --exit-code -- assets/category-search-data.js assets/category-search-coverage.js assets/funding-program-names.js
       - name: Ensure generated files are committed
         run: git diff --exit-code -- assets/search-index.js data/search-coverage.json feed.xml
       - name: Install browser runner
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
+      - name: Install PDF text verifier
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: node scripts/test-category-search.mjs
       - run: node scripts/reader-browser-test.mjs
       - run: node scripts/report-smoke-test.mjs
       - run: node scripts/organization-browser-test.mjs
@@ -41,6 +47,7 @@ jobs:
         with:
           name: reader-tools-browser-qa
           path: |
+            /tmp/hap-category-search/
             reader-qa-screenshots/
             report-qa-screenshots/
             organization-qa-screenshots/

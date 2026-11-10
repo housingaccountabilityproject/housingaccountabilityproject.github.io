@@ -19,7 +19,7 @@ for(const width of [390,768,1280]) {
   const info=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth+2,h1:document.querySelectorAll('h1').length,main:document.querySelectorAll('main').length}));
   assert(!info.overflow,`${file} overflow at ${width}`);assert.equal(info.h1,1);assert.equal(info.main,1);
  }
- await page.goto(localPageUrl('search.html'));
+ await page.goto(localPageUrl('search-all.html'));
  await page.getByLabel('Search Tucson & Pima County research',{exact:true}).fill('F-007');await page.getByRole('button',{name:'Search',exact:true}).click();
  assert((await page.locator('#search-results article').count())>0);
  await page.screenshot({path:`reader-qa-screenshots/search-${width}.png`,fullPage:true});
