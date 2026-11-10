@@ -7,7 +7,8 @@
       "phoenix-ida": "Phoenix IDA",
       "census": "U.S. Census Bureau",
       "arizona-housing": "Arizona Department of Housing",
-      "data-gov": "Data.gov catalog"
+      "data-gov": "Data.gov catalog",
+      "maricopa-county": "Maricopa County"
     },
     "programs": {
       "home": "HOME",
@@ -23,7 +24,8 @@
       "inventory": "Housing inventory",
       "housing-need": "Housing need / ACS",
       "project-planning": "Project and phase planning",
-      "general": "General / not program-specific"
+      "general": "General / not program-specific",
+      "cdbg": "CDBG"
     },
     "document_types": {
       "performance-report": "Performance report",
@@ -44,19 +46,21 @@
       "dataset-metadata": "Dataset / catalog metadata",
       "data-dictionary": "Data dictionary",
       "council-minutes": "Council minutes",
-      "project-register": "Project register"
+      "project-register": "Project register",
+      "funding-competition": "Funding competition / application packet"
     },
     "year_policy": "Reporting/coverage, plan, grant and explicitly cited event years only. Publication, training, file-update and retrieval dates are described separately; unresolved and unestablished years remain separate filter choices.",
     "program_policy": "Tags identify the program or subject used in this Phoenix research, not every program covered by a document."
   },
-  "scope": "Phoenix-only navigation extract of already-published repository HTML; not a ledger or an external source recheck.",
-  "research_snapshot": "2026-11-08",
+  "scope": "Phoenix and separately labeled Maricopa County navigation extract of published repository HTML; not a ledger or an external source recheck.",
+  "research_snapshot": "2026-11-09",
   "input_pages": [
     "phoenix/index.html",
     "phoenix/capital-fund.html",
     "phoenix/projects/25th-at-bell.html"
   ],
   "topics": {
+    "county": "Maricopa County opportunities",
     "delivery": "Reported delivery & inventory",
     "projects": "Projects & plans",
     "funding": "Project funding",
@@ -66,6 +70,7 @@
     "sources": "Source references"
   },
   "kinds": {
+    "competition": "Competitive funding estimates",
     "reported": "Reported results",
     "inventory": "Existing inventory",
     "planned": "Plans & forecasts",
@@ -86,15 +91,60 @@
   },
   "sources": [
     {
+      "id": "MC-HOME-001",
+      "title": "Maricopa County HOME Urban County PY27–28 application packet",
+      "url": "https://www.maricopa.gov/DocumentCenter/View/124207/NOFA-HOME-Urban-County-Application-Information-Packet-PY27-28",
+      "note": "MC-HOME-001 · Estimate printed page 2 / PDF page 3; geography printed page 3 / PDF page 4; deadline on cover. Both competitions exclude Phoenix city. Estimated availability, not an award or expenditure. Checked November 9, 2026, 4:11 p.m. MST.",
+      "page_url": "index.html#source-MC-HOME-001",
+      "metadata": {
+        "agency": "maricopa-county",
+        "programs": [
+          "home"
+        ],
+        "document_type": "funding-competition",
+        "reporting_years": [
+          "2027",
+          "2028"
+        ],
+        "year_status": "stated",
+        "date_basis": "Program Year 2027–28 competition; application deadline December 8, 2026 at 5 p.m. Estimated availability, not awarded or spent funds; City of Phoenix excluded.",
+        "date_basis_url": "index.html#MC-HOME-WEB-001",
+        "retrieved_on": "2026-11-09"
+      }
+    },
+    {
+      "id": "MC-HOME-002",
+      "title": "Maricopa County HOME-CHDO PY27–28 application packet",
+      "url": "https://www.maricopa.gov/DocumentCenter/View/124208/NOFA-HOME-CHDO-Application-Information-Packet-PY27-28",
+      "note": "MC-HOME-002 · Estimate printed page 2 / PDF page 3; geography printed page 4 / PDF page 5; deadline on cover. Both competitions exclude Phoenix city. Estimated availability, not an award or expenditure. Checked November 9, 2026, 4:11 p.m. MST.",
+      "page_url": "index.html#source-MC-HOME-002",
+      "metadata": {
+        "agency": "maricopa-county",
+        "programs": [
+          "home"
+        ],
+        "document_type": "funding-competition",
+        "reporting_years": [
+          "2027",
+          "2028"
+        ],
+        "year_status": "stated",
+        "date_basis": "Program Year 2027–28 competition; application deadline December 8, 2026 at 5 p.m. Estimated availability, not awarded or spent funds; City of Phoenix excluded.",
+        "date_basis_url": "index.html#MC-HOME-WEB-001",
+        "retrieved_on": "2026-11-09"
+      }
+    },
+    {
       "id": "PHX-CITY-002",
       "title": "Draft FY2025–26 CAPER",
       "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf",
-      "note": "PHX-CITY-002 · Draft on current official index | PHX-CITY-002 · PDF/printed p.49; 25th @ Bell narrative; PDF/printed p.49",
+      "note": "PHX-CITY-002 · Draft report. Page 4 says “Thirty-three (37 CDBG and 0 CDBG-CV)”; page 6 separately reports 32 homeowner rehabilitations. Identical scope is not established. Selected passages checked November 9, 2026, 4:11 p.m. MST. | PHX-CITY-002 · PDF/printed p.49; 25th @ Bell narrative; PDF/printed p.49",
       "page_url": "index.html#source-PHX-CITY-002",
       "metadata": {
         "agency": "city-phoenix",
         "programs": [
-          "home"
+          "home",
+          "cdbg"
         ],
         "document_type": "performance-report",
         "reporting_years": [
@@ -102,9 +152,9 @@
           "2026"
         ],
         "year_status": "stated",
-        "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date.",
+        "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date. Rehabilitation narrative and separate table checked November 9; this is not a recheck of every finding in the report.",
         "date_basis_url": "projects/25th-at-bell.html#BELL-01",
-        "retrieved_on": null
+        "retrieved_on": "2026-11-09"
       }
     },
     {
@@ -774,6 +824,92 @@
     }
   ],
   "records": [
+    {
+      "id": "PHX-WEB-027",
+      "aliases": [],
+      "topic": "delivery",
+      "kind": "difference",
+      "title": "Phoenix: rehabilitation count needs clarification",
+      "labels": [
+        "Phoenix city · Draft FY2025–26 report · Unresolved wording"
+      ],
+      "summary": [
+        "Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear.",
+        "A separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities."
+      ],
+      "context": [
+        "Scope Phoenix city; draft narrative and separate annual outcome table Time period FY2025–26",
+        "PHX-WEB-027 · Unresolved draft wording; no matched activity universe established"
+      ],
+      "limitations": [
+        "Keep in mind. The wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds."
+      ],
+      "source_ids": [
+        "PHX-CITY-002"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-CITY-002"
+          ],
+          "title": "Draft report, page 4: rehabilitation narrative",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf#page=4",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-CITY-002"
+          ],
+          "title": "Draft report, page 6: separate homeowner table",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf#page=6",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-027"
+    },
+    {
+      "id": "MC-HOME-WEB-001",
+      "aliases": [],
+      "topic": "county",
+      "kind": "competition",
+      "title": "Maricopa County: HOME funding opportunities",
+      "labels": [
+        "Maricopa County · PY2027–28 funding opportunities · Phoenix city excluded"
+      ],
+      "summary": [
+        "The County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m."
+      ],
+      "context": [
+        "Scope Maricopa County competitions; each packet has its own eligible service area Time period PY2027–28; applications due December 8, 2026",
+        "MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures"
+      ],
+      "limitations": [
+        "Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying."
+      ],
+      "source_ids": [
+        "MC-HOME-001",
+        "MC-HOME-002"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "MC-HOME-001"
+          ],
+          "title": "Urban County packet: estimate PDF page 3; geography page 4",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124207/NOFA-HOME-Urban-County-Application-Information-Packet-PY27-28",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "MC-HOME-002"
+          ],
+          "title": "CHDO packet: estimate PDF page 3; geography page 5",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124208/NOFA-HOME-CHDO-Application-Information-Packet-PY27-28",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#MC-HOME-WEB-001"
+    },
     {
       "id": "PHX-WEB-002",
       "aliases": [

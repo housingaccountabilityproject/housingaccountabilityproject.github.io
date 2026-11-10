@@ -15,7 +15,7 @@ data = json.loads((ROOT / 'data/phoenix-records.json').read_text())
 page = html.parse(str(ROOT / 'phoenix/records.html'))
 records = data['records']
 sources = {s['id']: s for s in data['sources']}
-assert len(sources) == len(data['sources']) == 33
+assert len(sources) == len(data['sources']) == 35
 metadata = json.loads((ROOT / 'data/phoenix-source-metadata.json').read_text())
 assert set(metadata['sources']) == set(sources), 'Every indexed source needs explicit navigation metadata'
 for sid, source in sources.items():
@@ -38,7 +38,7 @@ for sid in ['PHX-CITY-013', 'PHX-CITY-003', 'PHX-EXT-PROJECT-210']:
     assert sources[sid]['metadata']['reporting_years'] == []
 assert sources['PHX-CFP-014']['metadata']['year_status'] == 'not-established'
 assert sources['PHX-EXT-PROJECT-209']['metadata']['retrieved_on'] is None
-assert len({r['id'] for r in records}) == len(records) == 38
+assert len({r['id'] for r in records}) == len(records) == 40
 assert sum(r['kind'] == 'question' for r in records) == 10
 assert sum(r['kind'] == 'needed' for r in records) == 3
 original_ids = set()
@@ -46,7 +46,7 @@ for path in data['input_pages']:
     original = html.parse(str(ROOT / path))
     original_ids.update(original.xpath('//article[@id]/@id'))
 assert original_ids == {r['id'] for r in records if r['kind'] not in ['question', 'needed']}
-assert len(original_ids) == 25
+assert len(original_ids) == 27
 assert {sid for r in records for sid in r['source_ids']} <= set(sources)
 original_sources = set()
 for path in data['input_pages']:
@@ -69,7 +69,7 @@ for record in records:
 for sid in sources:
     assert page.xpath('//*[@id=$id]', id='source-' + sid)
     assert urlsplit(sources[sid]['url']).scheme == 'https'
-assert len(page.xpath('//*[@data-kind]')) == 71
+assert len(page.xpath('//*[@data-kind]')) == 75
 assert len(page.xpath('//h1')) == len(page.xpath('//main')) == 1
 ids = page.xpath('//@id')
 assert len(ids) == len(set(ids))
@@ -141,6 +141,6 @@ subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')],
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-project-pages.py')], check=True)
 assert before == [hashlib.sha256(p.read_bytes()).digest() for p in outputs], 'Index is stale or nondeterministic'
-print('PASS: 25 evidence entries, 10 questions, 3 evidence needs, 33 linked source IDs; unique IDs, local destinations and deterministic generation.')
+print('PASS: 27 evidence entries, 10 questions, 3 evidence needs, 35 linked source IDs; unique IDs, local destinations and deterministic generation.')
 print('PASS: 7 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')
 print('PASS: 2 dated comparisons preserve published statements, limitations, date meanings and source relationships.')

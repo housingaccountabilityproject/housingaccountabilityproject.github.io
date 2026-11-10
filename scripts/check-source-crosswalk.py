@@ -7,10 +7,10 @@ ROOT=Path(__file__).resolve().parents[1]
 registry=json.loads((ROOT/'data/source-register.json').read_text())
 crosswalk=json.loads((ROOT/'data/source-id-crosswalk.json').read_text())
 sources=registry['sources']; rows=crosswalk['rows']
-assert len(rows)==len(sources)==66
+assert len(rows)==len(sources)==67
 assert {r['website_source_id'] for r in rows}=={s['public_id'] for s in sources}
-assert len({r['website_source_id'] for r in rows})==66
-assert len(list(csv.DictReader((ROOT/'data/source-id-crosswalk.csv').open())))==66
+assert len({r['website_source_id'] for r in rows})==67
+assert len(list(csv.DictReader((ROOT/'data/source-id-crosswalk.csv').open())))==67
 for source,row in zip(sources,rows):
  assert source['public_id']==row['website_source_id']
  assert source['urls']==row['website_urls']
@@ -24,8 +24,12 @@ for source,row in zip(sources,rows):
  if not row['workbook_source_ids']:assert row['mapping_status']=='no registered equivalent verified'
  if row['same_number_collision']:assert row['website_source_id'] not in row['workbook_source_ids']
 assert sum(r['same_number_collision'] for r in rows)==51
+new_source=next(s for s in sources if s['public_id']=='SRC-125')
+assert new_source['workbook_source_ids']==[]
+assert 'Item J' in new_source['limitations'] and '6–0' in new_source['limitations']
+assert 'closing, spending or completed housing' in new_source['limitations']
 evidence=html.parse(str(ROOT/'evidence.html'))
-assert len(evidence.xpath('//*[@id="source-id-crosswalk"]//tbody/tr'))==66
+assert len(evidence.xpath('//*[@id="source-id-crosswalk"]//tbody/tr'))==67
 assert 'Internal IDs retain the master-workbook naming' not in evidence.getroot().text_content()
 for period in ['FY2024','FY2025']:
  assert evidence.xpath('//select[@id="period"]/option[@value=$period]',period=period)
@@ -36,10 +40,10 @@ assert 'Resolved scope:' in questions.xpath('//*[@id="q-001"]')[0].text_content(
 assert questions.xpath('//*[@id="q-001"]//a[@href="#q-007"]')
 assert questions.xpath('//*[@id="q-001"]//a[@href="#q-006"]')
 center=html.parse(str(ROOT/'research-center.html'))
-assert center.xpath('//div[@class="metric"]/strong/text()')==['12','20','66']
+assert center.xpath('//div[@class="metric"]/strong/text()')==['12','20','67']
 preview=json.loads((ROOT/'data/public-research-preview.json').read_text())
-assert preview['counts']['public_source_entries']==66
-assert '66 source rows' in preview['counts_scope']
+assert preview['counts']['public_source_entries']==67
+assert '67 source rows' in preview['counts_scope']
 home=html.parse(str(ROOT/'tucson/index.html'))
 assert home.xpath('//footer/p[text()="Public Research Website"]')
 index=json.loads((ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n'))
@@ -51,4 +55,4 @@ assert any(not r['historical'] and r['url']=='evidence.html#source-id-crosswalk'
 for path in [ROOT/'data/source-id-crosswalk.csv',ROOT/'data/source-id-crosswalk.json']:
  text=path.read_text().lower()
  assert not any(x in text for x in ['mail.google.com','gmail.com','file://','/workspace/','/tmp/','drive.google.com'])
-print('PASS: all 66 crosswalk rows, 51 ID collisions, current counts, historical labels, FY2024/FY2025 filters, resolved Q-001 boundaries and public-data allowlist.')
+print('PASS: all 67 crosswalk rows, 51 ID collisions, current counts, historical labels, FY2024/FY2025 filters, resolved Q-001 boundaries and public-data allowlist.')
