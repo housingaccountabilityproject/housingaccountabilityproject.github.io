@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = ['phoenix/index.html', 'phoenix/capital-fund.html', 'phoenix/projects/25th-at-bell.html']
 # Explicit editorial classification. New source articles require a reviewed entry.
 META = {
+ 'MC-HAMC-WEB-001': ('waitlists', 'notice', 'Four Maricopa County property waitlists will close December 1'),
  'PHX-WEB-027': ('delivery', 'difference', 'Phoenix: rehabilitation count needs clarification'),
  'MC-HOME-WEB-001': ('county', 'competition', 'Maricopa County: HOME funding opportunities'),
  'PHX-WEB-002': ('delivery', 'reported', 'Five reported completed developments'),
@@ -42,8 +43,8 @@ META = {
  'BELL-07': ('bell', 'authorization', '25th @ Bell: 2023 ARPA authorization'),
  'BELL-08': ('bell', 'reported', '25th @ Bell: 2025 ARPA performance statement'),
 }
-TOPICS = {'county': 'Maricopa County opportunities', 'delivery': 'Reported delivery & inventory', 'projects': 'Projects & plans', 'funding': 'Project funding', 'capital': 'Public Housing Capital Fund', 'bell': '25th @ Bell', 'context': 'Housing need', 'sources': 'Source references'}
-KINDS = {'competition': 'Competitive funding estimates', 'reported': 'Reported results', 'inventory': 'Existing inventory', 'planned': 'Plans & forecasts', 'financing': 'Reported financing', 'authorization': 'Authorization ceilings', 'award': 'Published awards', 'estimate': 'Survey estimates', 'formula': 'Formula calculations', 'proposal': 'Draft proposals', 'expenditure': 'Annual expenditure', 'difference': 'Unresolved source differences', 'definitions': 'Program definitions', 'dataset': 'Administrative dataset records', 'identifiers': 'Project identifiers', 'question': 'Open questions', 'source': 'Source references', 'needed': 'Evidence still needed'}
+TOPICS = {'waitlists': 'Maricopa County property waitlists', 'county': 'Maricopa County opportunities', 'delivery': 'Reported delivery & inventory', 'projects': 'Projects & plans', 'funding': 'Project funding', 'capital': 'Public Housing Capital Fund', 'bell': '25th @ Bell', 'context': 'Housing need', 'sources': 'Source references'}
+KINDS = {'notice': 'Dated waitlist notices', 'competition': 'Competitive funding estimates', 'reported': 'Reported results', 'inventory': 'Existing inventory', 'planned': 'Plans & forecasts', 'financing': 'Reported financing', 'authorization': 'Authorization ceilings', 'award': 'Published awards', 'estimate': 'Survey estimates', 'formula': 'Formula calculations', 'proposal': 'Draft proposals', 'expenditure': 'Annual expenditure', 'difference': 'Unresolved source differences', 'definitions': 'Program definitions', 'dataset': 'Administrative dataset records', 'identifiers': 'Project identifiers', 'question': 'Open questions', 'source': 'Source references', 'needed': 'Evidence still needed'}
 
 def cls(name):
  return f'contains(concat(" ", normalize-space(@class), " "), " {name} ")'

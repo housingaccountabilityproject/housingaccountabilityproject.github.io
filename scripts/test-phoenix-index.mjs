@@ -25,7 +25,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 75);
+    assert.equal(await visible.count(), 78);
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -35,7 +35,7 @@ try {
     await page.waitForLoadState('networkidle');
     const initialRequests = requests.length;
     await page.getByRole('button', {name: 'Sources', exact: true}).click();
-    assert.equal(await visible.count(), 35);
+    assert.equal(await visible.count(), 37);
     assert(await page.locator('#source-filters').isVisible());
     assert(await page.locator('#record-kind-control').isHidden());
     assert(await page.locator('#record-topic-control').isHidden());
@@ -46,7 +46,7 @@ try {
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2026');
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-203');
-    assert((await page.locator('#record-count').textContent()).startsWith('1 of 35 source references'));
+    assert((await page.locator('#record-count').textContent()).startsWith('1 of 37 source references'));
     assert.equal(await visible.first().locator('.source-retrieval time').getAttribute('datetime'), '2026-11-08');
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2025');
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-200');
@@ -101,7 +101,12 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 75);
+    assert.equal(await visible.count(), 78);
+    await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
+    assert.equal(await visible.count(), 1);
+    assert((await visible.first().textContent()).includes('application limits may apply earlier'));
+    assert((await visible.first().textContent()).includes('8 a.m. Arizona time'));
+    await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
     await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
     assert.equal(await visible.count(), 0);
     assert.equal(await page.locator('#record-results img').count(), 0);
@@ -251,7 +256,7 @@ try {
   }
   const noJS = await browser.newPage({javaScriptEnabled: false});
   await noJS.goto(base + '/phoenix/records.html');
-  assert.equal(await noJS.locator('.record-card:visible').count(), 75);
+  assert.equal(await noJS.locator('.record-card:visible').count(), 78);
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());
