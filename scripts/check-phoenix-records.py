@@ -104,6 +104,10 @@ questions = connections['question_connections']
 assert len({p['id'] for p in projects}) == len(projects) == 11
 assert sum(p['kind'] == 'development' for p in projects) == 10
 assert sum(p['kind'] == 'planning-area' for p in projects) == 1
+overview = html.parse(str(ROOT / 'phoenix/index.html'))
+assert overview.xpath('//*[@data-phoenix-index-total]/text()') == ['87 evidence browser entries']
+assert overview.xpath('//*[@data-phoenix-index-counts]/text()') == ['31 evidence entries · 43 source IDs · 10 questions · 3 evidence needs.']
+assert overview.xpath('//*[@data-phoenix-project-counts]/text()') == ['10 developments + 1 planning area']
 assert {p['id'] for p in projects if 'PHX-WEB-002' in p['record_ids']} == {'bell', 'pueblo', 'garfield-ii', 'falcon-park', 'harmony'}
 record_map = {r['id']: r for r in records}
 assert len({q['question_id'] for q in questions}) == len(questions) == 13
@@ -160,7 +164,7 @@ for doc_path in sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'phoenix'
         assert dest.exists(), (doc_path, href)
         if url.fragment:
             assert html.parse(str(dest)).xpath('//*[@id=$id]', id=unquote(url.fragment)), (doc_path, href)
-outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html', ROOT / 'phoenix/comparisons.html', ROOT / 'phoenix/projects/moreland.html', ROOT / 'phoenix/corrections.html']
+outputs = [ROOT / 'data/phoenix-records.json', ROOT / 'phoenix/index.html', ROOT / 'phoenix/records.html', ROOT / 'phoenix/projects.html', ROOT / 'phoenix/questions.html', ROOT / 'phoenix/comparisons.html', ROOT / 'phoenix/projects/moreland.html', ROOT / 'phoenix/corrections.html']
 before = [hashlib.sha256(p.read_bytes()).digest() for p in outputs]
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)

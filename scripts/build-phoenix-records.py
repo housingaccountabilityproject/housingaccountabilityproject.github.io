@@ -2,12 +2,14 @@
 """Build a Phoenix-only index from published HTML; never fetch or infer research."""
 from pathlib import Path
 from html import escape
+from collections import Counter
 from lxml import html
 import json
 import re
 from urllib.parse import urldefrag
 from datetime import date
 from city_layout import apply as city_layout
+from city_reader_guide import replace
 from phoenix_navigation import navigation
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +19,7 @@ META = {
  'MC-HAMC-WEB-001': ('waitlists', 'notice', 'Four Maricopa County property waitlists will close December 1'),
  'PHX-WEB-027': ('delivery', 'difference', 'Phoenix: rehabilitation count needs clarification'),
  'PHX-WEB-028': ('delivery', 'inventory', 'Phoenix Manor preserves 450 existing apartments'),
- 'PHX-WEB-029': ('funding', 'financing', 'La Victoria Commons has 104 apartments in two financing portions'),
+ 'PHX-WEB-029': ('funding', 'ground-lease-proposal', 'La Victoria Commons has 104 apartments in two financing portions'),
  'PHX-WEB-030': ('funding', 'authorization', 'Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority'),
  'MC-HOME-WEB-001': ('county', 'competition', 'Maricopa County: HOME funding opportunities'),
  'PHX-WEB-002': ('delivery', 'reported', 'Five reported completed developments'),
@@ -47,7 +49,7 @@ META = {
  'BELL-08': ('bell', 'reported', '25th @ Bell: 2025 ARPA performance statement'),
 }
 TOPICS = {'waitlists': 'Maricopa County property waitlists', 'county': 'Maricopa County opportunities', 'delivery': 'Reported delivery & inventory', 'projects': 'Projects & plans', 'funding': 'Project funding', 'capital': 'Public Housing Capital Fund', 'bell': '25th @ Bell', 'context': 'Housing need', 'sources': 'Source references'}
-KINDS = {'notice': 'Dated waitlist notices', 'competition': 'Competitive funding estimates', 'reported': 'Reported results', 'inventory': 'Existing inventory', 'planned': 'Plans & forecasts', 'financing': 'Reported financing', 'authorization': 'Authorization ceilings', 'award': 'Published awards', 'estimate': 'Survey estimates', 'formula': 'Formula calculations', 'proposal': 'Draft proposals', 'expenditure': 'Annual expenditure', 'difference': 'Unresolved source differences', 'definitions': 'Program definitions', 'dataset': 'Administrative dataset records', 'identifiers': 'Project identifiers', 'question': 'Open questions', 'source': 'Source references', 'needed': 'Evidence still needed'}
+KINDS = {'notice': 'Dated waitlist notices', 'competition': 'Competitive funding estimates', 'reported': 'Reported results', 'inventory': 'Existing inventory', 'planned': 'Plans & forecasts', 'financing': 'Reported financing', 'ground-lease-proposal': 'Proposed ground leases', 'authorization': 'Authorization ceilings', 'award': 'Published awards', 'estimate': 'Survey estimates', 'formula': 'Formula calculations', 'proposal': 'Draft proposals', 'expenditure': 'Annual expenditure', 'difference': 'Unresolved source differences', 'definitions': 'Program definitions', 'dataset': 'Administrative dataset records', 'identifiers': 'Project identifiers', 'question': 'Open questions', 'source': 'Source references', 'needed': 'Evidence still needed'}
 
 def cls(name):
  return f'contains(concat(" ", normalize-space(@class), " "), " {name} ")'
@@ -120,10 +122,26 @@ def build():
  render(data)
  print(f'Built Phoenix index: {len(META)} evidence entries, {sum(r['kind']=='question' for r in records)} questions, {sum(r['kind']=='needed' for r in records)} evidence needs, {len(sources)} unique source IDs.')
 
+def update_overview(data, projects):
+ path = ROOT / 'phoenix/index.html'
+ original = path.read_text()
+ total = len(data['records']) + len(data['sources'])
+ kinds = Counter(r['kind'] for r in data['records'])
+ project_kinds = Counter(p['kind'] for p in projects)
+ areas = project_kinds['planning-area']
+ breakdown = f"{len(META)} evidence entries · {len(data['sources'])} source IDs · {kinds['question']} questions · {kinds['needed']} evidence needs."
+ project_counts = f"{project_kinds['development']} developments + {areas} planning {'area' if areas == 1 else 'areas'}"
+ output = replace(original, 'span', 'data-phoenix-index-total', f'<span class="eyebrow accent" data-phoenix-index-total>{total} evidence browser entries</span>')
+ output = replace(output, 'span', 'data-phoenix-index-counts', f'<span data-phoenix-index-counts>{breakdown}</span>')
+ output = replace(output, 'span', 'data-phoenix-project-counts', f'<span class="eyebrow accent" data-phoenix-project-counts>{project_counts}</span>')
+ if output != original:
+  path.write_text(output)
+
 def render(data):
  esc = escape
  cards = []
  connections = json.loads((ROOT / 'data/phoenix-connections.json').read_text())
+ update_overview(data, connections['projects'])
  source_map = {s['id']: s for s in data['sources']}
  source_records = []
  for source in data['sources']:

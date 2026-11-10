@@ -50,7 +50,7 @@ def story(path):
         spec=json.loads((ROOT/'data/phoenix-connections.json').read_text())['project_details'][0]
         events=spec['timeline']
         ids=['PHX-WEB-007','PHX-WEB-009','PHX-WEB-010']
-        known=[records['PHX-WEB-007']['summary'][0],records['PHX-WEB-009']['summary'][0]]
+        known=[*records['PHX-WEB-007']['summary'], records['PHX-WEB-009']['summary'][0]]
         gaps=[item['text'] for item in spec['evidence_needed']]
         question='What does this financing tell us about housing delivery?'
         caution='A financing closing does not establish City spending. Phase II execution and the fund split remain unverified.'
@@ -114,7 +114,7 @@ def resource_panel(output,path):
         body=f'<div class="city-report-cover" aria-hidden="true">Housing Funding<br>&amp; Outcomes<span>Dated research</span></div><div><strong>Read the research.</strong><p>Keep the edition, source dates, corrections and limitations together.</p><a class="city-text-link" href="{href(target,path)}">Read the report →</a><button type="button" data-city-print hidden>Print this page / Save PDF</button></div>'
     elif path=='research-updates.html':
         output=flag(output,'city-history-page')
-        body='<strong>Follow the research history.</strong><p>Dated updates and earlier wording remain available with their corrections.</p><nav aria-label="Research history"><a href="#county-housing-funding-2026-11-08">Latest recorded update</a><a href="#audit-corrections-2026-11-06">Documented correction</a><a href="#method">Methods &amp; corrections</a></nav>'
+        body='<strong>Follow the research history.</strong><p>Dated updates and earlier wording remain available with their corrections.</p><nav aria-label="Research history"><a href="#county-housing-funding-2026-11-08">November 8 County funding review</a><a href="#audit-corrections-2026-11-06">Documented correction</a><a href="#method">Methods &amp; corrections</a></nav>'
     elif path=='phoenix/corrections.html':
         output=flag(output,'city-history-page')
         body='<strong>A correction preserves the record.</strong><p>A supported entry keeps the earlier statement, corrected statement, evidence and publication date together. The empty log below does not establish that every finding is verified.</p>'

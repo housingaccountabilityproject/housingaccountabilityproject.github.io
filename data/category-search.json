@@ -12,7 +12,7 @@
       "topics": [
         "Maricopa County property waitlists"
       ],
-      "agency": "Not separately tagged",
+      "agency": "Housing Authority of Maricopa County",
       "programs": [],
       "years": [
         "2026"
@@ -718,10 +718,11 @@
       ],
       "label": "Planned development scope, not completed units",
       "summary": [
-        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II."
+        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
       ],
       "caveats": [
-        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units."
+        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
       ],
       "notes": [
         "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
@@ -790,14 +791,15 @@
           "Planned development scope, not completed units"
         ],
         "summary": [
-          "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II."
+          "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+          "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
         ],
         "context": [
           "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
           "PHX-WEB-007 · Approved financing action describing development scope"
         ],
         "limitations": [
-          "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units."
+          "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
         ],
         "source_ids": [
           "PHX-EXT-PROJECT-002",
@@ -833,7 +835,7 @@
         "page_url": "index.html#PHX-WEB-007",
         "related_titles": []
       },
-      "searchText": "The Moreland: planned phases PHX-WEB-007 Plans & forecasts Projects & plans PHX-WEB-007 projects planned The Moreland: planned phases Planned development scope, not completed units The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II. Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report PHX-WEB-007 · Approved financing action describing development scope Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-004 PHX-EXT-PROJECT-001 PHX-EXT-PROJECT-002 June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 PHX-EXT-PROJECT-004 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 PHX-EXT-PROJECT-001 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc index.html#PHX-WEB-007 Council action/event Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report Basis is the existing published HAP record, not a new review of the original source. 2026 Council action date The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. 2026",
+      "searchText": "The Moreland: planned phases PHX-WEB-007 Plans & forecasts Projects & plans PHX-WEB-007 projects planned The Moreland: planned phases Planned development scope, not completed units The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II. Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report PHX-WEB-007 · Approved financing action describing development scope Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified. PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-004 PHX-EXT-PROJECT-001 PHX-EXT-PROJECT-002 June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 PHX-EXT-PROJECT-004 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 PHX-EXT-PROJECT-001 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc index.html#PHX-WEB-007 Council action/event Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report Basis is the existing published HAP record, not a new review of the original source. 2026 Council action date The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. 2026 At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028.",
       "yearBasis": "Council action date",
       "yearNote": "The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion.",
       "sourceType": "Evidence summaries",
@@ -6545,16 +6547,14 @@
       ],
       "label": "Published source reference · not rechecked by this index",
       "summary": [
-        "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001"
+        "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001. The Report Summary describes Phase I construction and the February 2028 forecast as of the June 17, 2026 action."
       ],
       "caveats": [
-        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units.",
+        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified.",
         "Keep in mind. No fund split or executed agreement was verified. Do not label all $10m HOME, spent or paid; up to 54 is not a verified count of executed PBV contracts.",
         "Source IDs identify references, not necessarily distinct documents. Keep the linked findings’ dates and qualifications attached."
       ],
-      "notes": [
-        "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001"
-      ],
+      "notes": [],
       "metadata": [
         [
           "Dates & coverage",
@@ -6624,7 +6624,7 @@
         "summary": [
           "Linked to 2 indexed entries. Open source notes for the published locators and qualifications."
         ],
-        "source_note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
+        "source_note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001. The Report Summary describes Phase I construction and the February 2028 forecast as of the June 17, 2026 action.",
         "metadata": {
           "agency": "city-phoenix",
           "programs": [
@@ -6654,7 +6654,7 @@
           "Moreland II: mixed-fund authorization and vouchers"
         ]
       },
-      "searchText": "June 17, 2026 Moreland II Council report PHX-EXT-PROJECT-002 Council staff report Project funding Projects & plans HOME Neighborhood Stabilization Program (NSP) Project-based vouchers source-PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-002 sources funding projects sources source June 17, 2026 Moreland II Council report Published source reference · not rechecked by this index Linked to 2 indexed entries. Open source notes for the published locators and qualifications. PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001 city-phoenix home nsp pbv council-report 2026 stated Council action: June 17, 2026. Mixed-fund authorization and voucher ceilings are not payment or execution dates. index.html#PHX-WEB-010 Source IDs identify references, not necessarily distinct documents. Keep the linked findings’ dates and qualifications attached. PHX-EXT-PROJECT-002 index.html#source-PHX-EXT-PROJECT-002 The Moreland: planned phases Moreland II: mixed-fund authorization and vouchers Council action/event Council action: June 17, 2026. Mixed-fund authorization and voucher ceilings are not payment or execution dates. Basis is the existing published HAP record, not a new review of the original source. 2026 Council action date The staff text identifies Ordinance S-53026; matching official Council metadata records adoption on June 17, 2026. Text last-modification timestamps and projected completion dates are not substituted for the action date. Council authorization does not establish payment or execution. 2026",
+      "searchText": "June 17, 2026 Moreland II Council report PHX-EXT-PROJECT-002 Council staff report Project funding Projects & plans HOME Neighborhood Stabilization Program (NSP) Project-based vouchers source-PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-002 sources funding projects sources source June 17, 2026 Moreland II Council report Published source reference · not rechecked by this index Linked to 2 indexed entries. Open source notes for the published locators and qualifications. PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001. The Report Summary describes Phase I construction and the February 2028 forecast as of the June 17, 2026 action. city-phoenix home nsp pbv council-report 2026 stated Council action: June 17, 2026. Mixed-fund authorization and voucher ceilings are not payment or execution dates. index.html#PHX-WEB-010 Source IDs identify references, not necessarily distinct documents. Keep the linked findings’ dates and qualifications attached. PHX-EXT-PROJECT-002 index.html#source-PHX-EXT-PROJECT-002 The Moreland: planned phases Moreland II: mixed-fund authorization and vouchers Council action/event Council action: June 17, 2026. Mixed-fund authorization and voucher ceilings are not payment or execution dates. Basis is the existing published HAP record, not a new review of the original source. 2026 Council action date The staff text identifies Ordinance S-53026; matching official Council metadata records adoption on June 17, 2026. Text last-modification timestamps and projected completion dates are not substituted for the action date. Council authorization does not establish payment or execution. 2026 Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified.",
       "yearBasis": "Council action date",
       "yearNote": "The staff text identifies Ordinance S-53026; matching official Council metadata records adoption on June 17, 2026. Text last-modification timestamps and projected completion dates are not substituted for the action date. Council authorization does not establish payment or execution.",
       "sourceType": "Council / authority records",
@@ -11392,15 +11392,15 @@
       ],
       "label": "Tucson / Pima County · 2024",
       "summary": [
-        "Official PDF linked in City reports directory  The City lists this report, but it has not been independently analyzed for this index."
+        "Official PDF linked in City reports directory"
       ],
       "caveats": [
-        "Official PDF linked in City reports directory  The City lists this report, but it has not been independently analyzed for this index."
+        "The City lists this report, but it has not been independently analyzed for this index."
       ],
       "notes": [
-        "Official PDF linked in City reports directory  The City lists this report, but it has not been independently analyzed for this index.",
         "Existing evidence register; retained without changing its source claims.",
-        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+        "Some PDF viewers open the cover or download the file. Use PDF pages 1 and 4 as manual locators."
       ],
       "metadata": [
         [
@@ -11428,6 +11428,14 @@
         {
           "title": "Website / workbook source ID crosswalk",
           "url": "https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk"
+        },
+        {
+          "title": "Cover · PDF page 1",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf#page=1"
+        },
+        {
+          "title": "Director’s letter · PDF page 4",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf#page=4"
         }
       ],
       "sourceIds": [
@@ -11456,15 +11464,15 @@
       "yearBasis": "Annual reporting year",
       "yearNote": "The report cover explicitly states 2024. The director describes this as work in 2024; no separate publication date is inferred from the filename. Separate publication date not established.",
       "sourceType": "Reports",
-      "yearSourceCheck": "Date-basis review, November 10, 2026 (UTC). The public original was retrieved and its cited date evidence checked. The report cover explicitly states 2024. The director describes this as work in 2024; no separate publication date is inferred from the filename. Separate publication date not established. This is not a full audit of the financial or housing claims.",
+      "yearSourceCheck": "Date-basis review, November 10, 2026 (UTC). The public original was retrieved and its cited date evidence checked. This is not a full audit of the financial or housing claims.",
       "yearEvidence": [
         {
-          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf#page=1",
           "locator": "PDF page 1, cover",
           "quote": "2024 Annual Report"
         },
         {
-          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/2/hcd/documents/reports/2024-hcd-annual-report.pdf#page=4",
           "locator": "PDF page 4, Letter from the Director",
           "quote": "This report summarizes our work to address these challenges in 2024."
         }
@@ -15755,7 +15763,7 @@
         "TC-CFO-1026-00207; register accessed November 7, 2026."
       ],
       "caveats": [
-        "Listed Issued; November 15 expiration. Embedded register data stamp November 5. Original certificate, conditions, renewal and completed move counts unverified."
+        "Application dated October 15, 2026. Listed Issued when reviewed November 7. The permit page does not show an issue date. The reviewed address register listed a November 15 expiration and carried a November 5 data stamp. Original certificate, conditions, renewal and completed move counts unverified."
       ],
       "notes": [
         "TC-CFO-1026-00207; register accessed November 7, 2026.",
@@ -15805,7 +15813,7 @@
         "period": "other",
         "topic": "projects",
         "source_context": "TC-CFO-1026-00207; register accessed November 7, 2026.",
-        "limitations": "Listed Issued; November 15 expiration. Embedded register data stamp November 5. Original certificate, conditions, renewal and completed move counts unverified.",
+        "limitations": "Application dated October 15, 2026. Listed Issued when reviewed November 7. The permit page does not show an issue date. The reviewed address register listed a November 15 expiration and carried a November 5 data stamp. Original certificate, conditions, renewal and completed move counts unverified.",
         "urls": [
           "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/",
           "https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD"
@@ -15822,7 +15830,7 @@
         "crosswalk_url": "evidence.html#source-id-crosswalk",
         "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
       },
-      "searchText": "Tucson House 15th-floor temporary occupancy SRC-109 Source reference Other / not tagged SRC-109 Tucson House 15th-floor temporary occupancy other projects TC-CFO-1026-00207; register accessed November 7, 2026. Listed Issued; November 15 expiration. Embedded register data stamp November 5. Original certificate, conditions, renewal and completed move counts unverified. https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/ https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD research-updates.html#payments-projects-outcomes-2026-11-07 evidence.html#src-109 Original source for the approved additional November 7 review. Selected source content reviewed November 7, 2026; access and date limits stated. website SRC-111 evidence.html#source-id-crosswalk Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. No indexed year No usable primary year in the indexed period/context. TC-CFO-1026-00207; register accessed November 7, 2026. Review/retrieval dates, identifiers and URL dates are not used to infer a year. Basis is the existing published HAP record, not a new review of the original source.  Permit application and expiration dates The City register explicitly lists the application date October 15, 2026. The address register explicitly lists expiration November 15, 2026. These fields do not independently establish issue date, certificate conditions, renewal or completed moves. 2026 Permit application and expiration dates The City register explicitly lists the application date October 15, 2026. The address register explicitly lists expiration November 15, 2026. These fields do not independently establish issue date, certificate conditions, renewal or completed moves. 2026",
+      "searchText": "Tucson House 15th-floor temporary occupancy SRC-109 Source reference Other / not tagged SRC-109 Tucson House 15th-floor temporary occupancy other projects TC-CFO-1026-00207; register accessed November 7, 2026. Application dated October 15, 2026. Listed Issued when reviewed November 7. The permit page does not show an issue date. The reviewed address register listed a November 15 expiration and carried a November 5 data stamp. Original certificate, conditions, renewal and completed move counts unverified. https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/ https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD research-updates.html#payments-projects-outcomes-2026-11-07 evidence.html#src-109 Original source for the approved additional November 7 review. Selected source content reviewed November 7, 2026; access and date limits stated. website SRC-111 evidence.html#source-id-crosswalk Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. No indexed year No usable primary year in the indexed period/context. TC-CFO-1026-00207; register accessed November 7, 2026. Review/retrieval dates, identifiers and URL dates are not used to infer a year. Basis is the existing published HAP record, not a new review of the original source.  Permit application and expiration dates The City register explicitly lists the application date October 15, 2026. The address register explicitly lists expiration November 15, 2026. These fields do not independently establish issue date, certificate conditions, renewal or completed moves. 2026 Permit application and expiration dates The City register explicitly lists the application date October 15, 2026. The address register explicitly lists expiration November 15, 2026. These fields do not independently establish issue date, certificate conditions, renewal or completed moves. 2026",
       "yearBasis": "Permit application and expiration dates",
       "yearNote": "The City register explicitly lists the application date October 15, 2026. The address register explicitly lists expiration November 15, 2026. These fields do not independently establish issue date, certificate conditions, renewal or completed moves.",
       "sourceType": "Other source records",
@@ -25795,7 +25803,7 @@
         "Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear."
       ],
       "notes": [
-        "Latest research update New findings, with their limits. Published: November 9, 2026, 8:37 p.m. MST . Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST . The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Housing Authority of Maricopa County · Dated property-waitlist notice Four Maricopa County Property Waitlists Will Close December 1 The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice. The notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted. Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time Keep in mind. Property-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs. The notice was located during the latest review; it was not newly issued. HAMC closure notice, page 1 November 5 waitlist schedule, page 1 Check HAMC’s current notices and schedule Housing-help notice Record identifiers MC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination Phoenix city · Draft FY2025–26 report · Unresolved wording Phoenix: Rehabilitation Count Needs Clarification Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear. A separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities. Scope Phoenix city; draft narrative and separate annual outcome table Time period FY2025–26 Keep in mind. The wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds. Draft report, page 4: rehabilitation narrative Draft report, page 6: separate homeowner table Question and evidence needed Source index: PHX-CITY-002 Record identifiers PHX-WEB-027 · Unresolved draft wording; no matched activity universe established Maricopa County · PY2027–28 funding opportunities · Phoenix city excluded Maricopa County: HOME Funding Opportunities The County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m. Scope Maricopa County competitions; each packet has its own eligible service area Time period PY2027–28; applications due December 8, 2026 Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying. Urban County packet: estimate PDF page 3; geography page 4 CHDO packet: estimate PDF page 3; geography page 5 Urban County source index CHDO source index Record identifiers MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures"
+        "November 9 research update New findings, with their limits. Published: November 9, 2026, 8:37 p.m. MST . Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST . The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Housing Authority of Maricopa County · Dated property-waitlist notice Four Maricopa County Property Waitlists Will Close December 1 The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice. The notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted. Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time Keep in mind. Property-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs. The notice was located during the latest review; it was not newly issued. HAMC closure notice, page 1 November 5 waitlist schedule, page 1 Check HAMC’s current notices and schedule Housing-help notice Record identifiers MC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination Phoenix city · Draft FY2025–26 report · Unresolved wording Phoenix: Rehabilitation Count Needs Clarification Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear. A separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities. Scope Phoenix city; draft narrative and separate annual outcome table Time period FY2025–26 Keep in mind. The wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds. Draft report, page 4: rehabilitation narrative Draft report, page 6: separate homeowner table Question and evidence needed Source index: PHX-CITY-002 Record identifiers PHX-WEB-027 · Unresolved draft wording; no matched activity universe established Maricopa County · PY2027–28 funding opportunities · Phoenix city excluded Maricopa County: HOME Funding Opportunities The County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m. Scope Maricopa County competitions; each packet has its own eligible service area Time period PY2027–28; applications due December 8, 2026 Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying. Urban County packet: estimate PDF page 3; geography page 4 CHDO packet: estimate PDF page 3; geography page 5 Urban County source index CHDO source index Record identifiers MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures"
       ],
       "metadata": [
         [
@@ -25898,7 +25906,7 @@
         "category": "updates",
         "title": "New findings, with their limits.",
         "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#research-update-2026-11-09",
-        "full_text": "Latest research update\nNew findings, with their limits.\nPublished:\nNovember 9, 2026, 8:37 p.m. MST\n. Phoenix and HOME sources checked\nNovember 9, 2026, 4:11 p.m. MST\n. The HAMC notice carries its separate source-check date below. Other research keeps its original review dates.\nHousing Authority of Maricopa County · Dated property-waitlist notice\nFour Maricopa County Property Waitlists Will Close December 1\nThe Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice.\nThe notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted.\nScope\nFour HAMC property waitlists, separate from City of Phoenix programs\nSource dates\nOctober 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time\nKeep in mind.\nProperty-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs.\nThe notice was located during the latest review; it was not newly issued.\nHAMC closure notice, page 1\nNovember 5 waitlist schedule, page 1\nCheck HAMC’s current notices and schedule\nHousing-help notice\nRecord identifiers\nMC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination\nPhoenix city · Draft FY2025–26 report · Unresolved wording\nPhoenix: Rehabilitation Count Needs Clarification\nPhoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear.\nA separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities.\nScope\nPhoenix city; draft narrative and separate annual outcome table\nTime period\nFY2025–26\nKeep in mind.\nThe wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds.\nDraft report, page 4: rehabilitation narrative\nDraft report, page 6: separate homeowner table\nQuestion and evidence needed\nSource index: PHX-CITY-002\nRecord identifiers\nPHX-WEB-027 · Unresolved draft wording; no matched activity universe established\nMaricopa County · PY2027–28 funding opportunities · Phoenix city excluded\nMaricopa County: HOME Funding Opportunities\nThe County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m.\nScope\nMaricopa County competitions; each packet has its own eligible service area\nTime period\nPY2027–28; applications due December 8, 2026\nKeep in mind.\nThese are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying.\nUrban County packet: estimate PDF page 3; geography page 4\nCHDO packet: estimate PDF page 3; geography page 5\nUrban County source index\nCHDO source index\nRecord identifiers\nMC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures",
+        "full_text": "November 9 research update\nNew findings, with their limits.\nPublished:\nNovember 9, 2026, 8:37 p.m. MST\n. Phoenix and HOME sources checked\nNovember 9, 2026, 4:11 p.m. MST\n. The HAMC notice carries its separate source-check date below. Other research keeps its original review dates.\nHousing Authority of Maricopa County · Dated property-waitlist notice\nFour Maricopa County Property Waitlists Will Close December 1\nThe Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice.\nThe notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted.\nScope\nFour HAMC property waitlists, separate from City of Phoenix programs\nSource dates\nOctober 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time\nKeep in mind.\nProperty-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs.\nThe notice was located during the latest review; it was not newly issued.\nHAMC closure notice, page 1\nNovember 5 waitlist schedule, page 1\nCheck HAMC’s current notices and schedule\nHousing-help notice\nRecord identifiers\nMC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination\nPhoenix city · Draft FY2025–26 report · Unresolved wording\nPhoenix: Rehabilitation Count Needs Clarification\nPhoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear.\nA separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities.\nScope\nPhoenix city; draft narrative and separate annual outcome table\nTime period\nFY2025–26\nKeep in mind.\nThe wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds.\nDraft report, page 4: rehabilitation narrative\nDraft report, page 6: separate homeowner table\nQuestion and evidence needed\nSource index: PHX-CITY-002\nRecord identifiers\nPHX-WEB-027 · Unresolved draft wording; no matched activity universe established\nMaricopa County · PY2027–28 funding opportunities · Phoenix city excluded\nMaricopa County: HOME Funding Opportunities\nThe County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m.\nScope\nMaricopa County competitions; each packet has its own eligible service area\nTime period\nPY2027–28; applications due December 8, 2026\nKeep in mind.\nThese are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying.\nUrban County packet: estimate PDF page 3; geography page 4\nCHDO packet: estimate PDF page 3; geography page 5\nUrban County source index\nCHDO source index\nRecord identifiers\nMC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures",
         "summary": [
           "Published: November 9, 2026, 8:37 p.m. MST. Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST. The HAMC notice carries its separate source-check date below. Other research keeps its original review dates.",
           "The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice.",
@@ -26019,7 +26027,7 @@
         ],
         "year_note": "Years come from explicitly labeled publication/review timestamps or written fiscal/program-year labels. They are not all publication years. No year is inferred from anchors/headings. Short two-digit range endpoints are not expanded."
       },
-      "searchText": "Latest research update New findings, with their limits. Published: November 9, 2026, 8:37 p.m. MST . Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST . The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Housing Authority of Maricopa County · Dated property-waitlist notice Four Maricopa County Property Waitlists Will Close December 1 The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice. The notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted. Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time Keep in mind. Property-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs. The notice was located during the latest review; it was not newly issued. HAMC closure notice, page 1 November 5 waitlist schedule, page 1 Check HAMC’s current notices and schedule Housing-help notice Record identifiers MC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination Phoenix city · Draft FY2025–26 report · Unresolved wording Phoenix: Rehabilitation Count Needs Clarification Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear. A separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities. Scope Phoenix city; draft narrative and separate annual outcome table Time period FY2025–26 Keep in mind. The wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds. Draft report, page 4: rehabilitation narrative Draft report, page 6: separate homeowner table Question and evidence needed Source index: PHX-CITY-002 Record identifiers PHX-WEB-027 · Unresolved draft wording; no matched activity universe established Maricopa County · PY2027–28 funding opportunities · Phoenix city excluded Maricopa County: HOME Funding Opportunities The County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m. Scope Maricopa County competitions; each packet has its own eligible service area Time period PY2027–28; applications due December 8, 2026 Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying. Urban County packet: estimate PDF page 3; geography page 4 CHDO packet: estimate PDF page 3; geography page 5 Urban County source index CHDO source index Record identifiers MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures research-update-2026-11-09 New findings, with their limits. Website publication date Published: November 9, 2026, 8:37 p.m. MST. Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST. The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Coverage periods are not publication dates. 2026 Website publication date The Phoenix page explicitly says Published: November 9, 2026, 8:37 p.m. MST. This dates the website research update, not all constituent financial periods or source documents. 2026",
+      "searchText": "November 9 research update New findings, with their limits. Published: November 9, 2026, 8:37 p.m. MST . Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST . The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Housing Authority of Maricopa County · Dated property-waitlist notice Four Maricopa County Property Waitlists Will Close December 1 The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice. The notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted. Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time Keep in mind. Property-specific application limits may apply earlier. Check HAMC’s latest schedule before applying. This notice does not guarantee an apartment or change the City of Phoenix’s housing programs. The notice was located during the latest review; it was not newly issued. HAMC closure notice, page 1 November 5 waitlist schedule, page 1 Check HAMC’s current notices and schedule Housing-help notice Record identifiers MC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination Phoenix city · Draft FY2025–26 report · Unresolved wording Phoenix: Rehabilitation Count Needs Clarification Phoenix’s draft FY2025–26 performance report says “Thirty-three (37 CDBG and 0 CDBG-CV)” households received housing rehabilitation services. The correct count remains unclear. A separate table reports 32 homeowner rehabilitations, but we haven’t established whether it covers the same activities. Scope Phoenix city; draft narrative and separate annual outcome table Time period FY2025–26 Keep in mind. The wording inconsistency is unresolved. Do not choose 33 or 37 as the correct count or use the separate 32 to reconcile it. This discrepancy does not establish misuse of funds. Draft report, page 4: rehabilitation narrative Draft report, page 6: separate homeowner table Question and evidence needed Source index: PHX-CITY-002 Record identifiers PHX-WEB-027 · Unresolved draft wording; no matched activity universe established Maricopa County · PY2027–28 funding opportunities · Phoenix city excluded Maricopa County: HOME Funding Opportunities The County estimates $768,000 for HOME Urban County and $667,529 for Community Housing Development Organizations. Both competitions exclude the City of Phoenix. Applications are due December 8, 2026 at 5 p.m. Scope Maricopa County competitions; each packet has its own eligible service area Time period PY2027–28; applications due December 8, 2026 Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying. Urban County packet: estimate PDF page 3; geography page 4 CHDO packet: estimate PDF page 3; geography page 5 Urban County source index CHDO source index Record identifiers MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures research-update-2026-11-09 New findings, with their limits. Website publication date Published: November 9, 2026, 8:37 p.m. MST. Phoenix and HOME sources checked November 9, 2026, 4:11 p.m. MST. The HAMC notice carries its separate source-check date below. Other research keeps its original review dates. Coverage periods are not publication dates. 2026 Website publication date The Phoenix page explicitly says Published: November 9, 2026, 8:37 p.m. MST. This dates the website research update, not all constituent financial periods or source documents. 2026",
       "yearSourceCheck": "Date-basis review, November 10, 2026 (UTC). The stated HAP publication date was checked. The Phoenix page explicitly says Published: November 9, 2026, 8:37 p.m. MST. This dates the website research update, not all constituent financial periods or source documents. This is not a full audit of the financial or housing claims.",
       "yearEvidence": [
         {
@@ -26987,7 +26995,7 @@
       "scope": "phoenix",
       "category": "funding",
       "title": "La Victoria Commons has 104 apartments in two financing portions",
-      "kind": "Reported financing",
+      "kind": "Proposed ground leases",
       "topics": [
         "Project funding"
       ],
@@ -26999,11 +27007,12 @@
       "years": [
         "2024"
       ],
-      "label": "Council agenda records the ground-lease financing structure",
+      "label": "Proposed ground leases · April 25, 2024 Tempe Council agenda",
       "summary": [
         "Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component."
       ],
       "caveats": [
+        "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
         "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
       ],
       "notes": [
@@ -27033,7 +27042,7 @@
         "id": "PHX-WEB-029",
         "aliases": [],
         "topic": "funding",
-        "kind": "financing",
+        "kind": "ground-lease-proposal",
         "title": "La Victoria Commons has 104 apartments in two financing portions",
         "labels": [
           "Council agenda records the ground-lease financing structure"
@@ -27046,7 +27055,8 @@
           "PHX-WEB-029"
         ],
         "limitations": [
-          "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+          "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes.",
+          "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
         ],
         "source_ids": [
           "PHX-TEMPE-001"
@@ -27093,7 +27103,7 @@
         }
       ],
       "periodLeads": [],
-      "searchText": "PHX-WEB-029 La Victoria Commons has 104 apartments in two financing portions Council agenda records the ground-lease financing structure City of Tempe (ground leases) Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified PHX-WEB-029 PHX-TEMPE-001 Dated Council financing agenda April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified. 2024 Tempe April 25, 2024 Council agenda"
+      "searchText": "PHX-WEB-029 La Victoria Commons has 104 apartments in two financing portions Proposed ground leases · April 25, 2024 Tempe Council agenda City of Tempe (ground leases) Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified PHX-WEB-029 PHX-TEMPE-001 Dated Council financing agenda April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified. 2024 Tempe April 25, 2024 Council agenda The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
     },
     {
       "key": "phoenix:PHX-WEB-030",
@@ -27121,7 +27131,8 @@
         "Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026."
       ],
       "caveats": [
-        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified.",
+        "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
       ],
       "notes": [
         "Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified",
@@ -27173,7 +27184,8 @@
           "PHX-WEB-030"
         ],
         "limitations": [
-          "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+          "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified.",
+          "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
         ],
         "source_ids": [
           "PHX-SHELTER-001",
@@ -27266,7 +27278,7 @@
         }
       ],
       "periodLeads": [],
-      "searchText": "PHX-WEB-030 Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority Adopted City funding authority and site dedication City of Phoenix Housing Department Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME-ARP Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified PHX-WEB-030 PHX-SHELTER-001 PHX-SHELTER-002 PHX-SHELTER-003 Two Council actions and the site dedication The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified. 2023 2025 2026 Phoenix June 14, 2023 Council minutes Phoenix December 3, 2025 Council action Phoenix May 12, 2026 shelter site dedication announcement"
+      "searchText": "PHX-WEB-030 Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority Adopted City funding authority and site dedication City of Phoenix Housing Department Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME-ARP Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified PHX-WEB-030 PHX-SHELTER-001 PHX-SHELTER-002 PHX-SHELTER-003 Two Council actions and the site dedication The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified. 2023 2025 2026 Phoenix June 14, 2023 Council minutes Phoenix December 3, 2025 Council action Phoenix May 12, 2026 shelter site dedication announcement The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
     },
     {
       "key": "phoenix:source-PHX-R4-001",
@@ -27442,10 +27454,11 @@
       ],
       "label": "Source passage checked November 10, 2026 (MST)",
       "summary": [
-        "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied."
+        "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence."
       ],
       "caveats": [
-        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes.",
+        "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
       ],
       "notes": [],
       "metadata": [
@@ -27476,7 +27489,7 @@
         "id": "PHX-TEMPE-001",
         "title": "Tempe April 25, 2024 Council agenda",
         "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
-        "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+        "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
         "page_url": "index.html#source-PHX-TEMPE-001",
         "metadata": {
           "agency": "city-tempe",
@@ -27489,13 +27502,13 @@
             "2024"
           ],
           "year_status": "stated",
-          "date_basis": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+          "date_basis": "April 25, 2024 is the date of the Tempe Council agenda. Items 8C5–8C7 concern proposed ground leases.",
           "date_basis_url": "index.html#PHX-WEB-029",
           "retrieved_on": "2026-11-10"
         }
       },
       "yearBasis": "Dated meeting or event",
-      "yearNote": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+      "yearNote": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
       "sourceType": "Other source records",
       "yearEvidence": [
         {
@@ -27504,7 +27517,7 @@
         }
       ],
       "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
-      "searchText": "PHX-TEMPE-001 Tempe April 25, 2024 Council agenda Source passage checked November 10, 2026 (MST) City of Tempe Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Project and phase planning PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. PHX-TEMPE-001 Dated meeting or event Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied. 2024 April 25, 2024 Tempe April 25, 2024 Council agenda"
+      "searchText": "PHX-TEMPE-001 Tempe April 25, 2024 Council agenda Source passage checked November 10, 2026 (MST) City of Tempe Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Project and phase planning PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. PHX-TEMPE-001 Dated meeting or event April 25, 2024 is the date of the Tempe Council agenda. Items 8C5–8C7 concern proposed ground leases. 2024 April 25, 2024 Tempe April 25, 2024 Council agenda The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
     },
     {
       "key": "phoenix:source-PHX-SHELTER-001",
@@ -27613,10 +27626,11 @@
       ],
       "label": "Source passage checked November 10, 2026 (MST)",
       "summary": [
-        "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence."
+        "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. The staff report describes a $10 million total project cost and a loan. Actual expenditure and opening require separate evidence."
       ],
       "caveats": [
-        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified.",
+        "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
       ],
       "notes": [],
       "metadata": [
@@ -27647,7 +27661,7 @@
         "id": "PHX-SHELTER-002",
         "title": "Phoenix December 3, 2025 Council action",
         "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
-        "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+        "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. The staff report describes a $10 million total project cost and a loan. Actual expenditure and opening require separate evidence.",
         "page_url": "index.html#source-PHX-SHELTER-002",
         "metadata": {
           "agency": "city-phoenix",
@@ -27665,7 +27679,7 @@
         }
       },
       "yearBasis": "Dated meeting or event",
-      "yearNote": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+      "yearNote": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. The staff report describes a $10 million total project cost and a loan. Actual expenditure and opening require separate evidence.",
       "sourceType": "Other source records",
       "yearEvidence": [
         {
@@ -27674,7 +27688,7 @@
         }
       ],
       "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
-      "searchText": "PHX-SHELTER-002 Phoenix December 3, 2025 Council action Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-002 Dated meeting or event Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence. 2025 December 3, 2025 Phoenix December 3, 2025 Council action"
+      "searchText": "PHX-SHELTER-002 Phoenix December 3, 2025 Council action Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. The staff report describes a $10 million total project cost and a loan. Actual expenditure and opening require separate evidence. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-002 Dated meeting or event Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence. 2025 December 3, 2025 Phoenix December 3, 2025 Council action The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
     },
     {
       "key": "phoenix:source-PHX-SHELTER-003",
@@ -27698,10 +27712,11 @@
       ],
       "label": "Source passage checked November 10, 2026 (MST)",
       "summary": [
-        "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified."
+        "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The City describes an estimated $8 million project and a HOME-ARP grant. The opening date and people served by the expansion remain unverified."
       ],
       "caveats": [
-        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified.",
+        "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
       ],
       "notes": [],
       "metadata": [
@@ -27732,7 +27747,7 @@
         "id": "PHX-SHELTER-003",
         "title": "Phoenix May 12, 2026 shelter site dedication announcement",
         "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
-        "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+        "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The City describes an estimated $8 million project and a HOME-ARP grant. The opening date and people served by the expansion remain unverified.",
         "page_url": "index.html#source-PHX-SHELTER-003",
         "metadata": {
           "agency": "city-phoenix",
@@ -27751,7 +27766,7 @@
         }
       },
       "yearBasis": "Dated meeting or event",
-      "yearNote": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+      "yearNote": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The City describes an estimated $8 million project and a HOME-ARP grant. The opening date and people served by the expansion remain unverified.",
       "sourceType": "Other source records",
       "yearEvidence": [
         {
@@ -27760,7 +27775,7 @@
         }
       ],
       "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
-      "searchText": "PHX-SHELTER-003 Phoenix May 12, 2026 shelter site dedication announcement Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) Project and phase planning PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-003 Dated meeting or event The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified. 2026 May 12, 2026 Phoenix May 12, 2026 shelter site dedication announcement"
+      "searchText": "PHX-SHELTER-003 Phoenix May 12, 2026 shelter site dedication announcement Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) Project and phase planning PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The City describes an estimated $8 million project and a HOME-ARP grant. The opening date and people served by the expansion remain unverified. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-003 Dated meeting or event The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified. 2026 May 12, 2026 Phoenix May 12, 2026 shelter site dedication announcement The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
     },
     {
       "key": "tucson:research-updates.html#src-100-citation-correction",
@@ -27839,7 +27854,9 @@
         "The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority."
       ],
       "caveats": [
-        "Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence."
+        "Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence.",
+        "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
+        "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
       ],
       "notes": [],
       "metadata": [
@@ -27884,7 +27901,7 @@
       "yearBasis": "Website publication date",
       "yearNote": "The source and event dates are separate from the website publication date.",
       "publicationPending": false,
-      "searchText": "project-counts-and-shelter-funding Phoenix-area housing counts and shelter funding Published research update   The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority. Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence. PHX-WEB-028 PHX-WEB-029 PHX-WEB-030 Website publication date 2026-11-10T10:24:54-07:00 November 10, 2026 at 10:24:54 a.m. MST The source and event dates are separate from the website publication date. Phoenix Manor preserves 450 existing apartments La Victoria Commons has 104 apartments in two financing portions Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority"
+      "searchText": "project-counts-and-shelter-funding Phoenix-area housing counts and shelter funding Published research update   The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority. Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence. PHX-WEB-028 PHX-WEB-029 PHX-WEB-030 Website publication date 2026-11-10T10:24:54-07:00 November 10, 2026 at 10:24:54 a.m. MST The source and event dates are separate from the website publication date. Phoenix Manor preserves 450 existing apartments La Victoria Commons has 104 apartments in two financing portions Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence. The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
     }
   ],
   "coverage": {
