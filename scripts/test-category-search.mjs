@@ -14,13 +14,35 @@ const countText=n=>new RegExp('^'+n+' match');
 const years=r=>r.category==='funding'?r.programPeriod.years:r.years;
 const focusOn=el=>el.evaluate(node=>node===document.activeElement);
 const recordCount=(page,n)=>page.locator('#count').textContent().then(text=>assert.match(text,countText(n)));
-const pdfOptions={format:'Letter',printBackground:false,tagged:true,timeout:90000};
-const pdfText=path=>execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).replace(/\s+/g,' ');
+const pdfOptions={
+ format:'Letter',printBackground:false,tagged:true,timeout:90000,displayHeaderFooter:true,
+ headerTemplate:'<div style="font-size:8px; padding-left:25px">HAP TEST HEADER</div>',
+ footerTemplate:'<div style="font-size:8px; padding-left:25px">HAP TEST FOOTER</div>',
+};
+const printSearches={
+ tucson:{category:'sources',query:'Craycroft',ids:[
+  'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125','source-excerpts',
+ ]},
+ phoenix:{category:'funding',query:'year:unknown',ids:[
+  'PHX-WEB-009','PHX-WEB-010','PHX-WEB-012','PHX-CFP-WEB-003','PHX-CFP-WEB-006','PHX-CFP-WEB-007',
+  'BELL-03','BELL-04','BELL-06','BELL-07','BELL-08','PHX-WEB-029','PHX-WEB-030',
+ ]},
+};
+function pdfText(path){
+ const pages=execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
+ if(pages.at(-1)==='')pages.pop();
+ const evidence=pages.map((page,i)=>{
+  const body=page.split('\n').filter(line=>!['HAP TEST HEADER','HAP TEST FOOTER'].includes(line.trim())).join('\n');
+  assert(body.trim(),`${path} page ${i+1} has no record text`);
+  return body;
+ });
+ return evidence.join(' ').replace(/\s+/g,' ');
+}
 const pdfLinks=path=>execFileSync('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
 mkdirSync(output,{recursive:true});
 
-async function inspectPDF(page, scope, category, mode, expected){
- const path=`${output}/${scope}-${category}-${mode}.pdf`;
+async function inspectPDF(page, scope, category, mode, expected, suffix=''){
+ const path=`${output}/${scope}-${category}-${mode}${suffix}.pdf`;
  await page.pdf({path,...pdfOptions});
  const text=pdfText(path);
  assert(text.includes(expected.length+' matching records'));
@@ -119,6 +141,22 @@ try{
   assert.equal(await page.locator('#results article').count(),0);assert.equal(await page.locator('#results img').count(),0);
   await page.locator('#reset').click();
 
+  if(width===1280){
+   const {category,query,ids}=printSearches[scope];
+   const expected=data.records.filter(r=>r.scope===scope&&r.category===category&&ids.includes(r.id));
+   assert.equal(expected.length,ids.length);
+   await page.locator(`[data-category="${category}"]`).click();
+   await input.fill(query);await recordCount(page,ids.length);
+   await page.locator('#next').click();
+   for(const mode of ['compact','full']){
+    assert.match(await page.locator('#page-count').textContent(),/^Page 2/);
+    await page.locator(mode==='compact'?'#print-compact':'#print').click();
+    await inspectPDF(page,scope,category,mode,expected,'-filtered');
+    await page.getByRole('button',{name:'← Back to search',exact:true}).click();
+   }
+   await page.locator('#reset').click();
+  }
+
   if(width===1280&&scope==='tucson'){
    await input.fill('SRC-100');
    const source=data.records.find(r=>r.id==='SRC-100');
@@ -156,5 +194,5 @@ try{
   await page.close();
   console.log(`PASS category search ${scope} ${width}: categories, filters, ID/year/phrase, keyboard, details, empty/reset, pagination, all-match print, fallback and query privacy.`);
  }
- console.log('PASS 18 Chromium Letter PDFs, including SRC-100: matching IDs, amounts, dated evidence, qualifications and clickable sources.');
+ console.log('PASS 22 Chromium Letter PDFs, including filtered results and SRC-100: matching IDs, amounts, dates, qualifications, clickable sources and no empty pages.');
 }finally{await browser?.close();server?.kill()}
