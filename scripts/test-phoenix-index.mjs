@@ -91,7 +91,9 @@ try {
     await page.locator('#record-topic').selectOption('bell', {force:true});
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
-    assert.equal(await visible.count(), 15);
+    assert.equal(await visible.count(), 16);
+    assert(await page.locator('#MC-HOME-WEB-001').isVisible());
+    assert((await page.locator('#MC-HOME-WEB-001').textContent()).includes('not confirmed awards or spending'));
     await page.locator('#record-kind').selectOption('expenditure', {force:true});
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'PHX-CFP-WEB-004');
