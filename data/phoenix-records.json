@@ -86,6 +86,7 @@
     "inventory": "Existing inventory",
     "planned": "Plans & forecasts",
     "financing": "Reported financing",
+    "ground-lease-proposal": "Proposed ground leases",
     "authorization": "Authorization ceilings",
     "award": "Published awards",
     "estimate": "Survey estimates",
@@ -254,7 +255,7 @@
       "id": "PHX-EXT-PROJECT-002",
       "title": "June 17, 2026 Moreland II Council report",
       "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297",
-      "note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
+      "note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001. The Report Summary describes Phase I construction and the February 2028 forecast as of the June 17, 2026 action.",
       "page_url": "index.html#source-PHX-EXT-PROJECT-002",
       "metadata": {
         "agency": "city-phoenix",
@@ -486,7 +487,7 @@
       "id": "PHX-TEMPE-001",
       "title": "Tempe April 25, 2024 Council agenda",
       "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
-      "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+      "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
       "page_url": "index.html#source-PHX-TEMPE-001",
       "metadata": {
         "agency": "city-tempe",
@@ -499,7 +500,7 @@
           "2024"
         ],
         "year_status": "stated",
-        "date_basis": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+        "date_basis": "April 25, 2024 is the date of the Tempe Council agenda. Items 8C5–8C7 concern proposed ground leases.",
         "date_basis_url": "index.html#PHX-WEB-029",
         "retrieved_on": "2026-11-10"
       }
@@ -530,7 +531,7 @@
       "id": "PHX-SHELTER-002",
       "title": "Phoenix December 3, 2025 Council action",
       "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
-      "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+      "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. The staff report describes a $10 million total project cost and a loan. Actual expenditure and opening require separate evidence.",
       "page_url": "index.html#source-PHX-SHELTER-002",
       "metadata": {
         "agency": "city-phoenix",
@@ -551,7 +552,7 @@
       "id": "PHX-SHELTER-003",
       "title": "Phoenix May 12, 2026 shelter site dedication announcement",
       "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
-      "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+      "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The City describes an estimated $8 million project and a HOME-ARP grant. The opening date and people served by the expansion remain unverified.",
       "page_url": "index.html#source-PHX-SHELTER-003",
       "metadata": {
         "agency": "city-phoenix",
@@ -1050,7 +1051,7 @@
       "id": "PHX-WEB-029",
       "aliases": [],
       "topic": "funding",
-      "kind": "financing",
+      "kind": "ground-lease-proposal",
       "title": "La Victoria Commons has 104 apartments in two financing portions",
       "labels": [
         "Council agenda records the ground-lease financing structure"
@@ -1063,7 +1064,8 @@
         "PHX-WEB-029"
       ],
       "limitations": [
-        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes.",
+        "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
       ],
       "source_ids": [
         "PHX-TEMPE-001"
@@ -1097,7 +1099,8 @@
         "PHX-WEB-030"
       ],
       "limitations": [
-        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified.",
+        "The December 3, 2025 Council report describes a $10 million total project cost and a loan. The May 12, 2026 City announcement describes an estimated $8 million project and a grant. The reviewed sources leave the differences unexplained. An executed agreement, any amendments and a reconciled budget are needed to establish the terms and cost."
       ],
       "source_ids": [
         "PHX-SHELTER-001",
@@ -1347,14 +1350,15 @@
         "Planned development scope, not completed units"
       ],
       "summary": [
-        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II."
+        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
       ],
       "context": [
         "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
         "PHX-WEB-007 · Approved financing action describing development scope"
       ],
       "limitations": [
-        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units."
+        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
       ],
       "source_ids": [
         "PHX-EXT-PROJECT-002",

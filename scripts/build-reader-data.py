@@ -97,13 +97,16 @@ for page, ids in feed_pages.items():
  for aid in ids:
   a=source.xpath('//*[@id=$aid]',aid=aid)[0]
   if a.get('data-publication-pending')=='true':continue
-  times=a.xpath('.//time/@datetime')
-  if not times or any('T' not in x for x in times):raise ValueError('Missing exact timestamp: '+aid)
-  dates=sorted(times,key=datetime.fromisoformat);explicit_publication=a.xpath('.//time[@data-publication="true"]/@datetime');published=explicit_publication[0] if explicit_publication else dates[0];updated=dates[-1]
   copy=deepcopy(a)
+  # On-page clarifications added after syndication stay with the live record.
+  for clarification in copy.xpath('.//*[@data-feed-exclude="true"]'):
+   clarification.drop_tree()
+  times=copy.xpath('.//time/@datetime')
+  if not times or any('T' not in x for x in times):raise ValueError('Missing exact timestamp: '+aid)
+  dates=sorted(times,key=datetime.fromisoformat);explicit_publication=copy.xpath('.//time[@data-publication="true"]/@datetime');published=explicit_publication[0] if explicit_publication else dates[0];updated=dates[-1]
   for link in copy.xpath('.//a[@href]'):
    link.set('href',urljoin(SITE+page,link.get('href')))
-  title=clean(a.xpath('.//h2')[0].text_content())
+  title=clean(copy.xpath('.//h2')[0].text_content())
   entries.append((updated,SITE+page+'#'+aid,title,published,etree.tostring(copy,encoding='unicode',method='html')))
 sub(feed,'updated',max(e[0] for e in entries))
 for updated,url,title,published,content in sorted(entries,reverse=True):

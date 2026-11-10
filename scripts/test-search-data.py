@@ -37,11 +37,17 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  <details><summary>Historical wording</summary><p>preserved-history</p></details>
  <p>preserved-final</p></section>'''
  p=root/'tucson/index.html';p.write_text(p.read_text().replace('</main>',fixture+'</main>'))
+ # An on-page clarification stays in search without changing the syndicated entry or its dates.
+ p=root/'research-updates.html'
+ marker='<article id="county-housing-funding-2026-11-08">'
+ clarification='<p data-feed-exclude="true">preserved-site-clarification <time datetime="2099-01-01">test date</time></p>'
+ p.write_text(p.read_text().replace(marker,marker+clarification,1))
  subprocess.run([sys.executable,str(root/'scripts/build-reader-data.py')],check=True)
+ assert (root/'feed.xml').read_bytes()==(ROOT/'feed.xml').read_bytes(), 'A site-only clarification changed the feed'
  records=json.loads((root/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n'))['records']
  text=' '.join(r['text'] for r in records)
  assert 'excluded-' not in text
- for term in ['preserved-before','preserved-after','preserved-disclosure','preserved-history','preserved-final','SRC-094','Q-020','1,284,589.71']:
+ for term in ['preserved-before','preserved-after','preserved-disclosure','preserved-history','preserved-final','preserved-site-clarification','SRC-094','Q-020','1,284,589.71']:
   assert term in text,term
  assert any(r['historical'] and 'preserved-history' in r['text'] for r in records)
  for anchor in ['audit-corrections-2026-11-06','housing-questions-2026-11-06']:

@@ -4,8 +4,12 @@
     "tucson": {
       "name": "Tucson & Pima County",
       "intro": "Follow housing funding, explore reported results, and see what the records still cannot tell us.",
-      "date_label": "Research update",
+      "date_label": "Research snapshot",
       "date": "2026-11-08",
+      "published_updates": [
+        {"label": "November 9 Council-vote update", "href": "research-updates.html#craycroft-council-vote-2026-11-09"},
+        {"label": "November 10 citation correction", "href": "research-updates.html#src-100-citation-correction"}
+      ],
       "findings": [
         {"title": "$1.5 million reallocated", "text": "Tucson adopted a CDBG category transfer on October 6, 2026. It moves existing resources; it is not a new award or verified spending.", "href": "findings.html#f-001"},
         {"title": "63 apartments reported opened", "text": "City announcements describe Milagro on Oracle opening in January 2025. An opening report does not establish current vacancies.", "href": "findings.html#f-004"},
@@ -31,8 +35,12 @@
     "phoenix": {
       "name": "Phoenix",
       "intro": "Follow housing funding, explore reported results, and see what the records still cannot tell us.",
-      "date_label": "Evidence snapshot",
+      "date_label": "Original research snapshot",
       "date": "2026-11-08",
+      "published_updates": [
+        {"label": "November 9 housing and funding update", "href": "phoenix/index.html#research-update-2026-11-09"},
+        {"label": "November 10 housing counts and shelter funding", "href": "phoenix/index.html#project-counts-and-shelter-funding"}
+      ],
       "findings": [
         {"title": "53 apartments reported completed", "text": "The draft FY2025–26 CAPER reports 25th @ Bell completed. This is draft reporting, not a current occupancy or vacancy check.", "href": "phoenix/projects/25th-at-bell.html#BELL-01"},
         {"title": "Two planned Moreland phases", "text": "The June 17, 2026 Council report describes 132 and 105 planned apartments. The combined 237 is not completed Phase I housing.", "href": "phoenix/projects/moreland.html#scope"},
@@ -62,7 +70,7 @@
       "project-pub-002": {"name": "Craycroft Towers & Lee Street", "place": "Tucson", "stage": "Existing housing · August 2026 notice", "homes": "74 Craycroft + 8 Lee Street apartments", "funding": "82 project-based vouchers allocated; executed HAP contracts remain unverified.", "caution": "These are existing homes, not 82 newly constructed apartments or available vacancies.", "href": "housing-projects.html#project-pub-002", "finding_href": "findings.html#f-003"},
       "project-pub-003": {"name": "Milagro on Oracle", "place": "Tucson", "stage": "Reported opened · January 2025", "homes": "63 affordable apartments", "funding": "A comparable spending total is not established in this project summary.", "caution": "A reported opening is not an audited resident count or a current vacancy listing.", "href": "housing-projects.html#project-pub-003", "finding_href": "findings.html#f-004"},
       "project-pub-004": {"name": "Amazon Motel Conversion", "place": "Tucson", "stage": "Reported completed · September 2025", "homes": "30 supportive-housing studios", "funding": "$749,625 described in County packet PO2500016491; execution remains unverified.", "caution": "The packet uses the name Amazon Flats but describes the motel conversion. Published signature lines are blank.", "href": "housing-projects.html#project-pub-004", "finding_href": "findings.html#f-011"},
-      "project-pub-005": {"name": "Tucson House Renovation", "place": "Tucson · 15th floor", "stage": "Temporary-occupancy permit listed Issued · October 16, 2026", "homes": "24 renovated apartments announced", "funding": "A comparable project-spending total is not established in this summary.", "caution": "The 24 apartments and 25 announced households remain unreconciled. The permit register lists a November 15, 2026 expiration; current validity and vacancies are unverified.", "href": "housing-projects.html#project-pub-005", "finding_href": "findings.html#f-012"}
+      "project-pub-005": {"name": "Tucson House Renovation", "place": "Tucson · 15th floor", "stage": "Renovation milestone announced · October 16, 2026", "homes": "24 renovated apartments announced", "funding": "A comparable project-spending total is not established in this summary.", "caution": "The 24 apartments and 25 announced households remain unreconciled. The permit register lists a November 15, 2026 expiration. The issue date, current permit validity and vacancies remain unverified.", "href": "housing-projects.html#project-pub-005", "finding_href": "findings.html#f-012"}
     },
     "phoenix": {
       "project-bell": {"name": "25th @ Bell", "place": "16801 N. 25th Street · Phoenix", "stage": "Reported completed · draft FY2025–26 CAPER", "homes": "53 reported apartments", "funding": "Separate City and State HOME activities; funding fields are not verified cash payments.", "caution": "Assisted-unit designations can overlap. Draft completion reporting does not establish current occupancy or vacancies.", "href": "phoenix/projects/25th-at-bell.html"},

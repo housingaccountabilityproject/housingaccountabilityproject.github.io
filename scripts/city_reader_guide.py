@@ -42,10 +42,11 @@ def landscape(path):
     return f'<div class="city-landscape" aria-hidden="true"><img src="{href("assets/arizona-landscape.webp", path)}" width="1983" height="793" alt="" decoding="async" fetchpriority="high"></div>'
 
 
-def hero(city, spec, path):
+def hero(spec, path):
     day = date.fromisoformat(spec['date'])
     label = f'{day:%B} {day.day}, {day.year}'
-    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Housing Accountability Project · City research</p><h1>{escape(spec['name'])}</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date">{escape(spec['date_label'])}: <time datetime="{spec['date']}">{label}</time> · Source periods vary.</p></div></section>'''
+    updates = ' · '.join(f'<a href="{href(item["href"], path)}">{escape(item["label"])}</a>' for item in spec['published_updates'])
+    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Housing Accountability Project · City research</p><h1>{escape(spec['name'])}</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date">{escape(spec['date_label'])} · <time datetime="{spec['date']}">{label}</time>. Source periods vary.<br>Later publications · {updates}</p></div></section>'''
 
 
 def learning(spec, path):
@@ -95,7 +96,7 @@ def overviews(output, path, all_data):
     output = output.replace('<details id="full-research" class="city-evidence-library city-wrap"><summary>', '<details class="city-evidence-library city-wrap"><summary id="full-research" class="city-library-summary">')
     city = 'phoenix' if path.startswith('phoenix/') else 'tucson'
     spec = all_data['cities'][city]
-    new_hero = hero(city, spec, path)
+    new_hero = hero(spec, path)
     new_learning = learning(spec, path)
     new_guide = guide(city, spec, path, all_data['projects'][city])
     if 'data-city-guide-version="2"' in output:
