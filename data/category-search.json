@@ -27774,8 +27774,10 @@
       "agency": "",
       "programs": [],
       "place": "",
-      "years": [],
-      "label": "Website publication time pending verification",
+      "years": [
+        "2026"
+      ],
+      "label": "Published research update",
       "summary": [
         "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026."
       ],
@@ -27783,7 +27785,16 @@
         "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
       ],
       "notes": [],
-      "metadata": [],
+      "metadata": [
+        [
+          "Website publication timestamp",
+          "2026-11-10T10:24:54-07:00"
+        ],
+        [
+          "Website update timestamp",
+          "2026-11-10T10:24:54-07:00"
+        ]
+      ],
       "url": "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
       "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
       "originals": [
@@ -27797,11 +27808,16 @@
         "SRC-100"
       ],
       "aliases": [],
-      "raw": {},
-      "yearBasis": "Website publication time pending verification",
+      "raw": {
+        "feed_timestamps": {
+          "published": "2026-11-10T10:24:54-07:00",
+          "updated": "2026-11-10T10:24:54-07:00"
+        }
+      },
+      "yearBasis": "Website publication date",
       "yearNote": "The source and event dates are separate from the website publication date.",
-      "publicationPending": true,
-      "searchText": "src-100-citation-correction SRC-100 citation correction Website publication time pending verification   HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. SRC-100 Website publication time pending verification The source and event dates are separate from the website publication date. Verified HUD environmental review"
+      "publicationPending": false,
+      "searchText": "src-100-citation-correction SRC-100 citation correction Published research update   HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. SRC-100 Website publication date 2026-11-10T10:24:54-07:00 November 10, 2026 at 10:24:54 a.m. MST The source and event dates are separate from the website publication date. Verified HUD environmental review"
     },
     {
       "key": "phoenix:project-counts-and-shelter-funding",
@@ -27815,8 +27831,10 @@
       "agency": "",
       "programs": [],
       "place": "",
-      "years": [],
-      "label": "Website publication time pending verification",
+      "years": [
+        "2026"
+      ],
+      "label": "Published research update",
       "summary": [
         "The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority."
       ],
@@ -27824,7 +27842,16 @@
         "Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence."
       ],
       "notes": [],
-      "metadata": [],
+      "metadata": [
+        [
+          "Website publication timestamp",
+          "2026-11-10T10:24:54-07:00"
+        ],
+        [
+          "Website update timestamp",
+          "2026-11-10T10:24:54-07:00"
+        ]
+      ],
       "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#project-counts-and-shelter-funding",
       "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#project-counts-and-shelter-funding",
       "originals": [
@@ -27848,11 +27875,16 @@
         "PHX-WEB-030"
       ],
       "aliases": [],
-      "raw": {},
-      "yearBasis": "Website publication time pending verification",
+      "raw": {
+        "feed_timestamps": {
+          "published": "2026-11-10T10:24:54-07:00",
+          "updated": "2026-11-10T10:24:54-07:00"
+        }
+      },
+      "yearBasis": "Website publication date",
       "yearNote": "The source and event dates are separate from the website publication date.",
-      "publicationPending": true,
-      "searchText": "project-counts-and-shelter-funding Phoenix-area housing counts and shelter funding Website publication time pending verification   The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority. Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence. PHX-WEB-028 PHX-WEB-029 PHX-WEB-030 Website publication time pending verification The source and event dates are separate from the website publication date. Phoenix Manor preserves 450 existing apartments La Victoria Commons has 104 apartments in two financing portions Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority"
+      "publicationPending": false,
+      "searchText": "project-counts-and-shelter-funding Phoenix-area housing counts and shelter funding Published research update   The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority. Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence. PHX-WEB-028 PHX-WEB-029 PHX-WEB-030 Website publication date 2026-11-10T10:24:54-07:00 November 10, 2026 at 10:24:54 a.m. MST The source and event dates are separate from the website publication date. Phoenix Manor preserves 450 existing apartments La Victoria Commons has 104 apartments in two financing portions Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority"
     }
   ],
   "coverage": {

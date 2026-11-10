@@ -74,7 +74,10 @@ assert new_article.xpath('.//a[@href="evidence.html#src-125"]')
 for e in entries:
  get=lambda k:e.findtext('{'+ns['a']+'}'+k)
  assert datetime.fromisoformat(get('published'))<=datetime.fromisoformat(get('updated'))
- url=get('id');aid=urlsplit(url).fragment;article=pages['research-updates.html'].xpath('//*[@id=$id]',id=aid)[0]
+ url=urlsplit(get('id'))
+ page=phoenix_page if url.path=='/phoenix/index.html' else pages[url.path.lstrip('/')]
+ aid=url.fragment
+ article=page.xpath('//*[@id=$id]',id=aid)[0]
  times=article.xpath('.//time/@datetime');assert get('published') in times and get('updated') in times
  explicit=article.xpath('.//time[@data-publication="true"]/@datetime')
  if explicit:assert get('published')==explicit[0],('explicit publication date',aid)
