@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "summary": {
-    "entries": 28,
+    "entries": 30,
     "supportedPeriodReferences": 16,
-    "unknownPeriods": 12
+    "unknownPeriods": 14
   },
   "records": [
     {
@@ -1560,6 +1560,78 @@
               "url": "https://tpch.net/wp-content/uploads/submission-confirmation.jpg",
               "locator": "Image table, CoC Application FY2026 row, Date Submitted column",
               "quote": "Sep 29, 2026, 11:23:18 AM"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-029",
+      "id": "PHX-WEB-029",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "April 25, 2024",
+          "label": "Tempe Council agenda and proposed ground leases",
+          "evidence": [
+            {
+              "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+              "locator": "Tempe April 25, 2024 Council agenda"
+            }
+          ]
+        }
+      ],
+      "periodLeads": []
+    },
+    {
+      "key": "phoenix:PHX-WEB-030",
+      "id": "PHX-WEB-030",
+      "scope": "phoenix",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "June 14, 2023",
+          "label": "HOME-ARP replaced the CDBG commitment",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+              "locator": "Phoenix June 14, 2023 Council minutes"
+            }
+          ]
+        },
+        {
+          "date": "December 3, 2025",
+          "label": "Council increased the HOME-ARP authority",
+          "evidence": [
+            {
+              "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+              "locator": "Phoenix December 3, 2025 Council action"
+            }
+          ]
+        },
+        {
+          "date": "May 12, 2026",
+          "label": "Site dedication for future construction",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+              "locator": "Phoenix May 12, 2026 shelter site dedication announcement"
             }
           ]
         }

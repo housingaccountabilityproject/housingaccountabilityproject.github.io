@@ -1,5 +1,5 @@
 {
-  "source": "Published HAP pages copied for this working preview. This is not a new evidence review.",
+  "source": "Selected public Arizona research from published pages and verified source passages.",
   "records": [
     {
       "key": "phoenix:MC-HAMC-WEB-001",
@@ -14814,44 +14814,47 @@
         "Vouchers / HCV / PBV",
         "Bonds / financing"
       ],
-      "agency": "Not separately tagged",
+      "agency": "U.S. Department of Housing and Urban Development (HUD)",
       "programs": [],
       "years": [
         "2026"
       ],
-      "label": "Tucson / Pima County · other",
+      "label": "Verified HUD environmental review",
       "summary": [
         "Federal environmental record; September 1, 2026 authorization for use of grant funds."
       ],
       "caveats": [
-        "The earlier public link serves a different project in Renton, Washington. The verified Craycroft link is supplied here; the dates support recorded certification entries only, not closing or all remaining approvals.",
-        "Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts."
+        "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
       ],
       "notes": [
-        "Federal environmental record; September 1, 2026 authorization for use of grant funds.",
-        "Selected source content reviewed November 7, 2026.",
-        "Primary source supporting the November 7, 2026 review; stable new source ID.",
-        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+        "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon.",
+        "On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1.",
+        "HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication.",
+        "Document identity matches the existing published crosswalk. Website SRC-100 maps to workbook SRC-099. The verified public URL uses the HEROS filename. The workbook was not rechecked for this correction."
       ],
       "metadata": [
-        [
-          "Period",
-          "other"
-        ],
         [
           "Website ID",
           "SRC-100"
         ],
         [
-          "Workbook IDs (separate namespace)",
+          "Workbook ID (separate namespace)",
           "SRC-099"
+        ],
+        [
+          "Environmental record",
+          "HEROS 900000010528814"
         ]
       ],
       "url": "https://housingaccountabilityproject.github.io/evidence.html#src-100",
-      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#records-clarified-2026-11-07",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
       "originals": [
         {
-          "title": "Original source",
+          "title": "Verified HUD environmental review",
+          "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        },
+        {
+          "title": "Historical mismatched link (formerly Solera)",
           "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
         }
       ],
@@ -14870,59 +14873,52 @@
         "title": "Craycroft/Lee Street federal environmental record",
         "period": "other",
         "topic": "pbv hcv bonds",
-        "source_context": "Federal environmental record; September 1, 2026 authorization for use of grant funds.",
-        "limitations": "Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts.",
+        "source_context": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026.",
+        "limitations": "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected.",
         "urls": [
-          "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+          "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
         ],
         "citation_url": "research-updates.html#records-clarified-2026-11-07",
         "aliases": [],
         "page_url": "evidence.html#src-100",
         "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-        "review_attribution": "Selected source content reviewed November 7, 2026.",
+        "review_attribution": "Source checked November 9, 2026 (MST). Verified filename download and certification entries rechecked November 10, 2026 (MST).",
         "namespace": "website",
         "workbook_source_ids": [
           "SRC-099"
         ],
         "crosswalk_url": "evidence.html#source-id-crosswalk",
-        "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+        "workbook_mapping_basis": "Document identity matches the existing published crosswalk. Website SRC-100 maps to workbook SRC-099. The verified public URL uses the HEROS filename. The workbook was not rechecked for this correction.",
+        "correction_url": "evidence.html#src-100-citation-correction",
+        "previous_mismatched_url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+        "correction_note": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
       },
-      "searchText": "Craycroft/Lee Street federal environmental record SRC-100 Source reference Vouchers / HCV / PBV Bonds / financing SRC-100 Craycroft/Lee Street federal environmental record other pbv hcv bonds Federal environmental record; September 1, 2026 authorization for use of grant funds. Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts. https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx research-updates.html#records-clarified-2026-11-07 evidence.html#src-100 Primary source supporting the November 7, 2026 review; stable new source ID. Selected source content reviewed November 7, 2026. website SRC-099 evidence.html#source-id-crosswalk Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. Council action/event Primary public record evidence: Federal environmental record; September 1, 2026 authorization for use of grant funds.. Review/retrieval dates are not used as additional indexed years. Basis is the existing published HAP record, not a new review of the original source. 2026 Recorded environmental certification dates The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The old link mismatch is retained as a warning. The corrected official copy was reused from an independent public-source check; no private workbook contents are included. 2026",
+      "searchText": "Craycroft/Lee Street federal environmental record SRC-100 Source reference Vouchers / HCV / PBV Bonds / financing SRC-100 Craycroft/Lee Street federal environmental record other pbv hcv bonds Federal environmental record; September 1, 2026 authorization for use of grant funds. Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts. https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx research-updates.html#records-clarified-2026-11-07 evidence.html#src-100 Primary source supporting the November 7, 2026 review; stable new source ID. Selected source content reviewed November 7, 2026. website SRC-099 evidence.html#source-id-crosswalk Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. Council action/event Primary public record evidence: Federal environmental record; September 1, 2026 authorization for use of grant funds.. Review/retrieval dates are not used as additional indexed years. Basis is the existing published HAP record, not a new review of the original source. 2026 Recorded environmental certification dates The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The old link mismatch is retained as a warning. The corrected official copy was reused from an independent public-source check; no private workbook contents are included. 2026 HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
       "yearBasis": "Recorded environmental certification dates",
-      "yearNote": "The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The old link mismatch is retained as a warning. The corrected official copy was reused from an independent public-source check; no private workbook contents are included.",
+      "yearNote": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication.",
       "sourceType": "Other source records",
-      "yearSourceCheck": "Correct HUD archive identity and recorded certification dates verified on November 10, 2026 (UTC). The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The original live-site link was mismatched; this preview supplies the verified link and keeps the earlier link visibly flagged.",
+      "yearSourceCheck": "November 10, 2026 (MST). On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1.",
       "yearEvidence": [
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 2, Project Name",
-          "quote": "Solera-Apartments"
+          "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+          "locator": "Project Information and certification fields immediately before Funding Information",
+          "quote": "Craycroft Towers and Lee Street Duplexes, HEROS 900000010528814. 7015.15 certified 8/11/2026 and 7015.16 certified 9/1/2026."
         },
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 11, Project Location",
-          "quote": "2950 NE 11th St, Renton, WA 98056"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 18, certification",
-          "quote": "09/01/2026"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "Project Information table; HEROS 900000010528814; certification entries immediately before Funding Information",
-          "quote": "Project: Craycroft-Towers-and-Lee-Street-Duplexes. 7015.15 certified on 8/11/2026; 7015.16 certified on 9/1/2026."
+          "url": "https://cpd.hud.gov/cpd-public/environmental-reviews",
+          "locator": "Arizona, Tucson, HEROS 900000010528814",
+          "quote": "Posting end September 1, 2027."
         }
       ],
-      "dateCheckMethod": "The old link was mismatched; the corrected public original’s identity and recorded certification dates were checked.",
+      "dateCheckMethod": "HUD listed document identity, matching download bytes and certification entries were verified.",
       "linkWarnings": [
         {
           "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "text": "This retained historical link currently returns Solera Apartments in Renton, WA, not Craycroft/Lee Street. Use the verified Craycroft archive link."
+          "text": "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. Retained only as a historical mismatch. Use the verified HUD filename link."
         }
       ],
-      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-      "displaySummary": "The verified HUD record identifies Craycroft/Lee Street and lists environmental certification entries dated August 11 and September 1, 2026."
+      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+      "displaySummary": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026."
     },
     {
       "key": "tucson:evidence.html#src-101",
@@ -20335,10 +20331,13 @@
       ],
       "caveats": [
         "The earlier public link serves a different project in Renton, Washington. The verified Craycroft link is supplied here; the dates support recorded certification entries only, not closing or all remaining approvals.",
-        "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million."
+        "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
+        "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
       ],
       "notes": [
-        "Q-015 · 2026What Is Planned for Craycroft and Lee Street?Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.Sources: Source 5 · Source 6Research status: Financing and environmental stages documented; budget and bedroom count unresolvedEvidence Question Q-015Full Question and Source LimitsUpdated November 7, 2026, 9:30 a.m. MST (Tucson). SRC-098 · SRC-099 · SRC-100 · November 7 review"
+        "Q-015 · 2026What Is Planned for Craycroft and Lee Street?Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.Sources: Source 5 · Source 6Research status: Financing and environmental stages documented; budget and bedroom count unresolvedEvidence Question Q-015Full Question and Source LimitsUpdated November 7, 2026, 9:30 a.m. MST (Tucson). SRC-098 · SRC-099 · SRC-100 · November 7 review",
+        "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon.",
+        "HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication."
       ],
       "metadata": [
         [
@@ -20352,7 +20351,12 @@
       ],
       "url": "https://housingaccountabilityproject.github.io/questions-records.html#q-015",
       "contextUrl": "https://housingaccountabilityproject.github.io/questions-records.html#q-015",
-      "originals": [],
+      "originals": [
+        {
+          "title": "Historical mismatched link (formerly Solera)",
+          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        }
+      ],
       "links": [
         {
           "title": "Source 5",
@@ -20431,10 +20435,10 @@
           }
         ]
       },
-      "searchText": "What Is Planned for Craycroft and Lee Street? Q-015 Numbered question Vouchers / HCV / PBV Q-015 · 2026What Is Planned for Craycroft and Lee Street?Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.Sources: Source 5 · Source 6Research status: Financing and environmental stages documented; budget and bedroom count unresolvedEvidence Question Q-015Full Question and Source LimitsUpdated November 7, 2026, 9:30 a.m. MST (Tucson). SRC-098 · SRC-099 · SRC-100 · November 7 review Source 5 https://housingaccountabilityproject.github.io/research-updates.html#tracker-source-5 Source 6 https://housingaccountabilityproject.github.io/research-updates.html#tracker-source-6 Evidence Question Q-015 https://housingaccountabilityproject.github.io/evidence.html#q-015 Full Question and Source Limits https://housingaccountabilityproject.github.io/housing-projects.html#craycroft-review-2026 SRC-098 https://housingaccountabilityproject.github.io/evidence.html#src-098 SRC-099 https://housingaccountabilityproject.github.io/evidence.html#src-099 SRC-100 https://housingaccountabilityproject.github.io/evidence.html#src-100 November 7 review https://housingaccountabilityproject.github.io/research-updates.html#records-clarified-2026-11-07 Dated project scope Primary public record evidence: Q-015 · 2026 Indexed years do not establish a publication date. Basis is the existing published HAP record, not a new review of the original source. 2026 2026 RAD CHAP event and HEROS listed certifications The separately checked RAD export dates Craycroft/Lee Street CHAP July 21, 2026. The corrected /8800 HUD file identifies Craycroft-Towers-and-Lee-Street-Duplexes and HEROS 900000010528814 and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. Retain 2026 for these recorded events. The original /8818 link still serves the wrong project; keep that warning and cite /8800 for the narrow recorded-certification claim, without implying executed instruments or financing closing. The registered /8818 link still serves an unrelated Solera Apartments document. The corrected /8800 original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. 2026",
+      "searchText": "What Is Planned for Craycroft and Lee Street? Q-015 Numbered question Vouchers / HCV / PBV Q-015 · 2026What Is Planned for Craycroft and Lee Street?Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure.Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.Sources: Source 5 · Source 6Research status: Financing and environmental stages documented; budget and bedroom count unresolvedEvidence Question Q-015Full Question and Source LimitsUpdated November 7, 2026, 9:30 a.m. MST (Tucson). SRC-098 · SRC-099 · SRC-100 · November 7 review Source 5 https://housingaccountabilityproject.github.io/research-updates.html#tracker-source-5 Source 6 https://housingaccountabilityproject.github.io/research-updates.html#tracker-source-6 Evidence Question Q-015 https://housingaccountabilityproject.github.io/evidence.html#q-015 Full Question and Source Limits https://housingaccountabilityproject.github.io/housing-projects.html#craycroft-review-2026 SRC-098 https://housingaccountabilityproject.github.io/evidence.html#src-098 SRC-099 https://housingaccountabilityproject.github.io/evidence.html#src-099 SRC-100 https://housingaccountabilityproject.github.io/evidence.html#src-100 November 7 review https://housingaccountabilityproject.github.io/research-updates.html#records-clarified-2026-11-07 Dated project scope Primary public record evidence: Q-015 · 2026 Indexed years do not establish a publication date. Basis is the existing published HAP record, not a new review of the original source. 2026 2026 RAD CHAP event and HEROS listed certifications The separately checked RAD export dates Craycroft/Lee Street CHAP July 21, 2026. The verified filename-based HUD download HUD file identifies Craycroft-Towers-and-Lee-Street-Duplexes and HEROS 900000010528814 and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. Retain 2026 for these recorded events. The original /8818 link still serves the wrong project; keep that warning and cite the filename-based HUD download for the narrow recorded-certification claim, without implying executed instruments or financing closing. The registered /8818 link still serves an unrelated Solera Apartments document. The verified filename-based HUD download original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. 2026 HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
       "yearBasis": "2026 RAD CHAP event and HEROS listed certifications",
-      "yearNote": "The separately checked RAD export dates Craycroft/Lee Street CHAP July 21, 2026. The corrected /8800 HUD file identifies Craycroft-Towers-and-Lee-Street-Duplexes and HEROS 900000010528814 and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. Retain 2026 for these recorded events. The original /8818 link still serves the wrong project; keep that warning and cite /8800 for the narrow recorded-certification claim, without implying executed instruments or financing closing. The registered /8818 link still serves an unrelated Solera Apartments document. The corrected /8800 original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy.",
-      "yearSourceCheck": "Correct HUD archive identity and recorded certification dates verified on November 10, 2026 (UTC). The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The original live-site link was mismatched; this preview supplies the verified link and keeps the earlier link visibly flagged.",
+      "yearNote": "The separately checked RAD export dates the Craycroft/Lee Street CHAP to July 21, 2026. HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication.",
+      "yearSourceCheck": "November 10, 2026 (MST). On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1.",
       "yearEvidence": [
         {
           "url": "https://housingaccountabilityproject.github.io/questions-records.html#q-015",
@@ -20447,34 +20451,24 @@
           "quote": "CRAYCROFT TOWERS AND LEE STREET DUPLEXES; CHAP Date; Financing Plan Submitted"
         },
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX Project Information table: Project Name and Project Location; determination signature/date",
-          "quote": "Project Name: Solera-Apartments; Project Location: 2950 NE 11th St, Renton, WA 98056; 09/01/2026"
+          "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+          "locator": "Project Information and certification fields immediately before Funding Information",
+          "quote": "Craycroft Towers and Lee Street Duplexes, HEROS 900000010528814. 7015.15 certified 8/11/2026 and 7015.16 certified 9/1/2026."
         },
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 2, Project Name",
-          "quote": "Solera-Apartments"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 11, Project Location",
-          "quote": "2950 NE 11th St, Renton, WA 98056"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "Project Information table; HEROS 900000010528814; certification entries immediately before Funding Information",
-          "quote": "Project: Craycroft-Towers-and-Lee-Street-Duplexes. 7015.15 certified on 8/11/2026; 7015.16 certified on 9/1/2026."
+          "url": "https://cpd.hud.gov/cpd-public/environmental-reviews",
+          "locator": "Arizona, Tucson, HEROS 900000010528814",
+          "quote": "Posting end September 1, 2027."
         }
       ],
-      "dateCheckMethod": "A retained original source copy was checked for the cited dates.",
+      "dateCheckMethod": "HUD listed document identity, matching download bytes and certification entries were verified.",
       "linkWarnings": [
         {
           "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "text": "This retained historical link currently returns Solera Apartments in Renton, WA, not Craycroft/Lee Street. Use the verified Craycroft archive link."
+          "text": "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. Retained only as a historical mismatch. Use the verified HUD filename link."
         }
       ],
-      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
     },
     {
       "key": "tucson:questions-records.html#q-016",
@@ -22211,7 +22205,7 @@
         "2026"
       ],
       "yearBasis": "Website publication date",
-      "yearNote": "The cached Atom feed explicitly dates this HAP update’s publication November 7, 2026. Retain 2026 as publication year. For its environmental statement, the verified /8800 original supports the narrower claim that HEROS lists Craycroft 7015.15 certification August 11 and 7015.16 certification September 1, 2026. Keep the /8818 wrong-project-link warning; do not characterize the environmental claim as wholly unsupported or infer remaining approvals/closing. The registered /8818 link still serves an unrelated Solera Apartments document. The corrected /8800 original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy.",
+      "yearNote": "The Atom feed dates the original HAP update to November 7, 2026. HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication.",
       "label": "Published research update",
       "summary": [
         "The City’s draft describes 378 units as newly constructed, but 96 at Casa del Pueblo are existing apartments being rehabilitated. Other projects in the list remain under construction. The figure is not a verified count of completed new homes. City permit"
@@ -22222,10 +22216,13 @@
         "The submitted priority list identifies SAAF’s AVP rapid-rehousing grant as the roughly 50% reduction: $792,695 was involuntarily reallocated for underspending, followed by reallocation of the balance because of limited renewal space. The separate payment-system-lockout case remains unidentified. Final HUD awards are unverified. Priority list",
         "The City’s posted resolution states that Council adopted authorization for up to $10 million in bonds. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. Closing, proceeds and signed assistance contracts remain unverified. City resolution · RAD data",
         "The City reports that 41 households moved into existing El Portal apartments over the summer with Housing First assistance. That is separate from the planned voucher expansion, whose final HUD approval and signed contracts remain unverified. City report",
-        "The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report"
+        "The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report",
+        "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
       ],
       "notes": [
-        "New Records Clarify Housing Counts and Funding Decisions Published: November 7, 2026, 9:30 a.m. MST (Tucson) . What’s Included in the Housing Count? The City’s draft describes 378 units as newly constructed, but 96 at Casa del Pueblo are existing apartments being rehabilitated. Other projects in the list remain under construction. The figure is not a verified count of completed new homes. City permit Which Grant Was Reduced? The submitted priority list identifies SAAF’s AVP rapid-rehousing grant as the roughly 50% reduction: $792,695 was involuntarily reallocated for underspending, followed by reallocation of the balance because of limited renewal space. The separate payment-system-lockout case remains unidentified. Final HUD awards are unverified. Priority list Where Does Craycroft Stand? The City’s posted resolution states that Council adopted authorization for up to $10 million in bonds. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. Closing, proceeds and signed assistance contracts remain unverified. City resolution · RAD data What About El Portal? The City reports that 41 households moved into existing El Portal apartments over the summer with Housing First assistance. That is separate from the planned voucher expansion, whose final HUD approval and signed contracts remain unverified. City report What Happened to the CDBG Transfer? The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report"
+        "New Records Clarify Housing Counts and Funding Decisions Published: November 7, 2026, 9:30 a.m. MST (Tucson) . What’s Included in the Housing Count? The City’s draft describes 378 units as newly constructed, but 96 at Casa del Pueblo are existing apartments being rehabilitated. Other projects in the list remain under construction. The figure is not a verified count of completed new homes. City permit Which Grant Was Reduced? The submitted priority list identifies SAAF’s AVP rapid-rehousing grant as the roughly 50% reduction: $792,695 was involuntarily reallocated for underspending, followed by reallocation of the balance because of limited renewal space. The separate payment-system-lockout case remains unidentified. Final HUD awards are unverified. Priority list Where Does Craycroft Stand? The City’s posted resolution states that Council adopted authorization for up to $10 million in bonds. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. Closing, proceeds and signed assistance contracts remain unverified. City resolution · RAD data What About El Portal? The City reports that 41 households moved into existing El Portal apartments over the summer with Housing First assistance. That is separate from the planned voucher expansion, whose final HUD approval and signed contracts remain unverified. City report What Happened to the CDBG Transfer? The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report",
+        "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon.",
+        "HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication."
       ],
       "metadata": [
         [
@@ -22267,6 +22264,10 @@
         {
           "title": "Council action report",
           "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1960&type=minutes&doctype=2"
+        },
+        {
+          "title": "Historical mismatched link (formerly Solera)",
+          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
         }
       ],
       "links": [
@@ -22389,8 +22390,8 @@
         ],
         "year_note": "Years come from explicitly labeled publication/review timestamps or written fiscal/program-year labels. They are not all publication years. No year is inferred from anchors/headings. Short two-digit range endpoints are not expanded."
       },
-      "searchText": "New Records Clarify Housing Counts and Funding Decisions Published: November 7, 2026, 9:30 a.m. MST (Tucson) . What’s Included in the Housing Count? The City’s draft describes 378 units as newly constructed, but 96 at Casa del Pueblo are existing apartments being rehabilitated. Other projects in the list remain under construction. The figure is not a verified count of completed new homes. City permit Which Grant Was Reduced? The submitted priority list identifies SAAF’s AVP rapid-rehousing grant as the roughly 50% reduction: $792,695 was involuntarily reallocated for underspending, followed by reallocation of the balance because of limited renewal space. The separate payment-system-lockout case remains unidentified. Final HUD awards are unverified. Priority list Where Does Craycroft Stand? The City’s posted resolution states that Council adopted authorization for up to $10 million in bonds. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. Closing, proceeds and signed assistance contracts remain unverified. City resolution · RAD data What About El Portal? The City reports that 41 households moved into existing El Portal apartments over the summer with Housing First assistance. That is separate from the planned voucher expansion, whose final HUD approval and signed contracts remain unverified. City report What Happened to the CDBG Transfer? The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report records-clarified-2026-11-07 New Records Clarify Housing Counts and Funding Decisions Website publication date The public website feed explicitly records publication at 2026-11-07T09:30:55-07:00. Financial/program coverage years and later review dates are separate. 2026 Website publication date The cached Atom feed explicitly dates this HAP update’s publication November 7, 2026. Retain 2026 as publication year. For its environmental statement, the verified /8800 original supports the narrower claim that HEROS lists Craycroft 7015.15 certification August 11 and 7015.16 certification September 1, 2026. Keep the /8818 wrong-project-link warning; do not characterize the environmental claim as wholly unsupported or infer remaining approvals/closing. The registered /8818 link still serves an unrelated Solera Apartments document. The corrected /8800 original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. 2026",
-      "yearSourceCheck": "Correct HUD archive identity and recorded certification dates verified on November 10, 2026 (UTC). The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. The original live-site link was mismatched; this preview supplies the verified link and keeps the earlier link visibly flagged.",
+      "searchText": "New Records Clarify Housing Counts and Funding Decisions Published: November 7, 2026, 9:30 a.m. MST (Tucson) . What’s Included in the Housing Count? The City’s draft describes 378 units as newly constructed, but 96 at Casa del Pueblo are existing apartments being rehabilitated. Other projects in the list remain under construction. The figure is not a verified count of completed new homes. City permit Which Grant Was Reduced? The submitted priority list identifies SAAF’s AVP rapid-rehousing grant as the roughly 50% reduction: $792,695 was involuntarily reallocated for underspending, followed by reallocation of the balance because of limited renewal space. The separate payment-system-lockout case remains unidentified. Final HUD awards are unverified. Priority list Where Does Craycroft Stand? The City’s posted resolution states that Council adopted authorization for up to $10 million in bonds. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. Closing, proceeds and signed assistance contracts remain unverified. City resolution · RAD data What About El Portal? The City reports that 41 households moved into existing El Portal apartments over the summer with Housing First assistance. That is separate from the planned voucher expansion, whose final HUD approval and signed contracts remain unverified. City report What Happened to the CDBG Transfer? The official action report confirms Council adopted the $1.5 million transfer between funding categories on October 6. It did not increase total funding. HUD submission, implementation and spending remain open questions. Council action report records-clarified-2026-11-07 New Records Clarify Housing Counts and Funding Decisions Website publication date The public website feed explicitly records publication at 2026-11-07T09:30:55-07:00. Financial/program coverage years and later review dates are separate. 2026 Website publication date The cached Atom feed explicitly dates this HAP update’s publication November 7, 2026. Retain 2026 as publication year. For its environmental statement, the verified filename-based HUD download original supports the narrower claim that HEROS lists Craycroft 7015.15 certification August 11 and 7015.16 certification September 1, 2026. Keep the /8818 wrong-project-link warning; do not characterize the environmental claim as wholly unsupported or infer remaining approvals/closing. The registered /8818 link still serves an unrelated Solera Apartments document. The verified filename-based HUD download original lists Craycroft/Lee Street certifications, but this does not independently verify final executed instruments, remaining RAD approvals, financing closing or expenditure. The correct HUD archive identifies Craycroft/Lee Street, HEROS 900000010528814, and lists 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026. This supports the recorded environmental-review entries, not a separately inspected final instrument, all RAD approvals, financing closing, proceeds, executed assistance contracts or occupancy. 2026 HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+      "yearSourceCheck": "November 10, 2026 (MST). On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1.",
       "yearEvidence": [
         {
           "url": "https://housingaccountabilityproject.github.io/feed.xml",
@@ -22398,34 +22399,24 @@
           "quote": "2026-11-07T09:30:55-07:00"
         },
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX Project Information table: Project Name and Project Location; determination signature/date",
-          "quote": "Project Name: Solera-Apartments; Project Location: 2950 NE 11th St, Renton, WA 98056; 09/01/2026"
+          "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+          "locator": "Project Information and certification fields immediately before Funding Information",
+          "quote": "Craycroft Towers and Lee Street Duplexes, HEROS 900000010528814. 7015.15 certified 8/11/2026 and 7015.16 certified 9/1/2026."
         },
         {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 2, Project Name",
-          "quote": "Solera-Apartments"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "DOCX table 11, Project Location",
-          "quote": "2950 NE 11th St, Renton, WA 98056"
-        },
-        {
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "locator": "Project Information table; HEROS 900000010528814; certification entries immediately before Funding Information",
-          "quote": "Project: Craycroft-Towers-and-Lee-Street-Duplexes. 7015.15 certified on 8/11/2026; 7015.16 certified on 9/1/2026."
+          "url": "https://cpd.hud.gov/cpd-public/environmental-reviews",
+          "locator": "Arizona, Tucson, HEROS 900000010528814",
+          "quote": "Posting end September 1, 2027."
         }
       ],
-      "dateCheckMethod": "The stated HAP publication date was checked.",
+      "dateCheckMethod": "HUD listed document identity, matching download bytes and certification entries were verified.",
       "linkWarnings": [
         {
           "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-          "text": "This retained historical link currently returns Solera Apartments in Renton, WA, not Craycroft/Lee Street. Use the verified Craycroft archive link."
+          "text": "The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. Retained only as a historical mismatch. Use the verified HUD filename link."
         }
       ],
-      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+      "correctedSourceUrl": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
     },
     {
       "key": "tucson:research-updates.html#county-housing-fy27-q1-2026-11-06",
@@ -26877,11 +26868,996 @@
         }
       ],
       "dateCheckMethod": "The public original was retrieved and its cited date evidence checked."
+    },
+    {
+      "key": "phoenix:PHX-WEB-028",
+      "id": "PHX-WEB-028",
+      "anchor": "PHX-WEB-028",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "Phoenix Manor preserves 450 existing apartments",
+      "kind": "Existing inventory",
+      "topics": [
+        "Reported delivery & inventory"
+      ],
+      "agency": "R4 Capital (investor)",
+      "programs": [
+        "Low-Income Housing Tax Credit (LIHTC)"
+      ],
+      "place": "Phoenix, Maricopa County · senior apartments at Phoenix Manor",
+      "years": [],
+      "label": "Investor-reported renovation and affordable conversion",
+      "summary": [
+        "R4 Capital describes renovating and converting 450 existing Phoenix Manor apartments from market-rate to affordable senior housing. Count the 450 as preservation of existing apartments."
+      ],
+      "caveats": [
+        "Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock."
+      ],
+      "notes": [
+        "Scope Phoenix, Maricopa County · senior apartments at Phoenix Manor Time period Project and occupancy periods unverified",
+        "PHX-WEB-028"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-028",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-028",
+      "originals": [
+        {
+          "title": "R4 Capital Phoenix Manor property profile",
+          "url": "https://r4cap.com/featured-properties/phoenix-manor/"
+        },
+        {
+          "title": "R4 Capital Phoenix Manor reopening statement",
+          "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR"
+        }
+      ],
+      "links": [
+        {
+          "title": "Project and evidence connections",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/projects.html#project-phoenix-manor"
+        }
+      ],
+      "sourceIds": [
+        "PHX-R4-001",
+        "PHX-R4-002"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-028",
+        "aliases": [],
+        "topic": "delivery",
+        "kind": "inventory",
+        "title": "Phoenix Manor preserves 450 existing apartments",
+        "labels": [
+          "Investor-reported renovation and affordable conversion"
+        ],
+        "summary": [
+          "R4 Capital describes renovating and converting 450 existing Phoenix Manor apartments from market-rate to affordable senior housing. Count the 450 as preservation of existing apartments."
+        ],
+        "context": [
+          "Scope Phoenix, Maricopa County · senior apartments at Phoenix Manor Time period Project and occupancy periods unverified",
+          "PHX-WEB-028"
+        ],
+        "limitations": [
+          "Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock."
+        ],
+        "source_ids": [
+          "PHX-R4-001",
+          "PHX-R4-002"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-R4-001"
+            ],
+            "title": "R4 Capital Phoenix Manor property profile",
+            "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-R4-002"
+            ],
+            "title": "R4 Capital Phoenix Manor reopening statement",
+            "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-028"
+      },
+      "yearBasis": "Investor statement and property profile with no verified absolute dates",
+      "yearNote": "The investor profile and statement describe the existing property and renovation. A dated reporting or program period is not established.",
+      "yearEvidence": [
+        {
+          "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+          "locator": "R4 Capital Phoenix Manor property profile"
+        },
+        {
+          "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+          "locator": "R4 Capital Phoenix Manor reopening statement"
+        }
+      ],
+      "yearSourceCheck": "Source passages checked November 10, 2026 (MST).",
+      "sourceType": "Other source records",
+      "searchText": "PHX-WEB-028 Phoenix Manor preserves 450 existing apartments Investor-reported renovation and affordable conversion R4 Capital (investor) Phoenix, Maricopa County · senior apartments at Phoenix Manor Reported delivery & inventory Low-Income Housing Tax Credit (LIHTC) R4 Capital describes renovating and converting 450 existing Phoenix Manor apartments from market-rate to affordable senior housing. Count the 450 as preservation of existing apartments. Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock. Scope Phoenix, Maricopa County · senior apartments at Phoenix Manor Time period Project and occupancy periods unverified PHX-WEB-028 PHX-R4-001 PHX-R4-002 Investor statement and property profile with no verified absolute dates The investor profile and statement describe the existing property and renovation. A dated reporting or program period is not established. R4 Capital Phoenix Manor property profile R4 Capital Phoenix Manor reopening statement"
+    },
+    {
+      "key": "phoenix:PHX-WEB-029",
+      "id": "PHX-WEB-029",
+      "anchor": "PHX-WEB-029",
+      "scope": "phoenix",
+      "category": "funding",
+      "title": "La Victoria Commons has 104 apartments in two financing portions",
+      "kind": "Reported financing",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Tempe (ground leases)",
+      "programs": [
+        "Low-Income Housing Tax Credit (LIHTC)"
+      ],
+      "place": "Tempe, Maricopa County · La Victoria Commons",
+      "years": [
+        "2024"
+      ],
+      "label": "Council agenda records the ground-lease financing structure",
+      "summary": [
+        "Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component."
+      ],
+      "caveats": [
+        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+      ],
+      "notes": [
+        "Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified",
+        "PHX-WEB-029"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-029",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-029",
+      "originals": [
+        {
+          "title": "Tempe April 25, 2024 Council agenda",
+          "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2"
+        }
+      ],
+      "links": [
+        {
+          "title": "Project and evidence connections",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/projects.html#project-la-victoria-commons"
+        }
+      ],
+      "sourceIds": [
+        "PHX-TEMPE-001"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-029",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "financing",
+        "title": "La Victoria Commons has 104 apartments in two financing portions",
+        "labels": [
+          "Council agenda records the ground-lease financing structure"
+        ],
+        "summary": [
+          "Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component."
+        ],
+        "context": [
+          "Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified",
+          "PHX-WEB-029"
+        ],
+        "limitations": [
+          "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+        ],
+        "source_ids": [
+          "PHX-TEMPE-001"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-TEMPE-001"
+            ],
+            "title": "Tempe April 25, 2024 Council agenda",
+            "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-029"
+      },
+      "yearBasis": "Dated Council financing agenda",
+      "yearNote": "April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified.",
+      "yearEvidence": [
+        {
+          "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+          "locator": "Tempe April 25, 2024 Council agenda"
+        }
+      ],
+      "yearSourceCheck": "Source passages checked November 10, 2026 (MST).",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "April 25, 2024",
+          "label": "Tempe Council agenda and proposed ground leases",
+          "evidence": [
+            {
+              "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+              "locator": "Tempe April 25, 2024 Council agenda"
+            }
+          ]
+        }
+      ],
+      "periodLeads": [],
+      "searchText": "PHX-WEB-029 La Victoria Commons has 104 apartments in two financing portions Council agenda records the ground-lease financing structure City of Tempe (ground leases) Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified PHX-WEB-029 PHX-TEMPE-001 Dated Council financing agenda April 25, 2024 is the date of the Council agenda. A fiscal or active program period is unverified. 2024 Tempe April 25, 2024 Council agenda"
+    },
+    {
+      "key": "phoenix:PHX-WEB-030",
+      "id": "PHX-WEB-030",
+      "anchor": "PHX-WEB-030",
+      "scope": "phoenix",
+      "category": "funding",
+      "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+      "kind": "Authorization ceilings",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Phoenix Housing Department",
+      "programs": [
+        "HOME-ARP"
+      ],
+      "place": "Phoenix District 8, Maricopa County · Salvation Army family shelter expansion",
+      "years": [
+        "2023",
+        "2025",
+        "2026"
+      ],
+      "label": "Adopted City funding authority and site dedication",
+      "summary": [
+        "Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026."
+      ],
+      "caveats": [
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+      ],
+      "notes": [
+        "Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified",
+        "PHX-WEB-030"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-030",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-030",
+      "originals": [
+        {
+          "title": "Phoenix June 14, 2023 Council minutes",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89"
+        },
+        {
+          "title": "Phoenix December 3, 2025 Council action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search="
+        },
+        {
+          "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+          "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html"
+        }
+      ],
+      "links": [
+        {
+          "title": "Project and evidence connections",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/projects.html#project-salvation-army-shelter"
+        }
+      ],
+      "sourceIds": [
+        "PHX-SHELTER-001",
+        "PHX-SHELTER-002",
+        "PHX-SHELTER-003"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-030",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "authorization",
+        "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+        "labels": [
+          "Adopted City funding authority and site dedication"
+        ],
+        "summary": [
+          "Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026."
+        ],
+        "context": [
+          "Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified",
+          "PHX-WEB-030"
+        ],
+        "limitations": [
+          "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+        ],
+        "source_ids": [
+          "PHX-SHELTER-001",
+          "PHX-SHELTER-002",
+          "PHX-SHELTER-003"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-SHELTER-001"
+            ],
+            "title": "Phoenix June 14, 2023 Council minutes",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-SHELTER-002"
+            ],
+            "title": "Phoenix December 3, 2025 Council action",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-SHELTER-003"
+            ],
+            "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+            "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-030"
+      },
+      "yearBasis": "Two Council actions and the site dedication",
+      "yearNote": "The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified.",
+      "yearEvidence": [
+        {
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+          "locator": "Phoenix June 14, 2023 Council minutes"
+        },
+        {
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+          "locator": "Phoenix December 3, 2025 Council action"
+        },
+        {
+          "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+          "locator": "Phoenix May 12, 2026 shelter site dedication announcement"
+        }
+      ],
+      "yearSourceCheck": "Source passages checked November 10, 2026 (MST).",
+      "programPeriod": {
+        "years": [],
+        "label": "Active period: not yet verified",
+        "kind": "documented_actions_only",
+        "status": "not_established",
+        "explanation": "The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified.",
+        "evidence": []
+      },
+      "knownDates": [
+        {
+          "date": "June 14, 2023",
+          "label": "HOME-ARP replaced the CDBG commitment",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+              "locator": "Phoenix June 14, 2023 Council minutes"
+            }
+          ]
+        },
+        {
+          "date": "December 3, 2025",
+          "label": "Council increased the HOME-ARP authority",
+          "evidence": [
+            {
+              "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+              "locator": "Phoenix December 3, 2025 Council action"
+            }
+          ]
+        },
+        {
+          "date": "May 12, 2026",
+          "label": "Site dedication for future construction",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+              "locator": "Phoenix May 12, 2026 shelter site dedication announcement"
+            }
+          ]
+        }
+      ],
+      "periodLeads": [],
+      "searchText": "PHX-WEB-030 Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority Adopted City funding authority and site dedication City of Phoenix Housing Department Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME-ARP Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified PHX-WEB-030 PHX-SHELTER-001 PHX-SHELTER-002 PHX-SHELTER-003 Two Council actions and the site dedication The dates establish the June 2023 replacement, December 2025 increase and May 2026 dedication. The exact active loan period and disbursement dates are unverified. 2023 2025 2026 Phoenix June 14, 2023 Council minutes Phoenix December 3, 2025 Council action Phoenix May 12, 2026 shelter site dedication announcement"
+    },
+    {
+      "key": "phoenix:source-PHX-R4-001",
+      "id": "PHX-R4-001",
+      "anchor": "source-PHX-R4-001",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "R4 Capital Phoenix Manor property profile",
+      "kind": "Property directory",
+      "topics": [
+        "Reported delivery & inventory"
+      ],
+      "agency": "R4 Capital (investor)",
+      "programs": [
+        "Housing inventory"
+      ],
+      "place": "Phoenix, Maricopa County · senior apartments at Phoenix Manor",
+      "years": [],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-R4-001 · The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure."
+      ],
+      "caveats": [
+        "Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-R4-001",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-R4-001",
+      "originals": [
+        {
+          "title": "R4 Capital Phoenix Manor property profile",
+          "url": "https://r4cap.com/featured-properties/phoenix-manor/"
+        }
+      ],
+      "links": [
+        {
+          "title": "Phoenix Manor preserves 450 existing apartments",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-028"
+        }
+      ],
+      "sourceIds": [
+        "PHX-R4-001"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-R4-001",
+        "title": "R4 Capital Phoenix Manor property profile",
+        "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+        "note": "PHX-R4-001 · The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+        "page_url": "index.html#source-PHX-R4-001",
+        "metadata": {
+          "agency": "r4-capital",
+          "programs": [
+            "inventory"
+          ],
+          "document_type": "directory",
+          "reporting_years": [],
+          "year_status": "not-established",
+          "date_basis": "The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+          "date_basis_url": "index.html#PHX-WEB-028",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "No verified document date",
+      "yearNote": "The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+          "locator": "R4 Capital Phoenix Manor property profile"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-R4-001 R4 Capital Phoenix Manor property profile Source passage checked November 10, 2026 (MST) R4 Capital (investor) Phoenix, Maricopa County · senior apartments at Phoenix Manor Reported delivery & inventory Housing inventory PHX-R4-001 · The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure. Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock. PHX-R4-001 No verified document date The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure. R4 Capital Phoenix Manor property profile"
+    },
+    {
+      "key": "phoenix:source-PHX-R4-002",
+      "id": "PHX-R4-002",
+      "anchor": "source-PHX-R4-002",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "R4 Capital Phoenix Manor reopening statement",
+      "kind": "Public statement",
+      "topics": [
+        "Reported delivery & inventory"
+      ],
+      "agency": "R4 Capital (investor)",
+      "programs": [
+        "Low-Income Housing Tax Credit (LIHTC)",
+        "Housing inventory"
+      ],
+      "place": "Phoenix, Maricopa County · senior apartments at Phoenix Manor",
+      "years": [],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-R4-002 · The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy."
+      ],
+      "caveats": [
+        "Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-R4-002",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-R4-002",
+      "originals": [
+        {
+          "title": "R4 Capital Phoenix Manor reopening statement",
+          "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR"
+        }
+      ],
+      "links": [
+        {
+          "title": "Phoenix Manor preserves 450 existing apartments",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-028"
+        }
+      ],
+      "sourceIds": [
+        "PHX-R4-002"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-R4-002",
+        "title": "R4 Capital Phoenix Manor reopening statement",
+        "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+        "note": "PHX-R4-002 · The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+        "page_url": "index.html#source-PHX-R4-002",
+        "metadata": {
+          "agency": "r4-capital",
+          "programs": [
+            "lihtc",
+            "inventory"
+          ],
+          "document_type": "public-statement",
+          "reporting_years": [],
+          "year_status": "not-established",
+          "date_basis": "The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+          "date_basis_url": "index.html#PHX-WEB-028",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "No verified document date",
+      "yearNote": "The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+          "locator": "R4 Capital Phoenix Manor reopening statement"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-R4-002 R4 Capital Phoenix Manor reopening statement Source passage checked November 10, 2026 (MST) R4 Capital (investor) Phoenix, Maricopa County · senior apartments at Phoenix Manor Reported delivery & inventory Low-Income Housing Tax Credit (LIHTC) Housing inventory PHX-R4-002 · The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy. Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock. PHX-R4-002 No verified document date The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy. R4 Capital Phoenix Manor reopening statement"
+    },
+    {
+      "key": "phoenix:source-PHX-TEMPE-001",
+      "id": "PHX-TEMPE-001",
+      "anchor": "source-PHX-TEMPE-001",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "Tempe April 25, 2024 Council agenda",
+      "kind": "Council agenda",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Tempe",
+      "programs": [
+        "Low-Income Housing Tax Credit (LIHTC)",
+        "Project and phase planning"
+      ],
+      "place": "Tempe, Maricopa County · La Victoria Commons",
+      "years": [
+        "2024"
+      ],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied."
+      ],
+      "caveats": [
+        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+      ],
+      "notes": [],
+      "metadata": [
+        [
+          "Document date",
+          "April 25, 2024"
+        ]
+      ],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-TEMPE-001",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-TEMPE-001",
+      "originals": [
+        {
+          "title": "Tempe April 25, 2024 Council agenda",
+          "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2"
+        }
+      ],
+      "links": [
+        {
+          "title": "La Victoria Commons has 104 apartments in two financing portions",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-029"
+        }
+      ],
+      "sourceIds": [
+        "PHX-TEMPE-001"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-TEMPE-001",
+        "title": "Tempe April 25, 2024 Council agenda",
+        "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+        "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+        "page_url": "index.html#source-PHX-TEMPE-001",
+        "metadata": {
+          "agency": "city-tempe",
+          "programs": [
+            "lihtc",
+            "project-planning"
+          ],
+          "document_type": "council-agenda",
+          "reporting_years": [
+            "2024"
+          ],
+          "year_status": "stated",
+          "date_basis": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+          "date_basis_url": "index.html#PHX-WEB-029",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "Dated meeting or event",
+      "yearNote": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+          "locator": "Tempe April 25, 2024 Council agenda"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-TEMPE-001 Tempe April 25, 2024 Council agenda Source passage checked November 10, 2026 (MST) City of Tempe Tempe, Maricopa County · La Victoria Commons Project funding Low-Income Housing Tax Credit (LIHTC) Project and phase planning PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied. The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes. PHX-TEMPE-001 Dated meeting or event Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied. 2024 April 25, 2024 Tempe April 25, 2024 Council agenda"
+    },
+    {
+      "key": "phoenix:source-PHX-SHELTER-001",
+      "id": "PHX-SHELTER-001",
+      "anchor": "source-PHX-SHELTER-001",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "Phoenix June 14, 2023 Council minutes",
+      "kind": "Council minutes",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Phoenix",
+      "programs": [
+        "HOME American Rescue Plan (HOME-ARP)",
+        "CDBG"
+      ],
+      "place": "Phoenix District 8, Maricopa County · Salvation Army family shelter expansion",
+      "years": [
+        "2023"
+      ],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-SHELTER-001 · Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records."
+      ],
+      "caveats": [
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+      ],
+      "notes": [],
+      "metadata": [
+        [
+          "Document date",
+          "June 14, 2023"
+        ]
+      ],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-SHELTER-001",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-SHELTER-001",
+      "originals": [
+        {
+          "title": "Phoenix June 14, 2023 Council minutes",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89"
+        }
+      ],
+      "links": [
+        {
+          "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-030"
+        }
+      ],
+      "sourceIds": [
+        "PHX-SHELTER-001"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-SHELTER-001",
+        "title": "Phoenix June 14, 2023 Council minutes",
+        "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+        "note": "PHX-SHELTER-001 · Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+        "page_url": "index.html#source-PHX-SHELTER-001",
+        "metadata": {
+          "agency": "city-phoenix",
+          "programs": [
+            "home-arp",
+            "cdbg"
+          ],
+          "document_type": "council-minutes",
+          "reporting_years": [
+            "2023"
+          ],
+          "year_status": "stated",
+          "date_basis": "Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+          "date_basis_url": "index.html#PHX-WEB-030",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "Dated meeting or event",
+      "yearNote": "Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+          "locator": "Phoenix June 14, 2023 Council minutes"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-SHELTER-001 Phoenix June 14, 2023 Council minutes Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) CDBG PHX-SHELTER-001 · Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-001 Dated meeting or event Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records. 2023 June 14, 2023 Phoenix June 14, 2023 Council minutes"
+    },
+    {
+      "key": "phoenix:source-PHX-SHELTER-002",
+      "id": "PHX-SHELTER-002",
+      "anchor": "source-PHX-SHELTER-002",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "Phoenix December 3, 2025 Council action",
+      "kind": "Council action metadata",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Phoenix",
+      "programs": [
+        "HOME American Rescue Plan (HOME-ARP)"
+      ],
+      "place": "Phoenix District 8, Maricopa County · Salvation Army family shelter expansion",
+      "years": [
+        "2025"
+      ],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence."
+      ],
+      "caveats": [
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+      ],
+      "notes": [],
+      "metadata": [
+        [
+          "Document date",
+          "December 3, 2025"
+        ]
+      ],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-SHELTER-002",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-SHELTER-002",
+      "originals": [
+        {
+          "title": "Phoenix December 3, 2025 Council action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search="
+        }
+      ],
+      "links": [
+        {
+          "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-030"
+        }
+      ],
+      "sourceIds": [
+        "PHX-SHELTER-002"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-SHELTER-002",
+        "title": "Phoenix December 3, 2025 Council action",
+        "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+        "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+        "page_url": "index.html#source-PHX-SHELTER-002",
+        "metadata": {
+          "agency": "city-phoenix",
+          "programs": [
+            "home-arp"
+          ],
+          "document_type": "action-metadata",
+          "reporting_years": [
+            "2025"
+          ],
+          "year_status": "stated",
+          "date_basis": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+          "date_basis_url": "index.html#PHX-WEB-030",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "Dated meeting or event",
+      "yearNote": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+          "locator": "Phoenix December 3, 2025 Council action"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-SHELTER-002 Phoenix December 3, 2025 Council action Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-002 Dated meeting or event Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence. 2025 December 3, 2025 Phoenix December 3, 2025 Council action"
+    },
+    {
+      "key": "phoenix:source-PHX-SHELTER-003",
+      "id": "PHX-SHELTER-003",
+      "anchor": "source-PHX-SHELTER-003",
+      "scope": "phoenix",
+      "category": "sources",
+      "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+      "kind": "Public statement",
+      "topics": [
+        "Project funding"
+      ],
+      "agency": "City of Phoenix",
+      "programs": [
+        "HOME American Rescue Plan (HOME-ARP)",
+        "Project and phase planning"
+      ],
+      "place": "Phoenix District 8, Maricopa County · Salvation Army family shelter expansion",
+      "years": [
+        "2026"
+      ],
+      "label": "Source passage checked November 10, 2026 (MST)",
+      "summary": [
+        "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified."
+      ],
+      "caveats": [
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+      ],
+      "notes": [],
+      "metadata": [
+        [
+          "Document date",
+          "May 12, 2026"
+        ]
+      ],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#source-PHX-SHELTER-003",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#source-PHX-SHELTER-003",
+      "originals": [
+        {
+          "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+          "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html"
+        }
+      ],
+      "links": [
+        {
+          "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-030"
+        }
+      ],
+      "sourceIds": [
+        "PHX-SHELTER-003"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-SHELTER-003",
+        "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+        "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+        "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+        "page_url": "index.html#source-PHX-SHELTER-003",
+        "metadata": {
+          "agency": "city-phoenix",
+          "programs": [
+            "home-arp",
+            "project-planning"
+          ],
+          "document_type": "public-statement",
+          "reporting_years": [
+            "2026"
+          ],
+          "year_status": "stated",
+          "date_basis": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+          "date_basis_url": "index.html#PHX-WEB-030",
+          "retrieved_on": "2026-11-10"
+        }
+      },
+      "yearBasis": "Dated meeting or event",
+      "yearNote": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+      "sourceType": "Other source records",
+      "yearEvidence": [
+        {
+          "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+          "locator": "Phoenix May 12, 2026 shelter site dedication announcement"
+        }
+      ],
+      "yearSourceCheck": "Source passage checked November 10, 2026 (MST).",
+      "searchText": "PHX-SHELTER-003 Phoenix May 12, 2026 shelter site dedication announcement Source passage checked November 10, 2026 (MST) City of Phoenix Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Project funding HOME American Rescue Plan (HOME-ARP) Project and phase planning PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified. The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified. PHX-SHELTER-003 Dated meeting or event The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified. 2026 May 12, 2026 Phoenix May 12, 2026 shelter site dedication announcement"
+    },
+    {
+      "key": "tucson:research-updates.html#src-100-citation-correction",
+      "id": "src-100-citation-correction",
+      "anchor": "src-100-citation-correction",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "SRC-100 citation correction",
+      "kind": "Research update",
+      "topics": [],
+      "agency": "",
+      "programs": [],
+      "place": "",
+      "years": [],
+      "label": "Website publication time pending verification",
+      "summary": [
+        "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026."
+      ],
+      "caveats": [
+        "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
+      "originals": [
+        {
+          "title": "Verified HUD environmental review",
+          "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        }
+      ],
+      "links": [],
+      "sourceIds": [
+        "SRC-100"
+      ],
+      "aliases": [],
+      "raw": {},
+      "yearBasis": "Website publication time pending verification",
+      "yearNote": "The source and event dates are separate from the website publication date.",
+      "publicationPending": true,
+      "searchText": "src-100-citation-correction SRC-100 citation correction Website publication time pending verification   HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected. SRC-100 Website publication time pending verification The source and event dates are separate from the website publication date. Verified HUD environmental review"
+    },
+    {
+      "key": "phoenix:project-counts-and-shelter-funding",
+      "id": "project-counts-and-shelter-funding",
+      "anchor": "project-counts-and-shelter-funding",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Phoenix-area housing counts and shelter funding",
+      "kind": "Research update",
+      "topics": [],
+      "agency": "",
+      "programs": [],
+      "place": "",
+      "years": [],
+      "label": "Website publication time pending verification",
+      "summary": [
+        "The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority."
+      ],
+      "caveats": [
+        "Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#project-counts-and-shelter-funding",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#project-counts-and-shelter-funding",
+      "originals": [
+        {
+          "title": "Phoenix Manor preserves 450 existing apartments",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-028"
+        },
+        {
+          "title": "La Victoria Commons has 104 apartments in two financing portions",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-029"
+        },
+        {
+          "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-030"
+        }
+      ],
+      "links": [],
+      "sourceIds": [
+        "PHX-WEB-028",
+        "PHX-WEB-029",
+        "PHX-WEB-030"
+      ],
+      "aliases": [],
+      "raw": {},
+      "yearBasis": "Website publication time pending verification",
+      "yearNote": "The source and event dates are separate from the website publication date.",
+      "publicationPending": true,
+      "searchText": "project-counts-and-shelter-funding Phoenix-area housing counts and shelter funding Website publication time pending verification   The records distinguish 450 preserved Phoenix Manor apartments, 104 La Victoria Commons apartments in two financing portions plus separate townhomes, and up to $8 million in Salvation Army HOME-ARP authority. Occupancy and household outcomes, completed or occupied La Victoria homes, and shelter expansion payments, opening and people served require separate evidence. PHX-WEB-028 PHX-WEB-029 PHX-WEB-030 Website publication time pending verification The source and event dates are separate from the website publication date. Phoenix Manor preserves 450 existing apartments La Victoria Commons has 104 apartments in two financing portions Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority"
     }
   ],
   "coverage": {
-    "phoenix": "79 public entries: all 41 research records and 37 source references in the Phoenix record index, plus the city’s dated research update. Published evidence remains with Sources.",
-    "tucson": "125 public entries: 12 funding entries, 68 source/evidence entries, 23 questions and 22 updates/status sections. Added CDBG detail is merged into Q-007 to avoid a duplicate question."
+    "phoenix": "89 public entries. 18 funding entries, 56 source and evidence entries, 13 questions and 2 updates. Use the broader search for public pages outside these categories.",
+    "tucson": "126 public entries. 12 funding entries, 68 source and evidence entries, 23 questions and 23 updates. Use the broader search for public pages outside these categories."
   },
   "coverageAudit": {
     "phoenix": [
@@ -26901,17 +27877,17 @@
         "text": "This is a reviewed public-record snapshot, not a new full evidence audit. Private workbook contents are not included."
       },
       {
-        "text": "The latest source pass reviewed 88 source/evidence entries using 72 newly retrieved public resources and retained originals. A separate consistency pass reviewed 69 funding, question and update entries using existing copies and the public record text. Some findings remain based on HAP statements where an original is unavailable; each result states its check basis. Earlier date checks are retained and not counted as new downloads here."
+        "text": "The candidate’s earlier date-basis pass reviewed 88 source/evidence entries using 72 newly retrieved public resources and retained originals. A separate consistency pass reviewed 69 funding, question and update entries using existing copies and the public record text. Some findings remain based on HAP statements where an original is unavailable; each result states its check basis. Earlier date checks are retained and not counted as new downloads here."
       },
       {
         "text": "A wrong HUD download link was found for Tucson SRC-100. The verified Craycroft archive is now linked in this search and supports recorded 2026 certification entries. The old link remains flagged. This does not establish closing, all HUD/RAD approvals or executed assistance contracts.",
-        "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       },
       {
         "text": "Unresolved issues include conflicting HOME dataset vintage descriptions, a 2025 column label inside the FY2026 Capital Fund formula workbook, undated questions/indexes, source-review-only Updates, and unavailable originals. These issues are shown explicitly rather than filled with inferred dates. Date checks do not resolve the stated evidence gaps."
       },
       {
-        "text": "All 204 existing entries have a date-basis review: 181 have a labeled source, event, publication or coverage year; 23 have no established primary date year. Those are not program-active counts. Funding now uses a separate period field: 16 entries have stated fiscal/program/reporting/agreement periods, while 12 say Active period: not yet verified. The unknown option and year:unknown in Funding refer to this period field."
+        "text": "Across both regions, 187 of 215 entries have a labeled source, event, publication or coverage year. 28 have no established primary year. Funding uses a separate field. 16 funding entries have a stated period and 14 have an unverified active period. Source, event and check dates do not fill that funding filter."
       },
       {
         "text": "Funding periods remain qualified: planned competitions, draft reporting, composite scopes and unsigned agreement terms do not establish continuous operation or completed spending. Known source/event dates and cited unverified leads are shown separately and do not silently fill the fiscal/program-year filter."
@@ -26938,17 +27914,17 @@
         "text": "This is a reviewed public-record snapshot, not a new full evidence audit. Private workbook contents are not included."
       },
       {
-        "text": "The latest source pass reviewed 88 source/evidence entries using 72 newly retrieved public resources and retained originals. A separate consistency pass reviewed 69 funding, question and update entries using existing copies and the public record text. Some findings remain based on HAP statements where an original is unavailable; each result states its check basis. Earlier date checks are retained and not counted as new downloads here."
+        "text": "The candidate’s earlier date-basis pass reviewed 88 source/evidence entries using 72 newly retrieved public resources and retained originals. A separate consistency pass reviewed 69 funding, question and update entries using existing copies and the public record text. Some findings remain based on HAP statements where an original is unavailable; each result states its check basis. Earlier date checks are retained and not counted as new downloads here."
       },
       {
         "text": "A wrong HUD download link was found for Tucson SRC-100. The verified Craycroft archive is now linked in this search and supports recorded 2026 certification entries. The old link remains flagged. This does not establish closing, all HUD/RAD approvals or executed assistance contracts.",
-        "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "url": "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       },
       {
         "text": "Unresolved issues include conflicting HOME dataset vintage descriptions, a 2025 column label inside the FY2026 Capital Fund formula workbook, undated questions/indexes, source-review-only Updates, and unavailable originals. These issues are shown explicitly rather than filled with inferred dates. Date checks do not resolve the stated evidence gaps."
       },
       {
-        "text": "All 204 existing entries have a date-basis review: 181 have a labeled source, event, publication or coverage year; 23 have no established primary date year. Those are not program-active counts. Funding now uses a separate period field: 16 entries have stated fiscal/program/reporting/agreement periods, while 12 say Active period: not yet verified. The unknown option and year:unknown in Funding refer to this period field."
+        "text": "Across both regions, 187 of 215 entries have a labeled source, event, publication or coverage year. 28 have no established primary year. Funding uses a separate field. 16 funding entries have a stated period and 14 have an unverified active period. Source, event and check dates do not fill that funding filter."
       },
       {
         "text": "Funding periods remain qualified: planned competitions, draft reporting, composite scopes and unsigned agreement terms do not establish continuous operation or completed spending. Known source/event dates and cited unverified leads are shown separately and do not silently fill the fiscal/program-year filter."
@@ -26960,13 +27936,13 @@
     ]
   },
   "fundingPeriodSummary": {
-    "entries": 28,
+    "entries": 30,
     "supportedPeriodReferences": 16,
-    "sourceOrEventDatesOnly": 11,
+    "sourceOrEventDatesOnly": 13,
     "conflictingPeriodLabels": 1,
     "generalGuidanceWithoutPhoenixPeriod": 1,
     "entriesWithNoNamedProgram": 2,
-    "normalizedNamedProgramFamilies": 12,
+    "normalizedNamedProgramFamilies": 15,
     "inventoryIsNotProgramCountOfCity": true,
     "networkRequests": 0
   }

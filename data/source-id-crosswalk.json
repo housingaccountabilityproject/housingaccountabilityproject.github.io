@@ -775,7 +775,7 @@
       "website_title": "Craycroft/Lee Street federal environmental record",
       "website_page": "evidence.html#src-100",
       "website_urls": [
-        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       ],
       "workbook_source_ids": [
         "SRC-099"
@@ -784,12 +784,13 @@
         {
           "source_id": "SRC-099",
           "title": "Craycroft HEROS environmental review",
-          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+          "url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
+          "url_status": "Historical mismatched locator in prior public crosswalk. The website uses the verified filename link."
         }
       ],
-      "mapping_status": "registered locator match",
+      "mapping_status": "registered document identity",
       "same_number_collision": true,
-      "basis": "Corrected official Craycroft locator; the earlier /8818 URL opened Solera Apartments, Renton. HEROS 900000010528814 and certification entries rechecked November 9, 2026 (MST). Website SRC-100 and workbook SRC-099 remain separate IDs.",
+      "basis": "Document identity matches the existing published crosswalk. Website SRC-100 maps to workbook SRC-099. The verified public URL uses the HEROS filename. The workbook was not rechecked for this correction.",
       "previous_mismatched_url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "scope": "Editorial navigation metadata from already-published Phoenix source notes and related findings; no external recheck or new source dates.",
+  "scope": "Editorial navigation metadata from published Phoenix-area source notes and related findings. Recorded retrieval dates are separate from document dates and reporting periods.",
   "year_policy": "Reporting/coverage, plan, grant and explicitly cited event years only. Publication, training, file-update and retrieval dates are described separately; unresolved and unestablished years remain separate filter choices.",
   "program_policy": "Tags identify the program or subject used in this Phoenix research, not every program covered by a document.",
   "agencies": {
@@ -11,7 +11,9 @@
     "arizona-housing": "Arizona Department of Housing",
     "data-gov": "Data.gov catalog",
     "maricopa-county": "Maricopa County",
-    "hamc": "Housing Authority of Maricopa County"
+    "hamc": "Housing Authority of Maricopa County",
+    "r4-capital": "R4 Capital (investor)",
+    "city-tempe": "City of Tempe"
   },
   "programs": {
     "home": "HOME",
@@ -29,7 +31,8 @@
     "project-planning": "Project and phase planning",
     "general": "General / not program-specific",
     "cdbg": "CDBG",
-    "waitlists": "Property waitlists"
+    "waitlists": "Property waitlists",
+    "home-arp": "HOME American Rescue Plan (HOME-ARP)"
   },
   "document_types": {
     "performance-report": "Performance report",
@@ -53,7 +56,9 @@
     "project-register": "Project register",
     "funding-competition": "Funding competition / application packet",
     "public-notice": "Public notice",
-    "waitlist-schedule": "Waitlist schedule"
+    "waitlist-schedule": "Waitlist schedule",
+    "public-statement": "Public statement",
+    "council-agenda": "Council agenda"
   },
   "sources": {
     "PHX-CITY-002": {
@@ -570,6 +575,90 @@
       "date_basis": "Property-waitlist status as of November 5, 2026; listed application limits can apply earlier than December 1. Later status must be checked with HAMC.",
       "date_basis_url": "index.html#MC-HAMC-WEB-001",
       "retrieved_on": "2026-11-09"
+    },
+    "PHX-R4-001": {
+      "agency": "r4-capital",
+      "programs": [
+        "inventory"
+      ],
+      "document_type": "directory",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+      "date_basis_url": "index.html#PHX-WEB-028",
+      "retrieved_on": "2026-11-10"
+    },
+    "PHX-R4-002": {
+      "agency": "r4-capital",
+      "programs": [
+        "lihtc",
+        "inventory"
+      ],
+      "document_type": "public-statement",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+      "date_basis_url": "index.html#PHX-WEB-028",
+      "retrieved_on": "2026-11-10"
+    },
+    "PHX-TEMPE-001": {
+      "agency": "city-tempe",
+      "programs": [
+        "lihtc",
+        "project-planning"
+      ],
+      "document_type": "council-agenda",
+      "reporting_years": [
+        "2024"
+      ],
+      "year_status": "stated",
+      "date_basis": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+      "date_basis_url": "index.html#PHX-WEB-029",
+      "retrieved_on": "2026-11-10"
+    },
+    "PHX-SHELTER-001": {
+      "agency": "city-phoenix",
+      "programs": [
+        "home-arp",
+        "cdbg"
+      ],
+      "document_type": "council-minutes",
+      "reporting_years": [
+        "2023"
+      ],
+      "year_status": "stated",
+      "date_basis": "Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+      "date_basis_url": "index.html#PHX-WEB-030",
+      "retrieved_on": "2026-11-10"
+    },
+    "PHX-SHELTER-002": {
+      "agency": "city-phoenix",
+      "programs": [
+        "home-arp"
+      ],
+      "document_type": "action-metadata",
+      "reporting_years": [
+        "2025"
+      ],
+      "year_status": "stated",
+      "date_basis": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+      "date_basis_url": "index.html#PHX-WEB-030",
+      "retrieved_on": "2026-11-10"
+    },
+    "PHX-SHELTER-003": {
+      "agency": "city-phoenix",
+      "programs": [
+        "home-arp",
+        "project-planning"
+      ],
+      "document_type": "public-statement",
+      "reporting_years": [
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+      "date_basis_url": "index.html#PHX-WEB-030",
+      "retrieved_on": "2026-11-10"
     }
   }
 }

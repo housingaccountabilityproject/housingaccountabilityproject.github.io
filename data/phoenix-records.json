@@ -9,7 +9,9 @@
       "arizona-housing": "Arizona Department of Housing",
       "data-gov": "Data.gov catalog",
       "maricopa-county": "Maricopa County",
-      "hamc": "Housing Authority of Maricopa County"
+      "hamc": "Housing Authority of Maricopa County",
+      "r4-capital": "R4 Capital (investor)",
+      "city-tempe": "City of Tempe"
     },
     "programs": {
       "home": "HOME",
@@ -27,7 +29,8 @@
       "project-planning": "Project and phase planning",
       "general": "General / not program-specific",
       "cdbg": "CDBG",
-      "waitlists": "Property waitlists"
+      "waitlists": "Property waitlists",
+      "home-arp": "HOME American Rescue Plan (HOME-ARP)"
     },
     "document_types": {
       "performance-report": "Performance report",
@@ -51,13 +54,15 @@
       "project-register": "Project register",
       "funding-competition": "Funding competition / application packet",
       "public-notice": "Public notice",
-      "waitlist-schedule": "Waitlist schedule"
+      "waitlist-schedule": "Waitlist schedule",
+      "public-statement": "Public statement",
+      "council-agenda": "Council agenda"
     },
     "year_policy": "Reporting/coverage, plan, grant and explicitly cited event years only. Publication, training, file-update and retrieval dates are described separately; unresolved and unestablished years remain separate filter choices.",
     "program_policy": "Tags identify the program or subject used in this Phoenix research, not every program covered by a document."
   },
   "scope": "Phoenix and separately labeled Maricopa County navigation extract of published repository HTML; not a ledger or an external source recheck.",
-  "research_snapshot": "2026-11-09",
+  "research_snapshot": "2026-11-10",
   "input_pages": [
     "phoenix/index.html",
     "phoenix/capital-fund.html",
@@ -436,6 +441,132 @@
         "date_basis": "2025 ACS 1-year estimate for Phoenix city, in 2025 nominal dollars. Not current asking rent.",
         "date_basis_url": "index.html#PHX-WEB-026",
         "retrieved_on": null
+      }
+    },
+    {
+      "id": "PHX-R4-001",
+      "title": "R4 Capital Phoenix Manor property profile",
+      "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+      "note": "PHX-R4-001 · The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+      "page_url": "index.html#source-PHX-R4-001",
+      "metadata": {
+        "agency": "r4-capital",
+        "programs": [
+          "inventory"
+        ],
+        "document_type": "directory",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "The investor profile lists 450 senior apartments. The profile has no stated document date or reporting period. It supplies the property count without an occupancy or household outcome measure.",
+        "date_basis_url": "index.html#PHX-WEB-028",
+        "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-R4-002",
+      "title": "R4 Capital Phoenix Manor reopening statement",
+      "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+      "note": "PHX-R4-002 · The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+      "page_url": "index.html#source-PHX-R4-002",
+      "metadata": {
+        "agency": "r4-capital",
+        "programs": [
+          "lihtc",
+          "inventory"
+        ],
+        "document_type": "public-statement",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "The investor describes a renovated, formerly market-rate property with 450 apartments for seniors and cites LIHTC. The statement does not supply a verified absolute publication date, unit-level restrictions, or occupancy.",
+        "date_basis_url": "index.html#PHX-WEB-028",
+        "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-TEMPE-001",
+      "title": "Tempe April 25, 2024 Council agenda",
+      "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+      "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+      "page_url": "index.html#source-PHX-TEMPE-001",
+      "metadata": {
+        "agency": "city-tempe",
+        "programs": [
+          "lihtc",
+          "project-planning"
+        ],
+        "document_type": "council-agenda",
+        "reporting_years": [
+          "2024"
+        ],
+        "year_status": "stated",
+        "date_basis": "Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the financing record. The agenda does not establish when homes were completed or occupied.",
+        "date_basis_url": "index.html#PHX-WEB-029",
+        "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-SHELTER-001",
+      "title": "Phoenix June 14, 2023 Council minutes",
+      "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+      "note": "PHX-SHELTER-001 · Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+      "page_url": "index.html#source-PHX-SHELTER-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home-arp",
+          "cdbg"
+        ],
+        "document_type": "council-minutes",
+        "reporting_years": [
+          "2023"
+        ],
+        "year_status": "stated",
+        "date_basis": "Pages 89–90, item 80. Adopted Ordinance S-49878 replaced the up-to-$6 million CDBG and CDBG-CV funding with HOME-ARP. The vote documents authority. Actual disbursement requires payment records.",
+        "date_basis_url": "index.html#PHX-WEB-030",
+        "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-SHELTER-002",
+      "title": "Phoenix December 3, 2025 Council action",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+      "note": "PHX-SHELTER-002 · Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+      "page_url": "index.html#source-PHX-SHELTER-002",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home-arp"
+        ],
+        "document_type": "action-metadata",
+        "reporting_years": [
+          "2025"
+        ],
+        "year_status": "stated",
+        "date_basis": "Adopted Ordinance S-52469, File 25-2333, added up to $2 million and states a total City HOME-ARP commitment of $8 million. Actual expenditure and opening require separate evidence.",
+        "date_basis_url": "index.html#PHX-WEB-030",
+        "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-SHELTER-003",
+      "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+      "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+      "note": "PHX-SHELTER-003 · The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+      "page_url": "index.html#source-PHX-SHELTER-003",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "home-arp",
+          "project-planning"
+        ],
+        "document_type": "public-statement",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
+        "date_basis_url": "index.html#PHX-WEB-030",
+        "retrieved_on": "2026-11-10"
       }
     },
     {
@@ -872,6 +1003,135 @@
     }
   ],
   "records": [
+    {
+      "id": "PHX-WEB-028",
+      "aliases": [],
+      "topic": "delivery",
+      "kind": "inventory",
+      "title": "Phoenix Manor preserves 450 existing apartments",
+      "labels": [
+        "Investor-reported renovation and affordable conversion"
+      ],
+      "summary": [
+        "R4 Capital describes renovating and converting 450 existing Phoenix Manor apartments from market-rate to affordable senior housing. Count the 450 as preservation of existing apartments."
+      ],
+      "context": [
+        "Scope Phoenix, Maricopa County · senior apartments at Phoenix Manor Time period Project and occupancy periods unverified",
+        "PHX-WEB-028"
+      ],
+      "limitations": [
+        "Occupancy, household outcomes and the timing and terms of affordability restrictions require separate evidence. The 450 apartments are existing stock."
+      ],
+      "source_ids": [
+        "PHX-R4-001",
+        "PHX-R4-002"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-R4-001"
+          ],
+          "title": "R4 Capital Phoenix Manor property profile",
+          "url": "https://r4cap.com/featured-properties/phoenix-manor/",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-R4-002"
+          ],
+          "title": "R4 Capital Phoenix Manor reopening statement",
+          "url": "https://www.linkedin.com/posts/r4-capital-llc_r4-capital-recently-celebrated-the-grand-activity-7309942844494917633-PNhR",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-028"
+    },
+    {
+      "id": "PHX-WEB-029",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "financing",
+      "title": "La Victoria Commons has 104 apartments in two financing portions",
+      "labels": [
+        "Council agenda records the ground-lease financing structure"
+      ],
+      "summary": [
+        "Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component."
+      ],
+      "context": [
+        "Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified",
+        "PHX-WEB-029"
+      ],
+      "limitations": [
+        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes."
+      ],
+      "source_ids": [
+        "PHX-TEMPE-001"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-TEMPE-001"
+          ],
+          "title": "Tempe April 25, 2024 Council agenda",
+          "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-029"
+    },
+    {
+      "id": "PHX-WEB-030",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "authorization",
+      "title": "Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority",
+      "labels": [
+        "Adopted City funding authority and site dedication"
+      ],
+      "summary": [
+        "Phoenix replaced the original $6 million CDBG and CDBG-CV commitment with up to $6 million in HOME-ARP in 2023. Council added up to $2 million in 2025, bringing the HOME-ARP authority to $8 million. The City announced the site dedication on May 12, 2026."
+      ],
+      "context": [
+        "Scope Phoenix District 8, Maricopa County · Salvation Army family shelter expansion Time period Council actions in 2023 and 2025; site dedication in 2026; active loan period unverified",
+        "PHX-WEB-030"
+      ],
+      "limitations": [
+        "The initial CDBG commitment was replaced and cannot be added again. Funding authority does not establish cash paid. The ceremony marked the site for future construction. Opening, expenditures and people served by the expansion remain unverified."
+      ],
+      "source_ids": [
+        "PHX-SHELTER-001",
+        "PHX-SHELTER-002",
+        "PHX-SHELTER-003"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-SHELTER-001"
+          ],
+          "title": "Phoenix June 14, 2023 Council minutes",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2023/6-14-23%20formal%20minutes.pdf#page=89",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-SHELTER-002"
+          ],
+          "title": "Phoenix December 3, 2025 Council action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=FE2B2341-E002-4385-9106-ADE1EF8C9BC5&ID=7761610&Options=&Search=",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-SHELTER-003"
+          ],
+          "title": "Phoenix May 12, 2026 shelter site dedication announcement",
+          "url": "https://www.phoenix.gov/newsroom/housing-news/-8m-city-investment-expands-salvation-army-family-shelter.html",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-030"
+    },
     {
       "id": "MC-HAMC-WEB-001",
       "aliases": [],

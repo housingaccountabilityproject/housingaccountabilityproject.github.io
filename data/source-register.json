@@ -858,25 +858,25 @@
       "title": "Craycroft/Lee Street federal environmental record",
       "period": "other",
       "topic": "pbv hcv bonds",
-      "source_context": "HUD environmental review, HEROS 900000010528814; recorded 7015.15 certification August 11, 2026 and 7015.16 certification September 1, 2026.",
-      "limitations": "Environmental milestone only, not all HUD/RAD approvals, financing closing or executed assistance contracts.",
+      "source_context": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026.",
+      "limitations": "The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected.",
       "urls": [
-        "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8800?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
+        "https://cpd.hud.gov/cpd-public/erlink?f=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx"
       ],
       "citation_url": "research-updates.html#records-clarified-2026-11-07",
       "aliases": [],
       "page_url": "evidence.html#src-100",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Source identity and certification entries rechecked November 9, 2026 (MST).",
+      "review_attribution": "Source checked November 9, 2026 (MST). Verified filename download and certification entries rechecked November 10, 2026 (MST).",
       "namespace": "website",
       "workbook_source_ids": [
         "SRC-099"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Corrected public Craycroft locator; website SRC-100 and workbook SRC-099 remain separate IDs. Earlier /8818 URL opened Solera Apartments, Renton.",
+      "workbook_mapping_basis": "Document identity matches the existing published crosswalk. Website SRC-100 maps to workbook SRC-099. The verified public URL uses the HEROS filename. The workbook was not rechecked for this correction.",
       "correction_url": "evidence.html#src-100-citation-correction",
       "previous_mismatched_url": "https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx",
-      "correction_note": "SRC-100 previously linked to a HUD environmental review for Solera Apartments in Renton, Washington. The correct source is HUD’s Craycroft Towers and Lee Street Duplexes environmental review, HEROS number 900000010528814. The correct document records 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. It supports the reported environmental milestone. It does not establish completion of the RAD conversion, financing closing, disbursements, executed assistance contracts, or current vacancies. Those questions remain open. Source content rechecked November 9, 2026 (MST). This correction concerns the citation and its supporting document."
+      "correction_note": "HUD environmental review, HEROS 900000010528814. The record lists 7015.15 certification on August 11, 2026, and 7015.16 certification on September 1, 2026. The November 9 source check recorded Solera Apartments in Renton, Washington at the former /8818 link. On November 10 that link returned a different unrelated review, for 452 NE Baker Drive in Grants Pass, Oregon. On November 10, HUD’s Tucson listing pointed to /8823. That download and the filename-based HUD link returned identical copies of HEROS 900000010528814. The proposed /8800 link returned Parade Park Homes Phase 1. HUD lists September 1, 2027 as the posting end. The filename segment 09012027 represents that date. The November 9, 2026 source check and November 10 link verification are separate from website publication. The environmental record establishes neither financing closing, disbursement, completed conversion, executed contracts, nor occupancy. A separate final signed 7015.16 instrument has yet to be independently inspected."
     },
     {
       "public_id": "SRC-101",

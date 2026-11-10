@@ -37,6 +37,8 @@ for r in index['records']:
    assert 'hidden' not in e.attrib and e.get('aria-hidden')!='true',('hidden search target',r['url'])
    assert not set(e.get('class','').split()) & {'toolbar','subnav','counter','empty','empty-state'},('UI search target',r['url'])
   assert anchor not in {'catalog-empty','catalog-count','empty','count'},('UI search target',r['url'])
+for identity_page in ['about.html','contact.html']:
+ assert any(x['url'].partition('#')[0]==identity_page for x in index['records']), identity_page
 assert any('Q-020' in x['text'] for x in index['records'])
 assert any('SRC-094' in x['text'] for x in index['records'])
 assert any('1,284,589.71' in x['text'] for x in index['records'])
@@ -47,7 +49,23 @@ for n,src in register['tracker_to_source'].items():
  assert pages['research-updates.html'].xpath('//*[@id=$id]//a[@href=$url]',id='tracker-source-'+n,url='evidence.html#'+src.lower()),(n,src)
 ns={'a':'http://www.w3.org/2005/Atom'};feed=etree.parse(str(ROOT/'feed.xml'));entries=feed.xpath('//a:entry',namespaces=ns)
 pending=pages['research-updates.html'].xpath('//*[@id="craycroft-council-vote-2026-11-09" and @data-publication-pending="true"]')
-assert len(entries)==(10 if pending else 11)
+phoenix_page=html.parse(str(ROOT/'phoenix/index.html'))
+release_articles={
+ 'research-updates.html#src-100-citation-correction':pages['research-updates.html'],
+ 'phoenix/index.html#project-counts-and-shelter-funding':phoenix_page,
+}
+release_count=0
+entry_ids=feed.xpath('//a:entry/a:id/text()',namespaces=ns)
+for path, page in release_articles.items():
+ anchor=path.split('#')[1]
+ release=page.xpath('//*[@id=$aid]',aid=anchor)[0]
+ listed='https://housingaccountabilityproject.github.io/'+path in entry_ids
+ if release.get('data-publication-pending')=='true':
+  assert not listed and not release.xpath('.//time[@data-publication="true"]')
+ else:
+  assert listed and len(release.xpath('.//time[@data-publication="true"]'))==1
+  release_count+=1
+assert len(entries)==(10 if pending else 11)+release_count
 new_url='https://housingaccountabilityproject.github.io/research-updates.html#craycroft-council-vote-2026-11-09'
 assert (new_url in feed.xpath('//a:entry/a:id/text()',namespaces=ns)) == (not bool(pending))
 new_article=pages['research-updates.html'].xpath('//*[@id="craycroft-council-vote-2026-11-09"]')[0]
@@ -67,7 +85,8 @@ for e in entries:
 subprocess.run(['python','scripts/test-search-data.py'],cwd=ROOT,check=True)
 subprocess.run(['python','scripts/check-source-crosswalk.py'],cwd=ROOT,check=True)
 # Generated output must be deterministic.
-old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json']}
+old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json','assets/search-source-urls.js']}
 subprocess.run(['python','scripts/build-reader-data.py'],cwd=ROOT,check=True)
+subprocess.run(['python','scripts/build-search-source-urls.py'],cwd=ROOT,check=True)
 assert all((ROOT/p).read_bytes()==b for p,b in old.items())
 print(f'PASS: {len(pages)} pages; local links, unique IDs, landmarks, analytics/discovery; {len(index["records"])} search sections; 67 sources; 15 mappings; {len(entries)} timestamp-verified feed entries; deterministic generation.')
