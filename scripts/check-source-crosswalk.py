@@ -23,9 +23,12 @@ for source,row in zip(sources,rows):
   assert d['url'].startswith('https://') and re.fullmatch(r'SRC-\d+',d['source_id'])
  if not row['workbook_source_ids']:assert row['mapping_status']=='no registered equivalent verified'
  if row['same_number_collision']:assert row['website_source_id'] not in row['workbook_source_ids']
-assert sum(r['same_number_collision'] for r in rows)==51
+assert sum(r['same_number_collision'] for r in rows)==52
 new_source=next(s for s in sources if s['public_id']=='SRC-125')
-assert new_source['workbook_source_ids']==[]
+assert new_source['workbook_source_ids']==['SRC-175']
+new_mapping=next(r for r in rows if r['website_source_id']=='SRC-125')
+assert new_mapping['workbook_documents'][0]['url']==new_source['urls'][0]
+assert new_mapping['mapping_status']=='registered locator match'
 assert 'Item J' in new_source['limitations'] and '6–0' in new_source['limitations']
 assert 'closing, spending or completed housing' in new_source['limitations']
 evidence=html.parse(str(ROOT/'evidence.html'))
@@ -55,4 +58,4 @@ assert any(not r['historical'] and r['url']=='evidence.html#source-id-crosswalk'
 for path in [ROOT/'data/source-id-crosswalk.csv',ROOT/'data/source-id-crosswalk.json']:
  text=path.read_text().lower()
  assert not any(x in text for x in ['mail.google.com','gmail.com','file://','/workspace/','/tmp/','drive.google.com'])
-print('PASS: all 67 crosswalk rows, 51 ID collisions, current counts, historical labels, FY2024/FY2025 filters, resolved Q-001 boundaries and public-data allowlist.')
+print('PASS: all 67 crosswalk rows, 52 ID collisions, current counts, historical labels, FY2024/FY2025 filters, resolved Q-001 boundaries and public-data allowlist.')

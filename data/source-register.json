@@ -1420,9 +1420,11 @@
       "mapping_basis": "Official legal action report confirms the separately considered Council vote.",
       "review_attribution": "Selected source content reviewed November 9, 2026. Earlier rows retain their own review limits.",
       "namespace": "website",
-      "workbook_source_ids": [],
+      "workbook_source_ids": [
+        "SRC-175"
+      ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "No equivalent workbook document ID verified for this release. Website and workbook IDs are separate namespaces; do not substitute the same-numbered workbook ID."
+      "workbook_mapping_basis": "Registered public URL and document-title match checked November 9, 2026 against workbook SRC-175. Locator: Consent Agenda Item J, NOV04-26-315, Resolution 24206, separate motion/vote paragraph. Website and workbook IDs remain separate namespaces. Same-number collision: workbook SRC-125 is the City FY2025 Annual Comprehensive Financial Report, not this Council action report."
     }
   ],
   "unmapped_links": [
@@ -1431,7 +1433,7 @@
       "reason": "General navigation directory; individual CAPER and annual-report documents retain their own IDs. No new document ID assigned."
     }
   ],
-  "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
+  "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 and SRC-125 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
   "crosswalk_url": "data/source-id-crosswalk.json",
   "inventory_checked_at": "2026-11-09T16:11:38-07:00"
 }

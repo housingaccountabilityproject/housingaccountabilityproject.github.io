@@ -103,6 +103,11 @@ try {
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
     assert.equal(await visible.count(), 78);
     await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
+    assert.equal(await visible.count(), 3);
+    assert(await page.locator('#MC-HAMC-WEB-001').isVisible());
+    assert(await page.locator('#source-PHX-HAMC-001').isVisible());
+    assert(await page.locator('#source-PHX-HAMC-002').isVisible());
+    await page.locator('#record-kind').selectOption('notice', {force:true});
     assert.equal(await visible.count(), 1);
     assert((await visible.first().textContent()).includes('application limits may apply earlier'));
     assert((await visible.first().textContent()).includes('8 a.m. Arizona time'));

@@ -115,5 +115,26 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  console.log('Homepage heading and keyboard navigation',JSON.stringify({width,zoom,...metrics}));
  await page.close();
 }
+for(const width of [390,1280]) {
+ const page=await browser.newPage({viewport:{width,height:900}});const errors=[];
+ page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,routeLocalRequest);
+ await page.goto(localPageUrl('index.html'));
+ assert(!(await page.locator('main').textContent()).includes('California'));
+ assert((await page.locator('main').textContent()).includes('Phoenix and Maricopa County'));
+ assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
+ await page.screenshot({path:`reader-qa-screenshots/approved-home-${width}.png`,fullPage:true});
+ for(const [file,id,label] of [['phoenix/index.html','MC-HAMC-WEB-001','hamc-overview'],['phoenix/housing-help.html','hamc-waitlist-notice','hamc-help']]) {
+  await page.goto(localPageUrl(file));const notice=page.locator('#'+id);
+  assert(await notice.isVisible());const content=await notice.textContent();
+  assert(content.includes('December 1, 2026')&&content.includes('8 a.m. Arizona time'));
+  assert(content.includes('application limits may apply earlier'));
+  assert(content.includes('does not guarantee an apartment'));
+  assert.equal(await notice.locator('a[href="https://maricopahousing.org/news/"]').count(),1);
+  assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
+  await notice.screenshot({path:`reader-qa-screenshots/${label}-${width}.png`});
+ }
+ assert.deepEqual(errors,[]);await page.close();
+}
+console.log('PASS: approved homepage label, no California announcement, HAMC notices, cited links and mobile/desktop reflow.');
 console.log('PASS: all pages desktop/tablet/mobile overflow/landmarks, reader-panel text contrast, search flows, details, homepage 320px reflow and 200% CSS zoom, screenshots and no JS errors.');
 } finally {await browser.close();}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-11-09T16:11:38-07:00",
+  "checked_at": "2026-11-09T20:13:53-07:00",
   "website_source_count": 67,
-  "workbook_registry_scope": "Master v13.14 and Audit v2.15, November 8, 2026 Evidence Registry; document references only, not private workbook content.",
+  "workbook_registry_scope": "Earlier mappings retain the November 8 Evidence Registry review. Website SRC-125 was separately matched to the current workbook Evidence Registry SRC-175 on November 9, 2026. Document references only, not private workbook content.",
   "limits": "Source-location crosswalk, not a fresh source-content audit. Unverified mappings remain explicitly unassigned. Website aliases are retained and do not create extra source rows.",
   "rows": [
     {
@@ -1297,11 +1297,19 @@
       "website_urls": [
         "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2"
       ],
-      "workbook_source_ids": [],
-      "workbook_documents": [],
-      "mapping_status": "no registered equivalent verified",
-      "same_number_collision": false,
-      "basis": "No equivalent workbook document ID verified for this release. Website and workbook IDs are separate namespaces; do not substitute the same-numbered workbook ID."
+      "workbook_source_ids": [
+        "SRC-175"
+      ],
+      "workbook_documents": [
+        {
+          "source_id": "SRC-175",
+          "title": "November 4, 2026 Mayor and Council Regular Meeting Legal Action Report",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2"
+        }
+      ],
+      "mapping_status": "registered locator match",
+      "same_number_collision": true,
+      "basis": "Registered public URL and document-title match checked November 9, 2026 against workbook SRC-175. Locator: Consent Agenda Item J, NOV04-26-315, Resolution 24206, separate motion/vote paragraph. Website and workbook IDs remain separate namespaces. Same-number collision: workbook SRC-125 is the City FY2025 Annual Comprehensive Financial Report, not this Council action report."
     }
   ]
 }
