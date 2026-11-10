@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "research_snapshot": "2026-11-08",
+  "research_snapshot": "2026-11-09",
   "scope": "Navigation relationships among already-published Phoenix records. Slugs identify directory entries, not new research findings. No new external verification or request activity is asserted.",
   "projects": [
     {

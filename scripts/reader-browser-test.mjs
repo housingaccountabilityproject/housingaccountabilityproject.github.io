@@ -44,15 +44,17 @@ for(const width of [390,768,1280]) {
  await page.locator('.city-evidence-library > summary').click();
  const homeAnchors=await page.locator('.page-jump a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
  assert(homeAnchors.every(href=>href.startsWith('#')));
- assert.equal(await page.locator('#latest-updates > ol > li').count(),5);
+ assert.equal(await page.locator('#latest-updates > ol > li').count(),6);
  assert.equal(await page.locator('#correction-history > ol > li').count(),3);
  for(const href of homeAnchors){await page.locator(`.page-jump a[href="${href}"]`).click();assert(page.url().endsWith(href));assert.equal(await page.locator(href).count(),1);}
  await page.goto(localPageUrl('tucson/index.html'));
 
  await page.locator('.city-evidence-library > summary').click();
  await page.locator('#latest-updates > ol > li').first().getByRole('link').click();
- assert(page.url().endsWith('#tucson-py2025-caper-status'));
- assert(await page.locator('#tucson-py2025-caper-status').isVisible());
+ assert(page.url().endsWith('#craycroft-council-vote-2026-11-09'));
+ assert(await page.locator('#craycroft-council-vote-2026-11-09').isVisible());
+ assert((await page.locator('#craycroft-council-vote-2026-11-09').textContent()).includes('6–0 vote adopting Resolution 24206'));
+ assert((await page.locator('#craycroft-council-vote-2026-11-09').textContent()).includes('does not establish bond closing'));
  await page.goto(localPageUrl('research-updates.html')+'#county-housing-funding-2026-11-08');
  assert(page.url().endsWith('#county-housing-funding-2026-11-08'));
  assert.equal(await page.locator('#county-housing-funding-2026-11-08 h3').count(),3);
@@ -64,7 +66,7 @@ for(const width of [390,768,1280]) {
  assert((await page.locator('#payments-projects-outcomes-2026-11-07').textContent()).includes('$58,701,289'));
  await page.screenshot({path:`reader-qa-screenshots/update-nov7-${width}.png`,fullPage:true});
  await page.goto(localPageUrl('evidence.html'));
- assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('67 source rows and 20 question rows'));
  for(const [period,id] of [['FY2024','src-114'],['FY2025','src-108']]){
   await page.locator('#period').selectOption(period);
   assert(await page.locator('#'+id).isVisible());
@@ -73,7 +75,7 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Clear',exact:false}).click();
  const crosswalk=page.locator('#source-id-crosswalk details');
  await crosswalk.locator('summary').click();
- assert.equal(await crosswalk.locator('tbody tr').count(),66);
+ assert.equal(await crosswalk.locator('tbody tr').count(),67);
  assert(await crosswalk.locator('table').isVisible());
  await page.screenshot({path:`reader-qa-screenshots/crosswalk-${width}.png`,fullPage:true});
  await crosswalk.locator('summary').click();
@@ -81,7 +83,7 @@ for(const width of [390,768,1280]) {
  await page.locator('#search').fill('AVP');
  assert(await page.locator('#q-020').isVisible());
  await page.getByRole('button',{name:'Clear',exact:false}).click();
- assert((await page.locator('#counts').textContent()).includes('66 source rows and 20 question rows'));
+ assert((await page.locator('#counts').textContent()).includes('67 source rows and 20 question rows'));
  assert.deepEqual(errors,[]);await page.close();
 }
 // The overview title must remain readable and reflow without clipping at 200% zoom.
@@ -113,5 +115,26 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:1280,zoom:1},{width:1280,zo
  console.log('Homepage heading and keyboard navigation',JSON.stringify({width,zoom,...metrics}));
  await page.close();
 }
+for(const width of [390,1280]) {
+ const page=await browser.newPage({viewport:{width,height:900}});const errors=[];
+ page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,routeLocalRequest);
+ await page.goto(localPageUrl('index.html'));
+ assert(!(await page.locator('main').textContent()).includes('California'));
+ assert((await page.locator('main').textContent()).includes('Phoenix and Maricopa County'));
+ assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
+ await page.screenshot({path:`reader-qa-screenshots/approved-home-${width}.png`,fullPage:true});
+ for(const [file,id,label] of [['phoenix/index.html','MC-HAMC-WEB-001','hamc-overview'],['phoenix/housing-help.html','hamc-waitlist-notice','hamc-help']]) {
+  await page.goto(localPageUrl(file));const notice=page.locator('#'+id);
+  assert(await notice.isVisible());const content=await notice.textContent();
+  assert(content.includes('December 1, 2026')&&content.includes('8 a.m. Arizona time'));
+  assert(content.includes('application limits may apply earlier'));
+  assert(content.includes('does not guarantee an apartment'));
+  assert.equal(await notice.locator('a[href="https://maricopahousing.org/news/"]').count(),1);
+  assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
+  await notice.screenshot({path:`reader-qa-screenshots/${label}-${width}.png`});
+ }
+ assert.deepEqual(errors,[]);await page.close();
+}
+console.log('PASS: approved homepage label, no California announcement, HAMC notices, cited links and mobile/desktop reflow.');
 console.log('PASS: all pages desktop/tablet/mobile overflow/landmarks, reader-panel text contrast, search flows, details, homepage 320px reflow and 200% CSS zoom, screenshots and no JS errors.');
 } finally {await browser.close();}

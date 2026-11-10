@@ -41,12 +41,18 @@ assert any('Q-020' in x['text'] for x in index['records'])
 assert any('SRC-094' in x['text'] for x in index['records'])
 assert any('1,284,589.71' in x['text'] for x in index['records'])
 register=json.loads((ROOT/'data/source-register.json').read_text());rows=pages['evidence.html'].xpath('//tr[contains(concat(" ", normalize-space(@class), " "), " source-row ")]')
-assert len(rows)==66==len(register['sources'])
+assert len(rows)==67==len(register['sources'])
 assert len(register['tracker_to_source'])==15
 for n,src in register['tracker_to_source'].items():
  assert pages['research-updates.html'].xpath('//*[@id=$id]//a[@href=$url]',id='tracker-source-'+n,url='evidence.html#'+src.lower()),(n,src)
 ns={'a':'http://www.w3.org/2005/Atom'};feed=etree.parse(str(ROOT/'feed.xml'));entries=feed.xpath('//a:entry',namespaces=ns)
-assert len(entries)==10
+pending=pages['research-updates.html'].xpath('//*[@id="craycroft-council-vote-2026-11-09" and @data-publication-pending="true"]')
+assert len(entries)==(10 if pending else 11)
+new_url='https://housingaccountabilityproject.github.io/research-updates.html#craycroft-council-vote-2026-11-09'
+assert (new_url in feed.xpath('//a:entry/a:id/text()',namespaces=ns)) == (not bool(pending))
+new_article=pages['research-updates.html'].xpath('//*[@id="craycroft-council-vote-2026-11-09"]')[0]
+assert '6–0' in new_article.text_content() and 'Item J' in new_article.text_content()
+assert new_article.xpath('.//a[@href="evidence.html#src-125"]')
 for e in entries:
  get=lambda k:e.findtext('{'+ns['a']+'}'+k)
  assert datetime.fromisoformat(get('published'))<=datetime.fromisoformat(get('updated'))
@@ -64,4 +70,4 @@ subprocess.run(['python','scripts/check-source-crosswalk.py'],cwd=ROOT,check=Tru
 old={p:(ROOT/p).read_bytes() for p in ['feed.xml','assets/search-index.js','data/search-coverage.json']}
 subprocess.run(['python','scripts/build-reader-data.py'],cwd=ROOT,check=True)
 assert all((ROOT/p).read_bytes()==b for p,b in old.items())
-print(f'PASS: {len(pages)} pages; local links, unique IDs, landmarks, analytics/discovery; {len(index["records"])} search sections; 66 sources; 15 mappings; 10 timestamp-verified feed entries; deterministic generation.')
+print(f'PASS: {len(pages)} pages; local links, unique IDs, landmarks, analytics/discovery; {len(index["records"])} search sections; 67 sources; 15 mappings; {len(entries)} timestamp-verified feed entries; deterministic generation.')

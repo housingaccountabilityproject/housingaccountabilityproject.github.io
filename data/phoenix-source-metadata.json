@@ -9,7 +9,9 @@
     "phoenix-ida": "Phoenix IDA",
     "census": "U.S. Census Bureau",
     "arizona-housing": "Arizona Department of Housing",
-    "data-gov": "Data.gov catalog"
+    "data-gov": "Data.gov catalog",
+    "maricopa-county": "Maricopa County",
+    "hamc": "Housing Authority of Maricopa County"
   },
   "programs": {
     "home": "HOME",
@@ -25,7 +27,9 @@
     "inventory": "Housing inventory",
     "housing-need": "Housing need / ACS",
     "project-planning": "Project and phase planning",
-    "general": "General / not program-specific"
+    "general": "General / not program-specific",
+    "cdbg": "CDBG",
+    "waitlists": "Property waitlists"
   },
   "document_types": {
     "performance-report": "Performance report",
@@ -46,13 +50,17 @@
     "dataset-metadata": "Dataset / catalog metadata",
     "data-dictionary": "Data dictionary",
     "council-minutes": "Council minutes",
-    "project-register": "Project register"
+    "project-register": "Project register",
+    "funding-competition": "Funding competition / application packet",
+    "public-notice": "Public notice",
+    "waitlist-schedule": "Waitlist schedule"
   },
   "sources": {
     "PHX-CITY-002": {
       "agency": "city-phoenix",
       "programs": [
-        "home"
+        "home",
+        "cdbg"
       ],
       "document_type": "performance-report",
       "reporting_years": [
@@ -60,9 +68,9 @@
         "2026"
       ],
       "year_status": "stated",
-      "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date.",
+      "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date. Rehabilitation narrative and separate table checked November 9; this is not a recheck of every finding in the report.",
       "date_basis_url": "projects/25th-at-bell.html#BELL-01",
-      "retrieved_on": null
+      "retrieved_on": "2026-11-09"
     },
     "PHX-FILING-001": {
       "agency": "city-phoenix",
@@ -504,6 +512,64 @@
       "date_basis": "Data.gov-stated coverage: June 2026. This catalog descriptor is distinct from HUD item and layer descriptions.",
       "date_basis_url": "projects/25th-at-bell.html#HOME-dataset-vintage",
       "retrieved_on": "2026-11-08"
+    },
+    "MC-HOME-001": {
+      "agency": "maricopa-county",
+      "programs": [
+        "home"
+      ],
+      "document_type": "funding-competition",
+      "reporting_years": [
+        "2027",
+        "2028"
+      ],
+      "year_status": "stated",
+      "date_basis": "Program Year 2027–28 competition; application deadline December 8, 2026 at 5 p.m. Estimated availability, not awarded or spent funds; City of Phoenix excluded.",
+      "date_basis_url": "index.html#MC-HOME-WEB-001",
+      "retrieved_on": "2026-11-09"
+    },
+    "MC-HOME-002": {
+      "agency": "maricopa-county",
+      "programs": [
+        "home"
+      ],
+      "document_type": "funding-competition",
+      "reporting_years": [
+        "2027",
+        "2028"
+      ],
+      "year_status": "stated",
+      "date_basis": "Program Year 2027–28 competition; application deadline December 8, 2026 at 5 p.m. Estimated availability, not awarded or spent funds; City of Phoenix excluded.",
+      "date_basis_url": "index.html#MC-HOME-WEB-001",
+      "retrieved_on": "2026-11-09"
+    },
+    "PHX-HAMC-001": {
+      "agency": "hamc",
+      "programs": [
+        "waitlists"
+      ],
+      "document_type": "public-notice",
+      "reporting_years": [
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "October 2026 closure notice states December 1, 2026 at 8 a.m. Arizona time; this is an application cutoff, not an occupancy or vacancy date.",
+      "date_basis_url": "index.html#MC-HAMC-WEB-001",
+      "retrieved_on": "2026-11-09"
+    },
+    "PHX-HAMC-002": {
+      "agency": "hamc",
+      "programs": [
+        "waitlists"
+      ],
+      "document_type": "waitlist-schedule",
+      "reporting_years": [
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "Property-waitlist status as of November 5, 2026; listed application limits can apply earlier than December 1. Later status must be checked with HAMC.",
+      "date_basis_url": "index.html#MC-HAMC-WEB-001",
+      "retrieved_on": "2026-11-09"
     }
   }
 }

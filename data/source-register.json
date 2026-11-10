@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Stable mapping of 66 published source rows. Selected November 8 additions and earlier records retain their individual review limits.",
+  "scope": "Stable mapping of 67 published source rows. Selected November 9 and November 8 additions and earlier records retain their individual review limits.",
   "source_dates_through": "2026-11-08",
   "resident_privacy": "Aggregate counts and appropriately redacted public records only. No resident names, occupied-unit identifiers, tenant rosters or individual case files; combine or suppress identifiable small groups.",
   "tracker_to_source": {
@@ -817,7 +817,7 @@
       "period": "other",
       "topic": "bonds",
       "source_context": "November 4, 2026 resolution; reviewed November 7.",
-      "limitations": "States adoption of authorization for up to $10 million in Craycroft/Lee Street bonds. Formal Council action summary not retrieved; not proof of closing or proceeds.",
+      "limitations": "States adoption of authorization for up to $10 million in Craycroft/Lee Street bonds. At the November 7 review, the formal Council action summary had not been retrieved; SRC-125 now confirms the Council vote. Neither record proves closing or proceeds.",
       "urls": [
         "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewDocument/RESOLUTION%2024206.pdf?meetingId=1962&documentType=1&itemId=80698&publishId=207080&isSection=false"
       ],
@@ -1403,6 +1403,28 @@
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
       "workbook_mapping_basis": "Exact official document locator matched to the November 8 workbook registry addition; selected source content reviewed for this release. Website and workbook IDs are separate namespaces."
+    },
+    {
+      "public_id": "SRC-125",
+      "title": "Tucson Mayor and Council November 4, 2026 Legal Action Report",
+      "period": "other",
+      "topic": "bonds",
+      "source_context": "November 4, 2026; Consent Agenda Item J, separately considered adoption vote. HTML report; reviewed November 9, 2026.",
+      "limitations": "Separately considered Consent Agenda Item J records a 6–0 vote adopting Resolution 24206, with Cunningham absent/excused. Confirms the previously reported bond authorization; does not establish closing, spending or completed housing.",
+      "urls": [
+        "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2"
+      ],
+      "citation_url": "research-updates.html#craycroft-council-vote-2026-11-09",
+      "aliases": [],
+      "page_url": "evidence.html#src-125",
+      "mapping_basis": "Official legal action report confirms the separately considered Council vote.",
+      "review_attribution": "Selected source content reviewed November 9, 2026. Earlier rows retain their own review limits.",
+      "namespace": "website",
+      "workbook_source_ids": [
+        "SRC-175"
+      ],
+      "crosswalk_url": "evidence.html#source-id-crosswalk",
+      "workbook_mapping_basis": "Registered public URL and document-title match checked November 9, 2026 against workbook SRC-175. Locator: Consent Agenda Item J, NOV04-26-315, Resolution 24206, separate motion/vote paragraph. Website and workbook IDs remain separate namespaces. Same-number collision: workbook SRC-125 is the City FY2025 Annual Comprehensive Financial Report, not this Council action report."
     }
   ],
   "unmapped_links": [
@@ -1411,7 +1433,7 @@
       "reason": "General navigation directory; individual CAPER and annual-report documents retain their own IDs. No new document ID assigned."
     }
   ],
-  "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
+  "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 and SRC-125 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
   "crosswalk_url": "data/source-id-crosswalk.json",
-  "inventory_checked_at": "2026-11-07T20:26:20-07:00"
+  "inventory_checked_at": "2026-11-09T16:11:38-07:00"
 }
