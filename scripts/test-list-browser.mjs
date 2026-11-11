@@ -15,6 +15,7 @@ const specs=[
  ['phoenix/records.html','.record-card','records',0],['phoenix/questions.html','[data-connection-entry]','connections',0],['phoenix/projects.html','[data-connection-entry]','connections',0],['phoenix/comparisons.html','[data-connection-entry]','connections',0]
 ];
 const saved=[];let browser;
+async function scopeHeaderVisible(page,selector){const box=await page.locator(selector).boundingBox();assert(box&&box.y>=0&&box.y+box.height<=900,'The selected report scope header is visible on opening');}
 function pdfCheck(path,ids){
  const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:20*1024*1024}).split('\f').filter((p,i,a)=>i<a.length-1||p.trim());
  assert(pages.every(p=>p.trim().length>25),path+' has no blank/border-only pages');
@@ -61,7 +62,7 @@ try{
   const stateBefore=await page.locator('#'+prefix+'-page').textContent();
   for(const scope of ['current','all'])for(const detail of ['compact','full']){
    await page.locator('#print-scope').selectOption(scope);await page.locator('#print-detail').selectOption(detail);
-   await page.locator('#preview-print').press('Enter');assert.equal(await page.evaluate(()=>scrollY),0,'Preview starts at its scope header');const ids=scope==='current'?current:expected;
+   await page.locator('#preview-print').press('Enter');await scopeHeaderVisible(page,'#search-print-output>h1');const ids=scope==='current'?current:expected;
    assert.deepEqual(await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.map(n=>n.dataset.printRecordId)),ids);
    const text=await page.locator('#search-print-output').textContent();assert(!text.includes('Search:'));assert(text.includes('MST (UTC−7)'));assert(text.includes('America/Phoenix'));
    assert.equal(await page.locator('#search-print-output details:not([open])').count(),0);
@@ -110,7 +111,7 @@ try{
    const current=expected.slice(Math.floor((expected.length-1)/6)*6);
    for(const scope of ['all','current'])for(const mode of ['compact','full']){
     await page.locator('#print-record-scope').selectOption(scope);await page.locator(mode==='compact'?'#print-compact':'#print').click();
-    assert.equal(await page.evaluate(()=>scrollY),0,'Category preview starts at its scope header');
+    await scopeHeaderVisible(page,'.print-header h1');
     assert.deepEqual(await page.locator('.print-record').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)),scope==='all'?expected:current);
     assert(!(await page.locator('.print-header').textContent()).includes('Search:'));
     await page.getByRole('button',{name:'← Back to search',exact:true}).click();
