@@ -104,10 +104,12 @@ try{
    if(scope==='current')assert.equal(ids.length,6);
    if(scope==='current'&&list==='sources')assert.deepEqual(ids,['src-029','src-036','src-040','src-034','src-064','src-065'],'Exact source page 2');
    if(scope==='current'&&list==='questions')assert.deepEqual(ids,['q-007','q-008','q-009','q-010','q-011','q-012'],'Exact question page 2');
+   const phoenixLeads=path==='phoenix/records.html'?await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.map(n=>({id:n.dataset.printRecordId,title:n.querySelector('.print-record-lead h2')?.textContent}))):[];
    const fragments=await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.flatMap(n=>{const w=document.createTreeWalker(n,NodeFilter.SHOW_TEXT),a=[];while(w.nextNode()){const s=w.currentNode.textContent.trim();if(s)a.push(s);}return a;}));
    await exportPDF(page,`${prefix}-${scope}-${detail}-${format}`,format,data=>{
     const text=data.pages.map(p=>p.text).join(' '),flat=norm(text);
     assert.deepEqual([...text.matchAll(/Record ID:\s*([\w-]+)/g)].map(m=>m[1]),ids,'Every record once in order');
+    for(const lead of phoenixLeads){assert(lead.title,'Phoenix title in the print lead');const sheet=data.pages.find(p=>norm(p.text).includes(norm('Record ID: '+lead.id)));assert(norm(sheet?.text||'').includes(norm(lead.title)),lead.id+' stays with its title on '+format);}
     for(const fragment of fragments)assert(flat.includes(norm(fragment)),'PDF retains evidence/qualification '+fragment);
    });
    await page.locator('#close-print').click();assert.equal(await page.locator('#'+prefix+'-page').textContent(),state);assert.equal(await page.evaluate(()=>document.activeElement.id),'preview-print');

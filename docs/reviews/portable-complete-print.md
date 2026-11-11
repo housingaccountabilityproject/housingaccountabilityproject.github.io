@@ -12,6 +12,8 @@ The complete-index action prints the live page rather than the detached report. 
 
 The expanded Phoenix source page-2 Current/Full Letter test additionally found an empty ninth sheet. Detached Phoenix record cards now omit trailing print padding so card decoration cannot consume a final sheet. Evidence still flows normally; no content is hidden or clipped, and the record-ID/title attachment rules remain in place. The final matrix must verify the correction on both paper sizes and all selected records.
 
+Visual review after that spacing correction found PHX-WEB-004's identifier at the end of one sheet and its title on the next. Phoenix cards now group their identifier, category/direct-link heading and title into the same small print lead used for table-row reports. The extended PDF test checks every Phoenix ID/title pair on Current/All, Compact/Full, Letter/A4, including all 90 cards in the all-match exports. The source records and evidence text are unchanged.
+
 ## Verification contract
 
 Existing required jobs `reader-tools`, `phoenix-index` and `smoke` remain required. Their assertions are retained. The reader job additionally runs `scripts/test-portable-print.mjs`:

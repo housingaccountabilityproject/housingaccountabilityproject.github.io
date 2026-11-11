@@ -50,6 +50,13 @@
           for(const node of [...copy.children].slice(0,4))lead.append(node);
           copy.prepend(lead);
           if(entry.id)lead.prepend(make('p','Record ID: '+entry.id));
+        }else if(copy.classList.contains('record-card') && copy.querySelector(':scope>h2')){
+          const lead=make('div');lead.className='print-record-lead';
+          if(entry.id)lead.append(make('p','Record ID: '+entry.id));
+          // A Phoenix card's category and direct link precede its title.
+          // Keep that small heading together while the evidence still flows.
+          for(const node of [...copy.children]){lead.append(node);if(node.tagName==='H2')break;}
+          copy.prepend(lead);
         }else if(entry.id)copy.prepend(make('p','Record ID: '+entry.id));
         copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
         copy.querySelectorAll('details').forEach(n=>{n.open=true;});
