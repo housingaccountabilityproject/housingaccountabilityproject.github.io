@@ -1,7 +1,11 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..');
 class Element{
- constructor(tag='div'){this.tag=tag;this.children=[];this.events={};this.value='';this.textContent='';this.hidden=false;this.focused=false;}
+ constructor(tag='div'){this.tag=tag;this.children=[];this.events={};this.value='';this.textContent='';this.hidden=false;this.focused=false;this.dataset={};}
+ set id(value){this._id=value;elements[value]=this;}
+ get id(){return this._id;}
+ after(){}
+ scrollIntoView(){}
  setAttribute(name,value){this[name]=value;}
  addEventListener(name,fn){this.events[name]=fn;}
  append(...items){this.children.push(...items);}
@@ -12,8 +16,9 @@ class Element{
 const elements={};for(const id of ['site-search-form','site-query','search-category','search-status','search-results','more-results','clear-search'])elements[id]=new Element();
 elements['search-category'].value='all';
 const document={querySelector:()=>new Element(),getElementById:id=>elements[id],createElement:tag=>new Element(tag)};
-const context={window:{HAPSearchOptions:{register:()=>({clearLink(){},reset(){},includeTerms:()=>false}),incoming:()=>null}},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/search-index.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),context);
-const data=context.window.HAP_SEARCH_INDEX.records;const query=(q,category='all')=>{elements['site-query'].value=q;elements['search-category'].value=category;let prevented=false;elements['site-search-form'].events.submit({preventDefault(){prevented=true;}});assert(prevented);return elements['search-results'].children;};
+const history={state:null,replaceState(s){this.state=s;},pushState(s){this.state=s;}};
+const context={history,location:{href:'https://housingaccountabilityproject.github.io/search-all.html'},performance:{getEntriesByType:()=>[{type:'navigate'}]},window:{addEventListener(){},HAPSearchOptions:{register:()=>({clearLink(){},reset(){},includeTerms:()=>false}),incoming:()=>null}},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/search-index.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/list-browser.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),context);
+const data=context.window.HAP_SEARCH_INDEX.records;const query=(q,category='all')=>{elements['site-query'].value=q;elements['search-category'].value=category;let prevented=false;elements['site-search-form'].events.submit({preventDefault(){prevented=true;}});assert(prevented);return elements['search-results'].children.filter(x=>!x.hidden);};
 assert.match(elements['search-status'].textContent,/15 published Tucson and Pima County pages/);
 for(const r of data){assert(!['catalog-empty','catalog-count','empty','count'].includes(r.url.split('#')[1]),r.url);assert(!r.text.includes('No matching records'),r.url);}
 for(const [term,url,title] of [
@@ -33,8 +38,8 @@ results=query('Q-007','Evidence');assert(results.some(x=>x.querySelector('a').hr
 for(const q of ['"El Portal"','SRC-094','1,284,589.71','CDBG formula','housing help'])assert(query(q).length>0,q);
 assert.equal(query('impossible-match-947362').length,0);assert.match(elements['search-status'].textContent,/No matching sections/);
 assert.equal(query('<img src=x onerror=alert(1)>').length,0);
-results=query('CDBG');assert.equal(results.length,20);assert.equal(elements['more-results'].hidden,false);elements['more-results'].events.click();assert(elements['search-results'].children.length>20);assert(elements['search-results'].children[20].querySelector('a').focused);
-results=query('','Findings');assert(results.length>=12);
+results=query('CDBG');assert.equal(results.length,6);assert.equal(elements['more-results'].hidden,true);assert(context.window.HAP_SEARCH_PRINT.state().matches>20);elements['broader-next'].events.click();assert.equal(elements['search-results'].children.filter(x=>!x.hidden).length,6);assert.equal(elements['broader-page'].textContent,'Page 2 of '+Math.ceil(context.window.HAP_SEARCH_PRINT.state().matches/6));assert(elements['search-status'].focused);
+results=query('','Findings');assert.equal(results.length,6);assert(context.window.HAP_SEARCH_PRINT.state().matches>=12);
 elements['clear-search'].events.click();assert.equal(elements['site-query'].value,'');assert.equal(elements['search-category'].value,'all');assert.equal(elements['search-results'].children.length,0);assert(elements['site-query'].focused);
 const current=data.filter(x=>x.url==='findings.html#f-007'&&!x.historical);const old=data.filter(x=>x.url==='findings.html#f-007'&&x.historical);assert.equal(current.length,1);assert.equal(old.length,1);assert.match(old[0].title,/Historical wording/);
 assert(data.some(r=>r.url.split('#')[0]==='tucson/index.html'));

@@ -24,10 +24,10 @@ try {
   page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>requests.push(request.url()));
   async function privacySnapshot() {
-    return page.evaluate(()=>({url:location.href,history:history.length,local:localStorage.length,session:sessionStorage.length}));
+    return page.evaluate(()=>({url:location.href,local:localStorage.length,session:sessionStorage.length}));
   }
   async function checkPrivate(before, requestCount) {
-    assert.deepEqual(await privacySnapshot(),before,'Search choices do not write URL, history or storage');
+    assert.deepEqual(await privacySnapshot(),before,'Search choices do not write URL terms or browser storage');
     assert.equal(requests.length,requestCount,'Searching and link preparation send no requests');
     assert.equal((await context.cookies()).length,0,'No search cookies');
   }

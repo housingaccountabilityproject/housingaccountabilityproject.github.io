@@ -34,7 +34,7 @@ for (const width of [390,1280]) {
     const shown=await cards.filter({visible:true}).count();
     if(shown!==0||await page.locator('#catalog-empty').isHidden())failures.push(`${path}: search filter not hiding all cards`);
     await page.locator('#catalog-search').fill('');
-    if(await cards.filter({visible:true}).count()!==before) failures.push(`${path}: clearing filter did not restore ${before} records`);
+    if(await cards.filter({visible:true}).count()!==Math.min(6,before)) failures.push(`${path}: clearing filter did not restore ${before} records`);
     await page.locator('#catalog-filter').selectOption({index:1});
     const filtered=await cards.filter({visible:true}).count();
     if(filtered===0||filtered>before) failures.push(`${path}: category filter returned wrong count ${filtered}/${before}`);

@@ -46,15 +46,15 @@ try {
   await page.getByRole('button', {name: 'Search', exact: true}).click();
   const expected = Number((await page.locator('#search-status').textContent()).match(/^(\d+)/)[1]);
   assert(expected > 20);
-  assert.equal(await page.locator('#search-results article').count(), 20);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(), 6);
   const statusBefore = await page.locator('#search-status').textContent();
   await page.getByRole('button', {name: 'Preview print results', exact: true}).click();
   assert.equal(await page.locator('#search-print-output article').count(), expected);
-  assert.equal(await page.locator('#search-results article').count(), 20);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(), 6);
   assert(await page.getByRole('button', {name: 'Return to results'}).isVisible());
   await page.getByRole('button', {name: 'Return to results'}).click();
   assert.equal(await page.locator('#search-print-output').count(), 0);
-  assert.equal(await page.locator('#search-results article').count(), 20);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(), 6);
 
   // Unsubmitted edits must not relabel the results being printed.
   await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('not-the-submitted-query');
@@ -63,7 +63,7 @@ try {
   assert(!(await page.locator('#search-print-output').textContent()).includes('Search: CDBG'),'Typed terms are omitted by default');
   assert.equal(await page.locator('#search-print-output .historical-result .result-caution').count(), await page.locator('#search-print-output .historical-result').count());
   assert(await page.locator('#site-search-form').isHidden());
-  assert.equal(await page.locator('#search-results article').count(), 20);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(), 6);
   const tucsonPDF = await savePDF('tucson-search-results');
   assert(tucsonPDF.includes('Tucson & Pima County search results'));
   assert(tucsonPDF.includes(`${expected} matching results`));
@@ -72,10 +72,10 @@ try {
   assert(!tucsonPDF.includes(base), 'printed references should use public canonical URLs');
   await finishPrint();
   assert.equal(await page.locator('#search-status').textContent(), statusBefore);
-  assert.equal(await page.locator('#search-results article').count(), 20);
-  assert(await page.getByRole('button', {name: 'Show More Results'}).isVisible());
-  await page.getByRole('button', {name: 'Show More Results'}).click();
-  assert.equal(await page.locator('#search-results article').count(), 40);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(), 6);
+  await page.locator('#broader-next').click();
+  assert.match(await page.locator('#broader-page').textContent(),/^Page 2/);
+  assert.equal(await page.locator('#search-results article:not([hidden])').count(),6);
   await page.getByRole('button', {name: 'Clear', exact: true}).click();
   assert(await page.getByRole('button', {name: 'Print search results'}).isDisabled());
   await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
@@ -87,7 +87,7 @@ try {
   assert.equal(await page.locator('#search-print-output article').count(), categoryMatches);
   assert((await page.locator('#search-print-output').textContent()).includes('Pages: Findings'));
   await finishPrint();
-  console.log(`PASS Tucson: ${expected} results printed beyond the first 20; PDF text, historical cautions, submitted filters and unchanged screen pagination.`);
+  console.log(`PASS Tucson: ${expected} results printed beyond the first six; PDF text, historical cautions, submitted filters and unchanged screen pagination.`);
 
   await page.goto(base + '/phoenix/records.html');
   await page.getByRole('button', {name: 'Funding', exact: true}).click();
