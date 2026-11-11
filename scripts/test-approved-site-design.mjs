@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
 import {mkdirSync,existsSync} from 'node:fs';
@@ -14,8 +15,8 @@ async function pageFor(width=1280){
   await page.route('**/*',r=>r.request().url().startsWith(base+'/')?r.continue():r.abort());
   page.on('pageerror',error=>errors.push(error.message));return page;
 }
-const pdfText=path=>execFileSync('pdftotext',[path,'-'],{encoding:'utf8'}).replace(/\s+/g,' ');
-const pdfPages=path=>Number(execFileSync('pdfinfo',[path],{encoding:'utf8'}).match(/Pages:\s+(\d+)/)[1]);
+const pdfText=path=>execPDF('pdftotext',[path,'-'],{encoding:'utf8'}).replace(/\s+/g,' ');
+const pdfPages=path=>Number(execPDF('pdfinfo',[path],{encoding:'utf8'}).match(/Pages:\s+(\d+)/)[1]);
 try{
   for(let i=0;i<40;i++){try{if((await fetch(base+'/index.html')).ok)break;}catch{}await new Promise(resolve=>setTimeout(resolve,100));}
   const executablePath=process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined);

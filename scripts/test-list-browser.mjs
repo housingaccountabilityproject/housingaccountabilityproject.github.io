@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
 import {existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
@@ -15,12 +16,12 @@ const specs=[
 ];
 const saved=[];let browser;
 function pdfCheck(path,ids){
- const pages=execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:20*1024*1024}).split('\f').filter((p,i,a)=>i<a.length-1||p.trim());
+ const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:20*1024*1024}).split('\f').filter((p,i,a)=>i<a.length-1||p.trim());
  assert(pages.every(p=>p.trim().length>25),path+' has no blank/border-only pages');
  const text=pages.join(' ').replace(/\s+/g,' ');
  assert.equal((text.match(/Record ID:/g)||[]).length,ids.length,path+' records appear exactly once');
  for(const id of ids)assert(text.includes('Record ID: '+id),'PDF retains '+id);
- const links=execFileSync('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:20*1024*1024});
+ const links=execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:20*1024*1024});
  if(ids.length)assert(links.includes('https://'),'Clickable source/context links');
  assert(!links.includes(base),'Print links use canonical public addresses');saved.push({path,pages:pages.length,records:ids.length});
 }
@@ -94,7 +95,7 @@ try{
  assert.equal(await page.locator('#search').inputValue(),'');assert.equal(await page.locator('#search-print-output').count(),0);
  assert.equal(await page.locator('#source-id-crosswalk details:not([open])').count(),0);
  const complete=output+'/tucson-complete-index.pdf';await page.pdf({path:complete,format:'Letter',tagged:true});
- const completeText=execFileSync('pdftotext',[complete,'-'],{encoding:'utf8',maxBuffer:10*1024*1024});
+ const completeText=execPDF('pdftotext',[complete,'-'],{encoding:'utf8',maxBuffer:10*1024*1024});
  for(const phrase of ['Let Readers Check the Evidence','SRC-125','Q-020','Website and Workbook Source-ID Crosswalk','Methodology, Source Quality'])assert(completeText.includes(phrase),phrase);
  assert(completeText.split('\f').filter(p=>p.trim()).every(p=>p.trim().length>25));
  await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));assert.equal(await page.locator('#sources tbody tr:visible').count(),6);

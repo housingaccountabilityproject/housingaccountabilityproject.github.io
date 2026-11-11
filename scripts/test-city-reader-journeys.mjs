@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn, execFileSync} from 'node:child_process';
 import {existsSync, readdirSync, mkdirSync, readFileSync} from 'node:fs';
@@ -203,11 +204,11 @@ try {
   await page.goto(base+'/phoenix/projects/moreland.html');
   mkdirSync('/tmp/hap-search-print',{recursive:true});
   await page.pdf({path:'/tmp/hap-search-print/moreland-project-file.pdf',format:'Letter',tagged:true});
-  const pdf=execFileSync('pdftotext',['/tmp/hap-search-print/moreland-project-file.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
+  const pdf=execPDF('pdftotext',['/tmp/hap-search-print/moreland-project-file.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
   for(const term of ['132 planned apartments','105 planned apartments','$43.1 million','up to $10 million','up to 54'])assert(pdf.includes(term),term);
   await page.goto(base+'/phoenix/index.html');
   await page.pdf({path:'/tmp/hap-search-print/phoenix-overview-guide.pdf',format:'Letter',tagged:true});
-  const overviewPdf=execFileSync('pdftotext',['/tmp/hap-search-print/phoenix-overview-guide.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
+  const overviewPdf=execPDF('pdftotext',['/tmp/hap-search-print/phoenix-overview-guide.pdf','-'],{encoding:'utf8'}).replace(/\s+/g,' ');
   for(const term of ['Four records. Four different meanings.','PHX-WEB-009','$43.1 million','Neither amount is total City assistance'])assert(overviewPdf.includes(term),term);
   assert.equal(await page.locator('.city-evidence-library').getAttribute('open'),null,'real PDF restores the closed library');
   await page.goto(base+'/phoenix/corrections.html');

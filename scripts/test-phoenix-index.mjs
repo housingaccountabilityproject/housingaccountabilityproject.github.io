@@ -46,7 +46,7 @@ try {
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2026');
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-203');
-    assert((await page.locator('#record-count').textContent()).startsWith('1 of 45 source references'));
+    assert.match(await page.locator('#record-count').textContent(),/^1 of 45 Phoenix & Maricopa County source references/);
     assert.equal(await visible.first().locator('.source-retrieval time').getAttribute('datetime'), '2026-11-08');
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2025');
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-200');

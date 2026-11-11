@@ -37,12 +37,6 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install chromium
-      - name: Install PDF text verifier
-        run: |
-          if ! command -v pdftotext || ! command -v pdfinfo; then
-            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 update
-            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 install -y poppler-utils
-          fi
       - run: node scripts/test-list-browser.mjs
       - run: node scripts/test-search-options.mjs
       - run: node scripts/test-category-search.mjs

@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
 import {existsSync,mkdirSync,readFileSync} from 'node:fs';
@@ -29,7 +30,7 @@ const printSearches={
  ]},
 };
 function pdfText(path){
- const pages=execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
+ const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
  if(pages.at(-1)==='')pages.pop();
  const evidence=pages.map((page,i)=>{
   const body=page.split('\n').filter(line=>!['HAP TEST HEADER','HAP TEST FOOTER'].includes(line.trim())).join('\n');
@@ -38,7 +39,7 @@ function pdfText(path){
  });
  return evidence.join(' ').replace(/\s+/g,' ');
 }
-const pdfLinks=path=>execFileSync('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
+const pdfLinks=path=>execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
 mkdirSync(output,{recursive:true});
 
 async function inspectPDF(page, scope, category, mode, expected, suffix=''){

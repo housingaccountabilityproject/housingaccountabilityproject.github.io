@@ -47,12 +47,6 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.65.0
           npx playwright install chromium
       - run: node scripts/test-phoenix-index.mjs
-      - name: Install PDF text verifier
-        run: |
-          if ! command -v pdftotext || ! command -v pdfinfo; then
-            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 update
-            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 install -y poppler-utils
-          fi
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
       - run: node scripts/test-approved-site-design.mjs

@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn, execFileSync} from 'node:child_process';
 import {existsSync, mkdirSync} from 'node:fs';
@@ -37,7 +38,7 @@ try {
     const path = `${output}/${name}.pdf`;
     await page.pdf({path, format: 'Letter', printBackground: false, tagged: true});
     // The print engine fires afterprint when PDF rendering completes.
-    return execFileSync('pdftotext', [path, '-'], {encoding: 'utf8'}).replace(/\s+/g, ' ');
+    return execPDF('pdftotext', [path, '-'], {encoding: 'utf8'}).replace(/\s+/g, ' ');
   }
 
   await page.goto(base + '/search-all.html');
