@@ -14,8 +14,6 @@ const base=process.env.PORTABLE_PRINT_BASE_URL||'http://127.0.0.1:8783';
 const server=process.env.PORTABLE_PRINT_BASE_URL?null:spawn('python3',['-m','http.server','8783','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const results=[],errors=[];let browser;
 const norm=s=>s.normalize('NFKC').replace(/\s/g,'');
-const tokens=s=>s.normalize('NFKC').match(/[\p{L}\p{N}]+/gu)||[];
-function orderedTokens(haystack,needle,label){let at=0;for(const word of needle){at=haystack.indexOf(word,at);assert(at>=0,label+' missing ordered token '+word);at++;}}
 function audit(path){return JSON.parse(execPDF('audit',[path],{encoding:'utf8',maxBuffer:80*1024*1024}));}
 function portable(data,label){
  const targets=data.pages.flatMap(p=>p.links).filter(l=>l.uri||l.file);
@@ -42,6 +40,7 @@ try{
   const before=await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')));
   const readRows=ns=>ns.map(n=>({id:n.id,cells:[...n.children].map(c=>{const w=document.createTreeWalker(c,NodeFilter.SHOW_TEXT),a=[];while(w.nextNode())a.push(w.currentNode.textContent);return a.join(' ');})}));
   const rows=await page.locator('#sources tbody tr,#questions tbody tr').evaluateAll(readRows);
+  const headers=await page.locator('#sources thead tr,#questions thead tr').evaluateAll(ns=>ns.map(n=>[...n.children].map(c=>c.textContent)));
   const disclosures=await page.locator('main details').evaluateAll(ns=>ns.map(n=>n.open));
   await page.locator('#search').fill('CDBG');
   await page.evaluate(()=>{window.print=()=>window.dispatchEvent(new Event('beforeprint'));});
@@ -65,10 +64,16 @@ try{
    assert(data.pages.flatMap(p=>p.links).some(l=>l.kind===1),'Internal PDF destinations retained');
    // Read each of the five fixed table columns across page breaks, rather
    // than claiming equality from interleaved whole-page extraction. Repeated
-   // table headers may intervene; all cell tokens must remain in order.
-   const columns=Array.from({length:5},()=>[]),margin=18*72/25.4;
-   for(const p of data.pages)for(const w of p.words){const col=Math.min(4,Math.max(0,Math.floor((w[0]-margin)/((p.width-2*margin)/5))));columns[col].push(...tokens(w[4]));}
-   for(let col=0;col<5;col++)orderedTokens(columns[col],rows.flatMap(r=>tokens(r.cells[col])),`Complete ${context}/${format} column ${col+1}`);
+   // table headers may intervene, and adjacent links can extract as a single
+   // word. Compare whitespace-normalized cell text in each column's order;
+   // exclude the repeated header wording identically on both sides.
+   const columns=Array.from({length:5},()=>''),margin=18*72/25.4;
+   for(const p of data.pages)for(const w of p.words){const col=Math.min(4,Math.max(0,Math.floor((w[0]-margin)/((p.width-2*margin)/5))));columns[col]+=norm(w[4]);}
+   for(let col=0;col<5;col++){
+    const withoutHeaders=s=>headers.reduce((t,h)=>t.replaceAll(norm(h[col]),''),norm(s));
+    const text=withoutHeaders(columns[col]);let at=0;
+    for(const row of rows){const cell=withoutHeaders(row.cells[col]),found=text.indexOf(cell,at);assert(found>=0,`Complete ${context}/${format}: ${row.id} column ${col+1} text retained`);at=found+cell.length;}
+   }
   });
   await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
   assert.deepEqual(await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),before);
