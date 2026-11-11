@@ -261,7 +261,7 @@ try {
   }
   const noJS = await browser.newPage({javaScriptEnabled: false});
   await noJS.goto(base + '/phoenix/records.html');
-  assert.equal(await noJS.locator('.record-card:visible').count(), 87);
+  assert.equal(await noJS.locator('.record-card:visible').count(), 90);
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());

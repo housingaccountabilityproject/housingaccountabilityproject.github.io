@@ -114,7 +114,7 @@ def apply(output, path):
         return output
     city = city_for(path)
     if 'assets/search-print.js' in output and 'assets/search-options.js' not in output:
-        script = f'<script src="{relative("assets/search-options.js", path)}" defer></script>'
+        script = f'<script src="{relative("assets/search-options.js", path)}"></script>'
         css = f'<link rel="stylesheet" href="{relative("assets/search-options.css", path)}">'
         match = re.search(r'<script[^>]+src="[^"]*assets/search-print.js"[^>]*></script>', output)
         if match:
