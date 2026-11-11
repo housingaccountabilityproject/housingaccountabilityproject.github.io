@@ -77,6 +77,10 @@
     if (!target.textContent.trim()) target = target.closest('tr,[data-catalog-entry],.record-card,[data-connection-entry]') || target;
     for (let parent = target.parentElement; parent; parent = parent.parentElement) if (parent.tagName === 'DETAILS') parent.open = true;
     target.tabIndex = -1; target.focus({preventScroll:true}); target.scrollIntoView({block:'start'});
+    // Native fragment navigation can clear focus after deferred scripts run.
+    requestAnimationFrame(() => {
+      if (document.activeElement === document.body || document.activeElement === target) target.focus({preventScroll:true});
+    });
   }
   window.HAPListBrowser = {create, history:historyState, notice, reveal};
 })();
