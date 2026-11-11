@@ -19,7 +19,8 @@ function portable(data,label){
  const targets=data.pages.flatMap(p=>p.links).filter(l=>l.uri||l.file);
  assert(targets.length>0,label+' has clickable links');
  for(const link of targets){assert(!link.file,label+' remote/local file action '+link.file);assert(/^(https:|mailto:)/i.test(link.uri||''),label+' nonportable URI '+link.uri);assert(!/localhost|127\.0\.0\.1/.test(link.uri),label+' preview target');}
- assert(data.pages.every(p=>p.text.trim().length>25),label+' blank/border-only page');
+ const short=data.pages.map((p,i)=>({page:i+1,text:p.text.trim()})).filter(p=>p.text.length<=25);
+ assert.equal(short.length,0,label+' blank/border-only page: '+JSON.stringify(short));
  return targets.length;
 }
 async function exportPDF(page,name,format,check){
