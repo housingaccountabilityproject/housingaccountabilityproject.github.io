@@ -51,16 +51,29 @@
  const describe=()=>[...(privacy.includeTerms()?[`Search: ${search.value.trim()||'(no search terms)'}`]:[]),`Period: ${period.selectedOptions[0].textContent}`,`Subject: ${topic.selectedOptions[0].textContent}`];
  printing=window.HAPSearchPrint.register({title:'Tucson & Pima County Public Evidence Index',privacy,describe,lists:lists.map((list,i)=>({id:i?'questions':'sources',label:i?'Tucson & Pima County question register':'Tucson & Pima County source register',results:list.matches,currentResults:list.current})),snapshot:'Published research only. Website source IDs and workbook IDs remain separate namespaces.'});
  const complete=$('print-all'),completeNotice=document.createElement('p');completeNotice.id='print-all-notice';completeNotice.textContent='Print Complete Index clears the shared filters and includes both complete registers, the ID crosswalk and explanatory material. It does not limit output to six rows.';complete.setAttribute('aria-describedby',completeNotice.id);complete.before(completeNotice);
- let details=new Map();
+ let details=new Map(),printLinks=new Map();
+ function portablePrintLinks(){
+  // The complete index prints the live document, unlike detached reports.
+  // Resolve cross-page links against its published address, never a local ZIP path.
+  const canonical=new URL(document.querySelector('link[rel="canonical"]').href);
+  document.querySelectorAll('a[href]').forEach(link=>{
+   const href=link.getAttribute('href');
+   if(href.startsWith('#') || /^[a-z][a-z\d+.-]*:/i.test(href))return;
+   const target=new URL(href,canonical);
+   const portable=target.origin===canonical.origin && target.pathname===canonical.pathname && target.search===canonical.search && target.hash ? target.hash : target.href;
+   if(portable!==href){printLinks.set(link,href);link.setAttribute('href',portable);}
+  });
+ }
  complete.addEventListener('click',()=>{
   privacy.reset();reset();history.commit();
   document.body.classList.add('printing-complete-index');[...sources,...questions].forEach(row=>{row.hidden=false;});
+  portablePrintLinks();
   document.querySelectorAll('main details').forEach(d=>{details.set(d,d.open);d.open=true;});
   const stamp=document.createElement('p');stamp.id='complete-index-time';stamp.textContent='Print Complete Index · 67 source rows and 20 question rows, plus explanatory material. Print prepared: '+window.HAPSearchOptions.preparedAt()+' · America/Phoenix, year-round. Research dates remain attached to records.';document.querySelector('main h1').after(stamp);
   window.print();
  });
  window.addEventListener('afterprint',()=>{
   if(!document.body.classList.contains('printing-complete-index'))return;
-  document.body.classList.remove('printing-complete-index');$('complete-index-time')?.remove();details.forEach((open,d)=>{d.open=open;});details.clear();apply();complete.focus();
+  document.body.classList.remove('printing-complete-index');$('complete-index-time')?.remove();details.forEach((open,d)=>{d.open=open;});details.clear();printLinks.forEach((href,link)=>link.setAttribute('href',href));printLinks.clear();apply();complete.focus();
  });
 })();

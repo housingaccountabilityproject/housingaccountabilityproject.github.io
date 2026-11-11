@@ -57,7 +57,7 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
  #search-print-output.print-compact p,#search-print-output.print-compact li,#search-print-output.print-compact div{font-size:9pt;line-height:1.35}
  #search-print-output.print-compact>article{padding:9pt 0!important;margin:10pt 0!important}
  body.printing-complete-index .table-wrap{overflow:visible!important}body.printing-complete-index section,body.printing-complete-index details{break-inside:auto!important}
- body.printing-complete-index .page-jump,body.printing-complete-index #print-all-notice{display:none!important}
+ body.printing-complete-index .page-jump,body.printing-complete-index #print-all-notice,body.printing-complete-index #sources-count,body.printing-complete-index #questions-count{display:none!important}
  body.printing-complete-index tr{break-inside:auto}
 }
 @media print{
