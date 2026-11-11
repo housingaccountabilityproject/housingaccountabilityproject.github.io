@@ -21,4 +21,4 @@ def navigation(current='', prefix=''):
         + f'>{escape(title)}</a>'
         for path, title in LINKS
     )
-    return f'<nav class="wrap phoenix-tools" aria-label="Phoenix and Maricopa County research tools">{links}</nav>'
+    return f'<nav class="wrap phoenix-tools" aria-label="Phoenix &amp; Maricopa County research tools">{links}</nav>'
