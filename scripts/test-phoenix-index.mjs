@@ -177,6 +177,8 @@ try {
 
     await openNavigation(page);
     await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Questions'}).click();
+    await page.waitForURL(base + '/phoenix/questions.html');
+    await page.waitForLoadState('load');
     const questions = page.locator('[data-connection-entry]:visible');
     assert.equal(await questions.count(), 13);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `matrix overflow ${width}`);

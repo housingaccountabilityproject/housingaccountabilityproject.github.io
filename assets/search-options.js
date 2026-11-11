@@ -28,7 +28,7 @@
     }
   }
 
-  function register({surface, mount, state}) {
+  function register({surface, mount, state, restore}) {
     const box = make('div');
     box.className = 'search-options screen-only';
     box.dataset.searchUi = '';
@@ -72,6 +72,14 @@
     sharing.append(sharingHelp, create, output);
     box.append(choice, printHelp, sharing);
     mount.append(box);
+    window.addEventListener('hashchange', () => {
+      const shared = incoming(surface);
+      if (!shared) return;
+      checkbox.checked = false;
+      output.hidden = true;
+      field.value = '';
+      restore?.(shared);
+    });
     const skipLinks = [...document.querySelectorAll('a.skip')].map(link => ({link, href: link.getAttribute('href')}));
     for (const {link} of skipLinks) link.addEventListener('click', event => {
       const report = document.getElementById(link.getAttribute('href').slice(1));

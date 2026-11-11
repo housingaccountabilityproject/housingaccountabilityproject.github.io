@@ -7,12 +7,15 @@
   const fold=s=>s.normalize('NFKC').toLocaleLowerCase('en').replace(/[’‘]/g,"'").replace(/[–—]/g,'-');
   const records=index.records.map(r=>({...r,search:fold(`${r.title} ${r.page} ${r.url} ${r.text}`)}));
   let matches=[],shown=0,terms=[],activeQuery='',activeCategory='All Pages',printing;
-  const options = window.HAPSearchOptions.register({surface:'tucson-broader',mount:document.querySelector('.search-print-toolbar'),state:()=>({query:input.value,category:category.value})});
+  const options = window.HAPSearchOptions.register({surface:'tucson-broader',mount:document.querySelector('.search-print-toolbar'),state:()=>({query:input.value,category:category.value}),restore:shared=>{applyShared(shared);search();}});
   const shared = window.HAPSearchOptions.incoming('tucson-broader');
-  if (shared) {
+  function applyShared(shared) {
+    if (!shared) return;
+    input.value = ''; category.value = 'all';
     if (typeof shared.query === 'string' && shared.query.length <= 4096) input.value = shared.query;
     if ([...category.options].some(option => option.value === shared.category)) category.value = shared.category;
   }
+  applyShared(shared);
 
   function tokens(value){if(window.HAPSearchText)return window.HAPSearchText.tokens(value);return (value.replace(/[“”]/g, '"').match(/"[^"]+"|\S+/g)||[]).map(v=>fold(v.replace(/^"|"$/g,''))).filter(Boolean);}
   function text(tag,value,cls){const el=document.createElement(tag);el.textContent=value;if(cls)el.className=cls;return el;}

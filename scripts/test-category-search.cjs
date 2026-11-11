@@ -55,3 +55,11 @@ check(core.search(records,{...base,scope:'phoenix',category:'funding',query:'yea
 check(standard.period(records.find(r=>r.id==='PHX-CFP-WEB-006')).includes('not applicable'),'National guidance is not an unknown active period');
 for(const [scope,query] of [['tucson','Tucson House'],['phoenix','La Victoria']]){check(JSON.stringify(core.search(records,{...base,scope,query:'“'+query+'”'}).map(r=>r.key))===JSON.stringify(core.search(records,{...base,scope,query:'"'+query+'"'}).map(r=>r.key)),'Curly and straight phrases agree '+scope);}
 for(const [term,id] of [['Census Bureau','PHX-CITY-007'],['Arizona Department of Housing','PHX-LIHTC-001'],['Housing Authority of Maricopa County','PHX-HAMC-001'],['Housing Authority of Maricopa County','PHX-HAMC-002']])check(core.search(records,{...base,scope:'phoenix',query:term}).some(r=>r.id===id),'Visible issuer searchable '+id);
+
+for(const scope of ['tucson','phoenix']){
+ const coverage=dataset.annualReportCoverage.regions[scope];
+ check(coverage.reporting_periods.length===7,'2019–20 through 2025–26 have explicit coverage / gap rows');
+ check(coverage.separate_plan.target_period==='2026–27 · separate planning period','Planning year remains separate');
+ check(coverage.reporting_periods.every(row=>row.url&&row.status&&row.locator),'Every selected period retains a source locator and check scope');
+}
+check(dataset.annualReportCoverage.regions.phoenix.reporting_periods[0].status.includes('unchecked'),'Broken 2019–20 locator is not treated as currently verified');

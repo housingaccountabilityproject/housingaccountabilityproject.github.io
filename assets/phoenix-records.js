@@ -53,7 +53,8 @@
   let printing;
   const options = window.HAPSearchOptions.register({
     surface: 'phoenix-evidence', mount: document.querySelector('.search-print-toolbar'),
-    state: () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value]))})
+    state: () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value]))}),
+    restore: shared => { applyShared(shared); update(); }
   });
 
   function basicMatch(card) {
@@ -148,13 +149,16 @@
     if (url.origin === location.origin && url.pathname === location.pathname && url.hash === location.hash) revealHash();
   });
   const shared = window.HAPSearchOptions.incoming('phoenix-evidence');
-  if (shared) {
+  function applyShared(shared) {
+    if (!shared) return;
+    clear();
     if (typeof shared.query === 'string' && shared.query.length <= 4096) query.value = shared.query;
     if (buttons.some(button => button.dataset.view === shared.view)) view = shared.view;
     for (const [select, value] of [[topic,shared.topic],[kind,shared.kind],...sourceFacets.map(f=>[f.element,shared.facets?.[f.element.id]])]) {
       if ([...select.options].some(option=>option.value===value)) select.value=value;
     }
   }
+  applyShared(shared);
   form.hidden = false; views.hidden = false; update(); revealHash();
   const selectedLabel = select => select.options[select.selectedIndex].dataset.label || select.options[select.selectedIndex].textContent;
   printing = window.HAPSearchPrint?.register({

@@ -54,6 +54,9 @@ try {
     await page.goto(base+path); await page.waitForLoadState('networkidle');
     const before=await privacySnapshot(),requestCount=requests.length;
     assert(!(await page.locator('#include-search-terms').isChecked()));
+    await page.locator('#include-search-terms').focus();
+    await page.keyboard.press('Space'); assert(await page.locator('#include-search-terms').isChecked());
+    await page.keyboard.press('Space'); assert(!(await page.locator('#include-search-terms').isChecked()));
     await page.locator('[data-category="'+category+'"]').click();
     await page.locator('#query').fill(query);
     await page.locator('#category-filter').selectOption(filter);

@@ -78,6 +78,7 @@ for row in data['records']:
     row['metadata'] = [[('Recorded retrieval date' if key == 'Recorded review' else key), value] for key, value in row['metadata']]
     row['searchText'] = ' '.join(strings({key: value for key, value in row.items() if key not in {'raw', 'searchText'}}))
 data['researchSnapshots'] = {'phoenix': phoenix['research_snapshot'], 'tucson': read('data/city-reader-guide.json')['cities']['tucson']['date']}
+data['annualReportCoverage'] = read('data/funding-period-coverage.json')
 for scope in ['tucson', 'phoenix']:
     selected = [row for row in data['records'] if row['scope'] == scope]
     counts = {category: sum(row['category'] == category for row in selected) for category in ['funding', 'sources', 'questions', 'updates']}
