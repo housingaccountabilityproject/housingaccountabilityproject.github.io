@@ -14,6 +14,7 @@ if (!Array.isArray(records) || !core || !standard || !window.HAPSearchOptions) {
   document.querySelectorAll('[data-category], #print, #print-compact').forEach(button => { button.disabled = true; });
   $('full-search').textContent = 'Open the full evidence browser';
   $('full-search').href = fallbackRoot + (document.body.dataset.searchScope === 'phoenix' ? 'phoenix/records.html' : 'evidence.html');
+  $('empty').append($('full-search'));
   return;
 }
 const options = window.HAPSearchOptions.register({
