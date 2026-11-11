@@ -85,6 +85,7 @@ try{
  await page.goForward();assert.match(await page.locator('#questions-page').textContent(),/^Page 2 /);
  await page.locator('#search').fill('no-record-49494');await page.goto(base+'/evidence.html#src-073');assert(await page.locator('#src-024').isVisible());assert(await page.locator('.list-link-notice').isVisible());
  for(const alias of ['project-cost-table-2026','housing-first-reallocation-2026','unnamed-coc-decisions-2026']){await page.goto(base+'/questions-records.html#'+alias);assert(await page.locator('#'+alias).isVisible());}
+ for(const [alias,canonical] of [['PHX-WEB-001','PHX-WEB-002'],['PHX-WEB-022','PHX-WEB-020'],['PHX-CFP-011','source-PHX-CFP-011']]){await page.goto(base+'/phoenix/records.html#'+alias);assert(await page.locator('#'+canonical).isVisible());assert((await page.locator('.list-link-notice').textContent()).includes(alias));}
  // Complete-index action is deliberately distinct from ordinary reports and clears filters.
  await page.goto(base+'/evidence.html');await page.locator('#search').fill('CDBG');
  await page.evaluate(()=>{window.print=()=>window.dispatchEvent(new Event('beforeprint'));});await page.locator('#print-all').click();

@@ -128,9 +128,10 @@
     if (id.startsWith('view-') && ['source','funding','all'].includes(id.slice(5))) {
       clear(); view = id.slice(5); update(); navigation?.replace(); form.scrollIntoView({block: 'start'}); return;
     }
-    const target = document.getElementById(id);
+    const target = document.getElementById(id) || cards.find(card => (JSON.parse(card.dataset.search).aliases || []).includes(id));
     const card=target?.closest('.record-card'); if (!card) return;
     if (!pager.matches().includes(card)) { clear(); update(); notice.textContent='Filters cleared to reveal the linked record '+(card.id||id)+'.'; }
+    if (target.id !== id) notice.textContent += (notice.textContent?' ':'')+'Published identifier '+id+' opens canonical record '+card.id+'.';
     pager.reveal(card); window.HAPListBrowser.reveal(target); navigation?.replace(); printing?.update();
   }
   form.addEventListener('submit', event => { event.preventDefault(); update(); navigation.commit(); });
