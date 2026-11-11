@@ -9,6 +9,7 @@ from lxml import html, etree
 import json,re
 ROOT=Path(__file__).resolve().parents[1]
 SITE='https://housingaccountabilityproject.github.io/'
+PUBLICATION_HISTORY=json.loads((ROOT/'data/publication-history.json').read_text())['entries']
 CATEGORIES={'findings.html':'Findings','research-updates.html':'Updates','questions-records.html':'Questions','evidence.html':'Evidence','funding-explorer.html':'Funding','housing-projects.html':'Projects','reports/tucson-housing-funding-outcomes-2026.html':'Report'}
 EDITION_LABELS={'reports/tucson-housing-funding-outcomes-2026.html':'First edition, November 4; later corrections retained'}
 HISTORICAL={'audit-corrections-2026-11-06','housing-questions-2026-11-06','verified-funding-2026-11-05','cdbg-review-2026-11-05','audit-2026-11-03','research-review-2026-11-04','pub-001','pub-003','pub-004','housing-outcomes-2026-11-05-1500','housing-plans-2026-11-05-0839'}
@@ -28,8 +29,8 @@ def is_search_ui(e):
          or bool(set(e.get('class','').split()) & UI_CLASSES)
          or bool(re.search(r'(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\s*(?:!important\s*)?(?:;|$)',style)))
 records=[];coverage=[]
-# Explicit Tucson-only inventory. Keep legacy result URLs stable; the UI maps index.html to /tucson/.
-TUCSON_PAGES=['about.html', 'contact.html', 'evidence.html', 'findings.html', 'funding-explorer.html', 'glossary.html', 'housing-help.html', 'housing-projects.html', 'index.html', 'privacy.html', 'questions-records.html', 'reports/tucson-housing-funding-outcomes-2026.html', 'research-center.html', 'research-updates.html', 'research.html']
+# Canonical Tucson overview URLs. The client still accepts legacy index.html result URLs.
+TUCSON_PAGES=['about.html', 'contact.html', 'evidence.html', 'findings.html', 'funding-explorer.html', 'glossary.html', 'housing-help.html', 'housing-projects.html', 'tucson/index.html', 'privacy.html', 'questions-records.html', 'reports/tucson-housing-funding-outcomes-2026.html', 'research-center.html', 'research-updates.html', 'research.html']
 for rel in TUCSON_PAGES:
  p=ROOT/('tucson/index.html' if rel=='index.html' else rel)
  if p.name.startswith('google') or p.name=='search.html':continue
@@ -103,7 +104,8 @@ for page, ids in feed_pages.items():
    clarification.drop_tree()
   times=copy.xpath('.//time/@datetime')
   if not times or any('T' not in x for x in times):raise ValueError('Missing exact timestamp: '+aid)
-  dates=sorted(times,key=datetime.fromisoformat);explicit_publication=copy.xpath('.//time[@data-publication="true"]/@datetime');published=explicit_publication[0] if explicit_publication else dates[0];updated=dates[-1]
+  history=PUBLICATION_HISTORY[SITE+page+'#'+aid];published=history['published'];updated=history['updated']
+  assert published in times and updated in times, ('Publication history must match explicit page evidence', aid)
   for link in copy.xpath('.//a[@href]'):
    link.set('href',urljoin(SITE+page,link.get('href')))
   title=clean(copy.xpath('.//h2')[0].text_content())

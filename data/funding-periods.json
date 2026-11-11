@@ -2,8 +2,9 @@
   "schemaVersion": 1,
   "summary": {
     "entries": 30,
-    "supportedPeriodReferences": 16,
-    "unknownPeriods": 14
+    "supportedPeriodReferences": 17,
+    "unknownPeriods": 12,
+    "notApplicablePeriods": 1
   },
   "records": [
     {
@@ -152,13 +153,20 @@
       "id": "PHX-WEB-012",
       "scope": "phoenix",
       "programPeriod": {
-        "years": [],
-        "label": "Active period: not yet verified",
-        "kind": "unknown",
-        "status": "not_established",
-        "explanation": "The official release dates the grant announcement but does not establish this award’s fiscal year, performance period or actual start/end. The program’s general history since 2010 is not a Phoenix grant period.",
-        "evidence": [],
-        "contextLabel": "Program period not established"
+        "years": [
+          "2024"
+        ],
+        "label": "FY2024 planning award · full performance period unverified",
+        "kind": "award_fiscal_year",
+        "status": "stated_award_year",
+        "explanation": "HUD identifies the FY2024 award. The draft City plan separately says planning began in calendar 2024. Neither establishes the complete performance period.",
+        "evidence": [
+          {
+            "url": "https://archives.hud.gov/news/2024/FY24_CNI_Planning_Grant_Summaries.pdf#page=5",
+            "locator": "PDF page 5, FY2024 Phoenix planning-grant award summary"
+          }
+        ],
+        "contextLabel": "Award fiscal year; not a verified start-to-end grant period"
       },
       "knownDates": [
         {
@@ -174,6 +182,21 @@
               "url": "https://archives.hud.gov/news/2024/pr24-231.cfm",
               "locator": "HUD No. 24-231 release header",
               "quote": "For Release Tuesday September 10, 2024"
+            }
+          ]
+        },
+        {
+          "kind": "planning_start_year",
+          "label": "Draft Annual Action Plan: planning began in calendar 2024",
+          "date": null,
+          "years": [
+            "2024"
+          ],
+          "status": "source_stated_year",
+          "evidence": [
+            {
+              "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf#page=58",
+              "locator": "PDF page 58 (printed page 56), Marcos de Niza paragraph"
             }
           ]
         }
@@ -550,7 +573,7 @@
       "scope": "phoenix",
       "programPeriod": {
         "years": [],
-        "label": "Active period: not yet verified",
+        "label": "Active period: not applicable · national guidance",
         "kind": "general_guidance",
         "status": "not_applicable",
         "explanation": "National HUD definitions do not establish a Phoenix grant year, activity period, amount or completion date. The training-document date is separately retained.",

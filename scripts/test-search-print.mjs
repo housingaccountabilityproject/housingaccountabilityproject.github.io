@@ -60,7 +60,7 @@ try {
   await page.getByLabel('Search Tucson & Pima County research', {exact: true}).fill('not-the-submitted-query');
   await clickPrint();
   assert.equal(await page.locator('#search-print-output article').count(), expected);
-  assert((await page.locator('#search-print-output').textContent()).includes('Search: CDBG'));
+  assert(!(await page.locator('#search-print-output').textContent()).includes('Search: CDBG'),'Typed terms are omitted by default');
   assert.equal(await page.locator('#search-print-output .historical-result .result-caution').count(), await page.locator('#search-print-output .historical-result').count());
   assert(await page.locator('#site-search-form').isHidden());
   assert.equal(await page.locator('#search-results article').count(), 20);
@@ -126,7 +126,7 @@ try {
   assert(filteredSourcePDF.includes('Agency / publisher: HUD'));
   assert(filteredSourcePDF.includes('Reporting / event year: 2026'));
   assert(filteredSourcePDF.includes('Grants!A218:D218'));
-  assert(filteredSourcePDF.includes('November 8, 2026'));
+  assert(filteredSourcePDF.includes('2026-11-10'),'Print uses the canonical evidence-index snapshot');
   await finishPrint();
   assert.equal(await page.locator('#source-year').inputValue(), '2026');
   await page.getByRole('searchbox').fill('no-match-938476');
@@ -147,7 +147,7 @@ try {
     assert(expected > 0);
     await clickPrint();
     assert.equal(await page.locator('#search-print-output > article').count(), expected);
-    assert((await page.locator('#search-print-output').textContent()).includes(`Search: ${query}`));
+    assert(!(await page.locator('#search-print-output').textContent()).includes(`Search: ${query}`),'Connection print does not expose typed terms by default');
     assert.equal(await page.locator('#search-print-output details:not([open])').count(), 0);
     if (path === 'comparisons.html') {
       const pdf = await savePDF('phoenix-source-comparison');

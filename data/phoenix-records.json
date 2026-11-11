@@ -30,7 +30,8 @@
       "general": "General / not program-specific",
       "cdbg": "CDBG",
       "waitlists": "Property waitlists",
-      "home-arp": "HOME American Rescue Plan (HOME-ARP)"
+      "home-arp": "HOME American Rescue Plan (HOME-ARP)",
+      "esg": "Emergency Solutions Grants (ESG)"
     },
     "document_types": {
       "performance-report": "Performance report",
@@ -56,7 +57,8 @@
       "public-notice": "Public notice",
       "waitlist-schedule": "Waitlist schedule",
       "public-statement": "Public statement",
-      "council-agenda": "Council agenda"
+      "council-agenda": "Council agenda",
+      "award-notice": "Award notice"
     },
     "year_policy": "Reporting/coverage, plan, grant and explicitly cited event years only. Publication, training, file-update and retrieval dates are described separately; unresolved and unestablished years remain separate filter choices.",
     "program_policy": "Tags identify the program or subject used in this Phoenix research, not every program covered by a document."
@@ -208,7 +210,16 @@
         "year_status": "stated",
         "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date. Rehabilitation narrative and separate table checked November 9; this is not a recheck of every finding in the report.",
         "date_basis_url": "projects/25th-at-bell.html#BELL-01",
-        "retrieved_on": "2026-11-09"
+        "retrieved_on": "2026-11-09",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-10T17:39:58-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "PDF pages 49–50: five completed-project descriptions only; 556 apartments and 49 HOME-designated units. Other report claims were not rechecked.",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf"
+          }
+        ]
       }
     },
     {
@@ -571,6 +582,69 @@
       }
     },
     {
+      "id": "PHX-PROJECT-003",
+      "title": "HUD FY2024 Choice Neighborhoods planning-grant summaries",
+      "url": "https://archives.hud.gov/news/2024/FY24_CNI_Planning_Grant_Summaries.pdf",
+      "note": "PHX-PROJECT-003 · PDF page 5: Phoenix, Marcos de Niza–Grant Park, $500,000. Award fiscal year, not the complete performance period.",
+      "page_url": "index.html#source-PHX-PROJECT-003",
+      "metadata": {
+        "agency": "hud",
+        "programs": [
+          "choice-neighborhoods"
+        ],
+        "document_type": "award-notice",
+        "reporting_years": [
+          "2024"
+        ],
+        "year_status": "stated",
+        "date_basis": "FY2024 planning-grant award. The award fiscal year is separate from the complete performance period.",
+        "date_basis_url": "index.html#PHX-WEB-012",
+        "retrieved_on": "2026-11-10",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-10T17:39:57-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "PDF page 5, Phoenix award summary",
+            "url": "https://archives.hud.gov/news/2024/FY24_CNI_Planning_Grant_Summaries.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MC-PLAN-001",
+      "title": "Maricopa County proposed 2025–2029 plan-amendment notice",
+      "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment",
+      "note": "MC-PLAN-001 · PDF page 1: proposed membership and goal changes, comment period and hearing. Adoption and implementation unverified.",
+      "page_url": "index.html#source-MC-PLAN-001",
+      "metadata": {
+        "agency": "maricopa-county",
+        "programs": [
+          "home",
+          "cdbg",
+          "esg"
+        ],
+        "document_type": "public-notice",
+        "reporting_years": [
+          "2025",
+          "2029"
+        ],
+        "year_status": "stated",
+        "date_basis": "Proposed amendment to the 2025–2029 plan; the notice sets a November 11–December 10, 2026 comment period. Adoption and implementation are unverified.",
+        "date_basis_url": "index.html#MC-PLAN-WEB-001",
+        "retrieved_on": "2026-11-10",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-10T17:40:03-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "PDF page 1, proposed changes and comment/hearing dates",
+            "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment"
+          }
+        ]
+      }
+    },
+    {
       "id": "PHX-CFP-011",
       "title": "HUD FY2026 master Capital Fund ACC grant schedule, updated September 28, 2026",
       "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
@@ -682,14 +756,24 @@
       "metadata": {
         "agency": "city-phoenix",
         "programs": [
-          "capital-fund"
+          "capital-fund",
+          "choice-neighborhoods"
         ],
         "document_type": "plan",
         "reporting_years": [],
         "year_status": "unresolved",
         "date_basis": "Draft Annual Action Plan titled 2026–2027; the Capital Fund passage says 25–26 FY. The source-year labels remain unresolved.",
         "date_basis_url": "capital-fund.html#PHX-CFP-WEB-003",
-        "retrieved_on": null
+        "retrieved_on": null,
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-10T17:39:58-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "PDF page 58 (printed page 56), Marcos de Niza planning start in calendar 2024",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf"
+          }
+        ]
       }
     },
     {
@@ -730,7 +814,16 @@
         "year_status": "not-established",
         "date_basis": "Training dated September 25, 2023. National definitions do not establish Phoenix transaction dates or amounts.",
         "date_basis_url": "capital-fund.html#PHX-CFP-WEB-006",
-        "retrieved_on": null
+        "retrieved_on": null,
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-10T17:40:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "PDF page 1 materials-prepared heading, September 25, 2023",
+            "url": "https://www.hud.gov/sites/dfiles/PIH/documents/OEDCFGuidebookTraining2022.pdf"
+          }
+        ]
       }
     },
     {
@@ -1299,7 +1392,7 @@
           "source_ids": [
             "PHX-CITY-002"
           ],
-          "title": "Draft FY2025–26 CAPER",
+          "title": "Draft FY2025–26 CAPER · PDF pages 49–50",
           "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf#page=49",
           "locator": ""
         }
@@ -1547,6 +1640,7 @@
         "HUD award announcement"
       ],
       "summary": [
+        "HUD’s FY2024 planning-grant summary identifies the City of Phoenix as grantee and a $500,000 award for Marcos de Niza–Grant Park. The Phoenix draft Annual Action Plan separately says planning began in calendar 2024.",
         "HUD announced a $500,000 Choice Neighborhoods planning grant for Phoenix’s Marcos de Niza–Grant Park neighborhood in September 2024."
       ],
       "context": [
@@ -1554,10 +1648,13 @@
         "PHX-WEB-012 · HUD award announcement"
       ],
       "limitations": [
-        "Keep in mind. This is a planning award, not an implementation construction award or proof of grant spending."
+        "Keep in mind. This is a planning award, not an implementation construction award or proof of grant spending.",
+        "FY2024 is the award fiscal year. Calendar 2024 is the draft plan’s stated planning-start year. Neither establishes the complete grant performance period."
       ],
       "source_ids": [
-        "PHX-PROJECT-002"
+        "PHX-PROJECT-002",
+        "PHX-PROJECT-003",
+        "PHX-CITY-003"
       ],
       "citations": [
         {
@@ -1566,6 +1663,22 @@
           ],
           "title": "HUD September 2024 planning awards",
           "url": "https://archives.hud.gov/news/2024/pr24-231.cfm",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-PROJECT-003"
+          ],
+          "title": "HUD FY2024 grant summary · PDF page 5",
+          "url": "https://archives.hud.gov/news/2024/FY24_CNI_Planning_Grant_Summaries.pdf#page=5",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-CITY-003"
+          ],
+          "title": "Phoenix draft Annual Action Plan · PDF page 58 (printed page 56)",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf#page=58",
           "locator": ""
         }
       ],
@@ -1604,6 +1717,41 @@
         }
       ],
       "page_url": "index.html#PHX-WEB-026"
+    },
+    {
+      "id": "MC-PLAN-WEB-001",
+      "aliases": [],
+      "topic": "county",
+      "kind": "proposal",
+      "title": "Maricopa County: proposed plan amendment",
+      "labels": [
+        "Maricopa County · Proposed changes"
+      ],
+      "summary": [
+        "The County’s notice proposes Tempe leaving and Goodyear joining the HOME Consortium, and Buckeye leaving and Cave Creek joining the Urban County. It anticipates about 14% less HOME funding over three years and proposes reducing the HOME tenant-based rental-assistance goal from 650 to 500 households.",
+        "The notice proposes a $100,000 ESG outreach goal serving 150 people, with a $100,000 reduction in existing shelter operations and services goals. This is a proposed shift, not new net ESG funding."
+      ],
+      "context": [
+        "Scope: Maricopa County HOME Consortium and Urban County. Proposed plan coverage: 2025–2029. Comment period: November 11–December 10, 2026. Hearing scheduled November 19, 2026 at 9:30 a.m. MST.",
+        "MC-PLAN-WEB-001 · MC-PLAN-001"
+      ],
+      "limitations": [
+        "The notice describes proposed goals and anticipated funding effects. It does not establish adoption, actual grant reductions, spending or households assisted. Checked November 10, 2026 MST."
+      ],
+      "source_ids": [
+        "MC-PLAN-001"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "MC-PLAN-001"
+          ],
+          "title": "Proposed amendment notice · PDF page 1",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment#page=1",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#MC-PLAN-WEB-001"
     },
     {
       "id": "question-overview-01",

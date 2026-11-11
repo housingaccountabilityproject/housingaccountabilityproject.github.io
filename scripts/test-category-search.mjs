@@ -24,7 +24,7 @@ const printSearches={
   'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125','source-excerpts',
  ]},
  phoenix:{category:'funding',query:'year:unknown',ids:[
-  'PHX-WEB-009','PHX-WEB-010','PHX-WEB-012','PHX-CFP-WEB-003','PHX-CFP-WEB-006','PHX-CFP-WEB-007',
+  'PHX-WEB-009','PHX-WEB-010','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
   'BELL-03','BELL-04','BELL-06','BELL-07','BELL-08','PHX-WEB-029','PHX-WEB-030',
  ]},
 };
@@ -103,7 +103,7 @@ try{
    await page.locator('#reset').press('Enter');
    const year=expected.flatMap(years)[0];
    await input.fill('year:'+(year||'unknown'));
-   await recordCount(page,expected.filter(r=>year?years(r).includes(year):!years(r).length).length);
+   await recordCount(page,expected.filter(r=>year?years(r).includes(year):!years(r).length&&r.programPeriod?.status!=='not_applicable').length);
    await page.locator('#reset').press('Enter');
 
    await input.fill('no-record-439623');
@@ -196,3 +196,5 @@ try{
  }
  console.log('PASS 22 Chromium Letter PDFs, including filtered results and SRC-100: matching IDs, amounts, dates, qualifications, clickable sources and no empty pages.');
 }finally{await browser?.close();server?.kill()}
+
+await import("./test-search-options.mjs");

@@ -2,10 +2,11 @@
 (() => {
   'use strict';
   window.HAPSearchPrint = {
-    register({title, describe, results, count = () => results().length, snapshot = ''}) {
+    register({title, describe, results, count = () => results().length, snapshot = '', privacy}) {
       const button = document.querySelector('#print-search-results');
       let previewing = false;
       let previewButton;
+      let returnFocus = button;
       const makeText = (tag, value) => {
         const node = document.createElement(tag);
         node.textContent = value;
@@ -20,7 +21,8 @@
         previewing = false;
         document.querySelector('#search-print-preview-controls')?.remove();
         document.body.classList.remove('previewing-search-results');
-        previewButton?.focus();
+        privacy?.leavePrint();
+        returnFocus?.focus();
       }
       function prepare() {
         removeReport();
@@ -30,10 +32,14 @@
         report.id = 'search-print-output';
         report.setAttribute('aria-label', title);
         report.append(makeText('p', 'Housing Accountability Project'), makeText('h1', title));
-        for (const line of describe()) report.append(makeText('p', line));
+        for (const line of describe()) {
+          if (!privacy?.includeTerms() && /^Search:/.test(line)) continue;
+          report.append(makeText('p', line));
+        }
         report.append(makeText('p', `${entries.length} matching result${entries.length === 1 ? '' : 's'} · complete results for this search`));
-        if (snapshot) report.append(makeText('p', snapshot));
-        report.append(makeText('p', `Prepared for printing: ${new Date().toLocaleString(undefined, {timeZoneName: 'short'})}. Research dates remain attached to the records.`));
+        const snapshotText = typeof snapshot === 'function' ? snapshot() : snapshot;
+        if (snapshotText) report.append(makeText('p', snapshotText));
+        report.append(makeText('p', `Prepared for printing: ${window.HAPSearchOptions.preparedAt()}. Research dates remain attached to the records.`));
         for (const entry of entries) {
           const copy = entry.cloneNode(true);
           copy.hidden = false;
@@ -55,10 +61,12 @@
         }
         if (!entries.length) report.append(makeText('p', 'No results match the active search.'));
         document.body.append(report);
+        privacy?.showPrint(report);
         document.body.classList.add('printing-search-results');
       }
       function preview() {
         previewing = true;
+        returnFocus = previewButton;
         prepare();
         document.body.classList.remove('printing-search-results');
         document.body.classList.add('previewing-search-results');
@@ -84,14 +92,17 @@
         if (button) button.disabled = count() === 0;
         if (previewButton) previewButton.disabled = count() === 0;
       }
-      window.addEventListener('beforeprint', prepare);
+      window.addEventListener('beforeprint', () => {
+        if (!previewing) returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : button;
+        prepare();
+      });
       window.addEventListener('afterprint', () => {
         if (previewing) document.body.classList.remove('printing-search-results');
         else cleanup();
       });
       if (button) {
         button.hidden = false;
-        button.addEventListener('click', () => window.print());
+        button.addEventListener('click', () => { returnFocus = button; window.print(); });
         previewButton = makeText('button', 'Preview print results');
         previewButton.id = 'preview-print';
         previewButton.type = 'button';

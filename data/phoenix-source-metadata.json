@@ -32,7 +32,8 @@
     "general": "General / not program-specific",
     "cdbg": "CDBG",
     "waitlists": "Property waitlists",
-    "home-arp": "HOME American Rescue Plan (HOME-ARP)"
+    "home-arp": "HOME American Rescue Plan (HOME-ARP)",
+    "esg": "Emergency Solutions Grants (ESG)"
   },
   "document_types": {
     "performance-report": "Performance report",
@@ -58,7 +59,8 @@
     "public-notice": "Public notice",
     "waitlist-schedule": "Waitlist schedule",
     "public-statement": "Public statement",
-    "council-agenda": "Council agenda"
+    "council-agenda": "Council agenda",
+    "award-notice": "Award notice"
   },
   "sources": {
     "PHX-CITY-002": {
@@ -75,7 +77,16 @@
       "year_status": "stated",
       "date_basis": "Draft FY2025–26 performance-report coverage: July 1, 2025–June 30, 2026. This is not a retrieval or current-occupancy date. Rehabilitation narrative and separate table checked November 9; this is not a recheck of every finding in the report.",
       "date_basis_url": "projects/25th-at-bell.html#BELL-01",
-      "retrieved_on": "2026-11-09"
+      "retrieved_on": "2026-11-09",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:58-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF pages 49–50: five completed-project descriptions only; 556 apartments and 49 HOME-designated units. Other report claims were not rechecked.",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf"
+        }
+      ]
     },
     "PHX-FILING-001": {
       "agency": "city-phoenix",
@@ -304,14 +315,24 @@
     "PHX-CITY-003": {
       "agency": "city-phoenix",
       "programs": [
-        "capital-fund"
+        "capital-fund",
+        "choice-neighborhoods"
       ],
       "document_type": "plan",
       "reporting_years": [],
       "year_status": "unresolved",
       "date_basis": "Draft Annual Action Plan titled 2026–2027; the Capital Fund passage says 25–26 FY. The source-year labels remain unresolved.",
       "date_basis_url": "capital-fund.html#PHX-CFP-WEB-003",
-      "retrieved_on": null
+      "retrieved_on": null,
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:58-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 58 (printed page 56), Marcos de Niza planning start in calendar 2024",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf"
+        }
+      ]
     },
     "PHX-CITY-027": {
       "agency": "city-phoenix",
@@ -338,7 +359,16 @@
       "year_status": "not-established",
       "date_basis": "Training dated September 25, 2023. National definitions do not establish Phoenix transaction dates or amounts.",
       "date_basis_url": "capital-fund.html#PHX-CFP-WEB-006",
-      "retrieved_on": null
+      "retrieved_on": null,
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:40:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 1 materials-prepared heading, September 25, 2023",
+          "url": "https://www.hud.gov/sites/dfiles/PIH/documents/OEDCFGuidebookTraining2022.pdf"
+        }
+      ]
     },
     "PHX-CFP-009": {
       "agency": "hud",
@@ -659,6 +689,56 @@
       "date_basis": "The City announcement describes a ceremony at the site of future construction on May 12, 2026. The ceremony documents a project milestone. The opening date and people served by the expansion remain unverified.",
       "date_basis_url": "index.html#PHX-WEB-030",
       "retrieved_on": "2026-11-10"
+    },
+    "PHX-PROJECT-003": {
+      "agency": "hud",
+      "programs": [
+        "choice-neighborhoods"
+      ],
+      "document_type": "award-notice",
+      "reporting_years": [
+        "2024"
+      ],
+      "year_status": "stated",
+      "date_basis": "FY2024 planning-grant award. The award fiscal year is separate from the complete performance period.",
+      "date_basis_url": "index.html#PHX-WEB-012",
+      "retrieved_on": "2026-11-10",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:57-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 5, Phoenix award summary",
+          "url": "https://archives.hud.gov/news/2024/FY24_CNI_Planning_Grant_Summaries.pdf"
+        }
+      ]
+    },
+    "MC-PLAN-001": {
+      "agency": "maricopa-county",
+      "programs": [
+        "home",
+        "cdbg",
+        "esg"
+      ],
+      "document_type": "public-notice",
+      "reporting_years": [
+        "2025",
+        "2029"
+      ],
+      "year_status": "stated",
+      "date_basis": "Proposed amendment to the 2025–2029 plan; the notice sets a November 11–December 10, 2026 comment period. Adoption and implementation are unverified.",
+      "date_basis_url": "index.html#MC-PLAN-WEB-001",
+      "retrieved_on": "2026-11-10",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:40:03-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 1, proposed changes and comment/hearing dates",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment"
+        }
+      ]
     }
-  }
+  },
+  "research_snapshot": "2026-11-10"
 }

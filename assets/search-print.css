@@ -4,7 +4,7 @@
 .search-print-toolbar button:disabled { opacity: .55; cursor: default; }
 .search-print-toolbar p { font-size: 13px; line-height: 1.6; margin: 8px 0; color: #566c6c; }
 #search-print-output { display: none; }
-body.previewing-search-results > :not(#search-print-output):not(#search-print-preview-controls) { display: none !important; }
+body.previewing-search-results > :not(#search-print-output):not(#search-print-preview-controls):not(.skip) { display: none !important; }
 body.previewing-search-results #search-print-output { display: block; max-width: 680px; width: calc(100% - 40px); margin: 24px auto; padding: 24px; background: white; color: #111; }
 body.previewing-search-results #search-print-output > article { display: block; margin: 24px 0; border: 0; border-top: 1px solid #777; border-radius: 0; padding: 20px 0; }
 body.previewing-search-results #search-print-output .print-source-urls { display: block; }

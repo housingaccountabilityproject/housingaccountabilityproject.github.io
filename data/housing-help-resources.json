@@ -1,0 +1,70 @@
+[
+  {
+    "id": "resource-the-haven",
+    "name": "The Haven · Tucson",
+    "scopes": [
+      "tucson"
+    ],
+    "service_type": "Substance-use treatment and recovery support",
+    "description": [
+      "The Haven describes residential and outpatient treatment for women, trans women, and non-binary or gender-nonconforming people assigned female at birth. Its FAQ states that participants must be 18 or older.",
+      "Residential treatment includes living at the treatment campus. Admission, assessment and payment arrangements are handled by The Haven."
+    ],
+    "limitation": "This is a treatment service. Historical treatment outputs or facility capacity do not establish a current residential opening, ordinary rental housing, eligibility or admission.",
+    "links": [
+      {
+        "title": "Current program eligibility and admissions FAQ",
+        "url": "https://thehaventucson.org/frequently-asked-questions/"
+      },
+      {
+        "title": "Residential treatment program",
+        "url": "https://thehaventucson.org/programs/residential-inpatient/"
+      }
+    ],
+    "check_label": "Provider FAQ checked 2026-11-10T17:40:09-07:00 MST; current vacancies were not checked."
+  },
+  {
+    "id": "resource-justa-center",
+    "name": "Justa Center · Phoenix",
+    "scopes": [
+      "phoenix"
+    ],
+    "service_type": "Nonprofit day services and housing navigation for older adults",
+    "description": [
+      "Justa Center’s day-center page addresses people age 55 and older who are experiencing homelessness. It lists mail service, benefits help and other daytime support.",
+      "Its housing-navigation information describes assistance toward housing. Contact the Center for its current intake process and eligibility."
+    ],
+    "limitation": "Day services, past placement totals and any stated capacity do not establish overnight shelter, a current housing vacancy or a guaranteed placement.",
+    "links": [
+      {
+        "title": "Current day-center services and eligibility",
+        "url": "https://www.justacenter.org/daycenter"
+      },
+      {
+        "title": "Path to housing",
+        "url": "https://www.justacenter.org/path-to-housing"
+      }
+    ],
+    "check_label": "Provider pages checked 2026-11-10T17:40:09-07:00 MST; current vacancies were not checked."
+  },
+  {
+    "id": "resource-aarp-foundation",
+    "name": "AARP Foundation housing resources",
+    "scopes": [
+      "tucson",
+      "phoenix"
+    ],
+    "service_type": "National resource directory · located but unchecked",
+    "description": [
+      "The official AARP Foundation housing-resource page was located. Its full content could not be checked during this review because the page returned HTTP 403."
+    ],
+    "limitation": "This listing is a resource lead. Current services, eligibility, costs and availability remain unchecked. Verify them with the linked organization.",
+    "links": [
+      {
+        "title": "AARP Foundation housing-resource page · located but unchecked",
+        "url": "https://www.aarp.org/aarp-foundation/find-help/housing/"
+      }
+    ],
+    "check_label": "Access check 2026-11-10T17:40:08-07:00 MST · HTTP 403; content unchecked."
+  }
+]

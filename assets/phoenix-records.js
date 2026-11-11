@@ -1,7 +1,13 @@
-/* Local, city-scoped search. No requests, query URLs, storage or analytics. */
+/* Local, city-scoped search. Ordinary searching stays in memory. Search links require an explicit sharing action. */
 (() => {
   const form = document.querySelector('#record-filters');
   if (!form) return;
+  if (!window.HAPSearchOptions) {
+    const status = document.getElementById('record-count');
+    status.setAttribute('role', 'alert');
+    status.textContent = 'Interactive search could not load. All evidence entries remain below. Use browser Find or the regional research navigation.';
+    return;
+  }
   const cards = [...document.querySelectorAll('.record-card')];
   const query = document.querySelector('#record-query');
   const topic = document.querySelector('#record-topic');
@@ -45,6 +51,10 @@
   }));
   let view = 'all';
   let printing;
+  const options = window.HAPSearchOptions.register({
+    surface: 'phoenix-evidence', mount: document.querySelector('.search-print-toolbar'),
+    state: () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value]))})
+  });
 
   function basicMatch(card) {
     return (view === 'all' || card.dataset.group === view)
@@ -67,10 +77,11 @@
     }
   }
   function update() {
+    options.clearLink();
     const primer=document.getElementById('city-funding-primer');
     if(primer)primer.hidden=view!=='funding';
     const title=document.querySelector('.records-intro h1');
-    if(title)title.textContent=view==='funding'?'Understand Phoenix funding':view==='source'?'Phoenix source index':view==='question'?'Phoenix research questions':'Search Phoenix research';
+    if(title)title.textContent=view==='funding'?'Understand Phoenix and Maricopa County funding':view==='source'?'Phoenix and Maricopa County source index':view==='question'?'Phoenix and Maricopa County research questions':'Search Phoenix and Maricopa County research';
     if (sourceControls) sourceControls.hidden = view !== 'source';
     if (kindControl) kindControl.hidden = view === 'source';
     if (topicControl) topicControl.hidden = view === 'source';
@@ -94,8 +105,8 @@
     }
     updateCounts(textMatches);
     count.textContent = view === 'source'
-      ? `${shown} of ${sourceCards.length} source references · Phoenix only`
-      : `${shown} of ${cards.length} entries · Phoenix only`;
+      ? `${shown} of ${sourceCards.length} source references · Phoenix and Maricopa County`
+      : `${shown} of ${cards.length} entries · Phoenix and Maricopa County`;
     empty.hidden = shown > 0;
     printing?.update();
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
@@ -122,7 +133,7 @@
   form.addEventListener('submit', event => { event.preventDefault(); update(); });
   form.addEventListener('input', update);
   form.addEventListener('change', update);
-  form.addEventListener('reset', event => { event.preventDefault(); clear(); update(); });
+  form.addEventListener('reset', event => { event.preventDefault(); options.reset(); clear(); update(); });
   buttons.forEach(button => button.addEventListener('click', () => {
     view = button.dataset.view;
     topic.value = ''; kind.value = '';
@@ -136,16 +147,24 @@
     const url = new URL(link.href, location.href);
     if (url.origin === location.origin && url.pathname === location.pathname && url.hash === location.hash) revealHash();
   });
+  const shared = window.HAPSearchOptions.incoming('phoenix-evidence');
+  if (shared) {
+    if (typeof shared.query === 'string' && shared.query.length <= 4096) query.value = shared.query;
+    if (buttons.some(button => button.dataset.view === shared.view)) view = shared.view;
+    for (const [select, value] of [[topic,shared.topic],[kind,shared.kind],...sourceFacets.map(f=>[f.element,shared.facets?.[f.element.id]])]) {
+      if ([...select.options].some(option=>option.value===value)) select.value=value;
+    }
+  }
   form.hidden = false; views.hidden = false; update(); revealHash();
   const selectedLabel = select => select.options[select.selectedIndex].dataset.label || select.options[select.selectedIndex].textContent;
   printing = window.HAPSearchPrint?.register({
-    title: 'Phoenix search results',
+    title: 'Phoenix and Maricopa County search results', privacy:options,
     describe: () => [
-      `Search: ${query.value.trim() || '(no search terms)'}`,
+      ...(options.includeTerms() ? [`Search: ${query.value.trim() || '(no search terms)'}`] : []),
       `Index: ${buttons.find(button => button.dataset.view === view).textContent}`,
       ...(view !== 'source' ? [`Topic: ${selectedLabel(topic)}`, `Record type: ${selectedLabel(kind)}`] : []),
       ...(view === 'source' ? sourceFacets.map(({element,label}) => `${label}: ${selectedLabel(element)}`) : [])
     ], results: () => cards.filter(card => !card.hidden),
-    snapshot: 'Published research snapshot: November 8, 2026. Funding stages and project counts remain separate; source qualifications are retained.'
+    snapshot: () => 'Published research snapshot: '+document.querySelector('[data-research-snapshot]').dataset.researchSnapshot+'. Funding stages and project counts remain separate; source qualifications are retained.'
   });
 })();

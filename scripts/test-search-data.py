@@ -12,6 +12,8 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  shutil.copytree(ROOT/'tucson',root/'tucson')
  (root/'phoenix').mkdir()
  shutil.copy2(ROOT/'phoenix/index.html',root/'phoenix/index.html')
+ (root/'data').mkdir()
+ shutil.copy2(ROOT/'data/publication-history.json',root/'data/publication-history.json')
  (root/'scripts').mkdir()
  shutil.copy2(ROOT/'scripts/build-reader-data.py',root/'scripts/build-reader-data.py')
  # Distinct sentinels prevent a UI title inheriting a preceding research heading

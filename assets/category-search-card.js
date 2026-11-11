@@ -1,19 +1,23 @@
 (function(root){
 'use strict';
 const missing='Not established in this index';
-const scopes={tucson:'Tucson / Pima County',phoenix:'Phoenix / Maricopa County'};
+const scopes={tucson:'Tucson / Pima County',phoenix:'Phoenix and Maricopa County'};
 function metadata(r,key){return (r.metadata||[]).filter(([k])=>k===key).map(([,v])=>v).join(' · ');}
 function useful(v){return v&&v!=='Not separately tagged'&&v!=='other'&&v!=='unresolved'?v:'';}
 function original(r){const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...(r.originals||[]),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.links||[])];return links.find(l=>l.url&&!l.url.startsWith('https://housingaccountabilityproject.github.io/'))||links[0]||{title:'Full public record',url:r.url};}
+function formatInstant(value){
+ if(!/^\d{4}-\d{2}-\d{2}T/.test(value))return value;
+ return new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'medium'}).format(new Date(value))+' MST (UTC−7)';
+}
 function publication(r){
  if(r.publicationPending)return 'Website publication time pending verification';
- const stamp=r.raw?.feed_timestamps?.published||metadata(r,'Website publication timestamp');if(stamp)return stamp;
+ const stamp=r.raw?.feed_timestamps?.published||metadata(r,'Website publication timestamp');if(stamp)return formatInstant(stamp);
  const texts=[...(r.raw?.timestamps?.publication||[]),metadata(r,'Publication date context')];
  for(const text of texts){const m=String(text).match(/^(?:Published|Posted):\s*(.*?(?:MST(?:\s*\(Tucson\))?|\(Tucson\)|\d{4}))(?:\.|$)/);if(m)return m[1];}
  return 'Publication date not established';
 }
 function documentDate(r){
- const date=metadata(r,'Document date');if(date)return date;
+ const date=r.documentDate?.date?(r.documentDate.date+' · '+r.documentDate.role):metadata(r,'Document date');if(date)return date;
  const context=[metadata(r,'Dates & coverage'),r.yearNote||''].join(' ');
  // Only explicit document-date wording is eligible. Never use a review/check date.
  const m=context.match(/(?:document|report|memo|notice|audit|letter)\s+(?:is\s+)?dated\s+([A-Z][a-z]+ \d{1,2},? \d{4})/i);if(m)return m[1];
@@ -22,7 +26,7 @@ function documentDate(r){
  return missing;
 }
 function period(r){
- if(r.category==='funding')return r.programPeriod?.years.length?r.programPeriod.label:'Active period: not yet verified';
+ if(r.category==='funding')return r.programPeriod?.label||'Active period: not yet verified';
  const labeled=useful(metadata(r,'Period'));if(labeled)return labeled;
  const context=metadata(r,'Dates & coverage');
  if(context&&/coverage|reporting period|plan period|survey period|fiscal year|program year/i.test(context))return context.split(/\.\s/)[0];
@@ -30,7 +34,7 @@ function period(r){
  if(/period|coverage|fiscal year|grant years|competition cycle|reporting/i.test(r.yearBasis||'')&&!/no explicit|not specified|unresolved|without|unknown/i.test(r.yearBasis||''))return r.years.length?r.years.join(', ')+' · '+r.yearBasis:missing;
  return missing;
 }
-function summary(r){return r.displaySummary||(r.id==='federal-allocations-2026'?r.raw.summary.slice(1,7).join(' '):(r.summary||[]).join(' '));}
+function summary(r){return r.shortSummary||r.displaySummary||(r.id==='federal-allocations-2026'?r.raw.summary.slice(1,7).join(' '):(r.summary||[]).join(' '));}
 function related(r){return (r.sourceIds||[]).filter(id=>id!==r.id).join(' · ')||'Not separately listed; follow the evidence links';}
 function fields(r,programNames){
  const agency=useful(r.agency)||missing,place=r.place||scopes[r.scope]+' · regional search scope';
@@ -39,5 +43,5 @@ function fields(r,programNames){
  if(r.category==='questions')return [['Place / scope',place],['Period',period(r)],['Related evidence',related(r)]];
  return [['Actual publication date',publication(r)],['Affected records',related(r)]];
 }
-root.HAPCardStandard={metadata,publication,documentDate,period,summary,original,fields};if(typeof module!=='undefined')module.exports=root.HAPCardStandard;
+root.HAPCardStandard={metadata,formatInstant,publication,documentDate,period,summary,original,fields};if(typeof module!=='undefined')module.exports=root.HAPCardStandard;
 })(typeof window==='undefined'?globalThis:window);

@@ -7,7 +7,7 @@ from datetime import datetime
 import json,re,subprocess
 ROOT=Path(__file__).resolve().parents[1]
 files=[*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]
-pages={p.relative_to(ROOT).as_posix():html.parse(str(ROOT/'tucson/index.html' if p.name=='index.html' else p)) for p in files if not p.name.startswith('google')}
+pages={('tucson/index.html' if p.name=='index.html' else p.relative_to(ROOT).as_posix()):html.parse(str(ROOT/'tucson/index.html' if p.name=='index.html' else p)) for p in files if not p.name.startswith('google')}
 for rel,doc in pages.items():
  actual_rel='tucson/index.html' if rel=='index.html' else rel
  ids=doc.xpath('//@id');assert len(ids)==len(set(ids)),('duplicate ID',rel)
