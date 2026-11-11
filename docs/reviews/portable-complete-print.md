@@ -10,6 +10,8 @@ Bill's native Chromebook complete-index export on the starting candidate had 40 
 
 The complete-index action prints the live page rather than the detached report. It now temporarily resolves relative cross-page links against the page's canonical HTTPS address. Existing fragment links remain fragments; relative links to this same evidence page become internal destinations. Existing absolute source links, including historical source addresses, retain their exact attributes. After printing, original link attributes and disclosure states return. The complete-index action retains its documented filter-clearing behavior and returns focus to its own button. Screen-only register counters are hidden by print CSS; the complete-index header states 67 source rows and 20 questions. No research HTML or data is rewritten.
 
+The expanded Phoenix source page-2 Current/Full Letter test additionally found an empty ninth sheet. Detached Phoenix record cards now omit trailing print padding so card decoration cannot consume a final sheet. Evidence still flows normally; no content is hidden or clipped, and the record-ID/title attachment rules remain in place. The final matrix must verify the correction on both paper sizes and all selected records.
+
 ## Verification contract
 
 Existing required jobs `reader-tools`, `phoenix-index` and `smoke` remain required. Their assertions are retained. The reader job additionally runs `scripts/test-portable-print.mjs`:
