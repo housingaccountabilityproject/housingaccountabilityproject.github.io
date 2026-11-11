@@ -60,3 +60,6 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
  body.printing-complete-index .page-jump,body.printing-complete-index #print-all-notice{display:none!important}
  body.printing-complete-index tr{break-inside:auto}
 }
+@media print{
+ #search-print-output>article>p:first-child{break-after:avoid;page-break-after:avoid}
+}
