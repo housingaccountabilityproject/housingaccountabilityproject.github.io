@@ -75,11 +75,18 @@ try{
     for(const row of rows){const cell=withoutHeaders(row.cells[col]),found=text.indexOf(cell,at);assert(found>=0,`Complete ${context}/${format}: ${row.id} column ${col+1} text retained`);at=found+cell.length;}
    }
   });
-  await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+  // page.pdf already emitted afterprint. A second synthetic event would
+  // exercise the unrelated normal-report cleanup after complete mode ended.
+  await page.emulateMedia({media:'screen'});
   assert.deepEqual(await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),before);
   assert.deepEqual(await page.locator('main details').evaluateAll(ns=>ns.map(n=>n.open)),disclosures);
   assert.equal(await page.locator('#search').inputValue(),'');assert.equal(await page.locator('#sources tbody tr:visible').count(),6);
   assert.equal(await page.evaluate(()=>document.activeElement.id),'print-all');
+  // Also verify a single simulated cancel event, without a PDF export.
+  // This remains an event-contract check, not a native dialog cancellation.
+  await page.locator('#print-all').click();await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'print-all');
+  assert.deepEqual(await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),before);
  }
  // Full six-record pages in both regions. The existing suite also retains
  // every all-register/last-page case and the SRC-027/Q-004 attachment checks.
