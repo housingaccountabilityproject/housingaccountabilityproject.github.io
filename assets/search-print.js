@@ -43,7 +43,14 @@
           });
         }else copy=entry.cloneNode(true);
         copy.hidden=false;copy.dataset.printRecordId=entry.id||entry.dataset.recordKey||'';
-        if(entry.id)copy.prepend(make('p','Record ID: '+entry.id));
+        if(entry.tagName==='TR'){
+          // Keep the identifier and the first two cells (ID and title) together.
+          // The remaining evidence may still flow across as many pages as needed.
+          const lead=make('div');lead.className='print-record-lead';
+          for(const node of [...copy.children].slice(0,4))lead.append(node);
+          copy.prepend(lead);
+          if(entry.id)lead.prepend(make('p','Record ID: '+entry.id));
+        }else if(entry.id)copy.prepend(make('p','Record ID: '+entry.id));
         copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
         copy.querySelectorAll('details').forEach(n=>{n.open=true;});
         copy.querySelectorAll('.search-why,.city-project-permalink,.question-permalink').forEach(n=>n.remove());

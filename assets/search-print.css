@@ -61,6 +61,7 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
  body.printing-complete-index tr{break-inside:auto}
 }
 @media print{
+ #search-print-output .print-record-lead{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
  #search-print-output>article>p:first-child{break-after:avoid;page-break-after:avoid}
  #search-print-output>article>p:last-child{break-before:avoid;page-break-before:avoid}
 }

@@ -16,14 +16,18 @@ const specs=[
 ];
 const saved=[];let browser;
 async function scopeHeaderVisible(page,selector){const box=await page.locator(selector).boundingBox();assert(box&&box.y>=0&&box.y+box.height<=900,'The selected report scope header is visible on opening');}
-function pdfCheck(path,ids){
+function pdfCheck(path,ids,leads=[]){
  const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:20*1024*1024}).split('\f').filter((p,i,a)=>i<a.length-1||p.trim());
  assert(pages.every(p=>p.trim().length>25),path+' has no blank/border-only pages');
  assert(pages.every(p=>!/^Record ID:/.test(p.trim().split('\n').at(-1))),path+' keeps record labels with their content');
  assert(!pages.at(-1).trim().startsWith('Full record in context'),path+' keeps the final context link with evidence');
  const text=pages.join(' ').replace(/\s+/g,' ');
  assert.equal((text.match(/Record ID:/g)||[]).length,ids.length,path+' records appear exactly once');
- for(const id of ids)assert(text.includes('Record ID: '+id),'PDF retains '+id);
+ assert.deepEqual([...text.matchAll(/Record ID: ([\w-]+)/g)].map(m=>m[1]),ids,path+' retains record order');
+ for(const {id,title} of leads){
+  const sheet=pages.find(t=>t.replace(/\s+/g,' ').includes('Record ID: '+id));
+  assert(sheet?.replace(/\s+/g,' ').includes(title),`${path}: ${id} stays with its title`);
+ }
  const links=execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:20*1024*1024});
  if(ids.length)assert(links.includes('https://'),'Clickable source/context links');
  assert(!links.includes(base),'Print links use canonical public addresses');saved.push({path,pages:pages.length,records:ids.length});
@@ -69,7 +73,8 @@ try{
    const text=await page.locator('#search-print-output').textContent();assert(!text.includes('Search:'));assert(text.includes('MST (UTC−7)'));assert(text.includes('America/Phoenix'));
    assert.equal(await page.locator('#search-print-output details:not([open])').count(),0);
    const pdf=`${output}/${path.replaceAll('/','-').replace('.html','')}-${prefix}-${scope}-${detail}.pdf`;
-   await page.pdf({path:pdf,format:'Letter',tagged:true});pdfCheck(pdf,ids);
+   const leads=path==='evidence.html'?await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.map(n=>({id:n.dataset.printRecordId,title:n.querySelector('.print-record-lead>div:last-child').innerText.replace(/\s+/g,' ').trim()}))):[];
+   await page.pdf({path:pdf,format:'Letter',tagged:true,displayHeaderFooter:false});pdfCheck(pdf,ids,leads);
    await page.locator('#close-print').press('Enter');assert.equal(await page.locator('#'+prefix+'-page').textContent(),stateBefore);
    assert.equal(await page.evaluate(()=>document.activeElement.id),'preview-print');
   }
@@ -83,8 +88,31 @@ try{
   assert.equal(await input.inputValue(),'');assert(!await page.locator('#include-search-terms').isChecked());
   console.log('PASS ordered pagination, full-set search, late/repeated links, 4 PDF scopes, Ctrl+P and reload:',path,prefix);
  }
+ // A full Tucson source page 2, rather than only the one-record last page.
+ // Check both paper sizes, details, every title and every canonical link.
+ for(const prefix of ['sources','questions']){
+  await page.goto(base+'/evidence.html');await page.reload();
+  if(prefix==='sources')await page.locator('#sources-next').click();
+  await page.locator('#print-list').selectOption(prefix);
+  const rows=await page.locator('#'+prefix+' tbody tr:visible').evaluateAll(ns=>ns.map(n=>({id:n.id,title:n.children[1].innerText.replace(/\s+/g,' ').trim()})));
+  assert.equal(rows.length,6);
+  if(prefix==='sources')assert.deepEqual(rows.map(r=>r.id),['src-029','src-036','src-040','src-034','src-064','src-065']);
+  const state=await page.locator('#'+prefix+'-page').textContent();
+  for(const detail of ['compact','full'])for(const format of ['Letter','A4']){
+   await page.locator('#print-scope').selectOption('current');await page.locator('#print-detail').selectOption(detail);await page.locator('#preview-print').click();
+   const expectedLinks=await page.locator('#search-print-output a[href]').evaluateAll(ns=>ns.map(n=>n.href));
+   const evidenceText=await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.flatMap(n=>{const walker=document.createTreeWalker(n,NodeFilter.SHOW_TEXT),texts=[];while(walker.nextNode()){const text=walker.currentNode.textContent.trim();if(text)texts.push(text);}return texts;}));
+   const pdf=`${output}/tucson-${prefix}-six-${detail}-${format}.pdf`;
+   await page.pdf({path:pdf,format,tagged:true,displayHeaderFooter:false});pdfCheck(pdf,rows.map(r=>r.id),rows);
+   const pdfText=execPDF('pdftotext',[pdf,'-'],{encoding:'utf8'}).replace(/\s/g,'');
+   for(const text of evidenceText)assert(pdfText.includes(text.replace(/\s/g,'')),pdf+' retains evidence text: '+text);
+   const links=execPDF('pdfinfo',['-url',pdf],{encoding:'utf8'});
+   for(const url of expectedLinks)assert(links.includes(url),pdf+' retains link '+url);
+   await page.locator('#close-print').click();assert.equal(await page.locator('#'+prefix+'-page').textContent(),state);
+  }
+ }
  // Independent registers and Back/Forward, including a shared query and a historical alias.
- await page.goto(base+'/evidence.html');await page.locator('#sources-next').press('Enter');await page.locator('#questions-next').press('Enter');
+ await page.goto(base+'/evidence.html');await page.reload();await page.locator('#sources-next').press('Enter');await page.locator('#questions-next').press('Enter');
  await page.goBack();assert.match(await page.locator('#sources-page').textContent(),/^Page 2 /);assert.match(await page.locator('#questions-page').textContent(),/^Page 1 /);
  await page.goForward();assert.match(await page.locator('#questions-page').textContent(),/^Page 2 /);
  await page.locator('#search').fill('no-record-49494');await page.goto(base+'/evidence.html#src-073');assert(await page.locator('#src-024').isVisible());assert(await page.locator('.list-link-notice').isVisible());
