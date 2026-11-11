@@ -181,3 +181,12 @@ body.show-print-view.category-search-page .city-page-banner,body.show-print-view
 .category-search .card-fields{display:grid;grid-template-columns:minmax(130px,180px) 1fr;gap:4px 16px;margin:12px 0 16px;font-size:13px;line-height:1.45}.category-search .card-fields dt{font-weight:700}.category-search .card-fields dd{margin:0;overflow-wrap:anywhere}.category-search .card-fields dd:last-child{margin-bottom:0}@media(max-width:550px){.category-search .card-fields{grid-template-columns:1fr;gap:2px}.category-search .card-fields dd{margin:0 0 7px}}
 
 @media print{body.category-search-page .print-sheet{padding:0!important;margin:0!important;max-width:none!important}body.category-search-page .print-record{widows:3;orphans:3;break-inside:auto}body.category-search-page .print-record h2,body.category-search-page .print-record h4{break-after:avoid}}
+
+/* Full evidence may span pages; keep short field and source-link units together. */
+@media print {
+  body.category-search-page .print-record:not(.compact-record) dt { break-after: avoid; }
+  body.category-search-page .print-record:not(.compact-record) dd { break-before: avoid; }
+  body.category-search-page .print-record:not(.compact-record) li { break-inside: avoid; }
+  body.category-search-page .print-record:not(.compact-record) ul { margin-block: 3pt 6pt; }
+  body.category-search-page .print-record:not(.compact-record) li .print-url { margin-top: 0; margin-bottom: 3pt; }
+}
