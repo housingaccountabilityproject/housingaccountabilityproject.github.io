@@ -8,6 +8,9 @@ if (!Array.isArray(records) || !core || !standard || !window.HAPSearchOptions) {
   $('count').textContent = 'Search could not load. Use the full evidence browser or the regional research pages below.';
   $('count').setAttribute('role', 'alert');
   $('search-form').hidden = true;
+  $('empty').hidden = false;
+  $('empty-text').textContent = 'The interactive index is unavailable. Browse the full evidence and regional research pages using their normal links.';
+  $('empty-reset').hidden = true;
   document.querySelectorAll('[data-category], #print, #print-compact').forEach(button => { button.disabled = true; });
   $('full-search').textContent = 'Open the full evidence browser';
   $('full-search').href = fallbackRoot + (document.body.dataset.searchScope === 'phoenix' ? 'phoenix/records.html' : 'evidence.html');

@@ -63,3 +63,5 @@ for(const scope of ['tucson','phoenix']){
  check(coverage.reporting_periods.every(row=>row.url&&row.status&&row.locator),'Every selected period retains a source locator and check scope');
 }
 check(dataset.annualReportCoverage.regions.phoenix.reporting_periods[0].status.includes('unchecked'),'Broken 2019–20 locator is not treated as currently verified');
+
+check(standard.summary(indexed.get('Q-020')).includes('fully reallocates')&&standard.summary(indexed.get('Q-020')).includes('initial $792,695 partial'),'Short SAAF summary preserves the submitted full reallocation after the partial step');
