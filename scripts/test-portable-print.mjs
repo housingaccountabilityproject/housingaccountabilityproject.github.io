@@ -36,7 +36,7 @@ try{
  // Complete index: check both launch contexts and paper sizes, external link
  // identity, internal destinations, complete records/qualifications and restore.
  for(const context of ['file','http'])for(const format of ['Letter','A4']){
-  await page.goto(context==='file'?pathToFileURL(root+'/evidence.html').href:base+'/evidence.html');
+  await page.goto(context==='file'?pathToFileURL(root+'/evidence.html').href:base+'/evidence.html');await page.reload();
   const before=await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')));
   const readRows=ns=>ns.map(n=>({id:n.id,cells:[...n.children].map(c=>{const w=document.createTreeWalker(c,NodeFilter.SHOW_TEXT),a=[];while(w.nextNode())a.push(w.currentNode.textContent);return a.join(' ');})}));
   const rows=await page.locator('#sources tbody tr,#questions tbody tr').evaluateAll(readRows);
@@ -95,12 +95,14 @@ try{
  // every all-register/last-page case and the SRC-027/Q-004 attachment checks.
  for(const [path,list,prefix] of [['evidence.html','sources','sources'],['evidence.html','questions','questions'],['phoenix/records.html',null,'records']]){
   for(const scope of ['current','all'])for(const detail of ['compact','full'])for(const format of ['Letter','A4']){
-   await page.goto(pathToFileURL(root+'/'+path).href);
+   await page.goto(pathToFileURL(root+'/'+path).href);await page.reload();
    await page.locator('#'+prefix+'-next').click();if(list)await page.locator('#print-list').selectOption(list);
    const state=await page.locator('#'+prefix+'-page').textContent();
    await page.locator('#print-scope').selectOption(scope);await page.locator('#print-detail').selectOption(detail);await page.locator('#preview-print').click();
    const ids=await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.map(n=>n.dataset.printRecordId));
    if(scope==='current')assert.equal(ids.length,6);
+   if(scope==='current'&&list==='sources')assert.deepEqual(ids,['src-029','src-036','src-040','src-034','src-064','src-065'],'Exact source page 2');
+   if(scope==='current'&&list==='questions')assert.deepEqual(ids,['q-007','q-008','q-009','q-010','q-011','q-012'],'Exact question page 2');
    const fragments=await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.flatMap(n=>{const w=document.createTreeWalker(n,NodeFilter.SHOW_TEXT),a=[];while(w.nextNode()){const s=w.currentNode.textContent.trim();if(s)a.push(s);}return a;}));
    await exportPDF(page,`${prefix}-${scope}-${detail}-${format}`,format,data=>{
     const text=data.pages.map(p=>p.text).join(' '),flat=norm(text);
@@ -112,7 +114,7 @@ try{
  }
  // Category searches: both regions, every category and print scope/detail.
  for(const region of ['tucson','phoenix'])for(const category of ['sources','questions','funding','updates'])for(const scope of ['current','all'])for(const detail of ['compact','full']){
-  await page.goto(pathToFileURL(root+(region==='phoenix'?'/phoenix':'')+'/search.html').href);
+  await page.goto(pathToFileURL(root+(region==='phoenix'?'/phoenix':'')+'/search.html').href);await page.reload();
   await page.locator('[data-category="'+category+'"]').click();if(await page.locator('#next').isEnabled())await page.locator('#next').click();
   const state=await page.locator('#page-count').textContent();await page.locator('#print-record-scope').selectOption(scope);await page.locator(detail==='compact'?'#print-compact':'#print').click();
   const records=await page.locator('.print-record').evaluateAll(ns=>ns.map(n=>({key:n.dataset.recordKey,id:n.querySelector('h2')?.textContent})));
@@ -122,7 +124,7 @@ try{
  // Actual browser accessibility trees, not a claim of ChromeVox speech.
  const cdp=await page.context().newCDPSession(page);
  for(const path of ['evidence.html','phoenix/records.html','search.html','phoenix/search.html']){
-  await page.goto(pathToFileURL(root+'/'+path).href);const ax=(await cdp.send('Accessibility.getFullAXTree')).nodes.filter(n=>!n.ignored);
+  await page.goto(pathToFileURL(root+'/'+path).href);await page.reload();const ax=(await cdp.send('Accessibility.getFullAXTree')).nodes.filter(n=>!n.ignored);
   for(const role of ['main','heading','button','combobox'])assert(ax.some(n=>n.role?.value===role),path+' exposes '+role);
   for(const n of ax.filter(n=>['button','combobox','textbox','checkbox'].includes(n.role?.value)))assert(n.name?.value,path+' unnamed control');
   if(path==='evidence.html'){for(const name of ['List to print','Records to print','Evidence detail'])assert(ax.some(n=>n.role?.value==='combobox'&&n.name?.value===name),name);assert(ax.filter(n=>n.role?.value==='status').length>=2,'Independent register status announcements');}
