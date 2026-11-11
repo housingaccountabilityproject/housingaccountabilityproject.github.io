@@ -57,7 +57,7 @@ assert 'does not guarantee an apartment' in ' '.join(hamc['limitations'])
 home = html.parse(str(ROOT / 'index.html'))
 assert 'Coming Soon' not in home.getroot().text_content()
 assert 'California' not in home.getroot().text_content()
-assert 'Phoenix and Maricopa County' in home.getroot().text_content()
+assert 'Phoenix & Maricopa County' in home.getroot().text_content()
 help_page = html.parse(str(ROOT / 'phoenix/housing-help.html'))
 assert help_page.xpath('//*[@id="hamc-waitlist-notice"]')
 findings = {r['id']: r for r in records}

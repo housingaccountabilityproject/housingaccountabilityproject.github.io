@@ -15,12 +15,12 @@ ABOUT = ('About', 'about.html')
 ROUTES = {
     'tucson': [('Overview', 'tucson/index.html'), ('Projects', 'housing-projects.html'), ('Funding', 'funding-explorer.html'), ('Questions', 'questions-records.html'), ('Sources', 'evidence.html'), ('Search', 'search.html')],
     'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/search.html')],
-    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix and Maricopa County', 'phoenix/search.html')],
+    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix & Maricopa County', 'phoenix/search.html')],
 }
 MORE = {
     'tucson': [('Glossary', 'glossary.html'), ('Reports & reading', 'research.html#publications'), ('Research method', 'research.html#standards'), ('Updates & corrections', 'research-updates.html'), ('Housing help', 'housing-help.html'), ('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html')],
     'phoenix': [('Glossary', 'phoenix/glossary.html'), ('Reports & reading', 'phoenix/inaugural-report.html'), ('Research method', 'phoenix/index.html#sources'), ('Corrections & history', 'phoenix/corrections.html'), ('Housing help', 'phoenix/housing-help.html'), ('Capital Fund guide', 'phoenix/capital-fund.html'), ('Source comparisons', 'phoenix/comparisons.html')],
-    'shared': [('Tucson & Pima County', 'tucson/index.html'), ('Phoenix', 'phoenix/index.html'), ('Housing help: Tucson', 'housing-help.html'), ('Housing help: Phoenix', 'phoenix/housing-help.html')],
+    'shared': [('Tucson & Pima County', 'tucson/index.html'), ('Phoenix & Maricopa County', 'phoenix/index.html'), ('Housing help: Tucson', 'housing-help.html'), ('Housing help: Phoenix', 'phoenix/housing-help.html')],
 }
 
 
@@ -41,12 +41,12 @@ def city_link(label, target, path, selected=False, extra=''):
 
 
 def header(path, city):
-    name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix and Maricopa County', 'shared': 'Independent public research'}[city]
-    switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix and Maricopa County', 'phoenix/index.html')])
+    name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix & Maricopa County', 'shared': 'Independent public research'}[city]
+    switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix & Maricopa County', 'phoenix/index.html')])
     routes = ROUTES[city]
     if city != 'shared':
         routes = [routes[0], ABOUT, *routes[1:]]
-    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" ", "-")}"') for label, target in routes)
+    nav = ''.join(city_link(label, target, path, path == target and '#' not in target, f' data-city-route="{label.lower().replace(" & ", " and ").replace(" ", "-")}"') for label, target in routes)
     more = ''.join(city_link(label, target, path, path == target) for label, target in MORE[city])
     utilities = ''.join(city_link(label,target,path) for label,target in [('Contact','contact.html'),('Privacy','privacy.html')])
     return f'''<header class="city-header"><div class="city-wrap city-header-inner"><a class="city-brand brand-home" href="{escape(relative('index.html', path))}" aria-label="Housing Accountability Project home"><img src="{escape(relative('assets/brand/logo-mark.svg', path))}" width="48" height="48" alt=""><span class="brand-name">Housing<br>Accountability Project</span></a><span class="city-current-city">{escape(name)}</span><button class="city-menu-toggle" type="button" aria-controls="city-navigation-panel" aria-expanded="false" hidden><span aria-hidden="true">☰</span> Menu</button><button class="city-menu-backdrop" type="button" tabindex="-1" aria-hidden="true" hidden></button><div class="city-nav-panel" id="city-navigation-panel"><div class="city-menu-heading"><span id="city-menu-title">Explore the website</span><button class="city-menu-close" type="button" aria-label="Close menu">Close ×</button></div><div class="city-identity"><span>{escape(name)}</span><nav class="city-switcher" aria-label="Research area">{switch}</nav></div><nav class="city-main-nav" aria-label="Main navigation">{nav}<details class="city-more"><summary>Learn &amp; resources</summary><div>{more}</div></details></nav><nav class="city-menu-utilities" aria-label="About this website">{utilities}</nav></div></div></header>'''
@@ -60,7 +60,7 @@ def footer(path, city):
     else:
         links += [('Updates feed', 'feed.xml')]
     nav = ''.join(city_link(label, target, path) for label, target in links)
-    areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix and Maricopa County','phoenix/index.html')])
+    areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix & Maricopa County','phoenix/index.html')])
     learn = ''.join(city_link(label,target,path) for label,target in MORE[route_city][:3])
     about = ''.join(city_link(label,target,path) for label,target in [('About the project','about.html'),('Contact','contact.html')])
     return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><div class="city-footer-grid"><div><p class="city-footer-label">Research areas</p><nav aria-label="Research area links">{areas}</nav></div><div><p class="city-footer-label">Learn</p><nav aria-label="Learning resources">{learn}</nav></div><div><p class="city-footer-label">Reader tools</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><div><p class="city-footer-label">About</p><nav aria-label="Project information">{about}</nav></div></div></div><p>Public Research Website</p></footer>'
@@ -145,7 +145,7 @@ def apply(output, path):
     before_footer = re.sub(r'<nav\b[^>]*class="reader-tools"[^>]*>.*?</nav>', '', before_footer, flags=re.S)
     output = before_footer + sep + after_footer
     if city != 'shared':
-        name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix and Maricopa County'
+        name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix & Maricopa County'
         overview_path = ROUTES[city][0][1]
         crumb = city_link('Research areas', 'index.html', path) + ' / '
         crumb += escape(name) if path == overview_path else city_link(name, overview_path, path)

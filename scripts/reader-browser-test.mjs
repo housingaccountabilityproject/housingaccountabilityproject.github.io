@@ -120,7 +120,7 @@ for(const width of [390,1280]) {
  page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,routeLocalRequest);
  await page.goto(localPageUrl('index.html'));
  assert(!(await page.locator('main').textContent()).includes('California'));
- assert((await page.locator('main').textContent()).includes('Phoenix and Maricopa County'));
+ assert((await page.locator('main').textContent()).includes('Phoenix & Maricopa County'));
  assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
  await page.screenshot({path:`reader-qa-screenshots/approved-home-${width}.png`,fullPage:true});
  for(const [file,id,label] of [['phoenix/index.html','MC-HAMC-WEB-001','hamc-overview'],['phoenix/housing-help.html','hamc-waitlist-notice','hamc-help']]) {
