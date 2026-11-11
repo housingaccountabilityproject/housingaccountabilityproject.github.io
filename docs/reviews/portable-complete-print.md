@@ -14,6 +14,8 @@ The expanded Phoenix source page-2 Current/Full Letter test additionally found a
 
 Visual review after that spacing correction found PHX-WEB-004's identifier at the end of one sheet and its title on the next. Phoenix cards now group their identifier, category/direct-link heading and title into the same small print lead used for table-row reports. The extended PDF test checks every Phoenix ID/title pair on Current/All, Compact/Full, Letter/A4, including all 90 cards in the all-match exports. The source records and evidence text are unchanged.
 
+The heading correction also exposed a final sheet containing only the two context-navigation links. Print break hints now keep the final source citation and following navigation together; reduced navigation spacing preserves the links without giving them a separate sheet. The matrix rejects a final sheet beginning with either context-link label. No evidence is removed to shorten output.
+
 ## Verification contract
 
 Existing required jobs `reader-tools`, `phoenix-index` and `smoke` remain required. Their assertions are retained. The reader job additionally runs `scripts/test-portable-print.mjs`:
@@ -23,7 +25,7 @@ Existing required jobs `reader-tools`, `phoenix-index` and `smoke` remain requir
 - Both regions, four category searches, Current/All × Compact/Full: PDF links, record titles, return state/focus; existing category tests cover full evidence, date labels, qualifications and source links.
 - Browser accessibility trees: named controls, landmarks, headings and independent Tucson status regions. Existing keyboard, linked-ID recovery, mobile widths, 200% CSS zoom, privacy and contrast tests remain in place.
 
-The new test generates PDFs in a private temporary directory and copies them to the verification artifact only after their link/action and content assertions pass. That artifact is uploaded only on a successful reader job. PDF inspection now includes file actions previously omitted by the URI-only helper. Ordered per-column token coverage is not an assertion of complete PDF text equality or an exhaustive visual audit.
+The new test generates PDFs in a private temporary directory and copies them to the verification artifact only after their link/action and content assertions pass. That artifact is uploaded after the PDF matrix passes, before the remaining reader regressions, so its visual review can run alongside those checks. Final required-job results are verified separately; an artifact alone is not a green reader check. PDF inspection now includes file actions previously omitted by the URI-only helper. Ordered per-column token coverage is not an assertion of complete PDF text equality or an exhaustive visual audit.
 
 Local static/data checks can run in this session. Local headless Chromium could not start because its process socket was denied; the execution policy rejected an escalated retry. Hosted browser results must be checked on the actual final PR head/test merge; do not claim them from test code alone.
 

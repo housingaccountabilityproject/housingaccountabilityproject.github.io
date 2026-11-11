@@ -63,6 +63,10 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
 @media print{
  /* Trailing card padding can otherwise fragment onto an empty final sheet. */
  #search-print-output>article.record-card{padding-bottom:0!important}
+ #search-print-output .record-connections,#search-print-output .record-next,#search-print-output .record-reading{break-before:avoid;page-break-before:avoid}
+ #search-print-output .record-sources>li:last-child{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+ #search-print-output .record-reading{padding-top:6pt!important}
+ #search-print-output .record-connections{margin-top:8pt;padding-top:8pt}
  #search-print-output .print-record-lead{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
  #search-print-output>article>p:first-child{break-after:avoid;page-break-after:avoid}
  #search-print-output>article>p:last-child{break-before:avoid;page-break-before:avoid}

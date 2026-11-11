@@ -21,6 +21,7 @@ function portable(data,label){
  for(const link of targets){assert(!link.file,label+' remote/local file action '+link.file);assert(/^(https:|mailto:)/i.test(link.uri||''),label+' nonportable URI '+link.uri);assert(!/localhost|127\.0\.0\.1/.test(link.uri),label+' preview target');}
  const short=data.pages.map((p,i)=>({page:i+1,text:p.text.trim()})).filter(p=>p.text.length<=25);
  assert.equal(short.length,0,label+' blank/border-only page: '+JSON.stringify({total:data.pages.length,short}));
+ assert(!/^(Read in context|Full record in context)/.test(data.pages.at(-1).text.trim()),label+' context-only final page');
  return targets.length;
 }
 async function exportPDF(page,name,format,check){
