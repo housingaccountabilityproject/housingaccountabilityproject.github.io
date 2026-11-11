@@ -37,8 +37,8 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install chromium
-      - run: node scripts/test-list-browser.mjs
       - run: node scripts/test-portable-print.mjs
+      - run: node scripts/test-list-browser.mjs
       - run: node scripts/test-search-options.mjs
       - run: node scripts/test-category-search.mjs
       - run: node scripts/reader-browser-test.mjs

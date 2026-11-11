@@ -55,6 +55,9 @@ try{
    else {const u=new URL(href,'https://housingaccountabilityproject.github.io/evidence.html');assert.equal(during[i],u.pathname==='/evidence.html'&&u.hash?u.hash:u.href,'Canonical cross-page target');}
   });
   const expectedTargets=await page.locator('main a[href]:visible').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')).filter(h=>!h.startsWith('#')));
+  // Let the PDF engine enter/leave print media itself. Forcing print media
+  // through afterprint keeps the return button hidden and cannot test focus.
+  await page.emulateMedia({media:null});
   await exportPDF(page,`complete-${context}-${format}`,format,data=>{
    const text=data.pages.map(p=>p.text).join(' ');
    assert(!/Showing\s+1[–-]6/.test(text),'No stale screen counter');
@@ -77,7 +80,7 @@ try{
   });
   // page.pdf already emitted afterprint. A second synthetic event would
   // exercise the unrelated normal-report cleanup after complete mode ended.
-  await page.emulateMedia({media:'screen'});
+  await page.emulateMedia({media:null});
   assert.deepEqual(await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),before);
   assert.deepEqual(await page.locator('main details').evaluateAll(ns=>ns.map(n=>n.open)),disclosures);
   assert.equal(await page.locator('#search').inputValue(),'');assert.equal(await page.locator('#sources tbody tr:visible').count(),6);
