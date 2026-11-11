@@ -74,6 +74,7 @@
     return node;
   }
   function reveal(target) {
+    if (!target.textContent.trim()) target = target.closest('tr,[data-catalog-entry],.record-card,[data-connection-entry]') || target;
     for (let parent = target.parentElement; parent; parent = parent.parentElement) if (parent.tagName === 'DETAILS') parent.open = true;
     target.tabIndex = -1; target.focus({preventScroll:true}); target.scrollIntoView({block:'start'});
   }
