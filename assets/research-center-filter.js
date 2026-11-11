@@ -28,6 +28,7 @@
  function revealAnchor(){
   let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
   const target=document.getElementById(id),card=target?.closest('[data-catalog-entry]');if(!card)return;
+  notice.textContent='';
   if(!pager.matches().includes(card)){reset();notice.textContent='Filters cleared to reveal the linked record '+(card.id||id)+'.';}
   pager.reveal(card);window.HAPListBrowser.reveal(target);history?.replace();printing?.update();
  }

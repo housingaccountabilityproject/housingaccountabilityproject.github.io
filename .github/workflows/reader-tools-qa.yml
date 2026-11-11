@@ -33,6 +33,24 @@ jobs:
       - run: git diff --exit-code -- assets/category-search-data.js assets/category-search-coverage.js assets/funding-program-names.js
       - name: Ensure generated files are committed
         run: git diff --exit-code -- assets/search-index.js data/search-coverage.json feed.xml
+      - name: Use HTTPS Ubuntu package mirrors
+        run: |
+          sudo python3 - <<'PYTHON'
+          from pathlib import Path
+          replacements = {
+              'http://azure.archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
+              'http://archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
+              'http://security.ubuntu.com/ubuntu': 'https://security.ubuntu.com/ubuntu',
+          }
+          for path in Path('/etc/apt').rglob('*'):
+              if path.is_file() and (path.suffix in {'.list', '.sources'} or 'mirrors' in path.name):
+                  old = path.read_text()
+                  new = old
+                  for before, after in replacements.items():
+                      new = new.replace(before, after)
+                  if old != new:
+                      path.write_text(new)
+          PYTHON
       - name: Install browser runner
         run: |
           npm install --no-save playwright

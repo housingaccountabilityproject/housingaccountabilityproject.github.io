@@ -48,6 +48,7 @@
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     const target = document.getElementById(id);
     const entry=target?.closest('[data-connection-entry]');if(!entry)return;
+  notice.textContent='';
     if(!pager.matches().includes(entry)){reset();notice.textContent='Filters cleared to reveal the linked record '+(entry.id||id)+'.';}
     pager.reveal(entry);window.HAPListBrowser.reveal(target);navigation?.replace();printing?.update();
   }

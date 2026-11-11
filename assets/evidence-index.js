@@ -36,6 +36,7 @@
  function revealHash(){
   let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
   const target=document.getElementById(id),row=target?.closest('#sources tbody tr,#questions tbody tr');if(!row)return;
+  notice.textContent='';
   const list=lists[sources.includes(row)?0:1];
   if(!list.matches().includes(row)){reset();notice.textContent='Shared filters were cleared to reveal the linked record '+row.id+'.';}
   list.reveal(row);window.HAPListBrowser.reveal(target);history?.replace();printing?.update();
