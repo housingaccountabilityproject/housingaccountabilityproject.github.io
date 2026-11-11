@@ -25,7 +25,7 @@ elif command=='audit':
     with pymupdf.open(args[0]) as document:
         print(json.dumps({'pages':[{'width':page.rect.width,'height':page.rect.height,
             'text':page.get_text('text',sort=True),'words':page.get_text('words',sort=True),
-            'links':[{k:v for k,v in link.items() if k in ('kind','uri','file','page','xref')}
+            'links':[{k:v for k,v in link.items() if k in ('kind','uri','file','page','xref','nameddest')}
                      for link in page.get_links()]} for page in document]}))
 else:
     raise ValueError('Unsupported PDF check: '+command)

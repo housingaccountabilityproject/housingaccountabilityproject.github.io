@@ -61,7 +61,7 @@ try{
    for(const phrase of ['Website and Workbook Source-ID Crosswalk','Methodology, Source Quality','Priority Completion Queue','Revision Register'])assert(norm(text).includes(norm(phrase)),phrase);
    const uris=data.pages.flatMap(p=>p.links).map(l=>l.uri).filter(Boolean);
    for(const target of new Set(expectedTargets))assert(uris.includes(target),'PDF retains target '+target);
-   assert(data.pages.flatMap(p=>p.links).some(l=>l.kind===1),'Internal PDF destinations retained');
+   assert(data.pages.flatMap(p=>p.links).some(l=>[1,4].includes(l.kind)&&l.page>=0),'Internal PDF destinations retained (direct or named)');
    // Read each of the five fixed table columns across page breaks, rather
    // than claiming equality from interleaved whole-page extraction. Repeated
    // table headers may intervene, and adjacent links can extract as a single
