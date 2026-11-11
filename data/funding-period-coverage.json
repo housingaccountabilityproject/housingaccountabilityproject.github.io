@@ -1,0 +1,161 @@
+{
+  "scope": "Selected City report and plan periods. Regional collections also contain separately scoped County records. These source locators do not establish complete program, geographic or year coverage. They do not add Funding records or populate program-year filters.",
+  "regions": {
+    "tucson": {
+      "issuer": "City of Tucson",
+      "index_url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Reports",
+      "reporting_periods": [
+        {
+          "target_period": "2019–20",
+          "source_label": "TUC CAPER 2019 · PDF page 1, CR-05 opening paragraph",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson_py2019_caper_7.1.19-6.30.20.pdf#page=1",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 1, CR-05 opening paragraph",
+          "checked_at": "2026-11-10T18:18:55-07:00",
+          "note": ""
+        },
+        {
+          "target_period": "2020–21",
+          "source_label": "2020 CAPER · official index label",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/living-and-working/housing-community-development/documents/city_of_tucson_py_2020_caper_7.1.20-6.30.21.pdf",
+          "status": "Located but unchecked · reporting interval unverified",
+          "locator": "Official report-index link only",
+          "checked_at": null,
+          "note": "Source access returned HTTP 403 during this review. The filename alone is not verification of the reporting interval."
+        },
+        {
+          "target_period": "2021–22",
+          "source_label": "2021 CAPER · official index label",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2021-consolidated-annual-performance-report-caper.pdf",
+          "status": "Located but unchecked · reporting interval unverified",
+          "locator": "Official report-index link only",
+          "checked_at": null,
+          "note": "Source access returned HTTP 403 during this review. The reporting interval was not checked."
+        },
+        {
+          "target_period": "2022–23",
+          "source_label": "2022 CAPER · official index label",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/city-of-tucson-py-2022-caper.pdf",
+          "status": "Located but unchecked · reporting interval unverified",
+          "locator": "Official report-index link only",
+          "checked_at": null,
+          "note": "Source access returned HTTP 403 during this review. The reporting interval was not checked."
+        },
+        {
+          "target_period": "2023–24",
+          "source_label": "TUC CAPER 2023 · PDF page 1, cover and stated July 1, 2023–June 30, 2024 interval",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2023-consolidated-annual-preformance-and-evaluation-report-caper.pdf#page=1",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 1, cover and stated July 1, 2023–June 30, 2024 interval",
+          "checked_at": "2026-11-10T18:18:55-07:00",
+          "note": ""
+        },
+        {
+          "target_period": "2024–25",
+          "source_label": "Tucson PY2024 CAPER · SRC-023",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf",
+          "status": "Existing selected research · not newly reverified",
+          "locator": "Published funding records FUND-PUB-001/003/006; July 1, 2024–June 30, 2025 reporting period",
+          "checked_at": null,
+          "note": "Retain the unresolved $1,284,589.71 CDBG comparison. No new full-report financial audit was performed."
+        },
+        {
+          "target_period": "2025–26",
+          "source_label": "Tucson draft PY2025 CAPER · SRC-024/SRC-071",
+          "url": "https://www.tucsonaz.gov/Departments/Housing-and-Community-Development/Documents/Reports",
+          "status": "Existing draft research · final report unverified",
+          "locator": "Published FUND-PUB-004/005 date evidence; July 1, 2025–June 30, 2026",
+          "checked_at": null,
+          "note": "The linked Reports index is a navigation aid; a final PY2025 CAPER, submission and HUD receipt/acceptance remain unverified."
+        }
+      ],
+      "separate_plan": {
+        "target_period": "2026–27 · separate planning period",
+        "source_label": "Tucson FY2027 / HUD PY2026 plan",
+        "url": "https://housingaccountabilityproject.github.io/funding-explorer.html#fund-pub-002",
+        "status": "Existing selected plan evidence; not completed-year outcomes",
+        "locator": "FUND-PUB-002 and federal-allocations-2026 separately identify City FY2027 / HUD PY2026 and the dated October 6 amendment",
+        "checked_at": null,
+        "note": "Plan coverage is separate from grant years, actual spending and households served."
+      }
+    },
+    "phoenix": {
+      "issuer": "City of Phoenix",
+      "index_url": "https://www.phoenix.gov/administration/departments/nsd/maps-reports/annual-action-plan-reports.html",
+      "reporting_periods": [
+        {
+          "target_period": "2019–20",
+          "source_label": "Phoenix 2019–20 CAPER · historical locator",
+          "url": "https://www.phoenix.gov/nsdsite/Documents/CAPER%202019-20%20final_HUD%20approved.pdf",
+          "status": "Located but unchecked · reporting interval unverified",
+          "locator": "Official report-index link only",
+          "checked_at": "2026-11-10T18:18:55-07:00",
+          "note": "The current locator returned HTTP 404 at 2026-11-10T18:18:55-07:00. Cached search text does not establish that the source currently works."
+        },
+        {
+          "target_period": "2020–21",
+          "source_label": "Phoenix official annual-plan and CAPER index",
+          "url": "https://www.phoenix.gov/administration/departments/nsd/maps-reports/annual-action-plan-reports.html",
+          "status": "Source not yet located · period unverified",
+          "locator": "Current official CAPER index",
+          "checked_at": null,
+          "note": "No working 2020–21 CAPER body was verified in this review."
+        },
+        {
+          "target_period": "2021–22",
+          "source_label": "PHX CAPER 2021 · PDF page 2, Executive Summary reporting interval",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/2021-22%20caper_draft%20for%20public%20comment%20(2).pdf#page=2",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 2, Executive Summary reporting interval",
+          "checked_at": "2026-11-10T18:18:55-07:00",
+          "note": "The current index omits a draft label, while the filename retains Draft for Public Comment. Finality and HUD acceptance were not established."
+        },
+        {
+          "target_period": "2022–23",
+          "source_label": "PHX CAPER 2022 · PDF page 1, report title; PDF page 2, CR-05 program-year statement",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/approved%20fy2022-23%20caper.pdf#page=1",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 1, report title; PDF page 2, CR-05 program-year statement",
+          "checked_at": "2026-11-10T18:19:00-07:00",
+          "note": "The current City index lists this CAPER without a draft label. That does not independently verify HUD acceptance."
+        },
+        {
+          "target_period": "2023–24",
+          "source_label": "PHX CAPER 2023 · PDF page 2, Executive Summary reporting interval",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/2023-24%20caper%20draft_for%20public%20comment.pdf#page=2",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 2, Executive Summary reporting interval",
+          "checked_at": "2026-11-10T18:19:01-07:00",
+          "note": "Current City index labels this CAPER Draft."
+        },
+        {
+          "target_period": "2024–25",
+          "source_label": "PHX CAPER 2024 · PDF page 2, Executive Summary reporting interval",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/FY2024-25%20CAPER%20Public%20Comment%208-25-2025.pdf#page=2",
+          "status": "Reporting-period passage checked; financial measures not reviewed",
+          "locator": "PDF page 2, Executive Summary reporting interval",
+          "checked_at": "2026-11-10T18:19:01-07:00",
+          "note": "Current City index labels this CAPER Draft."
+        },
+        {
+          "target_period": "2025–26",
+          "source_label": "Phoenix FY2025–26 draft CAPER · PHX-CITY-001",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2025-2026%20Consolidated%20Annual%20Performance%20and%20Evaluation%20Report%20-%20Draft.pdf#page=2",
+          "status": "Selected draft passages checked · not a complete financial review",
+          "locator": "PDF cover; selected five-development passage at PDF pages 49–50",
+          "checked_at": "2026-11-10T17:39:58-07:00",
+          "note": "Draft reported completion does not establish current occupancy, vacancies or verified payments."
+        }
+      ],
+      "separate_plan": {
+        "target_period": "2026–27 · separate planning period",
+        "source_label": "Phoenix 2026–27 draft Annual Action Plan · PHX-CITY-003",
+        "url": "https://www.phoenix.gov/content/dam/phoenix/nsdsite/documents/Admin%20Division%20Related/2026-2027%20Draft%20Annual%20Action%20Plan.pdf#page=58",
+        "status": "Selected draft passage checked; not completed-year outcomes",
+        "locator": "PDF cover; page 58 (printed page 56), planning began in calendar 2024",
+        "checked_at": "2026-11-10T17:39:58-07:00",
+        "note": "This calendar-year planning statement is separate from the FY2024 HUD award. Neither establishes the full performance period."
+      }
+    }
+  }
+}

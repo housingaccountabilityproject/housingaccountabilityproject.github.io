@@ -93,7 +93,7 @@ try {
     await page.locator('#reset').click();
     assert.equal(await page.locator('#query').inputValue(),'');
     await openNavigation(page);
-    await page.locator('.city-switcher').getByRole('link',{name:'Phoenix',exact:true}).click();
+    await page.locator('.city-switcher').getByRole('link',{name:'Phoenix and Maricopa County',exact:true}).click();
     await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Funding',exact:true}).click();
     await page.locator('[data-view="funding"][aria-pressed="true"]').waitFor();

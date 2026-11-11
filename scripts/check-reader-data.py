@@ -7,7 +7,7 @@ from datetime import datetime
 import json,re,subprocess
 ROOT=Path(__file__).resolve().parents[1]
 files=[*ROOT.glob('*.html'),*ROOT.glob('reports/*.html')]
-pages={p.relative_to(ROOT).as_posix():html.parse(str(ROOT/'tucson/index.html' if p.name=='index.html' else p)) for p in files if not p.name.startswith('google')}
+pages={('tucson/index.html' if p.name=='index.html' else p.relative_to(ROOT).as_posix()):html.parse(str(ROOT/'tucson/index.html' if p.name=='index.html' else p)) for p in files if not p.name.startswith('google')}
 for rel,doc in pages.items():
  actual_rel='tucson/index.html' if rel=='index.html' else rel
  ids=doc.xpath('//@id');assert len(ids)==len(set(ids)),('duplicate ID',rel)
@@ -23,6 +23,17 @@ for rel,doc in pages.items():
   if dest.is_dir():dest=dest/'index.html'
   assert dest.exists(),('missing local link',rel,href)
   if u.fragment and dest.suffix=='.html':assert html.parse(str(dest)).xpath('//*[@id=$id]',id=unquote(u.fragment)),('missing anchor',rel,href)
+# A deferred helper cannot satisfy a synchronous consumer, even when listed first.
+for source_file in ROOT.rglob('*.html'):
+ if 'node_modules' in source_file.parts:continue
+ scripts=html.parse(str(source_file)).xpath('//script[@src]')
+ for position,consumer in enumerate(scripts):
+  if urlsplit(consumer.get('src')).path.split('/')[-1] not in {'category-search.js','site-search.js','phoenix-records.js','search-print.js'}:continue
+  helpers=[(i,node) for i,node in enumerate(scripts) if urlsplit(node.get('src')).path.endswith('/search-options.js')]
+  assert len(helpers)==1,('missing search-choice helper',source_file)
+  helper_position,helper=helpers[0]
+  assert helper_position<position and 'async' not in helper.attrib,('search helper order',source_file)
+  assert 'defer' not in helper.attrib or 'defer' in consumer.attrib,('deferred helper / synchronous consumer',source_file)
 idx=(ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n')
 index=json.loads(idx);expected=set(pages)-{'search.html','search-all.html'}
 assert set(x['page'] for x in index['coverage'])==expected

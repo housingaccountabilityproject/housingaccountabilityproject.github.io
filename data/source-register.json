@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Stable mapping of 67 published source rows. Selected November 9 and November 8 additions and earlier records retain their individual review limits.",
+  "scope": "Curated source-register inventory. Compilation dates describe this index, not a common source-verification date; individual rows retain their own evidence and review limits.",
   "source_dates_through": "2026-11-08",
   "resident_privacy": "Aggregate counts and appropriately redacted public records only. No resident names, occupied-unit identifiers, tenant rosters or individual case files; combine or suppress identifiable small groups.",
   "tracker_to_source": {
@@ -199,7 +199,16 @@
         "SRC-040"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:40:03-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 8: AVP-RRH AZ0268D9T012501, initial $792,695 partial reallocation followed by full balance reallocation; final HUD award not verified.",
+          "url": "https://tpch.net/wp-content/uploads/FY2026-HUD-CoC-Priority-Listing-esnaps.pdf"
+        }
+      ]
     },
     {
       "public_id": "SRC-034",
@@ -703,7 +712,22 @@
       "namespace": "website",
       "workbook_source_ids": [],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID."
+      "workbook_mapping_basis": "No equivalent registered document ID verified in the November 7 workbook Evidence Registry. The document may be cited elsewhere in the workbooks; do not substitute the same-numbered workbook ID.",
+      "document_date": {
+        "date": "2026-02-17",
+        "role": "Agency bulletin publication and award-action date",
+        "locator": "Bulletin masthead, opening and Existing, preservation list",
+        "url": "https://content.govdelivery.com/accounts/AZPIMA/bulletins/40a43d2"
+      },
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:51-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Bulletin masthead, opening and Existing, preservation list",
+          "url": "https://content.govdelivery.com/accounts/AZPIMA/bulletins/40a43d2"
+        }
+      ]
     },
     {
       "public_id": "SRC-093",
@@ -1076,7 +1100,16 @@
         "SRC-111"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:57-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Permit details: October 15 application date and displayed Issued status; issue date not shown",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/"
+        }
+      ]
     },
     {
       "public_id": "SRC-110",
@@ -1104,7 +1137,7 @@
       "period": "other",
       "topic": "projects",
       "source_context": "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
-      "limitations": "Submitted – Online, not issued in the reviewed register. Status can change.",
+      "limitations": "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in.",
       "urls": [
         "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
       ],
@@ -1118,7 +1151,28 @@
         "SRC-112"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+      "status_observations": [
+        {
+          "observed_on": "2026-11-07",
+          "status": "Submitted – Online",
+          "source": "Retained November 7 review"
+        },
+        {
+          "observed_on": "2026-11-10",
+          "status": "Fees Paid",
+          "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        }
+      ],
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:51-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Permit details: Fees Paid status and November 6 application date",
+          "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        }
+      ]
     },
     {
       "public_id": "SRC-112",
@@ -1238,7 +1292,7 @@
       "source_context": "November 12, 2026 agenda, PDF p. 1; retrieved November 7.",
       "limitations": "Schedules PIT strategy and unsheltered evaluation presentations. Planned discussion, not adopted methodology or evaluation findings.",
       "urls": [
-        "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda.pdf"
+        "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda-1.pdf"
       ],
       "citation_url": "research-updates.html#upcoming-housing-measures-2026-11-07",
       "aliases": [],
@@ -1250,7 +1304,28 @@
         "SRC-124"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+      "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+      "previous_locators": [
+        {
+          "url": "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda.pdf",
+          "role": "Locator retained with the November 7 source review; later unavailable at the date-focused review."
+        }
+      ],
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:51-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "PDF page 1: meeting heading and scheduled PIT/evaluation presentations",
+          "url": "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda-1.pdf"
+        }
+      ],
+      "document_date": {
+        "date": "2026-11-12",
+        "role": "Scheduled meeting date",
+        "locator": "PDF page 1 meeting heading",
+        "url": "https://tpch.net/wp-content/uploads/11.12.26-TPCH-General-Council-Agenda-1.pdf#page=1"
+      }
     },
     {
       "public_id": "SRC-118",
@@ -1427,7 +1502,22 @@
         "SRC-175"
       ],
       "crosswalk_url": "evidence.html#source-id-crosswalk",
-      "workbook_mapping_basis": "Registered public URL and document-title match checked November 9, 2026 against workbook SRC-175. Locator: Consent Agenda Item J, NOV04-26-315, Resolution 24206, separate motion/vote paragraph. Website and workbook IDs remain separate namespaces. Same-number collision: workbook SRC-125 is the City FY2025 Annual Comprehensive Financial Report, not this Council action report."
+      "workbook_mapping_basis": "Registered public URL and document-title match checked November 9, 2026 against workbook SRC-175. Locator: Consent Agenda Item J, NOV04-26-315, Resolution 24206, separate motion/vote paragraph. Website and workbook IDs remain separate namespaces. Same-number collision: workbook SRC-125 is the City FY2025 Annual Comprehensive Financial Report, not this Council action report.",
+      "document_date": {
+        "date": "2026-11-04",
+        "role": "Council meeting / legal action report date",
+        "locator": "Report heading; Consent Agenda Item J, NOV04-26-315, Resolution 24206; separate vote paragraph",
+        "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2"
+      },
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-10T17:39:51-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Report heading; Consent Agenda Item J, NOV04-26-315, Resolution 24206; separate vote paragraph",
+          "url": "https://tucsonaz.hylandcloud.com/221agendaonline/Documents/ViewAgenda?meetingId=1962&type=minutes&doctype=2"
+        }
+      ]
     }
   ],
   "unmapped_links": [
@@ -1438,5 +1528,7 @@
   ],
   "source_id_policy": "Website source IDs are a separate namespace. SRC-074 through SRC-117 and SRC-125 refer to different documents from same-numbered workbook IDs. Existing website IDs, links and aliases are preserved; use the document-level crosswalk, not an ID-only join.",
   "crosswalk_url": "data/source-id-crosswalk.json",
-  "inventory_checked_at": "2026-11-09T16:11:38-07:00"
+  "inventory_checked_at": "2026-11-09T16:11:38-07:00",
+  "source_dates_through_meaning": "Legacy compilation cutoff recorded for the original register. Later additions and per-source checks are listed separately; this is not the latest document, publication or verification date.",
+  "inventory_checked_at_meaning": "Timestamp of the recorded inventory/crosswalk review, not a fresh review of every linked source."
 }

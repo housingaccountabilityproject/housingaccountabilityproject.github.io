@@ -1,18 +1,21 @@
 /* Reader tools. No requests, query URLs, storage or analytics. */
 (() => {
  'use strict';
- // First successful deployment of this substantive research update. Metadata-only updates keep this time.
- // https://github.com/housingaccountabilityproject/housingaccountabilityproject.github.io/actions/runs/42549105075
- const publishedAt='2026-11-09T02:07:31Z';
- const publicationCity=document.body.classList.contains('city-phoenix')||document.querySelector('.phoenix-tools')?'Phoenix':'Tucson';
+ // Preserve the earlier displayed instant and distinguish it from deployment evidence.
+ // Deployment job 128940594631, workflow 42549105075, completed at 02:07:33Z.
+ const recordedAt='2026-11-09T02:07:31Z';
+ const deploymentCompletedAt='2026-11-09T02:07:33Z';
  const publicationHeading=document.querySelector('main h1');
  if(publicationHeading){
-  const publication=document.createElement('p');publication.id='research-publication-time';
-  const time=document.createElement('time');time.dateTime=publishedAt;
-  time.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'medium'}).format(new Date(publishedAt));
-  publication.append('Research update published ',time,` ${publicationCity} time (MST).`);
-  const scope=document.querySelector('.city-scope');
-  if(scope){publication.className='city-publication-meta';scope.append(publication);}else publicationHeading.after(publication);
+  const details=document.createElement('details');details.id='research-publication-time';
+  const summary=document.createElement('summary');summary.textContent='Earlier page time and deployment evidence';
+  const paragraph=document.createElement('p');
+  const format=value=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'medium'}).format(new Date(value))+' MST (UTC−7)';
+  const recorded=document.createElement('time');recorded.dateTime=recordedAt;recorded.textContent=format(recordedAt);
+  const completed=document.createElement('time');completed.dateTime=deploymentCompletedAt;completed.textContent=format(deploymentCompletedAt);
+  paragraph.append('Earlier displayed page-label time: ',recorded,'. The associated deployment job completed ',completed,'. These records do not establish the first instant the page was public. Individual research publication dates remain attached to their entries.');
+  const source=document.createElement('a');source.href='https://github.com/housingaccountabilityproject/housingaccountabilityproject.github.io/actions/runs/42549105075/job/128940594631';source.textContent='Deployment evidence';
+  details.append(summary,paragraph,source);publicationHeading.after(details);
  }
  // Promote existing native filters into visible buttons, preserving their values and behavior.
  for(const id of ['record-topic','record-kind','connection-filter']){
@@ -39,11 +42,11 @@
   const state=tucson?window.HAP_SEARCH_PRINT?.state():null;
   const cards=[...results.children].filter(el=>!el.hidden);
   let filters;
-  if(tucson)filters=`Search: ${state?.query||'(all terms)'}; category: ${state?.category||'All pages'}`;
-  else {const form=document.querySelector('#record-filters,.connection-filters');const values=[...form.querySelectorAll('input[type=search],select')].map(el=>el.tagName==='SELECT'?(el.selectedOptions[0]?.textContent||'All'):('Search: '+(el.value||'(all terms)')));const view=document.querySelector('.record-views button[aria-pressed=true]');filters=[view?.textContent,...values].filter(Boolean).join('; ');}
-  const city=tucson?'Tucson & Pima County':'Phoenix';const total=state?.matches??cards.length;
+  if(tucson)filters=`Category: ${state?.category||'All pages'}`;
+  else {const form=document.querySelector('#record-filters,.connection-filters');const values=[...form.querySelectorAll('select')].map(el=>el.tagName==='SELECT'?(el.selectedOptions[0]?.textContent||'All'):('Search: '+(el.value||'(all terms)')));const view=document.querySelector('.record-views button[aria-pressed=true]');filters=[view?.textContent,...values].filter(Boolean).join('; ');}
+  const city=tucson?'Tucson & Pima County':'Phoenix and Maricopa County';const total=state?.matches??cards.length;
   manifest.replaceChildren();const title=document.createElement('strong');title.textContent=`${city} · Research results`;manifest.append(title);
-  const lines=[`Filters: ${filters}`,`Printed ${cards.length} of ${total} matching entries. ${cards.length<total?'PARTIAL RESULT SET: enable Load all before print for the full filtered set.':'All matching entries included.'}`,`Evidence snapshot: November 8, 2026. Print prepared: ${new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'short'}).format(new Date())} ${tucson?'Tucson':'Phoenix'} time (MST).`, 'Entry dates and caveats control interpretation; printing is not a new source audit.'];for(const line of lines){const p=document.createElement('p');p.textContent=line;manifest.append(p);}
+  const lines=[`Filters: ${filters}`,`Printed ${cards.length} of ${total} matching entries. ${cards.length<total?'PARTIAL RESULT SET: enable Load all before print for the full filtered set.':'All matching entries included.'}`,`Evidence snapshot: ${document.querySelector('[data-research-snapshot]')?.dataset.researchSnapshot||'see the dated entries'}. Print prepared: ${new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'short'}).format(new Date())} ${tucson?'Tucson':'Phoenix'} time (MST).`, 'Entry dates and caveats control interpretation; printing is not a new source audit.'];for(const line of lines){const p=document.createElement('p');p.textContent=line;manifest.append(p);}
   for(const card of cards)for(const d of card.querySelectorAll('details')){if(!details.has(d))details.set(d,d.open);d.open=true;}
  }
  document.getElementById('preview-print').addEventListener('click',()=>{prepare();document.body.classList.add('print-preview');document.getElementById('close-print').hidden=false;manifest.scrollIntoView({block:'start'});});

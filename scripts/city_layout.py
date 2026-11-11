@@ -15,7 +15,7 @@ ABOUT = ('About', 'about.html')
 ROUTES = {
     'tucson': [('Overview', 'tucson/index.html'), ('Projects', 'housing-projects.html'), ('Funding', 'funding-explorer.html'), ('Questions', 'questions-records.html'), ('Sources', 'evidence.html'), ('Search', 'search.html')],
     'phoenix': [('Overview', 'phoenix/index.html'), ('Projects', 'phoenix/projects.html'), ('Funding', 'phoenix/records.html#view-funding'), ('Questions', 'phoenix/questions.html'), ('Sources', 'phoenix/records.html#view-source'), ('Search', 'phoenix/search.html')],
-    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix', 'phoenix/search.html')],
+    'shared': [('Research areas', 'index.html'), ABOUT, ('Contact', 'contact.html'), ('Search Tucson', 'search.html'), ('Search Phoenix and Maricopa County', 'phoenix/search.html')],
 }
 MORE = {
     'tucson': [('Glossary', 'glossary.html'), ('Reports & reading', 'research.html#publications'), ('Research method', 'research.html#standards'), ('Updates & corrections', 'research-updates.html'), ('Housing help', 'housing-help.html'), ('Research Center', 'research-center.html'), ('Findings', 'findings.html'), ('First report', 'reports/tucson-housing-funding-outcomes-2026.html')],
@@ -41,8 +41,8 @@ def city_link(label, target, path, selected=False, extra=''):
 
 
 def header(path, city):
-    name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix', 'shared': 'Independent public research'}[city]
-    switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix', 'phoenix/index.html')])
+    name = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix and Maricopa County', 'shared': 'Independent public research'}[city]
+    switch = ''.join(city_link(label, target, path, city == key) for key, label, target in [('tucson', 'Tucson & Pima County', 'tucson/index.html'), ('phoenix', 'Phoenix and Maricopa County', 'phoenix/index.html')])
     routes = ROUTES[city]
     if city != 'shared':
         routes = [routes[0], ABOUT, *routes[1:]]
@@ -60,7 +60,7 @@ def footer(path, city):
     else:
         links += [('Updates feed', 'feed.xml')]
     nav = ''.join(city_link(label, target, path) for label, target in links)
-    areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix','phoenix/index.html')])
+    areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix and Maricopa County','phoenix/index.html')])
     learn = ''.join(city_link(label,target,path) for label,target in MORE[route_city][:3])
     about = ''.join(city_link(label,target,path) for label,target in [('About the project','about.html'),('Contact','contact.html')])
     return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><div class="city-footer-grid"><div><p class="city-footer-label">Research areas</p><nav aria-label="Research area links">{areas}</nav></div><div><p class="city-footer-label">Learn</p><nav aria-label="Learning resources">{learn}</nav></div><div><p class="city-footer-label">Reader tools</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><div><p class="city-footer-label">About</p><nav aria-label="Project information">{about}</nav></div></div></div><p>Public Research Website</p></footer>'
@@ -101,7 +101,7 @@ def overview(output, path, city):
         scope = ''.join(html.tostring(p, encoding='unicode') for p in hero.xpath('./aside/p'))
         start = output.index('<section class="wrap phoenix-hero">')
         end = output.index('</section>', start) + len('</section>')
-    name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix'
+    name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix and Maricopa County'
     new = f'<section class="hero city-overview-hero"><div class="city-wrap city-hero-grid"><div class="city-hero-copy"><p class="city-eyebrow">{escape(name)} · Housing research</p>{headline}{slogan}{intro}{extras}</div><aside class="city-scope"><p class="city-eyebrow">Read the scope</p>{scope}</aside></div></section>'
     output = output[:start] + new + output[end:]
     # Remove the older Phoenix summary/route block; the findings themselves are retained.
@@ -110,7 +110,15 @@ def overview(output, path, city):
 
 
 def apply(output, path):
+    if path == 'contact.html':
+        return output
     city = city_for(path)
+    if 'assets/search-print.js' in output and 'assets/search-options.js' not in output:
+        script = f'<script src="{relative("assets/search-options.js", path)}"></script>'
+        css = f'<link rel="stylesheet" href="{relative("assets/search-options.css", path)}">'
+        match = re.search(r'<script[^>]+src="[^"]*assets/search-print.js"[^>]*></script>', output)
+        if match:
+            output = output[:match.start()] + css + script + output[match.start():]
     body_match = re.search(r'<body\b([^>]*)>', output)
     attributes = body_match.group(1)
     attributes = re.sub(r'\sclass="([^"]*)"', lambda m: ' class="' + ' '.join(c for c in m.group(1).split() if c not in ['city-site','city-tucson','city-phoenix','city-shared','city-document','city-with-hero','city-landing','city-design']) + '"', attributes)
@@ -137,7 +145,7 @@ def apply(output, path):
     before_footer = re.sub(r'<nav\b[^>]*class="reader-tools"[^>]*>.*?</nav>', '', before_footer, flags=re.S)
     output = before_footer + sep + after_footer
     if city != 'shared':
-        name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix'
+        name = 'Tucson & Pima County' if city == 'tucson' else 'Phoenix and Maricopa County'
         overview_path = ROUTES[city][0][1]
         crumb = city_link('Research areas', 'index.html', path) + ' / '
         crumb += escape(name) if path == overview_path else city_link(name, overview_path, path)
