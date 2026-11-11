@@ -20,6 +20,7 @@ function pdfCheck(path,ids){
  const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:20*1024*1024}).split('\f').filter((p,i,a)=>i<a.length-1||p.trim());
  assert(pages.every(p=>p.trim().length>25),path+' has no blank/border-only pages');
  assert(pages.every(p=>!/^Record ID:/.test(p.trim().split('\n').at(-1))),path+' keeps record labels with their content');
+ assert(!pages.at(-1).trim().startsWith('Full record in context'),path+' keeps the final context link with evidence');
  const text=pages.join(' ').replace(/\s+/g,' ');
  assert.equal((text.match(/Record ID:/g)||[]).length,ids.length,path+' records appear exactly once');
  for(const id of ids)assert(text.includes('Record ID: '+id),'PDF retains '+id);
