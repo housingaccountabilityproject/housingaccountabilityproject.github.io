@@ -189,4 +189,5 @@ body.show-print-view.category-search-page .city-page-banner,body.show-print-view
   body.category-search-page .print-record:not(.compact-record) li { break-inside: avoid; }
   body.category-search-page .print-record:not(.compact-record) ul { margin-block: 3pt 6pt; }
   body.category-search-page .print-record:not(.compact-record) li .print-url { margin-top: 0; margin-bottom: 3pt; }
+  body.category-search-page .print-record:not(.compact-record)>div>ul:last-child>li:nth-last-child(-n+2) { break-before: avoid; page-break-before: avoid; }
 }

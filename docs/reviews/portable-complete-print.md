@@ -16,6 +16,8 @@ Visual review after that spacing correction found PHX-WEB-004's identifier at th
 
 The heading correction also exposed a final sheet containing only the two context-navigation links. Print break hints now keep the final source citation and following navigation together; reduced navigation spacing preserves the links without giving them a separate sheet. The matrix rejects a final sheet beginning with either context-link label. No evidence is removed to shorten output.
 
+The same check found an isolated context link at the end of Phoenix's all-question Full category export. The last two linked-context list items now stay with their preceding item. This is limited to Full print CSS; long source lists can continue across pages and all source/context URLs remain present.
+
 ## Verification contract
 
 Existing required jobs `reader-tools`, `phoenix-index` and `smoke` remain required. Their assertions are retained. The reader job additionally runs `scripts/test-portable-print.mjs`:
