@@ -18,28 +18,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Use HTTPS Ubuntu package mirrors
-        run: |
-          sudo python3 - <<'PYTHON'
-          from pathlib import Path
-          replacements = {
-              'http://azure.archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
-              'http://archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
-              'http://security.ubuntu.com/ubuntu': 'https://security.ubuntu.com/ubuntu',
-          }
-          for path in Path('/etc/apt').rglob('*'):
-              if path.is_file() and (path.suffix in {'.list', '.sources'} or 'mirrors' in path.name):
-                  old = path.read_text()
-                  new = old
-                  for before, after in replacements.items():
-                      new = new.replace(before, after)
-                  if old != new:
-                      path.write_text(new)
-          PYTHON
       - name: Install browser test tools
         run: |
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
       - name: Check responsive rendering and interaction
         run: node scripts/site-smoke-test.mjs
       - name: Save screenshots for review

@@ -20,7 +20,7 @@
       const scope=select('print-scope','Records to print',[['all','All matches'],['current','Current page (up to six)']]);
       const detail=select('print-detail','Evidence detail',[['full','Full evidence'],['compact','Compact']]);
       const help=make('p');help.className='list-print-help screen-only';
-      const detailHelp=make('p','Compact retains dates, sources and qualifications in a denser layout. Full includes all retained notes, citations and connected context. Six on screen does not mean six on a printed sheet.');detailHelp.className='list-print-help screen-only';
+      const detailHelp=make('p','Compact keeps dates, sources and qualifications. Full also retains connected context. Screen pages do not set paper page sizes.');detailHelp.className='list-print-help screen-only';
       toolbar.prepend(choices);toolbar.append(help,detailHelp);
       // Replace stale instructions about Show More/unpaginated entries with the actual contract.
       for(const p of [...toolbar.children])if(p.tagName==='P' && p!==help && p!==detailHelp && !p.classList.contains('list-link-notice'))p.remove();
@@ -30,7 +30,7 @@
       function cleanup(){
         removeReport();previewing=false;selection=null;
         document.getElementById('search-print-preview-controls')?.remove();document.body.classList.remove('previewing-search-results');
-        privacy?.leavePrint();returnFocus?.focus({preventScroll:true});window.scrollTo(0,returnScroll);
+        privacy?.leavePrint();returnFocus?.focus({preventScroll:true});window.scrollTo({top:returnScroll,left:0,behavior:'instant'});
       }
       function clone(entry, mode) {
         let copy;
@@ -85,13 +85,13 @@
         const controls=make('div');controls.id='search-print-preview-controls';
         const print=make('button','Print / Save PDF');print.id='print-results';print.type='button';print.addEventListener('click',()=>window.print());
         const close=make('button','Return to results');close.id='close-print';close.type='button';close.addEventListener('click',cleanup);
-        controls.append(print,close);document.body.prepend(controls);print.focus();controls.scrollIntoView({block:'start'});
+        controls.append(print,close);document.body.prepend(controls);print.focus({preventScroll:true});window.scrollTo({top:0,left:0,behavior:'instant'});
       }
       function update(){
         for(const reg of registers){const option=[...list.options].find(o=>o.value===reg.id);if(option)option.textContent=value(reg.label);}
         const reg=selected(),n=reg.count?reg.count():reg.results().length;
         button.disabled=previewButton.disabled=n===0;
-        help.textContent=`Ctrl+P on this list page prints all matching entries in “${value(reg.label)}”, with Full evidence. The print buttons use your choices above. In a print preview, Ctrl+P prints that preview’s selected scope and detail. Ordinary printing preserves your query, filters and page.`;
+        help.textContent=`Ctrl+P: all matches in “${value(reg.label)}”, Full evidence. In a preview, Ctrl+P prints its selected scope and detail. Print and return keep your query, filters and page.`;
       }
       window.addEventListener('beforeprint',()=>{
         if(document.body.classList.contains('printing-complete-index'))return;

@@ -42,31 +42,17 @@ jobs:
           node-version: '20'
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/check-phoenix-records.py
-      - name: Use HTTPS Ubuntu package mirrors
-        run: |
-          sudo python3 - <<'PYTHON'
-          from pathlib import Path
-          replacements = {
-              'http://azure.archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
-              'http://archive.ubuntu.com/ubuntu': 'https://archive.ubuntu.com/ubuntu',
-              'http://security.ubuntu.com/ubuntu': 'https://security.ubuntu.com/ubuntu',
-          }
-          for path in Path('/etc/apt').rglob('*'):
-              if path.is_file() and (path.suffix in {'.list', '.sources'} or 'mirrors' in path.name):
-                  old = path.read_text()
-                  new = old
-                  for before, after in replacements.items():
-                      new = new.replace(before, after)
-                  if old != new:
-                      path.write_text(new)
-          PYTHON
       - name: Install browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.65.0
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
       - run: node scripts/test-phoenix-index.mjs
       - name: Install PDF text verifier
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+        run: |
+          if ! command -v pdftotext || ! command -v pdfinfo; then
+            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 install -y poppler-utils
+          fi
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
       - run: node scripts/test-approved-site-design.mjs

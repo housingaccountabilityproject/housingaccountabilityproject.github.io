@@ -60,7 +60,7 @@ try{
   const stateBefore=await page.locator('#'+prefix+'-page').textContent();
   for(const scope of ['current','all'])for(const detail of ['compact','full']){
    await page.locator('#print-scope').selectOption(scope);await page.locator('#print-detail').selectOption(detail);
-   await page.locator('#preview-print').press('Enter');const ids=scope==='current'?current:expected;
+   await page.locator('#preview-print').press('Enter');assert.equal(await page.evaluate(()=>scrollY),0,'Preview starts at its scope header');const ids=scope==='current'?current:expected;
    assert.deepEqual(await page.locator('#search-print-output>[data-print-record-id]').evaluateAll(ns=>ns.map(n=>n.dataset.printRecordId)),ids);
    const text=await page.locator('#search-print-output').textContent();assert(!text.includes('Search:'));assert(text.includes('MST (UTC−7)'));assert(text.includes('America/Phoenix'));
    assert.equal(await page.locator('#search-print-output details:not([open])').count(),0);
@@ -109,6 +109,7 @@ try{
    const current=expected.slice(Math.floor((expected.length-1)/6)*6);
    for(const scope of ['all','current'])for(const mode of ['compact','full']){
     await page.locator('#print-record-scope').selectOption(scope);await page.locator(mode==='compact'?'#print-compact':'#print').click();
+    assert.equal(await page.evaluate(()=>scrollY),0,'Category preview starts at its scope header');
     assert.deepEqual(await page.locator('.print-record').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)),scope==='all'?expected:current);
     assert(!(await page.locator('.print-header').textContent()).includes('Search:'));
     await page.getByRole('button',{name:'← Back to search',exact:true}).click();

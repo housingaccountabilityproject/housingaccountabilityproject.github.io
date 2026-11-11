@@ -40,7 +40,7 @@
     checkbox.autocomplete='off';
     window.addEventListener('pageshow',event=>{if(!event.persisted)checkbox.checked=false;});
     choice.append(checkbox, ' Include my typed search terms in print');
-    const printHelp = make('p', 'Off by default. Selected filters and the records’ own evidence remain in print. Reloading clears this choice and ordinary search state.');
+    const printHelp = make('p', 'Off by default. Filters and evidence remain in print. Reload clears this choice and ordinary search state.');
     const sharing = make('details');
     sharing.append(make('summary', 'Share this search · optional'));
     const sharingHelp = make('p', 'Creating a link includes your typed terms and filters in its URL fragment. Anyone with the link can read them. Opening the link can leave it in browser history. Ordinary searching keeps Back/Forward state in this tab’s page history without adding terms to the URL, browser storage or analytics. Reloading clears ordinary search state.');
