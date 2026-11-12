@@ -1,11 +1,20 @@
 from pathlib import Path
 from lxml import html,etree
 from urllib.parse import urlsplit
-import base64,json,mimetypes,re
+import argparse,base64,json,mimetypes,re,subprocess
 root=Path(__file__).resolve().parents[1]
-out=root/'organization-qa-screenshots/HAP-organization-review.html'
+parser=argparse.ArgumentParser()
+parser.add_argument('--lists',action='store_true',help='Build the private lists/print review, with a top-level print projection.')
+parser.add_argument('--legacy-print',action='store_true',help='A/B control only: retain the original fixed-iframe print behavior.')
+parser.add_argument('--output',type=Path)
+args=parser.parse_args()
+assert not args.legacy_print or args.lists,'--legacy-print is only an investigation control'
+out=args.output or root/'organization-qa-screenshots/HAP-organization-review.html'
 out.parent.mkdir(exist_ok=True)
 files=sorted([*root.glob('*.html'),*root.glob('reports/*.html'),*root.glob('tucson/*.html'),*root.glob('phoenix/*.html'),*root.glob('phoenix/projects/*.html')],key=lambda p:p.relative_to(root).as_posix())
+if args.lists:
+ list_paths={'funding-explorer.html','housing-projects.html','questions-records.html','evidence.html','search.html','phoenix/comparisons.html','phoenix/projects.html','phoenix/questions.html','phoenix/records.html','phoenix/search.html','search-all.html'}
+ files=[f for f in files if f.relative_to(root).as_posix() in list_paths]
 site={}
 for f in files:
  if f.name.startswith('google'):continue
@@ -49,6 +58,8 @@ window.addEventListener('message',event=>{if(event.data&&event.data.type==='hap-
 labels={'index.html':'Shared Home','tucson/index.html':'Tucson & Pima County','phoenix/index.html':'Phoenix','phoenix/capital-fund.html':'Capital Fund','phoenix/projects/25th-at-bell.html':'25th at Bell','research-center.html':'Research Center','funding-explorer.html':'Funding','housing-projects.html':'Projects & Outcomes','questions-records.html':'Questions & Records','findings.html':'Findings','evidence.html':'Evidence','research-updates.html':'Updates','research.html':'Library','reports/tucson-housing-funding-outcomes-2026.html':'First Edition','about.html':'About','contact.html':'Contact','glossary.html':'Glossary','search.html':'Search','housing-help.html':'Housing Help','privacy.html':'Privacy'}
 for path,content in site.items():
  if path not in labels:labels[path]=('Phoenix · ' if path.startswith('phoenix/') else '')+html.fromstring(content).xpath('//h1')[0].text_content()
+if args.lists:
+ labels={'funding-explorer.html':'Tucson · Funding','housing-projects.html':'Tucson · Projects','questions-records.html':'Tucson · Questions','evidence.html':'Tucson · Evidence Index','search.html':'Tucson · Category Search','phoenix/comparisons.html':'Phoenix · Comparisons','phoenix/projects.html':'Phoenix · Projects','phoenix/questions.html':'Phoenix · Questions','phoenix/records.html':'Phoenix · Evidence Browser','phoenix/search.html':'Phoenix · Category Search','search-all.html':'Tucson · Broader Search'}
 encoded=base64.b64encode(json.dumps(site).encode()).decode()
 buttons=''.join('<button type="button" data-page="'+p+'">'+label.replace('&','&amp;')+'</button>' for p,label in labels.items())
 page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HAP Organization Review · Unpublished Draft</title><style>
@@ -63,6 +74,20 @@ document.querySelectorAll('[data-width]').forEach(b=>b.addEventListener('click',
 window.addEventListener('message',event=>{if(event.source!==frame.contentWindow)return;if(event.data&&event.data.type==='hap-preview-navigate')showPage(event.data.path,event.data.hash);});
 showPage('index.html');
 </script></body></html>'''.replace('BUTTONS',buttons).replace('PAYLOAD',encoded)
+if args.lists:
+ commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+ page=page.replace('HAP Organization Review · Unpublished Draft','HAP Lists and Printing · Private Review')
+ page=page.replace('Housing Accountability Project · Organization Review','HAP · Six-entry Lists and Printing Review')
+ page=page.replace('This copy contains the complete proposed site organization, not just excerpts.','This private copy contains the current list and print controls.')
+ page=page.replace('Two visible city choices lead to the proposed Tucson landing and reviewed Phoenix pages. Original flat Tucson pages and research wording are preserved.','Choose one of the eleven list pages. Research text and source data are preserved; analytics are disabled.')
+ page=page.replace('Private migration candidate based on repository commit 62424779f493a9e30ac3dfc8f1b13268686f6d85, November 8, 2026.','Candidate '+commit+'.')
+ page=page.replace("let current='index.html'","let current='evidence.html'").replace("showPage('index.html');","showPage('evidence.html');")
+ page=page.replace("if(!pages[path])return;","if(!pages[path]){window.open('https://housingaccountabilityproject.github.io/'+path+hash,'_blank','noopener');return;}")
+ page=page.replace('<head>','<head><meta name="hap-review-candidate" content="'+commit+'">',1)
+ if not args.legacy_print:
+  runtime=(root/'scripts/review-print-wrapper.js').read_text()
+  page=page.replace('</body>','<script>'+runtime+'</script></body>')
+  page=page.replace('Choose a page, then use its normal links, filters or search. External source links open the original website.','Choose a page, then use its normal links, filters or search. In a report preview, its Print button and Ctrl+P use the selected scope and detail. Outside a report, Ctrl+P uses the page’s normal print behavior. Native Chromebook retesting is still required.')
 out.write_text(page)
 print(out, out.stat().st_size, 'bytes; pages:',len(site))
 # Validate the finished payload, included assets, all links and no active analytics.

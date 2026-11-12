@@ -38,11 +38,18 @@ jobs:
           npm install --no-save playwright
           npx playwright install chromium
       - run: node scripts/test-portable-print.mjs
+      - run: node scripts/test-review-print.mjs
       - uses: actions/upload-artifact@v4
         if: success()
         with:
           name: portable-print-verified
           path: /tmp/hap-portable-print-verified/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: embedded-review-print-verified
+          path: /tmp/hap-review-print-verified/
           if-no-files-found: error
       - run: node scripts/test-list-browser.mjs
       - run: node scripts/test-search-options.mjs
