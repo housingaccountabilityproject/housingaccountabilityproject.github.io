@@ -22,6 +22,7 @@ function state(frame){return frame.evaluate(()=>({
  sourcePage:document.getElementById('sources-page').textContent,questionPage:document.getElementById('questions-page').textContent,
  visible:!document.getElementById('src-125').hidden,focus:document.activeElement.id,
  notice:document.querySelector('.list-link-notice').textContent,
+ noticeAtomic:document.querySelector('.list-link-notice').getAttribute('aria-atomic'),
  live:['sources-count','questions-count'].map(id=>({id,role:document.getElementById(id).getAttribute('role'),live:document.getElementById(id).getAttribute('aria-live')})),
  terms:document.getElementById('include-search-terms').checked
 }));}
@@ -30,11 +31,22 @@ async function recovered(frame,notice=false){
  const s=await state(frame);assert.equal(s.topic,'');assert.equal(s.query,'');assert.match(s.source,/^67 of 67 .*Showing 67–67$/);assert.equal(s.sourcePage,'Page 12 of 12');
  assert(s.live.every(x=>x.role==='status'&&x.live==='polite'));assert(!s.terms);
  if(notice)assert.match(s.notice,/filters were cleared.*src-125/i);
+ assert.equal(s.noticeAtomic,'true');
  return s;
 }
 async function home(frame){await frame.locator('#topic').selectOption('home');const s=await state(frame);assert.match(s.source,/^12 of 67 .*Showing 1–6$/);assert(!s.visible);return s;}
 async function openWrapper(page,path,hash=''){
  await page.goto(pathToFileURL(path).href+hash);const frame=page.frames().find(f=>f.parentFrame()===page.mainFrame());await frame.waitForSelector('#topic');return frame;
+}
+async function noticeAX(page){
+ const session=await page.context().newCDPSession(page);
+ try{
+  const doc=await session.send('DOM.getDocument');
+  const {nodeId}=await session.send('DOM.querySelector',{nodeId:doc.root.nodeId,selector:'.list-link-notice'});
+  const {node}=await session.send('DOM.describeNode',{nodeId});
+  const {nodes}=await session.send('Accessibility.getPartialAXTree',{backendNodeId:node.backendNodeId,fetchRelatives:false});
+  const ax=nodes[0];return {ignored:ax.ignored,role:ax.role?.value,properties:Object.fromEntries((ax.properties||[]).map(p=>[p.name,p.value.value])),ignoredReasons:ax.ignoredReasons?.map(r=>r.name)};
+ }finally{await session.detach();}
 }
 try{
  for(let i=0;i<40;i++){try{assert((await fetch(base+'/evidence.html')).ok);break;}catch(e){if(i===39)throw e;await new Promise(r=>setTimeout(r,100));}}
@@ -44,9 +56,17 @@ try{
  // Standalone file and HTTP: same-document hash, fresh load, reload, repeated
  // public-record link, Back/Forward, and question-page independence.
  for(const url of [pathToFileURL(join(root,'evidence.html')).href,base+'/evidence.html']){
-  const scheme=url.startsWith('file:')?'file':'http';await page.goto(url);await page.reload();await home(page);
+  const scheme=url.startsWith('file:')?'file':'http';await page.goto(url);await page.reload();
+  const emptyAX=await noticeAX(page);assert(!emptyAX.ignored&&emptyAX.role==='status','Empty notice is exposed before a message exists');assert.equal(emptyAX.properties.live,'polite');assert.equal(emptyAX.properties.atomic,true);
+  if(scheme==='file'){
+   const legacyStyle=await page.addStyleTag({content:'.list-link-notice:empty{display:none!important}'}),legacyAX=await noticeAX(page);
+   assert(legacyAX.ignored,'Legacy display:none removes the live region before its first update');await legacyStyle.evaluate(n=>n.remove());
+   results.noticeExposure={beforeMessage:emptyAX,legacyDisplayNone:legacyAX,nativeSpeechVerified:false};
+  }
+  await home(page);
   const origin=await page.evaluate(()=>performance.timeOrigin);await page.goto(url+'#src-125');assert.equal(await page.evaluate(()=>performance.timeOrigin),origin,'A real same-document fragment change');
   results.cases.push({surface:'standalone-'+scheme,action:'HOME then hash change',state:await recovered(page,true)});
+  const populatedAX=await noticeAX(page);assert(!populatedAX.ignored&&populatedAX.role==='status');
   await page.goBack();await page.waitForFunction(()=>document.getElementById('topic').value==='home');assert.match((await state(page)).source,/^12 of 67 /);
   await page.goForward();results.cases.push({surface:'standalone-'+scheme,action:'Forward restores linked record',state:await recovered(page)});
   await page.reload();results.cases.push({surface:'standalone-'+scheme,action:'refresh with fragment',state:await recovered(page)});

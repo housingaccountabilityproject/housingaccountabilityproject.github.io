@@ -70,7 +70,7 @@
   }
   function notice(mount) {
     const node = make('p'); node.className = 'list-link-notice screen-only';
-    node.setAttribute('role','status'); node.setAttribute('aria-live','polite'); mount.append(node);
+    node.setAttribute('role','status'); node.setAttribute('aria-live','polite'); node.setAttribute('aria-atomic','true'); mount.append(node);
     return node;
   }
   function reveal(target) {

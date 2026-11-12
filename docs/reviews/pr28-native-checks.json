@@ -1,0 +1,20 @@
+{
+  "tested_candidate": "16b8f1700d5d4d766d1c4608b87de3eab03b50b7",
+  "fixed_base": "a66cb05d5ed53235087077361ed87697bfd1d95d",
+  "source": "owner-reported Chromebook checks; not newly supplied PDF byte inspection",
+  "earlier_fragment_report": {"typed": "#src125", "correct": "#src-125", "disposition": "superseded by corrected-input pass; no candidate defect asserted"},
+  "passes": [
+    {"id":"standalone_tucson_fragment", "result":"pass", "subject_before":"HOME", "fragment":"#src-125", "subject_cleared":true, "record":"SRC-125", "source_page":12, "refresh":true, "question_page":1},
+    {"id":"embedded_tucson_fragment", "result":"pass", "subject_before":"HOME", "fragment":"#src-125", "subject_after":"All Subjects", "source_page":12, "refresh":true, "fresh_tab":true, "record_focus":true, "filter_cleared_speech":"not heard; unconfirmed"},
+    {"id":"embedded_tucson_sources_current_full", "result":"pass", "screen_page":2, "methods":["print button","Ctrl+P after clicking outer review area","Ctrl+P after clicking report"], "records":["SRC-029","SRC-036","SRC-040","SRC-034","SRC-064","SRC-065"], "expected_links":true, "wrapper_controls":false, "local_file_targets":false, "apparent_clipping":false, "blank_pages":false, "cancel_and_return_page":2, "return_focus":"Preview Print Results"},
+    {"id":"embedded_tucson_sources_current_compact", "result":"pass", "inspected_pdf":true, "method":"unspecified", "compact_specific_cancel":"not separately asserted; shared Full return path already confirmed"},
+    {"id":"embedded_phoenix_sources_current_full", "result":"pass", "screen_page":2, "record_count":6, "expected_links":true, "method":"unspecified", "cancel_and_return_page":2, "return_focus":"Preview Print Results"},
+    {"id":"embedded_tucson_complete_index", "result":"pass", "sources":67, "questions":20, "expected_links":true, "local_file_targets":false, "stale_counters":false, "apparent_clipping":false, "blank_pages":false, "cancel_return_focus":"previous confirmation retained", "exhaustive_table_reading_order":false}
+  ],
+  "earlier_chromevox_passes_retained_on_afa234a":["Records to print names and positions","Evidence detail names and positions","separate source/question counters","independent paging with sources remaining on page 2","zero matches for both registers"],
+  "earlier_evidence_retained":{"independently_audited_native_pdfs":22,"pages":389,"local_file_targets":0,"ordered_records_text_links_qualifications":"passed at documented scopes","privacy_and_return":"retain existing candidate/method attribution; do not infer new native results from a PDF filename"},
+  "announcement_refinement":{"changes":["empty status remains in accessibility tree via visually hidden CSS","explicit aria-atomic=true"],"unchanged":["wording","politeness","record focus","filter recovery","pagination","print output","research data"],"native_speech":"pending one focused HOME to #src-125 check; no broad print retest requested"},
+  "distinct_native_entrypoints_not_explicitly_reported":["normal-list Ctrl+P without preview, All/Full preparation branch","corrected-wrapper category-browser print-sheet branch"],
+  "limitations":["exhaustive PDF table/logical reading order not established","whole-PDF text equality not claimed","sparse Phoenix final context-links sheet remains","remote agency content/availability not freshly audited"],
+  "publication_authorized":false
+}

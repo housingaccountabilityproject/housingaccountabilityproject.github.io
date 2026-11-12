@@ -32,13 +32,13 @@ function checkPDF(path,ids,texts,links){
  return {pages:a.pages.length,records:ids.length,links:urls.length,zero_local_targets:true};
 }
 let browser;
-async function load(page,path,site='evidence.html'){
+async function load(page,path,site='evidence.html',ready='#preview-print'){
  await page.goto(pathToFileURL(path).href);
  await page.locator('#site-preview').waitFor();
  if(site!=='evidence.html')await page.locator('[data-page="'+site+'"]').click();
  await page.waitForFunction(site=>document.getElementById('site-preview').contentDocument?.querySelector('link[rel="canonical"]')?.href.endsWith('/'+site),site);
  const frame=page.frames().find(f=>f.parentFrame()===page.mainFrame());
- await frame.waitForSelector('#preview-print');return frame;
+ await frame.waitForSelector(ready);return frame;
 }
 async function selectPreview(frame,{list='sources',detail='full',scope='current',next=true}={}){
  if(next)await frame.locator('#'+(list==='records'?'records':list)+'-next').click();
@@ -116,6 +116,31 @@ try{
   await page.waitForTimeout(30);assert.equal(await f.evaluate(()=>document.activeElement.id),'print-all');
   assert.deepEqual(await f.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),linksBefore);
   copyFileSync(pdf,join(verified,name+'.pdf'));results.pdfs.push({name,pages:a.pages.length,zero_local_targets:true,complete_focus_restored:true});
+ }
+ // Category browsers use a different print-sheet implementation. Exercise that
+ // wrapper path in both regions, rather than repeating already confirmed native
+ // source-register methods or assuming one report implementation covers another.
+ for(const region of ['tucson','phoenix'])for(const detail of ['full','compact']){
+  const f=await load(page,fixed,region==='tucson'?'search.html':'phoenix/search.html','#query');
+  if(region==='tucson'){
+   await f.locator('#query').fill('HUD');await f.locator('#category-filter').selectOption('Other source records');
+  }else{
+   await f.locator('[data-category="funding"]').click();await f.locator('#query').fill('year:unknown');
+  }
+  await f.locator('#print-record-scope').selectOption('all');
+  const button=detail==='full'?'print':'print-compact';await f.locator('#'+button).click();
+  const expected=await f.locator('#print-sheet').evaluate(sheet=>({
+   ids:[...sheet.querySelectorAll('.print-record')].map(n=>[...n.children].find(c=>c.tagName==='P'&&c.textContent.startsWith('Record ID: ')).textContent.slice(11)),
+   texts:[...sheet.querySelectorAll('.print-record')].flatMap(n=>{const w=document.createTreeWalker(n,NodeFilter.SHOW_TEXT),a=[];while(w.nextNode()){const t=w.currentNode.textContent.trim();if(t)a.push(t);}return a;}),
+   links:[...sheet.querySelectorAll('.print-record a[href]')].map(a=>a.href)
+  }));
+  assert(expected.ids.length>6,'All matches extend beyond the screen page');if(region==='tucson')assert.equal(expected.ids.length,10);
+  const name=region+'-category-all-'+detail,pdf=join(privateDir,name+'.pdf');
+  await page.pdf({path:pdf,format:'Letter',tagged:true,displayHeaderFooter:false});
+  const stats=checkPDF(pdf,expected.ids,expected.texts,expected.links);copyFileSync(pdf,join(verified,name+'.pdf'));
+  await f.locator('#print-sheet .print-controls button').first().click();
+  assert.equal(await f.locator('#query').inputValue(),region==='tucson'?'HUD':'year:unknown');assert.equal(await f.evaluate(()=>document.activeElement.id),button);
+  results.pdfs.push({name,...stats,return_query_focus_preserved:true});
  }
  assert.deepEqual(errors,[]);copyFileSync(fixed,join(verified,'HAP-Embedded-Review.html'));
  writeFileSync(join(verified,'results.json'),JSON.stringify(results,null,2)+'\n');
