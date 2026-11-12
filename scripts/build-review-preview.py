@@ -85,6 +85,9 @@ if args.lists:
  page=page.replace("if(!pages[path])return;","if(!pages[path]){window.open('https://housingaccountabilityproject.github.io/'+path+hash,'_blank','noopener');return;}")
  page=page.replace('<head>','<head><meta name="hap-review-candidate" content="'+commit+'">',1)
  if not args.legacy_print:
+  # A URL fragment on the outer file is otherwise never delivered to srcdoc.
+  # Preserve the original page's own recovery/focus/announcement implementation.
+  page=page.replace("showPage('evidence.html');","showPage('evidence.html',location.hash);\nwindow.addEventListener('hashchange',()=>{nextHash=location.hash;frame.contentWindow.postMessage({type:'hap-preview-anchor',hash:nextHash},'*');});")
   runtime=(root/'scripts/review-print-wrapper.js').read_text()
   page=page.replace('</body>','<script>'+runtime+'</script></body>')
   page=page.replace('Choose a page, then use its normal links, filters or search. External source links open the original website.','Choose a page, then use its normal links, filters or search. In a report preview, its Print button and Ctrl+P use the selected scope and detail. Outside a report, Ctrl+P uses the page’s normal print behavior. Native Chromebook retesting is still required.')

@@ -39,6 +39,7 @@ jobs:
           npx playwright install chromium
       - run: node scripts/test-portable-print.mjs
       - run: node scripts/test-review-print.mjs
+      - run: node scripts/test-fragment-navigation.mjs
       - uses: actions/upload-artifact@v4
         if: success()
         with:
