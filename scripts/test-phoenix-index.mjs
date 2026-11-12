@@ -25,7 +25,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 90);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^90 of /);
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -35,7 +35,7 @@ try {
     await page.waitForLoadState('networkidle');
     const initialRequests = requests.length;
     await page.getByRole('button', {name: 'Sources', exact: true}).click();
-    assert.equal(await visible.count(), 45);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^45 of /);
     assert(await page.locator('#source-filters').isVisible());
     assert(await page.locator('#record-kind-control').isHidden());
     assert(await page.locator('#record-topic-control').isHidden());
@@ -46,7 +46,7 @@ try {
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2026');
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-203');
-    assert((await page.locator('#record-count').textContent()).startsWith('1 of 45 source references'));
+    assert.match(await page.locator('#record-count').textContent(),/^1 of 45 Phoenix & Maricopa County source references/);
     assert.equal(await visible.first().locator('.source-retrieval time').getAttribute('datetime'), '2026-11-08');
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2025');
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-200');
@@ -87,13 +87,15 @@ try {
     assert(page.url().endsWith('#PHX-CFP-WEB-001'));
     await page.locator('#PHX-CFP-WEB-001').waitFor({state: 'visible'});
     await page.getByRole('button', {name: 'Questions', exact: true}).click();
-    assert.equal(await visible.count(), 13);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^13 of /);
     await page.locator('#record-topic').selectOption('bell', {force:true});
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
-    assert.equal(await visible.count(), 19);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^19 of /);
+    await page.getByRole('searchbox').fill('MC-HOME-WEB-001');
     assert(await page.locator('#MC-HOME-WEB-001').isVisible());
     assert((await page.locator('#MC-HOME-WEB-001').textContent()).includes('not confirmed awards or spending'));
+    await page.getByRole('searchbox').fill('');
     await page.locator('#record-kind').selectOption('expenditure', {force:true});
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'PHX-CFP-WEB-004');
@@ -101,7 +103,7 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 90);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^90 of /);
     await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
     assert.equal(await visible.count(), 3);
     assert(await page.locator('#MC-HAMC-WEB-001').isVisible());
@@ -146,10 +148,10 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/projects.html');
     const projects = page.locator('[data-connection-entry]:visible');
-    assert.equal(await projects.count(), 11);
+    assert.equal(await projects.count(), 6); assert.match(await page.locator('#connection-count').textContent(), /^11 of /);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `directory overflow ${width}`);
     await page.locator('#connection-filter').selectOption('development', {force:true});
-    assert.equal(await projects.count(), 10);
+    assert.equal(await projects.count(), 6); assert.match(await page.locator('#connection-count').textContent(), /^10 of /);
     await page.getByRole('searchbox').fill('Moreland');
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-moreland');
@@ -173,14 +175,14 @@ try {
     assert.equal(await projects.count(), 1);
     assert.equal(await projects.first().getAttribute('id'), 'project-marcos-grant-park');
     await page.getByRole('button', {name: 'Clear filters'}).click();
-    assert.equal(await projects.count(), 11);
+    assert.equal(await projects.count(), 6); assert.match(await page.locator('#connection-count').textContent(), /^11 of /);
 
     await openNavigation(page);
     await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Questions'}).click();
     await page.waitForURL(base + '/phoenix/questions.html');
     await page.waitForLoadState('load');
     const questions = page.locator('[data-connection-entry]:visible');
-    assert.equal(await questions.count(), 13);
+    assert.equal(await questions.count(), 6); assert.match(await page.locator('#connection-count').textContent(), /^13 of /);
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `matrix overflow ${width}`);
     await page.locator('#connection-filter').selectOption('bell', {force:true});
     assert.equal(await questions.count(), 6);

@@ -1,0 +1,174 @@
+{
+  "tested_candidate": "16b8f1700d5d4d766d1c4608b87de3eab03b50b7",
+  "fixed_base": "a66cb05d5ed53235087077361ed87697bfd1d95d",
+  "source": "owner-reported Chromebook checks; not newly supplied PDF byte inspection",
+  "earlier_fragment_report": {
+    "typed": "#src125",
+    "correct": "#src-125",
+    "disposition": "superseded by corrected-input pass; no candidate defect asserted"
+  },
+  "passes": [
+    {
+      "id": "standalone_tucson_fragment",
+      "result": "pass",
+      "subject_before": "HOME",
+      "fragment": "#src-125",
+      "subject_cleared": true,
+      "record": "SRC-125",
+      "source_page": 12,
+      "refresh": true,
+      "question_page": 1
+    },
+    {
+      "id": "embedded_tucson_fragment",
+      "result": "pass",
+      "subject_before": "HOME",
+      "fragment": "#src-125",
+      "subject_after": "All Subjects",
+      "source_page": 12,
+      "refresh": true,
+      "fresh_tab": true,
+      "record_focus": true,
+      "filter_cleared_speech": "Not heard on 16b8f17; superseded by the separately recorded focused PASS on 90de1d2."
+    },
+    {
+      "id": "embedded_tucson_sources_current_full",
+      "result": "pass",
+      "screen_page": 2,
+      "methods": [
+        "print button",
+        "Ctrl+P after clicking outer review area",
+        "Ctrl+P after clicking report"
+      ],
+      "records": [
+        "SRC-029",
+        "SRC-036",
+        "SRC-040",
+        "SRC-034",
+        "SRC-064",
+        "SRC-065"
+      ],
+      "expected_links": true,
+      "wrapper_controls": false,
+      "local_file_targets": false,
+      "apparent_clipping": false,
+      "blank_pages": false,
+      "cancel_and_return_page": 2,
+      "return_focus": "Preview Print Results"
+    },
+    {
+      "id": "embedded_tucson_sources_current_compact",
+      "result": "pass",
+      "inspected_pdf": true,
+      "method": "unspecified",
+      "compact_specific_cancel": "not separately asserted; shared Full return path already confirmed"
+    },
+    {
+      "id": "embedded_phoenix_sources_current_full",
+      "result": "pass",
+      "screen_page": 2,
+      "record_count": 6,
+      "expected_links": true,
+      "method": "unspecified",
+      "cancel_and_return_page": 2,
+      "return_focus": "Preview Print Results"
+    },
+    {
+      "id": "embedded_tucson_complete_index",
+      "result": "pass",
+      "sources": 67,
+      "questions": 20,
+      "expected_links": true,
+      "local_file_targets": false,
+      "stale_counters": false,
+      "apparent_clipping": false,
+      "blank_pages": false,
+      "cancel_return_focus": "previous confirmation retained",
+      "exhaustive_table_reading_order": false
+    }
+  ],
+  "earlier_chromevox_passes_retained_on_afa234a": [
+    "Records to print names and positions",
+    "Evidence detail names and positions",
+    "separate source/question counters",
+    "independent paging with sources remaining on page 2",
+    "zero matches for both registers"
+  ],
+  "earlier_evidence_retained": {
+    "independently_audited_native_pdfs": 22,
+    "pages": 389,
+    "local_file_targets": 0,
+    "ordered_records_text_links_qualifications": "passed at documented scopes",
+    "privacy_and_return": "retain existing candidate/method attribution; do not infer new native results from a PDF filename"
+  },
+  "announcement_refinement": {
+    "changes": [
+      "empty status remains in accessibility tree via visually hidden CSS",
+      "explicit aria-atomic=true"
+    ],
+    "unchanged": [
+      "wording",
+      "politeness",
+      "record focus",
+      "filter recovery",
+      "pagination",
+      "print output",
+      "research data"
+    ],
+    "native_speech": "pass on 90de1d2fc4426011107fffe20a258309e5cd0f96: owner reported automatic ChromeVox speech 'Filters were cleared' during HOME to #src-125 with ChromeVox already enabled; source page 12 appeared"
+  },
+  "distinct_native_entrypoints_not_explicitly_reported": [
+    "normal-list Ctrl+P without preview, All/Full preparation branch",
+    "corrected-wrapper category-browser print-sheet branch"
+  ],
+  "limitations": [
+    "exhaustive PDF table/logical reading order not established",
+    "whole-PDF text equality not claimed",
+    "sparse Phoenix final context-links sheet remains",
+    "remote agency content/availability not freshly audited"
+  ],
+  "latest_owner_report": {
+    "tested_candidate": "90de1d2fc4426011107fffe20a258309e5cd0f96",
+    "source": "owner-reported Chromebook/ChromeVox focused follow-up on November 12, 2026; not independently recorded audio",
+    "setup": {
+      "screen_reader": "ChromeVox",
+      "enabled_before_navigation": true,
+      "subject_before": "HOME",
+      "fragment": "#src-125"
+    },
+    "result": "pass",
+    "automatic_filter_cleared_speech": "Filters were cleared",
+    "source_page": 12,
+    "source_pages": 12,
+    "source_matches": 67,
+    "source_total": 67,
+    "source_visible_range": [
+      67,
+      67
+    ],
+    "question_page": 1,
+    "question_pages": 4,
+    "question_matches": 20,
+    "question_total": 20,
+    "separate_source_question_announcements": true,
+    "scope": "Closes the focused automatic filter-cleared announcement check. Does not establish new native print methods, PDF logical reading order, or a broad retest."
+  },
+  "publication_authorization": {
+    "status": "conditional",
+    "owner_instruction": "If everything else checks out, I authorize you to merge PR #28. If a material issue remains, stop and ask me before merging. After any merge, verify deployment and report the outcome.",
+    "condition": "Recheck exact head, base, required checks, evidence and release readiness; merge only if no material issue remains, then verify deployment.",
+    "code_candidate": "90de1d2fc4426011107fffe20a258309e5cd0f96",
+    "ledger_only_descendant": "website files must remain identical to code_candidate",
+    "release_status": "No material blocker identified from the reconciled coverage limits; protected merge remains conditional on final exact-head checks and unchanged base."
+  },
+  "release_coverage_assessment": {
+    "assessment_source": "release review of automated evidence and owner-reported native checks",
+    "material_issue_identified": false,
+    "normal_list_ctrl_p": "Automated All/Full preparation PDF passed; native method remains unreported. Shared wrapper routing and native preview methods passed. Residual coverage gap, not a reported defect.",
+    "corrected_wrapper_category_printing": "Both regions Full/Compact actual-PDF and return-state tests passed; native wrapper/category entry point remains unreported. Separate implementation is covered automatically, not claimed native-tested.",
+    "pdf_reading_order": "Exhaustive logical/table reading order and whole-PDF text equality not established. Accessible HTML and flowing Full reports remain available; no PDF/UA or exhaustive PDF accessibility claim.",
+    "sparse_phoenix_final_page": "Retained context links, no missing evidence, clipping or blank sheet in the checked output. Known pagination-density limitation.",
+    "historical_old_wrapper": "Original f8e1ce1 failures retained separately; corrected-wrapper source-print native passes are recorded on 16b8f17.",
+    "data_privacy": "23 protected public data/download hashes and 235 ordered record fingerprints preserved; no workbook, backup or private LA changes."
+  }
+}

@@ -1,0 +1,15 @@
+.list-pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin:20px 0}
+.list-pagination button,.list-print-options select{font:inherit;min-height:44px;border:1px solid #729390;border-radius:5px;padding:9px 14px;background:#fff;color:#173b3f}
+.list-pagination button{cursor:pointer}.list-pagination button:disabled{opacity:.55;cursor:default}
+.list-pagination button:focus-visible,.list-print-options select:focus-visible{outline:3px solid #b76b13;outline-offset:3px}
+.list-pagination span{font-size:14px}
+/* Keep the empty live region in the accessibility tree before its first update. */
+.list-link-notice:empty{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0;padding:0;border:0}
+.list-link-notice{padding:10px;border-left:3px solid #12565b;background:#edf3ef}
+.list-print-options{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:14px 0}
+.list-print-options label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:650}
+.list-print-options select{max-width:100%}
+.list-print-help{font-size:13px;line-height:1.5;max-width:85ch}
+[data-print-record-id]{scroll-margin-top:20px}
+@media(max-width:500px){.list-print-options{display:block}.list-print-options label{margin:10px 0}.list-print-options select{width:100%}}
+@media print{.list-pagination,.list-link-notice,.list-print-options,.list-print-help,.screen-only{display:none!important}}

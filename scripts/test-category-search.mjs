@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
 import {existsSync,mkdirSync,readFileSync} from 'node:fs';
@@ -29,7 +30,7 @@ const printSearches={
  ]},
 };
 function pdfText(path){
- const pages=execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
+ const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
  if(pages.at(-1)==='')pages.pop();
  const evidence=pages.map((page,i)=>{
   const body=page.split('\n').filter(line=>!['HAP TEST HEADER','HAP TEST FOOTER'].includes(line.trim())).join('\n');
@@ -38,7 +39,7 @@ function pdfText(path){
  });
  return evidence.join(' ').replace(/\s+/g,' ');
 }
-const pdfLinks=path=>execFileSync('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
+const pdfLinks=path=>execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
 mkdirSync(output,{recursive:true});
 
 async function inspectPDF(page, scope, category, mode, expected, suffix=''){
@@ -79,7 +80,7 @@ try{
   await page.goto(base+path);await page.waitForLoadState('networkidle');
   assert.equal(await page.locator('main').count(),1);assert.equal(await page.locator('h1').count(),1);
   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),`${scope} overflow ${width}`);
-  assert.equal(await page.locator('main select:visible').count(),1);
+  assert.equal(await page.locator('main #category-filter:visible').count(),1);
   const initialRequests=requests.length;
   const input=page.locator('#query'),select=page.locator('#category-filter');
   for(const category of categories){
@@ -89,7 +90,7 @@ try{
    const expected=data.records.filter(r=>r.scope===scope&&r.category===category);
    await recordCount(page,expected.length);
    assert.equal(await page.locator('#results article.card').count(),Math.min(6,expected.length));
-   assert.equal(await page.locator('main select:visible').count(),1);
+   assert.equal(await page.locator('main #category-filter:visible').count(),1);
    const choice=await select.locator('option').nth(1).evaluate(el=>({value:el.value,count:Number(el.textContent.match(/\((\d+)\)$/)[1])}));
    await select.selectOption(choice.value);await recordCount(page,choice.count);
    await page.locator('#reset').press('Enter');assert(await focusOn(input));

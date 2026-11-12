@@ -45,10 +45,8 @@ jobs:
       - name: Install browser test tools
         run: |
           npm install --no-save --package-lock=false playwright@1.65.0
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
       - run: node scripts/test-phoenix-index.mjs
-      - name: Install PDF text verifier
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
       - run: node scripts/test-approved-site-design.mjs

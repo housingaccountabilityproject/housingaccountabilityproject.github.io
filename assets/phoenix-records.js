@@ -50,11 +50,16 @@
     return [card, {fields, why}];
   }));
   let view = 'all';
-  let printing;
+  let printing, navigation;
+  query.value = ''; topic.value = ''; kind.value = ''; sourceFacets.forEach(f => {f.element.value='';});
+  const notice = window.HAPListBrowser.notice(document.querySelector('.search-print-toolbar'));
+  const paginationMount = document.createElement('div'); document.querySelector('#record-results').after(paginationMount);
+  const pager = window.HAPListBrowser.create({id:'records',label:()=> 'Phoenix & Maricopa County '+(view==='source'?'source references':view==='all'?'evidence-browser entries':view+' entries'),total:()=>view==='all'?cards.length:cards.filter(card=>card.dataset.group===view).length,entries:cards,mount:paginationMount,count,empty,focusTarget:count,onPage:()=>{navigation?.commit();printing?.update();}});
+  const browsingState = () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value])),page:pager.page()});
   const options = window.HAPSearchOptions.register({
     surface: 'phoenix-evidence', mount: document.querySelector('.search-print-toolbar'),
-    state: () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value]))}),
-    restore: shared => { applyShared(shared); update(); }
+    state: browsingState,
+    restore: shared => { applyShared(shared); update(); pager.setPage(shared.page || 1); navigation?.commit(); }
   });
 
   function basicMatch(card) {
@@ -78,7 +83,7 @@
     }
   }
   function update() {
-    options.clearLink();
+    options.clearLink(); notice.textContent='';
     const primer=document.getElementById('city-funding-primer');
     if(primer)primer.hidden=view!=='funding';
     const title=document.querySelector('.records-intro h1');
@@ -88,7 +93,7 @@
     if (topicControl) topicControl.hidden = view === 'source';
     const terms = tokenize(query.value);
     const textMatches = new Map(cards.map(card => [card, terms.every(term => model.get(card).fields.some(([,value]) => value.includes(term)))]));
-    let shown = 0;
+    const found = [];
     for (const card of cards) {
       const matches = basicMatch(card) && textMatches.get(card) && (view !== 'source' || facetMatch(card));
       card.hidden = !matches;
@@ -96,7 +101,7 @@
       why.hidden = !matches || !terms.length;
       if (textTools) textTools.clear(card);
       if (matches) {
-        shown++;
+        found.push(card);
         if (terms.length) {
           const labels = fields.filter(([,value]) => terms.some(term => value.includes(term))).map(([label]) => label);
           why.textContent = textTools ? textTools.explanation(labels) : 'Matched in: ' + labels.join(', ');
@@ -105,10 +110,7 @@
       }
     }
     updateCounts(textMatches);
-    count.textContent = view === 'source'
-      ? `${shown} of ${sourceCards.length} source references · Phoenix and Maricopa County`
-      : `${shown} of ${cards.length} entries · Phoenix and Maricopa County`;
-    empty.hidden = shown > 0;
+    pager.update(found);
     printing?.update();
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
     document.dispatchEvent(new Event('hapfilterschange'));
@@ -124,22 +126,24 @@
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     if (id.startsWith('view-') && ['source','funding','all'].includes(id.slice(5))) {
-      clear(); view = id.slice(5); update(); form.scrollIntoView({block: 'start'}); return;
+      clear(); view = id.slice(5); update(); navigation?.replace(); form.scrollIntoView({block: 'start'}); return;
     }
-    const target = document.getElementById(id);
-    if (!target?.classList.contains('record-card')) return;
-    if (target.hidden) { clear(); update(); }
-    target.scrollIntoView({block: 'start'});
+    const target = document.getElementById(id) || cards.find(card => (JSON.parse(card.dataset.search).aliases || []).includes(id));
+    const card=target?.closest('.record-card'); if (!card) return;
+  notice.textContent='';
+    if (!pager.matches().includes(card)) { clear(); update(); notice.textContent='Filters cleared to reveal the linked record '+(card.id||id)+'.'; }
+    if (target.id !== id) notice.textContent += (notice.textContent?' ':'')+'Published identifier '+id+' opens canonical record '+card.id+'.';
+    pager.reveal(card); window.HAPListBrowser.reveal(target); navigation?.replace(); printing?.update();
   }
-  form.addEventListener('submit', event => { event.preventDefault(); update(); });
-  form.addEventListener('input', update);
-  form.addEventListener('change', update);
-  form.addEventListener('reset', event => { event.preventDefault(); options.reset(); clear(); update(); });
+  form.addEventListener('submit', event => { event.preventDefault(); update(); navigation.commit(); });
+  form.addEventListener('input', event => {if(event.target===query){update(); navigation.commit('typing');}});
+  form.addEventListener('change', () => {update(); navigation.commit('filter');});
+  form.addEventListener('reset', event => { event.preventDefault(); options.reset(); clear(); update(); navigation.commit(); });
   buttons.forEach(button => button.addEventListener('click', () => {
     view = button.dataset.view;
     topic.value = ''; kind.value = '';
     sourceFacets.forEach(({element}) => { element.value = ''; });
-    update();
+    update(); navigation.commit();
   }));
   window.addEventListener('hashchange', revealHash);
   document.addEventListener('click', event => {
@@ -159,16 +163,19 @@
     }
   }
   applyShared(shared);
-  form.hidden = false; views.hidden = false; update(); revealHash();
+  form.hidden = false; views.hidden = false; update(); pager.setPage(shared?.page || 1);
+  navigation=window.HAPListBrowser.history({key:'phoenix-evidence',state:browsingState,restore:s=>{applyShared(s);update();pager.setPage(s.page||1);printing?.update();}});
+  revealHash();
   const selectedLabel = select => select.options[select.selectedIndex].dataset.label || select.options[select.selectedIndex].textContent;
   printing = window.HAPSearchPrint?.register({
     title: 'Phoenix and Maricopa County search results', privacy:options,
+    lists:[{id:'evidence',label:()=> 'Phoenix & Maricopa County · '+(buttons.find(b=>b.dataset.view===view)?.textContent||'All entries'),results:pager.matches,currentResults:pager.current}],
     describe: () => [
       ...(options.includeTerms() ? [`Search: ${query.value.trim() || '(no search terms)'}`] : []),
       `Index: ${buttons.find(button => button.dataset.view === view).textContent}`,
       ...(view !== 'source' ? [`Topic: ${selectedLabel(topic)}`, `Record type: ${selectedLabel(kind)}`] : []),
       ...(view === 'source' ? sourceFacets.map(({element,label}) => `${label}: ${selectedLabel(element)}`) : [])
-    ], results: () => cards.filter(card => !card.hidden),
+    ] , results: pager.matches, currentResults: pager.current,
     snapshot: () => 'Published research snapshot: '+document.querySelector('[data-research-snapshot]').dataset.researchSnapshot+'. Funding stages and project counts remain separate; source qualifications are retained.'
   });
 })();

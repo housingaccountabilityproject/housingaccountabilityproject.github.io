@@ -26,7 +26,7 @@ for(const width of [390,768,1280]) {
  await page.getByRole('button',{name:'Clear',exact:true}).click();assert.equal(await page.locator('#site-query').inputValue(),'');
  await page.locator('#site-query').fill('impossible-match-947362');await page.locator('#site-query').press('Enter');assert.equal(await page.locator('#search-results article').count(),0);
  await page.getByRole('button',{name:'Clear',exact:true}).click();await page.locator('#site-query').fill('CDBG');await page.locator('#site-query').press('Enter');
- await page.getByRole('button',{name:'Show More Results'}).click();assert((await page.locator('#search-results article').count())>20);
+ await page.locator('#broader-next').click();assert.equal(await page.locator('#search-results article:not([hidden])').count(),6);assert.match(await page.locator('#broader-page').textContent(),/^Page 2 /);
  await page.goto(localPageUrl('research-updates.html')+'#current-research-status');await page.screenshot({path:`reader-qa-screenshots/status-${width}.png`});
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(localPageUrl('tucson/index.html'));

@@ -51,7 +51,7 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
  for(const file of ['funding-explorer.html','housing-projects.html','questions-records.html']){
   await page.goto(url(file));const cards=page.locator('[data-catalog-entry]');const n=await cards.count();
   await page.locator('#catalog-filter').selectOption({index:1});await page.locator('#catalog-search').fill('no-record-983489');assert(await page.locator('#catalog-empty').isVisible());
-  await page.locator('#catalog-search').fill('');await page.locator('#catalog-filter').selectOption('');assert.equal(await cards.filter({visible:true}).count(),n);
+  await page.locator('#catalog-search').fill('');await page.locator('#catalog-filter').selectOption('');assert.equal(await cards.filter({visible:true}).count(),Math.min(6,n));assert.match(await page.locator('#catalog-count').textContent(),new RegExp('^'+n+' of '+n+' '));
   for(const link of await page.locator('.section-links a').all()){const href=await link.getAttribute('href');await link.click();assert(page.url().endsWith(href));}
   await page.screenshot({path:`organization-qa-screenshots/${file.replace('.html','')}-${width}-full.png`,fullPage:true});
  }

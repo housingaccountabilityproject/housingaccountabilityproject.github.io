@@ -41,3 +41,33 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
   #search-print-output header { display: block !important; }
   #search-print-output .question-evidence, #search-print-output .question-outcome { padding-left: 0; border-left: 0; }
 }
+/* Register reports use flowing evidence blocks instead of narrow table columns. */
+#search-print-output [hidden]{display:none!important}
+#search-print-output .index-print-record>h3{margin-bottom:4px}
+#search-print-output .index-print-record>div{overflow-wrap:anywhere}
+#search-print-output .print-compact{font-size:95%}
+@media print{
+ #search-print-output *{max-height:none!important;overflow:visible!important;min-width:0!important}
+ #search-print-output section,#search-print-output article,#search-print-output details,#search-print-output ul{break-inside:auto!important;page-break-inside:auto!important}
+ #search-print-output h1,#search-print-output h2,#search-print-output h3,#search-print-output h4,#search-print-output dt,#search-print-output strong:only-child{break-after:avoid}
+ #search-print-output dd{margin-left:0}#search-print-output dt{font-weight:bold}
+ #search-print-output .source-metadata,#search-print-output .city-project-facts{display:block!important}
+ #search-print-output .print-source-urls{display:block!important}
+ #search-print-output .search-snippet{display:none}
+ #search-print-output.print-compact p,#search-print-output.print-compact li,#search-print-output.print-compact div{font-size:9pt;line-height:1.35}
+ #search-print-output.print-compact>article{padding:9pt 0!important;margin:10pt 0!important}
+ body.printing-complete-index .table-wrap{overflow:visible!important}body.printing-complete-index section,body.printing-complete-index details{break-inside:auto!important}
+ body.printing-complete-index .page-jump,body.printing-complete-index #print-all-notice,body.printing-complete-index #sources-count,body.printing-complete-index #questions-count{display:none!important}
+ body.printing-complete-index tr{break-inside:auto}
+}
+@media print{
+ /* Trailing card padding can otherwise fragment onto an empty final sheet. */
+ #search-print-output>article.record-card{padding-bottom:0!important}
+ #search-print-output .record-connections,#search-print-output .record-next,#search-print-output .record-reading{break-before:avoid;page-break-before:avoid}
+ #search-print-output .record-sources>li:last-child{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+ #search-print-output .record-reading{padding-top:6pt!important}
+ #search-print-output .record-connections{margin-top:8pt;padding-top:8pt}
+ #search-print-output .print-record-lead{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+ #search-print-output>article>p:first-child{break-after:avoid;page-break-after:avoid}
+ #search-print-output>article>p:last-child{break-before:avoid;page-break-before:avoid}
+}

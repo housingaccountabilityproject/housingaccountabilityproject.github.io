@@ -1,3 +1,4 @@
+import {execPDF} from './pdf-tools.mjs';
 import assert from 'node:assert/strict';
 import {spawn, execFileSync} from 'node:child_process';
 import {existsSync, mkdirSync} from 'node:fs';
@@ -24,10 +25,10 @@ try {
   page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>requests.push(request.url()));
   async function privacySnapshot() {
-    return page.evaluate(()=>({url:location.href,history:history.length,local:localStorage.length,session:sessionStorage.length}));
+    return page.evaluate(()=>({url:location.href,local:localStorage.length,session:sessionStorage.length}));
   }
   async function checkPrivate(before, requestCount) {
-    assert.deepEqual(await privacySnapshot(),before,'Search choices do not write URL, history or storage');
+    assert.deepEqual(await privacySnapshot(),before,'Search choices do not write URL terms or browser storage');
     assert.equal(requests.length,requestCount,'Searching and link preparation send no requests');
     assert.equal((await context.cookies()).length,0,'No search cookies');
   }
@@ -41,7 +42,7 @@ try {
   async function inspectPDF(name) {
     const path=output+'/'+name+'.pdf';
     await page.pdf({path,format:'Letter',tagged:true,timeout:90000});
-    const pages=execFileSync('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
+    const pages=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).split('\f');
     if(!pages.at(-1).trim()) pages.pop();
     assert(pages.every(text=>text.trim()),'Every PDF page contains text');
     return pages.join(' ').replace(/\s+/g,' ');

@@ -21,7 +21,7 @@ jobs:
       - name: Install browser test tools
         run: |
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
       - name: Check responsive rendering and interaction
         run: node scripts/site-smoke-test.mjs
       - name: Save screenshots for review

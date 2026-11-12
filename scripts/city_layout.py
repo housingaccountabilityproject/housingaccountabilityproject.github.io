@@ -113,7 +113,12 @@ def apply(output, path):
     if path == 'contact.html':
         return output
     city = city_for(path)
-    if 'assets/search-print.js' in output and 'assets/search-options.js' not in output:
+    list_pages = {'evidence.html','questions-records.html','funding-explorer.html','housing-projects.html','search.html','search-all.html','phoenix/search.html','phoenix/records.html','phoenix/questions.html','phoenix/projects.html','phoenix/comparisons.html'}
+    if path in list_pages:
+        # Shared list assets remain present when the generated Phoenix pages are rebuilt.
+        if 'assets/list-browser.js' not in output:
+            output = output.replace('</head>', f'<link rel="stylesheet" href="{relative("assets/list-browser.css", path)}"><script src="{relative("assets/list-browser.js", path)}"></script></head>')
+    if 'assets/search-print.js'  in output and 'assets/search-options.js' not in output:
         script = f'<script src="{relative("assets/search-options.js", path)}"></script>'
         css = f'<link rel="stylesheet" href="{relative("assets/search-options.css", path)}">'
         match = re.search(r'<script[^>]+src="[^"]*assets/search-print.js"[^>]*></script>', output)
