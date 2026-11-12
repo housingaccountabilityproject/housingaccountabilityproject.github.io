@@ -59,9 +59,11 @@ def footer(path, city):
         links += [('Corrections & history', 'phoenix/corrections.html')]
     else:
         links += [('Updates feed', 'feed.xml')]
+    if city == 'shared':
+        links = [('Search Tucson' if label == 'Search' else 'Housing help: Tucson' if label == 'Housing help' else label, target) for label, target in links]
     nav = ''.join(city_link(label, target, path) for label, target in links)
     areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix & Maricopa County','phoenix/index.html')])
-    learn = ''.join(city_link(label,target,path) for label,target in MORE[route_city][:3])
+    learn = ''.join(city_link('Reports & reading: Tucson' if city == 'shared' and label == 'Reports & reading' else label,target,path) for label,target in MORE[route_city][:3])
     about = ''.join(city_link(label,target,path) for label,target in [('About the project','about.html'),('Contact','contact.html')])
     return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><div class="city-footer-grid"><div><p class="city-footer-label">Research areas</p><nav aria-label="Research area links">{areas}</nav></div><div><p class="city-footer-label">Learn</p><nav aria-label="Learning resources">{learn}</nav></div><div><p class="city-footer-label">Reader tools</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><div><p class="city-footer-label">About</p><nav aria-label="Project information">{about}</nav></div></div></div><p>Public Research Website</p></footer>'
 

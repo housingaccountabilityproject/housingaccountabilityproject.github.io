@@ -120,12 +120,12 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
 .city-site .city-project-overview h2{font-size:28px;margin:0}
 .city-site .city-project-overview .city-project-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
 .city-site .city-stage-guide{background:#edf2eb;border:1px solid var(--line);padding:28px}
-.city-site .city-stage-guide h3{font-size:27px;margin-bottom:12px}
+.city-site .city-stage-guide>h2{font:700 27px/1.4 Georgia,'Times New Roman',serif;letter-spacing:-.02em;margin-bottom:12px}
 .city-site .city-stage-note{font-size:15px;max-width:75ch;line-height:1.7;margin:0 0 24px}
 .city-site .city-stage-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .city-site .city-stage-grid>li{padding:18px 16px;background:white;border-top:3px solid var(--teal);min-width:0}
 .city-site .city-stage-letter{font:700 12px/1 Arial,sans-serif;color:#954522}
-.city-site .city-stage-grid h4{font:600 16px/1.5 Arial,sans-serif;margin:12px 0 8px;color:var(--ink)}
+.city-site.city-design .city-stage-grid h3{font:600 16px/1.5 Arial,sans-serif;letter-spacing:normal;margin:12px 0 8px;color:var(--ink)}
 .city-site .city-stage-grid p,.city-site .city-stage-grid a{font-size:14px;line-height:1.7}
 .city-site .city-stage-grid>li>p{margin:0 0 14px}
 .city-site .city-stage-grid summary{font-size:13px;line-height:1.6;min-height:44px;padding:8px 0;cursor:pointer;color:var(--teal);font-weight:600}
@@ -307,3 +307,6 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
  #city-brief-print-output .city-story-timeline ol{gap:14px;margin:14px 0}#city-brief-print-output .city-story-layout h3{font-size:16pt}#city-brief-print-output .city-story-timeline h4{font-size:11pt}#city-brief-print-output .city-story-timeline li>p,#city-brief-print-output .city-story-evidence p,#city-brief-print-output .city-source-rail p{font-size:10pt;line-height:1.5}
  #city-brief-print-output .city-story-evidence{gap:14px;margin:16px 0}#city-brief-print-output .city-story-evidence>section{padding:12px;break-inside:avoid}#city-brief-print-output .city-story-source summary,#city-brief-print-output .city-story-source a{font-size:10pt}#city-brief-print-output .city-story-source p{margin:4px 0}
 }
+
+/* Small accent labels need normal-text contrast on the paper background. */
+.city-site .need-section .eyebrow.accent{color:#954522}
