@@ -29,7 +29,7 @@
       "refresh": true,
       "fresh_tab": true,
       "record_focus": true,
-      "filter_cleared_speech": "not heard; unconfirmed"
+      "filter_cleared_speech": "Not heard on 16b8f17; superseded by the separately recorded focused PASS on 90de1d2."
     },
     {
       "id": "embedded_tucson_sources_current_full",
@@ -127,7 +127,6 @@
     "sparse Phoenix final context-links sheet remains",
     "remote agency content/availability not freshly audited"
   ],
-  "publication_authorized": false,
   "latest_owner_report": {
     "tested_candidate": "90de1d2fc4426011107fffe20a258309e5cd0f96",
     "source": "owner-reported Chromebook/ChromeVox focused follow-up on November 12, 2026; not independently recorded audio",
@@ -156,8 +155,20 @@
   },
   "publication_authorization": {
     "status": "conditional",
-    "owner_instruction": "Can we add to the handoff that if everything else checks out to go ahead and merge it",
-    "condition": "Merge only if all remaining material checks pass and no material issues or uncertainty remain; preserve protected checks and verify deployment/live site after any merge.",
-    "release_status": "held pending reconciliation of the two distinct native print entry points still without an explicit native report"
+    "owner_instruction": "If everything else checks out, I authorize you to merge PR #28. If a material issue remains, stop and ask me before merging. After any merge, verify deployment and report the outcome.",
+    "condition": "Recheck exact head, base, required checks, evidence and release readiness; merge only if no material issue remains, then verify deployment.",
+    "code_candidate": "90de1d2fc4426011107fffe20a258309e5cd0f96",
+    "ledger_only_descendant": "website files must remain identical to code_candidate",
+    "release_status": "No material blocker identified from the reconciled coverage limits; protected merge remains conditional on final exact-head checks and unchanged base."
+  },
+  "release_coverage_assessment": {
+    "assessment_source": "release review of automated evidence and owner-reported native checks",
+    "material_issue_identified": false,
+    "normal_list_ctrl_p": "Automated All/Full preparation PDF passed; native method remains unreported. Shared wrapper routing and native preview methods passed. Residual coverage gap, not a reported defect.",
+    "corrected_wrapper_category_printing": "Both regions Full/Compact actual-PDF and return-state tests passed; native wrapper/category entry point remains unreported. Separate implementation is covered automatically, not claimed native-tested.",
+    "pdf_reading_order": "Exhaustive logical/table reading order and whole-PDF text equality not established. Accessible HTML and flowing Full reports remain available; no PDF/UA or exhaustive PDF accessibility claim.",
+    "sparse_phoenix_final_page": "Retained context links, no missing evidence, clipping or blank sheet in the checked output. Known pagination-density limitation.",
+    "historical_old_wrapper": "Original f8e1ce1 failures retained separately; corrected-wrapper source-print native passes are recorded on 16b8f17.",
+    "data_privacy": "23 protected public data/download hashes and 235 ordered record fingerprints preserved; no workbook, backup or private LA changes."
   }
 }
