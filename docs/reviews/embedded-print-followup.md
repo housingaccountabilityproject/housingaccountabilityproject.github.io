@@ -88,3 +88,12 @@ Native ChromeVox audibility of the specific notice remains UNCONFIRMED after thi
 - The known Phoenix Current/Full Letter sparse final context-links sheet remains a layout limitation. Representative visual inspection does not establish that every page has optimal density.
 
 The old f8e1ce1 wrapper's Ctrl+P failure remains a historical wrapper failure. Corrected-wrapper native source printing is now passed on 16b8f17 at the scopes above. No test pass authorizes marking ready, merging or publishing.
+
+
+## Focused owner closeout on 90de1d2 (November 12, 2026)
+
+This section supersedes the pending specific-speech status above while retaining all historical candidate and method attribution. On `90de1d2fc4426011107fffe20a258309e5cd0f96`, with ChromeVox already enabled, the owner selected HOME and navigated to `#src-125`. ChromeVox automatically said “Filters were cleared.” The source register reached page 12 of 12 with 67 of 67 matches, showing 67–67; the question register remained separately announced on page 1 of 4 with 20 of 20 matches. The focused automatic filter-cleared announcement check is PASS by owner report. No new audio recording, native PDF inspection, or broad repeat is asserted.
+
+The owner subsequently authorized merging if everything else checks out. This conditional approval supersedes the earlier blanket hold, but does not mark unperformed checks as passes. The two distinct native entry points remain without an explicit report: normal-list Ctrl+P without preview, and category-browser printing through the corrected wrapper. Their automated coverage remains valid; native dialog/output/return behavior for those exact paths is not established by automation. Release remains held pending those checks or a clear disposition of these remaining coverage limits. No merge or deployment was performed as part of this reconciliation.
+
+At reconciliation, the PR head remained `90de1d2fc4426011107fffe20a258309e5cd0f96`, the main/base commit remained `a66cb05d5ed53235087077361ed87697bfd1d95d`, and all three exact-head checks (`reader-tools`, `phoenix-index`, `smoke`) had succeeded. The active Protect main ruleset requires those checks with strict up-to-date enforcement and has no bypass actors. This is a documentation-only reconciliation; after committing it, the new head requires its own checks. Website implementation, data, research artifacts, workbooks, backups and private LA content are unchanged.
