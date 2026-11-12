@@ -169,7 +169,21 @@ def apply(output, path):
         version = hashlib.sha256((ROOT/'assets'/filename).read_bytes()).hexdigest()[:12]
         return f'{attribute}="{url}?v={version}"'
     output = re.sub(r'(href|src)="((?:\.\./)*assets/(city-layout\.(?:css|js)|phoenix-connections\.js|phoenix-records\.js|research-center-filter\.js))(?:\?[^"]*)?"',asset_version,output)
-    return output
+    return general_print_links(output, path)
+
+
+def general_print_links(output, path):
+    """Opt only four ordinary pages into portable print annotations."""
+    if path not in ['about.html', 'glossary.html', 'phoenix/index.html', 'research-updates.html']:
+        return output
+    output = re.sub(r'<(?:script src|link rel="stylesheet" href)="[^"]*assets/general-page-print-links\.(?:js|css)(?:\?[^"]*)?"(?: defer></script>|>)', '', output)
+    tags = []
+    for suffix in ['css', 'js']:
+        asset = 'assets/general-page-print-links.' + suffix
+        version = hashlib.sha256((ROOT/asset).read_bytes()).hexdigest()[:12]
+        src = escape(relative(asset, path)) + '?v=' + version
+        tags.append(f'<link rel="stylesheet" href="{src}">' if suffix == 'css' else f'<script src="{src}" defer></script>')
+    return output.replace('</head>', ''.join(tags) + '</head>')
 
 
 def build():
