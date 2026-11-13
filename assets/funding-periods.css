@@ -10,3 +10,7 @@
 @media(max-width:600px){.funding-catalog-panel{padding:16px}.funding-catalog-panel .record-search-row,.funding-catalog-panel .record-filter-grid{grid-template-columns:minmax(0,1fr)}.funding-catalog-panel .record-search-row button{justify-self:start}}
 @media(min-width:1100px){#record-filters[data-funding-view=true] .record-filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media print{.funding-period{background:white;color:#111;break-inside:auto}.funding-period summary{break-after:avoid}.funding-period-control,.funding-filter-help{display:none!important}}
+@media print{
+ /* Screen-preview padding must not become an empty trailing printed sheet. */
+ body.previewing-search-results #search-print-output:has(.funding-period){margin:0;padding:0;width:100%;max-width:none}
+}

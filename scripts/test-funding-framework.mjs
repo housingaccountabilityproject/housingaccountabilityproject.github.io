@@ -50,6 +50,8 @@ async function pdf(page,name,ids){
  assert(text.includes('funding-period review pending'),name+' review status in PDF');
  for(const id of ids)assert(text.includes('Record ID: '+id),name+' retains '+id);
  const links=execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
+ const audit=JSON.parse(execPDF('audit',[path],{encoding:'utf8',maxBuffer:80*1024*1024}));
+ assert(audit.pages.every(p=>p.text.trim().length>25),name+' no blank/border-only pages');
  assert(!/file:\/\/|https?:\/\/(?:127\.0\.0\.1|localhost)/.test(links),name+' portable destinations');
  assert(links.includes('https://'),name+' clickable evidence');
  pdfs.push({file:name+'.pdf',records:ids.length,passed:true});
@@ -87,7 +89,7 @@ async function primary(width,scope){
  await input.fill(target);await check([target],'year plus identifier');
  await input.fill('no-funding-record-69325');await check([],'year plus no matches');assert.equal(await select.inputValue(),year);
  const clear=page.getByRole('button',{name:'Clear filters',exact:true});await clear.click();
- assert(await focus(input));assert.equal(await select.inputValue(),'');assert.equal(await input.inputValue(),'');
+ assert(await focus(phx?clear:input),surface+' retains the established clear-focus behavior');assert.equal(await select.inputValue(),'');assert.equal(await input.inputValue(),'');
  if(phx){assert.equal(await page.locator('.record-views [aria-pressed="true"]').getAttribute('data-view'),'all');await page.getByRole('button',{name:'Funding',exact:true}).click();}
  await check(ids,'clear restores scope');
  // Topic, year and query work together, including zero-count options that retain the selection.
@@ -167,6 +169,7 @@ async function category(width,scope){
  for(const category of ['sources','questions','updates','funding']){
   await page.locator(`[data-category="${category}"]`).press('Enter');
   assert(await input.isVisible());assert(await select.isVisible());assert.equal(await select.inputValue(),'');
+  if(width===390||width===1280){await page.locator('#search-panel').evaluate(n=>n.scrollIntoView({block:'start',behavior:'instant'}));await page.screenshot({path:`${output}/${width}-${scope}-category-${category}.png`});}
  }
  const values=await select.locator('option').evaluateAll(ns=>ns.map(n=>n.value));
  for(const value of values){await select.selectOption(value);await check(ids.filter(id=>match(id,value)),'period='+value);}
@@ -233,5 +236,5 @@ try{
  assert.deepEqual(errors,[],'no browser errors');
  writeFileSync(`${output}/results.json`,JSON.stringify({status:'passed',researchHandoffsAccepted:0,syntheticDataIsNotResearch:true,checks:log,pdfs,errors},null,2));
  console.log(`PASS ${log.length} regional UI states at 320/390/768/1280px; ${pdfs.length} PDFs. Synthetic single/range/disjoint/unknown cases are test-only; no research handoff accepted.`);
-}catch(error){writeFileSync(`${output}/failure.json`,JSON.stringify({message:error.message,stack:error.stack,checks:log,errors},null,2));throw error;}
+}catch(error){writeFileSync(`${output}/failure.json`,JSON.stringify({message:error.message,stack:error.stack,checks:log,errors},null,2));for(const [i,p] of (browser?.contexts().flatMap(c=>c.pages())||[]).entries())await p.screenshot({path:`${output}/failure-${i}.png`}).catch(()=>{});throw error;}
 finally{await browser?.close();server?.kill();}
