@@ -21,7 +21,7 @@
   const row=document.createElement('div');row.className='record-search-row';row.append(search.parentElement,clear);clear.textContent='Clear filters';
   const fields=document.createElement('fieldset'),legend=document.createElement('legend');legend.textContent='Filters';
   const controls=document.createElement('div');controls.className='record-filter-grid';controls.append(filter.parentElement,fundingControl.box);fields.append(legend,controls);panel.append(row,fields);
-  const help=document.createElement('p');help.className='funding-filter-help';help.id='catalog-funding-help';help.textContent='Filters apply to the seven catalog entries below. Existing published period metadata is retained pending the separate research review. Source/event dates do not supply funding years. ';
+  const help=document.createElement('p');help.className='funding-filter-help';help.id='catalog-funding-help';help.textContent='Filters apply to the seven catalog entries below. '+funding.help+' ';
   const broader=document.createElement('a');broader.textContent='Search all 12 Tucson Funding entries';
   const url=new URL('search.html',document.querySelector('link[rel="canonical"]').href);url.hash='hap-search='+encodeURIComponent(JSON.stringify({version:1,surface:'category-tucson',state:{scope:'tucson',category:'funding',query:'',year:'',sourceType:'',subject:'',page:1}}));broader.href=url.href;help.append(broader);panel.append(help);fundingYear.setAttribute('aria-describedby',help.id);
   for(const card of cards)funding.decorate(card,fundingRows.get(card));

@@ -9,10 +9,11 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const base=process.env.CATEGORY_TEST_BASE_URL||'http://127.0.0.1:8767';
 const server=process.env.CATEGORY_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8767','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const data=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url)));
+const funding=JSON.parse(readFileSync(new URL('../data/funding-browser-periods.json',import.meta.url)));
 const output=process.env.CATEGORY_TEST_OUTPUT||'/tmp/hap-category-search';
 const categories=['funding','sources','questions','updates'];
 const countText=n=>new RegExp('^'+n+' match');
-const years=r=>r.category==='funding'?r.programPeriod.years:r.years;
+const years=r=>r.category==='funding'?funding.records.find(x=>x.scope===r.scope&&x.id===r.id).programPeriod.years:r.years;
 const focusOn=el=>el.evaluate(node=>node===document.activeElement);
 const recordCount=(page,n)=>page.locator('#count').textContent().then(text=>assert.match(text,countText(n)));
 const pdfOptions={
@@ -25,7 +26,7 @@ const printSearches={
   'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125','source-excerpts',
  ]},
  phoenix:{category:'funding',query:'year:unknown',ids:[
-  'PHX-WEB-009','PHX-WEB-010','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
+  'PHX-WEB-009','PHX-WEB-010','PHX-WEB-012','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
   'BELL-03','BELL-04','BELL-06','BELL-07','BELL-08','PHX-WEB-029','PHX-WEB-030',
  ]},
 };

@@ -16,13 +16,14 @@ const log=[],pdfs=[],errors=[];
 const yearsById={
  'MC-HOME-WEB-001':['2027','2028'],'PHX-WEB-012':['2024'],
  'PHX-CFP-WEB-001':['2026'],'PHX-CFP-WEB-002':['2026'],'PHX-CFP-WEB-004':['2025'],'PHX-CFP-WEB-005':['2026'],
+ 'BELL-06':['2019','2020'],
  'FUND-PUB-001':['2024','2025'],'FUND-PUB-002':['2026','2027'],'FUND-PUB-003':['2024','2025'],
  'FUND-PUB-004':['2025','2026'],'FUND-PUB-005':['2025','2026'],'FUND-PUB-006':['2024','2025'],'FUND-PUB-007':['2024','2025','2026'],
- 'county-price-funding-2026':['2026','2027','2028','2029'],'county-funding-fy27-q1':['2026','2027'],
+ 'county-price-funding-2026':['2025','2026','2027','2028','2029','2030','2031','2032'],'county-funding-fy27-q1':['2026','2027'],
  'federal-allocations-2026':['2026','2027'],'coc-request-2026':['2026']
 };
 const normalize=id=>id.startsWith('fund-pub-')?id.toUpperCase():id;
-function match(id,value){id=normalize(id);return !value||(value==='__not_applicable'?id==='PHX-CFP-WEB-006':value==='__unknown'||value==='__unindexed'?!yearsById[id]&&id!=='PHX-CFP-WEB-006':(yearsById[id]||[]).includes(value));}
+function match(id,value){id=normalize(id);return !value||(value==='__not_applicable'?id==='PHX-CFP-WEB-006':value==='__unknown'||value==='__unindexed'?(!yearsById[id]||['BELL-06','PHX-WEB-012'].includes(id))&&id!=='PHX-CFP-WEB-006':(yearsById[id]||[]).includes(value));}
 const note=(width,surface,label,matches)=>log.push({width,surface,label,...(matches===undefined?{}:{matches}),passed:true});
 const focus=locator=>locator.evaluate(n=>n===document.activeElement);
 let browser;
@@ -48,7 +49,7 @@ async function pdf(page,name,ids){
  await page.pdf({path,format:'Letter',printBackground:false,tagged:true,timeout:90000});
  const text=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).replace(/\s+/g,' ');
  assert(text.includes('Funding year / period'),name+' period label in PDF');
- assert(text.includes('funding-period review pending'),name+' review status in PDF');
+ assert(text.includes('Period evidence checked'),name+' review status in PDF');
  for(const id of ids)assert(text.includes('Record ID: '+id),name+' retains '+id);
  const links=execPDF('pdfinfo',['-url',path],{encoding:'utf8',maxBuffer:8*1024*1024});
  const audit=JSON.parse(execPDF('audit',[path],{encoding:'utf8',maxBuffer:80*1024*1024}));
@@ -67,7 +68,7 @@ async function primary(width,scope){
  const ids=await cards.evaluateAll(ns=>ns.map(n=>n.id));
  assert.equal(ids.length,phx?19:7);
  assert.equal(await cards.locator(':scope > .funding-period').count(),ids.length,'period on every Funding record');
- assert.equal(await cards.locator(':scope > .funding-period > p').filter({hasText:'funding-period review pending'}).count(),ids.length);
+ assert.equal(await cards.locator(':scope > .funding-period > p').filter({hasText:'Period evidence checked'}).count(),ids.length);
  assert.equal(await select.getAttribute('aria-describedby'),phx?'funding-year-help':'catalog-funding-help');
  const ax=await page.locator(phx?'#record-filters':'.funding-catalog-panel').ariaSnapshot();
  assert.match(ax,/combobox "Funding year \/ period"/);assert.match(ax,/group "Filters"/);
@@ -279,7 +280,7 @@ try{
  }
  for(const scope of ['tucson','phoenix'])await handoffPlumbing(scope);
  assert.deepEqual(errors,[],'no browser errors');
- writeFileSync(`${output}/results.json`,JSON.stringify({status:'passed',researchHandoffsAccepted:0,syntheticDataIsNotResearch:true,checks:log,pdfs,errors},null,2));
- console.log(`PASS ${log.length} regional UI states at 320/390/768/1280px; ${pdfs.length} PDFs. Synthetic single/range/disjoint/unknown cases are test-only; no research handoff accepted.`);
+ writeFileSync(`${output}/results.json`,JSON.stringify({status:'passed',researchHandoffsAccepted:30,supplementalScopeRecord:1,syntheticDataIsNotResearch:true,checks:log,pdfs,errors},null,2));
+ console.log(`PASS ${log.length} regional UI states at 320/390/768/1280px; ${pdfs.length} PDFs. Thirty research handoff records plus one scope check; synthetic edge cases remain test-only.`);
 }catch(error){writeFileSync(`${output}/failure.json`,JSON.stringify({message:error.message,stack:error.stack,checks:log,errors},null,2));for(const [i,p] of (browser?.contexts().flatMap(c=>c.pages())||[]).entries())await p.screenshot({path:`${output}/failure-${i}.png`}).catch(()=>{});throw error;}
 finally{await browser?.close();server?.kill();}

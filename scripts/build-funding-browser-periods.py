@@ -16,6 +16,16 @@ for row in data['records']:
         assert row['review']['source_basis']
         assert period.get('evidence')
         assert all(e.get('url','').startswith('https://') and e.get('locator') for e in period['evidence'])
+        assert isinstance(period.get('hasUnknownComponent'), bool)
+        for part in period.get('periods', []):
+            if part['status'] in ['unknown', 'not_established', 'not_applicable']:
+                assert not part['years']
+            else:
+                assert part['status']=='verified' and part['evidence']
+                assert set(part['years'])=={m['year'] for m in part['yearMatches']}
+                assert all(m['basis'] in ['calendar_overlap','source_year_label'] for m in part['yearMatches'])
+        if period['status']=='not_applicable':
+            assert not period['years'] and not period['hasUnknownComponent']
     assert len(period['years'])==len(set(period['years']))
     assert all(len(y)==4 and y.isdecimal() for y in period['years'])
     assert period['label'] and period['explanation']

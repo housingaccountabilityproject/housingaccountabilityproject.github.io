@@ -62,4 +62,36 @@ for(const row of published.records){
 for(const page of ['search.html','phoenix/search.html','funding-explorer.html','phoenix/records.html']){
  assert(!read(page).includes('funding-period-framework'),page+' does not load synthetic data');assertions++;
 }
+// The same mixed-record contract applies to both regions and both unknown aliases.
+for(const scope of ['tucson','phoenix']){
+ const mixed=structuredClone(fixture),r=mixed.records.find(r=>r.scope===scope&&r.id.endsWith('SINGLE'));
+ r.programPeriod.hasUnknownComponent=true;
+ const m=load(mixed),record={...r,category:'funding',topics:[],searchText:''};
+ for(const alias of ['__unknown','__unindexed'])equal(m.api.matches(r,alias),true,scope+' mixed matches '+alias);
+ equal(m.api.matches(r,'2024'),true,scope+' mixed still matches supported year');
+ equal(m.api.matches(r,'__not_applicable'),false,scope+' mixed is not guidance');
+ equal(m.api.values(r),['2024','__unknown'],scope+' mixed options include both classifications');
+ equal(m.core.matches(record,{scope,category:'funding',year:'__unindexed',query:'year:2024'}),true,scope+' known-year query intersects unknown component');
+ equal(m.core.matches(record,{scope,category:'funding',year:'2024',query:'year:unknown'}),true,scope+' unknown query intersects known year');
+}
+const live=load(published),byId=id=>published.records.find(r=>r.id===id);
+equal(published.records.filter(r=>r.review.status==='accepted_handoff').length,31,'30 handoff records plus retained nineteenth browser record');
+equal(live.api.years(byId('BELL-06')),['2019','2020'],'checked HOME pool vintages, not adoption year alone');
+equal(live.api.years(byId('county-price-funding-2026')),['2025','2026','2027','2028','2029','2030','2031','2032'],'full City performance term, each supported overlapping year');
+equal(live.api.matches(byId('county-price-funding-2026'),'2033'),false,'no year beyond documented term');
+equal(live.api.years(byId('county-funding-fy27-q1')),['2026','2027'],'quarter interval year and explicit fiscal-label alias');
+const q=byId('county-funding-fy27-q1').programPeriod.periods[0];
+equal(q.yearMatches.find(m=>m.year==='2027').basis,'source_year_label','FY2027 is not calendar-2027 activity');
+equal(q.yearMatches.find(m=>m.year==='2026').basis,'calendar_overlap','quarter calendar overlap is 2026');
+for(const [scope,known,unknown,na] of [['tucson',11,1,0],['phoenix',7,13,1]]){
+ const rs=published.records.filter(r=>r.scope===scope);
+ equal(rs.filter(r=>live.api.years(r).length>0).length,known,scope+' supported record count');
+ equal(rs.filter(r=>live.api.matches(r,'__unknown')).length,unknown,scope+' unknown includes mixed and browser-only record');
+ equal(rs.filter(r=>live.api.matches(r,'__not_applicable')).length,na,scope+' guidance separate');
+}
+equal(live.api.years(byId('MC-PLAN-WEB-001')),[],'plan horizon does not become funding years');
+for(const id of ['BELL-06','PHX-WEB-012']){
+ equal(live.api.matches(byId(id),'__unknown'),true,id+' unresolved component retained');
+ equal(live.api.hasUnknown(byId(id)),true,id+' mixed flag');
+}
 console.log(`PASS ${assertions} funding-period assertions: single years, ranges, noncontinuous periods, unknowns, handoff overrides and city/test-data isolation. Accepted research batches: ${published.accepted_batches.length}.`);

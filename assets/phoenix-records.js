@@ -45,7 +45,7 @@
   }
   const fundingHelp=document.createElement('p');
   fundingHelp.className='funding-filter-help';fundingHelp.id='funding-year-help';
-  fundingHelp.textContent='Existing published period metadata is retained pending the separate research review. Funding years use fiscal/grant labels or period coverage; ranges match each covered year, not gaps between separate periods. Source/event dates are separate.';
+  fundingHelp.textContent=periods.help;
   fundingYear?.setAttribute('aria-describedby',fundingHelp.id);
   generalControls.append(legend, filterGrid, fundingHelp);
   form.prepend(searchRow, help, generalControls);
