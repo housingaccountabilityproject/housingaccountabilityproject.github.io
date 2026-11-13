@@ -26,7 +26,10 @@ function documentDate(r){
  return missing;
 }
 function period(r){
- if(r.category==='funding')return r.programPeriod?.label||'Active period: not yet verified';
+ if(r.category==='funding'){
+  const row=root.HAPFundingPeriods?.get(r.scope,r.id);
+  return row?root.HAPFundingPeriods.label(row):!r.programPeriod?.years.length&&r.programPeriod?.status!=='not_applicable'?'Unknown / not established':r.programPeriod.label;
+ }
  const labeled=useful(metadata(r,'Period'));if(labeled)return labeled;
  const context=metadata(r,'Dates & coverage');
  if(context&&/coverage|reporting period|plan period|survey period|fiscal year|program year/i.test(context))return context.split(/\.\s/)[0];
@@ -38,7 +41,7 @@ function summary(r){return r.shortSummary||r.displaySummary||(r.id==='federal-al
 function related(r){return (r.sourceIds||[]).filter(id=>id!==r.id).join(' · ')||'Not separately listed; follow the evidence links';}
 function fields(r,programNames){
  const agency=useful(r.agency)||missing,place=r.place||scopes[r.scope]+' · regional search scope';
- if(r.category==='funding')return [['Program',(programNames||r.programs||[]).join(' · ')||missing],['Administering body',agency],['Place / scope',place],['Fiscal / program period',period(r)]];
+ if(r.category==='funding')return [['Program',(programNames||r.programs||[]).join(' · ')||missing],['Administering body',agency],['Place / scope',place],['Funding year / period',period(r)],['Period review',root.HAPFundingPeriods?.reviewLabel(root.HAPFundingPeriods.get(r.scope,r.id))||'Published baseline · funding-period review pending']];
  if(r.category==='sources')return [['Issuer',agency],['Document date',documentDate(r)],['Period covered',period(r)],['Status',r.label||missing]];
  if(r.category==='questions')return [['Place / scope',place],['Period',period(r)],['Related evidence',related(r)]];
  return [['Actual publication date',publication(r)],['Affected records',related(r)]];

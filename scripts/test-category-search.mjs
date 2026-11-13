@@ -50,7 +50,7 @@ async function inspectPDF(page, scope, category, mode, expected, suffix=''){
  for(const r of expected)assert(text.includes('Record ID: '+r.id),`PDF retains ${r.id}`);
  assert(!text.includes('working preview'));
  if(category==='funding'){
-  assert(text.includes('Active period: not yet verified'));
+  assert(text.includes('Unknown / not established'));
   assert(text.includes('Known source / event dates'));
   if(scope==='tucson'){
    for(const amount of ['$4,962,047','$3,061,840.81','$448,998','$1,140,597','$9,613,482.81'])assert(text.includes(amount),'Allocation amount retained '+amount);
@@ -131,7 +131,7 @@ try{
 
   await page.locator('[data-category="funding"]').click();
   await select.selectOption('__unindexed');
-  assert((await page.locator('#results').textContent()).includes('Active period: not yet verified'));
+  assert((await page.locator('#results').textContent()).includes('Unknown / not established'));
   await page.locator('[data-category="sources"]').click();assert.equal(await select.inputValue(),'');
   await input.fill(scope==='tucson'?'"Craycroft/Lee Street"':'"Phoenix Manor"');
   assert(await page.locator('#results article').count()>0,'Quoted phrase finds regional evidence');

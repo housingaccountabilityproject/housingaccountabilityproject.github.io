@@ -33,7 +33,21 @@
   const filterGrid = document.createElement('div');
   filterGrid.className = 'record-filter-grid';
   filterGrid.append(topicControl, kindControl);
-  generalControls.append(legend, filterGrid);
+  const periods=window.HAPFundingPeriods;
+  const fundingControl=periods?.ready?periods.control('funding-year'):null;
+  const fundingYear=fundingControl?.select;
+  const fundingCards=cards.filter(card=>card.dataset.group==='funding');
+  const fundingRows=new Map(fundingCards.map(card=>[card,periods?.get('phoenix',card.id)]));
+  if(fundingControl){
+    filterGrid.append(fundingControl.box);
+    periods.fill(fundingYear,[...fundingRows.values()]);
+    for(const card of fundingCards)periods.decorate(card,fundingRows.get(card));
+  }
+  const fundingHelp=document.createElement('p');
+  fundingHelp.className='funding-filter-help';fundingHelp.id='funding-year-help';
+  fundingHelp.textContent='Existing published period metadata is retained pending the separate research review. Funding years use fiscal/grant labels or period coverage; ranges match each covered year, not gaps between separate periods. Source/event dates are separate.';
+  fundingYear?.setAttribute('aria-describedby',fundingHelp.id);
+  generalControls.append(legend, filterGrid, fundingHelp);
   form.prepend(searchRow, help, generalControls);
   if (sourceControls) {
     sourceControls.querySelector('legend').textContent = 'Filters';
@@ -44,6 +58,10 @@
     summary.textContent = 'About source years & program tags';
     sourceHelp.before(details);
     details.append(summary, sourceHelp);
+    const distinction=document.createElement('p');distinction.className='funding-filter-help';distinction.id='source-year-help';
+    distinction.textContent='Reporting / event year describes source coverage or a dated event. It is separate from the Funding tab’s Funding year / period.';
+    sourceControls.append(distinction);
+    document.getElementById('source-year').setAttribute('aria-describedby',distinction.id);
   }
   const textTools = window.HAPSearchText;
   const fold = textTools?.fold || (value => String(value).normalize('NFKC').toLowerCase());
@@ -85,17 +103,18 @@
   const notice = window.HAPListBrowser.notice(document.querySelector('.search-print-toolbar'));
   const paginationMount = document.createElement('div'); document.querySelector('#record-results').after(paginationMount);
   const pager = window.HAPListBrowser.create({id:'records',label:()=> 'Phoenix & Maricopa County '+(view==='source'?'source references':view==='all'?'evidence-browser entries':view+' entries'),total:()=>view==='all'?cards.length:cards.filter(card=>card.dataset.group===view).length,entries:cards,mount:paginationMount,count,empty,focusTarget:count,onPage:()=>{navigation?.commit();printing?.update();}});
-  const browsingState = () => ({query:query.value,topic:topic.value,kind:kind.value,view,facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value])),page:pager.page()});
+  const browsingState = () => ({query:query.value,topic:topic.value,kind:kind.value,view,...(fundingYear?{fundingYear:fundingYear.value}:{}),facets:Object.fromEntries(sourceFacets.map(f=>[f.element.id,f.element.value])),page:pager.page()});
   const options = window.HAPSearchOptions.register({
     surface: 'phoenix-evidence', mount: document.querySelector('.search-print-toolbar'),
     state: browsingState,
     restore: shared => { applyShared(shared); update(); pager.setPage(shared.page || 1); navigation?.commit(); }
   });
 
-  function basicMatch(card) {
+  function basicMatch(card,ignoreFundingYear=false) {
     return (view === 'all' || card.dataset.group === view)
       && (!topic.value || card.dataset.topic.split(' ').includes(topic.value))
-      && (!kind.value || card.dataset.kind === kind.value);
+      && (!kind.value || card.dataset.kind === kind.value)
+      && (ignoreFundingYear || view!=='funding' || !fundingYear || periods.matches(fundingRows.get(card),fundingYear.value));
   }
   function facetMatch(card, replacement, value) {
     return sourceFacets.every(facet => {
@@ -120,10 +139,14 @@
     if(title)title.textContent=view==='funding'?'Understand Phoenix and Maricopa County funding':view==='source'?'Phoenix and Maricopa County source index':view==='question'?'Phoenix and Maricopa County research questions':'Search Phoenix and Maricopa County research';
     if (sourceControls) sourceControls.hidden = view !== 'source';
     generalControls.hidden = view === 'source';
+    form.dataset.fundingView=String(view==='funding');
+    if(fundingControl)fundingControl.box.hidden=view!=='funding';
+    fundingHelp.hidden=view!=='funding';
     if (kindControl) kindControl.hidden = view === 'source';
     if (topicControl) topicControl.hidden = view === 'source';
     const terms = tokenize(query.value);
     const textMatches = new Map(cards.map(card => [card, terms.every(term => model.get(card).fields.some(([,value]) => value.includes(term)))]));
+    if(view==='funding'&&fundingYear)periods.fill(fundingYear,[...fundingRows.values()],fundingCards.filter(card=>basicMatch(card,true)&&textMatches.get(card)).map(card=>fundingRows.get(card)));
     const found = [];
     for (const card of cards) {
       const matches = basicMatch(card) && textMatches.get(card) && (view !== 'source' || facetMatch(card));
@@ -150,6 +173,7 @@
     query.value = '';
     topic.value = '';
     kind.value = '';
+    if(fundingYear)fundingYear.value='';
     sourceFacets.forEach(({element}) => { element.value = ''; });
     view = 'all';
   }
@@ -173,6 +197,7 @@
   buttons.forEach(button => button.addEventListener('click', () => {
     view = button.dataset.view;
     topic.value = ''; kind.value = '';
+    if(fundingYear)fundingYear.value='';
     sourceFacets.forEach(({element}) => { element.value = ''; });
     update(); navigation.commit();
   }));
@@ -189,6 +214,7 @@
     clear();
     if (typeof shared.query === 'string' && shared.query.length <= 4096) query.value = shared.query;
     if (buttons.some(button => button.dataset.view === shared.view)) view = shared.view;
+    if(fundingYear&&[...fundingYear.options].some(option=>option.value===shared.fundingYear))fundingYear.value=shared.fundingYear;
     for (const [select, value] of [[topic,shared.topic],[kind,shared.kind],...sourceFacets.map(f=>[f.element,shared.facets?.[f.element.id]])]) {
       if ([...select.options].some(option=>option.value===value)) select.value=value;
     }
@@ -205,6 +231,7 @@
       ...(options.includeTerms() ? [`Search: ${query.value.trim() || '(no search terms)'}`] : []),
       `Index: ${buttons.find(button => button.dataset.view === view).textContent}`,
       ...(view !== 'source' ? [`Topic: ${selectedLabel(topic)}`, `Record type: ${selectedLabel(kind)}`] : []),
+      ...(view==='funding'&&fundingYear?[`Funding year / period: ${periods.optionLabel(fundingYear.value)}`]:[]),
       ...(view === 'source' ? sourceFacets.map(({element,label}) => `${label}: ${selectedLabel(element)}`) : [])
     ] , results: pager.matches, currentResults: pager.current,
     snapshot: () => 'Published research snapshot: '+document.querySelector('[data-research-snapshot]').dataset.researchSnapshot+'. Funding stages and project counts remain separate; source qualifications are retained.'

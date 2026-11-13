@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TEST DATA · Funding-period framework</title><link rel="stylesheet" href="../../assets/funding-periods.css"><style>body{font:16px/1.6 Arial,sans-serif;color:#17303d;background:#f7faf9;margin:0;padding:20px}main{max-width:1120px;margin:auto}.warning{padding:18px;border:3px solid #954522;background:#fff2d8;font-weight:bold}.regions{display:grid;grid-template-columns:1fr 1fr;gap:24px}section{min-width:0}input{font:inherit;padding:10px;min-height:48px;width:100%;box-sizing:border-box}button{font:inherit;min-height:48px;padding:8px 16px}label{display:block;font-weight:bold}select{margin:8px 0}article{border:1px solid #b8cbbf;padding:16px;margin:16px 0;background:white}h1{font-size:30px}@media(max-width:650px){.regions{grid-template-columns:1fr}}</style></head><body><main><p class="warning" role="note">TEST DATA ONLY — fictional records for framework checks. These are not verified funding findings, actual program periods or research handoffs.</p><h1>Funding-period framework · synthetic cases</h1><div class="regions" id="regions"></div></main><script src="../../assets/funding-periods.js"></script><script>
+fetch('funding-period-framework.json').then(r=>r.json()).then(data=>{
+ const api=window.HAPFundingPeriods;
+ for(const scope of ['tucson','phoenix']){
+  const rows=data.records.filter(r=>r.scope===scope),region=document.createElement('section');region.id='test-'+scope;
+  const title=document.createElement('h2');title.textContent=scope==='tucson'?'Tucson / Pima · TEST':'Phoenix / Maricopa · TEST';region.append(title);
+  const label=document.createElement('label');label.htmlFor=scope+'-query';label.textContent='Search test records';const query=document.createElement('input');query.id=label.htmlFor;query.type='search';region.append(label,query);
+  const control=api.control(scope+'-year',scope+'-results');api.fill(control.select,rows);region.append(control.box);
+  const clear=document.createElement('button');clear.textContent='Clear filters';region.append(clear);
+  const status=document.createElement('p');status.setAttribute('role','status');const list=document.createElement('div');list.id=scope+'-results';region.append(status,list);document.getElementById('regions').append(region);
+  function update(){const found=rows.filter(r=>r.id.toLowerCase().includes(query.value.toLowerCase())&&api.matches(r,control.select.value));list.replaceChildren();for(const r of found){const a=document.createElement('article');a.dataset.testId=r.id;const h=document.createElement('h3');h.textContent=r.id;a.append(h);api.decorate(a,r);list.append(a);}status.textContent=found.length+' of '+rows.length+' synthetic test records';}
+  query.addEventListener('input',update);control.select.addEventListener('change',update);clear.addEventListener('click',()=>{query.value='';control.select.value='';update();query.focus();});update();
+ }
+});
+</script></body></html>
