@@ -81,18 +81,20 @@ function appendPrintFields(a,r){
 }
 function compactRecord(r){
  const a=node('article',undefined,'print-record compact-record');a.dataset.recordKey=r.key;
+ const annotation=r.category==='funding'?window.HAPFundingPeriods?.get(r.scope,r.id):null;
  a.append(paragraph(scopeNames[r.scope]+' · '+names[r.category]),node('h2',r.title),paragraph('Record ID: '+r.id));
  appendPrintFields(a,r);
  if(r.category==='funding'){
-  const p=window.HAPFundingPeriods?.get(r.scope,r.id)?.programPeriod||r.programPeriod;a.append(paragraph(standard.period(r)));
+  const p=annotation?.programPeriod||r.programPeriod;a.append(paragraph(standard.period(r)));
   if(p?.explanation)a.append(paragraph(p.explanation));
-  if(r.knownDates?.length)a.append(paragraph('Known source / event dates, not active periods: '+r.knownDates.map(d=>(d.date?d.date+' · ':'')+d.label).join('; ')));
+  const dates=annotation?.knownDates||r.knownDates;
+  if(dates?.length)a.append(paragraph('Known source / event dates, not active periods: '+dates.map(d=>(d.date?d.date+' · ':'')+d.label).join('; ')));
  }else{a.append(paragraph((r.years.length?r.years.join(', '):'Year not established')+' · '+r.yearBasis));if(r.yearNote)a.append(paragraph(r.yearNote));}
  if(r.label)a.append(paragraph(r.label));
  a.append(paragraph(standard.summary(r)));
  for(const caution of r.caveats)a.append(paragraph(caution,'caution'));
  if(r.sourceIds.length)a.append(paragraph('Source / related IDs: '+r.sourceIds.join(' · ')));
- const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
+ const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(annotation?.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
  const seen=new Set();for(const l of links){if(!l.url||seen.has(l.url))continue;seen.add(l.url);const warning=r.linkWarnings?.find(w=>w.url===l.url);const p=paragraph((warning?'Mismatched historical link · ':'')+l.title+' ','print-url');p.append(link(l.url,l.url));a.append(p);if(warning)a.append(paragraph(warning.text,'caution'));}
  return a;
 }

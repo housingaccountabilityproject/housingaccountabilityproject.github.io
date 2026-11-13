@@ -240,6 +240,36 @@ async function synthetic(width){
  if(width===390||width===1280)await page.screenshot({path:`${output}/${width}-TEST-DATA-ONLY.png`,fullPage:true});
  await page.close();
 }
+async function handoffPlumbing(scope){
+ // Instrumented test copy only: no production data file is written, accepted or published.
+ const copy=JSON.parse(readFileSync(new URL('../data/funding-browser-periods.json',import.meta.url)));
+ const id=scope==='tucson'?'craycroft-financing-2026':'PHX-WEB-009';
+ const row=copy.records.find(r=>r.scope===scope&&r.id===id);
+ const testURL='https://example.invalid/hap-pr30/TEST-ONLY-period-evidence';
+ row.review={status:'test_only'};
+ row.programPeriod={label:'TEST DATA ONLY · grant fiscal year 2042',years:['2042'],status:'test_only',explanation:'SYNTHETIC handoff plumbing check; not a verified funding finding.',evidence:[{url:testURL,locator:'TEST source reference · not research'}]};
+ row.knownDates=[...(row.knownDates||[]),{date:'2099-01-01',years:['2099'],label:'TEST source/event 2099 · excluded from Funding years'}];
+ const page=await open(1280,scope==='tucson'?'/search.html':'/phoenix/search.html');
+ await page.route('**/assets/funding-periods-data.js',route=>route.fulfill({contentType:'application/javascript',body:'window.HAP_FUNDING_PERIODS_DATA='+JSON.stringify(copy).replaceAll('<','\\u003c')+';'}));
+ await page.reload();await page.locator('[data-category="funding"]').click();
+ assert.equal(await page.locator('#category-filter option[value="2099"]').count(),0,'test event date never becomes a funding year');
+ await page.locator('#category-filter').selectOption('2042');
+ assert((await page.locator('#count').textContent()).startsWith('1 match'));
+ assert.equal(await page.locator('#results article').getAttribute('data-record-key'),row.key);
+ assert((await page.locator('#results article').textContent()).includes('TEST DATA — not verified research'));
+ for(const mode of ['compact','full']){
+  await page.locator(mode==='compact'?'#print-compact':'#print').click();
+  const report=page.locator('#print-sheet');
+  assert((await report.textContent()).includes('TEST DATA ONLY · grant fiscal year 2042'));
+  assert((await report.textContent()).includes('TEST DATA — not verified research'));
+  assert((await report.textContent()).includes('TEST source/event 2099'));
+  assert(await report.locator(`a[href="${testURL}"]`).count()>0,'current test period evidence reaches '+mode+' print');
+  await page.getByRole('button',{name:'← Back to search',exact:true}).click();
+  assert.equal(await page.locator('#category-filter').inputValue(),'2042');
+  note(1280,scope+'-TEST-ONLY-handoff-plumbing',mode+' current period, event distinction and evidence reference',1);
+ }
+ await page.close();
+}
 try{
  for(let i=0;i<50;i++){try{assert((await fetch(base+'/search.html')).ok);break;}catch(e){if(i===49)throw e;await new Promise(r=>setTimeout(r,100));}}
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined)});
@@ -247,6 +277,7 @@ try{
   for(const scope of ['tucson','phoenix']){await primary(width,scope);await category(width,scope);}
   await synthetic(width);
  }
+ for(const scope of ['tucson','phoenix'])await handoffPlumbing(scope);
  assert.deepEqual(errors,[],'no browser errors');
  writeFileSync(`${output}/results.json`,JSON.stringify({status:'passed',researchHandoffsAccepted:0,syntheticDataIsNotResearch:true,checks:log,pdfs,errors},null,2));
  console.log(`PASS ${log.length} regional UI states at 320/390/768/1280px; ${pdfs.length} PDFs. Synthetic single/range/disjoint/unknown cases are test-only; no research handoff accepted.`);
