@@ -94,7 +94,7 @@ async function primary(width,scope){
  await check(ids,'clear restores scope');
  // Topic, year and query work together, including zero-count options that retain the selection.
  const topic=page.locator(phx?'#record-topic':'#catalog-filter');
- await select.selectOption(phx?'2027':'2025');await topic.selectOption('home');
+ await select.selectOption(phx?'2027':'2025');await topic.selectOption(phx?'county':'home');
  const withTopic=phx?['MC-HOME-WEB-001']:['fund-pub-003','fund-pub-004','fund-pub-005'];
  await check(withTopic,'topic plus year');await input.fill(withTopic[0]);await check([withTopic[0]],'topic plus year plus search');
  await clear.click();if(phx)await page.getByRole('button',{name:'Funding',exact:true}).click();

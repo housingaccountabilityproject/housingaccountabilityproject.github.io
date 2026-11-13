@@ -22,6 +22,10 @@ unresolved evidence. Set `review.status` to `accepted_handoff` only after those
 inputs have been checked. Retain `awaiting_handoff` on every untouched record.
 Add the batch provenance to `accepted_batches` and rebuild with
 `python scripts/build-funding-browser-periods.py`.
+Each accepted batch has an `id`. Each accepted record requires that `batch_id`,
+a `review.source_basis`, and HTTPS period-evidence references with exact
+locators. The builder rejects test records and accepted labels without these
+inputs. The semantic test checks that the generated bundle matches this ledger.
 
 Use `programPeriod.fiscalYearLabel` and `programYearLabel` for their literal
 meanings. Use explicit `start`/`end` only where the funding, grant or reporting
@@ -64,3 +68,6 @@ Tests cover supported single/multiple years, disjoint periods, unknown periods,
 city isolation, filter combinations, clearing, pagination, accessible names and
 keyboard controls, sharing and both print modes. Re-run the focused framework
 test after a handoff; keep the existing required checks intact.
+Update the browser tests' factual expected year/record sets from the checked
+handoff when an assignment changes. Keep the independent synthetic range, gap
+and unknown assertions intact; a research change is not a reason to relax them.

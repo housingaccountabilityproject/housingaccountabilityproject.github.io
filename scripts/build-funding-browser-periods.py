@@ -5,9 +5,17 @@ root=Path(__file__).resolve().parents[1]
 data=json.loads((root/'data/funding-browser-periods.json').read_text())
 assert len(data['records'])==31
 assert len({r['key'] for r in data['records']})==31
+batch_ids={batch['id'] for batch in data['accepted_batches']}
 for row in data['records']:
     period=row['programPeriod']
     assert row['scope'] in ['tucson','phoenix']
+    assert not row['id'].startswith('TEST-')
+    assert row['review']['status'] in ['awaiting_handoff','accepted_handoff']
+    if row['review']['status']=='accepted_handoff':
+        assert row['review']['batch_id'] in batch_ids
+        assert row['review']['source_basis']
+        assert period.get('evidence')
+        assert all(e.get('url','').startswith('https://') and e.get('locator') for e in period['evidence'])
     assert len(period['years'])==len(set(period['years']))
     assert all(len(y)==4 and y.isdecimal() for y in period['years'])
     assert period['label'] and period['explanation']
