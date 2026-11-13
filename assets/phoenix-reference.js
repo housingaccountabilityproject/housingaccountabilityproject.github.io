@@ -20,6 +20,8 @@
  // Promote existing native filters into visible buttons, preserving their values and behavior.
  for(const id of ['record-topic','record-kind','connection-filter']){
   const select=document.getElementById(id);if(!select)continue;
+  // The evidence browser uses compact native selects in its unified filter panel.
+  if(select.closest('#record-filters'))continue;
   const label=document.querySelector(`label[for="${id}"]`);
   const group=document.createElement('div');group.className='filter-chips';group.setAttribute('role','group');group.setAttribute('aria-label',label?.textContent||'Filter');
   const buttons=[...select.options].map(option=>{const b=document.createElement('button');b.type='button';b.textContent=option.textContent;b.dataset.value=option.value;b.addEventListener('click',()=>{select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));});group.append(b);return b;});

@@ -15,6 +15,36 @@
   const sourceControls = document.querySelector('#source-filters');
   const kindControl = document.querySelector('#record-kind-control');
   const topicControl = document.querySelector('#record-topic-control');
+  // Keep one search row and the same native filter controls in every index view.
+  // Enhance the existing markup here so generated records and their builder stay separate.
+  form.classList.add('record-filters-unified');
+  const searchRow = document.createElement('div');
+  searchRow.className = 'record-search-row';
+  searchRow.append(query.closest('.record-query'), form.querySelector('button[type="reset"]'));
+  const help = document.createElement('p');
+  help.id = 'record-filter-help';
+  help.className = 'record-filter-help';
+  help.textContent = 'Search applies to the selected tab. Clear filters returns to All entries.';
+  query.setAttribute('aria-describedby', help.id);
+  const generalControls = document.createElement('fieldset');
+  generalControls.id = 'record-general-filters';
+  const legend = document.createElement('legend');
+  legend.textContent = 'Filters';
+  const filterGrid = document.createElement('div');
+  filterGrid.className = 'record-filter-grid';
+  filterGrid.append(topicControl, kindControl);
+  generalControls.append(legend, filterGrid);
+  form.prepend(searchRow, help, generalControls);
+  if (sourceControls) {
+    sourceControls.querySelector('legend').textContent = 'Filters';
+    const sourceHelp = sourceControls.querySelector('.source-filter-help');
+    const details = document.createElement('details');
+    details.className = 'record-filter-notes';
+    const summary = document.createElement('summary');
+    summary.textContent = 'About source years & program tags';
+    sourceHelp.before(details);
+    details.append(summary, sourceHelp);
+  }
   const textTools = window.HAPSearchText;
   const fold = textTools?.fold || (value => String(value).normalize('NFKC').toLowerCase());
   const tokenize = textTools?.tokens || (value => fold(value).trim().split(/\s+/).filter(Boolean));
@@ -89,6 +119,7 @@
     const title=document.querySelector('.records-intro h1');
     if(title)title.textContent=view==='funding'?'Understand Phoenix and Maricopa County funding':view==='source'?'Phoenix and Maricopa County source index':view==='question'?'Phoenix and Maricopa County research questions':'Search Phoenix and Maricopa County research';
     if (sourceControls) sourceControls.hidden = view !== 'source';
+    generalControls.hidden = view === 'source';
     if (kindControl) kindControl.hidden = view === 'source';
     if (topicControl) topicControl.hidden = view === 'source';
     const terms = tokenize(query.value);

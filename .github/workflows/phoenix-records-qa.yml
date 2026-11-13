@@ -47,6 +47,7 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.65.0
           npx playwright install chromium
       - run: node scripts/test-phoenix-index.mjs
+      - run: node scripts/test-phoenix-filters.mjs
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
       - run: node scripts/test-approved-site-design.mjs
@@ -54,5 +55,7 @@ jobs:
         if: always()
         with:
           name: search-print-pdfs
-          path: /tmp/hap-search-print/*.pdf
+          path: |
+            /tmp/hap-search-print/*.pdf
+            /tmp/hap-phoenix-filters/
           if-no-files-found: ignore
