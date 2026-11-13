@@ -87,13 +87,14 @@
 
 /* One compact search/filter panel across the four evidence-browser views. */
 #record-filters.record-filters-unified { padding: 20px; }
+#record-filters.record-filters-unified :is(input, select, button) { min-height: 48px; }
 .record-filters-unified .record-search-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; }
 .record-filters-unified .record-query { min-width: 0; }
 .record-filters-unified .record-search-row button { width: auto; padding-inline: 18px; white-space: nowrap; }
 .record-filters-unified .record-filter-help { margin: 10px 0 18px; font-size: 13px; line-height: 1.6; color: var(--muted); }
 .record-filters-unified #record-general-filters,
 .record-filters-unified #source-filters { margin: 0; padding: 0; min-inline-size: 0; border: 0; background: transparent; }
-.record-filters-unified fieldset legend { padding: 0; margin-bottom: 10px; font-size: 13px; font-weight: bold; }
+#record-filters.record-filters-unified fieldset legend { padding: 0; margin-bottom: 10px; font-size: 13px; font-weight: bold; }
 .record-filters-unified .record-filter-grid,
 .record-filters-unified .source-filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .record-filters-unified .record-filter-grid > div { min-width: 0; }

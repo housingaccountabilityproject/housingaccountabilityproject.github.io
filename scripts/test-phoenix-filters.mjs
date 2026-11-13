@@ -29,6 +29,7 @@ try {
     const cards = await page.locator('.record-card').evaluateAll(nodes=>nodes.map(n=>({id:n.id,...n.dataset})));
     const query = page.getByRole('searchbox');
     const clear = page.getByRole('button',{name:'Clear filters',exact:true});
+    let sharedLayout;
     const selectView = async name => {await clear.click();await page.getByRole('button',{name,exact:true}).click();};
     async function check(expected,total,label) {
       const state = await page.evaluate(()=>({
@@ -53,6 +54,17 @@ try {
       assert.equal(await page.locator('#record-filters .filter-chips').count(),0);
       const fields = view==='source' ? Object.keys(facets) : ['record-topic','record-kind'];
       for(const id of fields) assert(await page.locator('#'+id).isVisible(),name+' '+id+' is available');
+      const layout = await page.locator('#record-filters').evaluate(form=>{
+        const origin=form.getBoundingClientRect();
+        const rect=node=>{const r=node.getBoundingClientRect();return {x:r.x-origin.x,y:r.y-origin.y,width:r.width,height:r.height};};
+        const legend=[...form.querySelectorAll('fieldset')].find(n=>!n.hidden).querySelector('legend');
+        const style=getComputedStyle(legend);
+        return {search:rect(form.querySelector('input')),clear:rect(form.querySelector('button[type="reset"]')),legend:{font:style.font,padding:style.padding},controlHeights:[...form.querySelectorAll('input,select,button')].filter(n=>n.getClientRects().length).map(n=>n.getBoundingClientRect().height)};
+      });
+      assert(layout.controlHeights.every(n=>n===48),name+' common 48px controls');
+      delete layout.controlHeights;
+      if(sharedLayout)assert.deepEqual(layout,sharedLayout,name+' shared search row and filter-label styling');
+      else sharedLayout=layout;
       const ax = await page.locator('#record-filters').ariaSnapshot();
       assert.match(ax,/searchbox "Search Phoenix and Maricopa County research"/);
       assert.match(ax,/group "Filters"/);
@@ -99,6 +111,14 @@ try {
         await page.keyboard.press('Tab');
         assert.equal(await page.evaluate(()=>document.activeElement.id),id,name+' keyboard '+id);
         assert.match(await page.locator('#'+id).evaluate(n=>getComputedStyle(n).outlineStyle),/solid/);
+      }
+      if(view==='source') {
+        await page.keyboard.press('Tab');
+        assert(await page.locator('.record-filter-notes summary').evaluate(n=>n===document.activeElement));
+        await page.keyboard.press('Enter');
+        assert(await page.locator('.source-filter-help').isVisible());
+        await page.keyboard.press('Enter');
+        assert(await page.locator('.source-filter-help').isHidden());
       }
       await clear.click();
       assert.equal(await query.inputValue(),'');
