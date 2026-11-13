@@ -1,0 +1,7 @@
+/* Preserve existing visible URL labels while PDF annotations use HTTPS.
+   Only the Phoenix overview already prints these relative href labels. */
+@media print {
+  body.phoenix-overview .source-links a[data-hap-print-original-href]::after {
+    content: ' (' attr(data-hap-print-original-href) ')';
+  }
+}

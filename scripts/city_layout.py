@@ -59,9 +59,11 @@ def footer(path, city):
         links += [('Corrections & history', 'phoenix/corrections.html')]
     else:
         links += [('Updates feed', 'feed.xml')]
+    if city == 'shared':
+        links = [('Search Tucson' if label == 'Search' else 'Housing help: Tucson' if label == 'Housing help' else label, target) for label, target in links]
     nav = ''.join(city_link(label, target, path) for label, target in links)
     areas = ''.join(city_link(label,target,path) for label,target in [('Tucson & Pima County','tucson/index.html'),('Phoenix & Maricopa County','phoenix/index.html')])
-    learn = ''.join(city_link(label,target,path) for label,target in MORE[route_city][:3])
+    learn = ''.join(city_link('Reports & reading: Tucson' if city == 'shared' and label == 'Reports & reading' else label,target,path) for label,target in MORE[route_city][:3])
     about = ''.join(city_link(label,target,path) for label,target in [('About the project','about.html'),('Contact','contact.html')])
     return f'<footer class="city-footer"><div class="city-wrap"><p class="city-footer-title">Housing Accountability Project</p><p>Independent public research. Read each finding with its date and source.</p><div class="city-footer-grid"><div><p class="city-footer-label">Research areas</p><nav aria-label="Research area links">{areas}</nav></div><div><p class="city-footer-label">Learn</p><nav aria-label="Learning resources">{learn}</nav></div><div><p class="city-footer-label">Reader tools</p><nav class="reader-tools" aria-label="Reader tools">{nav}</nav></div><div><p class="city-footer-label">About</p><nav aria-label="Project information">{about}</nav></div></div></div><p>Public Research Website</p></footer>'
 
@@ -167,7 +169,22 @@ def apply(output, path):
         version = hashlib.sha256((ROOT/'assets'/filename).read_bytes()).hexdigest()[:12]
         return f'{attribute}="{url}?v={version}"'
     output = re.sub(r'(href|src)="((?:\.\./)*assets/(city-layout\.(?:css|js)|phoenix-connections\.js|phoenix-records\.js|research-center-filter\.js))(?:\?[^"]*)?"',asset_version,output)
-    return output
+    return general_print_links(output, path)
+
+
+def general_print_links(output, path):
+    """Opt only four ordinary pages into portable print annotations."""
+    if path not in ['about.html', 'glossary.html', 'phoenix/index.html', 'research-updates.html']:
+        return output
+    output = re.sub(r'<(?:script src|link rel="stylesheet" href)="[^"]*assets/general-page-print-links\.(?:js|css)(?:\?[^"]*)?"(?: defer></script>|>)', '', output)
+    tags = []
+    for suffix in ['css', 'js']:
+        asset = 'assets/general-page-print-links.' + suffix
+        version = hashlib.sha256((ROOT/asset).read_bytes()).hexdigest()[:12]
+        src = escape(relative(asset, path)) + '?v=' + version
+        tags.append(f'<link rel="stylesheet" href="{src}">' if suffix == 'css' else f'<script src="{src}" defer></script>')
+    output = re.sub(r'(<link rel="stylesheet" href="[^"]*assets/city-layout\.css(?:\?[^"]*)?">)', lambda match: tags[0] + match.group(1), output, count=1)
+    return output.replace('</head>', tags[1] + '</head>')
 
 
 def build():

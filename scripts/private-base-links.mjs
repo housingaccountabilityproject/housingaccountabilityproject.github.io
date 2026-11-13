@@ -1,0 +1,6 @@
+import {chromium} from 'playwright';import {spawn} from 'node:child_process';import {writeFileSync} from 'node:fs';import {execPDF} from './pdf-tools.mjs';
+const server=spawn('python3',['-m','http.server','8792','--bind','127.0.0.1'],{cwd:'/tmp/hap-eight-base',stdio:'ignore'});let b;const results=[];
+try{for(let i=0;i<30;i++){try{await fetch('http://127.0.0.1:8792');break;}catch{await new Promise(r=>setTimeout(r,100));}}
+b=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium'});const p=await b.newPage();await p.route(/^https?:/,r=>r.request().url().startsWith('http://127.0.0.1:8792')?r.continue():r.abort());
+for(const name of ['about.html','glossary.html','phoenix/index.html','research-updates.html']){await p.goto('http://127.0.0.1:8792/'+name);if(name.startsWith('phoenix'))await p.locator('.city-evidence-library>summary').click();const path='/tmp/base-'+name.replaceAll('/','-')+'.pdf';await p.pdf({path,format:'Letter'});const d=JSON.parse(execPDF('audit',[path],{encoding:'utf8',maxBuffer:80*1024*1024}));results.push({page:name,previewLinks:d.pages.flatMap(p=>p.links).filter(l=>l.uri?.startsWith('http://127.0.0.1')).length});}
+writeFileSync('../artifacts/base-page-link-comparison.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results));}finally{await b?.close();server.kill();}

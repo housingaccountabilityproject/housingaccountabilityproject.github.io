@@ -4,8 +4,8 @@
   "files": {
     "assets/category-search-coverage.js": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
     "assets/category-search-data.js": "0d1b279d509c843c583780190b8372c4bb67890a41bdceb479e6a0b3a4a2fb23",
-    "assets/search-index.js": "812d0331fddd252ecb80f8d71d878c64f8a9f2f9e429e868a6836ddaaa31f641",
-    "assets/search-source-urls.js": "bf9e8ebc5b9de567b7852c93d124264552c9e31196cad8a2be45e9d1375ca16c",
+    "assets/search-index.js": "000ad5fc790aa9c13d22e34f0fe4a06dca951094311c016261e4f74a76c2ed42",
+    "assets/search-source-urls.js": "598e81b4c1e103d2b5c14fdffe30522fc1403c2f2bfc7f0c53e19fc1ca711b63",
     "data/category-search.json": "aea68bb694a0f10d0efd230e511390c529f0dfaf4643bcb3f05103efef385b91",
     "data/city-reader-guide.json": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
     "data/funding-period-coverage.json": "a2532ed13e8c69eb74ecf0d25f2eb2e0f1bbc9f8226a85fb1371558482c3fcff",
@@ -19,12 +19,12 @@
     "data/public-center-catalog-v0.2.json": "d3936f84ea04c05e07c5d7d8558bce039802009597e119c36474a15318884cf6",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "876cd585ca68702e6c59682be4cf1118253d8e770b582c54c062c5627aeda90f",
+    "data/search-coverage.json": "05327cd4992002af41a5406b4792d8ee3ac38118fac8ed0b66dc61993e2be543",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
     "data/source-register.json": "b535e99a9af244fe80e4da84a4662c457ff3020f3107444c8a5640df0e14e9c1",
-    "feed.xml": "b2fc6f7a917b4c7a42e45820de19777e1061ba620d1ff95f327019219b5e11ec",
-    "reports/tucson-housing-funding-outcomes-2026.html": "b02ee8df7be88db1eac9b23846e3137c2aae661bd37dcb07f341b88b5677056e"
+    "feed.xml": "ee4ab2ef6bd1eedddc660cf74a84c3963e7e5b1cf5797414c7dc8ad6d512d992",
+    "reports/tucson-housing-funding-outcomes-2026.html": "d07f1b020b25847f9611acf7d95f4f65043d4bcd9d2b91f52aed5b1cd86cef17"
   },
   "registers": {
     "evidence.html": [
@@ -493,7 +493,7 @@
           "ids": [
             "src-124"
           ],
-          "sha256": "893f567f051d32d7366aca8785801c4f1df36c13ab680704af8ba7b93068a6d8"
+          "sha256": "c8f32255413aef1c561ece4581b1441b1416d270fc3975ae945ae66488bf632a"
         },
         {
           "id": "src-125",

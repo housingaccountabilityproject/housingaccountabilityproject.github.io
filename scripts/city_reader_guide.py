@@ -75,8 +75,8 @@ def stages(spec, path):
     cards = []
     for index, (title, short, explanation) in enumerate(steps):
         example = spec['stage_examples'][index]
-        cards.append(f'<li><span class="city-stage-letter" aria-hidden="true">{chr(65+index)}</span><h4>{title}</h4><p>{short}</p><details><summary>What does this establish?</summary><p>{explanation}</p><a href="{href(example["href"],path)}">{escape(example["label"])}</a></details></li>')
-    return '<div class="city-stage-guide"><h3>Four records. Four different meanings.</h3><p class="city-stage-note">These are separate measures, not a guaranteed sequence. Evidence of one does not establish the others.</p><ol class="city-stage-grid">' + ''.join(cards) + '</ol></div>'
+        cards.append(f'<li><span class="city-stage-letter" aria-hidden="true">{chr(65+index)}</span><h3>{title}</h3><p>{short}</p><details><summary>What does this establish?</summary><p>{explanation}</p><a href="{href(example["href"],path)}">{escape(example["label"])}</a></details></li>')
+    return '<div class="city-stage-guide"><h2>Four records. Four different meanings.</h2><p class="city-stage-note">These are separate measures, not a guaranteed sequence. Evidence of one does not establish the others.</p><ol class="city-stage-grid">' + ''.join(cards) + '</ol></div>'
 
 
 def guide(city, spec, path, projects):
