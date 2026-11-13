@@ -41,6 +41,7 @@ async function share(page,expected){
  for(const [key,value] of Object.entries(expected))assert.equal(payload.state[key],value,'shared '+key);
  assert.equal(url.origin,'https://housingaccountabilityproject.github.io');
  await page.goto(base+url.pathname+url.hash);
+ await page.reload(); // An explicit shared URL must also survive a fresh document load.
 }
 async function pdf(page,name,ids){
  const path=`${output}/${name}.pdf`;
@@ -92,6 +93,11 @@ async function primary(width,scope){
  assert(await focus(phx?clear:input),surface+' retains the established clear-focus behavior');assert.equal(await select.inputValue(),'');assert.equal(await input.inputValue(),'');
  if(phx){assert.equal(await page.locator('.record-views [aria-pressed="true"]').getAttribute('data-view'),'all');await page.getByRole('button',{name:'Funding',exact:true}).click();}
  await check(ids,'clear restores scope');
+ await select.focus();await select.press('Home');await select.press('ArrowDown');
+ const keyboardYear=await select.locator('option').nth(1).getAttribute('value');
+ assert.equal(await select.inputValue(),keyboardYear,'native keyboard selection changes the funding filter');
+ await check(ids.filter(id=>match(id,keyboardYear)),'native keyboard year selection');
+ await clear.press('Enter');if(phx)await page.getByRole('button',{name:'Funding',exact:true}).press('Enter');
  // Topic, year and query work together, including zero-count options that retain the selection.
  const topic=page.locator(phx?'#record-topic':'#catalog-filter');
  await select.selectOption(phx?'2027':'2025');await topic.selectOption(phx?'county':'home');
@@ -108,6 +114,7 @@ async function primary(width,scope){
  await share(page,{fundingYear:saved.year,page:phx?2:1});
  assert.deepEqual(await state(),saved,'shared filters and page restored');
  note(width,surface,'share restores filters and page',selected.length);
+ if(width===390||width===1280)await cards.filter({visible:true}).first().screenshot({path:`${output}/${width}-${scope}-primary-selected-record.png`});
  // Tab order includes the same search/reset row and native period control.
  await input.focus();await input.press('Tab');assert(await focus(clear));
  await page.keyboard.press('Tab');assert(await focus(topic));
@@ -138,6 +145,7 @@ async function primary(width,scope){
  note(width,surface,'print button and ordinary-list before/afterprint preserve filters and page');
  await clear.click();if(phx)await page.getByRole('button',{name:'Funding',exact:true}).click();
  if(width===390||width===1280){
+  await page.locator('#print-scope').selectOption('all');await page.locator('#print-detail').selectOption('full');
   await page.locator(phx?'.records-workspace':'.funding-catalog-panel').evaluate(n=>n.scrollIntoView({block:'start',behavior:'instant'}));
   await page.screenshot({path:`${output}/${width}-${scope}-primary-funding.png`});
  }
@@ -178,6 +186,11 @@ async function category(width,scope){
  await input.fill(target);await check([target],'year plus search');
  await input.fill('no-funding-record-68937');await check([],'year plus no matches');assert.equal(await select.inputValue(),wanted);
  await page.locator('#reset').press('Enter');assert.equal(await select.inputValue(),'');assert(await focus(input));
+ await select.focus();await select.press('Home');await select.press('ArrowDown');
+ const keyboardYear=await select.locator('option').nth(1).getAttribute('value');
+ assert.equal(await select.inputValue(),keyboardYear,'native keyboard selection changes the regional Funding filter');
+ await check(ids.filter(id=>match(id,keyboardYear)),'native keyboard year selection');
+ await page.locator('#reset').press('Enter');
  const paged=[];do{paged.push(...await page.locator('#results article').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)));if(await page.locator('#next').isDisabled())break;await page.locator('#next').press('Enter');}while(true);
  assert.deepEqual(paged,rows.map(r=>r.key));note(width,surface,'complete pagination',paged.length);
  const year=scope==='tucson'?'__unindexed':'2028';await select.selectOption(year);
@@ -188,6 +201,7 @@ async function category(width,scope){
  assert((await card.textContent()).includes('Funding year / period'));
  assert((await card.textContent()).includes('funding-period review pending'));
  if(scope==='tucson')assert((await card.textContent()).includes('Unknown / not established'));
+ if(width===390||width===1280)await card.screenshot({path:`${output}/${width}-${scope}-search-selected-record.png`});
  const ax=await page.locator('#search-panel').ariaSnapshot();assert.match(ax,/combobox "Funding year \/ period"/);writeFileSync(`${output}/${width}-${surface}-accessibility.txt`,ax);
  await select.focus();assert.equal(await select.evaluate(n=>getComputedStyle(n).outlineStyle),'solid');
  for(const mode of ['compact','full']){
