@@ -200,7 +200,7 @@ async function category(width,scope){
  assert.equal(await select.inputValue(),year);await check(selected,'shared filter restored');
  const card=page.locator('#results article.card').first();
  assert((await card.textContent()).includes('Funding year / period'));
- assert((await card.textContent()).includes('funding-period review pending'));
+ assert((await card.textContent()).includes('Period evidence checked: 2026-11-13'));
  if(scope==='tucson')assert((await card.textContent()).includes('Unknown / not established'));
  if(width===390||width===1280)await card.screenshot({path:`${output}/${width}-${scope}-search-selected-record.png`});
  const ax=await page.locator('#search-panel').ariaSnapshot();assert.match(ax,/combobox "Funding year \/ period"/);writeFileSync(`${output}/${width}-${surface}-accessibility.txt`,ax);
