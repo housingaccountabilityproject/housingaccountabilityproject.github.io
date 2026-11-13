@@ -183,7 +183,8 @@ def general_print_links(output, path):
         version = hashlib.sha256((ROOT/asset).read_bytes()).hexdigest()[:12]
         src = escape(relative(asset, path)) + '?v=' + version
         tags.append(f'<link rel="stylesheet" href="{src}">' if suffix == 'css' else f'<script src="{src}" defer></script>')
-    return output.replace('</head>', ''.join(tags) + '</head>')
+    output = re.sub(r'(<link rel="stylesheet" href="[^"]*assets/city-layout\.css(?:\?[^"]*)?">)', lambda match: tags[0] + match.group(1), output, count=1)
+    return output.replace('</head>', tags[1] + '</head>')
 
 
 def build():
