@@ -4,7 +4,7 @@
   "files": {
     "assets/category-search-coverage.js": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
     "assets/category-search-data.js": "aa3e0df868253a8bda9057d47ae4f415a5641f0df4a7c84eb39f4338d6c0eff0",
-    "assets/search-index.js": "58d0a3f642c997f06cf769f83293f35bb4476cd91bbdc0a85a24d27828fd3ff6",
+    "assets/search-index.js": "6cfefc0167941820088df1355597c6b6d211b4dc0d444695eb6c31ca7c5f397d",
     "assets/search-source-urls.js": "c455fb6a812a35d146c1893e6beb7fb0e0e8f900823efe7837abf6cd3a158e43",
     "data/category-search.json": "a84b257e0301f519830e18f9b65801d8c0083f14d5ce7e11ab8d64eb3c3ce3eb",
     "data/city-reader-guide.json": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
@@ -19,7 +19,7 @@
     "data/public-center-catalog-v0.2.json": "190ec1de3b492e945f5552d6fe735abf31dabc4c13f8a6ee36c832aae7ec11b3",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "5e87f3465927086f127e54626af573169341dd9251693c2a418cbd2deddd5059",
+    "data/search-coverage.json": "c937327b506b84fc8bce1b8c8d174d56d502b7d8b659f8be4d21f7b0892d3771",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
     "data/source-register.json": "f1f8c3a9e3a1f579ab760c24c196ad6e3f941a4d2ce79dac3cb9ad00c0503ebf",
