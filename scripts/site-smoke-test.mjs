@@ -27,6 +27,31 @@ for (const width of [390,1280]) {
     await page.screenshot({path:`site-qa-screenshots/${path.replaceAll('/','-').replace('.html','')}-${width}.png`,fullPage:true});
     console.log('Rendered',path,width,JSON.stringify(metrics));
   }
+  // The dashboard is inside collapsed reading details on the normal landing view.
+  // Deep-link to it so the date is checked and captured in the rendered panel.
+  await page.goto(localPageUrl('tucson/index.html')+'#dashboard',{waitUntil:'load'});
+  const dashboard=page.locator('#dashboard');
+  const heading=dashboard.locator('.dash-heading');
+  await heading.waitFor({state:'visible'});
+  const dateLayout=await heading.evaluate(el=>{
+    const times=[...el.closest('#dashboard').querySelectorAll('time')];
+    const stamp=el.querySelector('.dash-stamp');
+    const title=el.querySelector('h2');
+    const date=stamp?.querySelector('time');
+    const value=date?.getAttribute('datetime')||'';
+    const expected=/^\d{4}-\d{2}-\d{2}$/.test(value)
+      ? new Intl.DateTimeFormat('en-US',{dateStyle:'long',timeZone:'UTC'}).format(new Date(value+'T12:00:00Z'))
+      : '';
+    const sr=stamp?.getBoundingClientRect(),tr=title?.getBoundingClientRect();
+    return {count:times.length,inStamp:times.length===1&&times[0]===date,visibleText:!!expected&&date.textContent.trim()===expected,
+      labeled:stamp?.textContent.includes('Research inventory checked'),fits:!!sr&&sr.left>=0&&sr.right<=innerWidth,
+      rightDesktop:!!sr&&!!tr&&sr.left>tr.left&&sr.top<tr.bottom,
+      stackedMobile:!!sr&&!!tr&&sr.top>=tr.bottom};
+  });
+  if(!dateLayout.inStamp||!dateLayout.visibleText||!dateLayout.labeled||!dateLayout.fits||!(width>760?dateLayout.rightDesktop:dateLayout.stackedMobile))
+    failures.push(`Tucson dashboard date must be singular, labeled and in its responsive stamp at ${width}: ${JSON.stringify(dateLayout)}`);
+  await heading.screenshot({path:`site-qa-screenshots/tucson-dashboard-date-${width}.png`});
+  console.log('Tucson dashboard date',width,JSON.stringify(dateLayout));
   for(const path of ['funding-explorer.html','housing-projects.html','questions-records.html']) {
     await page.goto(localPageUrl(path));
     const cards=page.locator('[data-catalog-entry]'),before=await cards.count();
