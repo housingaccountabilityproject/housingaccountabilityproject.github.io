@@ -9,7 +9,7 @@ const base = process.env.PHOENIX_FILTER_TEST_BASE_URL || 'http://127.0.0.1:8769'
 const output = process.env.PHOENIX_FILTER_TEST_OUTPUT || '/tmp/hap-phoenix-filters';
 mkdirSync(output, {recursive:true});
 const server = process.env.PHOENIX_FILTER_TEST_BASE_URL ? null : spawn('python3', ['-m','http.server','8769','--bind','127.0.0.1'], {cwd:root, stdio:'ignore'});
-const views = [['all','All entries',90], ['funding','Funding',19], ['source','Sources',45], ['question','Questions',13]];
+const views = [['all','All entries',93], ['funding','Funding',19], ['source','Sources',48], ['question','Questions',13]];
 const facets = {'source-agency':'sourceAgency','source-program':'sourcePrograms','source-format':'sourceFormat','source-year':'sourceYears'};
 const results = [];
 let browser;
@@ -135,13 +135,13 @@ try {
     // All four source facets combine with text, then clearing resets every value.
     await selectView('Sources');
     for(const [id,value] of [['source-agency','hud'],['source-program','home'],['source-format','dataset-metadata'],['source-year','2026']])await page.locator('#'+id).selectOption(value);
-    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),45,'combined source facets');
+    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),48,'combined source facets');
     await query.fill('PHX-EXT-PROJECT-203');
-    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),45,'combined source facets + query');
+    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),48,'combined source facets + query');
     await query.fill('no-match-phoenix-filters-739180');
-    await check([],45,'combined source facets no matches');
+    await check([],48,'combined source facets no matches');
     await clear.click();
-    await check(cards,90,'clear combined source facets');
+    await check(cards,93,'clear combined source facets');
     // Switching category keeps the query, clears contextual filters and resets page 1.
     await query.fill('Moreland');
     for(const [,name] of views) {

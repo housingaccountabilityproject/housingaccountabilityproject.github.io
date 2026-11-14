@@ -13,7 +13,8 @@
     "maricopa-county": "Maricopa County",
     "hamc": "Housing Authority of Maricopa County",
     "r4-capital": "R4 Capital (investor)",
-    "city-tempe": "City of Tempe"
+    "city-tempe": "City of Tempe",
+    "molinacares": "MolinaCares (project partner)"
   },
   "programs": {
     "home": "HOME",
@@ -738,6 +739,52 @@
           "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment"
         }
       ]
+    },
+    "PHX-TEMPE-002": {
+      "agency": "city-tempe",
+      "programs": [
+        "lihtc",
+        "project-planning"
+      ],
+      "document_type": "public-statement",
+      "reporting_years": [
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "March 2, 2026 is the date of the City report that the rentals had opened and were leasing; not a funding period.",
+      "date_basis_url": "index.html#PHX-WEB-029",
+      "retrieved_on": null
+    },
+    "PHX-TEMPE-003": {
+      "agency": "molinacares",
+      "programs": [
+        "lihtc",
+        "project-planning"
+      ],
+      "document_type": "public-statement",
+      "reporting_years": [
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "February 26, 2026 is the grand-opening event date in the partner’s release; the posting is dated March 13, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-029",
+      "retrieved_on": "2026-11-14"
+    },
+    "PHX-TEMPE-004": {
+      "agency": "city-tempe",
+      "programs": [
+        "lihtc",
+        "project-planning"
+      ],
+      "document_type": "plan",
+      "reporting_years": [
+        "2026",
+        "2027"
+      ],
+      "year_status": "stated",
+      "date_basis": "2026–27 is the housing agency plan coverage; the supplemental narrative is not a funding or occupancy period.",
+      "date_basis_url": "index.html#PHX-WEB-029",
+      "retrieved_on": "2026-11-14"
     }
   },
   "research_snapshot": "2026-11-10"

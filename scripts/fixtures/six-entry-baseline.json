@@ -3,27 +3,27 @@
   "algorithm": "SHA-256",
   "files": {
     "assets/category-search-coverage.js": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
-    "assets/category-search-data.js": "0d1b279d509c843c583780190b8372c4bb67890a41bdceb479e6a0b3a4a2fb23",
-    "assets/search-index.js": "000ad5fc790aa9c13d22e34f0fe4a06dca951094311c016261e4f74a76c2ed42",
-    "assets/search-source-urls.js": "598e81b4c1e103d2b5c14fdffe30522fc1403c2f2bfc7f0c53e19fc1ca711b63",
-    "data/category-search.json": "aea68bb694a0f10d0efd230e511390c529f0dfaf4643bcb3f05103efef385b91",
+    "assets/category-search-data.js": "aa3e0df868253a8bda9057d47ae4f415a5641f0df4a7c84eb39f4338d6c0eff0",
+    "assets/search-index.js": "58d0a3f642c997f06cf769f83293f35bb4476cd91bbdc0a85a24d27828fd3ff6",
+    "assets/search-source-urls.js": "c455fb6a812a35d146c1893e6beb7fb0e0e8f900823efe7837abf6cd3a158e43",
+    "data/category-search.json": "a84b257e0301f519830e18f9b65801d8c0083f14d5ce7e11ab8d64eb3c3ce3eb",
     "data/city-reader-guide.json": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
     "data/funding-period-coverage.json": "a2532ed13e8c69eb74ecf0d25f2eb2e0f1bbc9f8226a85fb1371558482c3fcff",
     "data/funding-periods.json": "ddb2eec2a1762f61618238744de8a5638d1cc821ab45ec563052d8e3863fdb61",
     "data/funding-program-names.json": "7f644515d91419556175a3061a477bc16c88d217c0e0f2758b17a2e8d99a480e",
     "data/housing-help-resources.json": "c01238380fc8ec3c0f52e37d80282c6d984d9ef76db620ed3552ddd30d0c6053",
-    "data/phoenix-connections.json": "35ed8744e343f9aea9e8fb8bc6b41d9580f1deb0203b865242a2c1b656ae2600",
+    "data/phoenix-connections.json": "7fb9f9751a1ea905a69aa296e635df9a54d844a3b5c8543455e7512e6ffbb383",
     "data/phoenix-corrections.json": "7532bd7df7306ce8aabf0e4c1e096dbad7d498c9f507ddb25037b35ae5aa0abb",
-    "data/phoenix-records.json": "a9e94859cc9053d575f3d277fcae9813cdc2ece3b2218ad892e60edcb765acdc",
-    "data/phoenix-source-metadata.json": "2498ac3fe83d0c773001e84e058acec841d96c9a7e175237c3e69779bd2119d3",
-    "data/public-center-catalog-v0.2.json": "d3936f84ea04c05e07c5d7d8558bce039802009597e119c36474a15318884cf6",
+    "data/phoenix-records.json": "b6bad086ee34441a4b16a8a43f59b67f34a0f984af3f063b26c9b4340cac51de",
+    "data/phoenix-source-metadata.json": "a137f6a9a6fe2ab45986bdc0dfef4b6552a00c33af676461644b1a76995b7a2a",
+    "data/public-center-catalog-v0.2.json": "190ec1de3b492e945f5552d6fe735abf31dabc4c13f8a6ee36c832aae7ec11b3",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "05327cd4992002af41a5406b4792d8ee3ac38118fac8ed0b66dc61993e2be543",
+    "data/search-coverage.json": "5e87f3465927086f127e54626af573169341dd9251693c2a418cbd2deddd5059",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
-    "data/source-register.json": "b535e99a9af244fe80e4da84a4662c457ff3020f3107444c8a5640df0e14e9c1",
-    "feed.xml": "ee4ab2ef6bd1eedddc660cf74a84c3963e7e5b1cf5797414c7dc8ad6d512d992",
+    "data/source-register.json": "f1f8c3a9e3a1f579ab760c24c196ad6e3f941a4d2ce79dac3cb9ad00c0503ebf",
+    "feed.xml": "7adb0d857035bea876550fae53587e6559bc33828130fa346367a78ee8bb1b3c",
     "reports/tucson-housing-funding-outcomes-2026.html": "d07f1b020b25847f9611acf7d95f4f65043d4bcd9d2b91f52aed5b1cd86cef17"
   },
   "registers": {
@@ -318,7 +318,7 @@
           "ids": [
             "src-099"
           ],
-          "sha256": "2f5ab4da8a9f3679c381d75aa73aeccfa40c95202bd11459252ada72f615f315"
+          "sha256": "67fa48d4b549dcc31239fa84892040364d90f127ab2374b099f72d4dcc7455bc"
         },
         {
           "id": "src-100",
@@ -607,7 +607,7 @@
           "ids": [
             "q-015"
           ],
-          "sha256": "09472399a3aa36c4cc4c5f5f723f9def0c3764e73cc0f138583088571e4ab45e"
+          "sha256": "a728598afc427ca5a55ac7a371f3fbf57c689d5c68d7a865c5c697c3683a5f14"
         },
         {
           "id": "q-016",
@@ -751,7 +751,7 @@
           "ids": [
             "q-015"
           ],
-          "sha256": "23be951f13df16245f9a2f0af092a5cd11e66b9f9e4f3eb9fd2f914505c8dde5"
+          "sha256": "ef74d10acc41f7a1315f1df0a289377453bd7aa6e25068dfca987445f89e1a26"
         },
         {
           "id": "q-016",
@@ -899,7 +899,7 @@
           "ids": [
             "PHX-WEB-029"
           ],
-          "sha256": "c41ec693823ad082c574c84fa6a8a08155d1dd5eebf4392bedb6c408cb81906e"
+          "sha256": "8a4e5080d4d8df8a7453218e2223a5bfd0510342dcea2e7622e94be12f99c4c0"
         },
         {
           "id": "PHX-WEB-030",
@@ -1333,7 +1333,28 @@
           "ids": [
             "source-PHX-TEMPE-001"
           ],
-          "sha256": "e83717464b5331bf39eda14d19c66cf961a045e778e52d04f5348bd2909b7e97"
+          "sha256": "39078e5a771dfe5aa4504b8c1173237895f247113e7f42c04794329f656e4963"
+        },
+        {
+          "id": "source-PHX-TEMPE-002",
+          "ids": [
+            "source-PHX-TEMPE-002"
+          ],
+          "sha256": "78250c4f58e8a1f60d782eac19e0977db79d9fe3793416817d9347138db75241"
+        },
+        {
+          "id": "source-PHX-TEMPE-003",
+          "ids": [
+            "source-PHX-TEMPE-003"
+          ],
+          "sha256": "82097e6bf649d1e7b5262870c440f35f9c8c2a577dc0b3d7daae2aaf5e16f058"
+        },
+        {
+          "id": "source-PHX-TEMPE-004",
+          "ids": [
+            "source-PHX-TEMPE-004"
+          ],
+          "sha256": "e391d03c453baf74b0726bd74707cde88636d253bdda18dcc411ba3a86a88d68"
         },
         {
           "id": "source-PHX-SHELTER-001",
@@ -1526,7 +1547,7 @@
           "ids": [
             "need-question-overview-01"
           ],
-          "sha256": "938ff3ed0509b8bae1448d0a343726572c18eb41b809dc85f816b5da3ed4fffe"
+          "sha256": "30beccf6c25ad2d91ba5ff69b92def6e6e5f3d09ed6b967d5481a843fb55b0df"
         },
         {
           "id": "need-question-overview-02",
@@ -1684,7 +1705,7 @@
           "ids": [
             "project-la-victoria-commons"
           ],
-          "sha256": "122a95a42157610ef152a116f5d727b7e3b4e78826c17ce3af8c641201c816a3"
+          "sha256": "7aa85ced491b9503230551f7b7df08b278bd955ef5b587a4fe3536c623b7799e"
         },
         {
           "id": "project-salvation-army-shelter",

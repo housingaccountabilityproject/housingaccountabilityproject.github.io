@@ -20,7 +20,7 @@ META = {
  'MC-HAMC-WEB-001': ('waitlists', 'notice', 'Four Maricopa County property waitlists will close December 1'),
  'PHX-WEB-027': ('delivery', 'difference', 'Phoenix: rehabilitation count needs clarification'),
  'PHX-WEB-028': ('delivery', 'inventory', 'Phoenix Manor preserves 450 existing apartments'),
- 'PHX-WEB-029': ('funding', 'ground-lease-proposal', 'La Victoria Commons has 104 apartments in two financing portions'),
+ 'PHX-WEB-029': ('funding', 'ground-lease-proposal', 'La Victoria Commons: rental opening reported; counts differ'),
  'PHX-WEB-030': ('funding', 'authorization', 'Salvation Army family shelter expansion has up to $8 million in HOME-ARP authority'),
  'MC-HOME-WEB-001': ('county', 'competition', 'Maricopa County: HOME funding opportunities'),
  'PHX-WEB-002': ('delivery', 'reported', 'Five reported completed developments'),

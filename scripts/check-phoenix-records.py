@@ -15,7 +15,7 @@ data = json.loads((ROOT / 'data/phoenix-records.json').read_text())
 page = html.parse(str(ROOT / 'phoenix/records.html'))
 records = data['records']
 sources = {s['id']: s for s in data['sources']}
-assert len(sources) == len(data['sources']) == 45
+assert len(sources) == len(data['sources']) == 48
 metadata = json.loads((ROOT / 'data/phoenix-source-metadata.json').read_text())
 assert set(metadata['sources']) == set(sources), 'Every indexed source needs explicit navigation metadata'
 for sid, source in sources.items():
@@ -63,7 +63,7 @@ assert help_page.xpath('//*[@id="hamc-waitlist-notice"]')
 findings = {r['id']: r for r in records}
 for rid, expected_sources, phrases in [
     ('PHX-WEB-028', ['PHX-R4-001','PHX-R4-002'], ['450 existing', 'preservation', 'Occupancy, household outcomes']),
-    ('PHX-WEB-029', ['PHX-TEMPE-001'], ['two 52-apartment', '104 apartments', '19 townhomes', 'completed or occupied']),
+    ('PHX-WEB-029', ['PHX-TEMPE-001', 'PHX-TEMPE-002', 'PHX-TEMPE-003', 'PHX-TEMPE-004'], ['two 52-apartment', '104 apartments', '19 townhomes', 'opened and were leasing', '109 rental units', 'not been independently reconciled', 'Current rental vacancies', 'active funding period or disbursement']),
     ('PHX-WEB-030', ['PHX-SHELTER-001','PHX-SHELTER-002','PHX-SHELTER-003'], ['$6 million', '$2 million', '$8 million', 'future construction', 'cash paid', 'people served']),
 ]:
     record = findings[rid]
@@ -94,7 +94,7 @@ for record in records:
 for sid in sources:
     assert page.xpath('//*[@id=$id]', id='source-' + sid)
     assert urlsplit(sources[sid]['url']).scheme == 'https'
-assert len(page.xpath('//*[@data-kind]')) == 90
+assert len(page.xpath('//*[@data-kind]')) == 93
 assert len(page.xpath('//h1')) == len(page.xpath('//main')) == 1
 ids = page.xpath('//@id')
 assert len(ids) == len(set(ids))
@@ -105,8 +105,8 @@ assert len({p['id'] for p in projects}) == len(projects) == 11
 assert sum(p['kind'] == 'development' for p in projects) == 10
 assert sum(p['kind'] == 'planning-area' for p in projects) == 1
 overview = html.parse(str(ROOT / 'phoenix/index.html'))
-assert overview.xpath('//*[@data-phoenix-index-total]/text()') == ['90 evidence browser entries']
-assert overview.xpath('//*[@data-phoenix-index-counts]/text()') == ['32 evidence entries · 45 source IDs · 10 questions · 3 evidence needs.']
+assert overview.xpath('//*[@data-phoenix-index-total]/text()') == ['93 evidence browser entries']
+assert overview.xpath('//*[@data-phoenix-index-counts]/text()') == ['32 evidence entries · 48 source IDs · 10 questions · 3 evidence needs.']
 assert overview.xpath('//*[@data-phoenix-project-counts]/text()') == ['10 developments + 1 planning area']
 assert {p['id'] for p in projects if 'PHX-WEB-002' in p['record_ids']} == {'bell', 'pueblo', 'garfield-ii', 'falcon-park', 'harmony'}
 record_map = {r['id']: r for r in records}
@@ -170,6 +170,6 @@ subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-records.py')],
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-connections.py')], check=True)
 subprocess.run([sys.executable, str(ROOT / 'scripts/build-phoenix-project-pages.py')], check=True)
 assert before == [hashlib.sha256(p.read_bytes()).digest() for p in outputs], 'Index is stale or nondeterministic'
-print('PASS: 32 evidence entries, 10 questions, 3 evidence needs, 45 linked source IDs; unique IDs, local destinations and deterministic generation.')
+print('PASS: 32 evidence entries, 10 questions, 3 evidence needs, 48 linked source IDs; unique IDs, local destinations and deterministic generation.')
 print('PASS: 10 development connections, separate planning area, 13 mapped evidence needs and complete local navigation.')
 print('PASS: 2 dated comparisons preserve published statements, limitations, date meanings and source relationships.')

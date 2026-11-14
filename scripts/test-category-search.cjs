@@ -39,10 +39,11 @@ check(standard.documentDate(records.find(r=>r.id==='PHX-CITY-027'))==='January 2
 check(standard.documentDate(records.find(r=>r.id==='SRC-100'))==='Not established in this index','Certification date is not document publication');
 check(standard.summary(records.find(r=>r.id==='federal-allocations-2026')).includes('$9,613,482.81'),'Allocation amounts and measures retained');
 const indexed=new Map(records.map(r=>[r.id,r]));
-for(const [id,count,limit] of [['PHX-WEB-028','450 existing','household outcomes'],['PHX-WEB-029','104 apartments','completed or occupied'],['PHX-WEB-030','$8 million','cash paid']]){
+for(const [id,count,limit] of [['PHX-WEB-028','450 existing','household outcomes'],['PHX-WEB-029','104 apartments','109 rental units'],['PHX-WEB-030','$8 million','cash paid']]){
  const r=indexed.get(id);check(standard.summary(r).includes(count)&&r.caveats.join(' ').includes(limit),'New Phoenix scope and qualification '+id);
 }
 for(const id of ['PHX-WEB-029','PHX-WEB-030'])check(core.searchYears(indexed.get(id)).length===0,'Council action is not an active program period');
+check(standard.summary(indexed.get('PHX-WEB-029')).includes('opened and were leasing')&&indexed.get('PHX-WEB-029').caveats.join(' ').includes('Current rental vacancies')&&indexed.get('PHX-WEB-029').originals.length===4,'La Victoria retains reported opening, source conflict and four dated references');
 check(standard.documentDate(indexed.get('PHX-TEMPE-001'))==='April 25, 2024','Verified agenda date');
 check(standard.documentDate(indexed.get('PHX-R4-001'))==='Not established in this index','Undated profile stays undated');
 for(const id of ['src-100-citation-correction','project-counts-and-shelter-funding']){

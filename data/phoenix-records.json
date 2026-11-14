@@ -11,7 +11,8 @@
       "maricopa-county": "Maricopa County",
       "hamc": "Housing Authority of Maricopa County",
       "r4-capital": "R4 Capital (investor)",
-      "city-tempe": "City of Tempe"
+      "city-tempe": "City of Tempe",
+      "molinacares": "MolinaCares (project partner)"
     },
     "programs": {
       "home": "HOME",
@@ -498,7 +499,7 @@
       "id": "PHX-TEMPE-001",
       "title": "Tempe April 25, 2024 Council agenda",
       "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
-      "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The meeting date identifies the ground-lease proposal. Executed leases, financing closing, construction completion and occupancy require separate evidence.",
+      "note": "PHX-TEMPE-001 · Items 8C5–8C7 identify proposed ground leases for two 52-apartment LIHTC portions and a separate 19-townhome component. The agenda date is evidence of the proposal, not executed leases, financing close or opening.",
       "page_url": "index.html#source-PHX-TEMPE-001",
       "metadata": {
         "agency": "city-tempe",
@@ -514,6 +515,73 @@
         "date_basis": "April 25, 2024 is the date of the Tempe Council agenda. Items 8C5–8C7 concern proposed ground leases.",
         "date_basis_url": "index.html#PHX-WEB-029",
         "retrieved_on": "2026-11-10"
+      }
+    },
+    {
+      "id": "PHX-TEMPE-002",
+      "title": "Tempe March 2, 2026 opening announcement",
+      "url": "https://www.tempe.gov/Home/Components/News/News/18749/1414",
+      "note": "PHX-TEMPE-002 · The City reported 104 affordable rentals open and leasing. It described 19 for-sale townhomes as separately in development at that time. Not current vacancy or sales data.",
+      "page_url": "index.html#source-PHX-TEMPE-002",
+      "metadata": {
+        "agency": "city-tempe",
+        "programs": [
+          "lihtc",
+          "project-planning"
+        ],
+        "document_type": "public-statement",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "March 2, 2026 is the date of the City report that the rentals had opened and were leasing; not a funding period.",
+        "date_basis_url": "index.html#PHX-WEB-029",
+        "retrieved_on": null
+      }
+    },
+    {
+      "id": "PHX-TEMPE-003",
+      "title": "MolinaCares La Victoria Commons opening report",
+      "url": "https://molinacares.com/la-victoria-commons-opens-with-on-site-integrated-health-services/",
+      "note": "PHX-TEMPE-003 · The project partner’s release is dated February 26, 2026 and describes the grand opening. Its web post is dated March 13. Not a building certificate or current vacancy data.",
+      "page_url": "index.html#source-PHX-TEMPE-003",
+      "metadata": {
+        "agency": "molinacares",
+        "programs": [
+          "lihtc",
+          "project-planning"
+        ],
+        "document_type": "public-statement",
+        "reporting_years": [
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "February 26, 2026 is the grand-opening event date in the partner’s release; the posting is dated March 13, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-029",
+        "retrieved_on": "2026-11-14"
+      }
+    },
+    {
+      "id": "PHX-TEMPE-004",
+      "title": "Tempe 2026–27 housing agency plan summary",
+      "url": "https://www.tempe.gov/home/showpublisheddocument/117462/639120226724370000",
+      "note": "PHX-TEMPE-004 · The supplemental summary reports 109 rentals and 19 townhomes built. The rental count differs from the 104 described by the City opening announcement. This is not a verified townhome occupancy or sale record.",
+      "page_url": "index.html#source-PHX-TEMPE-004",
+      "metadata": {
+        "agency": "city-tempe",
+        "programs": [
+          "lihtc",
+          "project-planning"
+        ],
+        "document_type": "plan",
+        "reporting_years": [
+          "2026",
+          "2027"
+        ],
+        "year_status": "stated",
+        "date_basis": "2026–27 is the housing agency plan coverage; the supplemental narrative is not a funding or occupancy period.",
+        "date_basis_url": "index.html#PHX-WEB-029",
+        "retrieved_on": "2026-11-14"
       }
     },
     {
@@ -1145,23 +1213,27 @@
       "aliases": [],
       "topic": "funding",
       "kind": "ground-lease-proposal",
-      "title": "La Victoria Commons has 104 apartments in two financing portions",
+      "title": "La Victoria Commons: rental opening reported; counts differ",
       "labels": [
-        "Council agenda records the ground-lease financing structure"
+        "Earlier financing proposal and dated opening reports"
       ],
       "summary": [
-        "Tempe’s agenda identifies two 52-apartment portions. The proposed ground leases identify the 4% and 9% LIHTC portions separately. Together they account for 104 apartments. The 19 townhomes are a separate component."
+        "Tempe’s April 2024 Council agenda identified two 52-apartment financing portions, one using 4% and one using 9% Low-Income Housing Tax Credits. Together the proposal describes 104 apartments. The 19 for-sale townhomes are a separate component.",
+        "Tempe reported on March 2, 2026 that the 104 affordable rental apartments had opened and were leasing. Project partner MolinaCares corroborates the February 26 grand opening."
       ],
       "context": [
-        "Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; active financing period unverified",
+        "Scope Tempe, Maricopa County · La Victoria Commons Time period April 25, 2024 Council agenda; February 26, 2026 grand opening; March 2, 2026 City announcement; 2026–27 housing plan summary; active financing period unverified",
         "PHX-WEB-029"
       ],
       "limitations": [
-        "The 104 already includes both portions. Keep the townhomes separate from the apartment count. The financing record does not establish completed or occupied homes.",
-        "The April 25, 2024 agenda describes proposed ground leases. Executed leases, financing closing, construction completion and occupancy require separate evidence."
+        "The 2026–27 Tempe housing agency plan summary lists 109 rental units. The final count has not been independently reconciled. Current rental vacancies and completion or sales of the 19 townhomes are not independently confirmed.",
+        "The 2024 agenda identifies proposed ground leases, not executed leases or a financing close. Its meeting date and the 2026 opening reports do not establish an active funding period or disbursement."
       ],
       "source_ids": [
-        "PHX-TEMPE-001"
+        "PHX-TEMPE-001",
+        "PHX-TEMPE-002",
+        "PHX-TEMPE-003",
+        "PHX-TEMPE-004"
       ],
       "citations": [
         {
@@ -1170,6 +1242,30 @@
           ],
           "title": "Tempe April 25, 2024 Council agenda",
           "url": "https://tempe.granicus.com/GeneratedAgendaViewer.php?clip_id=3788&view_id=2",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-TEMPE-002"
+          ],
+          "title": "Tempe March 2, 2026 opening announcement",
+          "url": "https://www.tempe.gov/Home/Components/News/News/18749/1414",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-TEMPE-003"
+          ],
+          "title": "MolinaCares La Victoria Commons opening report",
+          "url": "https://molinacares.com/la-victoria-commons-opens-with-on-site-integrated-health-services/",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-TEMPE-004"
+          ],
+          "title": "Tempe 2026–27 housing agency plan summary",
+          "url": "https://www.tempe.gov/home/showpublisheddocument/117462/639120226724370000",
           "locator": ""
         }
       ],
