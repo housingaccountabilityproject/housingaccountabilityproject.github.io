@@ -3,10 +3,10 @@
   "algorithm": "SHA-256",
   "files": {
     "assets/category-search-coverage.js": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
-    "assets/category-search-data.js": "aa3e0df868253a8bda9057d47ae4f415a5641f0df4a7c84eb39f4338d6c0eff0",
-    "assets/search-index.js": "32892c0737f953fb9a8830bd94d29b3f7fb8e4380e0aabf881f5ddf570bd3313",
-    "assets/search-source-urls.js": "c455fb6a812a35d146c1893e6beb7fb0e0e8f900823efe7837abf6cd3a158e43",
-    "data/category-search.json": "a84b257e0301f519830e18f9b65801d8c0083f14d5ce7e11ab8d64eb3c3ce3eb",
+    "assets/category-search-data.js": "8dbab61522970e0daef624374ff9f4d975386141db8100262a6c87781234548f",
+    "assets/search-index.js": "01466c8250c553037364f94a35800f2be7ab1198ffeed1d512ab1a1dd7a724cc",
+    "assets/search-source-urls.js": "2e018851a2d375c6aef56f6f66ad8930868528637ef9a4b611afa7fba35a812b",
+    "data/category-search.json": "00d4d9c5ee2b8d0d9762482c5ba3c794474edf584ea3b8890bec48aabe98d087",
     "data/city-reader-guide.json": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
     "data/funding-period-coverage.json": "a2532ed13e8c69eb74ecf0d25f2eb2e0f1bbc9f8226a85fb1371558482c3fcff",
     "data/funding-periods.json": "ddb2eec2a1762f61618238744de8a5638d1cc821ab45ec563052d8e3863fdb61",
@@ -14,12 +14,12 @@
     "data/housing-help-resources.json": "c01238380fc8ec3c0f52e37d80282c6d984d9ef76db620ed3552ddd30d0c6053",
     "data/phoenix-connections.json": "7fb9f9751a1ea905a69aa296e635df9a54d844a3b5c8543455e7512e6ffbb383",
     "data/phoenix-corrections.json": "7532bd7df7306ce8aabf0e4c1e096dbad7d498c9f507ddb25037b35ae5aa0abb",
-    "data/phoenix-records.json": "b6bad086ee34441a4b16a8a43f59b67f34a0f984af3f063b26c9b4340cac51de",
+    "data/phoenix-records.json": "1cc3c8632f2016750b5199f2cde3a39cf87d29c0f2a4e3b64128a4b794865602",
     "data/phoenix-source-metadata.json": "a137f6a9a6fe2ab45986bdc0dfef4b6552a00c33af676461644b1a76995b7a2a",
     "data/public-center-catalog-v0.2.json": "190ec1de3b492e945f5552d6fe735abf31dabc4c13f8a6ee36c832aae7ec11b3",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "1bca0cf5899089d21b6bd8e8da162ec289674bf2cfbdd666ade7328a4a22bfca",
+    "data/search-coverage.json": "3e297b4690f4b0039d8a62551fd52c0ca70097ce3079fd796cad2a5883fd9eba",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
     "data/source-register.json": "f1f8c3a9e3a1f579ab760c24c196ad6e3f941a4d2ce79dac3cb9ad00c0503ebf",
@@ -913,7 +913,7 @@
           "ids": [
             "MC-HAMC-WEB-001"
           ],
-          "sha256": "cdff8766272d75603460de1b42580a889a03df9c8d5fcab77501dd078ca96fab"
+          "sha256": "466db6a81f64ba8fbbc98367e620cfdd8286b2eb42f65cc6f2c7acbf109ec32a"
         },
         {
           "id": "PHX-WEB-027",
