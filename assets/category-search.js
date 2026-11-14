@@ -93,6 +93,11 @@ function compactRecord(r){
  if(r.category==='funding'){
   const p=annotation?.programPeriod||r.programPeriod;a.append(paragraph(standard.period(r)));
   if(p?.explanation)a.append(paragraph(p.explanation));
+  if(r.scope==='tucson'){
+   const date=value=>new Intl.DateTimeFormat('en-US',{timeZone:'UTC',dateStyle:'long'}).format(new Date(value+'T00:00:00Z'));
+   for(const term of p?.periods||[])if(term.kind==='agreement_term'&&term.start&&term.end)
+    a.append(paragraph(term.label+': '+date(term.start)+'–'+date(term.end)));
+  }
   periodLimits(a,p);
   const dates=annotation?.knownDates||r.knownDates;
   if(dates?.length)a.append(paragraph('Known source / event dates, not active periods: '+dates.map(d=>(d.date?d.date+' · ':'')+d.label).join('; ')));

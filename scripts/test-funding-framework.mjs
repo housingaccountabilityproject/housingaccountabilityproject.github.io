@@ -44,9 +44,9 @@ async function share(page,expected){
  await page.goto(base+url.pathname+url.hash);
  await page.reload(); // An explicit shared URL must also survive a fresh document load.
 }
-async function pdf(page,name,ids){
+async function pdf(page,name,ids,format='Letter'){
  const path=`${output}/${name}.pdf`;
- await page.pdf({path,format:'Letter',printBackground:false,tagged:true,timeout:90000});
+ await page.pdf({path,format,printBackground:false,tagged:true,timeout:90000});
  const text=execPDF('pdftotext',[path,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).replace(/\s+/g,' ');
  assert(text.includes('Funding year / period'),name+' period label in PDF');
  assert(text.includes('Period evidence checked'),name+' review status in PDF');
@@ -221,6 +221,37 @@ async function category(width,scope){
  await page.locator('[data-category="sources"]').click();assert((await page.locator('#filter-help').textContent()).includes('reporting / event years'));
  await page.close();
 }
+async function pdf01TucsonCompact(){
+ const page=await open(1280,'/search.html'),id='county-price-funding-2026';
+ await page.locator('[data-category="funding"]').click();
+ await page.locator('#category-filter').selectOption('2025');
+ await page.locator('#next').click();
+ assert.equal(await page.locator('#page-count').textContent(),'Page 2 of 2');
+ assert((await page.locator('#count').textContent()).startsWith('7 matches'));
+ await page.locator('#print-record-scope').selectOption('current');
+ await page.locator('#print-compact').press('Enter');
+ const report=page.locator('#print-sheet'),records=report.locator('.print-record');
+ assert.equal(await records.count(),1,'PDF-01 prints one current-page record, not all seven matches');
+ assert.equal(await records.getAttribute('data-record-key'),'tucson:funding-explorer.html#'+id);
+ const terms=[
+  'PRICE home-repair packet agreement term: July 1, 2026–June 30, 2029',
+  'PRICE eviction-prevention/legal-services packet agreement term: July 1, 2026–June 30, 2029'
+ ];
+ for(const term of terms)assert.equal(await report.getByText(term,{exact:true}).count(),1,'PDF-01 exact agreement dates appear once per component');
+ const cityPeriod='City of Tucson full federal PRICE award: January 15, 2025–September 20, 2032';
+ assert((await report.textContent()).includes(cityPeriod),'PDF-01 retains the separate City award period');
+ const name='tucson-2025-page2-compact-pdf01';
+ // Match the saved Chromebook sample's A4 paper; other existing PDF cases retain Letter.
+ await pdf(page,name,[id],'A4');
+ const text=execPDF('pdftotext',[`${output}/${name}.pdf`,'-'],{encoding:'utf8',maxBuffer:8*1024*1024});
+ const compact=text.replace(/\s+/g,'');
+ for(const term of [...terms,cityPeriod])assert(compact.includes(term.replace(/\s+/g,'')),'PDF-01 dates retained in exported PDF');
+ assert.equal((text.match(/Record ID:\s*county-price-funding-2026/g)||[]).length,1,'PDF-01 one primary record in PDF');
+ assert(compact.includes('7matchingrecords.Currentpageonly:1records.'),'PDF-01 separates total matches from printed count');
+ for(const qualification of ['County FY2027 housing allocations','does not prove spending or services in every included year','Not County spending or a current available balance'])assert(compact.includes(qualification.replace(/\s+/g,'')),'PDF-01 retains period scope and qualifications');
+ note(1280,'tucson-PDF-01','2025 page two / Current page / Compact; both exact County agreement terms; separate City period; one primary record',1);
+ await page.close();
+}
 async function synthetic(width){
  const page=await open(width,'/scripts/fixtures/funding-period-framework.html');
  await page.locator('#test-tucson article').first().waitFor();
@@ -278,6 +309,7 @@ try{
   for(const scope of ['tucson','phoenix']){await primary(width,scope);await category(width,scope);}
   await synthetic(width);
  }
+ await pdf01TucsonCompact();
  for(const scope of ['tucson','phoenix'])await handoffPlumbing(scope);
  assert.deepEqual(errors,[],'no browser errors');
  writeFileSync(`${output}/results.json`,JSON.stringify({status:'passed',researchHandoffsAccepted:30,supplementalScopeRecord:1,syntheticDataIsNotResearch:true,checks:log,pdfs,errors},null,2));
