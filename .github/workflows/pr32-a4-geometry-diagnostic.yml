@@ -3,6 +3,8 @@ name: PR 32 A4 geometry diagnostic
   push:
     branches:
       - diagnostic/pr32-a4-geometry-2026-11-14
+    paths:
+      - '.github/workflows/pr32-a4-geometry-diagnostic.yml'
 permissions:
   contents: read
 concurrency:
@@ -10,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   a4-geometry-diagnostic:
-    if: github.repository == 'housingaccountabilityproject/housingaccountabilityproject.github.io' && github.event.created
+    if: github.repository == 'housingaccountabilityproject/housingaccountabilityproject.github.io'
     runs-on: ubuntu-latest
     timeout-minutes: 22
     steps:
