@@ -2668,7 +2668,8 @@
           "County approved IGA terms are documented; full signatures, reimbursements and actual outcomes remain unverified. Baseline August2026 cumulative-outlay cutoff is kept separate from the performance term; no annual spend inferred."
         ],
         "handoff_status": "verified"
-      }
+      },
+      "readerExplanation": "The two Pima County PRICE agreements cover July 1, 2026 through June 30, 2029. They are part of, not additional to, the City of Tucson’s broader federal PRICE award, which runs from January 15, 2025 through September 20, 2032."
     },
     {
       "key": "tucson:funding-explorer.html#county-funding-fy27-q1",

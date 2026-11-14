@@ -46,6 +46,11 @@ function node(tag,text,cls){let e=document.createElement(tag);if(text!==undefine
 function link(label,url,cls){let a=node('a',label,cls);a.href=url;a.target='_blank';a.rel='noopener';return a;}
 function excerpt(s,n=210){s=String(s||'');if(s.length<=n)return s;let end=s.lastIndexOf(' ',n);return s.slice(0,end>n/2?end:n)+'…';}
 function paragraph(text,cls){return node('p',text,cls);}
+function fieldValue(r,label,value){
+ const dd=node('dd',value),explanation=label==='Funding year / period'?window.HAPFundingPeriods?.get(r.scope,r.id)?.readerExplanation:null;
+ if(explanation)dd.prepend(paragraph(explanation));
+ return dd;
+}
 function cautionList(r){return r.caveats.filter(Boolean);}
 function evidenceList(items,r,print){const ul=node('ul');for(const e of items){const li=node('li');if(e.quote)li.append(paragraph(e.quote));li.append(link(e.locator||'Open date evidence',e.url));if(print)li.append(paragraph(e.url,'print-url'));ul.append(li);}return ul;}
 function periodLimits(box,p){
@@ -73,7 +78,7 @@ function body(r,print=false){let box=node('div');
 }
 function card(r){const a=node('article',undefined,'card');a.dataset.recordKey=r.key;let m=node('div',undefined,'card-main'),head=node('div',undefined,'card-head');
   head.append(paragraph(scopeNames[r.scope]+' · '+r.kind,'record-label'),link(r.id,r.url,'record-id'));m.append(head,node('h3',r.title));
-  const dl=node('dl',undefined,'card-fields');for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))dl.append(node('dt',label),node('dd',value));m.append(dl);
+  const dl=node('dl',undefined,'card-fields');for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))dl.append(node('dt',label),fieldValue(r,label,value));m.append(dl);
   const summary=standard.summary(r),summaryLabel={funding:'Amount & what it represents',sources:'Source context',questions:'What we know',updates:'What changed'}[r.category];
   if(summary){const p=paragraph(undefined,'summary');if(r.category==='questions'&&!/^(Documented:|Resolved)/i.test(summary)){m.append(paragraph('What we know: this entry identifies a question or evidence need; no separate answer is labeled.','summary'));p.append(node('strong','Question context: '));}else p.append(node('strong',summaryLabel+': '));if(r.category==='funding'&&!/\$[\d]/.test(summary))p.append('A monetary amount is not established in this record. ');p.append(excerpt(summary,280));if(summary.length>280)p.append(' Full context in details.');m.append(p);}
   const caveats=cautionList(r);if(caveats.length){const label=r.category==='questions'?'What remains open':r.category==='updates'?'Remaining limits':'Key caveat';let p=paragraph(undefined,'caution');p.append(node('strong',label+': '),excerpt(caveats[0],280));if(caveats[0].length>280)p.append(' Full qualification in details.');m.append(p);}else m.append(paragraph(r.category==='questions'?'What remains open: see the question and evidence needs in details.':'Limits: no separate qualification is stated here; read the full record.','caution'));
@@ -82,7 +87,7 @@ function card(r){const a=node('article',undefined,'card');a.dataset.recordKey=r.
 }
 function appendPrintFields(a,r){
  const fields=node('dl',undefined,'print-fields');
- for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))fields.append(node('dt',label),node('dd',value));
+ for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))fields.append(node('dt',label),fieldValue(r,label,value));
  a.append(fields);
 }
 function compactRecord(r){

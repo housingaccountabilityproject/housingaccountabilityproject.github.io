@@ -23,6 +23,7 @@ const yearsById={
  'federal-allocations-2026':['2026','2027'],'coc-request-2026':['2026']
 };
 const normalize=id=>id.startsWith('fund-pub-')?id.toUpperCase():id;
+const priceExplanation='The two Pima County PRICE agreements cover July 1, 2026 through June 30, 2029. They are part of, not additional to, the City of Tucson’s broader federal PRICE award, which runs from January 15, 2025 through September 20, 2032.';
 function match(id,value){id=normalize(id);return !value||(value==='__not_applicable'?id==='PHX-CFP-WEB-006':value==='__unknown'||value==='__unindexed'?(!yearsById[id]||['BELL-06','PHX-WEB-012'].includes(id))&&id!=='PHX-CFP-WEB-006':(yearsById[id]||[]).includes(value));}
 const note=(width,surface,label,matches)=>log.push({width,surface,label,...(matches===undefined?{}:{matches}),passed:true});
 const focus=locator=>locator.evaluate(n=>n===document.activeElement);
@@ -222,6 +223,27 @@ async function category(width,scope){
  await page.close();
 }
 async function pdf01TucsonCompact(){
+ for(const width of [390,1280]){
+  const canonical=await open(width,'/funding-explorer.html');
+  const annotation=canonical.locator('#county-price-funding-2026 > .funding-period');
+  assert.equal(await annotation.getByText(priceExplanation,{exact:true}).count(),1,'PRICE explanation appears once in the canonical record');
+  assert.equal(await annotation.locator(':scope > p').first().textContent(),priceExplanation);
+  assert((await annotation.locator(':scope > p').nth(1).textContent()).startsWith('Funding year / period: '),'PRICE explanation immediately precedes canonical periods');
+  await fits(canonical,'PRICE canonical record');
+  await annotation.screenshot({path:`${output}/${width}-price-canonical-explanation.png`});
+  await canonical.close();
+  const search=await open(width,'/search.html');
+  await search.locator('[data-category="funding"]').click();
+  await search.locator('#category-filter').selectOption('2025');
+  await search.locator('#next').click();
+  const card=search.locator('#results article.card');
+  assert.equal(await card.getByText(priceExplanation,{exact:true}).count(),1,'PRICE explanation appears once in the search record');
+  assert(await card.locator('.card-fields dd').evaluateAll((nodes,wording)=>nodes.some(n=>n.firstElementChild?.textContent===wording&&n.firstElementChild.nextSibling?.textContent.startsWith('County FY2027')) ,priceExplanation),'PRICE explanation immediately precedes search periods');
+  await fits(search,'PRICE search record');
+  await card.screenshot({path:`${output}/${width}-price-search-record.png`});
+  note(width,'tucson-PRICE-explanation','exact wording once before periods in canonical and search records',1);
+  await search.close();
+ }
  const page=await open(1280,'/search.html'),id='county-price-funding-2026';
  await page.locator('[data-category="funding"]').click();
  await page.locator('#category-filter').selectOption('2025');
@@ -233,6 +255,7 @@ async function pdf01TucsonCompact(){
  const report=page.locator('#print-sheet'),records=report.locator('.print-record');
  assert.equal(await records.count(),1,'PDF-01 prints one current-page record, not all seven matches');
  assert.equal(await records.getAttribute('data-record-key'),'tucson:funding-explorer.html#'+id);
+ assert.equal(await records.getByText(priceExplanation,{exact:true}).count(),1,'PRICE explanation appears once in Compact');
  const terms=[
   'PRICE home-repair packet agreement term: July 1, 2026–June 30, 2029',
   'PRICE eviction-prevention/legal-services packet agreement term: July 1, 2026–June 30, 2029'
@@ -245,11 +268,25 @@ async function pdf01TucsonCompact(){
  await pdf(page,name,[id],'A4');
  const text=execPDF('pdftotext',[`${output}/${name}.pdf`,'-'],{encoding:'utf8',maxBuffer:8*1024*1024});
  const compact=text.replace(/\s+/g,'');
+ assert.equal(compact.split(priceExplanation.replace(/\s+/g,'')).length-1,1,'PRICE explanation appears once in Compact PDF');
+ assert(compact.indexOf(priceExplanation.replace(/\s+/g,''))<compact.indexOf('CountyFY2027'),'PRICE explanation precedes formal Compact periods');
  for(const term of [...terms,cityPeriod])assert(compact.includes(term.replace(/\s+/g,'')),'PDF-01 dates retained in exported PDF');
  assert.equal((text.match(/Record ID:\s*county-price-funding-2026/g)||[]).length,1,'PDF-01 one primary record in PDF');
  assert(compact.includes('7matchingrecords.Currentpageonly:1records.'),'PDF-01 separates total matches from printed count');
  for(const qualification of ['County FY2027 housing allocations','does not prove spending or services in every included year','Not County spending or a current available balance'])assert(compact.includes(qualification.replace(/\s+/g,'')),'PDF-01 retains period scope and qualifications');
  note(1280,'tucson-PDF-01','2025 page two / Current page / Compact; both exact County agreement terms; separate City period; one primary record',1);
+ await page.getByRole('button',{name:'← Back to search',exact:true}).click();
+ await page.locator('#print').press('Enter');
+ assert.equal(await records.count(),1,'Full prints the same single current-page record');
+ assert.equal(await records.getByText(priceExplanation,{exact:true}).count(),1,'PRICE explanation appears once in Full');
+ const fullName='tucson-2025-page2-full-price-context';
+ await pdf(page,fullName,[id],'A4');
+ const fullText=execPDF('pdftotext',[`${output}/${fullName}.pdf`,'-'],{encoding:'utf8',maxBuffer:8*1024*1024}).replace(/\s+/g,'');
+ assert.equal(fullText.split(priceExplanation.replace(/\s+/g,'')).length-1,1,'PRICE explanation appears once in Full PDF');
+ assert(fullText.indexOf(priceExplanation.replace(/\s+/g,''))<fullText.indexOf('CountyFY2027'),'PRICE explanation precedes formal Full periods');
+ assert.equal((fullText.match(/RecordID:county-price-funding-2026/g)||[]).length,1,'Full one primary record in PDF');
+ for(const qualification of ['does not prove spending or services in every included year','full signatures, reimbursements and actual outcomes remain unverified'])assert(fullText.includes(qualification.replace(/\s+/g,'')),'Full retains existing funding and execution qualifications');
+ note(1280,'tucson-PRICE-explanation','Full: exact wording once before periods, one primary record and existing qualifications',1);
  await page.close();
 }
 async function synthetic(width){

@@ -40,6 +40,7 @@
   function decorate(target,row){
     if(!target||!row||target.querySelector(':scope > .funding-period'))return;
     const box=make('div');box.className='funding-period';box.dataset.searchUi='funding-period-annotation';
+    if(row.readerExplanation)box.append(make('p',row.readerExplanation));
     const title=make('p');title.append(make('strong','Funding year / period: '),make('span',label(row)));box.append(title,make('p',reviewLabel(row)));
     if(years(row).length&&hasUnknown(row))box.append(make('p','Also matches Unknown / not established: a component remains unresolved.'));
     const details=make('details'),summary=make('summary','Funding-period evidence & limits');details.append(summary,make('p',row.programPeriod.explanation));
