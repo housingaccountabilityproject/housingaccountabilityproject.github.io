@@ -4,6 +4,10 @@ on:
     paths:
       - 'phoenix/**'
       - 'data/phoenix-*.json'
+      - 'data/funding-browser-periods.json'
+      - 'assets/funding-periods*'
+      - 'scripts/*funding*'
+      - 'scripts/fixtures/funding-period-framework.*'
       - 'assets/phoenix-*.css'
       - 'assets/phoenix-*.js'
       - 'assets/phoenix-review/**'
@@ -47,6 +51,9 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.65.0
           npx playwright install chromium
       - run: node scripts/test-phoenix-index.mjs
+      - run: node scripts/test-phoenix-filters.mjs
+      - run: node scripts/test-funding-periods.cjs
+      - run: node scripts/test-funding-framework.mjs
       - run: node scripts/test-search-print.mjs
       - run: node scripts/test-city-reader-journeys.mjs
       - run: node scripts/test-approved-site-design.mjs
@@ -54,5 +61,8 @@ jobs:
         if: always()
         with:
           name: search-print-pdfs
-          path: /tmp/hap-search-print/*.pdf
+          path: |
+            /tmp/hap-search-print/*.pdf
+            /tmp/hap-phoenix-filters/
+            /tmp/hap-funding-framework/
           if-no-files-found: ignore

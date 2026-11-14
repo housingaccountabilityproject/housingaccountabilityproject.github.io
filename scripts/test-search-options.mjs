@@ -49,7 +49,7 @@ try {
   }
   for (const [scope,category,query,filter,total] of [
     ['tucson','sources','HUD','Other source records',10],
-    ['phoenix','funding','year:unknown','__unindexed',11]
+    ['phoenix','funding','year:unknown','__unindexed',12]
   ]) {
     const path=scope==='tucson'?'/search.html':'/phoenix/search.html';
     await page.goto(base+path); await page.waitForLoadState('networkidle');

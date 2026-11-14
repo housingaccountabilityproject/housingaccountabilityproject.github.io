@@ -46,10 +46,21 @@ function node(tag,text,cls){let e=document.createElement(tag);if(text!==undefine
 function link(label,url,cls){let a=node('a',label,cls);a.href=url;a.target='_blank';a.rel='noopener';return a;}
 function excerpt(s,n=210){s=String(s||'');if(s.length<=n)return s;let end=s.lastIndexOf(' ',n);return s.slice(0,end>n/2?end:n)+'…';}
 function paragraph(text,cls){return node('p',text,cls);}
+function fieldValue(r,label,value){
+ const dd=node('dd',value),explanation=label==='Funding year / period'?window.HAPFundingPeriods?.get(r.scope,r.id)?.readerExplanation:null;
+ if(explanation)dd.prepend(paragraph(explanation));
+ return dd;
+}
 function cautionList(r){return r.caveats.filter(Boolean);}
 function evidenceList(items,r,print){const ul=node('ul');for(const e of items){const li=node('li');if(e.quote)li.append(paragraph(e.quote));li.append(link(e.locator||'Open date evidence',e.url));if(print)li.append(paragraph(e.url,'print-url'));ul.append(li);}return ul;}
+function periodLimits(box,p){
+ for(const part of p.periods||[])if(part.yearMatches?.length)box.append(paragraph(part.label+' — Year matches: '+part.yearMatches.map(m=>m.year+' ('+(m.basis==='calendar_overlap'?'calendar overlap':m.label||'source year label')+')').join('; ')+'.'));
+ for(const issue of p.issues||[])box.append(paragraph('Unresolved source issue: '+issue,'caution'));
+ for(const next of p.nextSources||[])box.append(paragraph('Next evidence needed: '+next));
+}
 function body(r,print=false){let box=node('div');
-  if(r.category==='funding'&&r.programPeriod){const p=r.programPeriod;box.append(node('h4','Fiscal / program period'),paragraph(p.label),paragraph(p.explanation||''));if(p.start||p.end)box.append(paragraph('Explicit interval: '+(p.start||'Start not established')+' to '+(p.end||'End not established')));if(p.periods?.length)for(const part of p.periods)box.append(paragraph(part.label||part.explanation||''));if(p.evidence?.length)box.append(node('h4','Period evidence'),evidenceList(p.evidence,r,print));if(r.periodLeads?.length){box.append(node('h4','Unverified period leads · excluded from year filter'));for(const lead of r.periodLeads){box.append(paragraph(lead.label||lead.description||''),paragraph(lead.explanation||lead.note||''));if(lead.evidence?.length)box.append(evidenceList(lead.evidence,r,print));}}if(r.knownDates?.length){box.append(node('h4','Known source / event dates · not active periods'));for(const d of r.knownDates){box.append(paragraph((d.date?d.date+' · ':'')+d.label),paragraph(d.explanation||''));if(d.evidence?.length)box.append(evidenceList(d.evidence,r,print));}}box.append(paragraph('A stated reporting, planned or agreement period does not establish the full lifetime of a program. Earlier date-review context is retained below.'));}
+  if(r.category==='funding'&&r.programPeriod){const annotation=window.HAPFundingPeriods?.get(r.scope,r.id)||r,p=annotation.programPeriod;box.append(node('h4','Funding year / period'),paragraph(standard.period(r)),paragraph(p.explanation||''));if(p.start||p.end)box.append(paragraph('Explicit interval: '+(p.start||'Start not established')+' to '+(p.end||'End not established')));if(p.periods?.length)for(const part of p.periods)box.append(paragraph(part.label||part.explanation||''));if(p.evidence?.length)box.append(node('h4','Period evidence'),evidenceList(p.evidence,r,print));if(annotation.periodLeads?.length){box.append(node('h4','Unverified period leads · excluded from year filter'));for(const lead of annotation.periodLeads){box.append(paragraph(lead.label||lead.description||''),paragraph(lead.explanation||lead.note||''));if(lead.evidence?.length)box.append(evidenceList(lead.evidence,r,print));}}if(annotation.knownDates?.length){box.append(node('h4','Known source / event dates · not active periods'));for(const d of annotation.knownDates){box.append(paragraph((d.date?d.date+' · ':'')+d.label),paragraph(d.explanation||''));if(d.evidence?.length)box.append(evidenceList(d.evidence,r,print));}}box.append(paragraph('A stated reporting, planned or agreement period does not establish the full lifetime of a program. Earlier date-review context is retained below.'));}
+  if(r.category==='funding')periodLimits(box,(window.HAPFundingPeriods?.get(r.scope,r.id)||r).programPeriod);
   if(r.yearBasis)box.append(node('h4',r.category==='funding'?'Source / event date-review context':'Year used by search'),paragraph((r.years.length?r.years.join(', '):'Year not established')+' · '+r.yearBasis),paragraph(r.yearNote||''));
   if(r.yearSourceCheck)box.append(node('h4','Date check status'),paragraph(r.yearSourceCheck));
   if(r.yearEvidence?.length){let evidence=node('ul');for(const item of r.yearEvidence){let li=node('li');const warning=r.linkWarnings?.find(w=>w.url===item.url);if(item.quote)li.append(paragraph(item.quote));li.append(link((warning?'Mismatched link · ':'')+(item.locator||'Open the date evidence'),item.url));if(warning)li.append(paragraph(warning.text,'caution'));if(print)li.append(paragraph(item.url,'print-url'));evidence.append(li);}box.append(node('h4','Date evidence & locators'),evidence);}
@@ -67,7 +78,7 @@ function body(r,print=false){let box=node('div');
 }
 function card(r){const a=node('article',undefined,'card');a.dataset.recordKey=r.key;let m=node('div',undefined,'card-main'),head=node('div',undefined,'card-head');
   head.append(paragraph(scopeNames[r.scope]+' · '+r.kind,'record-label'),link(r.id,r.url,'record-id'));m.append(head,node('h3',r.title));
-  const dl=node('dl',undefined,'card-fields');for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))dl.append(node('dt',label),node('dd',value));m.append(dl);
+  const dl=node('dl',undefined,'card-fields');for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))dl.append(node('dt',label),fieldValue(r,label,value));m.append(dl);
   const summary=standard.summary(r),summaryLabel={funding:'Amount & what it represents',sources:'Source context',questions:'What we know',updates:'What changed'}[r.category];
   if(summary){const p=paragraph(undefined,'summary');if(r.category==='questions'&&!/^(Documented:|Resolved)/i.test(summary)){m.append(paragraph('What we know: this entry identifies a question or evidence need; no separate answer is labeled.','summary'));p.append(node('strong','Question context: '));}else p.append(node('strong',summaryLabel+': '));if(r.category==='funding'&&!/\$[\d]/.test(summary))p.append('A monetary amount is not established in this record. ');p.append(excerpt(summary,280));if(summary.length>280)p.append(' Full context in details.');m.append(p);}
   const caveats=cautionList(r);if(caveats.length){const label=r.category==='questions'?'What remains open':r.category==='updates'?'Remaining limits':'Key caveat';let p=paragraph(undefined,'caution');p.append(node('strong',label+': '),excerpt(caveats[0],280));if(caveats[0].length>280)p.append(' Full qualification in details.');m.append(p);}else m.append(paragraph(r.category==='questions'?'What remains open: see the question and evidence needs in details.':'Limits: no separate qualification is stated here; read the full record.','caution'));
@@ -76,37 +87,45 @@ function card(r){const a=node('article',undefined,'card');a.dataset.recordKey=r.
 }
 function appendPrintFields(a,r){
  const fields=node('dl',undefined,'print-fields');
- for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))fields.append(node('dt',label),node('dd',value));
+ for(const [label,value] of standard.fields(r,window.HAP_FUNDING_PROGRAM_NAMES?.[r.key]))fields.append(node('dt',label),fieldValue(r,label,value));
  a.append(fields);
 }
 function compactRecord(r){
  const a=node('article',undefined,'print-record compact-record');a.dataset.recordKey=r.key;
+ const annotation=r.category==='funding'?window.HAPFundingPeriods?.get(r.scope,r.id):null;
  a.append(paragraph(scopeNames[r.scope]+' · '+names[r.category]),node('h2',r.title),paragraph('Record ID: '+r.id));
  appendPrintFields(a,r);
  if(r.category==='funding'){
-  const p=r.programPeriod;a.append(paragraph(p?.label||'Active period: not yet verified'));
+  const p=annotation?.programPeriod||r.programPeriod;a.append(paragraph(standard.period(r)));
   if(p?.explanation)a.append(paragraph(p.explanation));
-  if(r.knownDates?.length)a.append(paragraph('Known source / event dates, not active periods: '+r.knownDates.map(d=>(d.date?d.date+' · ':'')+d.label).join('; ')));
+  if(r.scope==='tucson'){
+   const date=value=>new Intl.DateTimeFormat('en-US',{timeZone:'UTC',dateStyle:'long'}).format(new Date(value+'T00:00:00Z'));
+   for(const term of p?.periods||[])if(term.kind==='agreement_term'&&term.start&&term.end)
+    a.append(paragraph(term.label+': '+date(term.start)+'–'+date(term.end)));
+  }
+  periodLimits(a,p);
+  const dates=annotation?.knownDates||r.knownDates;
+  if(dates?.length)a.append(paragraph('Known source / event dates, not active periods: '+dates.map(d=>(d.date?d.date+' · ':'')+d.label).join('; ')));
  }else{a.append(paragraph((r.years.length?r.years.join(', '):'Year not established')+' · '+r.yearBasis));if(r.yearNote)a.append(paragraph(r.yearNote));}
  if(r.label)a.append(paragraph(r.label));
  a.append(paragraph(standard.summary(r)));
  for(const caution of r.caveats)a.append(paragraph(caution,'caution'));
  if(r.sourceIds.length)a.append(paragraph('Source / related IDs: '+r.sourceIds.join(' · ')));
- const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
+ const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(annotation?.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
  const seen=new Set();for(const l of links){if(!l.url||seen.has(l.url))continue;seen.add(l.url);const warning=r.linkWarnings?.find(w=>w.url===l.url);const p=paragraph((warning?'Mismatched historical link · ':'')+l.title+' ','print-url');p.append(link(l.url,l.url));a.append(p);if(warning)a.append(paragraph(warning.text,'caution'));}
  return a;
 }
 function printRecord(r){let a=node('article',undefined,'print-record');a.dataset.recordKey=r.key;a.append(paragraph(scopeNames[r.scope]+' · '+names[r.category]+' · '+r.kind),node('h2',r.title),paragraph('Record ID: '+r.id));appendPrintFields(a,r);a.append(body(r,true));return a;}
 function filterSpec() {
-  if (state.category === 'sources') return {key:'sourceType',label:'Source type',all:'All source types',values:r=>[r.sourceType],help:'Grouping follows the public source labels. Type year:2025 or year:unknown for a source-year limit.'};
+  if (state.category === 'sources') return {key:'sourceType',label:'Source type',all:'All source types',values:r=>[r.sourceType],help:'Type year:2025 or year:unknown for source reporting / event years. Source years are separate from Funding year / period.'};
   if (state.category === 'questions') return {key:'subject',label:'Question subject',all:'All subjects',values:r=>r.topics,help:'Topics follow the public question tags. Type year:2025 or year:unknown for a year limit.'};
-  return {key:'year',label:state.category==='updates'?'Update year':'Fiscal / program year',all:'All years',
-    values:r=>state.category==='funding' ? (r.programPeriod.status==='not_applicable' ? ['__not_applicable'] : r.programPeriod.years.length ? r.programPeriod.years : ['__unindexed']) : r.years.length ? r.years : ['__unindexed'],
-    help:state.category==='funding'?'Award fiscal years and source-backed coverage are separate from complete performance periods. Unknown periods and guidance with no applicable period are separate choices.':'Years follow the existing dated update records.'};
+  return {key:'year',label:state.category==='updates'?'Update year':'Funding year / period',all:state.category==='funding'?'All funding years / periods':'All years',
+    values:r=>state.category==='funding' ? window.HAPFundingPeriods.values(window.HAPFundingPeriods.get(r.scope,r.id),'__unindexed') : r.years.length ? r.years : ['__unindexed'],
+    help:state.category==='funding'?window.HAPFundingPeriods.help:'Years follow the existing dated update records.'};
 }
-function describe(includeQuery=true){const spec=filterSpec(),value=state[spec.key];return [scopeNames[state.scope],names[state.category],includeQuery?(state.query?'Search: “'+state.query+'”':'No search terms'):'',value?spec.label+': '+(value==='__not_applicable'?'Not applicable':value==='__unindexed'?(state.category==='funding'?'Active period: not yet verified':'Year not established'):value):spec.all].filter(Boolean).join(' · ');}
+function describe(includeQuery=true){const spec=filterSpec(),value=state[spec.key];return [scopeNames[state.scope],names[state.category],includeQuery?(state.query?'Search: “'+state.query+'”':'No search terms'):'',value?spec.label+': '+(value==='__not_applicable'?'Not applicable · guidance':value==='__unindexed'?(state.category==='funding'?'Unknown / not established':'Year not established'):value):spec.all].filter(Boolean).join(' · ');}
 function preparePrint(){const sheet=$('print-sheet');sheet.replaceChildren();const controls=node('div',undefined,'print-controls');let back=node('button','← Back to search'),printNow=node('button','Print / Save as PDF','primary');back.addEventListener('click',()=>{document.body.classList.remove('show-print-view');sheet.replaceChildren();options.leavePrint();(printReturnFocus||$(printMode==='compact'?'print-compact':'print')).focus();});printNow.addEventListener('click',()=>window.print());controls.append(back,printNow);const head=node('div',undefined,'print-header');head.append(node('h1','HAP research search'),paragraph((printMode==='compact'?'Compact results':'Full evidence')+' · '+describe(options.includeTerms())),paragraph(found.length+' matching records. '+(printScope==='current'?'Current page only: '+Math.min(pageSize,found.length-(page-1)*pageSize)+' records.':'All matches are included, not only the current page.')),paragraph('Public records with date-focused checks. Periods, source/event dates and qualifications remain separate. This is not a full financial audit.'));head.append(paragraph('Print prepared: '+window.HAPSearchOptions.preparedAt()+' · America/Phoenix, year-round. This is a print time, not a research update.'));if(dataset.researchSnapshots?.[state.scope])head.append(paragraph('Research snapshot: '+dataset.researchSnapshots[state.scope]+(state.scope==='tucson'?'. This historical snapshot is separate from the November 9 and 10 publications, which retain their own dates; it is not a uniform later research update.':'')));sheet.append(controls,head);options.showPrint(sheet);(printScope==='current'?found.slice((page-1)*pageSize,page*pageSize):found).forEach(r=>sheet.append(printMode==='compact'?compactRecord(r):printRecord(r)));if(printMode==='compact')head.append(paragraph('Condensed records with essential qualifications and source links. Choose Full evidence print in search for every retained date check, note and source locator.'));}
-function updateFilter(){const spec=filterSpec(),select=$('category-filter'),base=records.filter(r=>r.scope===state.scope&&r.category===state.category),values=[...new Set(base.flatMap(spec.values))].sort((a,b)=>spec.key==='year'?b.localeCompare(a):a.localeCompare(b));select.replaceChildren();for(const value of ['',...values]){const count=core.search(records,{...state,[spec.key]:value}).length;const label=value===''?spec.all:value==='__not_applicable'?'Not applicable':value==='__unindexed'?(state.category==='funding'?'Active period: not yet verified':'Year not established'):value;const option=node('option',label+' ('+count+')');option.value=value;select.append(option);}select.value=state[spec.key];$('filter-label').textContent=spec.label;$('filter-help').textContent=spec.help;}
+function updateFilter(){$('search-form').dataset.fundingView=String(state.category==='funding');const spec=filterSpec(),select=$('category-filter'),base=records.filter(r=>r.scope===state.scope&&r.category===state.category),values=[...new Set(base.flatMap(spec.values))].sort((a,b)=>spec.key==='year'?b.localeCompare(a):a.localeCompare(b));select.replaceChildren();for(const value of ['',...values]){const count=core.search(records,{...state,[spec.key]:value}).length;const label=value===''?spec.all:value==='__not_applicable'?'Not applicable · guidance':value==='__unindexed'?(state.category==='funding'?'Unknown / not established':'Year not established'):value;const option=node('option',label+' ('+count+')');option.value=value;select.append(option);}select.value=state[spec.key];$('filter-label').textContent=spec.label;$('filter-help').textContent=spec.help;}
 function renderAnnualCoverage() {
  const coverage=dataset.annualReportCoverage,region=coverage?.regions[state.scope];
  if(!region)return;

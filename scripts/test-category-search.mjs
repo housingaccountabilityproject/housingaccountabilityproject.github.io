@@ -9,10 +9,11 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const base=process.env.CATEGORY_TEST_BASE_URL||'http://127.0.0.1:8767';
 const server=process.env.CATEGORY_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8767','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const data=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url)));
+const funding=JSON.parse(readFileSync(new URL('../data/funding-browser-periods.json',import.meta.url)));
 const output=process.env.CATEGORY_TEST_OUTPUT||'/tmp/hap-category-search';
 const categories=['funding','sources','questions','updates'];
 const countText=n=>new RegExp('^'+n+' match');
-const years=r=>r.category==='funding'?r.programPeriod.years:r.years;
+const years=r=>r.category==='funding'?funding.records.find(x=>x.scope===r.scope&&x.id===r.id).programPeriod.years:r.years;
 const focusOn=el=>el.evaluate(node=>node===document.activeElement);
 const recordCount=(page,n)=>page.locator('#count').textContent().then(text=>assert.match(text,countText(n)));
 const pdfOptions={
@@ -25,7 +26,7 @@ const printSearches={
   'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125','source-excerpts',
  ]},
  phoenix:{category:'funding',query:'year:unknown',ids:[
-  'PHX-WEB-009','PHX-WEB-010','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
+  'PHX-WEB-009','PHX-WEB-010','PHX-WEB-012','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
   'BELL-03','BELL-04','BELL-06','BELL-07','BELL-08','PHX-WEB-029','PHX-WEB-030',
  ]},
 };
@@ -50,7 +51,7 @@ async function inspectPDF(page, scope, category, mode, expected, suffix=''){
  for(const r of expected)assert(text.includes('Record ID: '+r.id),`PDF retains ${r.id}`);
  assert(!text.includes('working preview'));
  if(category==='funding'){
-  assert(text.includes('Active period: not yet verified'));
+  assert(text.includes('Unknown / not established'));
   assert(text.includes('Known source / event dates'));
   if(scope==='tucson'){
    for(const amount of ['$4,962,047','$3,061,840.81','$448,998','$1,140,597','$9,613,482.81'])assert(text.includes(amount),'Allocation amount retained '+amount);
@@ -131,7 +132,7 @@ try{
 
   await page.locator('[data-category="funding"]').click();
   await select.selectOption('__unindexed');
-  assert((await page.locator('#results').textContent()).includes('Active period: not yet verified'));
+  assert((await page.locator('#results').textContent()).includes('Unknown / not established'));
   await page.locator('[data-category="sources"]').click();assert.equal(await select.inputValue(),'');
   await input.fill(scope==='tucson'?'"Craycroft/Lee Street"':'"Phoenix Manor"');
   assert(await page.locator('#results article').count()>0,'Quoted phrase finds regional evidence');

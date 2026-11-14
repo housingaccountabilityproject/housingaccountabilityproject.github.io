@@ -1,0 +1,366 @@
+{
+  "baseline_commit": "90582a86ead18eff46384620e67a7e40795f9f76",
+  "starting_draft_head": "787b9a8ad8a47aee0f7e3224acfaf781bbaee4f2",
+  "regions": {
+    "tucson": {
+      "handoff_records": 12,
+      "broader_funding_search_records": 12,
+      "primary_funding_records": 7,
+      "context_sections": 5,
+      "missing_ids": [],
+      "duplicated_ids": [],
+      "mapped_records": [
+        {
+          "id": "FUND-PUB-001",
+          "key": "tucson:funding-explorer.html#fund-pub-001",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2024",
+            "2025"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-002",
+          "key": "tucson:funding-explorer.html#fund-pub-002",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026",
+            "2027"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-003",
+          "key": "tucson:funding-explorer.html#fund-pub-003",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2024",
+            "2025"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-004",
+          "key": "tucson:funding-explorer.html#fund-pub-004",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2025",
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-005",
+          "key": "tucson:funding-explorer.html#fund-pub-005",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2025",
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-006",
+          "key": "tucson:funding-explorer.html#fund-pub-006",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2024",
+            "2025"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "FUND-PUB-007",
+          "key": "tucson:funding-explorer.html#fund-pub-007",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2024",
+            "2025",
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "catalog"
+        },
+        {
+          "id": "county-price-funding-2026",
+          "key": "tucson:funding-explorer.html#county-price-funding-2026",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "context_section"
+        },
+        {
+          "id": "county-funding-fy27-q1",
+          "key": "tucson:funding-explorer.html#county-funding-fy27-q1",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026",
+            "2027"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "context_section"
+        },
+        {
+          "id": "federal-allocations-2026",
+          "key": "tucson:funding-explorer.html#federal-allocations-2026",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026",
+            "2027"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "context_section"
+        },
+        {
+          "id": "craycroft-financing-2026",
+          "key": "tucson:funding-explorer.html#craycroft-financing-2026",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "context_section"
+        },
+        {
+          "id": "coc-request-2026",
+          "key": "tucson:funding-explorer.html#coc-request-2026",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "context_section"
+        }
+      ]
+    },
+    "phoenix": {
+      "handoff_records": 18,
+      "broader_funding_search_records": 18,
+      "primary_funding_records": 19,
+      "context_sections": 0,
+      "missing_ids": [],
+      "duplicated_ids": [],
+      "mapped_records": [
+        {
+          "id": "MC-HOME-WEB-001",
+          "key": "phoenix:MC-HOME-WEB-001",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2027",
+            "2028"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-WEB-009",
+          "key": "phoenix:PHX-WEB-009",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-WEB-010",
+          "key": "phoenix:PHX-WEB-010",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-WEB-012",
+          "key": "phoenix:PHX-WEB-012",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2024"
+          ],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-001",
+          "key": "phoenix:PHX-CFP-WEB-001",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-002",
+          "key": "phoenix:PHX-CFP-WEB-002",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-003",
+          "key": "phoenix:PHX-CFP-WEB-003",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-004",
+          "key": "phoenix:PHX-CFP-WEB-004",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2025"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-005",
+          "key": "phoenix:PHX-CFP-WEB-005",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2026"
+          ],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-006",
+          "key": "phoenix:PHX-CFP-WEB-006",
+          "handoff_status": "not_applicable",
+          "filter_years": [],
+          "matches_unknown": false,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-CFP-WEB-007",
+          "key": "phoenix:PHX-CFP-WEB-007",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "BELL-03",
+          "key": "phoenix:BELL-03",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "BELL-04",
+          "key": "phoenix:BELL-04",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "BELL-06",
+          "key": "phoenix:BELL-06",
+          "handoff_status": "verified",
+          "filter_years": [
+            "2019",
+            "2020"
+          ],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "BELL-07",
+          "key": "phoenix:BELL-07",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "BELL-08",
+          "key": "phoenix:BELL-08",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-WEB-029",
+          "key": "phoenix:PHX-WEB-029",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        },
+        {
+          "id": "PHX-WEB-030",
+          "key": "phoenix:PHX-WEB-030",
+          "handoff_status": "unknown",
+          "filter_years": [],
+          "matches_unknown": true,
+          "broader_search_category": "funding",
+          "primary_surface": "funding_tab"
+        }
+      ],
+      "additional_browser_record": {
+        "id": "MC-PLAN-WEB-001",
+        "key": "phoenix:MC-PLAN-WEB-001",
+        "broader_search_category": "sources",
+        "primary_surface": "funding_tab",
+        "handoff_coverage": "Not in the 18 Funding-search records; checked separately without assigning years.",
+        "status": "unknown",
+        "filter_years": [],
+        "matches_unknown": true,
+        "explanation": "The notice identifies proposed 2025–2029 consolidated-plan coverage and changes to goals. It does not establish adopted funding, grant years, expenditures or a dated funding agreement for this entry. The plan horizon and hearing/comment dates are retained as context, not Funding filter years.",
+        "source_url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment"
+      }
+    }
+  },
+  "scope_note": "Existing categories and records are preserved; no record is added, removed or reclassified.",
+  "matching_rule": "Both regions match supported source FY/PY/vintage year labels OR calendar years overlapping an explicitly dated supported period. Each match retains its basis; no calendar coverage is inferred from a fiscal label alone. Unknown components additionally match Unknown; guidance matches Not applicable only.",
+  "normalization_note": "County FY2027 Q1 matches 2026 for its July–September interval and 2027 for its explicit fiscal label. This preserves the handoff distinction instead of treating 2027 as calendar activity. All other numeric assignments match the handoffs."
+}
