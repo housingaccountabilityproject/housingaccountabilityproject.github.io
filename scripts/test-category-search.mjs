@@ -56,7 +56,7 @@ async function inspectPDF(page, scope, category, mode, expected, suffix=''){
   if(scope==='tucson'){
    for(const amount of ['$4,962,047','$3,061,840.81','$448,998','$1,140,597','$9,613,482.81'])assert(text.includes(amount),'Allocation amount retained '+amount);
   }else{
-   for(const fact of ['104 apartments','19 townhomes','$6 million','$2 million','$8 million','cash paid','people served','April 25, 2024','June 14, 2023','December 3, 2025','May 12, 2026'])assert(text.includes(fact),fact);
+   for(const fact of ['104 apartments','19 townhomes','109 rental units','opened and were leasing','$6 million','$2 million','$8 million','cash paid','people served','April 25, 2024','June 14, 2023','December 3, 2025','May 12, 2026'])assert(text.includes(fact),fact);
   }
  }
  if(scope==='phoenix'&&category==='sources'){

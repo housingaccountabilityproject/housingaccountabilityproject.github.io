@@ -59,6 +59,8 @@ body.previewing-search-results #search-print-output a[href]::after { content: ' 
  body.printing-complete-index .table-wrap{overflow:visible!important}body.printing-complete-index section,body.printing-complete-index details{break-inside:auto!important}
  body.printing-complete-index .page-jump,body.printing-complete-index #print-all-notice,body.printing-complete-index #sources-count,body.printing-complete-index #questions-count{display:none!important}
  body.printing-complete-index tr{break-inside:auto}
+ /* Keep empty trailing spacing from creating a final sheet in the Tucson complete index. */
+ body.printing-complete-index #methods,body.printing-complete-index #methods>:last-child{margin-block-end:0}
 }
 @media print{
  /* Trailing card padding can otherwise fragment onto an empty final sheet. */

@@ -862,8 +862,8 @@
       "title": "HUD-linked RAD public data",
       "period": "other",
       "topic": "pbv hcv bonds",
-      "source_context": "November 7, 2026 data retrieval; Craycroft/Lee Street, 82 units.",
-      "limitations": "Lists Financing Plan Submitted without a closing date. A blank field does not prove no closing; signed assistance contracts are unverified.",
+      "source_context": "Craycroft/Lee Street, 82 units. RAD export snapshots checked November 7 and 14, 2026.",
+      "limitations": "The HUD-linked RAD export checked November 14, 2026 lists “RCC Issued” (RAD Conversion Commitment) for Craycroft and Lee Street. This is a step before closing. The export does not give an issuance date and its closing-date field is blank. Closing, proceeds, signed housing assistance contracts and available units remain unverified. Earlier snapshot: The November 7, 2026 RAD export listed “Financing Plan Submitted” without a closing date.",
       "urls": [
         "https://www.radresource.net/pha_data.cfm"
       ],
@@ -871,7 +871,7 @@
       "aliases": [],
       "page_url": "evidence.html#src-099",
       "mapping_basis": "Primary source supporting the November 7, 2026 review; stable new source ID.",
-      "review_attribution": "Selected source content reviewed November 7, 2026.",
+      "review_attribution": "Latest selected source content checked November 14, 2026; November 7 snapshot retained.",
       "namespace": "website",
       "workbook_source_ids": [],
       "crosswalk_url": "evidence.html#source-id-crosswalk",

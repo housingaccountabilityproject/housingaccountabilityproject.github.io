@@ -76,7 +76,7 @@ try {
       assert(pdf.includes(total+' matching records'));
       assert(!pdf.includes('Search: '+query));
       if(scope==='phoenix') {
-        assert(pdf.includes('104 apartments') && pdf.includes('19 townhomes'));
+        assert(pdf.includes('104 apartments') && pdf.includes('19 townhomes') && pdf.includes('109 rental units') && pdf.includes('opened and were leasing'));
         assert(pdf.includes('$10 million') && pdf.includes('loan') && pdf.includes('grant'));
       }
       await page.getByRole('button',{name:'← Back to search',exact:true}).click();

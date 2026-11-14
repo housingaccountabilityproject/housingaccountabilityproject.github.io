@@ -583,7 +583,7 @@
       "group": "pbv hcv",
       "period": "2026",
       "status": "Financing and environmental stages documented; budget and bedroom count unresolved",
-      "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules. Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified.",
+      "detail": "Documented: The plan is to rehabilitate 82 existing homes: 74 apartments and eight duplex units. El Pueblo Housing Development (EPHD) also describes a Rental Assistance Demonstration conversion, which changes their subsidy structure. Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules. The HUD-linked RAD export checked November 14, 2026 lists “RCC Issued” (RAD Conversion Commitment) for Craycroft and Lee Street. This is a step before closing. The export does not give an issuance date and its closing-date field is blank. Closing, proceeds, signed housing assistance contracts and available units remain unverified. Earlier snapshot: The November 7, 2026 RAD export listed “Financing Plan Submitted” without a closing date.",
       "limit": "Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
       "source": "SRC-098 · SRC-099 · SRC-100",
       "source_links": [
@@ -806,7 +806,7 @@
             "Unknown: Which budget and bedroom count govern? The November presentation lists 124 bedrooms in its summary and 85 in its detailed slide. The summary cost entry is $33.9, without a millions label; the detail gives $34.7 million.",
             "Next: Confirm the governing budget and bedroom count, then document public contract status, aggregate occupancy totals and published application and referral rules.",
             "Source date: EPHD project page update August 6, 2026; presentation November 5, 2026, PDF pp. 12 and 31. [5, 6]",
-            "Federal records show an environmental milestone and a submitted financing plan for the 82-unit preservation project. The RAD tracker reviewed November 7 lists “Financing Plan Submitted” without a closing date. Closing, proceeds and signed assistance contracts remain unverified."
+            "The HUD-linked RAD export checked November 14, 2026 lists “RCC Issued” (RAD Conversion Commitment) for Craycroft and Lee Street. This is a step before closing. The export does not give an issuance date and its closing-date field is blank. Closing, proceeds, signed housing assistance contracts and available units remain unverified. Earlier snapshot: The November 7, 2026 RAD export listed “Financing Plan Submitted” without a closing date."
           ],
           "public_id": "Q-015"
         },
