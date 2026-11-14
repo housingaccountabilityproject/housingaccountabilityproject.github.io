@@ -1,0 +1,179 @@
+name: PR 32 A4 geometry diagnostic
+"on":
+  push:
+    branches:
+      - diagnostic/pr32-a4-geometry-2026-11-14
+permissions:
+  contents: read
+concurrency:
+  group: pr32-a4-geometry-diagnostic
+  cancel-in-progress: false
+jobs:
+  a4-geometry-diagnostic:
+    if: github.repository == 'housingaccountabilityproject/housingaccountabilityproject.github.io' && github.event.created
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Check out unchanged base
+        uses: actions/checkout@v4
+        with:
+          ref: fd02db6d8d0ce95b1916029803f80fe878745045
+          path: base
+          persist-credentials: false
+      - name: Check out unchanged PR test merge
+        uses: actions/checkout@v4
+        with:
+          ref: e7c7a427871f66493f42a5384d79e786a6703e20
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify checkouts and install the standard test dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          test "$(git -C base rev-parse HEAD)" = fd02db6d8d0ce95b1916029803f80fe878745045
+          test "$(git -C base rev-parse HEAD^{tree})" = 1240e498355f97edcba9eedc788a02c0b495bf60
+          test "$(git -C candidate rev-parse HEAD)" = e7c7a427871f66493f42a5384d79e786a6703e20
+          test "$(git -C candidate rev-parse HEAD^{tree})" = eba3aaada6add5ae0709dbdb385ddb19067ab6f2
+          cmp base/scripts/test-portable-print.mjs candidate/scripts/test-portable-print.mjs
+          cmp base/requirements-dev.txt candidate/requirements-dev.txt
+          python -m pip install -r base/requirements-dev.txt
+          install -d -m 700 "$RUNNER_TEMP/pr32-a4-deps"
+          cd "$RUNNER_TEMP/pr32-a4-deps"
+          npm install --no-save playwright
+          npx playwright install chromium
+          npx playwright --version
+          printf 'runner_os=%s runner_image=%s\n' "${ImageOS:-unknown}" "${ImageVersion:-unknown}"
+      - name: Run the paired test and print aggregate results only
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          unset PORTABLE_PRINT_BASE_URL
+          scratch=$(mktemp -d "$RUNNER_TEMP/pr32-a4.XXXXXXXX")
+          export HAP_DIAGNOSTIC_SCRATCH="$scratch"
+          trap 'rm -rf -- "$scratch"; rm -f -- base/scripts/.pr32-a4-diagnostic.mjs candidate/scripts/.pr32-a4-diagnostic.mjs base/node_modules candidate/node_modules' EXIT
+          cat > "$scratch/geometry.py" <<'PY'
+          from collections import Counter
+          import fitz, json, sys
+          from pathlib import Path
+
+          def rect(box):
+              return fitz.Rect(box)
+
+          def aggregate(boxes):
+              if not boxes:
+                  return None
+              result = rect(boxes[0])
+              for box in boxes[1:]:
+                  result |= rect(box)
+              return [round(v, 2) for v in result]
+
+          def page_summary(page, index):
+              drawings = page.get_drawings()
+              images = page.get_image_info()
+              words = page.get_text("words")
+              box = page.rect
+              kind = Counter(item.get("type", "") for item in drawings)
+              return {
+                  "page": index + 1,
+                  "size_points": [round(box.width, 2), round(box.height, 2)],
+                  "text_characters": len(page.get_text().strip()),
+                  "text_words": len(words),
+                  "text_bounds_points": aggregate([w[:4] for w in words]),
+                  "links": len(page.get_links()),
+                  "other_annotations": sum(1 for _ in (page.annots() or [])),
+                  "vector_drawings": len(drawings),
+                  "vector_drawings_by_paint": {k: kind[k] for k in ("f", "s", "fs")},
+                  "vector_bounds_points": aggregate([x["rect"] for x in drawings]),
+                  "vector_sample_bounds_points": [
+                      [round(v, 2) for v in x["rect"]] for x in drawings[:8]
+                  ] if len(words) == 0 else [],
+                  "raster_images": len(images),
+                  "raster_bounds_points": aggregate([x["bbox"] for x in images]),
+              }
+
+          with fitz.open(sys.argv[1]) as doc:
+              aggregate_geometry = {
+                  "total_pages": len(doc),
+                  "tail": [
+                      page_summary(doc[i], i)
+                      for i in range(max(0, len(doc) - 2), len(doc))
+                  ],
+              }
+          Path(sys.argv[2]).write_text(json.dumps(aggregate_geometry))
+          PY
+          cat > "$scratch/instrument.py" <<'PY'
+          import re, sys
+          from pathlib import Path
+          original = Path(sys.argv[1]).read_text()
+          rendered = original
+          pdf_line = " const path=join(privateDir,name+'.pdf');await page.pdf({path,format,tagged:true,displayHeaderFooter:false});"
+          launch_line = " browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:existsSync('/usr/bin/chromium')?{executablePath:'/usr/bin/chromium'}:{})});"
+          check_line = " const data=audit(path),links=portable(data,name);await check?.(data);"
+          for line in (pdf_line, launch_line, check_line):
+              assert rendered.count(line) == 1
+          rendered = rendered.replace(pdf_line, pdf_line + """
+           if(name==='complete-file-A4') {
+            const geometry=spawnSync(process.env.PDF_TEST_PYTHON||'python3',[join(process.env.HAP_DIAGNOSTIC_SCRATCH,'geometry.py'),path,join(process.env.HAP_DIAGNOSTIC_CASE,'geometry.json')],{stdio:'ignore'});
+            if(geometry.status!==0) writeFileSync(join(process.env.HAP_DIAGNOSTIC_CASE,'geometry-status.txt'),'failed');
+           }""")
+          rendered = rendered.replace(check_line, check_line + """
+           if(name==='complete-file-A4') writeFileSync(join(process.env.HAP_DIAGNOSTIC_CASE,'target-audited.txt'),'passed');""")
+          rendered = rendered.replace(launch_line, launch_line + """
+           writeFileSync(join(process.env.HAP_DIAGNOSTIC_CASE,'browser.txt'),browser.version());""")
+          rendered = rendered.replace("import {spawn} from 'node:child_process';", "import {spawn,spawnSync} from 'node:child_process';")
+          assertions = lambda s: [ln.strip() for ln in s.splitlines() if re.search(r'\bassert(?:\.|\()', ln)]
+          assert assertions(rendered) == assertions(original), "Original assertions changed"
+          assert rendered.count(launch_line) == 1, "Original browser launch changed"
+          Path(sys.argv[2]).write_text(rendered)
+          PY
+          for label in base candidate; do
+            out="$scratch/$label"
+            mkdir -m 700 "$out" "$out/tmp" "$out/verified"
+            ln -s -- "$RUNNER_TEMP/pr32-a4-deps/node_modules" "$label/node_modules"
+            python "$scratch/instrument.py" "$label/scripts/test-portable-print.mjs" "$label/scripts/.pr32-a4-diagnostic.mjs"
+            node --check "$label/scripts/.pr32-a4-diagnostic.mjs"
+            code=0
+            HAP_DIAGNOSTIC_CASE="$out" TMPDIR="$out/tmp" PORTABLE_PRINT_OUTPUT="$out/verified" timeout 8m node "$label/scripts/.pr32-a4-diagnostic.mjs" > "$out/test.log" 2>&1 || code=$?
+            printf '%s\n' "$code" > "$out/status.txt"
+            git -C "$label" diff --exit-code --quiet HEAD --
+          done
+          python - "$scratch" <<'PY'
+          import json, re, sys
+          from pathlib import Path
+          root = Path(sys.argv[1])
+          missing = False
+          for label in ("base", "candidate"):
+              folder = root / label
+              version_file = folder / "browser.txt"
+              version = version_file.read_text().strip() if version_file.exists() else ""
+              if not re.fullmatch(r"[0-9.]{1,32}", version):
+                  version = "unavailable"
+              target_audit = (folder / "target-audited.txt").exists()
+              exit_status = int((folder / "status.txt").read_text())
+              geometry_file = folder / "geometry.json"
+              geometry = json.loads(geometry_file.read_text()) if geometry_file.exists() else None
+              missing |= geometry is None
+              private_log = (folder / "test.log").read_text(errors="replace")
+              if target_audit:
+                  status = "target_audit_passed"
+              elif "complete-file-A4 blank/border-only page:" in private_log:
+                  status = "target_blank_or_border_only_assertion"
+              elif geometry is not None:
+                  status = "target_audit_failed_other"
+              else:
+                  status = "target_pdf_geometry_unavailable"
+              print(json.dumps({
+                  "snapshot": label, "browser": version, "test_exit": exit_status,
+                  "target_status": status, "geometry": geometry,
+              }, sort_keys=True))
+          if missing:
+              raise SystemExit("Incomplete diagnostic: both target page geometries were not retained")
+          PY
