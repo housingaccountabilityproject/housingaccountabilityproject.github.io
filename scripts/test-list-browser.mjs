@@ -132,17 +132,25 @@ try{
  await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));assert.equal(await page.locator('#sources tbody tr:visible').count(),6);
  // Category search keeps existing complete reports and adds optional page scope.
  const data=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url))).records;
+ const arizonaReleaseKey='arizona:updates/2026-11-14-arizona-housing-research.html';
+ const arizonaRelease=data.filter(r=>r.key===arizonaReleaseKey);
+ assert.equal(arizonaRelease.length,1,'The Arizona release has one canonical indexed record');
+ assert.equal(arizonaRelease[0].scope,'arizona');assert.equal(arizonaRelease[0].category,'updates');
+ assert.deepEqual([...arizonaRelease[0].regions].sort(),['phoenix','tucson'],'Documented regional membership includes both regional Updates lists');
  for(const path of ['search.html','phoenix/search.html']){
   await page.goto(base+'/'+path);const region=path.startsWith('phoenix/')?'phoenix':'tucson';
   for(const category of ['sources','questions','funding','updates']){
-   await page.locator('[data-category="'+category+'"]').click();const expected=data.filter(r=>r.scope===region&&r.category===category).map(r=>r.key),seen=[];
+   // Build the oracle directly from public scope/regions metadata, independently of the production matcher.
+   await page.locator('[data-category="'+category+'"]').click();const expected=data.filter(r=>r.category===category&&(r.scope===region||(Array.isArray(r.regions)&&r.regions.includes(region)))).map(r=>r.key),seen=[];
    do{seen.push(...await page.locator('#results article').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)));if(await page.locator('#next').isDisabled())break;await page.locator('#next').click();}while(seen.length<expected.length+6);
    assert.deepEqual(seen,expected);
+   if(category==='updates')assert.equal(seen.filter(key=>key===arizonaReleaseKey).length,1,'The Arizona release appears exactly once in '+region+' Updates');
    const current=expected.slice(Math.floor((expected.length-1)/6)*6);
    for(const scope of ['all','current'])for(const mode of ['compact','full']){
     await page.locator('#print-record-scope').selectOption(scope);await page.locator(mode==='compact'?'#print-compact':'#print').click();
     await scopeHeaderVisible(page,'.print-header h1');
     assert.deepEqual(await page.locator('.print-record').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)),scope==='all'?expected:current);
+    if(category==='updates')assert.equal(await page.locator('.print-record').evaluateAll((ns,key)=>ns.filter(n=>n.dataset.recordKey===key).length,arizonaReleaseKey),Number((scope==='all'?expected:current).includes(arizonaReleaseKey)),region+' '+scope+' '+mode+' prints the Arizona release once when in scope');
     assert(!(await page.locator('.print-header').textContent()).includes('Search:'));
     await page.getByRole('button',{name:'← Back to search',exact:true}).click();
    }
