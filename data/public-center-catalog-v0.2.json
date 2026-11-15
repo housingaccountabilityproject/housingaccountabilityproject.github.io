@@ -199,13 +199,21 @@
       "group": "opened",
       "title": "Milagro on Oracle",
       "meta": "Reported opened · January 2025",
-      "measure": "63 affordable apartments",
-      "detail": "City announcements describe a housing-delivery milestone, crediting El Pueblo Housing Development and Gorman & Company and a combination of new construction and adaptive reuse.",
+      "measure": "63 apartments in City Housing’s January 9, 2025 opening bulletin; 66 in City Planning’s December 23, 2025 year-end report; final apartment count unverified",
+      "detail": "City announcements describe a housing-delivery milestone, crediting El Pueblo Housing Development and Gorman & Company and a combination of new construction and adaptive reuse. City Housing’s January 9, 2025 opening bulletin reports 63 apartments at Milagro on Oracle. City Planning’s December 23, 2025 year-end report lists 66. The two sources don’t reconcile those counts, and the final apartment count remains unverified. The reported opening does not establish current occupancy or apartment availability.",
       "limit": "A reported opening is not an independently audited resident count or evidence of currently available apartments.",
       "links": [
         [
           "F-004 — housing delivery",
           "findings.html#f-004"
+        ],
+        [
+          "City Housing — January 9, 2025 opening bulletin (63 apartments)",
+          "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/3cb8b78"
+        ],
+        [
+          "City Planning — December 23, 2025 year-end report (66 apartments)",
+          "https://content.govdelivery.com/accounts/AZTUCSON/bulletins/3fd0514"
         ],
         [
           "Research Findings",

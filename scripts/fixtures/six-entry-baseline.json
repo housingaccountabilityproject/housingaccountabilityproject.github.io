@@ -4,10 +4,10 @@
   "files": {
     "assets/category-search-coverage.js": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
     "assets/category-search-data.js": "8dbab61522970e0daef624374ff9f4d975386141db8100262a6c87781234548f",
-    "assets/search-index.js": "01466c8250c553037364f94a35800f2be7ab1198ffeed1d512ab1a1dd7a724cc",
-    "assets/search-source-urls.js": "2e018851a2d375c6aef56f6f66ad8930868528637ef9a4b611afa7fba35a812b",
+    "assets/search-index.js": "d57bf2cfd52d2efa6ecce75e71db931ea5f486ddc87bb187f8b372321293c353",
+    "assets/search-source-urls.js": "55714f7ace6aed8503f2790f7a1acad4dc2f0cbc972fea2e19ec9ec3600dcec7",
     "data/category-search.json": "00d4d9c5ee2b8d0d9762482c5ba3c794474edf584ea3b8890bec48aabe98d087",
-    "data/city-reader-guide.json": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
+    "data/city-reader-guide.json": "4e44ccbb31aa5ec121b6da46570b4c157d438f368cbb549edf3184ebbdd261fd",
     "data/funding-period-coverage.json": "a2532ed13e8c69eb74ecf0d25f2eb2e0f1bbc9f8226a85fb1371558482c3fcff",
     "data/funding-periods.json": "ddb2eec2a1762f61618238744de8a5638d1cc821ab45ec563052d8e3863fdb61",
     "data/funding-program-names.json": "7f644515d91419556175a3061a477bc16c88d217c0e0f2758b17a2e8d99a480e",
@@ -16,10 +16,10 @@
     "data/phoenix-corrections.json": "7532bd7df7306ce8aabf0e4c1e096dbad7d498c9f507ddb25037b35ae5aa0abb",
     "data/phoenix-records.json": "1cc3c8632f2016750b5199f2cde3a39cf87d29c0f2a4e3b64128a4b794865602",
     "data/phoenix-source-metadata.json": "a137f6a9a6fe2ab45986bdc0dfef4b6552a00c33af676461644b1a76995b7a2a",
-    "data/public-center-catalog-v0.2.json": "190ec1de3b492e945f5552d6fe735abf31dabc4c13f8a6ee36c832aae7ec11b3",
+    "data/public-center-catalog-v0.2.json": "98e910a238290beec0c45e778c45fe5977aa1cfe4719b7cd8c200f1f58dc48bc",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "3e297b4690f4b0039d8a62551fd52c0ca70097ce3079fd796cad2a5883fd9eba",
+    "data/search-coverage.json": "6166bd3c9986f403e161509dc7812a18bacc6818dba88e95ebb11e432ae623a9",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
     "data/source-register.json": "f1f8c3a9e3a1f579ab760c24c196ad6e3f941a4d2ce79dac3cb9ad00c0503ebf",
@@ -867,7 +867,7 @@
           "ids": [
             "project-pub-003"
           ],
-          "sha256": "131d6b5d99ca2fc622c99cd3a5973ab01cfa9f1fd6ce2133d1bfc68919c1304e"
+          "sha256": "57e623d0d92ebb1488f3b46f47f66fdd816d31ba3a66b9a1f7cc6a526da9cba5"
         },
         {
           "id": "project-pub-004",
