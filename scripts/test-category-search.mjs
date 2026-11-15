@@ -23,7 +23,7 @@ const pdfOptions={
 };
 const printSearches={
  tucson:{category:'sources',query:'Craycroft',ids:[
-  'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125','source-excerpts',
+  'SRC-064','SRC-078','SRC-089','SRC-100','SRC-076','SRC-092','SRC-098','SRC-099','SRC-125',
  ]},
  phoenix:{category:'funding',query:'year:unknown',ids:[
   'PHX-WEB-009','PHX-WEB-010','PHX-WEB-012','PHX-CFP-WEB-003','PHX-CFP-WEB-007',
@@ -88,8 +88,13 @@ try{
    const button=page.locator(`[data-category="${category}"]`);
    await button.press('Enter');
    assert.equal(await button.getAttribute('aria-pressed'),'true');
-   const expected=data.records.filter(r=>r.scope===scope&&r.category===category);
+   const expected=data.records.filter(r=>(r.scope===scope||r.regions?.includes(scope))&&r.category===category);
    await recordCount(page,expected.length);
+   if(scope==='tucson'&&category==='sources'){
+    assert.equal(expected.length,67);
+    assert.equal(await page.locator('.source-reading-guide a').getAttribute('href'),'https://housingaccountabilityproject.github.io/evidence.html#source-excerpts');
+    assert.match(await page.locator('.source-reading-guide').textContent(),/not a source record/);
+   }
    assert.equal(await page.locator('#results article.card').count(),Math.min(6,expected.length));
    assert.equal(await page.locator('main #category-filter:visible').count(),1);
    const choice=await select.locator('option').nth(1).evaluate(el=>({value:el.value,count:Number(el.textContent.match(/\((\d+)\)$/)[1])}));
@@ -145,7 +150,7 @@ try{
 
   if(width===1280){
    const {category,query,ids}=printSearches[scope];
-   const expected=data.records.filter(r=>r.scope===scope&&r.category===category&&ids.includes(r.id));
+   const expected=data.records.filter(r=>(r.scope===scope||r.regions?.includes(scope))&&r.category===category&&ids.includes(r.id));
    assert.equal(expected.length,ids.length);
    await page.locator(`[data-category="${category}"]`).click();
    await input.fill(query);await recordCount(page,ids.length);
@@ -163,6 +168,10 @@ try{
    await input.fill('SRC-100');
    const source=data.records.find(r=>r.id==='SRC-100');
    assert(await page.locator('#results a[href*="/erlink?f=ERR_900000010528814_"]').count());
+   const sourceCard=page.locator(`.card[data-record-key="${source.key}"]`);
+   const mismatchedLinks=sourceCard.locator('a[href*="/downloads/8818"]');
+   assert.equal(await mismatchedLinks.count(),1);
+   assert.equal(await mismatchedLinks.first().evaluate(link=>link.closest('aside')?.querySelector('h4').textContent),'Citation history · not evidence');
    for(const mode of ['compact','full']){
     await page.locator(mode==='compact'?'#print-compact':'#print').click();
     const path=`${output}/src100-${mode}.pdf`;

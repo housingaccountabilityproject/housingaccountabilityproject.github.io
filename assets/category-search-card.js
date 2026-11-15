@@ -4,7 +4,7 @@ const missing='Not established in this index';
 const scopes={tucson:'Tucson / Pima County',phoenix:'Phoenix and Maricopa County'};
 function metadata(r,key){return (r.metadata||[]).filter(([k])=>k===key).map(([,v])=>v).join(' · ');}
 function useful(v){return v&&v!=='Not separately tagged'&&v!=='other'&&v!=='unresolved'?v:'';}
-function original(r){const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...(r.originals||[]),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.links||[])];return links.find(l=>l.url&&!l.url.startsWith('https://housingaccountabilityproject.github.io/'))||links[0]||{title:'Full public record',url:r.url};}
+function original(r){const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...(r.originals||[]),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.links||[])];const external=links.filter(l=>l.url&&!l.url.startsWith('https://housingaccountabilityproject.github.io/'));return external.find(l=>!l.url.startsWith('https://webapi.legistar.com/'))||external[0]||links[0]||{title:'Full public record',url:r.url};}
 function formatInstant(value){
  if(!/^\d{4}-\d{2}-\d{2}T/.test(value))return value;
  return new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',dateStyle:'long',timeStyle:'medium'}).format(new Date(value))+' MST (UTC−7)';

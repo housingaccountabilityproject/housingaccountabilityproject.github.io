@@ -1,0 +1,398 @@
+{
+  "baseFixture": "a66cb05d5ed53235087077361ed87697bfd1d95d",
+  "approvedScope": "November 14, 2026 combined site audit. Source corrections, link clarity, date roles, search and presentation; preserve source IDs, aliases and order.",
+  "files": {
+    "assets/category-search-coverage.js": {
+      "old": "5f6f1516a8506ce27a26bad071b72417bff861d227d89c7d9b9512a042bb2b2f",
+      "new": "12bbc6a78e8a2649bad81a6a1fa0582f3ec6c52082eeb7cf522baf7027545aee"
+    },
+    "assets/category-search-data.js": {
+      "old": "8dbab61522970e0daef624374ff9f4d975386141db8100262a6c87781234548f",
+      "new": "865c230335a1048382feece46cfb01002f10a79218f5512a6b227974d4e58268"
+    },
+    "assets/search-index.js": {
+      "old": "01466c8250c553037364f94a35800f2be7ab1198ffeed1d512ab1a1dd7a724cc",
+      "new": "775575f16c9477c8322e0bad5bbbe8e358b6667960d073eab8f67240f4adf4f6"
+    },
+    "assets/search-source-urls.js": {
+      "old": "2e018851a2d375c6aef56f6f66ad8930868528637ef9a4b611afa7fba35a812b",
+      "new": "e9c3ac9476158f6cd1c201efe64241ef7e3da3122c1dcd1f0dc4490869db4d54"
+    },
+    "data/category-search.json": {
+      "old": "00d4d9c5ee2b8d0d9762482c5ba3c794474edf584ea3b8890bec48aabe98d087",
+      "new": "dae4db63d9f1e14db716b4bf9711f057e62f8fbe6b0ece3ec87b19e6e3c255ce"
+    },
+    "data/city-reader-guide.json": {
+      "old": "bb3cc91d1ee3da9855967474eb93f750e304f832f6bc6f9c36135d8a819a92c2",
+      "new": "e831c410ed89761221454a5ff3f1a24cd70154a340f6560b490423bd3349397d"
+    },
+    "data/phoenix-connections.json": {
+      "old": "7fb9f9751a1ea905a69aa296e635df9a54d844a3b5c8543455e7512e6ffbb383",
+      "new": "4bdc36d45dcac56a2ca798ae5809a6e21bba9d7fe410d500394d99777825b882"
+    },
+    "data/phoenix-records.json": {
+      "old": "1cc3c8632f2016750b5199f2cde3a39cf87d29c0f2a4e3b64128a4b794865602",
+      "new": "ac9e0cc3e0eba2154bb0b830ec1557d264da020d2b546846ef20e45c1516d061"
+    },
+    "data/phoenix-source-metadata.json": {
+      "old": "a137f6a9a6fe2ab45986bdc0dfef4b6552a00c33af676461644b1a76995b7a2a",
+      "new": "47c3d33d48836e11852438f5c1155ea09195588007da01c1986b0ebb1202956f"
+    },
+    "data/public-center-catalog-v0.2.json": {
+      "old": "190ec1de3b492e945f5552d6fe735abf31dabc4c13f8a6ee36c832aae7ec11b3",
+      "new": "1af3e4288b94bcc216b39b1cc0834c1f7478a9461d2406c8d244de02735d0a4e"
+    },
+    "data/search-coverage.json": {
+      "old": "3e297b4690f4b0039d8a62551fd52c0ca70097ce3079fd796cad2a5883fd9eba",
+      "new": "48c5019c6d654e6866c7fd1bf9892968fb5608c8394727bfe9e7eff9b40522b4"
+    },
+    "data/source-register.json": {
+      "old": "f1f8c3a9e3a1f579ab760c24c196ad6e3f941a4d2ce79dac3cb9ad00c0503ebf",
+      "new": "64af03c9b71c8b4ea7d54a2c188622d9672ab9eadf74813311ba825a73afa2ce"
+    },
+    "reports/tucson-housing-funding-outcomes-2026.html": {
+      "old": "d07f1b020b25847f9611acf7d95f4f65043d4bcd9d2b91f52aed5b1cd86cef17",
+      "new": "9229e252a842e351b263f678e3619bc7797ea0099666692d0ad40766f1693516"
+    }
+  },
+  "registers": {
+    "evidence.html": {
+      "0": {
+        "src-109": {
+          "old": "6ad84b90e0eaab836cfae6af8a57b9c4407808bffb21623d93661ff305091a9a",
+          "new": {
+            "id": "src-109",
+            "ids": [
+              "src-109"
+            ],
+            "sha256": "a042f2a331d9fca021ffc22d4931f434644012bd46181d8a6b670d1c0fe60551"
+          }
+        },
+        "src-111": {
+          "old": "1994b799e0a0114bab3dec5f29aba0555b4c8dc7083d9cb389de6b807c3effab",
+          "new": {
+            "id": "src-111",
+            "ids": [
+              "src-111"
+            ],
+            "sha256": "33666b2cd25092d4124c7093fa31c475e188f337f77be64e6c80ce870422b53f"
+          }
+        }
+      },
+      "1": {
+        "q-016": {
+          "old": "0149ddab6bfc33ef4e32a4c564840ce97dcc06b17f2232ed69f6426a7eb07e9e",
+          "new": {
+            "id": "q-016",
+            "ids": [
+              "q-016"
+            ],
+            "sha256": "497d32f2e9782f3f9b5f6c9662a285ad000bc88b9e00e7d9564f75d8bae640e5"
+          }
+        }
+      }
+    },
+    "questions-records.html": {
+      "0": {
+        "q-015": {
+          "old": "ef74d10acc41f7a1315f1df0a289377453bd7aa6e25068dfca987445f89e1a26",
+          "new": {
+            "id": "q-015",
+            "ids": [
+              "q-015"
+            ],
+            "sha256": "c56983761428deaae09b22cc79b0db7b83b9af87bf8a32151e4f382966db4018"
+          }
+        },
+        "q-016": {
+          "old": "7436aae96afbca5922006c63d28492e0c1d3aa02ef5635a602f212d586260824",
+          "new": {
+            "id": "q-016",
+            "ids": [
+              "q-016"
+            ],
+            "sha256": "f6501ca76ed370ef24e87d8afd5b7fea1af8268f52a0c87d17f0597ed22f7488"
+          }
+        }
+      }
+    },
+    "housing-projects.html": {
+      "0": {
+        "project-pub-003": {
+          "old": "131d6b5d99ca2fc622c99cd3a5973ab01cfa9f1fd6ce2133d1bfc68919c1304e",
+          "new": {
+            "id": "project-pub-003",
+            "ids": [
+              "project-pub-003"
+            ],
+            "sha256": "8c24fa882cb60d11a47c1a0f87812e8e1c892fc06230eea6b503c3f47946af3c"
+          }
+        },
+        "project-pub-005": {
+          "old": "64aa2fdb8be28a7303fa3ca7890207dc1cbbbac8e6d6ede44a4dd2654691346b",
+          "new": {
+            "id": "project-pub-005",
+            "ids": [
+              "project-pub-005"
+            ],
+            "sha256": "788bc8a55a87ce8839b556bfd9fe49cfc0823b91a8120a92a562b7c5094e5c28"
+          }
+        }
+      }
+    },
+    "phoenix/records.html": {
+      "0": {
+        "MC-HAMC-WEB-001": {
+          "old": "466db6a81f64ba8fbbc98367e620cfdd8286b2eb42f65cc6f2c7acbf109ec32a",
+          "new": {
+            "id": "MC-HAMC-WEB-001",
+            "ids": [
+              "MC-HAMC-WEB-001"
+            ],
+            "sha256": "3384b160d68b0ba29e1ba692052ea975d01602898feb5e66fe63b9912b82e753"
+          }
+        },
+        "PHX-WEB-027": {
+          "old": "1bbd761c1e04aa39d96e2cc323637d1f42b61823ce24201535c6a3b0a74b977c",
+          "new": {
+            "id": "PHX-WEB-027",
+            "ids": [
+              "PHX-WEB-027"
+            ],
+            "sha256": "3e5e5912b3e918d163985c0124ce87e98df7b58cd7d815a9b437b979f535e2ba"
+          }
+        },
+        "MC-HOME-WEB-001": {
+          "old": "4147efb75a2b92f334ac58b3b3795d790b5965a5bf6b3738d6e052c76f879ebc",
+          "new": {
+            "id": "MC-HOME-WEB-001",
+            "ids": [
+              "MC-HOME-WEB-001"
+            ],
+            "sha256": "b2698d45a57e92b2d355bdb531ac96f2f4c826e52969ce56ad157211793f071e"
+          }
+        },
+        "PHX-WEB-002": {
+          "old": "80512d28fe56ce554d2f37de9ef753880886e01e06bbd26fcf10c22b34336c84",
+          "new": {
+            "id": "PHX-WEB-002",
+            "ids": [
+              "PHX-WEB-002"
+            ],
+            "sha256": "faf49aca418e4e358dd8df64838e3614b89a84cb67f8fbb609f4cbaef7f37c89"
+          }
+        },
+        "PHX-WEB-004": {
+          "old": "755a6f738e5b16f141b6406f25ab7a12d57c32fb65c760b805432b7fa94b096e",
+          "new": {
+            "id": "PHX-WEB-004",
+            "ids": [
+              "PHX-WEB-004"
+            ],
+            "sha256": "892940189200b945aec29d043567416b0e2454d1fd8fcc4aced1a737be789d8d"
+          }
+        },
+        "PHX-WEB-007": {
+          "old": "6c9eaffaa91cb8b71700e2260dd94d5f525c6b71ec58a3fe3ce68c43d04cdd1b",
+          "new": {
+            "id": "PHX-WEB-007",
+            "ids": [
+              "PHX-WEB-007"
+            ],
+            "sha256": "d2fd5f77f81197596250e0fd08b748c53349e6356f3a2ee769d7078c30133960"
+          }
+        },
+        "PHX-WEB-020": {
+          "old": "e0d84b9f0dde58af25597896f51a99e79aa0bcf608fb6c0643fb97eae55fd2dc",
+          "new": {
+            "id": "PHX-WEB-020",
+            "ids": [
+              "PHX-WEB-020"
+            ],
+            "sha256": "487b3c7358870096eb4554b1909ea17de14151fa48b56ef5daf757763f974d97"
+          }
+        },
+        "PHX-WEB-009": {
+          "old": "d7cac93c52397e9eb19e3edea65cd9d852464ed43db884c9928d5d1bd32b60e3",
+          "new": {
+            "id": "PHX-WEB-009",
+            "ids": [
+              "PHX-WEB-009"
+            ],
+            "sha256": "7ae02f058ae8d7c1cf95b7aacff91f5c3e3c13909002bfc8a57d7071ee4eba6e"
+          }
+        },
+        "PHX-WEB-010": {
+          "old": "25a427e7b0377a9d65c7c7c59a850ff5be202957e9b23d7dcaa190e089c6cbce",
+          "new": {
+            "id": "PHX-WEB-010",
+            "ids": [
+              "PHX-WEB-010"
+            ],
+            "sha256": "c4ab52382d7e8ed4ff5e76d01b4a364928d65ad6759376438ee810bb3977b37b"
+          }
+        },
+        "PHX-WEB-012": {
+          "old": "7c31528cdf0fd591601d54732c49903e3db668f13b349af684ef05f51899c08c",
+          "new": {
+            "id": "PHX-WEB-012",
+            "ids": [
+              "PHX-WEB-012"
+            ],
+            "sha256": "ab227d55398c03651e4e4e7bb1378b5a0f2f6a17ef113003932952263435beed"
+          }
+        },
+        "BELL-01": {
+          "old": "3f32f7408d34b2675916ee721e598f265dc0426f5d6848a20d07f6b6019292b1",
+          "new": {
+            "id": "BELL-01",
+            "ids": [
+              "BELL-01"
+            ],
+            "sha256": "1e4a338a328a52d807b8d89ba4cd58ba9a4867e8ad41ee44bb21c1e3dee9e94f"
+          }
+        },
+        "BELL-02": {
+          "old": "b296a8949c8c801b1396ccb8cf4d4bbb73b8267ede75d4a1f77d29a8ddcabb20",
+          "new": {
+            "id": "BELL-02",
+            "ids": [
+              "BELL-02"
+            ],
+            "sha256": "115063a0db14beea89f30ab856853f48583c6b8e43dcb73d5759395726676a36"
+          }
+        },
+        "BELL-11": {
+          "old": "76b570925d3c8ea9b004f9bf57f6c4da795d94d7ea7dd7533b1a43d8db9beec7",
+          "new": {
+            "id": "BELL-11",
+            "ids": [
+              "BELL-11"
+            ],
+            "sha256": "96acd288b213e3ab9b30ac58b71abfec58054b81a954d91bf39db81941f0110d"
+          }
+        },
+        "BELL-03": {
+          "old": "ab6e4cbc79864c4f4a833f6a1a7003fce3d54b7b0d180cce80a3c42dee364645",
+          "new": {
+            "id": "BELL-03",
+            "ids": [
+              "BELL-03"
+            ],
+            "sha256": "d8068022ae12bdd73439c9466e519b78d786996c4ae15d43e94f3c791ad8404f"
+          }
+        },
+        "BELL-04": {
+          "old": "1a846ae9faeab0720c92e85c7573189cf482853e89159485a57951403e8f92cf",
+          "new": {
+            "id": "BELL-04",
+            "ids": [
+              "BELL-04"
+            ],
+            "sha256": "3e4162b66ddae1c289ee1c95f64ab619e66a3ba8470722305cf3427da70591d5"
+          }
+        },
+        "BELL-05": {
+          "old": "7c761c6b9445db71cab7955585455e6041018a421f5fa1ff1efa12eb0abf5c4a",
+          "new": {
+            "id": "BELL-05",
+            "ids": [
+              "BELL-05"
+            ],
+            "sha256": "db7be0ebb44e5c8167448be1e3150ab7ee6898f0c93e0a7913d48a6316d958ee"
+          }
+        },
+        "BELL-06": {
+          "old": "46748a2964ba2ce92ce1e9789d766c279e889b322b235083e665a1ef33f47960",
+          "new": {
+            "id": "BELL-06",
+            "ids": [
+              "BELL-06"
+            ],
+            "sha256": "6a57d89fc1b1e0c10dd9ada80c366b797c7b719250cf223fcf3b4b8fd17b1b41"
+          }
+        },
+        "BELL-07": {
+          "old": "1b00d68e7f93c5b741fb47e3da04dc235041f96737e7c738cfa0c0526a3a7cda",
+          "new": {
+            "id": "BELL-07",
+            "ids": [
+              "BELL-07"
+            ],
+            "sha256": "b90a49c8cbd55d943ae10661df0d222bcc274c4e6a9273db4e03481fb8aaa68f"
+          }
+        },
+        "BELL-08": {
+          "old": "edf1b2462890c1f398f863df89609c5a19c10f15ff3ef437c385236be6d6fcb2",
+          "new": {
+            "id": "BELL-08",
+            "ids": [
+              "BELL-08"
+            ],
+            "sha256": "80859429d55ae008b86ce7dc13b1ba856bfce5ba6ad9bc80b5a4edb2db6da2aa"
+          }
+        },
+        "source-PHX-EXT-PROJECT-002": {
+          "old": "4ba9f035cabdc5f3d22697a1dc81cf044136efdd7e3f31aa6eee7cf902b8c2bb",
+          "new": {
+            "id": "source-PHX-EXT-PROJECT-002",
+            "ids": [
+              "source-PHX-EXT-PROJECT-002"
+            ],
+            "sha256": "1cf5069c0357c88c42b1bcc94e6658337ea135757df7306faf00ceac7b1153b2"
+          }
+        },
+        "source-PHX-EXT-PROJECT-004": {
+          "old": "123ed8f40fdf67ce9366174611e5be5db58971c3ba2e8364047cbb3d75e44edc",
+          "new": {
+            "id": "source-PHX-EXT-PROJECT-004",
+            "ids": [
+              "source-PHX-EXT-PROJECT-004"
+            ],
+            "sha256": "9b5f439798ee95dad72d2821d995e6556aaa2bec025b0fa363a786c931215659"
+          }
+        },
+        "source-PHX-EXT-PROJECT-003": {
+          "old": "95473b4c147bf5866ce7f09131542334fe2735a0098f6cf78d792c03dc9ae2c7",
+          "new": {
+            "id": "source-PHX-EXT-PROJECT-003",
+            "ids": [
+              "source-PHX-EXT-PROJECT-003"
+            ],
+            "sha256": "a127baf18ce54d0c12cb3fa727c36842f26bb3af0a2a44097e57252fef27c18d"
+          }
+        },
+        "source-MC-PLAN-001": {
+          "old": "ec7e7d1545ce9b965de60479240a12ab7ce7e77368019af5c80db0d0c5b46d01",
+          "new": {
+            "id": "source-MC-PLAN-001",
+            "ids": [
+              "source-MC-PLAN-001"
+            ],
+            "sha256": "e8d55e504dc6c93a1f4a05848d37bf08e27d0c20c75ebb5bf582554f6593c9e6"
+          }
+        },
+        "source-PHX-PROJECT-025": {
+          "old": "5a74a06e254e0823a69209291bcca12d0ab594107a62f867970d4d2e13da8978",
+          "new": {
+            "id": "source-PHX-PROJECT-025",
+            "ids": [
+              "source-PHX-PROJECT-025"
+            ],
+            "sha256": "c16f407edc67e58722564b54760d8c7d7b2cff2da17c957c02151ace19158648"
+          }
+        },
+        "source-PHX-EXT-PROJECT-123": {
+          "old": "56b0a396b096fbe01e90f8ccb22464125e203fcae71b0f4205b848996abc96d9",
+          "new": {
+            "id": "source-PHX-EXT-PROJECT-123",
+            "ids": [
+              "source-PHX-EXT-PROJECT-123"
+            ],
+            "sha256": "5511be97d4deb4a188eaf1ffb5e3afe8a28fd32d3980957890d1f2389a1ed537"
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,17 +12,18 @@
     const controls = make('nav');
     controls.className = 'list-pagination screen-only';
     controls.id = id + '-pagination';
-    controls.setAttribute('aria-label', (typeof label==='function'?label():label) + ' pages');
     const previous = make('button', 'Previous'), next = make('button', 'Next');
     previous.type = next.type = 'button';
     previous.id = id + '-previous'; next.id = id + '-next';
-    previous.setAttribute('aria-label', 'Previous page of ' + (typeof label==='function'?label():label));
-    next.setAttribute('aria-label', 'Next page of ' + (typeof label==='function'?label():label));
     const status = make('span'); status.id = id + '-page';
     status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     controls.append(previous, status, next); mount.append(controls);
     if (focusTarget) focusTarget.tabIndex = -1;
     function render(focus = false) {
+      const listLabel = typeof label === 'function' ? label() : label;
+      controls.setAttribute('aria-label', listLabel + ' pages');
+      previous.setAttribute('aria-label', 'Previous page of ' + listLabel);
+      next.setAttribute('aria-label', 'Next page of ' + listLabel);
       const pages = Math.max(1, Math.ceil(matches.length / 6));
       page = Math.min(pages, Math.max(1, Number.isSafeInteger(page) ? page : 1));
       const start = (page - 1) * 6, visible = matches.slice(start, start + 6);
@@ -30,7 +31,7 @@
       allEntries().forEach(entry => { entry.hidden = !shown.has(entry); });
       status.textContent = `Page ${page} of ${pages}`;
       previous.disabled = page === 1; next.disabled = page === pages;
-      if (count) count.textContent = `${matches.length} of ${total?total():allEntries().length} ${typeof label==='function'?label():label}${matches.length ? ` · Showing ${start + 1}–${start + visible.length}` : ' · No matches'}`;
+      if (count) count.textContent = `${matches.length} of ${total?total():allEntries().length} ${listLabel}${matches.length ? ` · Showing ${start + 1}–${start + visible.length}` : ' · No matches'}`;
       if (empty) empty.hidden = matches.length > 0;
       if (focus && focusTarget) { focusTarget.focus({preventScroll:true}); focusTarget.scrollIntoView({block:'start'}); }
     }
@@ -51,21 +52,29 @@
     let restoring = false, lastKind = '', ready = false;
     const property = 'hap-list-' + key;
     const write = replace => {
-      const data = {...(history.state || {}), [property]: {...state(),__focus:document.activeElement?.id||'',__scroll:window.scrollY}};
+      const data = {...(history.state || {}), [property]: {...state(),__hash:location.hash||'',__focus:document.activeElement?.id||'',__scroll:window.scrollY}};
       history[replace ? 'replaceState' : 'pushState'](data, '', location.href);
     };
     const nav = performance.getEntriesByType('navigation')[0]?.type;
-    const previous = nav !== 'reload' ? history.state?.[property] : null;
+    // A browser fragment navigation may have no state, or carry state from
+    // the preceding URL. Only restore a snapshot written for the current hash.
+    const snapshot = (entry = history.state) => {
+      const value = entry?.[property];
+      return value?.__hash === (location.hash||'') ? value : null;
+    };
+    const previous = nav !== 'reload' ? snapshot() : null;
     if (previous) { restoring = true; restore(previous); restoring = false; }
     write(true); ready = true;
     window.addEventListener('popstate', event => {
-      const value = event.state?.[property];
+      const value = snapshot(event.state);
       if (!value) return;
       restoring = true; restore(value); afterRestore(); const target=document.getElementById(value.__focus)||document.querySelector('main');target?.focus({preventScroll:true});if(Number.isFinite(value.__scroll))window.scrollTo(0,value.__scroll);restoring = false; lastKind = '';
     });
     return {
       commit(kind = 'action') { if (!ready || restoring) return; write(kind === 'typing' && lastKind === 'typing'); lastKind = kind; },
-      replace() { if (!restoring) write(true); }
+      replace() { if (!restoring) { write(true); lastKind = ''; } },
+      hasSnapshot: () => Boolean(snapshot()),
+      restoredInitially: Boolean(previous)
     };
   }
   function notice(mount) {

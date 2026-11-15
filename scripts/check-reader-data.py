@@ -35,7 +35,11 @@ for source_file in ROOT.rglob('*.html'):
   assert helper_position<position and 'async' not in helper.attrib,('search helper order',source_file)
   assert 'defer' not in helper.attrib or 'defer' in consumer.attrib,('deferred helper / synchronous consumer',source_file)
 idx=(ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n')
+az_path='updates/2026-11-14-arizona-housing-research.html'
+pages[az_path]=html.parse(str(ROOT/az_path))
+assert pages[az_path].xpath('//link[@rel="canonical"]/@href') == ['https://housingaccountabilityproject.github.io/'+az_path]
 index=json.loads(idx);expected=set(pages)-{'search.html','search-all.html'}
+assert [r['url'] for r in index['records'] if r['url'].partition('#')[0]==az_path] == [az_path], 'Index the cross-region report once under its canonical URL'
 assert set(x['page'] for x in index['coverage'])==expected
 for r in index['records']:
  path,_,anchor=r['url'].partition('#');assert path in expected

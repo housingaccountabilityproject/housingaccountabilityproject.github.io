@@ -1085,7 +1085,7 @@
       "period": "other",
       "topic": "projects",
       "source_context": "TC-CFO-1026-00207; register accessed November 7, 2026.",
-      "limitations": "Application dated October 15, 2026. Listed Issued when reviewed November 7. The permit page does not show an issue date. The reviewed address register listed a November 15 expiration and carried a November 5 data stamp. Original certificate, conditions, renewal and completed move counts unverified.",
+      "limitations": "Application dated October 15, 2026. Listed Issued when reviewed November 7. The permit page does not show an issue date. The reviewed address register listed a November 15 expiration and carried a November 5 data stamp. The permit displayed Complete when checked November 14, 2026; that is not proof of renovation completion or moves. Original certificate, conditions, renewal and completed move counts unverified.",
       "urls": [
         "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1026-00207/",
         "https://pro.tucsonaz.gov/address_search/1501/N/ORACLE/RD"
@@ -1137,7 +1137,7 @@
       "period": "other",
       "topic": "projects",
       "source_context": "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
-      "limitations": "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in.",
+      "limitations": "The register showed Issued on November 14, 2026. Historical observations: Fees Paid on November 10; Submitted – Online on November 7. The original certificate, exact issue date and conditions, occupancy and completed moves remain unverified. This is a separate 14th-floor record, not renewal of the 15th-floor permit.",
       "urls": [
         "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
       ],
@@ -1161,6 +1161,11 @@
         {
           "observed_on": "2026-11-10",
           "status": "Fees Paid",
+          "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        },
+        {
+          "observed_on": "2026-11-14",
+          "status": "Issued",
           "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
         }
       ],

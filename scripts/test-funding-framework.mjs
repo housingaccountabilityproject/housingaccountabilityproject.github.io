@@ -13,6 +13,9 @@ const server=process.env.FUNDING_TEST_BASE_URL?null:spawn('python3',['-m','http.
 mkdirSync(output,{recursive:true});
 const dataset=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url)));
 const log=[],pdfs=[],errors=[];
+const fixtureRoot='/scripts/_test-fixtures/';
+const fixturePage=fixtureRoot+'funding-period-framework.html';
+const fixtureData=fixtureRoot+'funding-period-framework.json';
 const yearsById={
  'MC-HOME-WEB-001':['2027','2028'],'PHX-WEB-012':['2024'],
  'PHX-CFP-WEB-001':['2026'],'PHX-CFP-WEB-002':['2026'],'PHX-CFP-WEB-004':['2025'],'PHX-CFP-WEB-005':['2026'],
@@ -32,6 +35,12 @@ async function open(width,path){
  const page=await browser.newPage({viewport:{width,height:1100},...(width<600?{isMobile:true,hasTouch:true}:{})});
  page.on('pageerror',e=>errors.push({width,path,message:e.message}));
  await page.route('**/*',r=>r.request().url().startsWith(base+'/')?r.continue():r.abort());
+ if(path===fixturePage){
+  // Test-only bytes: this suite need not fetch a synthetic page from GitHub Pages.
+  for(const [route,contentType] of [[fixturePage,'text/html; charset=utf-8'],[fixtureData,'application/json; charset=utf-8']]){
+   await page.route(base+route,r=>r.fulfill({contentType,body:readFileSync(root+route.slice(1))}));
+  }
+ }
  await page.goto(base+path);return page;
 }
 async function fits(page,label){assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),label+' fits viewport');}
@@ -290,7 +299,7 @@ async function pdf01TucsonCompact(){
  await page.close();
 }
 async function synthetic(width){
- const page=await open(width,'/scripts/fixtures/funding-period-framework.html');
+ const page=await open(width,fixturePage);
  await page.locator('#test-tucson article').first().waitFor();
  assert((await page.getByRole('note').textContent()).includes('TEST DATA ONLY'));
  for(const scope of ['tucson','phoenix']){

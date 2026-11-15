@@ -68,7 +68,15 @@ def story(path):
             if item['url'] in seen:continue
             seen.add(item['url'])
             note=item['locator'] or 'Source reference: ' + ' · '.join(item['source_ids'])
-            sources.append(f'<details class="city-story-source source-locator"><summary>{escape(item["title"])}</summary><small>{escape(note)}</small><p>{escape(" · ".join(item["source_ids"]))}</p><a href="{escape(item["url"],quote=True)}">Open original document →</a></details>')
+            url = item['url']
+            is_council_json = url.startswith('https://webapi.legistar.com/v1/phoenix/matters')
+            label = 'Open council metadata (JSON)' if is_council_json else 'Open original document →'
+            companion = ''
+            # Bell's adoption metadata and Council report concern the same MatterId / File 20-0592.
+            if url == 'https://webapi.legistar.com/v1/phoenix/matters/15733' and 'PHX-PROJECT-024' in item['source_ids']:
+                pdf = 'https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=15733&M=R&N=TextL5'
+                companion = f'<a href="{escape(pdf,quote=True)}">Read the Council authorization report (PDF) →</a><br>'
+            sources.append(f'<details class="city-story-source source-locator"><summary>{escape(item["title"])}</summary><small>{escape(note)}</small><p>{escape(" · ".join(item["source_ids"]))}</p>{companion}<a href="{escape(url,quote=True)}">{label}</a></details>')
     established=''.join(f'<p>{escape(text)}</p>' for text in known)
     unknown=''.join(f'<p>{escape(text)}</p>' for text in gaps)
     return f'''<section class="city-project-story city-design-ui city-wrap" id="project-brief" data-project-name="{escape(project['name'],quote=True)}"><h2 class="city-story-question">{question}</h2>{project_facts(project)}<p class="city-story-warning">{escape(caution)}</p><div class="city-story-layout"><div><section class="city-story-timeline"><h3>Follow the dated records.</h3><p>Dates and record types matter. These statements are not payments in a single account.</p><ol>{timelines}</ol></section><div class="city-story-evidence"><section><h3>What the records establish</h3>{established}</section><section><h3>What still needs evidence</h3>{unknown}</section></div></div><aside class="city-source-rail"><h3>Check the original record.</h3><p>Read the source date, record type and limits beside the claim.</p>{''.join(sources)}</aside></div><div class="city-story-tools"><button type="button" id="print-project-brief" hidden>Print project brief</button><a href="#sources">Full source appendix →</a></div><p class="city-story-boundary">Planned homes, reported milestones and current housing availability are different measures. The complete findings and qualifications remain below.</p></section>'''

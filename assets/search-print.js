@@ -27,12 +27,13 @@
       let previewing=false, previewButton, returnFocus=button, returnScroll=0, selection=null;
       const selected=()=>registers.find(r=>r.id===list.value)||registers[0];
       function removeReport(){document.getElementById('search-print-output')?.remove();document.body.classList.remove('printing-search-results');}
-      function cleanup(){
+      function cleanup(restorePosition = true){
         removeReport();previewing=false;selection=null;
         document.getElementById('search-print-preview-controls')?.remove();document.body.classList.remove('previewing-search-results');
-        privacy?.leavePrint();returnFocus?.focus({preventScroll:true});window.scrollTo({top:returnScroll,left:0,behavior:'instant'});
+        privacy?.leavePrint();
+        if(restorePosition){returnFocus?.focus({preventScroll:true});window.scrollTo({top:returnScroll,left:0,behavior:'instant'});}
       }
-      function clone(entry, mode) {
+      function clone(entry, mode, includeTerms) {
         let copy;
         if(entry.tagName==='TR'){
           copy=make('article');copy.className='index-print-record';
@@ -58,6 +59,7 @@
           for(const node of [...copy.children]){lead.append(node);if(node.tagName==='H2')break;}
           copy.prepend(lead);
         }else if(entry.id)copy.prepend(make('p','Record ID: '+entry.id));
+        if(!includeTerms)copy.querySelectorAll('mark[data-search-mark]').forEach(mark=>mark.replaceWith(...mark.childNodes));
         copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
         copy.querySelectorAll('details').forEach(n=>{n.open=true;});
         copy.querySelectorAll('.search-why,.city-project-permalink,.question-permalink').forEach(n=>n.remove());
@@ -81,15 +83,16 @@
         const all=reg.results(),entries=choice.scope==='current'?(reg.currentResults?.()||all.slice(0,6)):all;
         const report=make('section');report.id='search-print-output';report.className='print-'+choice.detail;report.setAttribute('aria-label',title);
         report.append(make('p','Housing Accountability Project'),make('h1',title),make('p','List: '+value(reg.label)),make('p',(choice.detail==='compact'?'Compact':'Full evidence')+' · '+(choice.scope==='current'?'Current page (up to six)':'All matches')));
+        const includeTerms=privacy?.includeTerms() === true;
         for(const line of (reg.describe||describe)()){
-          if(!privacy?.includeTerms() && /^Search:/.test(line))continue;
+          if(!includeTerms && /^Search:/.test(line))continue;
           report.append(make('p',line));
         }
         report.append(make('p',`${all.length} matching result${all.length===1?'':'s'} · ${choice.scope==='current'?entries.length+' records from the current page':'complete results for this search'}`));
         const snapshotText=value(snapshot);if(snapshotText)report.append(make('p',snapshotText));
         report.append(make('p',`Print prepared: ${window.HAPSearchOptions.preparedAt()} · America/Phoenix, year-round. This is a print time; research dates remain attached to the records.`));
         if(choice.detail==='compact')report.append(make('p','Condensed evidence: dates, source notes and qualifications are retained. Full evidence also retains connected navigation context.'));
-        for(const entry of entries)report.append(clone(entry,choice.detail));
+        for(const entry of entries)report.append(clone(entry,choice.detail,includeTerms));
         if(!entries.length)report.append(make('p','No results match the active search.'));
         document.body.append(report);privacy?.showPrint(report);document.body.classList.add('printing-search-results');
       }
@@ -98,7 +101,7 @@
         document.body.classList.remove('printing-search-results');document.body.classList.add('previewing-search-results');
         const controls=make('div');controls.id='search-print-preview-controls';
         const print=make('button','Print / Save PDF');print.id='print-results';print.type='button';print.addEventListener('click',()=>window.print());
-        const close=make('button','Return to results');close.id='close-print';close.type='button';close.addEventListener('click',cleanup);
+        const close=make('button','Return to results');close.id='close-print';close.type='button';close.addEventListener('click',()=>cleanup());
         controls.append(print,close);document.body.prepend(controls);print.focus({preventScroll:true});window.scrollTo({top:0,left:0,behavior:'instant'});
       }
       function update(){
@@ -120,7 +123,7 @@
       button.addEventListener('click',()=>{returnFocus=button;returnScroll=window.scrollY;selection=choose();window.print();});
       previewButton=make('button','Preview print results');previewButton.id='preview-print';previewButton.type='button';previewButton.addEventListener('click',preview);button.after(previewButton);
       list.addEventListener('change',update);update();
-      const controller={update,preview,closePreview:cleanup};window.HAPSearchPrint.active=controller;return controller;
+      const controller={update,preview,closePreview:cleanup,closeForHistory:()=>{if(previewing)cleanup(false);}};window.HAPSearchPrint.active=controller;return controller;
     }
   };
 })();

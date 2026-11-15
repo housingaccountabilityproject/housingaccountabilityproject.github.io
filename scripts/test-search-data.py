@@ -9,6 +9,7 @@ with TemporaryDirectory(prefix='hap-search-') as tmp:
  root=Path(tmp)
  for p in ROOT.glob('*.html'):shutil.copy2(p,root/p.name)
  shutil.copytree(ROOT/'reports',root/'reports')
+ shutil.copytree(ROOT/'updates',root/'updates')
  shutil.copytree(ROOT/'tucson',root/'tucson')
  (root/'phoenix').mkdir()
  shutil.copy2(ROOT/'phoenix/index.html',root/'phoenix/index.html')

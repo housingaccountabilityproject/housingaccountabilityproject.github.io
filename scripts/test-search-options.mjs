@@ -118,28 +118,105 @@ try {
     assert(!(await page.locator('#include-search-terms').isChecked()));
     await page.locator(queryField).fill('HOME');
     if(submit) await page.getByRole('button',{name:'Search',exact:true}).click();
+    if(!submit) {
+      await page.locator('[data-view="source"]').click();
+      assert.equal(await page.locator('#records-pagination').getAttribute('aria-label'),'Phoenix & Maricopa County source references pages');
+      assert.equal(await page.locator('#records-next').getAttribute('aria-label'),'Next page of Phoenix & Maricopa County source references');
+      await page.locator('[data-view="all"]').click();
+      assert.equal(await page.locator('#records-previous').getAttribute('aria-label'),'Previous page of Phoenix & Maricopa County evidence-browser entries');
+    }
     await page.locator(preview).click(); await skipTo('search-print-output');
     assert(!(await page.locator('#search-print-output > p').allTextContents()).some(text=>text.startsWith('Search:')));
     assert((await page.locator('#search-print-output').textContent()).includes('MST (UTC−7)'));
     if(!submit) assert((await page.locator('#search-print-output').textContent()).includes('2026-11-10'));
+    assert.equal(await page.locator('#search-print-output mark[data-search-mark]').count(),0,'Opt-out removes query highlights, not evidence');
+    assert.match(await page.locator('#search-print-output').textContent(),/HOME/i,'Original evidence survives the opt-out');
     await page.locator(back).click();
     assert.equal(await page.locator(queryField).inputValue(),'HOME');
     assert(await page.locator(preview).evaluate(node=>document.activeElement===node));
     await page.locator('#include-search-terms').check();
     await page.locator(preview).click();
     assert((await page.locator('#search-print-output > p').allTextContents()).some(text=>text==='Search: HOME'));
+    assert(await page.locator('#search-print-output mark[data-search-mark]').count()>0,'Opt-in keeps query highlights');
     await page.locator(back).click();
     await page.getByText('Share this search · optional',{exact:true}).click();
     await page.locator('#create-search-link').click();
+    if(submit) {
+      await page.locator(queryField).fill('unsubmitted example');
+      await page.locator('#create-search-link').click();
+    }
     const link=new URL(await page.locator('#shared-search-link').inputValue());
+    const payload=JSON.parse(decodeURIComponent(link.hash.split('=')[1]));
+    assert.equal(payload.state.query,'HOME');
+    assert(!Object.hasOwn(payload.state,'draft'),'Unsubmitted phrases never enter a shared link');
     await checkPrivate(before,requestCount);
     await page.goto(base+link.pathname+link.hash);
     assert.equal(await page.locator(queryField).inputValue(),'HOME');
     assert(!(await page.locator('#include-search-terms').isChecked()));
     console.log('PASS default-off terms, explicit sharing, memory-only state and print skip',surface);
   }
+  // Back from a detached Tucson print preview must show the previous live
+  // results, not an old report overlay on top of the restored controls.
+  await page.goto(base+'/search-all.html');await page.waitForLoadState('networkidle');
+  const broaderURL=page.url(),broaderRequests=requests.length;
+  await page.locator('#site-query').fill('Craycroft');
+  await page.locator('#site-query').press('Enter');
+  await page.locator('#broader-next').click();
+  const tucsonPage=await page.locator('#broader-page').textContent();
+  await page.locator('#site-query').fill('CDBG');
+  await page.locator('#site-query').press('Enter');
+  await page.locator('#preview-print').click();
+  assert(await page.locator('#search-print-output').isVisible());
+  await page.goBack();
+  assert.equal(page.url(),broaderURL);
+  assert.equal(await page.locator('#site-query').inputValue(),'Craycroft');
+  assert.equal(await page.locator('#broader-page').textContent(),tucsonPage);
+  assert.equal(await page.locator('#search-print-output').count(),0);
+  assert.equal(await page.locator('a.skip').getAttribute('href'),'#main');
+  await page.goForward();
+  assert.equal(await page.locator('#site-query').inputValue(),'CDBG');
+  assert.equal(await page.locator('#search-print-output').count(),0);
+  assert.equal(requests.length,broaderRequests,'Tucson Back/Forward and print preview stay local');
+
+  // The #view-source address is an entry point, not a command to erase a
+  // reader's newer state each time browser history traverses that address.
+  await page.goto(base+'/phoenix/records.html#view-source');await page.waitForLoadState('networkidle');
+  const phoenixRequests=requests.length;
+  await page.locator('#record-query').fill('HUD');
+  await page.locator('#records-next').click();
+  const phoenixPage=await page.locator('#records-page').textContent();
+  const sourceCount=await page.locator('#record-count').textContent();
+  const phoenixSaved=async()=>{
+    assert.equal(new URL(page.url()).hash,'#view-source');
+    assert.equal(await page.locator('#record-query').inputValue(),'HUD');
+    assert.equal(await page.locator('#records-page').textContent(),phoenixPage);
+    assert.equal(await page.locator('#record-count').textContent(),sourceCount);
+    assert.equal(await page.locator('[data-view="source"]').getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator('#search-print-output').count(),0);
+    assert.equal(await page.locator('a.skip').getAttribute('href'),'#main');
+  };
+  await page.evaluate(()=>location.hash='view-funding');
+  await page.waitForFunction(()=>document.querySelector('[data-view="funding"]').getAttribute('aria-pressed')==='true');
+  await page.locator('#preview-print').click();
+  assert(await page.locator('#search-print-output').isVisible());
+  await page.goBack();await phoenixSaved();
+  await page.goForward();
+  assert.equal(new URL(page.url()).hash,'#view-funding');
+  assert.equal(await page.locator('[data-view="funding"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#search-print-output').count(),0);
+  await page.goBack();await phoenixSaved();
+  await page.evaluate(()=>location.hash='PHX-WEB-029');
+  await page.locator('#PHX-WEB-029').waitFor({state:'visible'});
+  await page.goBack();await phoenixSaved();
+  await page.goForward();
+  assert.equal(new URL(page.url()).hash,'#PHX-WEB-029');
+  assert(await page.locator('#PHX-WEB-029').isVisible());
+  assert.equal(requests.length,phoenixRequests,'Phoenix view and record history stay local');
+  assert.equal(new URL(page.url()).search,'');
+  assert.equal(await page.evaluate(()=>localStorage.length+sessionStorage.length),0);
+  console.log('PASS Phoenix fragment Back/Forward and both surfaces remove stale print previews');
   const failed=await context.newPage();
-  await failed.route('**/assets/category-search-data.js',route=>route.abort());
+  await failed.route(/\/assets\/category-search-data\.js(?:\?.*)?$/,route=>route.abort());
   await failed.goto(base+'/search.html');
   assert((await failed.locator('#count').textContent()).includes('could not load'));
   assert.equal(await failed.locator('#count').getAttribute('role'),'alert');

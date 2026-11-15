@@ -11,10 +11,10 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
 .city-site .city-identity{text-align:right;font-size:12px;color:var(--muted)}.city-site .city-identity>span{display:block;margin-bottom:8px}
 .city-site .city-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;padding:0;background:transparent}
 .city-site .city-switcher a{display:block;padding:8px 12px;min-height:40px;border:1px solid #b8cbbf;color:var(--teal);font:600 13px/1.5 Arial,sans-serif;text-decoration:none;border-radius:0;background:transparent}
-.city-site .city-switcher a[aria-current=page]{background:var(--teal);color:white;border-color:var(--teal);text-decoration:none}
+.city-site .city-switcher a[data-region-active]{background:var(--teal);color:white;border-color:var(--teal);text-decoration:none}
 .city-site .city-nav-bar{border-top:1px solid var(--line)}.city-site .city-main-nav{display:flex;gap:4px 26px;align-items:center;flex-wrap:wrap;padding:8px 0;background:transparent}
 .city-site .city-main-nav>a,.city-site .city-more>summary{font:600 14px/1.5 Arial,sans-serif;display:inline-flex;align-items:center;padding:12px 0;min-height:46px;color:var(--teal);text-decoration:none;border-bottom:2px solid transparent}
-.city-site .city-main-nav>a[aria-current=page]{border-color:var(--teal);color:var(--teal)}.city-site .city-main-nav>a:hover{text-decoration:underline}
+.city-site .city-main-nav>a:is([aria-current=page],[data-route-active]){border-color:var(--teal);color:var(--teal)}.city-site .city-main-nav>a:hover{text-decoration:underline}
 .city-site .city-more{position:relative;margin-left:auto}.city-site .city-more>summary{cursor:pointer;display:list-item;list-style-position:inside}.city-site .city-more>div{position:absolute;right:0;z-index:20;min-width:250px;padding:12px 18px;border:1px solid var(--line);background:white;box-shadow:0 8px 24px #102f3718}
 .city-site .city-more a{display:block;padding:10px 0;min-height:42px;font:14px/1.5 Arial,sans-serif;color:var(--teal);text-decoration:none}.city-site .city-more a[aria-current=page]{font-weight:bold;text-decoration:underline}
 .city-site .city-footer{display:block;max-width:none;margin:0;padding:36px 0 18px;background:#102f37;color:#dcebe5;border:0}
@@ -280,7 +280,7 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
  .city-site.city-design .city-switcher{display:flex;justify-content:flex-start;gap:8px}.city-site.city-design .city-switcher a{min-height:44px}
  .city-site.city-design .city-main-nav{display:flex;flex-direction:column;align-items:stretch;gap:0;position:static;padding:0;border-block:1px solid var(--line)}
  .city-site.city-design .city-main-nav>a{font-size:17px;min-height:48px;border-bottom:1px solid var(--line);padding:12px 0}
- .city-site.city-design .city-main-nav>a[aria-current=page]{border-bottom:2px solid var(--teal);font-weight:700}
+ .city-site.city-design .city-main-nav>a:is([aria-current=page],[data-route-active]){border-bottom:2px solid var(--teal);font-weight:700}
  .city-site.city-design .city-more{position:static;margin:0;width:100%}.city-site.city-design .city-more>summary{font-size:16px;min-height:48px;padding:14px 0}
  .city-site.city-design .city-more>div{position:static;min-width:0;padding:0 0 12px 16px;box-shadow:none;border:0;background:transparent}
  .city-site.city-design .city-more a{font-size:15px;min-height:44px}
@@ -310,3 +310,16 @@ body.city-site{--navy:#102f37;--teal:#124e52;--mint:#e9f2ee;--ink:#18383c;--pape
 
 /* Small accent labels need normal-text contrast on the paper background. */
 .city-site .need-section .eyebrow.accent{color:#954522}
+
+
+/* The shared theme makes the legacy hero backgrounds light. Keep their labels and actions legible. */
+.city-site.city-design .hero .eyebrow{color:#813d1e}
+.city-site.city-design.city-information-page main a.button,
+.city-site.city-design.city-tucson main a.founder-link{color:#fff}
+.city-site.city-design .hero .hero-links a.secondary{color:var(--teal);border-color:#6f8f87}
+.city-site.city-design.city-glossary-page .hero a{color:var(--teal)}
+.city-site.city-design .discrepancy-layout .eyebrow.accent{color:#813d1e}
+@media print{
+ .city-site.city-design.city-information-page main a.button,
+ .city-site.city-design.city-tucson main a.founder-link{color:var(--teal);background:transparent}
+}
