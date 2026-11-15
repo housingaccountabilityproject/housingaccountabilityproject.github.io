@@ -198,7 +198,12 @@
   }
   form.addEventListener('submit', event => { event.preventDefault(); update(); navigation.commit(); });
   form.addEventListener('input', event => {if(event.target===query){update(); navigation.commit('typing');}});
-  form.addEventListener('change', () => {update(); navigation.commit('filter');});
+  // Text edits are already committed by input. A delayed query change can fire
+  // between popstate and hashchange and incorrectly snapshot the new fragment.
+  form.addEventListener('change', event => {
+    if (event.target === query) return;
+    update(); navigation.commit('filter');
+  });
   form.addEventListener('reset', event => { event.preventDefault(); options.reset(); clear(); update(); navigation.commit(); });
   buttons.forEach(button => button.addEventListener('click', () => {
     view = button.dataset.view;
