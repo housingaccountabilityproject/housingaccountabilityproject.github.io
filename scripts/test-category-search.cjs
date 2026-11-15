@@ -8,7 +8,7 @@ const base={scope:'tucson',category:'sources',query:'',year:'',sourceType:'',sub
 let assertions=0;
 function check(value,message){assert(value,message);assertions++;}
 for(const scope of ['tucson','phoenix'])for(const category of ['funding','sources','questions','updates']){
- const entries=records.filter(r=>r.scope===scope&&r.category===category);
+ const entries=records.filter(r=>core.inScope(r,scope)&&r.category===category);
  const field=category==='sources'?'sourceType':category==='questions'?'subject':'year';
  const values=[...new Set(entries.flatMap(r=>field==='year'?[...core.searchYears(r),'__unindexed']:field==='subject'?r.topics:[r.sourceType]))];
  for(const value of ['',...values])for(const query of ['','HOME','CDBG','year:unknown','HOME year:2026','zz-no-result',...new Set(entries.flatMap(r=>core.searchYears(r)).map(y=>'year:'+y))]){
@@ -16,7 +16,20 @@ for(const scope of ['tucson','phoenix'])for(const category of ['funding','source
   const actual=core.search(records,{...base,scope,category,query,[field]:value});check(actual.length===expected.length,'filter count');check(actual.every(r=>expected.includes(r)),'filter members');
  }
 }
-check(records.length===218,'Reviewed 218 records');check(new Set(records.map(r=>r.key)).size===218,'Unique stable keys');
+check(records.length===219,'Reviewed 218 regional records and one cross-region report');
+check(new Set(records.map(r=>r.key)).size===219,'Unique stable keys');
+const azUrl='https://housingaccountabilityproject.github.io/updates/2026-11-14-arizona-housing-research.html';
+const az=records.filter(r=>r.url===azUrl);
+check(az.length===1&&az[0].contextUrl===azUrl&&az[0].years.length===0,'Canonical cross-region report; source-check year is not a publication year');
+for(const scope of ['tucson','phoenix']) {
+ const result=core.search(records,{...base,scope,category:'updates',query:'"Arizona housing research update"'});
+ check(result.filter(r=>r===az[0]).length===1,'One shared report in '+scope);
+}
+for(const id of ['MC-PLAN-WEB-001','MC-PLAN-001']) {
+ const result=core.search(records,{...base,scope:'phoenix',query:id+' year:2026'});
+ const row=result.find(r=>r.id===id);
+ check(row?.yearBasis.includes('scheduled events')&&row?.yearBasis.includes('proposed plan endpoints'),'2026 scheduled events are searchable, not adopted funding coverage: '+id);
+}
 const funding=records.filter(r=>r.category==='funding');check(funding.length===30,'30 Funding entries');check(funding.filter(r=>r.programPeriod.years.length).length===17,'17 supported period references');check(funding.filter(r=>!r.programPeriod.years.length&&r.programPeriod.status!=='not_applicable').length===12,'12 unknown periods');
 for(const r of records){check(!!r.yearBasis&&!!r.yearNote,'Date basis retained');check(r.years.every(y=>/^20\d{2}$/.test(y)),'Date year format');}
 for(const id of ['BELL-03','BELL-04','PHX-CFP-WEB-006','craycroft-financing-2026','PHX-CFP-WEB-003'])check(!core.searchYears(records.find(r=>r.id===id)).length,'No event/guidance year substitution '+id);
@@ -24,7 +37,7 @@ check(core.search(records,{...base,scope:'phoenix',category:'funding',query:'yea
 const source=records.find(r=>r.id==='SRC-100');check(source.correctedSourceUrl.includes('/erlink?f=ERR_900000010528814_'),'Correct SRC-100');check(source.linkWarnings.some(w=>w.url.includes('/8818?')&&w.text.includes('Renton')),'Old mismatch retained visibly');
 const context={window:{}};vm.runInNewContext(fs.readFileSync('assets/category-search-data.js','utf8'),context);check(JSON.stringify(context.window.HAP_CATEGORY_SEARCH_DATA)===JSON.stringify(dataset),'Committed browser bundle matches public snapshot');
 check(!JSON.stringify(dataset).includes('/workspace/'),'No local paths');
-console.log(`PASS: ${assertions} category-search assertions; 218 records, 30 funding entries, 17 supported period references, 12 unknown periods and one not-applicable guidance record.`);
+console.log(`PASS: ${assertions} category-search assertions; 219 records, 30 funding entries, 17 supported period references, 12 unknown periods and one not-applicable guidance record.`);
 
 vm.runInNewContext(fs.readFileSync('assets/category-search-coverage.js','utf8'),context);
 const periods=require('../data/funding-periods.json');check(periods.records.length===30,'30 sanitized public period records');check(!('evidenceReports' in periods)&&!('preparedFor' in periods),'No internal report wrapper');check(context.window.HAP_FULL_SEARCH_COVERAGE.records===require('../data/search-coverage.json').reduce((n,p)=>n+p.records,0),'Current generated full-page count');

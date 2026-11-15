@@ -1,0 +1,3 @@
+# Keep synthetic browser QA inputs in the repository, not the Pages output.
+exclude:
+  - scripts/_test-fixtures

@@ -31,11 +31,26 @@ def rebase(output, filename):
     return re.sub(r'(href|src)="([^"]*)"', replace, output)
 
 
+RAW_REPORTS = {
+    '35197': '35297',
+    '32479': '32581',
+    '33449': '33551',
+}
+
+def raw_report_link(url):
+    match = re.search(r'[?&]ID=(\d+)(?:&|$)', url)
+    if not match or match[1] not in RAW_REPORTS or not url.startswith('https://phoenix.legistar.com/ViewReport.ashx?'):
+        return ''
+    mid = match[1]
+    return f'<p><a href="https://webapi.legistar.com/v1/phoenix/matters/{mid}/texts/{RAW_REPORTS[mid]}">Raw council data (JSON)</a></p>'
+
+
 def record_panel(record):
     paragraphs = ''.join(f'<p>{escape(p)}</p>' for p in record['summary'])
+    supplemental = ''.join(f'<p><a href="{escape(c["url"], quote=True)}">{escape(c["title"])}</a></p>' for c in record.get('supplemental_citations', []))
     context = ''.join(f'<p>{escape(p)}</p>' for p in record['context'] if not p.startswith(record['id']))
     limits = ''.join(f'<p>{escape(p)}</p>' for p in record['limitations'])
-    return f'<div class="project-record" data-origin-record="{escape(record["id"])}"><span class="label">{escape(" · ".join(record["labels"]))}</span>{paragraphs}<div class="claim-meta">{context}</div><div class="connection-limit">{limits}</div><a href="records.html#{escape(record["id"])}">Read the indexed finding · {escape(record["id"])}</a></div>'
+    return f'<div class="project-record" data-origin-record="{escape(record["id"])}"><span class="label">{escape(" · ".join(record["labels"]))}</span>{paragraphs}{supplemental}<div class="claim-meta">{context}</div><div class="connection-limit">{limits}</div><a href="records.html#{escape(record["id"])}">Read the indexed finding · {escape(record["id"])}</a></div>'
 
 
 def build_project(spec, records, sources):
@@ -58,7 +73,7 @@ def build_project(spec, records, sources):
             if key in seen:
                 continue
             seen.add(key)
-            citations.append(f'<li><a href="{escape(citation["url"], quote=True)}">{escape(citation["title"])}</a><p>{escape(citation["locator"])}</p><span>{escape(" · ".join(citation["source_ids"]))}</span></li>')
+            citations.append(f'<li><a href="{escape(citation["url"], quote=True)}">{escape(citation["title"])}</a><p>{escape(citation["locator"])}</p>{raw_report_link(citation["url"])}<span>{escape(" · ".join(citation["source_ids"]))}</span></li>')
     body = f'''<div class="wrap project-file">
 <nav class="project-file-jump" aria-label="Moreland project sections"><a href="#scope">Planned scope</a><a href="#phase-i">Phase I</a><a href="#phase-ii">Phase II</a><a href="#dated-records">Dated records</a><a href="#evidence-needed">Open questions</a><a href="#sources">Sources</a></nav>
 <div class="project-print"><button type="button" id="print-project-file" hidden>Print project file / Save PDF</button></div>

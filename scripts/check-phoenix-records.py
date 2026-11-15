@@ -88,12 +88,20 @@ for record in records:
         for citation in record.get('citations', []):
             assert citation['url'] in original_links, (record['id'], citation['url'])
             assert citation['source_ids']
+        for citation in record.get('supplemental_citations', []):
+            assert original.xpath('.//a[@data-record-supplemental-citation="true" and @href=$url]', url=citation['url'])
+            assert page.xpath('//*[@id=$id]//li[@data-citation="supplemental"]/a[@href=$url]', id=record['id'], url=citation['url'])
         normalized = lambda element: ' '.join(' '.join(element.itertext()).split())
         for limitation in original.xpath('.//*[contains(concat(" ",normalize-space(@class)," ")," caveat ") or contains(concat(" ",normalize-space(@class)," ")," funding-limit ")]'):
             assert normalized(limitation) in record['limitations'], ('lost qualification', record['id'])
 for sid in sources:
     assert page.xpath('//*[@id=$id]', id='source-' + sid)
     assert urlsplit(sources[sid]['url']).scheme == 'https'
+arpa_ordinance = 'https://phoenix.legistar.com/LegislationDetail.aspx?ID=6022296&GUID=5BF6852B-B658-4A43-AE73-A78241F620C9'
+moreland_i = next(record for record in records if record['id'] == 'PHX-WEB-009')
+assert moreland_i.get('supplemental_citations') == [
+    {'url': arpa_ordinance, 'title': 'City of Phoenix Council · Moreland Phase I ARPA Ordinance S-49424'}
+]
 assert len(page.xpath('//*[@data-kind]')) == 93
 assert len(page.xpath('//h1')) == len(page.xpath('//main')) == 1
 ids = page.xpath('//@id')

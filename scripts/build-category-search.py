@@ -2,6 +2,8 @@
 """Reconcile the curated public extract with canonical records, then bundle it."""
 from copy import deepcopy
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
+from lxml import html
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,7 +31,32 @@ metadata = read('data/phoenix-source-metadata.json')
 periods = {row['key']: row for row in read('data/funding-periods.json')['records']}
 source_rows = {row['public_id']: row for row in read('data/source-register.json')['sources']}
 record_rows = {row['id']: row for row in phoenix['records']}
+phoenix_sources = {row['id']: row for row in phoenix['sources']}
+questions = html.parse(str(ROOT / 'questions-records.html'))
+readable_reports = {'PHX-EXT-PROJECT-002', 'PHX-EXT-PROJECT-003', 'PHX-EXT-PROJECT-004', 'PHX-PROJECT-025', 'PHX-EXT-PROJECT-123'}
+def plain(element):
+    return ' '.join(' '.join(element.itertext()).split())
 known = {row['key'] for row in data['records']}
+az_path = 'updates/2026-11-14-arizona-housing-research.html'
+az_url = 'https://housingaccountabilityproject.github.io/' + az_path
+az_key = 'arizona:' + az_path
+if az_key not in known:
+    data['records'].append({
+        'key': az_key, 'id': 'arizona-housing-research-2026-11-14',
+        'scope': 'arizona', 'regions': ['tucson', 'phoenix'], 'category': 'updates',
+        'title': 'Arizona housing research update', 'kind': 'Cross-region research update',
+        'topics': [], 'agency': '', 'programs': [],
+        'place': 'Tucson & Pima County and Phoenix & Maricopa County',
+        'years': [], 'label': 'Public research update',
+        'summary': ['Regional evidence on voucher history, local housing projects and federal funding, with open questions and limits.'],
+        'caveats': ['A request is not an award. Neither an award nor an authorization verifies a payment. Voucher counts are not households housed or current openings.'],
+        'notes': ['Sources checked November 14, 2026 (Arizona). Source-check dates are not publication dates.'],
+        'metadata': [], 'url': az_url, 'contextUrl': az_url,
+        'originals': [{'title': 'Read the full Arizona update and original source links', 'url': az_url}],
+        'links': [], 'sourceIds': [], 'aliases': [], 'publicationPending': True,
+        'yearBasis': 'Exact website publication date not established',
+        'yearNote': 'November 14, 2026 is an explicitly labeled source-check date, not a verified publication date.',
+    })
 proposal = record_rows['MC-PLAN-WEB-001']
 if 'phoenix:MC-PLAN-WEB-001' not in known:
     data['records'].append({
@@ -38,7 +65,7 @@ if 'phoenix:MC-PLAN-WEB-001' not in known:
         'title': proposal['title'], 'kind': 'Proposed plan amendment',
         'sourceType': 'Official notices', 'topics': ['Maricopa County planning'],
         'agency': 'Maricopa County', 'programs': ['HOME', 'CDBG', 'ESG'],
-        'years': ['2025', '2029'], 'label': 'Proposed; adoption unverified',
+        'years': [], 'label': 'Proposed; adoption unverified',
         'summary': [], 'caveats': [], 'notes': [], 'metadata': [],
         'url': 'https://housingaccountabilityproject.github.io/phoenix/records.html#MC-PLAN-WEB-001',
         'contextUrl': 'https://housingaccountabilityproject.github.io/phoenix/index.html#MC-PLAN-WEB-001',
@@ -48,6 +75,8 @@ if 'phoenix:MC-PLAN-WEB-001' not in known:
         'yearEvidence': [],
     })
 for row in data['records']:
+    if row['scope'] == 'tucson' and row['id'] == 'source-excerpts':
+        row['category'] = 'guidance'
     if row['key'] in periods:
         for field in ['programPeriod', 'knownDates', 'periodLeads']:
             row[field] = deepcopy(periods[row['key']].get(field, []))
@@ -67,6 +96,43 @@ for row in data['records']:
         row['raw']['metadata'] = deepcopy(source)
         if source.get('verification_checks'):
             row['verificationChecks'] = deepcopy(source['verification_checks'])
+    if row['scope'] == 'phoenix' and row['id'] in readable_reports:
+        source = phoenix_sources[row['id']]
+        row['originals'] = [{'title': source['title'], 'url': source['url']}]
+        for item in row['links']:
+            if urlsplit(item['url']).hostname == 'webapi.legistar.com' and not item['title'].startswith('Raw council data'):
+                item['title'] = 'Raw council data · ' + item['title']
+    if row['scope'] == 'tucson' and row['id'] in {'Q-015', 'Q-016'}:
+        target, = questions.xpath('//*[@id=$anchor]', anchor=row['anchor'])
+        summary = [plain(item) for item in target.xpath('./p[not(@class)]') if not plain(item).startswith('Next:')]
+        prior = plain(target.xpath('./p[@class="meta"]')[0])
+        footer = plain(target.xpath('./p[@class="meta"]')[-1])
+        row['summary'] = summary
+        row['label'] = prior + ' · ' + footer
+        row['notes'] = [plain(target)]
+        row['metadata'] = [['Published context', prior], ['Historical review', footer]]
+        context = urljoin(row['url'], 'questions-records.html')
+        for item in row['yearEvidence']:
+            if item['url'] == row['url'] and item['locator'].startswith('Public record'):
+                item['quote'] = plain(target)
+        if row['id'] == 'Q-016':
+            links = [{'title': plain(link), 'url': urljoin(context, link.get('href'))} for link in target.xpath('./p[not(@class)]//a')]
+            row['originals'] = [link for link in links if '.pdf' in link['url']]
+    if row['scope'] == 'tucson' and row['id'] in {'SRC-109', 'SRC-111'}:
+        source = source_rows[row['id']]
+        row['raw'] = deepcopy(source)
+        row['caveats'] = [source['limitations']]
+    # This notice participates in the source-year facet for the scheduled 2026
+    # events as well as the distinctly identified proposed coverage endpoints.
+    if row['id'] in {'MC-PLAN-WEB-001', 'MC-PLAN-001'}:
+        amendment = metadata['sources']['MC-PLAN-001']
+        row['years'] = amendment['reporting_years']
+        row['yearBasis'] = '2026 scheduled events; 2025 and 2029 proposed plan endpoints'
+        row['yearNote'] = amendment['date_basis']
+        if row['id'] == 'MC-PLAN-001':
+            row['summary'] = [amendment['date_basis']]
+            row['notes'] = [amendment['date_basis']]
+            row['metadata'] = [['Dates & coverage', amendment['date_basis']]]
     if row['scope'] == 'tucson' and row['id'] in source_rows:
         source = source_rows[row['id']]
         if source.get('document_date'):
@@ -80,7 +146,7 @@ for row in data['records']:
 data['researchSnapshots'] = {'phoenix': phoenix['research_snapshot'], 'tucson': read('data/city-reader-guide.json')['cities']['tucson']['date']}
 data['annualReportCoverage'] = read('data/funding-period-coverage.json')
 for scope in ['tucson', 'phoenix']:
-    selected = [row for row in data['records'] if row['scope'] == scope]
+    selected = [row for row in data['records'] if row['category'] != 'guidance' and (row['scope'] == scope or scope in row.get('regions', []))]
     counts = {category: sum(row['category'] == category for row in selected) for category in ['funding', 'sources', 'questions', 'updates']}
     data['coverage'][scope] = f"{len(selected)} public entries. {counts['funding']} funding entries, {counts['sources']} source and evidence entries, {counts['questions']} questions and {counts['updates']} updates. Selected records are not complete program or year coverage."
 (ROOT / 'data/category-search.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')

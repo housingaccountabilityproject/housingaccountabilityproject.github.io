@@ -1,8 +1,10 @@
 // Browser-only regression: inspect actual computed text colors in reader panels and footers.
 import assert from 'node:assert/strict';
 
-export async function assertReaderContrast(page, label) {
-  const result = await page.evaluate(() => {
+const readerPanels = '.current-status,.reader-callout,.site-search-form,.reader-tools,footer,.evidence-visual,.city-hero-copy,.city-learning-grid,.city-reading-guide,.city-about,.city-project-facts,.city-project-caution,.city-card,.city-project-story,.city-resource-intro,.city-glossary-letters,.city-nav-panel';
+
+export async function assertReaderContrast(page, label, selectors = readerPanels) {
+  const result = await page.evaluate(selectors => {
     const parse = value => {
       const nums = value.match(/[\d.]+/g)?.map(Number);
       if (!nums || nums.length < 3) throw new Error(`Unsupported computed color: ${value}`);
@@ -11,7 +13,7 @@ export async function assertReaderContrast(page, label) {
     const over = (fg, bg) => fg.slice(0, 3).map((c, i) => c * fg[3] + bg[i] * (1 - fg[3])).concat(1);
     const luminance = rgb => rgb.slice(0, 3).map(c => c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4).reduce((sum, c, i) => sum + c * [.2126, .7152, .0722][i], 0);
     const failures = []; let checked = 0;
-    for (const panel of document.querySelectorAll('.current-status,.reader-callout,.site-search-form,.reader-tools,footer,.evidence-visual,.city-hero-copy,.city-learning-grid,.city-reading-guide,.city-about,.city-project-facts,.city-project-caution,.city-card,.city-project-story,.city-resource-intro,.city-glossary-letters,.city-nav-panel')) {
+    for (const panel of document.querySelectorAll(selectors)) {
       const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT);
       while (walker.nextNode()) {
         const text = walker.currentNode;
@@ -34,7 +36,7 @@ export async function assertReaderContrast(page, label) {
       }
     }
     return {checked, failures};
-  });
+  }, selectors);
   assert(result.checked > 0, `${label}: no reader text checked`);
   assert.deepEqual(result.failures, [], `${label}: reader text contrast failures`);
   return result.checked;

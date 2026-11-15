@@ -90,6 +90,49 @@ try {
   await finishPrint();
   console.log(`PASS Tucson: ${expected} results printed beyond the first six; PDF text, historical cautions, submitted filters and unchanged screen pagination.`);
 
+  // Match the Chromebook reproduction: broad Tucson, Craycroft, all matches,
+  // Full evidence. Preview and direct print use the same printable geometry.
+  await page.goto(base + '/search-all.html');
+  await page.getByLabel('Search Tucson & Pima County research', {exact:true}).fill('Craycroft');
+  await page.getByRole('button', {name:'Search',exact:true}).click();
+  const reportState = () => page.locator('#search-print-output').evaluate(report => {
+    const cards = [...report.querySelectorAll(':scope > article')];
+    const rootStyle = getComputedStyle(report), firstCard = getComputedStyle(cards[0]);
+    return {
+      box: [rootStyle.width, rootStyle.maxWidth, rootStyle.margin, rootStyle.padding, firstCard.borderTopWidth,
+        getComputedStyle(cards[0].querySelector('h2 a'),'::after').font],
+      links: cards.map(card=>card.querySelector('h2 a').href),
+      context: [...report.querySelectorAll('div.print-source-urls > p')].map(p=>p.textContent),
+      finalContext: getComputedStyle(cards.at(-1).querySelector('div.print-source-urls')).breakInside
+    };
+  });
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+  await page.emulateMedia({media:'print'});
+  const direct = await reportState();
+  await finishPrint();
+  await page.getByRole('button', {name:'Preview print results',exact:true}).click();
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+  await page.emulateMedia({media:'print'});
+  const detached = await reportState();
+  assert.deepEqual(detached,direct,'Direct browser print and detached preview use equal paper width and evidence');
+  assert.equal(detached.finalContext,'avoid','Bounded final context list travels with its label');
+  assert.equal(detached.links.length,42);
+  const contextLinks=[...new Set(detached.context)];
+  assert.equal(contextLinks.length,119);
+  const a4=output+'/tucson-craycroft-preview-a4.pdf';
+  await page.pdf({path:a4,format:'A4',printBackground:false,tagged:true});
+  const a4Pages=execPDF('pdftotext',['-layout',a4,'-'],{encoding:'utf8'}).split('\f').filter(text=>text.trim());
+  const last=a4Pages.at(-1);
+  assert.match(last,/Source-page links for context|Record URL:|Historical entry\./,'Last page must not consist of bare context URLs');
+  const a4Text=a4Pages.join('').replace(/\s/g,'');
+  for(const url of contextLinks)assert(a4Text.includes(url),'A4 retains the context URL '+url);
+  const a4Annotations=execPDF('pdfinfo',['-url',a4],{encoding:'utf8'});
+  for(const href of detached.links)assert(a4Annotations.includes(href),'A4 retains a clickable canonical result '+href);
+  await page.emulateMedia({media:'screen'});
+  await page.getByRole('button',{name:'Return to results'}).click();
+  assert.equal(await page.locator('#site-query').inputValue(),'Craycroft');
+  console.log('PASS Tucson Craycroft print paths match, A4 tail is labeled, and all record links and context URLs are retained.');
+
   await page.goto(base + '/phoenix/records.html');
   await page.getByRole('button', {name: 'Funding', exact: true}).click();
   await page.locator('#record-kind').selectOption('expenditure', {force:true});

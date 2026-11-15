@@ -35,6 +35,19 @@ try {
       assert.equal(await page.locator('.city-header').count(),1,path);
       assert.equal(await page.locator('.city-footer').count(),1,path);
       await openNavigation(page);
+      const switcher = page.locator('.city-switcher');
+      for (const [label,path] of [['Tucson & Pima County','/tucson/index.html'],['Phoenix & Maricopa County','/phoenix/index.html']]) {
+        const link = switcher.getByRole('link',{name:label,exact:true});
+        assert(await link.isVisible(), `${path}: reachable at ${width}`);
+        assert.equal(await link.evaluate(node=>node.pathname),path);
+      }
+      for (const marked of await page.locator('.city-header a[aria-current="page"]').evaluateAll(nodes=>nodes.map(link=>link.pathname))) {
+        assert.equal(marked,'/'+path,`${path}: aria-current=page only for the actual page`);
+      }
+      if (['index.html','about.html','contact.html','privacy.html'].includes(path)) {
+        assert.deepEqual(await page.locator('.city-main-nav>a').allTextContents(),['Research areas','About','Contact']);
+        assert.equal(await page.locator('.city-footer a[href$="search.html"]').count(),1,`${path}: footer search preserved`);
+      }
       for(const [region, name] of [['.city-main-nav','About'],['.city-footer','About the project']]) {
         const about=page.locator(region).getByRole('link',{name,exact:true});
         if(region==='.city-footer')await closeNavigation(page);
@@ -47,6 +60,32 @@ try {
         assert.deepEqual(await page.locator('.city-main-nav>a').allTextContents(),['Overview','About','Projects','Funding','Questions','Sources','Search']);
       }
       await assertReaderContrast(page,path);
+    }
+    const standalone = 'updates/2026-11-14-arizona-housing-research.html';
+    await page.goto(base+'/'+standalone);
+    for (const city of ['tucson','phoenix']) {
+      const link = page.locator(`.report-region-nav a[href$="/${city}/index.html"]`);
+      assert(await link.isVisible(), `${standalone}: ${city} switcher at ${width}`);
+      assert.equal(await link.evaluate(node=>node.pathname),`/${city}/index.html`);
+      const box = await link.boundingBox();
+      assert(box.height >= 44 && box.x >= 0 && box.x+box.width <= width,`${standalone}: link fits at ${width}`);
+    }
+    assert(await page.getByRole('navigation',{name:'On this page',exact:true}).isVisible());
+    const contrastCases = [
+      ['about.html','.hero .eyebrow'],
+      ['contact.html','.hero .eyebrow,main a.button'],
+      ['tucson/index.html','main a.founder-link'],
+      ['research-center.html','.hero .eyebrow,.hero .hero-links a.secondary'],
+      ['glossary.html','.hero .eyebrow,.hero a'],
+      ['evidence.html','.hero .eyebrow'],
+      ['findings.html','.hero .eyebrow'],
+      ['reports/tucson-housing-funding-outcomes-2026.html','.hero .eyebrow'],
+      ['phoenix/capital-fund.html','.discrepancy-layout .eyebrow.accent'],
+    ];
+    for (const [path,selectors] of contrastCases) {
+      await page.goto(base+'/'+path);
+      if (path==='glossary.html') await page.locator('#research-publication-time summary').click();
+      await assertReaderContrast(page,`${path}: reported text at ${width}`,selectors);
     }
     const appearance=[];
     for(const path of ['index.html','tucson/index.html','phoenix/index.html']) {

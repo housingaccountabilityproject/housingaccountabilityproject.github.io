@@ -19,7 +19,7 @@ const document={querySelector:()=>new Element(),getElementById:id=>elements[id],
 const history={state:null,replaceState(s){this.state=s;},pushState(s){this.state=s;}};
 const context={history,location:{href:'https://housingaccountabilityproject.github.io/search-all.html'},performance:{getEntriesByType:()=>[{type:'navigate'}]},window:{addEventListener(){},HAPSearchOptions:{register:()=>({clearLink(){},reset(){},includeTerms:()=>false}),incoming:()=>null}},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/search-index.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/list-browser.js'),'utf8'),context);vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),context);
 const data=context.window.HAP_SEARCH_INDEX.records;const query=(q,category='all')=>{elements['site-query'].value=q;elements['search-category'].value=category;let prevented=false;elements['site-search-form'].events.submit({preventDefault(){prevented=true;}});assert(prevented);return elements['search-results'].children.filter(x=>!x.hidden);};
-assert.match(elements['search-status'].textContent,/15 published Tucson and Pima County pages/);
+assert.match(elements['search-status'].textContent,/16 pages of Tucson and Pima County and shared Arizona research/);
 for(const r of data){assert(!['catalog-empty','catalog-count','empty','count'].includes(r.url.split('#')[1]),r.url);assert(!r.text.includes('No matching records'),r.url);}
 for(const [term,url,title] of [
  ['"Tucson House Renovation"','housing-projects.html#project-pub-005','Tucson House Renovation'],
@@ -51,7 +51,33 @@ for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
  assert(found.some(x=>x.querySelector('a').href===expected),expected);
 }
 assert(data.some(r=>r.url==='privacy.html#search-privacy-choices'&&r.text.includes('typed terms starts off')));
-assert(data.length===362);assert(data.every(r=>!r.url.startsWith('phoenix/')));
+assert.equal(data.length,context.window.HAP_SEARCH_INDEX.coverage.reduce((total,row)=>total+row.records,0));assert(data.every(r=>!r.url.startsWith('phoenix/')));
+const azUrl='updates/2026-11-14-arizona-housing-research.html';
+assert.equal(data.filter(r=>r.url.startsWith(azUrl)).length,1,'Shared report has one canonical search record, not duplicate sectional or regional entries');
+assert(query('"Arizona housing research update"','Updates').some(x=>x.querySelector('a').href===azUrl));
+
+const callbacks={};
+const anchor='https://housingaccountabilityproject.github.io/phoenix/records.html';
+const loc={href:anchor+'#view-source',hash:'#view-source'};
+const frames={state:null,replaceState(s,_title,url){this.state=s;assert.equal(url,loc.href);},pushState(s,_title,url){this.replaceState(s,_title,url);}};
+const frame={location:loc,history:frames,document,performance:context.performance,window:{scrollY:17,scrollTo(){},addEventListener(name,callback){callbacks[name]=callback;}}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'assets/list-browser.js'),'utf8'),frame);
+let state={query:'HUD',page:2};
+const restores=[];
+const nav=frame.window.HAPListBrowser.history({key:'phoenix-example',state:()=>state,restore:s=>restores.push(s)});
+const saved=frames.state;
+assert(nav.hasSnapshot());assert(!nav.restoredInitially);
+loc.hash='#view-funding';loc.href=anchor+loc.hash;
+assert(!nav.hasSnapshot(),'A fresh fragment must not reuse state borrowed from another hash');
+callbacks.popstate({state:saved});assert.equal(restores.length,0);
+state={query:'',page:1};nav.replace();assert(nav.hasSnapshot());
+loc.hash='#view-source';loc.href=anchor+loc.hash;
+frames.state=saved;callbacks.popstate({state:saved});
+assert(nav.hasSnapshot(),'Hashchange after Back receives a saved snapshot and need not clear it');
+assert.equal(restores.at(-1).query,'HUD');
+assert.equal(restores.at(-1).page,2);
+assert(!loc.href.includes('HUD'),'Saved queries never enter the visible URL');
+
 // Missing-index state must be useful and must not submit a query.
 const failContext={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),failContext);assert(elements['site-search-form'].hidden);assert.match(elements['search-status'].textContent,/could not load/);
 console.log('PASS: search results, titles, current/historical separation, phrases, IDs, amounts, categories, zero results, hostile input, pagination/focus, clear/reset and missing-index fallback. DOM logic test, not visual browser QA.');

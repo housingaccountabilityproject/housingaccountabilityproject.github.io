@@ -7,7 +7,7 @@ on:
       - 'data/funding-browser-periods.json'
       - 'assets/funding-periods*'
       - 'scripts/*funding*'
-      - 'scripts/fixtures/funding-period-framework.*'
+      - 'scripts/_test-fixtures/funding-period-framework.*'
       - 'assets/phoenix-*.css'
       - 'assets/phoenix-*.js'
       - 'assets/phoenix-review/**'

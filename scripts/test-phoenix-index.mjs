@@ -5,6 +5,87 @@ import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 import {openNavigation} from './browser-navigation.mjs';
 
+async function checkFragmentNavigation(browser, base, width) {
+  const withPage = async action => {
+    const context = await browser.newContext({viewport: {width, height: 900}});
+    const page = await context.newPage(), errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
+    try {await action(page); assert.deepEqual(errors, []);} finally {await context.close();}
+  };
+  const state = page => page.evaluate(() => ({
+    query: document.getElementById('record-query').value,
+    topic: document.getElementById('record-topic').value,
+    kind: document.getElementById('record-kind').value,
+    view: document.querySelector('.record-views [aria-pressed="true"]').dataset.view,
+    fundingYear: document.getElementById('funding-year')?.value || '',
+    facets: ['source-agency','source-program','source-format','source-year'].map(id => document.getElementById(id).value),
+    page: document.getElementById('records-page').textContent, fragment: location.hash,
+    focus: document.activeElement.id
+  }));
+  const linked = async page => {
+    await page.locator('#BELL-04').waitFor({state: 'visible'});
+    await page.waitForFunction(() => document.activeElement.id === 'BELL-04');
+    const snapshot = await state(page);
+    assert.equal(snapshot.query, ''); assert.equal(snapshot.topic, ''); assert.equal(snapshot.kind, '');
+    assert.equal(snapshot.view, 'all'); assert.equal(snapshot.fundingYear, '');
+    assert.deepEqual(snapshot.facets, ['', '', '', '']); assert.equal(snapshot.fragment, '#BELL-04');
+    const ordered = await page.locator('.record-card').evaluateAll(nodes => nodes.map(node => node.id));
+    const targetPage = Math.floor(ordered.indexOf('BELL-04') / 6) + 1;
+    assert.equal(snapshot.page, `Page ${targetPage} of ${Math.ceil(ordered.length / 6)}`);
+    assert.deepEqual(await page.locator('.record-card:visible').evaluateAll(nodes => nodes.map(node => node.id)), ordered.slice((targetPage - 1) * 6, targetPage * 6));
+    return snapshot;
+  };
+  // Keep the input focused: blurring it before navigation would mask the delayed change event.
+  await withPage(async page => {
+    await page.goto(base + '/phoenix/records.html');
+    await page.locator('#record-query').fill('Moreland');
+    assert.equal(await page.evaluate(() => document.activeElement.id), 'record-query');
+    await page.goto(base + '/phoenix/records.html#BELL-04');
+    await linked(page);
+  });
+  await withPage(async page => {
+    await page.goto(base + '/phoenix/records.html#BELL-04');
+    await linked(page);
+  });
+  for (const initialFragment of ['', '#BELL-04']) await withPage(async page => {
+    await page.goto(base + '/phoenix/records.html' + initialFragment);
+    await page.locator('#record-kind').selectOption('source');
+    await page.locator('#record-query').fill('PHX-EXT-PROJECT-203');
+    assert(await page.locator('#BELL-04').isHidden());
+    const source = page.locator('#source-PHX-EXT-PROJECT-203');
+    await source.getByText('Findings using this source', {exact: true}).click();
+    await source.locator('a[href="#BELL-04"]').click();
+    await linked(page);
+  });
+  await withPage(async page => {
+    await page.goto(base + '/phoenix/projects.html');
+    await page.locator('#connection-query').fill('25th @ Bell');
+    await page.locator('#project-bell').getByText('Dates, funding & sources', {exact: true}).click();
+    await page.locator('#project-bell').getByText('Connected evidence (11)', {exact: true}).click();
+    await page.locator('a[href="records.html#BELL-04"]').first().click();
+    await linked(page);
+  });
+  await withPage(async page => {
+    await page.goto(base + '/phoenix/records.html');
+    await page.getByRole('button', {name: 'Sources', exact: true}).click();
+    await page.locator('#source-agency').selectOption('city-phoenix');
+    await page.locator('#record-query').fill('Phoenix');
+    await page.locator('#records-next').click();
+    const before = await state(page);
+    assert.match(before.page, /^Page 2 /);
+    await page.goto(base + '/phoenix/records.html#BELL-04');
+    const after = await linked(page);
+    await page.goBack();
+    await page.waitForFunction(() => document.getElementById('record-query').value === 'Phoenix' && /^Page 2 /.test(document.getElementById('records-page').textContent));
+    assert.deepEqual(await state(page), before, 'Back restores query, filters, page, fragment and focus');
+    await page.goForward();
+    await linked(page);
+    assert.deepEqual(await state(page), after, 'Forward restores the revealed record and browsing state');
+  });
+  console.log(`PASS Phoenix fragment navigation at ${width}: focused query, fresh URL, published links, repeated fragment and Back/Forward.`);
+}
+
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = process.env.PHOENIX_TEST_BASE_URL || 'http://127.0.0.1:8765';
 const server = process.env.PHOENIX_TEST_BASE_URL ? null : spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], {cwd: root, stdio: 'ignore'});
@@ -17,6 +98,7 @@ try {
   const executablePath = process.env.CHROMIUM_PATH || (existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined);
   browser = await chromium.launch({headless: true, ...(executablePath ? {executablePath} : {})});
   for (const width of [320, 390, 768, 1280]) {
+    await checkFragmentNavigation(browser, base, width);
     const page = await browser.newPage({viewport: {width, height: 900}});
     const errors = [];
     const requests = [];

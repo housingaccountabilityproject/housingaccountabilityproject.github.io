@@ -5,7 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const fixture=JSON.parse(read('scripts/fixtures/funding-period-framework.json'));
+const fixture=JSON.parse(read('scripts/_test-fixtures/funding-period-framework.json'));
 const published=JSON.parse(read('data/funding-browser-periods.json'));
 const original=JSON.parse(read('data/funding-periods.json'));
 function load(data){

@@ -107,7 +107,7 @@
   const options = window.HAPSearchOptions.register({
     surface: 'phoenix-evidence', mount: document.querySelector('.search-print-toolbar'),
     state: browsingState,
-    restore: shared => { applyShared(shared); update(); pager.setPage(shared.page || 1); navigation?.commit(); }
+    restore: shared => { printing?.closeForHistory(); applyShared(shared); update(); pager.setPage(shared.page || 1); navigation?.commit(); }
   });
 
   function basicMatch(card,ignoreFundingYear=false) {
@@ -177,22 +177,33 @@
     sourceFacets.forEach(({element}) => { element.value = ''; });
     view = 'all';
   }
-  function revealHash() {
+  function revealHash(repeated = false) {
+    const prior = repeated ? JSON.stringify(browsingState()) : null;
+    const remember = () => {
+      if (!repeated) navigation?.replace();
+      else if (JSON.stringify(browsingState()) !== prior) navigation?.commit();
+    };
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     if (id.startsWith('view-') && ['source','funding','all'].includes(id.slice(5))) {
-      clear(); view = id.slice(5); update(); navigation?.replace(); form.scrollIntoView({block: 'start'}); return;
+      clear(); view = id.slice(5); update(); remember(); form.scrollIntoView({block: 'start'}); return true;
     }
     const target = document.getElementById(id) || cards.find(card => (JSON.parse(card.dataset.search).aliases || []).includes(id));
     const card=target?.closest('.record-card'); if (!card) return;
-  notice.textContent='';
+    notice.textContent='';
     if (!pager.matches().includes(card)) { clear(); update(); notice.textContent='Filters cleared to reveal the linked record '+(card.id||id)+'.'; }
     if (target.id !== id) notice.textContent += (notice.textContent?' ':'')+'Published identifier '+id+' opens canonical record '+card.id+'.';
-    pager.reveal(card); window.HAPListBrowser.reveal(target); navigation?.replace(); printing?.update();
+    pager.reveal(card); window.HAPListBrowser.reveal(target); remember(); printing?.update();
+    return true;
   }
   form.addEventListener('submit', event => { event.preventDefault(); update(); navigation.commit(); });
   form.addEventListener('input', event => {if(event.target===query){update(); navigation.commit('typing');}});
-  form.addEventListener('change', () => {update(); navigation.commit('filter');});
+  // Text edits are already committed by input. A delayed query change can fire
+  // between popstate and hashchange and incorrectly snapshot the new fragment.
+  form.addEventListener('change', event => {
+    if (event.target === query) return;
+    update(); navigation.commit('filter');
+  });
   form.addEventListener('reset', event => { event.preventDefault(); options.reset(); clear(); update(); navigation.commit(); });
   buttons.forEach(button => button.addEventListener('click', () => {
     view = button.dataset.view;
@@ -201,12 +212,19 @@
     sourceFacets.forEach(({element}) => { element.value = ''; });
     update(); navigation.commit();
   }));
-  window.addEventListener('hashchange', revealHash);
+  window.addEventListener('hashchange', () => {
+    // popstate already restores the selected query and page. A later
+    // hashchange must not reinterpret that address as a fresh view request.
+    if (!navigation?.hasSnapshot()) {
+      printing?.closeForHistory();
+      revealHash();
+    }
+  });
   document.addEventListener('click', event => {
     const link = event.target.closest('a[href]');
-    if (!link) return;
+    if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download')) return;
     const url = new URL(link.href, location.href);
-    if (url.origin === location.origin && url.pathname === location.pathname && url.hash === location.hash) revealHash();
+    if (url.origin === location.origin && url.pathname === location.pathname && url.hash && url.hash === location.hash && revealHash(true)) event.preventDefault();
   });
   const shared = window.HAPSearchOptions.incoming('phoenix-evidence');
   function applyShared(shared) {
@@ -221,8 +239,8 @@
   }
   applyShared(shared);
   form.hidden = false; views.hidden = false; update(); pager.setPage(shared?.page || 1);
-  navigation=window.HAPListBrowser.history({key:'phoenix-evidence',state:browsingState,restore:s=>{applyShared(s);update();pager.setPage(s.page||1);printing?.update();}});
-  revealHash();
+  navigation=window.HAPListBrowser.history({key:'phoenix-evidence',state:browsingState,restore:s=>{printing?.closeForHistory();applyShared(s);update();pager.setPage(s.page||1);printing?.update();}});
+  if(!navigation.restoredInitially)revealHash();
   const selectedLabel = select => select.options[select.selectedIndex].dataset.label || select.options[select.selectedIndex].textContent;
   printing = window.HAPSearchPrint?.register({
     title: 'Phoenix and Maricopa County search results', privacy:options,

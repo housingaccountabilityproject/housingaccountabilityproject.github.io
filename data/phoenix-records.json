@@ -266,7 +266,7 @@
     {
       "id": "PHX-EXT-PROJECT-002",
       "title": "June 17, 2026 Moreland II Council report",
-      "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297",
+      "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=35197&M=R&N=TextL5",
       "note": "PHX-EXT-PROJECT-002 · Adopted Council action; metadata in PHX-EXT-PROJECT-001. The Report Summary describes Phase I construction and the February 2028 forecast as of the June 17, 2026 action.",
       "page_url": "index.html#source-PHX-EXT-PROJECT-002",
       "metadata": {
@@ -289,7 +289,7 @@
     {
       "id": "PHX-EXT-PROJECT-004",
       "title": "June 18, 2025 Moreland Council report",
-      "url": "https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581",
+      "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=32479&M=R&N=TextL5",
       "note": "PHX-EXT-PROJECT-004 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
       "page_url": "index.html#source-PHX-EXT-PROJECT-004",
       "metadata": {
@@ -396,7 +396,7 @@
     {
       "id": "PHX-EXT-PROJECT-003",
       "title": "November 5, 2025 Moreland I Council report",
-      "url": "https://webapi.legistar.com/v1/phoenix/matters/33449/texts/33551",
+      "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=33449&M=R&N=TextL5",
       "note": "PHX-EXT-PROJECT-003 · Adopted Council action; metadata in PHX-EXT-PROJECT-001",
       "page_url": "index.html#source-PHX-EXT-PROJECT-003",
       "metadata": {
@@ -695,10 +695,11 @@
         "document_type": "public-notice",
         "reporting_years": [
           "2025",
+          "2026",
           "2029"
         ],
         "year_status": "stated",
-        "date_basis": "Proposed amendment to the 2025–2029 plan; the notice sets a November 11–December 10, 2026 comment period. Adoption and implementation are unverified.",
+        "date_basis": "The notice schedules a 2026 public comment period and hearing. The 2025 and 2029 labels are the endpoints of the proposed plan coverage, not an adopted funding period. Adoption and implementation are unverified.",
         "date_basis_url": "index.html#MC-PLAN-WEB-001",
         "retrieved_on": "2026-11-10",
         "verification_checks": [
@@ -998,7 +999,7 @@
     {
       "id": "PHX-PROJECT-025",
       "title": "Bell HOME funding: Council text 20-0592, authorization terms",
-      "url": "https://webapi.legistar.com/v1/phoenix/matters/15733/texts/15838",
+      "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=15733&M=R&N=TextL5",
       "note": "PHX-PROJECT-025 · MatterTextPlain: Description, Procurement Information and Financial Impact",
       "page_url": "projects/25th-at-bell.html#source-PHX-PROJECT-025",
       "metadata": {
@@ -1082,7 +1083,7 @@
     {
       "id": "PHX-EXT-PROJECT-123",
       "title": "25th and Bell drainage, Ordinance S-48099: Council staff text, November 17, 2021",
-      "url": "https://webapi.legistar.com/v1/phoenix/matters/21002/texts/21105",
+      "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=21002&M=R&N=TextL5",
       "note": "PHX-EXT-PROJECT-123 · MatterTextPlain Summary, easement (a)",
       "page_url": "projects/25th-at-bell.html#source-PHX-EXT-PROJECT-123",
       "metadata": {
@@ -1429,7 +1430,7 @@
         "MC-HOME-WEB-001 · Two separate competitive funding estimates, not awards or expenditures"
       ],
       "limitations": [
-        "Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying."
+        "Keep in mind. These are estimates for competitive funding, not confirmed awards or spending. They are not City of Phoenix funds. Read each packet’s geographic and applicant eligibility rules before applying. These are solicitations for eligible organizations and developers, not housing applications for residents. Each packet’s service-area list applies to that competition; neither list verifies adoption of the separate proposed plan amendment."
       ],
       "source_ids": [
         "MC-HOME-001",
@@ -1477,7 +1478,7 @@
         "PHX-WEB-002 · Calculated report subtotal"
       ],
       "limitations": [
-        "A draft report is not a verified certificate of occupancy, fully occupied property or HUD acceptance. The public copy remained draft when checked.",
+        "A draft report is not a verified certificate of occupancy, fully occupied property or HUD acceptance. The public copy remained draft when checked. The draft reports a March 23, 2026 certificate of occupancy for 56-unit Phoenix Scholar House but forecasts administrative project completion in FY2026–27. A co-developer reports that it opened in April 2026 . Opening and administrative completion are separate; its 56 apartments are not included in the five-project subtotal.",
         "Keep in mind. 49 is the CAPER’s reported HOME designation total, not a verified count funded exclusively by Phoenix. Bell has separate City and State HUD activities. Do not add assisted units to total apartments."
       ],
       "source_ids": [
@@ -1547,7 +1548,7 @@
         "PHX-WEB-007 · Approved financing action describing development scope"
       ],
       "limitations": [
-        "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
+        "Keep in mind. The City’s five-year accomplishments summary , announced September 24, 2026, labels Phase I with 237; do not use that as a count of completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
       ],
       "source_ids": [
         "PHX-EXT-PROJECT-002",
@@ -1560,7 +1561,7 @@
             "PHX-EXT-PROJECT-002"
           ],
           "title": "June 17, 2026 Moreland II Council report",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=35197&M=R&N=TextL5",
           "locator": ""
         },
         {
@@ -1568,7 +1569,7 @@
             "PHX-EXT-PROJECT-004"
           ],
           "title": "June 18, 2025 Moreland Council report",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=32479&M=R&N=TextL5",
           "locator": ""
         },
         {
@@ -1641,7 +1642,8 @@
         "Issuer-reported closed conduit financing; not City spending"
       ],
       "summary": [
-        "Phoenix IDA reports $43.1 million of Moreland I financing closed in December 2025; the preceding Council approval allowed up to $50 million."
+        "Phoenix IDA reports $43.1 million of Moreland I financing closed in December 2025; the preceding Council approval allowed up to $50 million.",
+        "A separate 2023 Council action authorized up to $10 million in ARPA funds for Moreland Phase I. It is not the Phase II mixed-fund authorization of up to $10 million, and neither authorization proves payment or spending."
       ],
       "context": [
         "Scope Moreland I Series 2025 notes Time period Council approval November 5, 2025; reported closing December 2025",
@@ -1669,7 +1671,7 @@
             "PHX-EXT-PROJECT-003"
           ],
           "title": "November 5, 2025 Moreland I Council report",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/33449/texts/33551",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=33449&M=R&N=TextL5",
           "locator": ""
         },
         {
@@ -1679,6 +1681,12 @@
           "title": "Council adoption and action dates",
           "url": "https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc",
           "locator": ""
+        }
+      ],
+      "supplemental_citations": [
+        {
+          "title": "City of Phoenix Council · Moreland Phase I ARPA Ordinance S-49424",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?ID=6022296&GUID=5BF6852B-B658-4A43-AE73-A78241F620C9"
         }
       ],
       "page_url": "index.html#PHX-WEB-009"
@@ -1712,7 +1720,7 @@
             "PHX-EXT-PROJECT-002"
           ],
           "title": "June 17, 2026 Moreland II Council report",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=35197&M=R&N=TextL5",
           "locator": ""
         },
         {
@@ -2394,7 +2402,7 @@
             "PHX-EXT-PROJECT-123"
           ],
           "title": "November 17, 2021 City staff report",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/21002/texts/21105",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=21002&M=R&N=TextL5",
           "locator": "PHX-EXT-PROJECT-123 · MatterTextPlain Summary, easement (a)"
         },
         {
@@ -2637,7 +2645,7 @@
             "PHX-PROJECT-025"
           ],
           "title": "Council authorization terms",
-          "url": "https://webapi.legistar.com/v1/phoenix/matters/15733/texts/15838",
+          "url": "https://phoenix.legistar.com/ViewReport.ashx?GID=485&GUID=LATEST&ID=15733&M=R&N=TextL5",
           "locator": "PHX-PROJECT-025 · MatterTextPlain: Description, Procurement Information and Financial Impact"
         }
       ],

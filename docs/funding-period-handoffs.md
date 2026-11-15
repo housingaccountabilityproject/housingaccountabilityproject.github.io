@@ -82,7 +82,7 @@ funding-year assignments. No category is moved to make the counts match.
 
 ## Test data
 
-`scripts/fixtures/funding-period-framework.json` is synthetic test data. Its IDs
+`scripts/_test-fixtures/funding-period-framework.json` is synthetic test data. Its IDs
 start with `TEST-`, each row has `review.status: test_only`, and the fixture page
 shows a prominent TEST DATA warning. These entries are never loaded by production
 pages, never counted as research records and never treated as accepted handoffs.

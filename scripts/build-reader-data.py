@@ -77,6 +77,17 @@ for rel in TUCSON_PAGES:
   if not text:continue
   records.append({'url':rel+('#'+anchor if anchor else ''),'page':page_label,'title':b['title'],'category':CATEGORIES.get(rel,'Other'),'text':text,'historical':b['historical']})
  coverage.append({'page':rel,'records':len(buckets),'text_nodes':count})
+# Keep the shared Arizona report as one canonical search result, not as a
+# Tucson archive article or multiple regional/section duplicates.
+az_path='updates/2026-11-14-arizona-housing-research.html'
+az_doc=html.parse(str(ROOT/az_path))
+az_title=clean(' '.join(az_doc.xpath('//h1//text()')))
+az_main=az_doc.xpath('//main')[0]
+for unwanted in list(az_main.iterdescendants()):
+ if is_search_ui(unwanted) and unwanted.getparent() is not None:unwanted.drop_tree()
+az_text=[clean(value) for value in az_main.itertext() if clean(value)]
+records.append({'url':az_path,'page':az_title,'title':az_title,'category':'Updates','text':' '.join(az_text),'historical':False})
+coverage.append({'page':az_path,'records':1,'text_nodes':len(az_text)})
 # Deliberately no generated-at time: reproducible content, not a new evidence review date.
 payload={'version':1,'coverage':coverage,'records':records}
 serialized=json.dumps(payload,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')

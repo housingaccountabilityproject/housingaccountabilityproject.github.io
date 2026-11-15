@@ -9,9 +9,10 @@
     else if (/\/projects\//.test(location.pathname)) key = 'projects';
     else if (/capital-fund\.html$/.test(location.pathname)) key = 'funding';
     if (!key) return;
+    // A selected topic may lead to a different page. Highlight its route
+    // without overriding the generator's exact-page semantics.
     for (const link of nav.querySelectorAll('[data-city-route]')) {
-      if (link.dataset.cityRoute === key) link.setAttribute('aria-current', 'page');
-      else link.removeAttribute('aria-current');
+      link.toggleAttribute('data-route-active', link.dataset.cityRoute === key);
     }
   }
   document.addEventListener('hapfilterschange', currentView);
