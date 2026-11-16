@@ -2,6 +2,7 @@ name: Reader tools regression checks
 on:
   pull_request:
     paths:
+      - '_config.yml'
       - '**.html'
       - 'assets/**'
       - 'data/**'

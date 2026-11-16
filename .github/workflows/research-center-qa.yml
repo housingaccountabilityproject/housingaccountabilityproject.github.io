@@ -2,6 +2,7 @@ name: Research Center rendering and interaction QA
 on:
   pull_request:
     paths:
+      - '_config.yml'
       - '**.html'
       - 'assets/research-center*'
       - 'scripts/site-smoke-test.mjs'
