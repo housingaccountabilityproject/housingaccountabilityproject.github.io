@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "stories": {
+    "tucson-house": {
+      "source": "findings.html#f-012",
+      "headlineSelector": ".//h3",
+      "summarySelector": "./p[@class='fact'] | ./p[4] | ./p[5]",
+      "qualificationSelector": ".//div[@class='detail']",
+      "labelSelector": ".//span[@class='id']",
+      "placements": {
+        "tucson": "lead"
+      },
+      "illustration": {
+        "src": "assets/tucson-house-arizona.webp",
+        "width": 1450,
+        "height": 742,
+        "alt": "Ink-and-watercolor illustration of Tucson House, with its rows of balconies and Arizona mountains and saguaros behind it.",
+        "caption": "AI illustration · Not a photo."
+      }
+    },
+    "moreland": {
+      "recordKey": "phoenix:PHX-WEB-007",
+      "destination": "phoenix/projects/moreland.html",
+      "placements": {
+        "phoenix": "lead"
+      },
+      "relatedRecordKey": "phoenix:PHX-WEB-010"
+    },
+    "county-housing-funding": {
+      "recordKey": "tucson:research-updates.html#county-housing-funding-2026-11-08",
+      "placements": {
+        "tucson": "reading"
+      }
+    },
+    "craycroft-council-vote": {
+      "recordKey": "tucson:research-updates.html#craycroft-council-vote-2026-11-09",
+      "placements": {
+        "tucson": "reading"
+      }
+    },
+    "moreland-i-financing": {
+      "recordKey": "phoenix:PHX-WEB-009",
+      "placements": {
+        "phoenix": "reading"
+      }
+    },
+    "phoenix-housing-counts": {
+      "recordKey": "phoenix:project-counts-and-shelter-funding",
+      "placements": {
+        "phoenix": "reading"
+      }
+    },
+    "tucson-final-report": {
+      "recordKey": "tucson:questions-records.html#q-005",
+      "placements": {
+        "tucson": "watch"
+      }
+    },
+    "tucson-cdbg-reconciliation": {
+      "recordKey": "tucson:questions-records.html#q-007",
+      "placements": {
+        "tucson": "watch"
+      }
+    },
+    "tucson-coc-implementation": {
+      "recordKey": "tucson:questions-records.html#q-020",
+      "placements": {
+        "tucson": "watch"
+      }
+    },
+    "phoenix-project-payments": {
+      "recordKey": "phoenix:question-overview-03",
+      "placements": {
+        "phoenix": "watch"
+      }
+    },
+    "phoenix-conflicting-records": {
+      "recordKey": "phoenix:question-overview-04",
+      "placements": {
+        "phoenix": "watch"
+      }
+    },
+    "phoenix-current-occupancy": {
+      "recordKey": "phoenix:question-bell-06",
+      "placements": {
+        "phoenix": "watch"
+      }
+    }
+  }
+}

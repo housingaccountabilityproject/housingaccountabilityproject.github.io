@@ -32,6 +32,17 @@ try {
       const response=await page.goto(base+'/'+path);
       assert.equal(response.status(),200,path);
       assert.equal(await page.locator('main h1').count(),1,path);
+      if(await page.locator('body[data-editorial-navigation="true"]').count()) {
+        assert.equal(await page.locator('.mast').count(),1,path);
+        assert.equal(await page.locator('.footer').count(),1,path);
+        assert(await page.locator('.footer').getByRole('link',{name:'About',exact:true}).isVisible());
+        assert.equal(await page.locator('.footer').getByRole('link',{name:'About',exact:true}).evaluate(link=>link.pathname),'/about.html');
+        assert.equal(await page.locator('nav[aria-label="Regional editions"] a').count(),3);
+        if(width===320)pageIds.set(path,new Set(await page.locator('[id]').evaluateAll(nodes=>nodes.map(node=>node.id))));
+        assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),`${path} overflow at ${width}`);
+        await assertReaderContrast(page,path);
+        continue;
+      }
       assert.equal(await page.locator('.city-header').count(),1,path);
       assert.equal(await page.locator('.city-footer').count(),1,path);
       await openNavigation(page);

@@ -112,6 +112,10 @@ def overview(output, path, city):
 
 
 def apply(output, path):
+    # The newspaper entry pages have their own approved shell. Their links
+    # continue into the unchanged city research templates.
+    if 'data-editorial-navigation="true"' in output:
+        return output
     if path == 'contact.html':
         return output
     city = city_for(path)
