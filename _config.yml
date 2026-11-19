@@ -6,3 +6,4 @@ exclude:
   - scripts/test-list-browser.mjs
   - scripts/test-phoenix-filters.mjs
   - scripts/test-phoenix-index.mjs
+  - scripts/build-review-preview.py
