@@ -85,6 +85,21 @@ if args.lists:
  page=page.replace("if(!pages[path])return;","if(!pages[path]){window.open('https://housingaccountabilityproject.github.io/'+path+hash,'_blank','noopener');return;}")
  page=page.replace('<head>','<head><meta name="hap-review-candidate" content="'+commit+'">',1)
  if not args.legacy_print:
+  # Parent-owned handoff for initial fragment restoration, including refresh.
+  # The reader and permissions stay unchanged; user activity cancels the claim.
+  page=page.replace("frame.addEventListener('load',()=>{if(nextHash)frame.contentWindow.postMessage({type:'hap-preview-anchor',hash:nextHash},'*');});","""// Restore only the initial URL fragment. Never claim focus after user activity.
+let pendingFragmentRestore=location.hash;
+const cancelFragmentRestore=()=>{pendingFragmentRestore='';};
+document.addEventListener('pointerdown',cancelFragmentRestore,true);
+document.addEventListener('keydown',cancelFragmentRestore,true);
+document.addEventListener('focusin',event=>{if(event.target!==document.body&&event.target!==frame)cancelFragmentRestore();},true);
+window.addEventListener('blur',cancelFragmentRestore);
+frame.addEventListener('load',()=>{
+ const restoreHash=pendingFragmentRestore;pendingFragmentRestore='';
+ if(!nextHash)return;
+ if(restoreHash&&restoreHash===nextHash&&restoreHash===location.hash&&document.hasFocus()&&document.activeElement===document.body)frame.focus({preventScroll:true});
+ frame.contentWindow.postMessage({type:'hap-preview-anchor',hash:nextHash},'*');
+});""")
   # A URL fragment on the outer file is otherwise never delivered to srcdoc.
   # Preserve the original page's own recovery/focus/announcement implementation.
   page=page.replace("showPage('evidence.html');","showPage('evidence.html',location.hash);\nwindow.addEventListener('hashchange',()=>{nextHash=location.hash;frame.contentWindow.postMessage({type:'hap-preview-anchor',hash:nextHash},'*');});")
