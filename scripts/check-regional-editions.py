@@ -19,7 +19,11 @@ stories = api['load_stories']()
 baseline = json.loads((ROOT / 'docs/reviews/regional-front-pages-inventory.json').read_text())
 assert baseline['baseline'] == BASE
 protected = baseline['preservedHashes']
-assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == digest for p,digest in protected.items() if p != 'assets/category-search.css'), 'Original research or assets changed'
+research = json.loads((ROOT / 'docs/reviews/research-nov19-preservation.json').read_text())
+assert research['baseline'] == '367acbdd6ae18114b0208fdac62ee5eb39ef6598'
+for name, digest in research['approvedChangedFiles'].items():
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, ('Unreviewed research change', name)
+assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == digest for p,digest in protected.items() if p != 'assets/category-search.css' and p not in research['approvedChangedFiles']), 'Original research or assets changed'
 # The statewide copy and image must survive apart from the intended entry links.
 after = html.parse(str(ROOT / 'index.html'))
 assert baseline['homepage']['h1'] == after.xpath('//h1//text()')
@@ -44,9 +48,10 @@ inventory = {'baseline': BASE, 'routes': [], 'records': [], 'preservedFiles': le
 for route in baseline['routes']:
     path = route['path']
     doc = html.parse(str(ROOT / path))
-    assert route['ids'] == doc.xpath('//@id'), ('Changed saved fragment', path)
+    assert set(route['ids']) <= set(doc.xpath('//@id')), ('Lost saved fragment', path)
+    assert len(doc.xpath('//@id')) == len(set(doc.xpath('//@id'))), ('Duplicated fragment', path)
     if path != 'index.html':
-        assert route['citations'] == doc.xpath('//a/@href'), ('Changed original citations', path)
+        assert set(route['citations']) <= set(doc.xpath('//a/@href')), ('Lost original citation', path)
     for href in doc.xpath('//a/@href'):
         destination(path, href)
     inventory['routes'].append({'path': path, 'sha256': hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
@@ -73,20 +78,25 @@ for path in api['NEW_PAGES']:
 original_records = json.loads(subprocess.check_output(['git', 'show', BASE + ':data/category-search.json'], cwd=ROOT))['records']
 original_keys = Counter(record['key'] for record in original_records)
 current_keys = Counter(record['key'] for record in api['CATALOG'])
-assert current_keys == original_keys and all(count == 1 for count in current_keys.values()), 'Changed or duplicated stable record identity'
-assert api['CATALOG'] == original_records, 'Changed indexed dates, destinations or qualifications'
+assert set(original_keys) <= set(current_keys) and all(count == 1 for count in current_keys.values()), 'Lost or duplicated stable record identity'
+assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']), 'Unreviewed record addition'
+old_records = {r['key']: r for r in original_records}
+for row in api['CATALOG']:
+    if row['key'] in old_records and row['key'] not in research['changedRecordKeys']:
+        assert row == old_records[row['key']], ('Unreviewed record change', row['key'])
 
 for record in api['CATALOG']:
     destination('index.html', record['url'])
     inventory['records'].append({k: record.get(k) for k in ('key', 'id', 'scope', 'category', 'url', 'label', 'years', 'yearBasis', 'yearNote')})
-    doc = html.parse(str(ROOT / ('archive-' + record['scope'] + '.html')))
-    assert len(doc.xpath('//*[@data-record-key=$key]', key=record['key'])) == 1, record['key']
+    for region in record.get('regionalScopes', [record['scope']]):
+        doc = html.parse(str(ROOT / ('archive-' + region + '.html')))
+        assert len(doc.xpath('//*[@data-record-key=$key]', key=record['key'])) == 1, record['key']
 
 # Every promoted excerpt and limitation is generated from its one entry and
 # remains with that entry in the edition and its regional archive or watchlist.
 for story in stories.values():
     for region, placement in story['placements'].items():
-        paths = [region + '.html', ('watch-' if placement == 'watch' else 'archive-') + region + '.html']
+        paths = ([region + '.html'] if placement != 'archive' else []) + [('watch-' if placement == 'watch' else 'archive-') + region + '.html']
         for path in paths:
             nodes = html.parse(str(ROOT / path)).xpath('//*[@data-story=$key]', key=story['key'])
             assert len(nodes) == 1, (path, story['key'])
@@ -121,6 +131,6 @@ assert all((ROOT / p).read_bytes() == snapshots[p] for p in outputs), 'Nondeterm
 if '--inventory' in sys.argv:
     path = Path(sys.argv[sys.argv.index('--inventory') + 1])
     path.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n')
-print(f'PASS {len(inventory["routes"])} original routes, {sum(len(r["ids"]) for r in inventory["routes"])} original fragments, {len(inventory["records"])} research records; destinations, dates, citations and original research bytes preserved.')
+print(f'PASS {len(inventory["routes"])} original routes, {sum(len(r["ids"]) for r in inventory["routes"])} current fragments in those routes, {len(inventory["records"])} research records; destinations, dates, citations and approved research changes enumerated; other original research bytes preserved.')
 print('PASS seven deterministic editorial views; one-entry lead/archive/watch placement; published-only excerpts and qualifications; statewide branding and approved illustration metadata.')
 print('Records by region/category:', dict(Counter((r['scope'], r['category']) for r in api['CATALOG'])))

@@ -69,6 +69,16 @@ for row in data['records']:
             row['verificationChecks'] = deepcopy(source['verification_checks'])
     if row['scope'] == 'tucson' and row['id'] in source_rows:
         source = source_rows[row['id']]
+        if source.get('current_review'):
+            row['title'] = source['title']
+            row['summary'] = [source['source_context']]
+            row['caveats'] = [source['limitations']]
+            row['raw'] = deepcopy(source)
+            row['notes'] = list(dict.fromkeys([*row['notes'], *source.get('historical_notes', [])]))
+            old_context = row['contextUrl']
+            row['contextUrl'] = 'https://housingaccountabilityproject.github.io/' + source['citation_url']
+            if old_context != row['contextUrl'] and not any(link['url'] == old_context for link in row['links']):
+                row['links'].append({'title': 'Earlier dated finding context', 'url': old_context})
         if source.get('document_date'):
             row['documentDate'] = source['document_date']
         if source.get('verification_checks'):
@@ -80,7 +90,7 @@ for row in data['records']:
 data['researchSnapshots'] = {'phoenix': phoenix['research_snapshot'], 'tucson': read('data/city-reader-guide.json')['cities']['tucson']['date']}
 data['annualReportCoverage'] = read('data/funding-period-coverage.json')
 for scope in ['tucson', 'phoenix']:
-    selected = [row for row in data['records'] if row['scope'] == scope]
+    selected = [row for row in data['records'] if scope in row.get('regionalScopes', [row['scope']])]
     counts = {category: sum(row['category'] == category for row in selected) for category in ['funding', 'sources', 'questions', 'updates']}
     data['coverage'][scope] = f"{len(selected)} public entries. {counts['funding']} funding entries, {counts['sources']} source and evidence entries, {counts['questions']} questions and {counts['updates']} updates. Selected records are not complete program or year coverage."
 (ROOT / 'data/category-search.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')

@@ -14,7 +14,9 @@
     "hamc": "Housing Authority of Maricopa County",
     "r4-capital": "R4 Capital (investor)",
     "city-tempe": "City of Tempe",
-    "molinacares": "MolinaCares (project partner)"
+    "molinacares": "MolinaCares (project partner)",
+    "national-church-residences": "National Church Residences (operator)",
+    "city-goodyear": "City of Goodyear"
   },
   "programs": {
     "home": "HOME",
@@ -785,6 +787,162 @@
       "date_basis": "2026–27 is the housing agency plan coverage; the supplemental narrative is not a funding or occupancy period.",
       "date_basis_url": "index.html#PHX-WEB-029",
       "retrieved_on": "2026-11-14"
+    },
+    "PHX-N19-03-01": {
+      "agency": "arizona-housing",
+      "programs": [
+        "lihtc"
+      ],
+      "document_type": "award-schedule",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-007",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-03-02": {
+      "agency": "arizona-housing",
+      "programs": [
+        "general"
+      ],
+      "document_type": "award-schedule",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-007",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-07-01": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "status-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-031",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-07-02": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-031",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-08-01": {
+      "agency": "national-church-residences",
+      "programs": [
+        "general"
+      ],
+      "document_type": "public-statement",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-032",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-08-02": {
+      "agency": "phoenix-ida",
+      "programs": [
+        "general"
+      ],
+      "document_type": "financing-schedule",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-032",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-08-03": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-032",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-10-01": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-033",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-11-01": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-034",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-12-01": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-035",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-16-01": {
+      "agency": "city-goodyear",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-minutes",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-036",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-16-02": {
+      "agency": "city-goodyear",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-036",
+      "retrieved_on": "2026-11-19"
+    },
+    "PHX-N19-16-03": {
+      "agency": "city-goodyear",
+      "programs": [
+        "general"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [],
+      "year_status": "not-established",
+      "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+      "date_basis_url": "index.html#PHX-WEB-036",
+      "retrieved_on": "2026-11-19"
     }
   },
   "research_snapshot": "2026-11-10"

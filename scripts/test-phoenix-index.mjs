@@ -25,7 +25,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^93 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^112 of /);
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -103,7 +103,7 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^93 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^112 of /);
     await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
     assert.equal(await visible.count(), 3);
     assert(await page.locator('#MC-HAMC-WEB-001').isVisible());

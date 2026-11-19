@@ -16,6 +16,12 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = ['phoenix/index.html', 'phoenix/capital-fund.html', 'phoenix/projects/25th-at-bell.html']
 # Explicit editorial classification. New source articles require a reviewed entry.
 META = {
+ 'PHX-WEB-031': ('funding', 'reported', 'Phoenix Master Lease'),
+ 'PHX-WEB-032': ('funding', 'reported', 'Memorial Towers'),
+ 'PHX-WEB-033': ('funding', 'reported', 'Phoenix expands utility-aid authorization'),
+ 'PHX-WEB-034': ('funding', 'reported', 'Laveen Park Place advances to financing proceedings'),
+ 'PHX-WEB-035': ('funding', 'reported', 'Phoenix authorizes another eviction legal-services provider'),
+ 'PHX-WEB-036': ('funding', 'reported', 'Goodyear approves funding for a local shelter program'),
  'MC-PLAN-WEB-001': ('county', 'proposal', 'Maricopa County: proposed plan amendment'),
  'MC-HAMC-WEB-001': ('waitlists', 'notice', 'Four Maricopa County property waitlists will close December 1'),
  'PHX-WEB-027': ('delivery', 'difference', 'Phoenix: rehabilitation count needs clarification'),
@@ -25,7 +31,7 @@ META = {
  'MC-HOME-WEB-001': ('county', 'competition', 'Maricopa County: HOME funding opportunities'),
  'PHX-WEB-002': ('delivery', 'reported', 'Five reported completed developments'),
  'PHX-WEB-004': ('delivery', 'inventory', 'Harmony at the Park: existing inventory'),
- 'PHX-WEB-007': ('projects', 'planned', 'The Moreland: planned phases'),
+ 'PHX-WEB-007': ('projects', 'planned', 'Moreland Phase II'),
  'PHX-WEB-020': ('projects', 'planned', 'Girasol: redevelopment and dated progress'),
  'PHX-WEB-009': ('funding', 'financing', 'Moreland I: authorization and reported bond closing'),
  'PHX-WEB-010': ('funding', 'authorization', 'Moreland II: mixed-fund authorization and vouchers'),

@@ -1133,15 +1133,15 @@
     },
     {
       "public_id": "SRC-111",
-      "title": "Tucson House 14th-floor application",
+      "title": "Tucson House 14th-floor temporary certificate",
       "period": "other",
       "topic": "projects",
-      "source_context": "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
-      "limitations": "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in.",
+      "source_context": "City register checked November 19, 2026: TC-CFO-1126-00224 is listed as Issued for floor 14, with a December 10, 2026 expiration.",
+      "limitations": "The certificate applies only to floor 14. It does not establish move-ins or whole-building completion. Earlier Submitted – Online and Fees Paid observations are retained as dated history, not current status.",
       "urls": [
         "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
       ],
-      "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+      "citation_url": "findings.html#f-012",
       "aliases": [],
       "page_url": "evidence.html#src-111",
       "mapping_basis": "Original source for the approved additional November 7 review.",
@@ -1162,6 +1162,11 @@
           "observed_on": "2026-11-10",
           "status": "Fees Paid",
           "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        },
+        {
+          "observed_on": "2026-11-19",
+          "status": "Issued",
+          "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
         }
       ],
       "verification_checks": [
@@ -1171,8 +1176,18 @@
           "outcome": "checked",
           "scope": "Permit details: Fees Paid status and November 6 application date",
           "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        },
+        {
+          "checked_at": "2026-11-19",
+          "outcome": "City register lists TC-CFO-1126-00224 as Issued for floor 14, expiring December 10, 2026.",
+          "scope": "Floor-specific certificate only; no move-in or whole-building completion established. See F-012 for the full dated finding."
         }
-      ]
+      ],
+      "historical_notes": [
+        "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
+        "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in."
+      ],
+      "current_review": true
     },
     {
       "public_id": "SRC-112",

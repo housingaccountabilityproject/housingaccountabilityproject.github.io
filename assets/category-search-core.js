@@ -8,7 +8,7 @@
     const funding=typeof window!=='undefined'?window.HAPFundingPeriods:null,row=funding?.get(r.scope,r.id);
     const status=(typeof window!=='undefined'?window.HAPFundingPeriods?.get(r.scope,r.id)?.programPeriod:r.programPeriod)?.status||r.programPeriod?.status;
     const yearMatch=value=>r.category==='funding'&&row?funding.matches(row,value):!value||(value==='__not_applicable'?status==='not_applicable':['__unindexed','__unknown'].includes(value)?!years.length&&status!=='not_applicable':years.includes(value));
-    return r.scope===s.scope && r.category===s.category && yearMatch(s.year) && (!s.sourceType || r.sourceType===s.sourceType) && (!s.subject || r.topics.includes(s.subject)) && terms(s.query).every(t=>{
+    return (r.scope===s.scope || r.regionalScopes?.includes(s.scope)) && r.category===s.category && yearMatch(s.year) && (!s.sourceType || r.sourceType===s.sourceType) && (!s.subject || r.topics.includes(s.subject)) && terms(s.query).every(t=>{
       const year=t.match(/^year:(20\d{2}|unknown)$/);
       return year ? yearMatch(year[1]==='unknown'?'__unindexed':year[1]) : fold(r.searchText).includes(t);
     });
