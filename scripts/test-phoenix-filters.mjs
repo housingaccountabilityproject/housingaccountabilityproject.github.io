@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, writeFileSync, readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 
@@ -9,7 +9,10 @@ const base = process.env.PHOENIX_FILTER_TEST_BASE_URL || 'http://127.0.0.1:8769'
 const output = process.env.PHOENIX_FILTER_TEST_OUTPUT || '/tmp/hap-phoenix-filters';
 mkdirSync(output, {recursive:true});
 const server = process.env.PHOENIX_FILTER_TEST_BASE_URL ? null : spawn('python3', ['-m','http.server','8769','--bind','127.0.0.1'], {cwd:root, stdio:'ignore'});
-const views = [['all','All entries',93], ['funding','Funding',19], ['source','Sources',48], ['question','Questions',13]];
+const approvedLists=JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json',import.meta.url)));
+const approvedIds={all:approvedLists.phoenixAll.expectedIds,funding:approvedLists.phoenixFunding.expectedIds,source:approvedLists.phoenixSources.expectedIds,question:approvedLists.phoenixQuestions.expectedIds};
+const views = [['all','All entries'], ['funding','Funding'], ['source','Sources'], ['question','Questions']].map(([view,name])=>[view,name,approvedIds[view].length]);
+for(const [view,ids] of Object.entries(approvedIds))assert.equal(new Set(ids).size,ids.length,view+' independent IDs are unique');
 const facets = {'source-agency':'sourceAgency','source-program':'sourcePrograms','source-format':'sourceFormat','source-year':'sourceYears'};
 const results = [];
 let browser;
@@ -49,6 +52,7 @@ try {
     for(const [view,name,total] of views) {
       await selectView(name);
       const expected = cards.filter(c=>view==='all'||c.group===view);
+      assert.deepEqual(expected.map(c=>c.id),approvedIds[view],name+' exact independent membership and order');
       await check(expected,total,name+' initial');
       assert(await query.isVisible());
       assert.equal(await page.locator('#record-filters .filter-chips').count(),0);

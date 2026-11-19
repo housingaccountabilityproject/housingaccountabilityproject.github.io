@@ -8,6 +8,8 @@ import {openNavigation} from './browser-navigation.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const approvedLists = JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json', import.meta.url)));
 const expectedSourceIds = approvedLists.phoenixSources.expectedIds;
+const expectedFundingIds = approvedLists.phoenixFunding.expectedIds;
+const expectedAllIds = approvedLists.phoenixAll.expectedIds;
 assert.equal(new Set(expectedSourceIds).size, expectedSourceIds.length, 'Independent approved source IDs are unique');
 assert.deepEqual(new Set(expectedSourceIds), new Set([
   ...approvedLists.phoenixSources.baselineIds,
@@ -32,7 +34,8 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     await page.goto(base + '/phoenix/records.html');
     const visible = page.locator('.record-card:visible');
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^112 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), new RegExp('^' + expectedAllIds.length + ' of '));
+    assert.deepEqual(await page.locator('.record-card').evaluateAll(nodes => nodes.map(node => node.id)), expectedAllIds, 'All entries retain the independent approved order');
     assert(await page.locator('#source-filters').isHidden());
     assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `overflow ${width}`);
     await page.keyboard.press('Tab');
@@ -111,7 +114,10 @@ try {
     await page.locator('#record-topic').selectOption('bell', {force:true});
     assert.equal(await visible.count(), 6);
     await page.getByRole('button', {name: 'Funding', exact: true}).click();
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^19 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), new RegExp('^' + expectedFundingIds.length + ' of '));
+    assert.deepEqual(await page.locator('.record-card[data-group="funding"]').evaluateAll(nodes => nodes.map(node => node.id)), expectedFundingIds, 'Funding contains exactly the independently approved IDs');
+    assert.equal(new Set(expectedFundingIds).size, expectedFundingIds.length, 'Funding IDs are unique');
+    for (const id of ['PHX-WEB-031', 'PHX-WEB-035']) assert.equal(await page.locator('#' + id).getAttribute('data-group'), 'evidence');
     await page.getByRole('searchbox').fill('MC-HOME-WEB-001');
     assert(await page.locator('#MC-HOME-WEB-001').isVisible());
     assert((await page.locator('#MC-HOME-WEB-001').textContent()).includes('not confirmed awards or spending'));
@@ -123,7 +129,7 @@ try {
     assert.equal(await visible.count(), 0);
     assert(await page.locator('#record-empty').isVisible());
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^112 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), new RegExp('^' + expectedAllIds.length + ' of '));
     await page.getByRole('searchbox').fill('MC-HAMC-WEB-001');
     assert.equal(await visible.count(), 3);
     assert(await page.locator('#MC-HAMC-WEB-001').isVisible());
