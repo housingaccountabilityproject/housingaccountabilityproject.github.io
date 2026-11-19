@@ -169,7 +169,8 @@ def render(data):
   related = ''.join(f'<li><a href="#{esc(item["id"])}">{esc(item["title"])}</a></li>' for item in r.get('related', []))
   if related:
    details += f'<details><summary>Findings using this source</summary><ul class="related-records">{related}</ul></details>'
-  group = 'source' if r['kind'] == 'source' else 'question' if r['kind'] in ['question', 'needed'] else 'funding' if r['topic'] in ['capital', 'funding', 'county'] or r['id'] in ['BELL-03', 'BELL-04', 'BELL-06', 'BELL-07', 'BELL-08'] else 'evidence'
+  # These implementation/provider updates remain Evidence, without changing their topics or canonical records.
+  group = 'evidence' if r['id'] in ['PHX-WEB-031', 'PHX-WEB-035'] else 'source' if r['kind'] == 'source' else 'question' if r['kind'] in ['question', 'needed'] else 'funding' if r['topic'] in ['capital', 'funding', 'county'] or r['id'] in ['BELL-03', 'BELL-04', 'BELL-06', 'BELL-07', 'BELL-08'] else 'evidence'
   topic_keys = ' '.join(r.get('topics', [r['topic']]))
   project_links = ''.join(f'<li><a href="projects.html#project-{escape(p["id"])}">{escape(p["name"])}</a></li>' for p in connections['projects'] if r['id'] in p['record_ids'] or r['id'] in p['question_ids'])
   connected = f'<div class="record-connections"><strong>Related places</strong><ul>{project_links}</ul></div>' if project_links else ''

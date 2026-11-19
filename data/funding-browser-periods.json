@@ -3378,9 +3378,251 @@
           "The draft-amendment body link previously looped to the document index. The separate notice remains accessible; no adoption or execution is established."
         ]
       }
+    },
+    {
+      "key": "phoenix:PHX-WEB-032",
+      "id": "PHX-WEB-032",
+      "scope": "phoenix",
+      "programPeriod": {
+        "label": "Unknown / not established",
+        "kind": "unknown",
+        "status": "not_established",
+        "years": [],
+        "periods": [],
+        "hasUnknownComponent": true,
+        "explanation": "The cited City report identifies funding vintages for a six-project CFI pool, not a Memorial-specific grant-vintage allocation or an executed loan/payment period. Anticipated FY2024–25 execution and prospective two-year payments are not established activity bounds. The December 2024 bond closing and August 2026 reopening are separate events, not a funding period.",
+        "evidence": [
+          {
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705",
+            "locator": "Ordinance S-50809, Item Summary: Financial Impact paragraph; Report Summary paragraphs on CFI and contingent awards",
+            "basis": "The report describes 2023 HOME funds and a forward allocation of 2024 HOME funds for the six-project CFI pool, anticipated FY2024–25 loan execution and a prospective two-year payment schedule. It does not identify a Memorial-specific vintage split or an executed payment interval.",
+            "checkedOn": "2026-11-19",
+            "sha256": "cb00592d28c1e659c7a06d809845c363165ef64c9e3b57f4be146c48782543dc"
+          }
+        ],
+        "issues": [
+          "Project-specific funding vintage, executed loan term, disbursement interval and bond performance period remain unverified. No specific Funding year is assigned."
+        ],
+        "nextSources": [
+          "Executed project-specific agreement and amendments identifying the funding period."
+        ]
+      },
+      "knownDates": [],
+      "periodLeads": [],
+      "review": {
+        "status": "accepted_handoff",
+        "batch_id": "HAP-LEGACY-PHOENIX-PERIODS-20261119",
+        "checked_on": "2026-11-19",
+        "source_basis": "Focused legacy-browser period review against the approved story citations; existing editorial copy and separate Category Search collection preserved.",
+        "handoff_status": "unknown",
+        "unresolved": [
+          "Project-specific funding vintage, executed loan term, disbursement interval and bond performance period remain unverified. No specific Funding year is assigned."
+        ]
+      }
+    },
+    {
+      "key": "phoenix:PHX-WEB-033",
+      "id": "PHX-WEB-033",
+      "scope": "phoenix",
+      "programPeriod": {
+        "label": "Contract 165777: July 1, 2026–June 30, 2027",
+        "kind": "contract_term",
+        "status": "verified",
+        "years": [
+          "2026",
+          "2027"
+        ],
+        "periods": [
+          {
+            "label": "Contract 165777: July 1, 2026–June 30, 2027",
+            "kind": "contract_term",
+            "status": "verified",
+            "start": "2026-07-01",
+            "end": "2027-06-30",
+            "years": [
+              "2026",
+              "2027"
+            ],
+            "yearMatches": [
+              {
+                "year": "2026",
+                "basis": "calendar_overlap"
+              },
+              {
+                "year": "2027",
+                "basis": "calendar_overlap"
+              }
+            ],
+            "sourceYearLabels": [],
+            "matchingBasis": "calendar years overlapping the explicitly stated unchanged contract term",
+            "evidence": [
+              {
+                "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+                "locator": "File 26-2217 / Ordinance S-53323, Item Summary: Description and Contract Term paragraphs",
+                "basis": "Both paragraphs state the unchanged contract term began July 1, 2026 and ends June 30, 2027.",
+                "checkedOn": "2026-11-19",
+                "sha256": "9495ea90101df07ce917e6d484db16b8e273fa193aeb5280392c7a6cd9158b99"
+              }
+            ],
+            "explanation": "This is the contract term stated in the City action, not its November vote date.",
+            "qualification": "The term and amended authorization ceiling do not establish payments or households served."
+          }
+        ],
+        "hasUnknownComponent": false,
+        "explanation": "The City action states the unchanged July 1, 2026–June 30, 2027 contract term. Year matches reflect that interval, not the November 18 vote, payments or households served.",
+        "evidence": [
+          {
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+            "locator": "File 26-2217 / Ordinance S-53323, Item Summary: Description and Contract Term paragraphs",
+            "basis": "Both paragraphs state the unchanged contract term began July 1, 2026 and ends June 30, 2027.",
+            "checkedOn": "2026-11-19",
+            "sha256": "9495ea90101df07ce917e6d484db16b8e273fa193aeb5280392c7a6cd9158b99"
+          }
+        ],
+        "issues": [],
+        "nextSources": []
+      },
+      "knownDates": [],
+      "periodLeads": [],
+      "review": {
+        "status": "accepted_handoff",
+        "batch_id": "HAP-LEGACY-PHOENIX-PERIODS-20261119",
+        "checked_on": "2026-11-19",
+        "source_basis": "Focused legacy-browser period review against the approved story citations; existing editorial copy and separate Category Search collection preserved.",
+        "handoff_status": "verified",
+        "unresolved": []
+      }
+    },
+    {
+      "key": "phoenix:PHX-WEB-034",
+      "id": "PHX-WEB-034",
+      "scope": "phoenix",
+      "programPeriod": {
+        "label": "Unknown / not established",
+        "kind": "unknown",
+        "status": "not_established",
+        "years": [],
+        "periods": [],
+        "hasUnknownComponent": true,
+        "explanation": "Financing proceedings and a proposed Series 2026 label do not establish issuance, closing, payment dates or a funding-performance period. The November Council and October IDA actions remain separate event dates; no specific Funding year is assigned.",
+        "evidence": [
+          {
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451",
+            "locator": "File 26-2419 / Resolution 22414, Item Summary: Title, Description and Report Summary (1)–(2)",
+            "basis": "The record authorizes financing proceedings for proposed notes and bonds. Series 2026 is a proposed financing label; no issued-obligation or project funding-performance interval is established.",
+            "checkedOn": "2026-11-19",
+            "sha256": "c274f3b25fd595084b6019575d1d76ce9ae37e4d934d9fb952a2c0d699abe245"
+          }
+        ],
+        "issues": [
+          "Issued obligations, final financing documents and a supported funding interval remain unverified. The authorization is not a city grant."
+        ],
+        "nextSources": [
+          "Executed project-specific agreement and amendments identifying the funding period."
+        ]
+      },
+      "knownDates": [],
+      "periodLeads": [],
+      "review": {
+        "status": "accepted_handoff",
+        "batch_id": "HAP-LEGACY-PHOENIX-PERIODS-20261119",
+        "checked_on": "2026-11-19",
+        "source_basis": "Focused legacy-browser period review against the approved story citations; existing editorial copy and separate Category Search collection preserved.",
+        "handoff_status": "unknown",
+        "unresolved": [
+          "Issued obligations, final financing documents and a supported funding interval remain unverified. The authorization is not a city grant."
+        ]
+      }
+    },
+    {
+      "key": "phoenix:PHX-WEB-036",
+      "id": "PHX-WEB-036",
+      "scope": "phoenix",
+      "programPeriod": {
+        "label": "Goodyear FY2026–2027 community grant allocation",
+        "kind": "municipal_allocation_fiscal_year",
+        "status": "verified",
+        "years": [
+          "2026",
+          "2027"
+        ],
+        "periods": [
+          {
+            "label": "Goodyear FY2026–2027 community grant allocation",
+            "kind": "municipal_allocation_fiscal_year",
+            "status": "verified",
+            "years": [
+              "2026",
+              "2027"
+            ],
+            "yearMatches": [
+              {
+                "year": "2026",
+                "basis": "source_year_label"
+              },
+              {
+                "year": "2027",
+                "basis": "source_year_label"
+              }
+            ],
+            "sourceYearLabels": [
+              "FY2026–2027"
+            ],
+            "matchingBasis": "the two years explicitly printed in the approved allocation fiscal-year label; no calendar start/end dates inferred",
+            "evidence": [
+              {
+                "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+                "locator": "July 6, 2026 meeting minutes, Business item 14: heading and motion approving recommended FY2026–2027 Community Grant Funding allocations",
+                "basis": "The adopted allocation motion explicitly identifies FY2026–2027, rather than relying on the meeting date.",
+                "checkedOn": "2026-11-19",
+                "sha256": "d05344cade88b218942005d08c1c21eb4978ec447b958a6f83e6c8cb1485dcca"
+              },
+              {
+                "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+                "locator": "Official staff presentation PDF page 5: FY2026–2027 / Grant Funding Recommendations heading and IHelp $10,000 row; PDF page 1 program-year heading",
+                "basis": "The same allocation list labels the IHelp recommendation FY2026–2027; exact grant agreement start and end dates are not supplied.",
+                "checkedOn": "2026-11-19",
+                "sha256": "62ce4a1df092988d485e90f0b5caf770af551a68538895c3295787d2649df702"
+              }
+            ],
+            "explanation": "The adopted motion and allocation list identify the same fiscal-year label.",
+            "qualification": "The allocation label does not establish payment, grant-agreement dates, added beds or current shelter availability."
+          }
+        ],
+        "hasUnknownComponent": false,
+        "explanation": "FY2026–2027 is stated in the adopted allocation motion and the IHelp allocation list. Both printed years match as source fiscal-year labels; calendar agreement dates, payment, added beds and shelter availability are not inferred.",
+        "evidence": [
+          {
+            "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+            "locator": "July 6, 2026 meeting minutes, Business item 14: heading and motion approving recommended FY2026–2027 Community Grant Funding allocations",
+            "basis": "The adopted allocation motion explicitly identifies FY2026–2027, rather than relying on the meeting date.",
+            "checkedOn": "2026-11-19",
+            "sha256": "d05344cade88b218942005d08c1c21eb4978ec447b958a6f83e6c8cb1485dcca"
+          },
+          {
+            "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+            "locator": "Official staff presentation PDF page 5: FY2026–2027 / Grant Funding Recommendations heading and IHelp $10,000 row; PDF page 1 program-year heading",
+            "basis": "The same allocation list labels the IHelp recommendation FY2026–2027; exact grant agreement start and end dates are not supplied.",
+            "checkedOn": "2026-11-19",
+            "sha256": "62ce4a1df092988d485e90f0b5caf770af551a68538895c3295787d2649df702"
+          }
+        ],
+        "issues": [],
+        "nextSources": []
+      },
+      "knownDates": [],
+      "periodLeads": [],
+      "review": {
+        "status": "accepted_handoff",
+        "batch_id": "HAP-LEGACY-PHOENIX-PERIODS-20261119",
+        "checked_on": "2026-11-19",
+        "source_basis": "Focused legacy-browser period review against the approved story citations; existing editorial copy and separate Category Search collection preserved.",
+        "handoff_status": "verified",
+        "unresolved": []
+      }
     }
   ],
-  "review_state": "Thirty ID-reconciled handoff records plus one separately checked existing browser record. Unknowns and not-applicable guidance remain explicit.",
+  "review_state": "Existing ID-reconciled handoff records and browser supplement retained, with four focused legacy Phoenix period annotations. Unknowns, source fiscal-year labels and explicit intervals remain distinct.",
   "baseline_commit": "90582a86ead18eff46384620e67a7e40795f9f76",
   "accepted_batches": [
     {
@@ -3404,7 +3646,47 @@
       "source_url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment",
       "pinpoint": "PDF page 1, plan heading and HOME/ESG proposed changes",
       "checked_on": "2026-11-13"
+    },
+    {
+      "id": "HAP-LEGACY-PHOENIX-PERIODS-20261119",
+      "records": 4,
+      "scope": "phoenix",
+      "checked_on": "2026-11-19",
+      "source_basis": "Approved November 19 story citations; pinpoint evidence is retained in each period row."
     }
   ],
-  "matching_rule": "Both regions match supported source FY/PY/vintage year labels OR calendar years overlapping an explicitly dated supported period. Each match retains its basis; no calendar coverage is inferred from a fiscal label alone. Unknown components additionally match Unknown; guidance matches Not applicable only."
+  "matching_rule": "Both regions match supported source FY/PY/vintage year labels OR calendar years overlapping an explicitly dated supported period. Each match retains its basis; no calendar coverage is inferred from a fiscal label alone. Unknown components additionally match Unknown; guidance matches Not applicable only.",
+  "requiredKeys": [
+    "phoenix:MC-HOME-WEB-001",
+    "phoenix:PHX-WEB-009",
+    "phoenix:PHX-WEB-010",
+    "phoenix:PHX-WEB-012",
+    "phoenix:PHX-CFP-WEB-001",
+    "phoenix:PHX-CFP-WEB-002",
+    "phoenix:PHX-CFP-WEB-003",
+    "phoenix:PHX-CFP-WEB-004",
+    "phoenix:PHX-CFP-WEB-005",
+    "phoenix:PHX-CFP-WEB-006",
+    "phoenix:PHX-CFP-WEB-007",
+    "phoenix:BELL-03",
+    "phoenix:BELL-04",
+    "phoenix:BELL-06",
+    "phoenix:BELL-07",
+    "phoenix:BELL-08",
+    "tucson:funding-explorer.html#fund-pub-001",
+    "tucson:funding-explorer.html#fund-pub-002",
+    "tucson:funding-explorer.html#fund-pub-003",
+    "tucson:funding-explorer.html#fund-pub-004",
+    "tucson:funding-explorer.html#fund-pub-005",
+    "tucson:funding-explorer.html#fund-pub-006",
+    "tucson:funding-explorer.html#fund-pub-007",
+    "tucson:funding-explorer.html#county-price-funding-2026",
+    "tucson:funding-explorer.html#county-funding-fy27-q1",
+    "tucson:funding-explorer.html#federal-allocations-2026",
+    "tucson:funding-explorer.html#craycroft-financing-2026",
+    "tucson:funding-explorer.html#coc-request-2026",
+    "phoenix:PHX-WEB-029",
+    "phoenix:PHX-WEB-030",
+    "phoenix:MC-PLAN-WEB-001"
+  ]
 }
