@@ -139,11 +139,11 @@ try {
     // All four source facets combine with text, then clearing resets every value.
     await selectView('Sources');
     for(const [id,value] of [['source-agency','hud'],['source-program','home'],['source-format','dataset-metadata'],['source-year','2026']])await page.locator('#'+id).selectOption(value);
-    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),48,'combined source facets');
+    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),approvedIds.source.length,'combined source facets');
     await query.fill('PHX-EXT-PROJECT-203');
-    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),48,'combined source facets + query');
+    await check(cards.filter(c=>c.id==='source-PHX-EXT-PROJECT-203'),approvedIds.source.length,'combined source facets + query');
     await query.fill('no-match-phoenix-filters-739180');
-    await check([],48,'combined source facets no matches');
+    await check([],approvedIds.source.length,'combined source facets no matches');
     await clear.click();
     await check(cards,approvedIds.all.length,'clear combined source facets');
     // Switching category keeps the query, clears contextual filters and resets page 1.
