@@ -35,7 +35,12 @@ for source_file in ROOT.rglob('*.html'):
   assert helper_position<position and 'async' not in helper.attrib,('search helper order',source_file)
   assert 'defer' not in helper.attrib or 'defer' in consumer.attrib,('deferred helper / synchronous consumer',source_file)
 idx=(ROOT/'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=',1)[1].rstrip(';\n')
-index=json.loads(idx);expected=set(pages)-{'search.html','search-all.html'}
+index=json.loads(idx)
+# Editorial views place existing records; indexing their repeated teasers would
+# duplicate research results. They still receive all landmark/link checks above.
+editorial={p for p,d in pages.items() if d.xpath('//body[@data-editorial-navigation="true"]')}
+assert editorial == {'tucson.html','phoenix.html','watch-tucson.html','watch-phoenix.html','archive-tucson.html','archive-phoenix.html','library.html'}
+expected=set(pages)-{'search.html','search-all.html'}-editorial
 assert set(x['page'] for x in index['coverage'])==expected
 for r in index['records']:
  path,_,anchor=r['url'].partition('#');assert path in expected

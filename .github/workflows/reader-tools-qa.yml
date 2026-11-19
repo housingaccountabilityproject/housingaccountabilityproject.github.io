@@ -27,6 +27,7 @@ jobs:
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/check-list-baseline.py
       - run: python scripts/check-reader-data.py
+      - run: python scripts/check-regional-editions.py
       - run: python scripts/check-reader-contrast.py
       - run: node scripts/test-search.cjs
       - run: node scripts/test-category-search.cjs
@@ -56,6 +57,7 @@ jobs:
       - run: node scripts/test-list-browser.mjs
       - run: node scripts/test-search-options.mjs
       - run: node scripts/test-category-search.mjs
+      - run: node scripts/test-regional-editions.mjs
       - run: node scripts/reader-browser-test.mjs
       - run: node scripts/report-smoke-test.mjs
       - run: node scripts/organization-browser-test.mjs
@@ -66,6 +68,7 @@ jobs:
           path: |
             /tmp/hap-category-search/
             /tmp/hap-list-browser/
+            /tmp/hap-regional-editions/
             reader-qa-screenshots/
             report-qa-screenshots/
             organization-qa-screenshots/

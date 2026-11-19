@@ -191,3 +191,13 @@ body.show-print-view.category-search-page .city-page-banner,body.show-print-view
   body.category-search-page .print-record:not(.compact-record) li .print-url { margin-top: 0; margin-bottom: 3pt; }
   body.category-search-page .print-record:not(.compact-record)>div>ul:last-child>li:nth-last-child(-n+2) { break-before: avoid; page-break-before: avoid; }
 }
+
+/* Both regional search routes share one reading width and card inset. The
+   underlying city-page templates must not add a second article padding. */
+@media screen {
+ body.category-search-page.city-site.city-design main.category-search{width:min(1120px,calc(100% - 48px));max-width:1120px;margin-inline:auto;padding:27px 0 50px;container-type:inline-size}
+ body.category-search-page.city-site.city-design main.category-search #results>article.card{padding:0;width:100%;max-width:none;margin-inline:0}
+ body.category-search-page.city-site.city-design main.category-search .card-main{padding:20px 23px;margin:0;width:auto;max-width:none}
+ @media(max-width:760px){body.category-search-page.city-site.city-design main.category-search{width:calc(100% - 40px);padding-block:20px 35px}}
+ @media(max-width:390px){body.category-search-page.city-site.city-design main.category-search{width:calc(100% - 32px)}body.category-search-page.city-site.city-design main.category-search .card-main{padding:18px 17px}}
+}
