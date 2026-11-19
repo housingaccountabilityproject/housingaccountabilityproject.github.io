@@ -145,7 +145,7 @@ try {
     await query.fill('no-match-phoenix-filters-739180');
     await check([],48,'combined source facets no matches');
     await clear.click();
-    await check(cards,93,'clear combined source facets');
+    await check(cards,approvedIds.all.length,'clear combined source facets');
     // Switching category keeps the query, clears contextual filters and resets page 1.
     await query.fill('Moreland');
     for(const [,name] of views) {

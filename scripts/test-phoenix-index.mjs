@@ -291,7 +291,8 @@ try {
   }
   const noJS = await browser.newPage({javaScriptEnabled: false});
   await noJS.goto(base + '/phoenix/records.html');
-  assert.equal(await noJS.locator('.record-card:visible').count(), 93);
+  assert.equal(await noJS.locator('.record-card:visible').count(), expectedAllIds.length);
+  assert.deepEqual(await noJS.locator('.record-card:visible').evaluateAll(nodes => nodes.map(node => node.id)), expectedAllIds, 'No-JavaScript index retains every independently approved ID');
   assert(await noJS.locator('#record-filters').isHidden());
   await noJS.locator('#source-PHX-CFP-011 summary').first().click();
   assert(await noJS.locator('#source-PHX-CFP-011 .record-sources a').first().isVisible());
