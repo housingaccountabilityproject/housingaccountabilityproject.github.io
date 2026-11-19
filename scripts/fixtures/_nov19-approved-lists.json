@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "protectedMain": "367acbdd6ae18114b0208fdac62ee5eb39ef6598",
+  "reviewedHead": "dabeb4218f6efa9739ea6d906ca5b14eb3638906",
+  "handoffSHA256": "0302c0af18011876fe1d5024a11217c91cff3479b4898aa4776eb32adda8e240",
+  "provenance": "Protected-main IDs plus explicit numbered approved-packet additions; candidate output is used only for comparison.",
+  "phoenixSources": {
+    "route": "phoenix/records.html",
+    "category": "Sources",
+    "filters": {
+      "query": "",
+      "agency": "",
+      "program": "",
+      "documentType": "",
+      "reportingYear": ""
+    },
+    "pageSize": 6,
+    "baselineIds": [
+      "source-PHX-HAMC-001",
+      "source-PHX-HAMC-002",
+      "source-MC-HOME-001",
+      "source-MC-HOME-002",
+      "source-PHX-CITY-002",
+      "source-PHX-FILING-001",
+      "source-PHX-EXT-PROJECT-017",
+      "source-PHX-EXT-PROJECT-002",
+      "source-PHX-EXT-PROJECT-004",
+      "source-PHX-EXT-PROJECT-001",
+      "source-PHX-BOND-001",
+      "source-PHX-CITY-010",
+      "source-PHX-EXT-PROJECT-114",
+      "source-PHX-EXT-PROJECT-003",
+      "source-PHX-PROJECT-002",
+      "source-PHX-CITY-007",
+      "source-PHX-R4-001",
+      "source-PHX-R4-002",
+      "source-PHX-TEMPE-001",
+      "source-PHX-TEMPE-002",
+      "source-PHX-TEMPE-003",
+      "source-PHX-TEMPE-004",
+      "source-PHX-SHELTER-001",
+      "source-PHX-SHELTER-002",
+      "source-PHX-SHELTER-003",
+      "source-PHX-PROJECT-003",
+      "source-MC-PLAN-001",
+      "source-PHX-CFP-011",
+      "source-PHX-CFP-001",
+      "source-PHX-CFP-012",
+      "source-PHX-CFP-013",
+      "source-PHX-CITY-013",
+      "source-PHX-CITY-003",
+      "source-PHX-CITY-027",
+      "source-PHX-CFP-014",
+      "source-PHX-CFP-009",
+      "source-PHX-EXT-PROJECT-210",
+      "source-PHX-EXT-PROJECT-203",
+      "source-PHX-EXT-PROJECT-209",
+      "source-PHX-PROJECT-024",
+      "source-PHX-PROJECT-025",
+      "source-PHX-PROJECT-020",
+      "source-PHX-ARPA-001",
+      "source-PHX-LIHTC-001",
+      "source-PHX-EXT-PROJECT-123",
+      "source-PHX-EXT-PROJECT-121",
+      "source-PHX-EXT-PROJECT-200",
+      "source-PHX-EXT-PROJECT-201"
+    ],
+    "baselineSourcePageBlocks": {
+      "phoenix/index.html": [
+        "source-PHX-HAMC-001",
+        "source-PHX-HAMC-002",
+        "source-MC-HOME-001",
+        "source-MC-HOME-002",
+        "source-PHX-CITY-002",
+        "source-PHX-FILING-001",
+        "source-PHX-EXT-PROJECT-017",
+        "source-PHX-EXT-PROJECT-002",
+        "source-PHX-EXT-PROJECT-004",
+        "source-PHX-EXT-PROJECT-001",
+        "source-PHX-BOND-001",
+        "source-PHX-CITY-010",
+        "source-PHX-EXT-PROJECT-114",
+        "source-PHX-EXT-PROJECT-003",
+        "source-PHX-PROJECT-002",
+        "source-PHX-CITY-007",
+        "source-PHX-R4-001",
+        "source-PHX-R4-002",
+        "source-PHX-TEMPE-001",
+        "source-PHX-TEMPE-002",
+        "source-PHX-TEMPE-003",
+        "source-PHX-TEMPE-004",
+        "source-PHX-SHELTER-001",
+        "source-PHX-SHELTER-002",
+        "source-PHX-SHELTER-003",
+        "source-PHX-PROJECT-003",
+        "source-MC-PLAN-001"
+      ],
+      "phoenix/capital-fund.html": [
+        "source-PHX-CFP-011",
+        "source-PHX-CFP-001",
+        "source-PHX-CFP-012",
+        "source-PHX-CFP-013",
+        "source-PHX-CITY-013",
+        "source-PHX-CITY-003",
+        "source-PHX-CITY-027",
+        "source-PHX-CFP-014",
+        "source-PHX-CFP-009"
+      ],
+      "phoenix/projects/25th-at-bell.html": [
+        "source-PHX-CITY-002",
+        "source-PHX-EXT-PROJECT-210",
+        "source-PHX-EXT-PROJECT-203",
+        "source-PHX-EXT-PROJECT-209",
+        "source-PHX-PROJECT-024",
+        "source-PHX-PROJECT-025",
+        "source-PHX-PROJECT-020",
+        "source-PHX-ARPA-001",
+        "source-PHX-LIHTC-001",
+        "source-PHX-EXT-PROJECT-123",
+        "source-PHX-EXT-PROJECT-121",
+        "source-PHX-EXT-PROJECT-200",
+        "source-PHX-EXT-PROJECT-201"
+      ]
+    },
+    "sourcePageOrder": [
+      "phoenix/index.html",
+      "phoenix/capital-fund.html",
+      "phoenix/projects/25th-at-bell.html"
+    ],
+    "additions": [
+      {
+        "id": "source-PHX-N19-03-01",
+        "packetItem": 3,
+        "approvedEntry": "Moreland Phase II",
+        "sourceTitle": "State credit list",
+        "sourceURL": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-03-02",
+        "packetItem": 3,
+        "approvedEntry": "Moreland Phase II",
+        "sourceTitle": "National Housing Trust Fund list",
+        "sourceURL": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-07-01",
+        "packetItem": 7,
+        "approvedEntry": "Phoenix Master Lease",
+        "sourceTitle": "City implementation memo, p. 8",
+        "sourceURL": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-07-02",
+        "packetItem": 7,
+        "approvedEntry": "Phoenix Master Lease",
+        "sourceTitle": "City vendor roster",
+        "sourceURL": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-08-01",
+        "packetItem": 8,
+        "approvedEntry": "Memorial Towers",
+        "sourceTitle": "Operator",
+        "sourceURL": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-08-02",
+        "packetItem": 8,
+        "approvedEntry": "Memorial Towers",
+        "sourceTitle": "Issuer",
+        "sourceURL": "https://phoenixida.com/bond-financing-process/bond-transactions/",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-08-03",
+        "packetItem": 8,
+        "approvedEntry": "Memorial Towers",
+        "sourceTitle": "City authorization",
+        "sourceURL": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-10-01",
+        "packetItem": 10,
+        "approvedEntry": "Phoenix expands utility-aid authorization",
+        "sourceTitle": "City action",
+        "sourceURL": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-11-01",
+        "packetItem": 11,
+        "approvedEntry": "Laveen Park Place advances to financing proceedings",
+        "sourceTitle": "City action",
+        "sourceURL": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-12-01",
+        "packetItem": 12,
+        "approvedEntry": "Phoenix authorizes another eviction legal-services provider",
+        "sourceTitle": "City action",
+        "sourceURL": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-16-01",
+        "packetItem": 16,
+        "approvedEntry": "Goodyear approves funding for a local shelter program",
+        "sourceTitle": "Council minutes",
+        "sourceURL": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-16-02",
+        "packetItem": 16,
+        "approvedEntry": "Goodyear approves funding for a local shelter program",
+        "sourceTitle": "City funding list",
+        "sourceURL": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city",
+        "authorization": "approved handoff citation"
+      },
+      {
+        "id": "source-PHX-N19-16-03",
+        "packetItem": 16,
+        "approvedEntry": "Goodyear approves funding for a local shelter program",
+        "sourceTitle": "Official July 6 staff presentation \u00b7 IHELP $10,000, PDF page 5",
+        "sourceURL": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+        "authorization": "reviewed official alternate for item 16"
+      }
+    ],
+    "expectedIds": [
+      "source-PHX-HAMC-001",
+      "source-PHX-HAMC-002",
+      "source-MC-HOME-001",
+      "source-MC-HOME-002",
+      "source-PHX-CITY-002",
+      "source-PHX-FILING-001",
+      "source-PHX-EXT-PROJECT-017",
+      "source-PHX-EXT-PROJECT-002",
+      "source-PHX-EXT-PROJECT-004",
+      "source-PHX-EXT-PROJECT-001",
+      "source-PHX-BOND-001",
+      "source-PHX-CITY-010",
+      "source-PHX-EXT-PROJECT-114",
+      "source-PHX-EXT-PROJECT-003",
+      "source-PHX-PROJECT-002",
+      "source-PHX-CITY-007",
+      "source-PHX-R4-001",
+      "source-PHX-R4-002",
+      "source-PHX-TEMPE-001",
+      "source-PHX-TEMPE-002",
+      "source-PHX-TEMPE-003",
+      "source-PHX-TEMPE-004",
+      "source-PHX-SHELTER-001",
+      "source-PHX-SHELTER-002",
+      "source-PHX-SHELTER-003",
+      "source-PHX-PROJECT-003",
+      "source-MC-PLAN-001",
+      "source-PHX-N19-03-01",
+      "source-PHX-N19-03-02",
+      "source-PHX-N19-07-01",
+      "source-PHX-N19-07-02",
+      "source-PHX-N19-08-01",
+      "source-PHX-N19-08-02",
+      "source-PHX-N19-08-03",
+      "source-PHX-N19-10-01",
+      "source-PHX-N19-11-01",
+      "source-PHX-N19-12-01",
+      "source-PHX-N19-16-01",
+      "source-PHX-N19-16-02",
+      "source-PHX-N19-16-03",
+      "source-PHX-CFP-011",
+      "source-PHX-CFP-001",
+      "source-PHX-CFP-012",
+      "source-PHX-CFP-013",
+      "source-PHX-CITY-013",
+      "source-PHX-CITY-003",
+      "source-PHX-CITY-027",
+      "source-PHX-CFP-014",
+      "source-PHX-CFP-009",
+      "source-PHX-EXT-PROJECT-210",
+      "source-PHX-EXT-PROJECT-203",
+      "source-PHX-EXT-PROJECT-209",
+      "source-PHX-PROJECT-024",
+      "source-PHX-PROJECT-025",
+      "source-PHX-PROJECT-020",
+      "source-PHX-ARPA-001",
+      "source-PHX-LIHTC-001",
+      "source-PHX-EXT-PROJECT-123",
+      "source-PHX-EXT-PROJECT-121",
+      "source-PHX-EXT-PROJECT-200",
+      "source-PHX-EXT-PROJECT-201"
+    ]
+  },
+  "phoenixUpdates": {
+    "route": "phoenix/search.html",
+    "category": "Updates",
+    "filters": {
+      "query": "",
+      "year": "",
+      "sourceType": "",
+      "subject": ""
+    },
+    "pageSize": 6,
+    "protectedMainIds": [
+      "phoenix:phoenix/index.html#research-update-2026-11-09",
+      "phoenix:project-counts-and-shelter-funding"
+    ],
+    "approvedPhoenixIds": [
+      "phoenix:resource-wvhac",
+      "phoenix:PHX-WEB-031",
+      "phoenix:PHX-WEB-032",
+      "phoenix:PHX-WEB-033",
+      "phoenix:PHX-WEB-034",
+      "phoenix:PHX-WEB-035",
+      "phoenix:resource-motel-eligibility",
+      "phoenix:PHX-WEB-036"
+    ],
+    "preSharedIds": [
+      "phoenix:phoenix/index.html#research-update-2026-11-09",
+      "phoenix:project-counts-and-shelter-funding",
+      "phoenix:resource-wvhac",
+      "phoenix:PHX-WEB-031",
+      "phoenix:PHX-WEB-032",
+      "phoenix:PHX-WEB-033",
+      "phoenix:PHX-WEB-034",
+      "phoenix:PHX-WEB-035",
+      "phoenix:resource-motel-eligibility",
+      "phoenix:PHX-WEB-036"
+    ],
+    "sharedIds": [
+      "tucson:arizona-shelter-reservations-2026-11-19",
+      "tucson:tucson-phoenix-rent-benchmarks-2026-11-19"
+    ],
+    "additions": [
+      {
+        "id": "phoenix:resource-wvhac",
+        "packetItem": 2,
+        "approvedEntry": "Where to get shelter help in Surprise",
+        "shared": false
+      },
+      {
+        "id": "tucson:arizona-shelter-reservations-2026-11-19",
+        "packetItem": 6,
+        "approvedEntry": "State shelter reservations",
+        "shared": true
+      },
+      {
+        "id": "phoenix:PHX-WEB-031",
+        "packetItem": 7,
+        "approvedEntry": "Phoenix Master Lease",
+        "shared": false
+      },
+      {
+        "id": "phoenix:PHX-WEB-032",
+        "packetItem": 8,
+        "approvedEntry": "Memorial Towers",
+        "shared": false
+      },
+      {
+        "id": "tucson:tucson-phoenix-rent-benchmarks-2026-11-19",
+        "packetItem": 9,
+        "approvedEntry": "Tucson and Phoenix rent benchmarks",
+        "shared": true
+      },
+      {
+        "id": "phoenix:PHX-WEB-033",
+        "packetItem": 10,
+        "approvedEntry": "Phoenix expands utility-aid authorization",
+        "shared": false
+      },
+      {
+        "id": "phoenix:PHX-WEB-034",
+        "packetItem": 11,
+        "approvedEntry": "Laveen Park Place advances to financing proceedings",
+        "shared": false
+      },
+      {
+        "id": "phoenix:PHX-WEB-035",
+        "packetItem": 12,
+        "approvedEntry": "Phoenix authorizes another eviction legal-services provider",
+        "shared": false
+      },
+      {
+        "id": "phoenix:resource-motel-eligibility",
+        "packetItem": 15,
+        "approvedEntry": "What a motel stay can mean for shelter eligibility",
+        "shared": false
+      },
+      {
+        "id": "phoenix:PHX-WEB-036",
+        "packetItem": 16,
+        "approvedEntry": "Goodyear approves funding for a local shelter program",
+        "shared": false
+      }
+    ],
+    "expectedIds": [
+      "phoenix:phoenix/index.html#research-update-2026-11-09",
+      "phoenix:project-counts-and-shelter-funding",
+      "phoenix:resource-wvhac",
+      "tucson:arizona-shelter-reservations-2026-11-19",
+      "phoenix:PHX-WEB-031",
+      "phoenix:PHX-WEB-032",
+      "tucson:tucson-phoenix-rent-benchmarks-2026-11-19",
+      "phoenix:PHX-WEB-033",
+      "phoenix:PHX-WEB-034",
+      "phoenix:PHX-WEB-035",
+      "phoenix:resource-motel-eligibility",
+      "phoenix:PHX-WEB-036"
+    ],
+    "baselineClarification": "Protected main has 2 Updates. The failing test expected 10: those 2 plus 8 approved Phoenix additions. The 2 approved shared additions make 12."
+  }
+}

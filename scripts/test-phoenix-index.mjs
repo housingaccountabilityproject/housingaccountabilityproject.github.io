@@ -1,11 +1,18 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {existsSync} from 'node:fs';
+import {existsSync,readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {chromium} from 'playwright';
 import {openNavigation} from './browser-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const approvedLists = JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json', import.meta.url)));
+const expectedSourceIds = approvedLists.phoenixSources.expectedIds;
+assert.equal(new Set(expectedSourceIds).size, expectedSourceIds.length, 'Independent approved source IDs are unique');
+assert.deepEqual(new Set(expectedSourceIds), new Set([
+  ...approvedLists.phoenixSources.baselineIds,
+  ...approvedLists.phoenixSources.additions.map(source => source.id),
+]), 'Expected sources contain exactly the protected-main references and approved additions');
 const base = process.env.PHOENIX_TEST_BASE_URL || 'http://127.0.0.1:8765';
 const server = process.env.PHOENIX_TEST_BASE_URL ? null : spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], {cwd: root, stdio: 'ignore'});
 let browser;
@@ -35,7 +42,20 @@ try {
     await page.waitForLoadState('networkidle');
     const initialRequests = requests.length;
     await page.getByRole('button', {name: 'Sources', exact: true}).click();
-    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), /^48 of /);
+    assert.equal(await visible.count(), 6); assert.match(await page.locator('#record-count').textContent(), new RegExp('^' + expectedSourceIds.length + ' of '));
+    const sourceFirstPage = await page.locator('#records-page').textContent();
+    const seenSourceIds = [];
+    do {
+      const pageIds = await visible.evaluateAll(nodes => nodes.map(node => node.id));
+      assert.deepEqual(pageIds, expectedSourceIds.slice(seenSourceIds.length, seenSourceIds.length + 6), 'Sources retain the independent approved page order');
+      seenSourceIds.push(...pageIds);
+      if (await page.locator('#records-next').isDisabled()) break;
+      await page.locator('#records-next').click();
+    } while (seenSourceIds.length < expectedSourceIds.length + 6);
+    assert.deepEqual(seenSourceIds, expectedSourceIds, 'All approved sources appear once across all pages');
+    assert.equal(new Set(seenSourceIds).size, expectedSourceIds.length, 'No duplicate source IDs');
+    while (!await page.locator('#records-previous').isDisabled()) await page.locator('#records-previous').click();
+    assert.equal(await page.locator('#records-page').textContent(), sourceFirstPage, 'Source audit returns to the original first page');
     assert(await page.locator('#source-filters').isVisible());
     assert(await page.locator('#record-kind-control').isHidden());
     assert(await page.locator('#record-topic-control').isHidden());
@@ -46,7 +66,7 @@ try {
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2026');
     assert.equal(await visible.count(), 1);
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-203');
-    assert.match(await page.locator('#record-count').textContent(),/^1 of 48 Phoenix & Maricopa County source references/);
+    assert.match(await page.locator('#record-count').textContent(),new RegExp('^1 of ' + expectedSourceIds.length + ' Phoenix & Maricopa County source references'));
     assert.equal(await visible.first().locator('.source-retrieval time').getAttribute('datetime'), '2026-11-08');
     await page.getByLabel('Reporting / event year', {exact:true}).selectOption('2025');
     assert.equal(await visible.first().getAttribute('id'), 'source-PHX-EXT-PROJECT-200');
