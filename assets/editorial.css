@@ -37,7 +37,12 @@
 /* Keep the approved newspaper composition readable at both regional widths. */
 .wrap,.identity>*,.storygrid>*,.columns>*,.watch-row>*,.library-cards>*{min-width:0}
 body{overflow-wrap:anywhere}
-.brand img{flex:none}
+/* Match the statewide masthead without changing the newspaper page styles. */
+.mast .brand{display:flex;align-items:center;gap:12px;min-width:0;color:var(--ink);text-decoration:none;font:700 14px/1.15 Arial,sans-serif;letter-spacing:0}
+.mast .brand img{display:block;object-fit:contain;width:44px;height:44px;flex:none}
+.mast .brand .brand-name{color:var(--ink);font:700 18px/1.2 Georgia,serif}
+@media(max-width:760px){.mast .brand{gap:9px}.mast .brand img{width:36px;height:36px}.mast .brand .brand-name{font-size:14px;line-height:1.25}}
+
 .edition,.kicker,.meta,.bar,.status,.label,.caption,.edition-date{font-size:.875rem;letter-spacing:.045em}
 .lead .qualification,.qualification{font-size:.9rem;color:var(--ink);margin:.75rem 0;line-height:1.6}
 .lead-record{background:var(--wash);border-top:3px solid var(--green);padding:1.3rem}
@@ -50,3 +55,5 @@ body{overflow-wrap:anywhere}
 [id]{scroll-margin-top:1rem}
 @media(max-width:580px){.bar{flex-wrap:wrap;gap:.35rem}.archive{flex-wrap:wrap}.watch-next{padding:1rem}.switch a,.desk-nav a{min-height:44px}}
 @media print{.mast,.desk-nav{display:none}.storygrid,.columns,.watch-row,.library-cards{display:block;break-inside:auto}.storygrid>*,.columns>*,.library-cards>*{margin-bottom:1rem}.lead h2{font-size:26pt;max-width:none}.story-illustration{max-width:5in;margin-inline:auto}a{overflow-wrap:anywhere}}
+
+.story-illustration .caption{font-size:.8125rem;line-height:1.5;letter-spacing:0;text-transform:none}

@@ -2,7 +2,7 @@
 
 The statewide homepage retains its HAP mark, Arizona landscape, “Public funding. Real homes.” copy, founder link and two arrow buttons. The regional entry links now open newspaper editions. Existing overviews, research records, citations, dates, historical wording and unresolved findings remain at their original URLs.
 
-Design reference: the approved [private regional front pages](https://hap-regional-front-pages-preview.viridlapel3.chatgpt.site), source commit `14c365f3b4bec668597d2f46cddadf32102ba0d8`. Only the newspaper stylesheet and approved Tucson House illustration were carried over. The candidate uses published reporting for every placement.
+Design reference: the approved private regional front pages. Only the newspaper stylesheet and approved Tucson House illustration were carried over. The candidate uses published reporting for every placement.
 
 ## Pinned comparison
 
@@ -22,7 +22,7 @@ Design reference: the approved [private regional front pages](https://hap-region
 | Original overview | `tucson/index.html` | `phoenix/index.html` |
 | Search | `search.html` | `phoenix/search.html` |
 
-The preview’s leads are replaced with existing published reporting: [Tucson House F-012](../../findings.html#f-012) and [The Moreland project file](../../phoenix/projects/moreland.html), including its planned-phase and financing limitations. Tucson House keeps the approved image’s exact disclosure and alt text. No Phoenix image is added.
+The preview’s leads are replaced with existing published reporting: [Tucson House F-012](../../findings.html#f-012) and [The Moreland project file](../../phoenix/projects/moreland.html), including its planned-phase and financing limitations. Tucson House keeps the approved image’s existing alt text and uses the approved disclosure “AI illustration · Not a photo.” No Phoenix image is added.
 
 Keep Reading links to the existing County funding and Craycroft vote updates in Tucson; Phoenix links to the existing Moreland I financing record and housing-counts update. Watchlists use published questions Q-005, Q-007 and Q-020 in Tucson and question-overview-03, question-overview-04 and question-bell-06 in Phoenix. Selecting a question does not resolve it.
 
@@ -41,9 +41,15 @@ Edit `data/editorial-stories.json`, then run `python scripts/build-regional-edit
 
 The generator rejects unknown records, pending publications, region mismatches and multiple leads. Questions stay out of lead and reading slots. A historical question can move to the archive without changing its unanswered qualification. `check-regional-editions.py` exercises lead replacement and watch-to-archive placement in memory, checks the generated views and confirms deterministic output. No fixture story is written to a public asset.
 
+## Shared masthead and illustration disclosure
+
+Both editions, both archives, both watchlists and the Research Library derive the home-link markup from the statewide homepage. Their mastheads match its logo dimensions, two-line wordmark and accessible home-link name at desktop and narrow widths. The homepage hero and regional newspaper composition are retained. The disclosure is generated from the single Tucson House entry, with readable 13px text.
+
 ## Validation and review limits
 
 Local static checks cover original research hashes, old/new destinations and anchors, all seven new views, source-backed excerpts and qualifications, illustration metadata, the statewide hero and deterministic generation. The existing search data, contrast-source, source-crosswalk, category-search and Phoenix generation checks are retained.
+
+A build-only Jekyll check uses the same action revision, source, destination and future-date setting as the pinned live deployment. It scans the complete production-equivalent output, including rendered review documentation, and the full PR diff for retired private references. It neither uploads a Pages artifact nor deploys. An ordinary follow-up commit cannot remove references from older public Git history; historical access is assessed separately.
 
 The added browser suite covers both editions, watchlists, archives and library at 320, 390, 768 and 1280 pixels; keyboard skip/jump navigation; all four search categories and exact dataset-derived counts; filter choices; matching regional search geometry; overflow; Compact/Full return focus and query/result range. It separately checks all six Phoenix Sources → Moreland records in Full Evidence preview and direct-beforeprint PDFs, including canonical clickable targets. The required existing browser suites remain in place. Actual GitHub results and exact tested SHAs are reported in the PR.
 

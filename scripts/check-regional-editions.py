@@ -61,9 +61,20 @@ for path in api['NEW_PAGES']:
     for href in doc.xpath('//a/@href|//link[@rel="stylesheet"]/@href|//img/@src'):
         destination(path, href)
     assert not doc.xpath('//*[@data-publication-pending="true"]'), path
+    home = doc.xpath('//header//a[contains(concat(" ", normalize-space(@class), " "), " brand-home ")]')
+    assert len(home) == 1 and home[0].get('href') == 'index.html'
+    assert home[0].get('aria-label') == 'Housing Accountability Project home'
+    assert home[0].xpath('.//img/@alt') == ['']
+    assert home[0].xpath('.//span[@class="brand-name"]/text()') == ['Housing', 'Accountability Project']
     if path != 'library.html':
         region = 'phoenix' if 'phoenix' in path else 'tucson'
         assert doc.xpath('//nav[@aria-label="In this edition"]/a/@href')[:2] == [region + '.html#latest', region + '.html#keep-reading']
+
+original_records = json.loads(subprocess.check_output(['git', 'show', BASE + ':data/category-search.json'], cwd=ROOT))['records']
+original_keys = Counter(record['key'] for record in original_records)
+current_keys = Counter(record['key'] for record in api['CATALOG'])
+assert current_keys == original_keys and all(count == 1 for count in current_keys.values()), 'Changed or duplicated stable record identity'
+assert api['CATALOG'] == original_records, 'Changed indexed dates, destinations or qualifications'
 
 for record in api['CATALOG']:
     destination('index.html', record['url'])
@@ -86,7 +97,8 @@ for story in stories.values():
             doc = html.parse(str(ROOT / (region + '.html')))
             image = doc.xpath('//figure//img')[0]
             assert image.get('alt') == story['illustration']['alt']
-            assert story['illustration']['caption'] in doc.xpath('//figcaption')[0].text_content()
+            assert story['illustration']['caption'] == 'AI illustration · Not a photo.'
+            assert doc.xpath('//figcaption')[0].text_content() == story['illustration']['caption']
 
 # Exercise one-entry management in memory. No synthetic story or new evidence
 # is written to any page, asset, index, feed or sitemap.

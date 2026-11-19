@@ -22,6 +22,24 @@ const overflow=page=>page.evaluate(()=>({width:innerWidth,scroll:document.docume
 const metrics=page=>page.evaluate(()=>Object.fromEntries(['main','#query','.search-panel','#results','.card-main','.record-label','.caution'].map(s=>{
  const node=document.querySelector(s);if(!node)return [s,null];const r=node.getBoundingClientRect();return [s,{left:r.left,width:r.width}];
 })));
+const brandMetrics=page=>page.locator('header .brand-home').evaluate(link=>{
+ const image=link.querySelector('img'),wordmark=link.querySelector('.brand-name');
+ const imageBox=image.getBoundingClientRect(),style=getComputedStyle(wordmark);
+ return {href:link.getAttribute('href'),name:link.getAttribute('aria-label'),
+  lines:wordmark.innerText.split('\n').map(s=>s.trim()).filter(Boolean),
+  width:imageBox.width,height:imageBox.height,gap:getComputedStyle(link).gap,
+  fontFamily:style.fontFamily,fontSize:style.fontSize,fontWeight:style.fontWeight,
+  lineHeight:style.lineHeight,letterSpacing:style.letterSpacing,
+  imageSrc:image.getAttribute('src'),imageAlt:image.getAttribute('alt'),loaded:image.naturalWidth>0};
+});
+async function checkBrand(page,expected,path,width){
+ assert.deepEqual(await brandMetrics(page),expected,`${path} ${width}: masthead differs from homepage`);
+ const home=page.getByRole('link',{name:'Housing Accountability Project home',exact:true});
+ assert.equal(await home.count(),1);await home.focus();
+ assert(await home.evaluate(n=>n===document.activeElement));
+ const box=await home.boundingBox();assert(box.x>=0&&box.x+box.width<=width,`${path}: clipped home link`);
+ await page.screenshot({path:`${output}/${path.replace('.html','')}-masthead-${width}.png`,clip:{x:0,y:0,width,height:180}});
+}
 try{
  for(let i=0;i<50;i++){try{assert((await fetch(base+'/tucson.html')).ok);break;}catch(e){if(i===49)throw e;await new Promise(r=>setTimeout(r,100));}}
  const executablePath=process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined);
@@ -29,9 +47,17 @@ try{
  console.log('Browser',browser.version());
  for(const width of [320,390,768,1280]){
   const geometry={};
+  const homepage=await open(width,'index.html');const standard=await brandMetrics(homepage);
+  assert.deepEqual(standard.lines,['Housing','Accountability Project']);
+  assert.equal(standard.name,'Housing Accountability Project home');assert(standard.loaded);
+  assert.equal(standard.width,width<=760?36:44);assert.equal(standard.height,standard.width);
+  await homepage.close();
+  const mastheads=[];
   for(const scope of ['tucson','phoenix']){
    const page=await open(width,scope+'.html');
    await overflow(page);
+   await checkBrand(page,standard,scope+'.html',width);mastheads.push(scope+'.html');
+   await page.reload();
    assert.equal(await page.locator('main').count(),1);assert.equal(await page.locator('h1').count(),1);
    await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.className),'skip');
    await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement.id),'main');
@@ -43,14 +69,20 @@ try{
    assert.equal(await page.locator('.lead').count(),1);
    if(scope==='tucson'){
     assert.equal(await page.locator('.lead a').first().getAttribute('href'),'findings.html#f-012');
-    assert.equal(await page.locator('figcaption').textContent(),'AI-assisted illustration of Tucson House. Not a photograph.');
+    assert.equal(await page.locator('figcaption').textContent(),'AI illustration · Not a photo.');
+    assert.equal(await page.locator('figure img').getAttribute('alt'),'Ink-and-watercolor illustration of Tucson House, with its rows of balconies and Arizona mountains and saguaros behind it.');
+    const caption=await page.locator('figcaption').evaluate(n=>({size:parseFloat(getComputedStyle(n).fontSize),transform:getComputedStyle(n).textTransform}));
+    assert.equal(caption.size,13);assert.equal(caption.transform,'none');
    }else assert.equal(await page.locator('.storygrid img').count(),0,'No held image in Phoenix');
    await page.screenshot({path:`${output}/${scope}-edition-${width}.png`,fullPage:true});
    await page.goto(base+'/watch-'+scope+'.html');await overflow(page);
+   await checkBrand(page,standard,'watch-'+scope+'.html',width);mastheads.push('watch-'+scope+'.html');
    assert.equal(await page.locator('.watch-row').count(),3);
    await page.goto(base+'/archive-'+scope+'.html');await overflow(page);
+   await checkBrand(page,standard,'archive-'+scope+'.html',width);mastheads.push('archive-'+scope+'.html');
    assert.equal(await page.locator('[data-record-key]').count(),data.filter(r=>r.scope===scope).length);
    await page.goto(base+'/library.html#'+scope);await overflow(page);
+   await checkBrand(page,standard,'library.html',width);if(!mastheads.includes('library.html'))mastheads.push('library.html');
    const path=scope==='tucson'?'search.html':'phoenix/search.html';
    await page.goto(base+'/'+path);await page.locator('#results article.card').first().waitFor();
    geometry[scope]={};
@@ -85,7 +117,7 @@ try{
    if(!a||!b)continue;
    assert(Math.abs(a.left-b.left)<1&&(['.record-label','.caution'].includes(selector)||Math.abs(a.width-b.width)<1),`${width} ${category} ${selector} differs: ${JSON.stringify({a,b})}`);
   }
-  results.push({width,geometry});
+  assert.equal(new Set(mastheads).size,7);results.push({width,geometry,masthead:standard,mastheads});
   console.log('PASS editions and four-category search',width,'keyboard, counts, filters, query/range return, identical regional widths and no overflow');
  }
  // The native Chromebook dialog remains a separate check. Exercise the real

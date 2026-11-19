@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -35,6 +37,22 @@ jobs:
       - run: git diff --exit-code -- assets/category-search-data.js assets/category-search-coverage.js assets/funding-program-names.js
       - name: Ensure generated files are committed
         run: git diff --exit-code -- assets/search-index.js data/search-coverage.json feed.xml
+      - name: Build production-equivalent Pages output without deployment
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: .
+          destination: ./_site
+          future: false
+          build_revision: ${{ github.sha }}
+      - name: Audit complete PR and production output for retired private references
+        run: python scripts/check-regional-release-output.py --retired-ref c95db77ae5325e723aaff097ab636d416b2a28e6 --output _site --report /tmp/hap-release-audit/production-privacy.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-equivalent-audit
+          path: |
+            /tmp/hap-release-audit/
+            _site/
+          if-no-files-found: error
       - name: Install browser runner
         run: |
           npm install --no-save playwright

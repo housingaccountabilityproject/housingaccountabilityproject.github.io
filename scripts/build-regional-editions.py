@@ -112,13 +112,23 @@ def edition_nav(region):
     return '<nav class="desk-nav" aria-label="In this edition">' + ''.join(link(u, t) for u, t in routes) + '</nav>'
 
 
+def home_brand():
+    # Keep the homepage's wrapping, decorative mark and accessible name as the
+    # shared source; the editorial stylesheet only supplies its scoped sizing.
+    nodes = html.parse(str(ROOT / 'index.html')).xpath('//a[contains(concat(" ", normalize-space(@class), " "), " brand-home ")]')
+    assert len(nodes) == 1, 'Expected one statewide home link'
+    brand = nodes[0]
+    brand.set('class', brand.get('class') + ' brand')
+    return html.tostring(brand, encoding='unicode', with_tail=False)
+
+
 def shell(region, title, body, page=None):
     canonical = SITE + (page or ((region or 'library') + '.html'))
     version = hashlib.sha256((ROOT / 'assets/editorial.css').read_bytes()).hexdigest()[:12]
     tabs = link('index.html', 'Arizona') + ''.join(
         '<a href="' + r + '.html"' + (' aria-current="page"' if region == r else '') + '>' + escape(n.replace(' County', '')) + '</a>'
         for r, n in REGIONS.items())
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | Housing Accountability Project</title><meta name="description" content="Published housing research, source records and open questions from the Housing Accountability Project."><link rel="canonical" href="{canonical}"><link rel="stylesheet" href="assets/general-page-print-links.css"><script src="assets/general-page-print-links.js" defer></script><script src="assets/editorial.js" defer></script><link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/editorial.css?v={version}"><link rel="alternate" type="application/atom+xml" title="HAP research updates" href="feed.xml"></head><body class="{region or 'arizona'}" data-editorial-navigation="true"><a class="skip" href="#main">Skip to content</a><header class="mast"><div class="wrap"><a class="brand" href="index.html"><img src="assets/brand/logo-mark.svg" width="43" height="43" alt=""><span>Housing Accountability<br>Project</span></a><nav class="switch" aria-label="Regional editions">{tabs}</nav></div></header>{body}<footer class="footer wrap"><nav aria-label="Reader tools">{link('library.html', 'Research Library')} {link('about.html', 'About')} {link('contact.html', 'Contact')} {link('privacy.html', 'Privacy')} {link('feed.xml', 'Updates feed')}</nav><p>Independent public research. Read each finding with its date and source.</p><p>Regional editions organize already-published reporting. Dates and unresolved findings remain attached to the original records.</p></footer><script data-goatcounter="https://housingaccountabilityproject.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | Housing Accountability Project</title><meta name="description" content="Published housing research, source records and open questions from the Housing Accountability Project."><link rel="canonical" href="{canonical}"><link rel="stylesheet" href="assets/general-page-print-links.css"><script src="assets/general-page-print-links.js" defer></script><script src="assets/editorial.js" defer></script><link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/editorial.css?v={version}"><link rel="alternate" type="application/atom+xml" title="HAP research updates" href="feed.xml"></head><body class="{region or 'arizona'}" data-editorial-navigation="true"><a class="skip" href="#main">Skip to content</a><header class="mast"><div class="wrap">{home_brand()}<nav class="switch" aria-label="Regional editions">{tabs}</nav></div></header>{body}<footer class="footer wrap"><nav aria-label="Reader tools">{link('library.html', 'Research Library')} {link('about.html', 'About')} {link('contact.html', 'Contact')} {link('privacy.html', 'Privacy')} {link('feed.xml', 'Updates feed')}</nav><p>Independent public research. Read each finding with its date and source.</p><p>Regional editions organize already-published reporting. Dates and unresolved findings remain attached to the original records.</p></footer><script data-goatcounter="https://housingaccountabilityproject.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>'''
 
 
 def illustration(story):
