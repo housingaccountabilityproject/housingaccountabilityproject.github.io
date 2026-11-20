@@ -91,8 +91,13 @@ def load_stories(path=CATALOG_PATH):
             assert all(r == story['related']['scope'] for r in placements)
             target(story['related']['url'])
         if story['illustration']:
-            assert source == 'findings.html#f-012', 'Illustration only accompanies published Tucson House reporting'
-            assert story['illustration']['src'] == 'assets/tucson-house-arizona.webp'
+            allowed_illustrations = {
+                ('findings.html#f-012', 'tucson', 'lead'): 'assets/tucson-house-arizona.webp',
+                ('phoenix/housing-help.html#resource-wvhac', 'phoenix', 'lead'): 'assets/editorial/surprise-west-valley-sketch.webp',
+            }
+            assert len(placements) == 1
+            region, placement = next(iter(placements.items()))
+            assert allowed_illustrations.get((source, region, placement)) == story['illustration']['src'], ('Illustration does not match its published story', key)
             assert (ROOT / story['illustration']['src']).is_file()
         stories[key] = story
     for region in REGIONS:
