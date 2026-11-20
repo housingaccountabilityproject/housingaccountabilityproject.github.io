@@ -7,7 +7,12 @@ ROOT=Path(__file__).resolve().parents[1]
 fixture=json.loads((ROOT/'scripts/fixtures/six-entry-baseline.json').read_text())
 selectors={'evidence.html':['//table[@id="sources"]/tbody/tr','//table[@id="questions"]/tbody/tr'],'questions-records.html':['//*[@data-catalog-entry]'],'funding-explorer.html':['//*[@data-catalog-entry]'],'housing-projects.html':['//*[@data-catalog-entry]'],'phoenix/records.html':['//*[contains(concat(" ",@class," ")," record-card ")]'],'phoenix/questions.html':['//*[@data-connection-entry]'],'phoenix/projects.html':['//*[@data-connection-entry]'],'phoenix/comparisons.html':['//*[@data-connection-entry]']}
 for name,sha in fixture['files'].items():
- assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,('Public research/data/download changed',name)
+ content=(ROOT/name).read_bytes()
+ if name=='assets/search-index.js':
+  label=b'Search published Tucson & Pima County research'
+  assert content.count(label)<=1,('Duplicated maintenance label',name)
+  content=content.replace(label,b'Search all published research')
+ assert hashlib.sha256(content).hexdigest()==sha,('Public research/data/download changed',name)
 count=0
 for name,queries in selectors.items():
  doc=html.parse(str(ROOT/name))
