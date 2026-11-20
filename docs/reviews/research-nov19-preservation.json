@@ -43,7 +43,7 @@
     "data/funding-browser-periods.json": "11ff857f300fa3739baeffbc88ba0199012d77b73b650fa368c1d2bae4998802",
     "funding-explorer.html": "6cec2d66513934f708cd853e74248e4b181ee70e97d502bf111a79ce7f8d4246",
     "housing-help.html": "9793cc8d0d062020b96f4e81d6ad567930a77ba94106bf328ec4a90adb4b197b",
-    "scripts/housing-help-print-check.mjs": "d85d9c8969d68ca3e682c12175cd40bb5fd24bf7d2a6262eeb01a3906f7d1363"
+    "scripts/housing-help-print-check.mjs": "3c4993798b39d7d7fac9c76e53900347525fb42a9db6a21eb8229124e9126059"
   },
   "addedRecordKeys": [
     "phoenix:resource-wvhac",
@@ -209,7 +209,7 @@
       },
       "scripts/housing-help-print-check.mjs": {
         "before": null,
-        "after": "d85d9c8969d68ca3e682c12175cd40bb5fd24bf7d2a6262eeb01a3906f7d1363"
+        "after": "3c4993798b39d7d7fac9c76e53900347525fb42a9db6a21eb8229124e9126059"
       }
     }
   }

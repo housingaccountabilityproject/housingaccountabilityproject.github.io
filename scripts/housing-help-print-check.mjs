@@ -23,7 +23,8 @@ export async function checkHousingHelpFullPrint(page,file,format='Letter') {
   await page.pdf({path:file,format,printBackground:false,tagged:true});
   const pages=assertNoBlankPDFPages(file);
   const audit=JSON.parse(execPDF('audit',[file],{encoding:'utf8',maxBuffer:12*1024*1024}));
-  const text=audit.pages.map(page=>page.text).join(' ').replace(/\s+/g,' ');
+  // A literal hyphen may end a printed line without inserting a word space.
+  const text=audit.pages.map(page=>page.text).join(' ').replace(/-(?:\r?\n)+(?=\S)/g,'-').replace(/\s+/g,' ');
   for(const paragraph of paragraphs)assert(text.includes(paragraph.replace(/\s+/g,' ').trim()),'Full Marana card text retained');
   const uris=audit.pages.flatMap(page=>page.links).map(link=>link.uri).filter(Boolean);
   for(const link of links)assert(uris.includes(link),'Marana PDF link remains clickable: '+link);
