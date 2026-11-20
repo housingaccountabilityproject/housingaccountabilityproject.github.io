@@ -112,5 +112,32 @@
       }
     ],
     "check_label": "Sources checked November 19, 2026; no individual eligibility or current availability determination."
+  },
+  {
+    "id": "resource-marana-school-support",
+    "name": "Marana: School help when housing is unstable",
+    "scopes": [
+      "tucson"
+    ],
+    "service_type": "School enrollment, stability and transportation · Marana Unified",
+    "description": [
+      "If your family is staying with others because you lost housing or are facing financial hardship, or living in a motel because you have no adequate alternative, your student may qualify for McKinney-Vento school support. In Marana Unified, call 520-616-3013 and ask for the district’s McKinney-Vento liaison. Ask about enrolling right away, staying at the same school when it’s in the student’s best interest, and arranging transportation."
+    ],
+    "limitation": "This is school support, not a housing or shelter placement referral.",
+    "links": [
+      {
+        "title": "Marana Unified Student & Family Support Services",
+        "url": "https://www.maranausd.org/administration/departments/student-family-support-services"
+      },
+      {
+        "title": "District McKinney-Vento eligibility and school rights",
+        "url": "https://www.maranausd.org/academics/federal-programs/homeless-education"
+      },
+      {
+        "title": "Arizona school liaison directory",
+        "url": "https://www.azed.gov/homeless/mckinney-vento-homeless-liaisons/mckinney-vento-liaisons-contacts"
+      }
+    ],
+    "check_label": "District contact and eligibility guidance checked November 19, 2026. The school liaison assesses individual eligibility."
   }
 ]

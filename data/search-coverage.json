@@ -12,7 +12,7 @@
   {
     "page": "evidence.html",
     "records": 103,
-    "text_nodes": 1211
+    "text_nodes": 1216
   },
   {
     "page": "findings.html",
@@ -22,7 +22,7 @@
   {
     "page": "funding-explorer.html",
     "records": 22,
-    "text_nodes": 244
+    "text_nodes": 249
   },
   {
     "page": "glossary.html",
@@ -31,8 +31,8 @@
   },
   {
     "page": "housing-help.html",
-    "records": 5,
-    "text_nodes": 30
+    "records": 6,
+    "text_nodes": 40
   },
   {
     "page": "housing-projects.html",
@@ -66,8 +66,8 @@
   },
   {
     "page": "research-updates.html",
-    "records": 52,
-    "text_nodes": 843
+    "records": 53,
+    "text_nodes": 856
   },
   {
     "page": "research.html",

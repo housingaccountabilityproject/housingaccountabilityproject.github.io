@@ -171,6 +171,12 @@
       "placements": {
         "phoenix": "archive"
       }
+    },
+    "desert-cove-approvals": {
+      "recordKey": "tucson:desert-cove-approvals-2026-11-19",
+      "placements": {
+        "tucson": "reading"
+      }
     }
   }
 }

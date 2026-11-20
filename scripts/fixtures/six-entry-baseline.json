@@ -2,16 +2,16 @@
   "commit": "a66cb05d5ed53235087077361ed87697bfd1d95d",
   "algorithm": "SHA-256",
   "files": {
-    "assets/category-search-coverage.js": "ba98e5cc201e4b5aaeba148b2cd6f9c6fd19dd7d52b3d20c43b0a32a85ea2679",
-    "assets/category-search-data.js": "53980aac28e975dc3fe274dd981563107ed9bc8c49944798faca31ab963362eb",
-    "assets/search-index.js": "f35e89fb188c21a9873c705a31db1fcd2603a8b894d347edf58dd2b82cb10bb9",
-    "assets/search-source-urls.js": "72b5b9cd38b892efddee1cd2d1c940dd770caa0872570b981f86747e3b1764f3",
-    "data/category-search.json": "9b9f9f3d9dff5fa2ef8dbbc65a723683c2d3d2ad65a848aa2d9672141cc54ae5",
+    "assets/category-search-coverage.js": "9aed376d4ee95652662359d64669ef78eb0e024aa8f179c59d245fcba33832ed",
+    "assets/category-search-data.js": "167cb9133cce9f9fbc81ea318af56677cb9727f36a41061354ada558e6b1346a",
+    "assets/search-index.js": "24f794385fb2a2b30d4f9f33ffe4b145354b03a755e5eae5905f74d865627ea2",
+    "assets/search-source-urls.js": "2db8ca212b34c31e47f273899703e1df6e343207a4b270c75437cf6933cd2523",
+    "data/category-search.json": "26055b7848b2d25ec49a1566d0e532a0fae87518df64dfe8b6455ac66bb43e42",
     "data/city-reader-guide.json": "95867c3220668af5c308b7b080613833494ad9d790e27e8d52eeaad153933c0e",
     "data/funding-period-coverage.json": "a2532ed13e8c69eb74ecf0d25f2eb2e0f1bbc9f8226a85fb1371558482c3fcff",
     "data/funding-periods.json": "ddb2eec2a1762f61618238744de8a5638d1cc821ab45ec563052d8e3863fdb61",
     "data/funding-program-names.json": "7f644515d91419556175a3061a477bc16c88d217c0e0f2758b17a2e8d99a480e",
-    "data/housing-help-resources.json": "5831f9509aaac0672e98ccbaae5ea83ebaf5d3e94b76d9dbdadc9574e18f48fb",
+    "data/housing-help-resources.json": "ef9d80fd55e06e8d0321b23e21003cc7558c5f6d442801669c5f4ba64ab278c6",
     "data/phoenix-connections.json": "7fb9f9751a1ea905a69aa296e635df9a54d844a3b5c8543455e7512e6ffbb383",
     "data/phoenix-corrections.json": "7532bd7df7306ce8aabf0e4c1e096dbad7d498c9f507ddb25037b35ae5aa0abb",
     "data/phoenix-records.json": "6e60d910f3782bbfc396b4542c86c3ba70cd1bf8312e1382f20e616d21077ad1",
@@ -19,10 +19,10 @@
     "data/public-center-catalog-v0.2.json": "0eae7c717937fe8c6cc18ed29012dd2098fe0dd0cc199350b8ce57ae20b5019c",
     "data/public-research-preview.json": "86bcc9d10b679a4b1d9d88ba06e8195360915b8e190b9983927cea1f21c52b36",
     "data/publication-history.json": "059f82488a527baf6bf84addcc7e30f4d5bb107a5854404d3fbfc5d2552c0649",
-    "data/search-coverage.json": "27524254b2494b94f4b7692b7baa6b46a7e00c4eeab06a34fda368a8f8882c7e",
+    "data/search-coverage.json": "9d751ce7354b54ba6017a9b0284b4850e7a5cdff25696d71279a4df877b6b9e3",
     "data/source-id-crosswalk.csv": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
     "data/source-id-crosswalk.json": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
-    "data/source-register.json": "a17f712d4466954b07f15d0da2304e1ea439d28684cf8f8d78d241f8c31a2fff",
+    "data/source-register.json": "84d259c54657e3c07cda7086b359f6a28cf5d4f4661e474423b17142f7656a32",
     "feed.xml": "7adb0d857035bea876550fae53587e6559bc33828130fa346367a78ee8bb1b3c",
     "reports/tucson-housing-funding-outcomes-2026.html": "d07f1b020b25847f9611acf7d95f4f65043d4bcd9d2b91f52aed5b1cd86cef17"
   },
@@ -493,7 +493,7 @@
           "ids": [
             "src-124"
           ],
-          "sha256": "c8f32255413aef1c561ece4581b1441b1416d270fc3975ae945ae66488bf632a"
+          "sha256": "9052355fd86004c2c80b9ad83f9e37853e953b373275b0f4e97890c1d0ab0a76"
         },
         {
           "id": "src-125",
@@ -1868,5 +1868,67 @@
       ]
     ]
   },
-  "research_update_baseline": "367acbdd6ae18114b0208fdac62ee5eb39ef6598"
+  "research_update_baseline": "900774410919a7b1be2bc63c8d429ffc97a40230",
+  "private_review_candidate": {
+    "status": "Prepared for private review; no publication authorization",
+    "baseline": "900774410919a7b1be2bc63c8d429ffc97a40230",
+    "previous_research_update_baseline": "367acbdd6ae18114b0208fdac62ee5eb39ef6598",
+    "changed_file_hashes": {
+      "assets/category-search-coverage.js": {
+        "before": "ba98e5cc201e4b5aaeba148b2cd6f9c6fd19dd7d52b3d20c43b0a32a85ea2679",
+        "candidate": "9aed376d4ee95652662359d64669ef78eb0e024aa8f179c59d245fcba33832ed"
+      },
+      "assets/category-search-data.js": {
+        "before": "53980aac28e975dc3fe274dd981563107ed9bc8c49944798faca31ab963362eb",
+        "candidate": "167cb9133cce9f9fbc81ea318af56677cb9727f36a41061354ada558e6b1346a"
+      },
+      "assets/search-index.js": {
+        "before": "f35e89fb188c21a9873c705a31db1fcd2603a8b894d347edf58dd2b82cb10bb9",
+        "candidate": "24f794385fb2a2b30d4f9f33ffe4b145354b03a755e5eae5905f74d865627ea2"
+      },
+      "assets/search-source-urls.js": {
+        "before": "72b5b9cd38b892efddee1cd2d1c940dd770caa0872570b981f86747e3b1764f3",
+        "candidate": "2db8ca212b34c31e47f273899703e1df6e343207a4b270c75437cf6933cd2523"
+      },
+      "data/category-search.json": {
+        "before": "9b9f9f3d9dff5fa2ef8dbbc65a723683c2d3d2ad65a848aa2d9672141cc54ae5",
+        "candidate": "26055b7848b2d25ec49a1566d0e532a0fae87518df64dfe8b6455ac66bb43e42"
+      },
+      "data/housing-help-resources.json": {
+        "before": "5831f9509aaac0672e98ccbaae5ea83ebaf5d3e94b76d9dbdadc9574e18f48fb",
+        "candidate": "ef9d80fd55e06e8d0321b23e21003cc7558c5f6d442801669c5f4ba64ab278c6"
+      },
+      "data/search-coverage.json": {
+        "before": "27524254b2494b94f4b7692b7baa6b46a7e00c4eeab06a34fda368a8f8882c7e",
+        "candidate": "9d751ce7354b54ba6017a9b0284b4850e7a5cdff25696d71279a4df877b6b9e3"
+      },
+      "data/source-register.json": {
+        "before": "a17f712d4466954b07f15d0da2304e1ea439d28684cf8f8d78d241f8c31a2fff",
+        "candidate": "84d259c54657e3c07cda7086b359f6a28cf5d4f4661e474423b17142f7656a32"
+      }
+    },
+    "changed_register_fingerprints": [
+      {
+        "path": "evidence.html",
+        "register": 0,
+        "id": "src-124",
+        "before": {
+          "id": "src-124",
+          "ids": [
+            "src-124"
+          ],
+          "sha256": "c8f32255413aef1c561ece4581b1441b1416d270fc3975ae945ae66488bf632a"
+        },
+        "candidate": {
+          "id": "src-124",
+          "ids": [
+            "src-124"
+          ],
+          "sha256": "9052355fd86004c2c80b9ad83f9e37853e953b373275b0f4e97890c1d0ab0a76"
+        }
+      }
+    ],
+    "added_canonical_update": "tucson:desert-cove-approvals-2026-11-19",
+    "funding_entry_count_change": 0
+  }
 }
