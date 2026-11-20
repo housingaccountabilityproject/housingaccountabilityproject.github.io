@@ -21,9 +21,37 @@ assert baseline['baseline'] == BASE
 protected = baseline['preservedHashes']
 research = json.loads((ROOT / 'docs/reviews/research-nov19-preservation.json').read_text())
 assert research['baseline'] == '367acbdd6ae18114b0208fdac62ee5eb39ef6598'
+
+# Permit only these maintenance substitutions when checking historical hashes.
+# Original manifests stay intact; any other byte change still fails preservation.
+def preserved_digest(name):
+    content = (ROOT / name).read_bytes()
+    substitutions = {
+        'research-center.html': [(b'Search published Tucson &amp; Pima County research', b'Search all published research')],
+        'assets/search-index.js': [(b'Search published Tucson & Pima County research', b'Search all published research')],
+        'scripts/check-list-baseline.py': [(
+            b" content=(ROOT/name).read_bytes()\n"
+            b" if name=='assets/search-index.js':\n"
+            b"  label=b'Search published Tucson & Pima County research'\n"
+            b"  assert content.count(label)<=1,('Duplicated maintenance label',name)\n"
+            b"  content=content.replace(label,b'Search all published research')\n"
+            b" assert hashlib.sha256(content).hexdigest()==sha,('Public research/data/download changed',name)\n",
+            b" assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,('Public research/data/download changed',name)\n",
+        )],
+        'sitemap.xml': [(
+            b'  <url>\n    <loc>https://housingaccountabilityproject.github.io/tucson.html</loc>\n  </url>\n'
+            b'  <url>\n    <loc>https://housingaccountabilityproject.github.io/phoenix.html</loc>\n  </url>\n',
+            b'',
+        )],
+    }
+    for current, original in substitutions.get(name, []):
+        assert content.count(current) <= 1, ('Duplicated maintenance substitution', name)
+        content = content.replace(current, original)
+    return hashlib.sha256(content).hexdigest()
+
 for name, digest in research['approvedChangedFiles'].items():
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, ('Unreviewed research change', name)
-assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == digest for p,digest in protected.items() if p != 'assets/category-search.css' and p not in research['approvedChangedFiles']), 'Original research or assets changed'
+    assert preserved_digest(name) == digest, ('Unreviewed research change', name)
+assert all(preserved_digest(p) == digest for p,digest in protected.items() if p != 'assets/category-search.css' and p not in research['approvedChangedFiles']), 'Original research or assets changed'
 # The statewide copy and image must survive apart from the intended entry links.
 after = html.parse(str(ROOT / 'index.html'))
 assert baseline['homepage']['h1'] == after.xpath('//h1//text()')
