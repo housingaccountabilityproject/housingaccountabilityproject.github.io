@@ -7,13 +7,22 @@ import {openNavigation} from './browser-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const approvedLists = JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json', import.meta.url)));
-const expectedSourceIds = approvedLists.phoenixSources.expectedIds;
+const batchA = JSON.parse(readFileSync(new URL('./fixtures/phoenix-batch-a-nov20.json', import.meta.url)));
+const insertAfter = (values, after, additions) => {
+  const result = [...values];
+  const position = result.indexOf(after);
+  assert(position >= 0, 'Independent source insertion anchor survives');
+  result.splice(position + 1, 0, ...additions);
+  return result;
+};
+const expectedSourceIds = insertAfter(approvedLists.phoenixSources.expectedIds, batchA.sourceInsertionAfter, batchA.addedSourceIds);
 const expectedFundingIds = approvedLists.phoenixFunding.expectedIds;
-const expectedAllIds = approvedLists.phoenixAll.expectedIds;
+const expectedAllIds = [...batchA.addedRecordIds, ...insertAfter(approvedLists.phoenixAll.expectedIds, batchA.sourceInsertionAfter, batchA.addedSourceIds)];
 assert.equal(new Set(expectedSourceIds).size, expectedSourceIds.length, 'Independent approved source IDs are unique');
 assert.deepEqual(new Set(expectedSourceIds), new Set([
   ...approvedLists.phoenixSources.baselineIds,
   ...approvedLists.phoenixSources.additions.map(source => source.id),
+  ...batchA.addedSourceIds,
 ]), 'Expected sources contain exactly the protected-main references and approved additions');
 const base = process.env.PHOENIX_TEST_BASE_URL || 'http://127.0.0.1:8765';
 const server = process.env.PHOENIX_TEST_BASE_URL ? null : spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], {cwd: root, stdio: 'ignore'});

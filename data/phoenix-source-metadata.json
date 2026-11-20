@@ -943,6 +943,152 @@
       "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
       "date_basis_url": "index.html#PHX-WEB-036",
       "retrieved_on": "2026-11-19"
+    },
+    "PHX-AAP-001": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "public-notice",
+      "reporting_years": [
+        "2027",
+        "2028"
+      ],
+      "year_status": "stated",
+      "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-037",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "City public-input notice · 2027–2028 Annual Action Plan Survey section; limitations retained",
+          "url": "https://www.phoenix.gov/administration/departments/nsd/get-involved/annual-action-plan.html"
+        }
+      ]
+    },
+    "PHX-AAP-002": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "public-notice",
+      "reporting_years": [
+        "2027",
+        "2028"
+      ],
+      "year_status": "stated",
+      "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-037",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Community survey · English; limitations retained",
+          "url": "https://www.research.net/r/Phoenix_AAP_2027-2028"
+        }
+      ]
+    },
+    "PHX-AAP-003": {
+      "agency": "city-phoenix",
+      "programs": [
+        "general"
+      ],
+      "document_type": "public-notice",
+      "reporting_years": [
+        "2027",
+        "2028"
+      ],
+      "year_status": "stated",
+      "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-037",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Encuesta comunitaria · Español; limitations retained",
+          "url": "https://www.research.net/r/Phoenix_AAP_2027-2028?lang=es"
+        }
+      ]
+    },
+    "PHX-HPP-001": {
+      "agency": "city-phoenix",
+      "programs": [
+        "inventory"
+      ],
+      "document_type": "council-report",
+      "reporting_years": [
+        "2019",
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "Scope: City of Phoenix, not the county or metro area. Report: July–September 2026; cumulative count through September. Creation data begin in October 2019; a common preservation start date is not specified. Source check: November 20, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-038",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Dated Council packet · October 27, 2026, item 1, Attachment A, PDF pages 8–9; limitations retained",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-27-26_POLICY_AGENDA-FINAL.pdf"
+        }
+      ]
+    },
+    "PHX-HPP-002": {
+      "agency": "city-phoenix",
+      "programs": [
+        "inventory"
+      ],
+      "document_type": "performance-report",
+      "reporting_years": [
+        "2019",
+        "2026"
+      ],
+      "year_status": "stated",
+      "date_basis": "Scope: City of Phoenix, not the county or metro area. Report: July–September 2026; cumulative count through September. Creation data begin in October 2019; a common preservation start date is not specified. Source check: November 20, 2026.",
+      "date_basis_url": "index.html#PHX-WEB-038",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "July–September 2026 quarterly report · count page 1; method page 2; limitations retained",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/housing-phx-plan/HPP_Qrtly_Report.pdf"
+        }
+      ]
+    },
+    "MC-PLAN-002": {
+      "agency": "maricopa-county",
+      "programs": [
+        "home",
+        "cdbg",
+        "esg"
+      ],
+      "document_type": "plan",
+      "reporting_years": [
+        "2025",
+        "2029"
+      ],
+      "year_status": "stated",
+      "date_basis": "2025–2029 proposed plan; membership and ESG changes concern PY2027–2029. Publication and hearing dates do not establish adoption or implementation.",
+      "date_basis_url": "index.html#MC-PLAN-WEB-001",
+      "retrieved_on": "2026-11-20",
+      "verification_checks": [
+        {
+          "checked_at": "2026-11-20T10:28:02-07:00",
+          "time_zone": "America/Phoenix",
+          "outcome": "checked",
+          "scope": "Full proposed amendment · PDF pages 5, 176, 178 and 180; limitations retained",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124812/Public-Comment-Period---DRAFT-Maricopa-County-2025-2029-Consolidated-Plan-Substantial-Amendment-Member-changes-from-PY27-29_ESG-Goal-?bidId="
+        }
+      ]
     }
   },
   "research_snapshot": "2026-11-10"

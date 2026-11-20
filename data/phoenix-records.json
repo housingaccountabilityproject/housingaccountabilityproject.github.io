@@ -962,6 +962,194 @@
       }
     },
     {
+      "id": "PHX-AAP-001",
+      "title": "City public-input notice · 2027–2028 Annual Action Plan Survey section",
+      "url": "https://www.phoenix.gov/administration/departments/nsd/get-involved/annual-action-plan.html",
+      "note": "PHX-AAP-001 · Checked November 20, 2026. Public-input instrument, not an aid application.",
+      "page_url": "index.html#source-PHX-AAP-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "public-notice",
+        "reporting_years": [
+          "2027",
+          "2028"
+        ],
+        "year_status": "stated",
+        "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-037",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "City public-input notice · 2027–2028 Annual Action Plan Survey section; limitations retained",
+            "url": "https://www.phoenix.gov/administration/departments/nsd/get-involved/annual-action-plan.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PHX-AAP-002",
+      "title": "Community survey · English",
+      "url": "https://www.research.net/r/Phoenix_AAP_2027-2028",
+      "note": "PHX-AAP-002 · Checked November 20, 2026. Public-input instrument, not an aid application.",
+      "page_url": "index.html#source-PHX-AAP-002",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "public-notice",
+        "reporting_years": [
+          "2027",
+          "2028"
+        ],
+        "year_status": "stated",
+        "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-037",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "Community survey · English; limitations retained",
+            "url": "https://www.research.net/r/Phoenix_AAP_2027-2028"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PHX-AAP-003",
+      "title": "Encuesta comunitaria · Español",
+      "url": "https://www.research.net/r/Phoenix_AAP_2027-2028?lang=es",
+      "note": "PHX-AAP-003 · Checked November 20, 2026. Public-input instrument, not an aid application.",
+      "page_url": "index.html#source-PHX-AAP-003",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "public-notice",
+        "reporting_years": [
+          "2027",
+          "2028"
+        ],
+        "year_status": "stated",
+        "date_basis": "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-037",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "Encuesta comunitaria · Español; limitations retained",
+            "url": "https://www.research.net/r/Phoenix_AAP_2027-2028?lang=es"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PHX-HPP-001",
+      "title": "Dated Council packet · October 27, 2026, item 1, Attachment A, PDF pages 8–9",
+      "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-27-26_POLICY_AGENDA-FINAL.pdf",
+      "note": "PHX-HPP-001 · Checked November 20, 2026. City-reported cumulative units; unique-unit deduplication is not established.",
+      "page_url": "index.html#source-PHX-HPP-001",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "inventory"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [
+          "2019",
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Scope: City of Phoenix, not the county or metro area. Report: July–September 2026; cumulative count through September. Creation data begin in October 2019; a common preservation start date is not specified. Source check: November 20, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-038",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "Dated Council packet · October 27, 2026, item 1, Attachment A, PDF pages 8–9; limitations retained",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-27-26_POLICY_AGENDA-FINAL.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PHX-HPP-002",
+      "title": "July–September 2026 quarterly report · count page 1; method page 2",
+      "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/housing-phx-plan/HPP_Qrtly_Report.pdf",
+      "note": "PHX-HPP-002 · Checked November 20, 2026. City-reported cumulative units; unique-unit deduplication is not established.",
+      "page_url": "index.html#source-PHX-HPP-002",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "inventory"
+        ],
+        "document_type": "performance-report",
+        "reporting_years": [
+          "2019",
+          "2026"
+        ],
+        "year_status": "stated",
+        "date_basis": "Scope: City of Phoenix, not the county or metro area. Report: July–September 2026; cumulative count through September. Creation data begin in October 2019; a common preservation start date is not specified. Source check: November 20, 2026.",
+        "date_basis_url": "index.html#PHX-WEB-038",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "July–September 2026 quarterly report · count page 1; method page 2; limitations retained",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/housing-phx-plan/HPP_Qrtly_Report.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MC-PLAN-002",
+      "title": "Full proposed amendment · PDF pages 5, 176, 178 and 180",
+      "url": "https://www.maricopa.gov/DocumentCenter/View/124812/Public-Comment-Period---DRAFT-Maricopa-County-2025-2029-Consolidated-Plan-Substantial-Amendment-Member-changes-from-PY27-29_ESG-Goal-?bidId=",
+      "note": "MC-PLAN-002 · Checked November 20, 2026. Public-comment draft; Tempe’s 150-household TBRA line is struck through. Final adoption and the final table remain unverified.",
+      "page_url": "index.html#source-MC-PLAN-002",
+      "metadata": {
+        "agency": "maricopa-county",
+        "programs": [
+          "home",
+          "cdbg",
+          "esg"
+        ],
+        "document_type": "plan",
+        "reporting_years": [
+          "2025",
+          "2029"
+        ],
+        "year_status": "stated",
+        "date_basis": "2025–2029 proposed plan; membership and ESG changes concern PY2027–2029. Publication and hearing dates do not establish adoption or implementation.",
+        "date_basis_url": "index.html#MC-PLAN-WEB-001",
+        "retrieved_on": "2026-11-20",
+        "verification_checks": [
+          {
+            "checked_at": "2026-11-20T10:28:02-07:00",
+            "time_zone": "America/Phoenix",
+            "outcome": "checked",
+            "scope": "Full proposed amendment · PDF pages 5, 176, 178 and 180; limitations retained",
+            "url": "https://www.maricopa.gov/DocumentCenter/View/124812/Public-Comment-Period---DRAFT-Maricopa-County-2025-2029-Consolidated-Plan-Substantial-Amendment-Member-changes-from-PY27-29_ESG-Goal-?bidId="
+          }
+        ]
+      }
+    },
+    {
       "id": "PHX-CFP-011",
       "title": "HUD FY2026 master Capital Fund ACC grant schedule, updated September 28, 2026",
       "url": "https://www.hud.gov/sites/default/files/PIH/documents/FY26-FormulaBumpUpACC-LOCKED.xlsx",
@@ -1414,6 +1602,101 @@
     }
   ],
   "records": [
+    {
+      "id": "PHX-WEB-037",
+      "aliases": [],
+      "topic": "context",
+      "kind": "notice",
+      "title": "Phoenix seeks input on its FY2027–28 Annual Action Plan",
+      "labels": [
+        "Public input · checked November 20, 2026"
+      ],
+      "summary": [
+        "Phoenix is gathering public input for its FY2027–28 Annual Action Plan. The City lists January 9, 2027 as the community-survey deadline, with English and Spanish options. Residents can share priorities for housing, homelessness and other community needs."
+      ],
+      "context": [
+        "Scope: City of Phoenix public input. Planning period: FY2027–28. Survey deadline: January 9, 2027; source check: November 20, 2026.",
+        "PHX-WEB-037 · PHX-AAP-001 · PHX-AAP-002 · PHX-AAP-003"
+      ],
+      "limitations": [
+        "This is a public-input survey, not an application for housing, shelter or financial assistance. Completing it does not award funding or establish eligibility for aid."
+      ],
+      "source_ids": [
+        "PHX-AAP-001",
+        "PHX-AAP-002",
+        "PHX-AAP-003"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-AAP-001"
+          ],
+          "title": "City public-input notice · 2027–2028 Annual Action Plan Survey section",
+          "url": "https://www.phoenix.gov/administration/departments/nsd/get-involved/annual-action-plan.html",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-AAP-002"
+          ],
+          "title": "Community survey · English",
+          "url": "https://www.research.net/r/Phoenix_AAP_2027-2028",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-AAP-003"
+          ],
+          "title": "Encuesta comunitaria · Español",
+          "url": "https://www.research.net/r/Phoenix_AAP_2027-2028?lang=es",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-037"
+    },
+    {
+      "id": "PHX-WEB-038",
+      "aliases": [],
+      "topic": "delivery",
+      "kind": "reported",
+      "title": "What Phoenix’s 71,128 housing figure counts",
+      "labels": [
+        "City-reported housing units · through September 2026"
+      ],
+      "summary": [
+        "Phoenix’s July–September 2026 Housing Phoenix Plan report lists 71,128 housing units created or preserved to date: 7,110 affordable units created, 6,363 affordable units preserved, 17,584 workforce units created and 40,071 market-rate units created. New-unit tracking begins in October 2019."
+      ],
+      "context": [
+        "Scope: City of Phoenix, not the county or metro area. Report: July–September 2026; cumulative count through September. Creation data begin in October 2019; a common preservation start date is not specified. Source check: November 20, 2026.",
+        "PHX-WEB-038 · PHX-HPP-001 · PHX-HPP-002"
+      ],
+      "limitations": [
+        "This cumulative City-reported count does not establish current vacancies, households placed, net new housing supply or a deduplicated total. The published method does not explain how repeated preservation assistance or overlap across programs is counted."
+      ],
+      "source_ids": [
+        "PHX-HPP-001",
+        "PHX-HPP-002"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-HPP-001"
+          ],
+          "title": "Dated Council packet · October 27, 2026, item 1, Attachment A, PDF pages 8–9",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-27-26_POLICY_AGENDA-FINAL.pdf",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-HPP-002"
+          ],
+          "title": "July–September 2026 quarterly report · count page 1; method page 2",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/housing-phx-plan/HPP_Qrtly_Report.pdf",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-038"
+    },
     {
       "id": "PHX-WEB-028",
       "aliases": [],
@@ -2106,14 +2389,16 @@
         "The notice proposes a $100,000 ESG outreach goal serving 150 people, with a $100,000 reduction in existing shelter operations and services goals. This is a proposed shift, not new net ESG funding."
       ],
       "context": [
-        "Scope: Maricopa County HOME Consortium and Urban County. Proposed plan coverage: 2025–2029. Comment period: November 11–December 10, 2026. Hearing scheduled November 19, 2026 at 9:30 a.m. MST.",
-        "MC-PLAN-WEB-001 · MC-PLAN-001"
+        "Scope: Maricopa County HOME Consortium and Urban County. Proposed plan coverage: 2025–2029. Comment period: November 11–December 10, 2026. The notice scheduled a hearing for November 19, 2026 at 9:30 a.m. MST; its disposition remains unverified. Proposed membership and ESG changes concern PY2027–2029.",
+        "MC-PLAN-WEB-001 · MC-PLAN-001 · MC-PLAN-002"
       ],
       "limitations": [
-        "The notice describes proposed goals and anticipated funding effects. It does not establish adoption, actual grant reductions, spending or households assisted. Checked November 10, 2026 MST."
+        "The notice describes proposed goals and anticipated funding effects. It does not establish adoption, actual grant reductions, spending or households assisted. Proposal status rechecked November 20, 2026 MST; an official disposition has not been verified.",
+        "The draft lists a 500-household TBRA goal (PDF pages 176 and 180). On page 178, Tempe’s 150-household line is struck through; the other five jurisdiction lines sum to 500. Counting the deleted line gives 650. An adopted final table and households actually assisted remain unverified."
       ],
       "source_ids": [
-        "MC-PLAN-001"
+        "MC-PLAN-001",
+        "MC-PLAN-002"
       ],
       "citations": [
         {
@@ -2122,6 +2407,14 @@
           ],
           "title": "Proposed amendment notice · PDF page 1",
           "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment#page=1",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "MC-PLAN-002"
+          ],
+          "title": "Full proposed amendment · PDF pages 5, 176, 178 and 180",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124812/Public-Comment-Period---DRAFT-Maricopa-County-2025-2029-Consolidated-Plan-Substantial-Amendment-Member-changes-from-PY27-29_ESG-Goal-?bidId=",
           "locator": ""
         }
       ],
