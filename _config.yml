@@ -7,3 +7,7 @@ exclude:
   - scripts/test-phoenix-filters.mjs
   - scripts/test-phoenix-index.mjs
   - scripts/build-review-preview.py
+  - scripts/build-regional-editions.py
+  - scripts/check-regional-editions.py
+  - scripts/check-regional-release-output.py
+  - scripts/test-regional-editions.mjs
