@@ -49,6 +49,8 @@ header nav{align-items:center}
 header nav a{white-space:nowrap}
 @media(max-width:620px){header{gap:13px}header .brand-home img{width:48px;height:48px}header .brand-home .brand-name{font-size:13px}header nav{gap:9px 12px}}
 @media print{header .brand-home .brand-name{color:#102e3d}}
+/* Housing Help's screen bottom padding must not create an empty print fragment. */
+@media print{body.city-site.city-help-page>main{padding-bottom:0}}
 
 </style><link rel="icon" type="image/svg+xml" href="assets/brand/logo-mark.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">

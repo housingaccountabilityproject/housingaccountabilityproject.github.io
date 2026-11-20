@@ -35,14 +35,15 @@
     "scripts/test-category-search.cjs": "65ca37e0d58ae6167383583f35687d102783aada8e266f0629b50d91885709eb",
     "scripts/test-category-search.mjs": "3748b4fda4ade116c235a6e55ab06b55072a10f6ef93b6c4e350ca65cd9bbc82",
     "scripts/test-phoenix-index.mjs": "626a86c8e7dcd6180b59f316302c29a9842c45afaea3f7c430b01d8119ceb007",
-    "scripts/test-regional-editions.mjs": "cda9c3573424f88d264233127b315071bec72abb52bfff8e67cceacbee209a8c",
+    "scripts/test-regional-editions.mjs": "d4020e11c53d64e5bfb3ba8e4a1aff7e1611399ee3bee89020f1c2d94807538e",
     "scripts/test-search.cjs": "e79c443934494f007642f38831bee757af5960c9b287e5b2479b0c02069b4f1a",
     "tucson.html": "4a6a530588f1bce85b759220867b0494771d03d6e63d17469d32cc0a8afa779a",
     "assets/funding-periods-data.js": "d450d627a9d0849c14704d34ac7f648b0f6e1ef84cecf168fdaf6d55eaa63b13",
     "assets/funding-periods.js": "79b6c12aaec0c7a7a57f00a65d604d2f45f6cd5f7011fb5708ac7255edec647b",
     "data/funding-browser-periods.json": "11ff857f300fa3739baeffbc88ba0199012d77b73b650fa368c1d2bae4998802",
     "funding-explorer.html": "6cec2d66513934f708cd853e74248e4b181ee70e97d502bf111a79ce7f8d4246",
-    "housing-help.html": "d5dd2a9e3ff1ddf774ceb02cc50643f323f2e09f735789eeae82607ba94dfcfa"
+    "housing-help.html": "9793cc8d0d062020b96f4e81d6ad567930a77ba94106bf328ec4a90adb4b197b",
+    "scripts/housing-help-print-check.mjs": "d85d9c8969d68ca3e682c12175cd40bb5fd24bf7d2a6262eeb01a3906f7d1363"
   },
   "addedRecordKeys": [
     "phoenix:resource-wvhac",
@@ -189,6 +190,27 @@
     "newPublicSourceResponse": {
       "path": "data/source-responses/src-124-funding-2026-11-19.json",
       "sha256": "779c1fdc920e4d89767dafa5323edd3e220dcfa1fef5b6d02ae21d81336533a2"
+    }
+  },
+  "housingHelpPrintFix": {
+    "baseline": "2a33a3bf825977843561bf42223977848938ed81",
+    "scope": "Tucson Housing Help Full-page print media only",
+    "cause": "The shared document screen layout leaves 64px of main bottom padding in print; it overflows onto an empty sheet after the complete resource cards.",
+    "change": "Override only main padding-bottom to 0 within this page’s print media rules.",
+    "regression": "Reject any blank PDF page; retain the complete Marana card, all three clickable links and all text within paper. No fixed page count assertion.",
+    "files": {
+      "housing-help.html": {
+        "before": "d5dd2a9e3ff1ddf774ceb02cc50643f323f2e09f735789eeae82607ba94dfcfa",
+        "after": "9793cc8d0d062020b96f4e81d6ad567930a77ba94106bf328ec4a90adb4b197b"
+      },
+      "scripts/test-regional-editions.mjs": {
+        "before": "cda9c3573424f88d264233127b315071bec72abb52bfff8e67cceacbee209a8c",
+        "after": "d4020e11c53d64e5bfb3ba8e4a1aff7e1611399ee3bee89020f1c2d94807538e"
+      },
+      "scripts/housing-help-print-check.mjs": {
+        "before": null,
+        "after": "d85d9c8969d68ca3e682c12175cd40bb5fd24bf7d2a6262eeb01a3906f7d1363"
+      }
     }
   }
 }

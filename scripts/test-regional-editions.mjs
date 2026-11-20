@@ -3,6 +3,7 @@ import {spawn} from 'node:child_process';
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {chromium} from 'playwright';
 import {execPDF} from './pdf-tools.mjs';
+import {checkHousingHelpFullPrint} from './housing-help-print-check.mjs';
 
 const base=process.env.EDITION_TEST_BASE_URL||'http://127.0.0.1:8794';
 const server=process.env.EDITION_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8794','--bind','127.0.0.1'],{stdio:'ignore'});
@@ -139,7 +140,11 @@ try{
   if(mode==='full-preview')await page.getByRole('button',{name:'← Back to search',exact:true}).click();
   assert.equal(await page.locator('#query').inputValue(),before.query);assert.equal(await page.locator('#count').textContent(),before.count);assert.equal(await page.locator('#page-count').textContent(),before.range);
  }
- await page.close();assert.deepEqual(errors,[]);
- writeFileSync(output+'/results.json',JSON.stringify({browser:browser.version(),results,morelandIds:ids},null,2));
+ await page.close();
+ const help=await open(1280,'housing-help.html');
+ const housingHelpPrint=await checkHousingHelpFullPrint(help,`${output}/housing-help-full.pdf`);
+ await help.close();assert.deepEqual(errors,[]);
+ writeFileSync(output+'/results.json',JSON.stringify({browser:browser.version(),results,morelandIds:ids,housingHelpPrint},null,2));
+ console.log('PASS Housing Help Full print: no blank pages, complete Marana card, clickable links and text within paper.');
  console.log('PASS Moreland: all six records in Full Evidence preview and direct beforeprint PDFs; canonical clickable links; unchanged query/result range. Native Ctrl+P/ChromeVox still require Chromebook.');
 }finally{await browser?.close();server?.kill();}
