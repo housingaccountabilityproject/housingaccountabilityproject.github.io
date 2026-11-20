@@ -31,10 +31,22 @@ ILLUSTRATION_TRANSITIONS = {
     'scripts/test-regional-editions.mjs': ('d4020e11c53d64e5bfb3ba8e4a1aff7e1611399ee3bee89020f1c2d94807538e', '529f501d7d30855295c3cc93994f33ee34bd12f4771399f248070d0dca5f3482'),
 }
 
+review=json.loads((ROOT/'docs/reviews/phoenix-batch-a-nov20-preservation.json').read_text())
+assert review['base']=='776a12b556b5757820b7d03637184bf664a18249'
+assert review['addedRecordKeys']==['phoenix:PHX-WEB-037','phoenix:PHX-WEB-038']
+assert review['changedRecordKeys']==['phoenix:MC-PLAN-WEB-001']
+for name,digest in review['candidateFileHashes'].items():
+    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,('Unenumerated candidate change',name)
+
+# Permit only exact, independently enumerated candidate bytes, then apply the
+# existing historical checks to their protected-main counterparts. Earlier
+# hash manifests and their maintenance substitutions remain unchanged.
 # Permit only these maintenance substitutions when checking historical hashes.
 # Original manifests stay intact; any other byte change still fails preservation.
 def preserved_digest(name):
     content = (ROOT / name).read_bytes()
+    if name in review['candidateFileHashes']:
+        content = subprocess.check_output(['git','show',review['base']+':'+name],cwd=ROOT)
     substitutions = {
         'research-center.html': [(b'Search published Tucson &amp; Pima County research', b'Search all published research')],
         'assets/search-index.js': [(b'Search published Tucson & Pima County research', b'Search all published research')],
@@ -120,10 +132,10 @@ original_records = json.loads(subprocess.check_output(['git', 'show', BASE + ':d
 original_keys = Counter(record['key'] for record in original_records)
 current_keys = Counter(record['key'] for record in api['CATALOG'])
 assert set(original_keys) <= set(current_keys) and all(count == 1 for count in current_keys.values()), 'Lost or duplicated stable record identity'
-assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']), 'Unreviewed record addition'
+assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']+review['addedRecordKeys']), 'Unreviewed record addition'
 old_records = {r['key']: r for r in original_records}
 for row in api['CATALOG']:
-    if row['key'] in old_records and row['key'] not in research['changedRecordKeys']:
+    if row['key'] in old_records and row['key'] not in research['changedRecordKeys']+review['changedRecordKeys']:
         assert row == old_records[row['key']], ('Unreviewed record change', row['key'])
 
 for record in api['CATALOG']:

@@ -184,6 +184,12 @@
       "placements": {
         "tucson": "reading"
       }
+    },
+    "phoenix-plan-counts": {
+      "recordKey": "phoenix:PHX-WEB-038",
+      "placements": {
+        "phoenix": "reading"
+      }
     }
   }
 }

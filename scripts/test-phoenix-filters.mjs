@@ -10,7 +10,19 @@ const output = process.env.PHOENIX_FILTER_TEST_OUTPUT || '/tmp/hap-phoenix-filte
 mkdirSync(output, {recursive:true});
 const server = process.env.PHOENIX_FILTER_TEST_BASE_URL ? null : spawn('python3', ['-m','http.server','8769','--bind','127.0.0.1'], {cwd:root, stdio:'ignore'});
 const approvedLists=JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json',import.meta.url)));
-const approvedIds={all:approvedLists.phoenixAll.expectedIds,funding:approvedLists.phoenixFunding.expectedIds,source:approvedLists.phoenixSources.expectedIds,question:approvedLists.phoenixQuestions.expectedIds};
+const batchA=JSON.parse(readFileSync(new URL('./fixtures/phoenix-batch-a-nov20.json',import.meta.url)));
+const insertBatchASources=(ids)=>{
+  const at=ids.indexOf(batchA.sourceInsertionAfter);
+  assert(at>=0,'Independent Phoenix source insertion anchor survives');
+  return [...ids.slice(0,at+1),...batchA.addedSourceIds,...ids.slice(at+1)];
+};
+const approvedIds={
+  all:[...batchA.addedRecordIds,...insertBatchASources(approvedLists.phoenixAll.expectedIds)],
+  funding:approvedLists.phoenixFunding.expectedIds,
+  source:insertBatchASources(approvedLists.phoenixSources.expectedIds),
+  question:approvedLists.phoenixQuestions.expectedIds,
+};
+assert.deepEqual(approvedIds.all,batchA.phoenixRecordFingerprints[0].map(r=>r.id),'Batch A fingerprints preserve the independently composed Phoenix record order');
 const views = [['all','All entries'], ['funding','Funding'], ['source','Sources'], ['question','Questions']].map(([view,name])=>[view,name,approvedIds[view].length]);
 for(const [view,ids] of Object.entries(approvedIds))assert.equal(new Set(ids).size,ids.length,view+' independent IDs are unique');
 const facets = {'source-agency':'sourceAgency','source-program':'sourcePrograms','source-format':'sourceFormat','source-year':'sourceYears'};

@@ -5,6 +5,21 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 fixture=json.loads((ROOT/'scripts/fixtures/six-entry-baseline.json').read_text())
+# Keep the earlier reviewed fixture unchanged. This supplemental, dated fixture
+# enumerates only this private candidate's two records, six references and the
+# existing amendment clarification; every other historical assertion still runs.
+batch_a=json.loads((ROOT/'scripts/fixtures/phoenix-batch-a-nov20.json').read_text())
+assert batch_a['base']=='776a12b556b5757820b7d03637184bf664a18249'
+assert batch_a['addedRecordIds']==['PHX-WEB-037','PHX-WEB-038']
+historical={r['id']:r for r in fixture['registers']['phoenix/records.html'][0]}
+candidate={r['id']:r for r in batch_a['phoenixRecordFingerprints'][0]}
+assert set(historical)<=set(candidate), 'Lost historical Phoenix record identity'
+assert set(candidate)-set(historical)==set(batch_a['addedRecordIds']+batch_a['addedSourceIds'])
+for rid,record in historical.items():
+ if rid!='MC-PLAN-WEB-001':
+  assert candidate[rid]==record, ('Unrelated historical Phoenix record changed',rid)
+fixture['files'].update(batch_a['fileHashOverrides'])
+fixture['registers']['phoenix/records.html']=batch_a['phoenixRecordFingerprints']
 selectors={'evidence.html':['//table[@id="sources"]/tbody/tr','//table[@id="questions"]/tbody/tr'],'questions-records.html':['//*[@data-catalog-entry]'],'funding-explorer.html':['//*[@data-catalog-entry]'],'housing-projects.html':['//*[@data-catalog-entry]'],'phoenix/records.html':['//*[contains(concat(" ",@class," ")," record-card ")]'],'phoenix/questions.html':['//*[@data-connection-entry]'],'phoenix/projects.html':['//*[@data-connection-entry]'],'phoenix/comparisons.html':['//*[@data-connection-entry]']}
 for name,sha in fixture['files'].items():
  content=(ROOT/name).read_bytes()

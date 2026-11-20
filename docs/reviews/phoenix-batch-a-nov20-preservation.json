@@ -1,0 +1,29 @@
+{
+  "base": "776a12b556b5757820b7d03637184bf664a18249",
+  "status": "private-review-candidate; no push or publication authorized",
+  "addedRecordKeys": [
+    "phoenix:PHX-WEB-037",
+    "phoenix:PHX-WEB-038"
+  ],
+  "changedRecordKeys": [
+    "phoenix:MC-PLAN-WEB-001"
+  ],
+  "candidateFileHashes": {
+    "archive-phoenix.html": "6b30c838f1f4e9a8a707c8e773f81e4959d48dc4d35eab8760767e36fb9fb433",
+    "assets/category-search-data.js": "32a95c829e0276471e4688c79ccb6a5b8c6c1c977043ebd4b1d6dd8dcd4cff33",
+    "data/category-search.json": "66b69c2c26eef81d926ea312908490ed403f3cb5a4316e64e01156eecfdd4706",
+    "data/editorial-stories.json": "613bd2361e2f4b2c9902a60981037d4e3a2039beb4371e7ace613659afbdac9d",
+    "data/phoenix-records.json": "fd68b9d39396523e25a90de126371486b5bbd14d3046a5c00986b60664e2f85f",
+    "data/phoenix-source-metadata.json": "73953b1d72621f2a6f188d10f922531201e71952e70abb7e2c0afdbd4ce522ac",
+    "phoenix.html": "337060f3cac6ae4d9c4f8aa1d1f45bf4ff1468d82dd7d20bba8c1aed1e2a1ffc",
+    "phoenix/index.html": "73b732e25cc8001ea6260916814c334b991911c4759aebdba7c336cb5e4dd481",
+    "phoenix/records.html": "ae34f402ed98260f3373775eadb3c67b2f0b1093d12dfab8b37883b876a5af52",
+    "scripts/build-phoenix-records.py": "134d9b1ec89dbaa3c4dc6aa929adc9278f51a911b2d4c5064f2af68967226795",
+    "scripts/check-list-baseline.py": "44cd1b9bbffc74bf8afeb64cbf7638f6dde9b100f57068177c3d96c3d7af0d47",
+    "scripts/check-phoenix-records.py": "bd5c4ac31c4f5f3e6f24245aea4d8eaff4819914246ddba6fb63fe0e11e52cd5",
+    "scripts/check-regional-editions.py": "c5c43248a4838a685ffab0992f19760498ee468211c6b4fb8b773da5b010d681",
+    "scripts/test-category-search.cjs": "f2949346e28849f9216170e031a4602afa43655c940bf05c6372dcfb336bb656",
+    "scripts/test-phoenix-index.mjs": "9cea0a94014f6bdefae3da1bb04ccccc03983be135e557575e232ee13d9d61d4",
+    "scripts/fixtures/phoenix-batch-a-nov20.json": "3c9654309438f34b302f8a206f55b005ffc57982aa2866ffa9b980d9b44ef9d0"
+  }
+}

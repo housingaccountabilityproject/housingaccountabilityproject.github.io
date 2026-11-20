@@ -22,6 +22,8 @@ META = {
  'PHX-WEB-034': ('funding', 'reported', 'Laveen Park Place advances to financing proceedings'),
  'PHX-WEB-035': ('funding', 'reported', 'Phoenix authorizes another eviction legal-services provider'),
  'PHX-WEB-036': ('funding', 'reported', 'Goodyear approves funding for a local shelter program'),
+ 'PHX-WEB-037': ('context', 'notice', 'Phoenix seeks input on its FY2027–28 Annual Action Plan'),
+ 'PHX-WEB-038': ('delivery', 'reported', 'What Phoenix’s 71,128 housing figure counts'),
  'MC-PLAN-WEB-001': ('county', 'proposal', 'Maricopa County: proposed plan amendment'),
  'MC-HAMC-WEB-001': ('waitlists', 'notice', 'Four Maricopa County property waitlists will close December 1'),
  'PHX-WEB-027': ('delivery', 'difference', 'Phoenix: rehabilitation count needs clarification'),
