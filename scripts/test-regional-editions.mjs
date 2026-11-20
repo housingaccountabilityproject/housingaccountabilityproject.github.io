@@ -9,7 +9,7 @@ const server=process.env.EDITION_TEST_BASE_URL?null:spawn('python3',['-m','http.
 const output='/tmp/hap-regional-editions';
 mkdirSync(output,{recursive:true});
 const data=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url))).records;
-const counts=(scope,category)=>data.filter(r=>r.scope===scope&&r.category===category).length;
+const counts=(scope,category)=>data.filter(r=>(r.scope===scope||r.regionalScopes?.includes(scope))&&r.category===category).length;
 const errors=[],results=[];
 let browser;
 async function open(width,path){
@@ -80,7 +80,7 @@ try{
    assert.equal(await page.locator('.watch-row').count(),3);
    await page.goto(base+'/archive-'+scope+'.html');await overflow(page);
    await checkBrand(page,standard,'archive-'+scope+'.html',width);mastheads.push('archive-'+scope+'.html');
-   assert.equal(await page.locator('[data-record-key]').count(),data.filter(r=>r.scope===scope).length);
+   assert.equal(await page.locator('[data-record-key]').count(),data.filter(r=>(r.scope===scope||r.regionalScopes?.includes(scope))).length);
    await page.goto(base+'/library.html#'+scope);await overflow(page);
    await checkBrand(page,standard,'library.html',width);if(!mastheads.includes('library.html'))mastheads.push('library.html');
    const path=scope==='tucson'?'search.html':'phoenix/search.html';

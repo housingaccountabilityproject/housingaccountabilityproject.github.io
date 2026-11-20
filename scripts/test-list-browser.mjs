@@ -9,6 +9,10 @@ const base=process.env.LIST_TEST_BASE_URL||'http://127.0.0.1:8776';
 const output=process.env.LIST_TEST_OUTPUT||'/tmp/hap-list-browser';mkdirSync(output,{recursive:true});
 const server=process.env.LIST_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8776','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const fixture=JSON.parse(readFileSync(new URL('./fixtures/six-entry-baseline.json',import.meta.url)));
+const approvedLists=JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json',import.meta.url)));
+const expectedPhoenixUpdates=approvedLists.phoenixUpdates.expectedIds;
+assert.equal(new Set(expectedPhoenixUpdates).size,expectedPhoenixUpdates.length,'Independent approved Phoenix Update IDs are unique');
+assert.deepEqual(expectedPhoenixUpdates.filter(id=>!approvedLists.phoenixUpdates.sharedIds.includes(id)),approvedLists.phoenixUpdates.preSharedIds,'Approved shared stories preserve the existing Phoenix Update order');
 const specs=[
  ['evidence.html','#sources tbody tr','sources',0],['evidence.html','#questions tbody tr','questions',1],
  ['questions-records.html','[data-catalog-entry]','catalog',0],['funding-explorer.html','[data-catalog-entry]','catalog',0],['housing-projects.html','[data-catalog-entry]','catalog',0],
@@ -135,9 +139,10 @@ try{
  for(const path of ['search.html','phoenix/search.html']){
   await page.goto(base+'/'+path);const region=path.startsWith('phoenix/')?'phoenix':'tucson';
   for(const category of ['sources','questions','funding','updates']){
-   await page.locator('[data-category="'+category+'"]').click();const expected=data.filter(r=>r.scope===region&&r.category===category).map(r=>r.key),seen=[];
+   await page.locator('[data-category="'+category+'"]').click();const expected=region==='phoenix'&&category==='updates'?expectedPhoenixUpdates:data.filter(r=>r.scope===region&&r.category===category).map(r=>r.key),seen=[];
    do{seen.push(...await page.locator('#results article').evaluateAll(ns=>ns.map(n=>n.dataset.recordKey)));if(await page.locator('#next').isDisabled())break;await page.locator('#next').click();}while(seen.length<expected.length+6);
    assert.deepEqual(seen,expected);
+   if(region==='phoenix'&&category==='updates')assert.equal(new Set(seen).size,expected.length,'All independently approved Phoenix Updates appear once');
    const current=expected.slice(Math.floor((expected.length-1)/6)*6);
    for(const scope of ['all','current'])for(const mode of ['compact','full']){
     await page.locator('#print-record-scope').selectOption(scope);await page.locator(mode==='compact'?'#print-compact':'#print').click();

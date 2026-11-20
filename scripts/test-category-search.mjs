@@ -88,7 +88,7 @@ try{
    const button=page.locator(`[data-category="${category}"]`);
    await button.press('Enter');
    assert.equal(await button.getAttribute('aria-pressed'),'true');
-   const expected=data.records.filter(r=>r.scope===scope&&r.category===category);
+   const expected=data.records.filter(r=>(r.scope===scope||r.regionalScopes?.includes(scope))&&r.category===category);
    await recordCount(page,expected.length);
    assert.equal(await page.locator('#results article.card').count(),Math.min(6,expected.length));
    assert.equal(await page.locator('main #category-filter:visible').count(),1);
@@ -145,7 +145,7 @@ try{
 
   if(width===1280){
    const {category,query,ids}=printSearches[scope];
-   const expected=data.records.filter(r=>r.scope===scope&&r.category===category&&ids.includes(r.id));
+   const expected=data.records.filter(r=>(r.scope===scope||r.regionalScopes?.includes(scope))&&r.category===category&&ids.includes(r.id));
    assert.equal(expected.length,ids.length);
    await page.locator(`[data-category="${category}"]`).click();
    await input.fill(query);await recordCount(page,ids.length);

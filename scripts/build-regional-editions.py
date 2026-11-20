@@ -60,7 +60,7 @@ def load_stories(path=CATALOG_PATH):
         if 'recordKey' in entry:
             assert record is not None, ('Unpublished or unknown record', key)
             assert not record.get('publicationPending'), key
-            assert all(r == record['scope'] for r in placements), ('Region mismatch', key)
+            assert all(r in record.get('regionalScopes', [record['scope']]) for r in placements), ('Region mismatch', key)
             source = local(record['url'])
             node = target(source)
             story = dict(title=record['title'], summary=record['summary'], caveats=record['caveats'],
@@ -169,7 +169,7 @@ def paths_for(region):
 
 def front(stories, region):
     lead = picks(stories, region, 'lead')[0]
-    reads = picks(stories, region, 'reading')[:2]
+    reads = picks(stories, region, 'reading')
     watches = picks(stories, region, 'watch')[:3]
     intro = '<div class="identity"><div><div class="edition">Regional edition</div><h1>' + escape(REGIONS[region]) + '</h1><p class="deck">Local housing, public money and the records behind both.</p></div>' + link('housing-help.html' if region == 'tucson' else 'phoenix/housing-help.html', 'Find Housing Help', 'help') + '</div>'
     lead_body = f'<article class="lead" data-story="{lead["key"]}"><p class="meta">{escape(lead["label"])}</p><h2>{link(lead["destination"], lead["title"])}</h2><p>{escape(" ".join(lead["summary"]))}</p><p class="qualification">{escape(" ".join(lead["caveats"]))}</p>{link(lead["destination"], "Read the story & sources", "storylink")}{source_details(lead)}</article>'
@@ -197,10 +197,10 @@ def archive(stories, region):
     highlights = '<div class="news">' + ''.join(teaser(s) for s in picks(stories, region, 'lead', 'reading', 'archive')) + '</div>'
     groups = []
     for category, label in [('updates', 'Updates & reports'), ('funding', 'Funding records'), ('sources', 'Sources & project evidence'), ('questions', 'Questions & records needed')]:
-        records = [r for r in CATALOG if r['scope'] == region and r['category'] == category]
+        records = [r for r in CATALOG if region in r.get('regionalScopes', [r['scope']]) and r['category'] == category]
         rows = ''.join('<li data-record-key="' + escape(r['key'], quote=True) + '">' + link(r['url'], r['title']) + '<span>' + escape(r['id'] + ' · ' + r['label']) + '</span></li>' for r in records)
         groups.append(f'<details class="archive-group"><summary>{label} ({len(records)})</summary><ul class="archive-choices">{rows}</ul></details>')
-    count = sum(r['scope'] == region for r in CATALOG)
+    count = sum(region in r.get('regionalScopes', [r['scope']]) for r in CATALOG)
     return reading(region, 'Research Archive', '<p class="summary">Current and earlier reporting. Original links, dates and corrections remain attached to each record.</p><h2>Selected reporting</h2>' + highlights + '<h2>Published research index</h2><p>' + str(count) + ' indexed records, grouped by research category.</p>' + ''.join(groups))
 
 
@@ -237,4 +237,4 @@ def build(stories):
 
 if __name__ == '__main__':
     build(load_stories(Path(sys.argv[1]) if len(sys.argv) > 1 else CATALOG_PATH))
-    print('Built seven editorial views from published story references; original research data unchanged.')
+    print('Built seven editorial views from canonical story references.')

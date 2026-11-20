@@ -700,7 +700,7 @@
       "anchor": "PHX-WEB-007",
       "scope": "phoenix",
       "category": "sources",
-      "title": "The Moreland: planned phases",
+      "title": "Moreland Phase II",
       "kind": "Plans & forecasts",
       "topics": [
         "Projects & plans"
@@ -712,13 +712,15 @@
       ],
       "label": "Planned development scope, not completed units",
       "summary": [
-        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
-        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
+        "Arizona’s reservation lists show $2.5 million in annual low-income housing tax credits and a separate $3 million National Housing Trust Fund reservation for Moreland Phase II. The state lists 105 proposed apartments: 78 tax-credit units and 27 market-rate units. These reservations are separate from Phoenix’s authorization of up to $10 million and the proposal for 54 project-based vouchers."
       ],
       "caveats": [
+        "The records reviewed do not establish disbursement, voucher activation, or apartment availability.",
         "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
       ],
       "notes": [
+        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028.",
         "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
         "PHX-WEB-007 · Approved financing action describing development scope"
       ],
@@ -726,6 +728,18 @@
       "url": "https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-007",
       "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-007",
       "originals": [
+        {
+          "title": "State credit list",
+          "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1"
+        },
+        {
+          "title": "National Housing Trust Fund list",
+          "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1"
+        },
+        {
+          "title": "City Agency Plan",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf"
+        },
         {
           "title": "June 17, 2026 Moreland II Council report",
           "url": "https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297"
@@ -772,7 +786,10 @@
       "sourceIds": [
         "PHX-EXT-PROJECT-002",
         "PHX-EXT-PROJECT-004",
-        "PHX-EXT-PROJECT-001"
+        "PHX-EXT-PROJECT-001",
+        "PHX-CITY-010",
+        "PHX-N19-03-01",
+        "PHX-N19-03-02"
       ],
       "aliases": [],
       "raw": {
@@ -780,27 +797,56 @@
         "aliases": [],
         "topic": "projects",
         "kind": "planned",
-        "title": "The Moreland: planned phases",
+        "title": "Moreland Phase II",
         "labels": [
           "Planned development scope, not completed units"
         ],
         "summary": [
-          "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
-          "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
+          "Arizona’s reservation lists show $2.5 million in annual low-income housing tax credits and a separate $3 million National Housing Trust Fund reservation for Moreland Phase II. The state lists 105 proposed apartments: 78 tax-credit units and 27 market-rate units. These reservations are separate from Phoenix’s authorization of up to $10 million and the proposal for 54 project-based vouchers."
         ],
         "context": [
+          "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+          "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028.",
           "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
           "PHX-WEB-007 · Approved financing action describing development scope"
         ],
         "limitations": [
+          "The records reviewed do not establish disbursement, voucher activation, or apartment availability.",
           "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
         ],
         "source_ids": [
           "PHX-EXT-PROJECT-002",
           "PHX-EXT-PROJECT-004",
-          "PHX-EXT-PROJECT-001"
+          "PHX-EXT-PROJECT-001",
+          "PHX-CITY-010",
+          "PHX-N19-03-01",
+          "PHX-N19-03-02"
         ],
         "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-03-01"
+            ],
+            "title": "State credit list",
+            "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-03-02"
+            ],
+            "title": "National Housing Trust Fund list",
+            "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-CITY-010"
+            ],
+            "title": "City Agency Plan",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf",
+            "locator": ""
+          },
           {
             "source_ids": [
               "PHX-EXT-PROJECT-002"
@@ -828,7 +874,7 @@
         ],
         "page_url": "index.html#PHX-WEB-007"
       },
-      "searchText": "phoenix:PHX-WEB-007 PHX-WEB-007 PHX-WEB-007 phoenix sources The Moreland: planned phases Plans & forecasts Projects & plans Not separately tagged 2026 Planned development scope, not completed units The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II. At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028. Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified. Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report PHX-WEB-007 · Approved financing action describing development scope https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-007 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-007 June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc PHX-WEB-007 https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-007 June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc The Moreland https://housingaccountabilityproject.github.io/phoenix/projects.html#project-moreland Read the The Moreland project file https://housingaccountabilityproject.github.io/phoenix/projects/moreland.html Read in context → https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-007 PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-004 PHX-EXT-PROJECT-001 Council action date The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. Evidence summaries Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The public original was retrieved and its cited date evidence checked. The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. This is not a full audit of the financial or housing claims. https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 JSON MatterTextPlain title Funding for The Moreland Phase II Affordable Housing Development (Ordinance S-53026) - District 8 https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc JSON record MatterId 35197 / file 26-1162 / Ordinance S-53026, MatterPassedDate; status Adopted 2026-06-17T00:00:00 The public original was retrieved and its cited date evidence checked.",
+      "searchText": "phoenix:PHX-WEB-007 PHX-WEB-007 PHX-WEB-007 phoenix sources Moreland Phase II Plans & forecasts Projects & plans Not separately tagged 2026 Planned development scope, not completed units Arizona’s reservation lists show $2.5 million in annual low-income housing tax credits and a separate $3 million National Housing Trust Fund reservation for Moreland Phase II. The state lists 105 proposed apartments: 78 tax-credit units and 27 market-rate units. These reservations are separate from Phoenix’s authorization of up to $10 million and the proposal for 54 project-based vouchers. The records reviewed do not establish disbursement, voucher activation, or apartment availability. Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified. The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II. At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028. Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report PHX-WEB-007 · Approved financing action describing development scope https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-007 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-007 State credit list https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1 National Housing Trust Fund list https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1 City Agency Plan https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc PHX-WEB-007 https://housingaccountabilityproject.github.io/phoenix/records.html#PHX-WEB-007 June 17, 2026 Moreland II Council report https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 June 18, 2025 Moreland Council report https://webapi.legistar.com/v1/phoenix/matters/32479/texts/32581 Council adoption and action dates https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc The Moreland https://housingaccountabilityproject.github.io/phoenix/projects.html#project-moreland Read the The Moreland project file https://housingaccountabilityproject.github.io/phoenix/projects/moreland.html Read in context → https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-007 PHX-EXT-PROJECT-002 PHX-EXT-PROJECT-004 PHX-EXT-PROJECT-001 PHX-CITY-010 PHX-N19-03-01 PHX-N19-03-02 Council action date The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. Evidence summaries Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The public original was retrieved and its cited date evidence checked. The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion. This is not a full audit of the financial or housing claims. https://webapi.legistar.com/v1/phoenix/matters/35197/texts/35297 JSON MatterTextPlain title Funding for The Moreland Phase II Affordable Housing Development (Ordinance S-53026) - District 8 https://webapi.legistar.com/v1/phoenix/matters?%24filter=substringof%28%27Moreland%27%2CMatterTitle%29+or+substringof%28%27Deck+Park%27%2CMatterTitle%29+or+substringof%28%27Marcos%27%2CMatterTitle%29+or+substringof%28%27Harmony+at+the+Park%27%2CMatterTitle%29&%24top=1000&%24orderby=MatterAgendaDate+desc JSON record MatterId 35197 / file 26-1162 / Ordinance S-53026, MatterPassedDate; status Adopted 2026-06-17T00:00:00 The public original was retrieved and its cited date evidence checked.",
       "yearBasis": "Council action date",
       "yearNote": "The primary dated finding is the June 17, 2026 adopted Moreland II authorization. Related June 18, 2025 context and forecast 2028 completion are not additional dates of this selected action. The dated authorization does not establish expenditure, execution, or future completion.",
       "sourceType": "Evidence summaries",
@@ -16077,7 +16123,7 @@
       "anchor": "src-111",
       "scope": "tucson",
       "category": "sources",
-      "title": "Tucson House 14th-floor application",
+      "title": "Tucson House 14th-floor temporary certificate",
       "kind": "Source reference",
       "topics": [
         "Other / not tagged"
@@ -16089,16 +16135,17 @@
       ],
       "label": "Tucson / Pima County · other",
       "summary": [
-        "TC-CFO-1126-00224; application November 6; checked November 7, 2026."
+        "City register checked November 19, 2026: TC-CFO-1126-00224 is listed as Issued for floor 14, with a December 10, 2026 expiration."
       ],
       "caveats": [
-        "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in."
+        "The certificate applies only to floor 14. It does not establish move-ins or whole-building completion. Earlier Submitted – Online and Fees Paid observations are retained as dated history, not current status."
       ],
       "notes": [
         "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
         "Selected source content reviewed November 7, 2026; access and date limits stated.",
         "Original source for the approved additional November 7 review.",
-        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+        "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in."
       ],
       "metadata": [
         [
@@ -16115,7 +16162,7 @@
         ]
       ],
       "url": "https://housingaccountabilityproject.github.io/evidence.html#src-111",
-      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#payments-projects-outcomes-2026-11-07",
+      "contextUrl": "https://housingaccountabilityproject.github.io/findings.html#f-012",
       "originals": [
         {
           "title": "Original source",
@@ -16126,6 +16173,10 @@
         {
           "title": "Website / workbook source ID crosswalk",
           "url": "https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk"
+        },
+        {
+          "title": "Earlier dated finding context",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#payments-projects-outcomes-2026-11-07"
         }
       ],
       "sourceIds": [
@@ -16134,15 +16185,15 @@
       "aliases": [],
       "raw": {
         "public_id": "SRC-111",
-        "title": "Tucson House 14th-floor application",
+        "title": "Tucson House 14th-floor temporary certificate",
         "period": "other",
         "topic": "projects",
-        "source_context": "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
-        "limitations": "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in.",
+        "source_context": "City register checked November 19, 2026: TC-CFO-1126-00224 is listed as Issued for floor 14, with a December 10, 2026 expiration.",
+        "limitations": "The certificate applies only to floor 14. It does not establish move-ins or whole-building completion. Earlier Submitted – Online and Fees Paid observations are retained as dated history, not current status.",
         "urls": [
           "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
         ],
-        "citation_url": "research-updates.html#payments-projects-outcomes-2026-11-07",
+        "citation_url": "findings.html#f-012",
         "aliases": [],
         "page_url": "evidence.html#src-111",
         "mapping_basis": "Original source for the approved additional November 7 review.",
@@ -16163,6 +16214,11 @@
             "observed_on": "2026-11-10",
             "status": "Fees Paid",
             "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+          },
+          {
+            "observed_on": "2026-11-19",
+            "status": "Issued",
+            "source": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
           }
         ],
         "verification_checks": [
@@ -16172,10 +16228,20 @@
             "outcome": "checked",
             "scope": "Permit details: Fees Paid status and November 6 application date",
             "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+          },
+          {
+            "checked_at": "2026-11-19",
+            "outcome": "City register lists TC-CFO-1126-00224 as Issued for floor 14, expiring December 10, 2026.",
+            "scope": "Floor-specific certificate only; no move-in or whole-building completion established. See F-012 for the full dated finding."
           }
-        ]
+        ],
+        "historical_notes": [
+          "TC-CFO-1126-00224; application November 6; checked November 7, 2026.",
+          "Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in."
+        ],
+        "current_review": true
       },
-      "searchText": "tucson:evidence.html#src-111 SRC-111 src-111 tucson sources Tucson House 14th-floor application Source reference Other / not tagged Not separately tagged 2026 Tucson / Pima County · other TC-CFO-1126-00224; application November 6; checked November 7, 2026. Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in. TC-CFO-1126-00224; application November 6; checked November 7, 2026. Selected source content reviewed November 7, 2026; access and date limits stated. Original source for the approved additional November 7 review. Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. Period other Website ID SRC-111 Workbook IDs (separate namespace) SRC-112 https://housingaccountabilityproject.github.io/evidence.html#src-111 https://housingaccountabilityproject.github.io/research-updates.html#payments-projects-outcomes-2026-11-07 Original source https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/ Website / workbook source ID crosswalk https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk SRC-111 Permit application date The City register directly dates the application November 6, 2026. It is not an issued-certificate date or proof of occupancy. Other source records Date-focused check on November 10, 2026. The City register directly dates the application November 6, 2026. It is not an issued-certificate date or proof of occupancy. This does not verify every underlying financial or housing claim. https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/ Permit Details > Apply Date; Status is Submitted - Online Apply Date: 11/06/2026 2026-11-10T17:39:51-07:00 America/Phoenix checked Permit details: Fees Paid status and November 6 application date https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/",
+      "searchText": "tucson:evidence.html#src-111 SRC-111 src-111 tucson sources Tucson House 14th-floor temporary certificate Source reference Other / not tagged Not separately tagged 2026 Tucson / Pima County · other City register checked November 19, 2026: TC-CFO-1126-00224 is listed as Issued for floor 14, with a December 10, 2026 expiration. The certificate applies only to floor 14. It does not establish move-ins or whole-building completion. Earlier Submitted – Online and Fees Paid observations are retained as dated history, not current status. TC-CFO-1126-00224; application November 6; checked November 7, 2026. Selected source content reviewed November 7, 2026; access and date limits stated. Original source for the approved additional November 7 review. Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. Submitted – Online, not issued in the reviewed register. Status can change. The November 7 observation was Submitted – Online. The November 10 check showed Fees Paid. Neither observation establishes when the status changed, certificate issuance, occupancy or move-in. Period other Website ID SRC-111 Workbook IDs (separate namespace) SRC-112 https://housingaccountabilityproject.github.io/evidence.html#src-111 https://housingaccountabilityproject.github.io/findings.html#f-012 Original source https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/ Website / workbook source ID crosswalk https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk Earlier dated finding context https://housingaccountabilityproject.github.io/research-updates.html#payments-projects-outcomes-2026-11-07 SRC-111 Permit application date The City register directly dates the application November 6, 2026. It is not an issued-certificate date or proof of occupancy. Other source records Date-focused check on November 10, 2026. The City register directly dates the application November 6, 2026. It is not an issued-certificate date or proof of occupancy. This does not verify every underlying financial or housing claim. https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/ Permit Details > Apply Date; Status is Submitted - Online Apply Date: 11/06/2026 2026-11-10T17:39:51-07:00 America/Phoenix checked Permit details: Fees Paid status and November 6 application date https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/ 2026-11-19 City register lists TC-CFO-1126-00224 as Issued for floor 14, expiring December 10, 2026. Floor-specific certificate only; no move-in or whole-building completion established. See F-012 for the full dated finding.",
       "yearBasis": "Permit application date",
       "yearNote": "The City register directly dates the application November 6, 2026. It is not an issued-certificate date or proof of occupancy.",
       "sourceType": "Other source records",
@@ -16194,6 +16260,11 @@
           "outcome": "checked",
           "scope": "Permit details: Fees Paid status and November 6 application date",
           "url": "https://pro.tucsonaz.gov/permitdetails/TC-CFO-1126-00224/"
+        },
+        {
+          "checked_at": "2026-11-19",
+          "outcome": "City register lists TC-CFO-1126-00224 as Issued for floor 14, expiring December 10, 2026.",
+          "scope": "Floor-specific certificate only; no move-in or whole-building completion established. See F-012 for the full dated finding."
         }
       ]
     },
@@ -28458,11 +28529,1059 @@
       "yearNote": "2025–2029 is proposed plan coverage, not an adopted funding or assistance period.",
       "yearEvidence": [],
       "searchText": "phoenix:MC-PLAN-WEB-001 MC-PLAN-WEB-001 MC-PLAN-WEB-001 phoenix sources Maricopa County: proposed plan amendment Proposed plan amendment Official notices Maricopa County planning Maricopa County HOME CDBG ESG 2025 2029 Proposed; adoption unverified The County’s notice proposes Tempe leaving and Goodyear joining the HOME Consortium, and Buckeye leaving and Cave Creek joining the Urban County. It anticipates about 14% less HOME funding over three years and proposes reducing the HOME tenant-based rental-assistance goal from 650 to 500 households. The notice proposes a $100,000 ESG outreach goal serving 150 people, with a $100,000 reduction in existing shelter operations and services goals. This is a proposed shift, not new net ESG funding. The notice describes proposed goals and anticipated funding effects. It does not establish adoption, actual grant reductions, spending or households assisted. Checked November 10, 2026 MST. Scope: Maricopa County HOME Consortium and Urban County. Proposed plan coverage: 2025–2029. Comment period: November 11–December 10, 2026. Hearing scheduled November 19, 2026 at 9:30 a.m. MST. MC-PLAN-WEB-001 · MC-PLAN-001 https://housingaccountabilityproject.github.io/phoenix/records.html#MC-PLAN-WEB-001 https://housingaccountabilityproject.github.io/phoenix/index.html#MC-PLAN-WEB-001 Proposed amendment notice · PDF page 1 https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment#page=1 MC-PLAN-001 Proposed plan coverage 2025–2029 is proposed plan coverage, not an adopted funding or assistance period."
+    },
+    {
+      "key": "phoenix:resource-wvhac",
+      "id": "resource-wvhac",
+      "anchor": "resource-wvhac",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Where to get shelter help in Surprise",
+      "kind": "Housing help reference",
+      "topics": [],
+      "agency": "Official / operator sources",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Native American Connections runs the West Valley Housing Assistance Center at 12779 W. Grand Ave. in Surprise. It lists housing navigation and assessment help Monday through Friday, 8 a.m. to 5 p.m. Phoenix Rescue Mission operates eight shelter units at the site but handles shelter eligibility and intake off-site. Families with children under 18 can call the Family Housing Hub at 877-211-8661."
+      ],
+      "caveats": [
+        "Check the operator’s current instructions before going. The center’s resource hours are not walk-in shelter intake hours, and eight units is not a vacancy count."
+      ],
+      "notes": [
+        "Historical source note: A New Leaf’s account of the July 2023 opening described seven apartment-style units. The current operator page lists eight on-site shelter units operated by Phoenix Rescue Mission. The earlier seven-unit count is retained as history; neither count establishes vacancies."
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac",
+      "originals": [
+        {
+          "title": "Current operator",
+          "url": "https://www.nativeconnections.org/wvhac/"
+        },
+        {
+          "title": "Historical seven-unit description · July 2023 opening account",
+          "url": "https://turnanewleaf.org/west-valley-housing-assistance-center-opening/"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac"
+        },
+        {
+          "title": "Current operator",
+          "url": "https://www.nativeconnections.org/wvhac/"
+        },
+        {
+          "title": "Historical seven-unit description · July 2023 opening account",
+          "url": "https://turnanewleaf.org/west-valley-housing-assistance-center-opening/"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "phoenix:resource-wvhac resource-wvhac resource-wvhac phoenix updates Where to get shelter help in Surprise Housing help reference Official / operator sources 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Native American Connections runs the West Valley Housing Assistance Center at 12779 W. Grand Ave. in Surprise. It lists housing navigation and assessment help Monday through Friday, 8 a.m. to 5 p.m. Phoenix Rescue Mission operates eight shelter units at the site but handles shelter eligibility and intake off-site. Families with children under 18 can call the Family Housing Hub at 877-211-8661. Check the operator’s current instructions before going. The center’s resource hours are not walk-in shelter intake hours, and eight units is not a vacancy count. Historical source note: A New Leaf’s account of the July 2023 opening described seven apartment-style units. The current operator page lists eight on-site shelter units operated by Phoenix Rescue Mission. The earlier seven-unit count is retained as history; neither count establishes vacancies. https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac Current operator https://www.nativeconnections.org/wvhac/ Historical seven-unit description · July 2023 opening account https://turnanewleaf.org/west-valley-housing-assistance-center-opening/ Canonical record https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-wvhac Current operator https://www.nativeconnections.org/wvhac/ Historical seven-unit description · July 2023 opening account https://turnanewleaf.org/west-valley-housing-assistance-center-opening/"
+    },
+    {
+      "key": "tucson:tucson-house-community-services-2026-11-19",
+      "id": "tucson-house-community-services-2026-11-19",
+      "anchor": "tucson-house-community-services-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "Tucson House community services",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Official / operator sources",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "The City-linked draft PY2024 CAPER lists $49,985.64 in cumulative federal Community Development Block Grant draws for Compass home-based services and $50,000 for a Community Food Bank distribution activity at Tucson House, under activities 5248 and 5250. Separate activities 5299 and 5304 list draws of $25,358.40 and $38,008.33, respectively."
+      ],
+      "caveats": [
+        "The report gives activity-level draws, not a count of distinct residents served. These historical draws are separate from the later County supportive-services amendment."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19",
+      "originals": [
+        {
+          "title": "City CAPER, pp. 96, 100, 118, 128",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=96"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19"
+        },
+        {
+          "title": "City CAPER, pp. 96, 100, 118, 128",
+          "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=96"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "tucson:tucson-house-community-services-2026-11-19 tucson-house-community-services-2026-11-19 tucson-house-community-services-2026-11-19 tucson updates Tucson House community services Funding / project research note Official / operator sources 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 The City-linked draft PY2024 CAPER lists $49,985.64 in cumulative federal Community Development Block Grant draws for Compass home-based services and $50,000 for a Community Food Bank distribution activity at Tucson House, under activities 5248 and 5250. Separate activities 5299 and 5304 list draws of $25,358.40 and $38,008.33, respectively. The report gives activity-level draws, not a count of distinct residents served. These historical draws are separate from the later County supportive-services amendment. https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19 City CAPER, pp. 96, 100, 118, 128 https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=96 Canonical record https://housingaccountabilityproject.github.io/research-updates.html#tucson-house-community-services-2026-11-19 City CAPER, pp. 96, 100, 118, 128 https://www.tucsonaz.gov/files/sharedassets/public/v/1/hcd/documents/reports/caper/2024-consolidated-annual-performance-and-evaluation-report-caper.pdf#page=96"
+    },
+    {
+      "key": "tucson:pima-supportive-services-budget-2026-11-19",
+      "id": "pima-supportive-services-budget-2026-11-19",
+      "anchor": "pima-supportive-services-budget-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "Pima supportive-services budget",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Pima County",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Pima County approved an amendment to the same Tucson Choice Neighborhoods Supportive Services award, reducing the approved budget from $202,734 to $85,205.60 and revising the term to October 1, 2026 through September 30, 2027."
+      ],
+      "caveats": [
+        "The approval records show a budget change. They do not show how much was paid or how services were affected."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19",
+      "originals": [
+        {
+          "title": "Original County action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=0C3A4157-7510-4CB5-9D80-5564DE4647B9&ID=7931195"
+        },
+        {
+          "title": "Amendment approval",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=1E66B09E-1602-4B51-B1F5-8601BB53326E&ID=8162747"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19"
+        },
+        {
+          "title": "Original County action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=0C3A4157-7510-4CB5-9D80-5564DE4647B9&ID=7931195"
+        },
+        {
+          "title": "Amendment approval",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=1E66B09E-1602-4B51-B1F5-8601BB53326E&ID=8162747"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "tucson:pima-supportive-services-budget-2026-11-19 pima-supportive-services-budget-2026-11-19 pima-supportive-services-budget-2026-11-19 tucson updates Pima supportive-services budget Funding / project research note Pima County 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Pima County approved an amendment to the same Tucson Choice Neighborhoods Supportive Services award, reducing the approved budget from $202,734 to $85,205.60 and revising the term to October 1, 2026 through September 30, 2027. The approval records show a budget change. They do not show how much was paid or how services were affected. https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19 Original County action https://pima.legistar.com/LegislationDetail.aspx?GUID=0C3A4157-7510-4CB5-9D80-5564DE4647B9&ID=7931195 Amendment approval https://pima.legistar.com/LegislationDetail.aspx?GUID=1E66B09E-1602-4B51-B1F5-8601BB53326E&ID=8162747 Canonical record https://housingaccountabilityproject.github.io/research-updates.html#pima-supportive-services-budget-2026-11-19 Original County action https://pima.legistar.com/LegislationDetail.aspx?GUID=0C3A4157-7510-4CB5-9D80-5564DE4647B9&ID=7931195 Amendment approval https://pima.legistar.com/LegislationDetail.aspx?GUID=1E66B09E-1602-4B51-B1F5-8601BB53326E&ID=8162747"
+    },
+    {
+      "key": "tucson:arizona-shelter-reservations-2026-11-19",
+      "id": "arizona-shelter-reservations-2026-11-19",
+      "anchor": "arizona-shelter-reservations-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "State shelter reservations",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Statewide / Arizona Department of Housing",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Arizona’s Housing Solutions list identifies $9 million in second-round reservations for shelter and transitional-housing operations. The $16.2 million shown on the combined list includes both rounds. In the second round, the listed projects total $1.14 million in Pima County and about $4.10 million in Maricopa County."
+      ],
+      "caveats": [
+        "The figures are funding reservations, not verified payments. The listed units and beds are separate measures and do not show how many spaces are available."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19",
+      "originals": [
+        {
+          "title": "Arizona Department of Housing reservation list",
+          "url": "https://housing.az.gov/sites/default/files/2026-10/2027%20SHTF%20Housing%20Solutions%20NOFA%20Award%20List.pdf#page=1"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19"
+        },
+        {
+          "title": "Arizona Department of Housing reservation list",
+          "url": "https://housing.az.gov/sites/default/files/2026-10/2027%20SHTF%20Housing%20Solutions%20NOFA%20Award%20List.pdf#page=1"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "regionalScopes": [
+        "tucson",
+        "phoenix"
+      ],
+      "searchText": "tucson:arizona-shelter-reservations-2026-11-19 arizona-shelter-reservations-2026-11-19 arizona-shelter-reservations-2026-11-19 tucson updates State shelter reservations Funding / project research note Statewide / Arizona Department of Housing 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Arizona’s Housing Solutions list identifies $9 million in second-round reservations for shelter and transitional-housing operations. The $16.2 million shown on the combined list includes both rounds. In the second round, the listed projects total $1.14 million in Pima County and about $4.10 million in Maricopa County. The figures are funding reservations, not verified payments. The listed units and beds are separate measures and do not show how many spaces are available. https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19 Arizona Department of Housing reservation list https://housing.az.gov/sites/default/files/2026-10/2027%20SHTF%20Housing%20Solutions%20NOFA%20Award%20List.pdf#page=1 Canonical record https://housingaccountabilityproject.github.io/research-updates.html#arizona-shelter-reservations-2026-11-19 Arizona Department of Housing reservation list https://housing.az.gov/sites/default/files/2026-10/2027%20SHTF%20Housing%20Solutions%20NOFA%20Award%20List.pdf#page=1 tucson phoenix"
+    },
+    {
+      "key": "phoenix:PHX-WEB-031",
+      "id": "PHX-WEB-031",
+      "anchor": "PHX-WEB-031",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Phoenix Master Lease",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "City of Phoenix",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "A Phoenix staff memo dated October 29 reports that the city identified 15 private-market units for the first group of its master-leasing program and selected A New Leaf. The memo describes planned leasing and support services; the city’s published qualified-vendor list identifies A New Leaf for housing-based services."
+      ],
+      "caveats": [
+        "The records reviewed do not establish the final scope of a signed agreement, the number of signed leases, or tenant move-ins."
+      ],
+      "notes": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-031"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031",
+      "originals": [
+        {
+          "title": "City implementation memo, p. 8",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8"
+        },
+        {
+          "title": "City vendor roster",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031"
+        },
+        {
+          "title": "City implementation memo, p. 8",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8"
+        },
+        {
+          "title": "City vendor roster",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-07-01",
+        "PHX-N19-07-02"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-031",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Phoenix Master Lease",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "A Phoenix staff memo dated October 29 reports that the city identified 15 private-market units for the first group of its master-leasing program and selected A New Leaf. The memo describes planned leasing and support services; the city’s published qualified-vendor list identifies A New Leaf for housing-based services."
+        ],
+        "context": [
+          "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+          "PHX-WEB-031"
+        ],
+        "limitations": [
+          "The records reviewed do not establish the final scope of a signed agreement, the number of signed leases, or tenant move-ins."
+        ],
+        "source_ids": [
+          "PHX-N19-07-01",
+          "PHX-N19-07-02"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-07-01"
+            ],
+            "title": "City implementation memo, p. 8",
+            "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-07-02"
+            ],
+            "title": "City vendor roster",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-031"
+      },
+      "searchText": "phoenix:PHX-WEB-031 PHX-WEB-031 PHX-WEB-031 phoenix updates Phoenix Master Lease Funding / project research note City of Phoenix 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 A Phoenix staff memo dated October 29 reports that the city identified 15 private-market units for the first group of its master-leasing program and selected A New Leaf. The memo describes planned leasing and support services; the city’s published qualified-vendor list identifies A New Leaf for housing-based services. The records reviewed do not establish the final scope of a signed agreement, the number of signed leases, or tenant move-ins. Dated authorization, implementation or preservation record; the qualifications remain attached. PHX-WEB-031 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031 City implementation memo, p. 8 https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8 City vendor roster https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-031 City implementation memo, p. 8 https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8 City vendor roster https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397 PHX-N19-07-01 PHX-N19-07-02"
+    },
+    {
+      "key": "phoenix:PHX-WEB-032",
+      "id": "PHX-WEB-032",
+      "anchor": "PHX-WEB-032",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Memorial Towers",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Official / operator sources",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "National Church Residences reported that Memorial Towers reopened after rehabilitation on August 25, 2026. The property includes 152 apartments for seniors and one employee unit. The Phoenix Industrial Development Authority lists a December 2024 bond closing of $33,997,229. The City separately authorized a federal HOME loan of up to $1 million for the rehabilitation."
+      ],
+      "caveats": [
+        "The bond closing and loan authorization do not establish HOME disbursements or current apartment availability."
+      ],
+      "notes": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-032"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032",
+      "originals": [
+        {
+          "title": "Operator",
+          "url": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/"
+        },
+        {
+          "title": "Issuer",
+          "url": "https://phoenixida.com/bond-financing-process/bond-transactions/"
+        },
+        {
+          "title": "City authorization",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032"
+        },
+        {
+          "title": "Operator",
+          "url": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/"
+        },
+        {
+          "title": "Issuer",
+          "url": "https://phoenixida.com/bond-financing-process/bond-transactions/"
+        },
+        {
+          "title": "City authorization",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-08-01",
+        "PHX-N19-08-02",
+        "PHX-N19-08-03"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-032",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Memorial Towers",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "National Church Residences reported that Memorial Towers reopened after rehabilitation on August 25, 2026. The property includes 152 apartments for seniors and one employee unit. The Phoenix Industrial Development Authority lists a December 2024 bond closing of $33,997,229. The City separately authorized a federal HOME loan of up to $1 million for the rehabilitation."
+        ],
+        "context": [
+          "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+          "PHX-WEB-032"
+        ],
+        "limitations": [
+          "The bond closing and loan authorization do not establish HOME disbursements or current apartment availability."
+        ],
+        "source_ids": [
+          "PHX-N19-08-01",
+          "PHX-N19-08-02",
+          "PHX-N19-08-03"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-08-01"
+            ],
+            "title": "Operator",
+            "url": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-08-02"
+            ],
+            "title": "Issuer",
+            "url": "https://phoenixida.com/bond-financing-process/bond-transactions/",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-08-03"
+            ],
+            "title": "City authorization",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-032"
+      },
+      "searchText": "phoenix:PHX-WEB-032 PHX-WEB-032 PHX-WEB-032 phoenix updates Memorial Towers Funding / project research note Official / operator sources 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 National Church Residences reported that Memorial Towers reopened after rehabilitation on August 25, 2026. The property includes 152 apartments for seniors and one employee unit. The Phoenix Industrial Development Authority lists a December 2024 bond closing of $33,997,229. The City separately authorized a federal HOME loan of up to $1 million for the rehabilitation. The bond closing and loan authorization do not establish HOME disbursements or current apartment availability. Dated authorization, implementation or preservation record; the qualifications remain attached. PHX-WEB-032 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032 Operator https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/ Issuer https://phoenixida.com/bond-financing-process/bond-transactions/ City authorization https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-032 Operator https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/ Issuer https://phoenixida.com/bond-financing-process/bond-transactions/ City authorization https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705 PHX-N19-08-01 PHX-N19-08-02 PHX-N19-08-03"
+    },
+    {
+      "key": "tucson:tucson-phoenix-rent-benchmarks-2026-11-19",
+      "id": "tucson-phoenix-rent-benchmarks-2026-11-19",
+      "anchor": "tucson-phoenix-rent-benchmarks-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "Tucson and Phoenix rent benchmarks",
+      "kind": "Rent benchmark reference",
+      "topics": [],
+      "agency": "HUD",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "HUD’s FY2027 two-bedroom Fair Market Rent is $1,405 for the Tucson area and $1,734 for the Phoenix–Mesa–Chandler area, effective October 1, 2026."
+      ],
+      "caveats": [
+        "These regional benchmarks are not local voucher payment standards or the amount a tenant pays."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19",
+      "originals": [
+        {
+          "title": "HUD schedule, p. 2",
+          "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf#page=2"
+        },
+        {
+          "title": "HUD FY2027 effective-date notice",
+          "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-01/pdf/2026-17891.pdf"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19"
+        },
+        {
+          "title": "HUD schedule, p. 2",
+          "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf#page=2"
+        },
+        {
+          "title": "HUD FY2027 effective-date notice",
+          "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-01/pdf/2026-17891.pdf"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "regionalScopes": [
+        "tucson",
+        "phoenix"
+      ],
+      "searchText": "tucson:tucson-phoenix-rent-benchmarks-2026-11-19 tucson-phoenix-rent-benchmarks-2026-11-19 tucson-phoenix-rent-benchmarks-2026-11-19 tucson updates Tucson and Phoenix rent benchmarks Rent benchmark reference HUD 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 HUD’s FY2027 two-bedroom Fair Market Rent is $1,405 for the Tucson area and $1,734 for the Phoenix–Mesa–Chandler area, effective October 1, 2026. These regional benchmarks are not local voucher payment standards or the amount a tenant pays. https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19 HUD schedule, p. 2 https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf#page=2 HUD FY2027 effective-date notice https://www.govinfo.gov/content/pkg/FR-2026-09-01/pdf/2026-17891.pdf Canonical record https://housingaccountabilityproject.github.io/research-updates.html#tucson-phoenix-rent-benchmarks-2026-11-19 HUD schedule, p. 2 https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf#page=2 HUD FY2027 effective-date notice https://www.govinfo.gov/content/pkg/FR-2026-09-01/pdf/2026-17891.pdf tucson phoenix"
+    },
+    {
+      "key": "phoenix:PHX-WEB-033",
+      "id": "PHX-WEB-033",
+      "anchor": "PHX-WEB-033",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Phoenix expands utility-aid authorization",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "City of Phoenix",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "On November 18, Phoenix authorized up to $100,000 more for emergency Arizona Public Service utility assistance through Wildfire, bringing the contract ceiling to $2,333,032. Staff estimated the increase could assist about 150 additional households."
+      ],
+      "caveats": [
+        "The vote does not show how much has been paid or how many households received assistance."
+      ],
+      "notes": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-033"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033",
+      "originals": [
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033"
+        },
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-10-01"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-033",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Phoenix expands utility-aid authorization",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "On November 18, Phoenix authorized up to $100,000 more for emergency Arizona Public Service utility assistance through Wildfire, bringing the contract ceiling to $2,333,032. Staff estimated the increase could assist about 150 additional households."
+        ],
+        "context": [
+          "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+          "PHX-WEB-033"
+        ],
+        "limitations": [
+          "The vote does not show how much has been paid or how many households received assistance."
+        ],
+        "source_ids": [
+          "PHX-N19-10-01"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-10-01"
+            ],
+            "title": "City action",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-033"
+      },
+      "searchText": "phoenix:PHX-WEB-033 PHX-WEB-033 PHX-WEB-033 phoenix updates Phoenix expands utility-aid authorization Funding / project research note City of Phoenix 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 On November 18, Phoenix authorized up to $100,000 more for emergency Arizona Public Service utility assistance through Wildfire, bringing the contract ceiling to $2,333,032. Staff estimated the increase could assist about 150 additional households. The vote does not show how much has been paid or how many households received assistance. Dated authorization, implementation or preservation record; the qualifications remain attached. PHX-WEB-033 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-033 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452 PHX-N19-10-01"
+    },
+    {
+      "key": "phoenix:PHX-WEB-034",
+      "id": "PHX-WEB-034",
+      "anchor": "PHX-WEB-034",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Laveen Park Place advances to financing proceedings",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "City of Phoenix",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "On November 18, Phoenix approved financing proceedings for up to $50 million in conduit notes and bonds for Laveen Park Place Phase I, which proposes about 216 rental apartments."
+      ],
+      "caveats": [
+        "This is a financing authorization, not a city grant. Issuance, the final number of income-restricted apartments and availability have not been verified."
+      ],
+      "notes": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-034"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034",
+      "originals": [
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034"
+        },
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-11-01"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-034",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Laveen Park Place advances to financing proceedings",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "On November 18, Phoenix approved financing proceedings for up to $50 million in conduit notes and bonds for Laveen Park Place Phase I, which proposes about 216 rental apartments."
+        ],
+        "context": [
+          "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+          "PHX-WEB-034"
+        ],
+        "limitations": [
+          "This is a financing authorization, not a city grant. Issuance, the final number of income-restricted apartments and availability have not been verified."
+        ],
+        "source_ids": [
+          "PHX-N19-11-01"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-11-01"
+            ],
+            "title": "City action",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-034"
+      },
+      "searchText": "phoenix:PHX-WEB-034 PHX-WEB-034 PHX-WEB-034 phoenix updates Laveen Park Place advances to financing proceedings Funding / project research note City of Phoenix 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 On November 18, Phoenix approved financing proceedings for up to $50 million in conduit notes and bonds for Laveen Park Place Phase I, which proposes about 216 rental apartments. This is a financing authorization, not a city grant. Issuance, the final number of income-restricted apartments and availability have not been verified. Dated authorization, implementation or preservation record; the qualifications remain attached. PHX-WEB-034 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-034 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451 PHX-N19-11-01"
+    },
+    {
+      "key": "phoenix:PHX-WEB-035",
+      "id": "PHX-WEB-035",
+      "anchor": "PHX-WEB-035",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Phoenix authorizes another eviction legal-services provider",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "City of Phoenix",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "On November 18, Phoenix authorized adding another eviction legal-services provider. The program’s combined contract ceiling remains $1,263,032."
+      ],
+      "caveats": [
+        "The vote does not establish when the new provider began serving tenants or what outcomes it achieved."
+      ],
+      "notes": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-035"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035",
+      "originals": [
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035"
+        },
+        {
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-12-01"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-035",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Phoenix authorizes another eviction legal-services provider",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "On November 18, Phoenix authorized adding another eviction legal-services provider. The program’s combined contract ceiling remains $1,263,032."
+        ],
+        "context": [
+          "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+          "PHX-WEB-035"
+        ],
+        "limitations": [
+          "The vote does not establish when the new provider began serving tenants or what outcomes it achieved."
+        ],
+        "source_ids": [
+          "PHX-N19-12-01"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-12-01"
+            ],
+            "title": "City action",
+            "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-035"
+      },
+      "searchText": "phoenix:PHX-WEB-035 PHX-WEB-035 PHX-WEB-035 phoenix updates Phoenix authorizes another eviction legal-services provider Funding / project research note City of Phoenix 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 On November 18, Phoenix authorized adding another eviction legal-services provider. The program’s combined contract ceiling remains $1,263,032. The vote does not establish when the new provider began serving tenants or what outcomes it achieved. Dated authorization, implementation or preservation record; the qualifications remain attached. PHX-WEB-035 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-035 City action https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454 PHX-N19-12-01"
+    },
+    {
+      "key": "tucson:pima-heat-relief-budget-2026-11-19",
+      "id": "pima-heat-relief-budget-2026-11-19",
+      "anchor": "pima-heat-relief-budget-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "Pima raises heat-relief budget line",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Pima County",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "On November 10, Pima County approved an amendment increasing the Heat Relief Initiative Replacement line from $72,000 to $96,022.43 under its utility program with Wildfire. The $24,022.43 increase is a change to one County budget line, separate from Phoenix’s Wildfire amendment."
+      ],
+      "caveats": [
+        "The record does not establish payment, open intake, or households served."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19",
+      "originals": [
+        {
+          "title": "County action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=61FDEEA0-3899-472E-A213-1C6B71245381&ID=8309159"
+        },
+        {
+          "title": "Amendment",
+          "url": "https://pima.legistar.com/View.ashx?G=7B470E9E-E35C-4698-8FA6-D778FB28F394&GUID=EA1B1A9B-DFB3-49A7-954C-51EFF298F19A&ID=16114454&M=F#page=1"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19"
+        },
+        {
+          "title": "County action",
+          "url": "https://pima.legistar.com/LegislationDetail.aspx?GUID=61FDEEA0-3899-472E-A213-1C6B71245381&ID=8309159"
+        },
+        {
+          "title": "Amendment",
+          "url": "https://pima.legistar.com/View.ashx?G=7B470E9E-E35C-4698-8FA6-D778FB28F394&GUID=EA1B1A9B-DFB3-49A7-954C-51EFF298F19A&ID=16114454&M=F#page=1"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "tucson:pima-heat-relief-budget-2026-11-19 pima-heat-relief-budget-2026-11-19 pima-heat-relief-budget-2026-11-19 tucson updates Pima raises heat-relief budget line Funding / project research note Pima County 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 On November 10, Pima County approved an amendment increasing the Heat Relief Initiative Replacement line from $72,000 to $96,022.43 under its utility program with Wildfire. The $24,022.43 increase is a change to one County budget line, separate from Phoenix’s Wildfire amendment. The record does not establish payment, open intake, or households served. https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19 County action https://pima.legistar.com/LegislationDetail.aspx?GUID=61FDEEA0-3899-472E-A213-1C6B71245381&ID=8309159 Amendment https://pima.legistar.com/View.ashx?G=7B470E9E-E35C-4698-8FA6-D778FB28F394&GUID=EA1B1A9B-DFB3-49A7-954C-51EFF298F19A&ID=16114454&M=F#page=1 Canonical record https://housingaccountabilityproject.github.io/research-updates.html#pima-heat-relief-budget-2026-11-19 County action https://pima.legistar.com/LegislationDetail.aspx?GUID=61FDEEA0-3899-472E-A213-1C6B71245381&ID=8309159 Amendment https://pima.legistar.com/View.ashx?G=7B470E9E-E35C-4698-8FA6-D778FB28F394&GUID=EA1B1A9B-DFB3-49A7-954C-51EFF298F19A&ID=16114454&M=F#page=1"
+    },
+    {
+      "key": "tucson:pima-state-reservations-2026-11-19",
+      "id": "pima-state-reservations-2026-11-19",
+      "anchor": "pima-state-reservations-2026-11-19",
+      "scope": "tucson",
+      "category": "updates",
+      "title": "Four Pima housing proposals appear on state reservation lists",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Statewide / Arizona Department of Housing",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Arizona’s tax-credit list identifies 67 proposed tax-credit apartments at El Rincon, 44 at Stone & Speedway Phase I, 80 at Drexel Commons and 63 at Mountain Trace Terrace. The state separately lists National Housing Trust Fund reservations of $1,918,471 for Drexel Commons and $1.3 million for Stone & Speedway."
+      ],
+      "caveats": [
+        "These are proposals and reservations, not verified construction, payments or leasing."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19",
+      "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19",
+      "originals": [
+        {
+          "title": "Tax-credit list",
+          "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1"
+        },
+        {
+          "title": "Trust-fund list",
+          "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19"
+        },
+        {
+          "title": "Tax-credit list",
+          "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1"
+        },
+        {
+          "title": "Trust-fund list",
+          "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "tucson:pima-state-reservations-2026-11-19 pima-state-reservations-2026-11-19 pima-state-reservations-2026-11-19 tucson updates Four Pima housing proposals appear on state reservation lists Funding / project research note Statewide / Arizona Department of Housing 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Arizona’s tax-credit list identifies 67 proposed tax-credit apartments at El Rincon, 44 at Stone & Speedway Phase I, 80 at Drexel Commons and 63 at Mountain Trace Terrace. The state separately lists National Housing Trust Fund reservations of $1,918,471 for Drexel Commons and $1.3 million for Stone & Speedway. These are proposals and reservations, not verified construction, payments or leasing. https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19 https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19 Tax-credit list https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1 Trust-fund list https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1 Canonical record https://housingaccountabilityproject.github.io/research-updates.html#pima-state-reservations-2026-11-19 Tax-credit list https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1 Trust-fund list https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1"
+    },
+    {
+      "key": "phoenix:resource-motel-eligibility",
+      "id": "resource-motel-eligibility",
+      "anchor": "resource-motel-eligibility",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "What a motel stay can mean for shelter eligibility",
+      "kind": "Housing help reference",
+      "topics": [],
+      "agency": "Official / operator sources",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Federal homelessness definitions generally include a motel stay paid for by a charity or government program as emergency shelter. Maricopa County’s future provider solicitation also allows hotel or motel vouchers when congregate emergency shelter is unavailable."
+      ],
+      "caveats": [
+        "These records do not establish how a specific local intake office assesses a household, whether vouchers are available now, or whether a household will be placed."
+      ],
+      "notes": [],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility",
+      "originals": [
+        {
+          "title": "Federal definition",
+          "url": "https://www.ecfr.gov/current/title-24/subtitle-B/chapter-V/subchapter-C/part-576/subpart-A/section-576.2"
+        },
+        {
+          "title": "County provider packet, pp. 5 and 20",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124877/Homelessness-NOFA-ESG-and-CDBG-Public-Services-#page=5"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility"
+        },
+        {
+          "title": "Federal definition",
+          "url": "https://www.ecfr.gov/current/title-24/subtitle-B/chapter-V/subchapter-C/part-576/subpart-A/section-576.2"
+        },
+        {
+          "title": "County provider packet, pp. 5 and 20",
+          "url": "https://www.maricopa.gov/DocumentCenter/View/124877/Homelessness-NOFA-ESG-and-CDBG-Public-Services-#page=5"
+        }
+      ],
+      "sourceIds": [],
+      "aliases": [],
+      "raw": {},
+      "searchText": "phoenix:resource-motel-eligibility resource-motel-eligibility resource-motel-eligibility phoenix updates What a motel stay can mean for shelter eligibility Housing help reference Official / operator sources 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Federal homelessness definitions generally include a motel stay paid for by a charity or government program as emergency shelter. Maricopa County’s future provider solicitation also allows hotel or motel vouchers when congregate emergency shelter is unavailable. These records do not establish how a specific local intake office assesses a household, whether vouchers are available now, or whether a household will be placed. https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility Federal definition https://www.ecfr.gov/current/title-24/subtitle-B/chapter-V/subchapter-C/part-576/subpart-A/section-576.2 County provider packet, pp. 5 and 20 https://www.maricopa.gov/DocumentCenter/View/124877/Homelessness-NOFA-ESG-and-CDBG-Public-Services-#page=5 Canonical record https://housingaccountabilityproject.github.io/phoenix/housing-help.html#resource-motel-eligibility Federal definition https://www.ecfr.gov/current/title-24/subtitle-B/chapter-V/subchapter-C/part-576/subpart-A/section-576.2 County provider packet, pp. 5 and 20 https://www.maricopa.gov/DocumentCenter/View/124877/Homelessness-NOFA-ESG-and-CDBG-Public-Services-#page=5"
+    },
+    {
+      "key": "phoenix:PHX-WEB-036",
+      "id": "PHX-WEB-036",
+      "anchor": "PHX-WEB-036",
+      "scope": "phoenix",
+      "category": "updates",
+      "title": "Goodyear approves funding for a local shelter program",
+      "kind": "Funding / project research note",
+      "topics": [],
+      "agency": "Official / operator sources",
+      "programs": [],
+      "years": [
+        "2026"
+      ],
+      "yearBasis": "Source-check date",
+      "yearNote": "November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp.",
+      "label": "Source check · November 19, 2026",
+      "summary": [
+        "Goodyear approved its FY2026–27 community funding allocations on July 6. The published list includes $10,000 for AZ Community Impact/Southwest Valley IHELP."
+      ],
+      "caveats": [
+        "The allocation is not proof of payment, added beds or current shelter availability."
+      ],
+      "notes": [
+        "The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+        "PHX-WEB-036"
+      ],
+      "metadata": [],
+      "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036",
+      "contextUrl": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036",
+      "originals": [
+        {
+          "title": "Council minutes",
+          "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200"
+        },
+        {
+          "title": "City funding list",
+          "url": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city"
+        },
+        {
+          "title": "Official July 6 staff presentation · IHELP $10,000, PDF page 5",
+          "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5"
+        }
+      ],
+      "links": [
+        {
+          "title": "Canonical record",
+          "url": "https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036"
+        },
+        {
+          "title": "Council minutes",
+          "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200"
+        },
+        {
+          "title": "City funding list",
+          "url": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city"
+        },
+        {
+          "title": "Official July 6 staff presentation · IHELP $10,000, PDF page 5",
+          "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5"
+        }
+      ],
+      "sourceIds": [
+        "PHX-N19-16-01",
+        "PHX-N19-16-02",
+        "PHX-N19-16-03"
+      ],
+      "aliases": [],
+      "raw": {
+        "id": "PHX-WEB-036",
+        "aliases": [],
+        "topic": "funding",
+        "kind": "reported",
+        "title": "Goodyear approves funding for a local shelter program",
+        "labels": [
+          "Source check · November 19, 2026"
+        ],
+        "summary": [
+          "Goodyear approved its FY2026–27 community funding allocations on July 6. The published list includes $10,000 for AZ Community Impact/Southwest Valley IHELP."
+        ],
+        "context": [
+          "The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+          "PHX-WEB-036"
+        ],
+        "limitations": [
+          "The allocation is not proof of payment, added beds or current shelter availability."
+        ],
+        "source_ids": [
+          "PHX-N19-16-01",
+          "PHX-N19-16-02",
+          "PHX-N19-16-03"
+        ],
+        "citations": [
+          {
+            "source_ids": [
+              "PHX-N19-16-01"
+            ],
+            "title": "Council minutes",
+            "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-16-02"
+            ],
+            "title": "City funding list",
+            "url": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city",
+            "locator": ""
+          },
+          {
+            "source_ids": [
+              "PHX-N19-16-03"
+            ],
+            "title": "Official July 6 staff presentation · IHELP $10,000, PDF page 5",
+            "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+            "locator": ""
+          }
+        ],
+        "page_url": "index.html#PHX-WEB-036"
+      },
+      "searchText": "phoenix:PHX-WEB-036 PHX-WEB-036 PHX-WEB-036 phoenix updates Goodyear approves funding for a local shelter program Funding / project research note Official / operator sources 2026 Source-check date November 19, 2026 is the source-check date. The dated periods and events in the text retain their separate meanings; this is not a uniform funding year or a publication timestamp. Source check · November 19, 2026 Goodyear approved its FY2026–27 community funding allocations on July 6. The published list includes $10,000 for AZ Community Impact/Southwest Valley IHELP. The allocation is not proof of payment, added beds or current shelter availability. The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation. PHX-WEB-036 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036 https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036 Council minutes https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200 City funding list https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city Official July 6 staff presentation · IHELP $10,000, PDF page 5 https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5 Canonical record https://housingaccountabilityproject.github.io/phoenix/index.html#PHX-WEB-036 Council minutes https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200 City funding list https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city Official July 6 staff presentation · IHELP $10,000, PDF page 5 https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5 PHX-N19-16-01 PHX-N19-16-02 PHX-N19-16-03"
     }
   ],
   "coverage": {
-    "phoenix": "92 public entries. 18 funding entries, 59 source and evidence entries, 13 questions and 2 updates. Selected records are not complete program or year coverage.",
-    "tucson": "126 public entries. 12 funding entries, 68 source and evidence entries, 23 questions and 23 updates. Selected records are not complete program or year coverage."
+    "phoenix": "102 public entries. 18 funding entries, 59 source and evidence entries, 13 questions and 12 updates. Selected records are not complete program or year coverage.",
+    "tucson": "132 public entries. 12 funding entries, 68 source and evidence entries, 23 questions and 29 updates. Selected records are not complete program or year coverage."
   },
   "coverageAudit": {
     "phoenix": [

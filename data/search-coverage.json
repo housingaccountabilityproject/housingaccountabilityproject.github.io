@@ -12,12 +12,12 @@
   {
     "page": "evidence.html",
     "records": 103,
-    "text_nodes": 1208
+    "text_nodes": 1211
   },
   {
     "page": "findings.html",
-    "records": 28,
-    "text_nodes": 526
+    "records": 29,
+    "text_nodes": 539
   },
   {
     "page": "funding-explorer.html",
@@ -66,8 +66,8 @@
   },
   {
     "page": "research-updates.html",
-    "records": 46,
-    "text_nodes": 804
+    "records": 52,
+    "text_nodes": 843
   },
   {
     "page": "research.html",

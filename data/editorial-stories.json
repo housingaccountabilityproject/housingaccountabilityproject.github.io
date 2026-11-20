@@ -4,8 +4,8 @@
     "tucson-house": {
       "source": "findings.html#f-012",
       "headlineSelector": ".//h3",
-      "summarySelector": "./p[@class='fact'] | ./p[4] | ./p[5]",
-      "qualificationSelector": ".//div[@class='detail']",
+      "summarySelector": "./p[@class=\"approved-summary\"]",
+      "qualificationSelector": "./div[@class=\"approved-qualification\"]",
       "labelSelector": ".//span[@class='id']",
       "placements": {
         "tucson": "lead"
@@ -22,9 +22,27 @@
       "recordKey": "phoenix:PHX-WEB-007",
       "destination": "phoenix/projects/moreland.html",
       "placements": {
-        "phoenix": "lead"
+        "phoenix": "reading"
       },
       "relatedRecordKey": "phoenix:PHX-WEB-010"
+    },
+    "approved-nov19-10": {
+      "recordKey": "phoenix:PHX-WEB-033",
+      "placements": {
+        "phoenix": "reading"
+      }
+    },
+    "approved-nov19-11": {
+      "recordKey": "phoenix:PHX-WEB-034",
+      "placements": {
+        "phoenix": "reading"
+      }
+    },
+    "approved-nov19-12": {
+      "recordKey": "phoenix:PHX-WEB-035",
+      "placements": {
+        "phoenix": "reading"
+      }
     },
     "county-housing-funding": {
       "recordKey": "tucson:research-updates.html#county-housing-funding-2026-11-08",
@@ -41,13 +59,13 @@
     "moreland-i-financing": {
       "recordKey": "phoenix:PHX-WEB-009",
       "placements": {
-        "phoenix": "reading"
+        "phoenix": "archive"
       }
     },
     "phoenix-housing-counts": {
       "recordKey": "phoenix:project-counts-and-shelter-funding",
       "placements": {
-        "phoenix": "reading"
+        "phoenix": "archive"
       }
     },
     "tucson-final-report": {
@@ -84,6 +102,74 @@
       "recordKey": "phoenix:question-bell-06",
       "placements": {
         "phoenix": "watch"
+      }
+    },
+    "approved-nov19-02": {
+      "recordKey": "phoenix:resource-wvhac",
+      "placements": {
+        "phoenix": "lead"
+      }
+    },
+    "approved-nov19-04": {
+      "recordKey": "tucson:tucson-house-community-services-2026-11-19",
+      "placements": {
+        "tucson": "archive"
+      }
+    },
+    "approved-nov19-05": {
+      "recordKey": "tucson:pima-supportive-services-budget-2026-11-19",
+      "placements": {
+        "tucson": "archive"
+      }
+    },
+    "approved-nov19-06": {
+      "recordKey": "tucson:arizona-shelter-reservations-2026-11-19",
+      "placements": {
+        "tucson": "archive",
+        "phoenix": "archive"
+      }
+    },
+    "approved-nov19-07": {
+      "recordKey": "phoenix:PHX-WEB-031",
+      "placements": {
+        "phoenix": "archive"
+      }
+    },
+    "approved-nov19-08": {
+      "recordKey": "phoenix:PHX-WEB-032",
+      "placements": {
+        "phoenix": "archive"
+      }
+    },
+    "approved-nov19-09": {
+      "recordKey": "tucson:tucson-phoenix-rent-benchmarks-2026-11-19",
+      "placements": {
+        "tucson": "archive",
+        "phoenix": "archive"
+      }
+    },
+    "approved-nov19-13": {
+      "recordKey": "tucson:pima-heat-relief-budget-2026-11-19",
+      "placements": {
+        "tucson": "archive"
+      }
+    },
+    "approved-nov19-14": {
+      "recordKey": "tucson:pima-state-reservations-2026-11-19",
+      "placements": {
+        "tucson": "archive"
+      }
+    },
+    "approved-nov19-15": {
+      "recordKey": "phoenix:resource-motel-eligibility",
+      "placements": {
+        "phoenix": "archive"
+      }
+    },
+    "approved-nov19-16": {
+      "recordKey": "phoenix:PHX-WEB-036",
+      "placements": {
+        "phoenix": "archive"
       }
     }
   }

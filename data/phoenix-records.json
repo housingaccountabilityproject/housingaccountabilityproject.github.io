@@ -12,7 +12,9 @@
       "hamc": "Housing Authority of Maricopa County",
       "r4-capital": "R4 Capital (investor)",
       "city-tempe": "City of Tempe",
-      "molinacares": "MolinaCares (project partner)"
+      "molinacares": "MolinaCares (project partner)",
+      "national-church-residences": "National Church Residences (operator)",
+      "city-goodyear": "City of Goodyear"
     },
     "programs": {
       "home": "HOME",
@@ -710,6 +712,253 @@
             "url": "https://www.maricopa.gov/DocumentCenter/View/124683/Public-Notice-2025-29-Consolidated-Plan-Substantial-Amendment"
           }
         ]
+      }
+    },
+    {
+      "id": "PHX-N19-03-01",
+      "title": "State credit list",
+      "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-03-01",
+      "metadata": {
+        "agency": "arizona-housing",
+        "programs": [
+          "lihtc"
+        ],
+        "document_type": "award-schedule",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-007",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-03-02",
+      "title": "National Housing Trust Fund list",
+      "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-03-02",
+      "metadata": {
+        "agency": "arizona-housing",
+        "programs": [
+          "general"
+        ],
+        "document_type": "award-schedule",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-007",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-07-01",
+      "title": "City implementation memo, p. 8",
+      "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-07-01",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "status-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-031",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-07-02",
+      "title": "City vendor roster",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-07-02",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-031",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-08-01",
+      "title": "Operator",
+      "url": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-08-01",
+      "metadata": {
+        "agency": "national-church-residences",
+        "programs": [
+          "general"
+        ],
+        "document_type": "public-statement",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-032",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-08-02",
+      "title": "Issuer",
+      "url": "https://phoenixida.com/bond-financing-process/bond-transactions/",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-08-02",
+      "metadata": {
+        "agency": "phoenix-ida",
+        "programs": [
+          "general"
+        ],
+        "document_type": "financing-schedule",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-032",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-08-03",
+      "title": "City authorization",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-08-03",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-032",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-10-01",
+      "title": "City action",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-10-01",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-033",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-11-01",
+      "title": "City action",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-11-01",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-034",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-12-01",
+      "title": "City action",
+      "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454",
+      "note": "Source check November 19, 2026. Read with the story’s source dates and qualifications; no payment or availability is established.",
+      "page_url": "index.html#source-PHX-N19-12-01",
+      "metadata": {
+        "agency": "city-phoenix",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-035",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-16-01",
+      "title": "Council minutes",
+      "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+      "note": "Source check November 19, 2026. The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+      "page_url": "index.html#source-PHX-N19-16-01",
+      "metadata": {
+        "agency": "city-goodyear",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-minutes",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-036",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-16-02",
+      "title": "City funding list",
+      "url": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city",
+      "note": "Source check November 19, 2026. The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+      "page_url": "index.html#source-PHX-N19-16-02",
+      "metadata": {
+        "agency": "city-goodyear",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-036",
+        "retrieved_on": "2026-11-19"
+      }
+    },
+    {
+      "id": "PHX-N19-16-03",
+      "title": "Official July 6 staff presentation · IHELP $10,000, PDF page 5",
+      "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+      "note": "Source check November 19, 2026. The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+      "page_url": "index.html#source-PHX-N19-16-03",
+      "metadata": {
+        "agency": "city-goodyear",
+        "programs": [
+          "general"
+        ],
+        "document_type": "council-report",
+        "reporting_years": [],
+        "year_status": "not-established",
+        "date_basis": "Source check November 19, 2026; see the linked story for the separate event, reservation and historical dates. No common active funding period is inferred.",
+        "date_basis_url": "index.html#PHX-WEB-036",
+        "retrieved_on": "2026-11-19"
       }
     },
     {
@@ -1534,27 +1783,56 @@
       "aliases": [],
       "topic": "projects",
       "kind": "planned",
-      "title": "The Moreland: planned phases",
+      "title": "Moreland Phase II",
       "labels": [
         "Planned development scope, not completed units"
       ],
       "summary": [
-        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
-        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028."
+        "Arizona’s reservation lists show $2.5 million in annual low-income housing tax credits and a separate $3 million National Housing Trust Fund reservation for Moreland Phase II. The state lists 105 proposed apartments: 78 tax-credit units and 27 market-rate units. These reservations are separate from Phoenix’s authorization of up to $10 million and the proposal for 54 project-based vouchers."
       ],
       "context": [
+        "The Moreland is planned as two phases totaling 237 apartments: 132 in Phase I and 105 in Phase II.",
+        "At the June 17, 2026 Council action, the staff report described Phase I as under construction and forecast completion in February 2028.",
         "Scope The Moreland I and II, replacing the former Deck Park Vista development Time period June 17, 2026 Council report",
         "PHX-WEB-007 · Approved financing action describing development scope"
       ],
       "limitations": [
+        "The records reviewed do not establish disbursement, voucher activation, or apartment availability.",
         "Keep in mind. An older accomplishments summary labels Phase I with 237; do not use 237 as completed Phase I units. The February 2028 forecast reflects the June 2026 report. Current construction status and actual completion remain unverified."
       ],
       "source_ids": [
         "PHX-EXT-PROJECT-002",
         "PHX-EXT-PROJECT-004",
-        "PHX-EXT-PROJECT-001"
+        "PHX-EXT-PROJECT-001",
+        "PHX-CITY-010",
+        "PHX-N19-03-01",
+        "PHX-N19-03-02"
       ],
       "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-03-01"
+          ],
+          "title": "State credit list",
+          "url": "https://housing.az.gov/sites/default/files/2026-06/2026%209%25%20LIHTC%20Reservation%20List.pdf#page=1",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-03-02"
+          ],
+          "title": "National Housing Trust Fund list",
+          "url": "https://housing.az.gov/sites/default/files/2026-07/FY2026%20NHTF%20Reservation%20List.pdf#page=1",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-CITY-010"
+          ],
+          "title": "City Agency Plan",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/housingsite/documents/reports/2026-2027_Annual_Agency_Plan_final.pdf",
+          "locator": ""
+        },
         {
           "source_ids": [
             "PHX-EXT-PROJECT-002"
@@ -1848,6 +2126,255 @@
         }
       ],
       "page_url": "index.html#MC-PLAN-WEB-001"
+    },
+    {
+      "id": "PHX-WEB-031",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Phoenix Master Lease",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "A Phoenix staff memo dated October 29 reports that the city identified 15 private-market units for the first group of its master-leasing program and selected A New Leaf. The memo describes planned leasing and support services; the city’s published qualified-vendor list identifies A New Leaf for housing-based services."
+      ],
+      "context": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-031"
+      ],
+      "limitations": [
+        "The records reviewed do not establish the final scope of a signed agreement, the number of signed leases, or tenant move-ins."
+      ],
+      "source_ids": [
+        "PHX-N19-07-01",
+        "PHX-N19-07-02"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-07-01"
+          ],
+          "title": "City implementation memo, p. 8",
+          "url": "https://www.phoenix.gov/content/dam/phoenix/cityclerksite/city-council-meeting-files/2026/10-29-26_General_Information_Packet.pdf#page=8",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-07-02"
+          ],
+          "title": "City vendor roster",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=E856AF50-4F66-49C4-A333-4ED78B0798C4&ID=8215397",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-031"
+    },
+    {
+      "id": "PHX-WEB-032",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Memorial Towers",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "National Church Residences reported that Memorial Towers reopened after rehabilitation on August 25, 2026. The property includes 152 apartments for seniors and one employee unit. The Phoenix Industrial Development Authority lists a December 2024 bond closing of $33,997,229. The City separately authorized a federal HOME loan of up to $1 million for the rehabilitation."
+      ],
+      "context": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-032"
+      ],
+      "limitations": [
+        "The bond closing and loan authorization do not establish HOME disbursements or current apartment availability."
+      ],
+      "source_ids": [
+        "PHX-N19-08-01",
+        "PHX-N19-08-02",
+        "PHX-N19-08-03"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-08-01"
+          ],
+          "title": "Operator",
+          "url": "https://www.nationalchurchresidences.org/blog/memorial-towers-grand-reopening/",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-08-02"
+          ],
+          "title": "Issuer",
+          "url": "https://phoenixida.com/bond-financing-process/bond-transactions/",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-08-03"
+          ],
+          "title": "City authorization",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=9B696C0B-67E0-4B66-84DE-5741A87D7222&ID=6648705",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-032"
+    },
+    {
+      "id": "PHX-WEB-033",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Phoenix expands utility-aid authorization",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "On November 18, Phoenix authorized up to $100,000 more for emergency Arizona Public Service utility assistance through Wildfire, bringing the contract ceiling to $2,333,032. Staff estimated the increase could assist about 150 additional households."
+      ],
+      "context": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-033"
+      ],
+      "limitations": [
+        "The vote does not show how much has been paid or how many households received assistance."
+      ],
+      "source_ids": [
+        "PHX-N19-10-01"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-10-01"
+          ],
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=4D4BF785-91B9-40C8-8591-AC977C292AC0&ID=8317452",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-033"
+    },
+    {
+      "id": "PHX-WEB-034",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Laveen Park Place advances to financing proceedings",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "On November 18, Phoenix approved financing proceedings for up to $50 million in conduit notes and bonds for Laveen Park Place Phase I, which proposes about 216 rental apartments."
+      ],
+      "context": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-034"
+      ],
+      "limitations": [
+        "This is a financing authorization, not a city grant. Issuance, the final number of income-restricted apartments and availability have not been verified."
+      ],
+      "source_ids": [
+        "PHX-N19-11-01"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-11-01"
+          ],
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=0C75CA14-2579-47B3-8CEF-823CC8C6D004&ID=8317451",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-034"
+    },
+    {
+      "id": "PHX-WEB-035",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Phoenix authorizes another eviction legal-services provider",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "On November 18, Phoenix authorized adding another eviction legal-services provider. The program’s combined contract ceiling remains $1,263,032."
+      ],
+      "context": [
+        "Dated authorization, implementation or preservation record; the qualifications remain attached.",
+        "PHX-WEB-035"
+      ],
+      "limitations": [
+        "The vote does not establish when the new provider began serving tenants or what outcomes it achieved."
+      ],
+      "source_ids": [
+        "PHX-N19-12-01"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-12-01"
+          ],
+          "title": "City action",
+          "url": "https://phoenix.legistar.com/LegislationDetail.aspx?GUID=075B45D5-E198-424E-A961-1AD89C1AB262&ID=8317454",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-035"
+    },
+    {
+      "id": "PHX-WEB-036",
+      "aliases": [],
+      "topic": "funding",
+      "kind": "reported",
+      "title": "Goodyear approves funding for a local shelter program",
+      "labels": [
+        "Source check · November 19, 2026"
+      ],
+      "summary": [
+        "Goodyear approved its FY2026–27 community funding allocations on July 6. The published list includes $10,000 for AZ Community Impact/Southwest Valley IHELP."
+      ],
+      "context": [
+        "The City funding-list page returned HTTP 403 during this check. The linked July 6 Council minutes and official staff presentation independently support the approved allocation.",
+        "PHX-WEB-036"
+      ],
+      "limitations": [
+        "The allocation is not proof of payment, added beds or current shelter availability."
+      ],
+      "source_ids": [
+        "PHX-N19-16-01",
+        "PHX-N19-16-02",
+        "PHX-N19-16-03"
+      ],
+      "citations": [
+        {
+          "source_ids": [
+            "PHX-N19-16-01"
+          ],
+          "title": "Council minutes",
+          "url": "https://public.destinyhosted.com/46639/agenda/minutes.cfm?meetingId=2200",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-16-02"
+          ],
+          "title": "City funding list",
+          "url": "https://www.goodyearaz.gov/our-city/residents/neighborhood-services/grants-given-by-city",
+          "locator": ""
+        },
+        {
+          "source_ids": [
+            "PHX-N19-16-03"
+          ],
+          "title": "Official July 6 staff presentation · IHELP $10,000, PDF page 5",
+          "url": "https://public.destinyhosted.com/goodydocs/2026/CC/20260706_2200/3337_FY26-27_Community_Funding_Staff_Presentation.pdf#page=5",
+          "locator": ""
+        }
+      ],
+      "page_url": "index.html#PHX-WEB-036"
     },
     {
       "id": "question-overview-01",

@@ -3,7 +3,20 @@
   'use strict';
   const data=window.HAP_FUNDING_PERIODS_DATA;
   const unknown='Unknown / not established';
-  const rows=new Map((data?.records||[]).map(r=>[r.scope+':'+r.id.toLowerCase(),r]));
+  const records=Array.isArray(data?.records)?data.records:[];
+  // Existing Tucson keys retain their page#fragment aliases; the lookup identity is scope + ID.
+  const identityKey=key=>typeof key==='string'?key.replace(/:[^#]+#/,':').toLowerCase():'';
+  const validRow=r=>r&&['tucson','phoenix'].includes(r.scope)&&typeof r.id==='string'&&r.id.length>0
+    &&identityKey(r.key)===(r.scope+':'+r.id).toLowerCase()
+    &&r.programPeriod&&typeof r.programPeriod.label==='string'
+    &&typeof r.programPeriod.explanation==='string'&&typeof r.programPeriod.status==='string'
+    &&Array.isArray(r.programPeriod.years)&&r.programPeriod.years.every(y=>typeof y==='string'&&/^\d{4}$/.test(y))
+    &&new Set(r.programPeriod.years).size===r.programPeriod.years.length;
+  const rows=new Map(records.filter(validRow).map(r=>[r.scope+':'+r.id.toLowerCase(),r]));
+  const requiredKeys=data?.requiredKeys;
+  const ready=data?.schemaVersion===1&&records.length>0&&records.every(validRow)&&rows.size===records.length
+    &&Array.isArray(requiredKeys)&&requiredKeys.length>0&&new Set(requiredKeys.map(identityKey)).size===requiredKeys.length
+    &&requiredKeys.every(key=>typeof key==='string'&&rows.has(identityKey(key)));
   const make=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
   function get(scope,id){return rows.get(scope+':'+String(id).toLowerCase());}
   function years(row){
@@ -59,5 +72,5 @@
     const heading=target.querySelector(':scope > h2,:scope > h3');
     if(heading)heading.after(box);else target.prepend(box);
   }
-  window.HAPFundingPeriods={get,label,years,hasUnknown,values,help,reviewLabel,matches,fill,control,decorate,optionLabel,ready:rows.size===31};
+  window.HAPFundingPeriods={get,label,years,hasUnknown,values,help,reviewLabel,matches,fill,control,decorate,optionLabel,ready};
 })();

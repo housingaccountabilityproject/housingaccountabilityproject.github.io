@@ -12,6 +12,8 @@ const output=process.env.FUNDING_TEST_OUTPUT||'/tmp/hap-funding-framework';
 const server=process.env.FUNDING_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8773','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 mkdirSync(output,{recursive:true});
 const dataset=JSON.parse(readFileSync(new URL('../data/category-search.json',import.meta.url)));
+const approvedLists=JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json',import.meta.url)));
+const expectedPhoenixFunding=approvedLists.phoenixFunding.expectedIds;
 const log=[],pdfs=[],errors=[];
 const yearsById={
  'MC-HOME-WEB-001':['2027','2028'],'PHX-WEB-012':['2024'],
@@ -22,6 +24,7 @@ const yearsById={
  'county-price-funding-2026':['2025','2026','2027','2028','2029','2030','2031','2032'],'county-funding-fy27-q1':['2026','2027'],
  'federal-allocations-2026':['2026','2027'],'coc-request-2026':['2026']
 };
+for(const row of approvedLists.periodAdditions)if(row.years.length)yearsById[row.id]=row.years;
 const normalize=id=>id.startsWith('fund-pub-')?id.toUpperCase():id;
 const priceExplanation='The two Pima County PRICE agreements cover July 1, 2026 through June 30, 2029. They are part of, not additional to, the City of Tucson’s broader federal PRICE award, which runs from January 15, 2025 through September 20, 2032.';
 function match(id,value){id=normalize(id);return !value||(value==='__not_applicable'?id==='PHX-CFP-WEB-006':value==='__unknown'||value==='__unindexed'?(!yearsById[id]||['BELL-06','PHX-WEB-012'].includes(id))&&id!=='PHX-CFP-WEB-006':(yearsById[id]||[]).includes(value));}
@@ -67,7 +70,8 @@ async function primary(width,scope){
  if(phx)await page.getByRole('button',{name:'Funding',exact:true}).click();
  const cards=page.locator(phx?'.record-card[data-group="funding"]':'[data-catalog-entry]');
  const ids=await cards.evaluateAll(ns=>ns.map(n=>n.id));
- assert.equal(ids.length,phx?19:7);
+ assert.equal(ids.length,phx?expectedPhoenixFunding.length:7);
+ if(phx){assert.deepEqual(ids,expectedPhoenixFunding,'Independent approved Funding order');assert.equal(new Set(ids).size,expectedPhoenixFunding.length,'Unique approved Funding IDs');}
  assert.equal(await cards.locator(':scope > .funding-period').count(),ids.length,'period on every Funding record');
  assert.equal(await cards.locator(':scope > .funding-period > p').filter({hasText:'Period evidence checked'}).count(),ids.length);
  assert.equal(await select.getAttribute('aria-describedby'),phx?'funding-year-help':'catalog-funding-help');

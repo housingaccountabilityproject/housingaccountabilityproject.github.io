@@ -25,5 +25,5 @@ source_ids=[r['id'] for r in fixture['registers']['evidence.html'][0]]
 extra=[r for r in source_records if r['url'].split('#')[-1] not in source_ids]
 assert len(source_records)==68 and len(source_ids)==67
 assert [(r['id'],r['title']) for r in extra]==[('source-excerpts','Let Readers Check the Evidence')]
-print(f"PASS fixed baseline {fixture['commit']}: {len(fixture['files'])} data/download hashes and {count} ordered record fingerprints; text, dates, IDs, aliases, links and qualifications unchanged.")
+print(f"PASS reviewed research baseline {fixture.get('research_update_baseline', fixture['commit'])}: {len(fixture['files'])} data/download hashes and {count} ordered record fingerprints match the individually reviewed changes; other text, dates, IDs, aliases, links and qualifications are preserved.")
 print('PASS scope difference: 67 source-register rows; category search additionally includes source-excerpts, the explanatory evidence section (68).')

@@ -3,11 +3,14 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
+const {createHash}=require('node:crypto');
 const root=path.resolve(__dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const fixture=JSON.parse(read('scripts/fixtures/funding-period-framework.json'));
 const published=JSON.parse(read('data/funding-browser-periods.json'));
 const original=JSON.parse(read('data/funding-periods.json'));
+const approved=JSON.parse(read('scripts/fixtures/_nov19-approved-lists.json'));
+const expectedTotal=approved.baselinePeriodKeys.length+approved.periodAdditions.length;
 function load(data){
  const context=vm.createContext({window:{HAP_FUNDING_PERIODS_DATA:data}});
  vm.runInContext(read('assets/funding-periods.js'),context);
@@ -40,11 +43,16 @@ const sample=handoff.records[0];sample.programPeriod={years:[],status:'not_appli
 const integrated=load(handoff),old={...fixture.records[0],category:'funding',topics:[],searchText:''};
 equal(integrated.core.matches(old,{scope:'tucson',category:'funding',year:'__not_applicable',query:''}),true,'handoff status overrides old status');
 equal(integrated.core.matches(old,{scope:'tucson',category:'funding',year:'__unindexed',query:''}),false,'not-applicable remains distinct from unknown');
-equal(published.records.length,31,'all existing Funding annotations retained');
+equal(published.records.length,expectedTotal,'existing annotations plus independently reviewed additions');
+equal(published.requiredKeys,approved.baselinePeriodKeys,'required baseline identities are unchanged');
+for(const [key,hash] of Object.entries(approved.baselinePeriodHashes)){
+ const row=published.records.find(r=>r.key===key);assert(row,key+' baseline row retained');assertions++;
+ equal(createHash('sha256').update(JSON.stringify(row)).digest('hex'),hash,key+' baseline metadata unchanged');
+}
 const bundle=vm.createContext({window:{}});vm.runInContext(read('assets/funding-periods-data.js'),bundle);
 equal(bundle.window.HAP_FUNDING_PERIODS_DATA,published,'production bundle matches the handoff ledger exactly');
 equal(published.records.filter(r=>r.scope==='tucson').length,12,'Tucson scope retained');
-equal(published.records.filter(r=>r.scope==='phoenix').length,19,'Phoenix scope retained');
+equal(published.records.filter(r=>r.scope==='phoenix').length,approved.phoenixFunding.expectedIds.length,'Phoenix scope plus reviewed additions');
 for(const row of published.records){
  assert(!row.id.startsWith('TEST-'),'no synthetic IDs in production');assertions++;
  assert(['awaiting_handoff','accepted_handoff'].includes(row.review.status),row.id+' explicit review state');assertions++;
@@ -75,7 +83,20 @@ for(const scope of ['tucson','phoenix']){
  equal(m.core.matches(record,{scope,category:'funding',year:'2024',query:'year:unknown'}),true,scope+' unknown query intersects known year');
 }
 const live=load(published),byId=id=>published.records.find(r=>r.id===id);
-equal(published.records.filter(r=>r.review.status==='accepted_handoff').length,31,'30 handoff records plus retained nineteenth browser record');
+equal(published.records.filter(r=>r.review.status==='accepted_handoff').length,expectedTotal,'all retained and added annotations have provenance');
+equal(live.api.ready,true,'valid extended annotation set loads');
+const onlyBaseline=structuredClone(published);onlyBaseline.records=onlyBaseline.records.filter(r=>approved.baselinePeriodKeys.includes(r.key));
+equal(load(onlyBaseline).api.ready,true,'baseline identities load without requiring the new total');
+const missing=structuredClone(published);missing.records.shift();equal(load(missing).api.ready,false,'missing baseline identity rejects readiness');
+const duplicate=structuredClone(published);duplicate.records.push(duplicate.records[0]);equal(load(duplicate).api.ready,false,'duplicate identity rejects readiness');
+const malformed=structuredClone(published);malformed.records.push({key:'phoenix:READINESS-PROBE',scope:'phoenix',id:'READINESS-PROBE'});equal(load(malformed).api.ready,false,'malformed addition rejects readiness');
+const extended=structuredClone(published),probe=structuredClone(published.records.at(-1));probe.id='READINESS-PROBE';probe.key='phoenix:'+probe.id;extended.records.push(probe);
+equal(load(extended).api.ready,true,'a structurally valid further addition has no fixed-total guard');
+for(const expected of approved.periodAdditions){
+ const row=byId(expected.id);equal(live.api.years(row),expected.years,expected.id+' independently supported years');
+ equal(live.api.matches(row,'__unknown'),expected.unknown,expected.id+' explicit unknown status');
+ for(const year of ['2024','2025','2026','2027','2028'])equal(live.api.matches(row,year),expected.years.includes(year),expected.id+' period year '+year);
+}
 equal(live.api.years(byId('BELL-06')),['2019','2020'],'checked HOME pool vintages, not adoption year alone');
 equal(live.api.years(byId('county-price-funding-2026')),['2025','2026','2027','2028','2029','2030','2031','2032'],'full City performance term, each supported overlapping year');
 equal(live.api.matches(byId('county-price-funding-2026'),'2033'),false,'no year beyond documented term');
@@ -83,7 +104,8 @@ equal(live.api.years(byId('county-funding-fy27-q1')),['2026','2027'],'quarter in
 const q=byId('county-funding-fy27-q1').programPeriod.periods[0];
 equal(q.yearMatches.find(m=>m.year==='2027').basis,'source_year_label','FY2027 is not calendar-2027 activity');
 equal(q.yearMatches.find(m=>m.year==='2026').basis,'calendar_overlap','quarter calendar overlap is 2026');
-for(const [scope,known,unknown,na] of [['tucson',11,1,0],['phoenix',7,13,1]]){
+const addedKnown=approved.periodAdditions.filter(r=>r.years.length).length,addedUnknown=approved.periodAdditions.filter(r=>r.unknown).length;
+for(const [scope,known,unknown,na] of [['tucson',11,1,0],['phoenix',approved.baselinePhoenixPeriodCounts.known+addedKnown,approved.baselinePhoenixPeriodCounts.unknown+addedUnknown,approved.baselinePhoenixPeriodCounts.notApplicable]]){
  const rs=published.records.filter(r=>r.scope===scope);
  equal(rs.filter(r=>live.api.years(r).length>0).length,known,scope+' supported record count');
  equal(rs.filter(r=>live.api.matches(r,'__unknown')).length,unknown,scope+' unknown includes mixed and browser-only record');
