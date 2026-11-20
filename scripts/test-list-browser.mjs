@@ -10,9 +10,24 @@ const output=process.env.LIST_TEST_OUTPUT||'/tmp/hap-list-browser';mkdirSync(out
 const server=process.env.LIST_TEST_BASE_URL?null:spawn('python3',['-m','http.server','8776','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 const fixture=JSON.parse(readFileSync(new URL('./fixtures/six-entry-baseline.json',import.meta.url)));
 const approvedLists=JSON.parse(readFileSync(new URL('./fixtures/_nov19-approved-lists.json',import.meta.url)));
-const expectedPhoenixUpdates=approvedLists.phoenixUpdates.expectedIds;
+const batchA=JSON.parse(readFileSync(new URL('./fixtures/phoenix-batch-a-nov20.json',import.meta.url)));
+const priorPhoenixUpdates=approvedLists.phoenixUpdates.expectedIds;
+const addedPhoenixUpdate='phoenix:PHX-WEB-037'; // The 71,128 explainer (038) belongs to Sources.
+assert(batchA.addedRecordIds.includes(addedPhoenixUpdate.split(':')[1]),'Survey is an approved Batch A record');
+const expectedPhoenixUpdates=[...priorPhoenixUpdates,addedPhoenixUpdate];
 assert.equal(new Set(expectedPhoenixUpdates).size,expectedPhoenixUpdates.length,'Independent approved Phoenix Update IDs are unique');
-assert.deepEqual(expectedPhoenixUpdates.filter(id=>!approvedLists.phoenixUpdates.sharedIds.includes(id)),approvedLists.phoenixUpdates.preSharedIds,'Approved shared stories preserve the existing Phoenix Update order');
+assert.deepEqual(expectedPhoenixUpdates.filter(id=>!approvedLists.phoenixUpdates.sharedIds.includes(id)),[...approvedLists.phoenixUpdates.preSharedIds,addedPhoenixUpdate],'Approved shared stories preserve the existing Phoenix Update order');
+const priorPhoenixRecordIds=fixture.registers['phoenix/records.html'][0].map(r=>r.id);
+const phoenixSourceInsertion=priorPhoenixRecordIds.indexOf(batchA.sourceInsertionAfter);
+assert(phoenixSourceInsertion>=0,'Independent Phoenix source insertion anchor survives');
+const expectedPhoenixRecordIds=[
+ ...batchA.addedRecordIds,
+ ...priorPhoenixRecordIds.slice(0,phoenixSourceInsertion+1),
+ ...batchA.addedSourceIds,
+ ...priorPhoenixRecordIds.slice(phoenixSourceInsertion+1),
+];
+assert.equal(new Set(expectedPhoenixRecordIds).size,expectedPhoenixRecordIds.length,'Independent approved Phoenix record IDs are unique');
+assert.deepEqual(expectedPhoenixRecordIds,batchA.phoenixRecordFingerprints[0].map(r=>r.id),'Batch A fingerprints preserve the independently composed Phoenix record order');
 const specs=[
  ['evidence.html','#sources tbody tr','sources',0],['evidence.html','#questions tbody tr','questions',1],
  ['questions-records.html','[data-catalog-entry]','catalog',0],['funding-explorer.html','[data-catalog-entry]','catalog',0],['housing-projects.html','[data-catalog-entry]','catalog',0],
@@ -43,7 +58,7 @@ try{
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
  await page.route('**/*',r=>r.request().url().startsWith(base+'/')?r.continue():r.abort());
  for(const [path,selector,prefix,index] of specs){
-  await page.goto(base+'/'+path);const expected=fixture.registers[path][index].map(r=>r.id),seen=[];
+  await page.goto(base+'/'+path);const expected=path==='phoenix/records.html'?expectedPhoenixRecordIds:fixture.registers[path][index].map(r=>r.id),seen=[];
   do{
    const ids=await page.locator(selector+':visible').evaluateAll(nodes=>nodes.map(n=>n.id));assert(ids.length<=6);seen.push(...ids);
    if(await page.locator('#'+prefix+'-next').isDisabled())break;
