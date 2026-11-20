@@ -9,8 +9,10 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'ba87383359bdc0ba3de5042533dd7d78f720918d'
-APPROVED_IMAGE = 'assets/tucson-house-arizona.webp'
-APPROVED_IMAGE_SHA256 = '20327d03e39a4cba6d5cb8118b43bc2969d1c636bca30104f90a478cf56b6353'
+APPROVED_IMAGES = {
+    'assets/tucson-house-arizona.webp': '20327d03e39a4cba6d5cb8118b43bc2969d1c636bca30104f90a478cf56b6353',
+    'assets/editorial/surprise-west-valley-sketch.webp': '7dab28f1bb0e689f6532d9cb4d0eb24ed3da0d966b5858b6a769552920ac7e23',
+}
 PREVIEW_LINK = re.compile(rb'https?://[^\s<>"\x27)]+[.]chatgpt[.]site', re.I)
 
 
@@ -49,10 +51,10 @@ def main():
     for name in changed:
         path = ROOT / name
         if path.suffix.lower() in {'.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.avif'} and path.is_file():
-            assert name == APPROVED_IMAGE, 'Unexpected changed image'
-            assert hashlib.sha256(path.read_bytes()).hexdigest() == APPROVED_IMAGE_SHA256, 'Approved image bytes changed'
+            assert name in APPROVED_IMAGES, 'Unexpected changed image'
+            assert hashlib.sha256(path.read_bytes()).hexdigest() == APPROVED_IMAGES[name], 'Approved image bytes changed'
             added_images.append(name)
-    assert added_images == [APPROVED_IMAGE], 'Expected only the approved Tucson House image'
+    assert set(added_images) == set(APPROVED_IMAGES), 'Expected only the approved Tucson House and Surprise illustrations'
     production_files = []
     if args.output:
         assert args.output.is_dir(), 'Production build missing'
@@ -62,17 +64,21 @@ def main():
                 scan('production file ' + name, path.read_bytes())
                 production_files.append(name)
         assert production_files, 'Empty production build'
+        for name, digest in APPROVED_IMAGES.items():
+            assert name in production_files, ('Missing approved production image', name)
+            assert hashlib.sha256((args.output / name).read_bytes()).hexdigest() == digest, ('Production image bytes changed', name)
         assert 'docs/reviews/regional-front-pages.html' in production_files, 'Rendered review documentation was not scanned'
         assert all(name in production_files for name in ['index.html', 'tucson.html', 'phoenix.html', 'feed.xml', 'sitemap.xml', 'assets/search-index.js', 'assets/category-search-data.js'])
     report = {'base': BASE, 'checkedFilesAndDiff': checked,
               'trackedFiles': len(paths), 'productionFiles': len(production_files),
               'privateReferencesFound': 0, 'unexpectedImages': 0,
-              'approvedImageSHA256': APPROVED_IMAGE_SHA256,
+              'approvedImageSHA256': APPROVED_IMAGES['assets/tucson-house-arizona.webp'],
+              'approvedImageSHA256ByPath': APPROVED_IMAGES,
               'productionFilePaths': production_files}
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2) + '\n')
-    print(f'PASS full PR diff, {len(paths)} tracked files and {len(production_files)} production files: no private preview links or retired source reference; only approved Tucson House image changed.')
+    print(f'PASS full PR diff, {len(paths)} tracked files and {len(production_files)} production files: no private preview links or retired source reference; only approved Tucson House and Surprise illustrations changed.')
     print('Historical commits are not erased by this check. Published-only placement provenance is checked separately.')
 
 

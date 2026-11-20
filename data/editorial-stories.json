@@ -108,6 +108,13 @@
       "recordKey": "phoenix:resource-wvhac",
       "placements": {
         "phoenix": "lead"
+      },
+      "illustration": {
+        "src": "assets/editorial/surprise-west-valley-sketch.webp",
+        "width": 1450,
+        "height": 725,
+        "alt": "Pen-and-ink sketch of the West Valley Housing Assistance Center, showing tan masonry, two angled metal canopies and a bench.",
+        "caption": "AI illustration · Not a photo"
       }
     },
     "approved-nov19-04": {

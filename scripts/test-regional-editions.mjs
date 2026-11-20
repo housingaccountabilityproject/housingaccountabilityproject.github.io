@@ -74,7 +74,19 @@ try{
     assert.equal(await page.locator('figure img').getAttribute('alt'),'Ink-and-watercolor illustration of Tucson House, with its rows of balconies and Arizona mountains and saguaros behind it.');
     const caption=await page.locator('figcaption').evaluate(n=>({size:parseFloat(getComputedStyle(n).fontSize),transform:getComputedStyle(n).textTransform}));
     assert.equal(caption.size,13);assert.equal(caption.transform,'none');
-   }else assert.equal(await page.locator('.storygrid img').count(),0,'No held image in Phoenix');
+   }else {
+    const figure=page.locator('.storygrid figure.story-illustration');
+    assert.equal(await figure.count(),1);
+    assert.equal(await figure.locator('img').getAttribute('src'),'assets/editorial/surprise-west-valley-sketch.webp');
+    assert.equal(await figure.locator('img').getAttribute('alt'),'Pen-and-ink sketch of the West Valley Housing Assistance Center, showing tan masonry, two angled metal canopies and a bench.');
+    assert.equal(await figure.locator('figcaption').textContent(),'AI illustration · Not a photo');
+    const rendered=await figure.evaluate(async n=>{
+     const img=n.querySelector('img'), cap=getComputedStyle(n.querySelector('figcaption'));
+     await img.decode();
+     return {width:img.naturalWidth,height:img.naturalHeight,size:parseFloat(cap.fontSize),transform:cap.textTransform};
+    });
+    assert.deepEqual(rendered,{width:1450,height:725,size:13,transform:'none'});
+   }
    await page.screenshot({path:`${output}/${scope}-edition-${width}.png`,fullPage:true});
    await page.goto(base+'/watch-'+scope+'.html');await overflow(page);
    await checkBrand(page,standard,'watch-'+scope+'.html',width);mastheads.push('watch-'+scope+'.html');
