@@ -277,7 +277,14 @@ async function pdf01TucsonCompact(){
  for(const term of [...terms,cityPeriod])assert(compact.includes(term.replace(/\s+/g,'')),'PDF-01 dates retained in exported PDF');
  assert.equal((text.match(/Record ID:\s*county-price-funding-2026/g)||[]).length,1,'PDF-01 one primary record in PDF');
  assert(compact.includes('7matchingrecords.Currentpageonly:1records.'),'PDF-01 separates total matches from printed count');
- for(const qualification of ['County FY2027 housing allocations','does not prove spending or services in every included year','Not County spending or a current available balance'])assert(compact.includes(qualification.replace(/\s+/g,'')),'PDF-01 retains period scope and qualifications');
+ for(const qualification of [
+  'County FY2027 housing allocations',
+  'does not prove spending or services in every included year',
+  'Reporting cutoff: September 2026 (FY2026 month 12), checked November 19, 2026.',
+  'November 8 article · August snapshot',
+  'The September figure does not establish Pima County spending or what services were delivered.',
+  'Later spending and the current available balance remain unverified.'
+ ])assert(compact.includes(qualification.replace(/\s+/g,'')),'PDF-01 retains period scope and qualifications');
  note(1280,'tucson-PDF-01','2025 page two / Current page / Compact; both exact County agreement terms; separate City period; one primary record',1);
  await page.getByRole('button',{name:'← Back to search',exact:true}).click();
  await page.locator('#print').press('Enter');
