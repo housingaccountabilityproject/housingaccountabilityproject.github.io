@@ -45,8 +45,10 @@ def landscape(path):
 def hero(spec, path):
     day = date.fromisoformat(spec['date'])
     label = f'{day:%B} {day.day}, {day.year}'
+    city = path.split('/', 1)[0]
+    edition_label = {'tucson': 'Current Tucson & Pima County edition', 'phoenix': 'Current Phoenix & Maricopa County edition'}[city]
     updates = ' · '.join(f'<a href="{href(item["href"], path)}">{escape(item["label"])}</a>' for item in spec['published_updates'])
-    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Housing Accountability Project · City research</p><h1>{escape(spec['name'])}</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date">{escape(spec['date_label'])} · <time datetime="{spec['date']}">{label}</time>. Source periods vary.<br>Later publications · {updates}</p></div></section>'''
+    return f'''<section class="hero city-overview-hero">{landscape(path)}<div class="city-hero-copy city-wrap"><p class="city-eyebrow">Regional research overview</p><h1>{escape(spec['name'])}</h1><p class="hero-intro">{escape(spec['intro'])}</p><p class="city-hero-date city-edition-link"><a href="{href(city + '.html', path)}">{escape(edition_label)}</a></p><p class="city-hero-date">{escape(spec['date_label'])} · <time datetime="{spec['date']}">{label}</time>. Source periods vary.<br>Later publications · {updates}</p></div></section>'''
 
 
 def learning(spec, path):
@@ -97,6 +99,10 @@ def overviews(output, path, all_data):
     city = 'phoenix' if path.startswith('phoenix/') else 'tucson'
     spec = all_data['cities'][city]
     new_hero = hero(spec, path)
+    # Retain historical dates and later publication links already on the page.
+    old_date = re.search(r'<p class="city-hero-date">.*?</p>', output, re.S)
+    if old_date:
+        new_hero = re.sub(r'<p class="city-hero-date">.*?</p>', lambda _: old_date.group(), new_hero, count=1, flags=re.S)
     new_learning = learning(spec, path)
     new_guide = guide(city, spec, path, all_data['projects'][city])
     if 'data-city-guide-version="2"' in output:

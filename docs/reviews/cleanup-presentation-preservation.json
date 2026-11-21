@@ -1,0 +1,38 @@
+{
+  "base": "fa7c7d826294fa9b7cd39bfe472f26cbc03e9b5e",
+  "reviewedCandidate": "4de8d9f52b5542f31bce20ed2744d42c6cda3769",
+  "files": {
+    "phoenix/index.html": {
+      "before": "73b732e25cc8001ea6260916814c334b991911c4759aebdba7c336cb5e4dd481",
+      "after": "d33233c37741638ac357929580bb4bec6bdb4e6b383214d95cf6f1ff5144c300"
+    },
+    "phoenix/records.html": {
+      "before": "ae34f402ed98260f3373775eadb3c67b2f0b1093d12dfab8b37883b876a5af52",
+      "after": "65ab34ea3e3c7d5ce1ccf095ba3f33a1f1b9b0cbd3393d0563de752be7d13ec2"
+    },
+    "phoenix/search.html": {
+      "before": "a89cf44d9f49cd95ac87db811ec91edd850e415bd94ccaadee8fc7cb5bec43db",
+      "after": "a6cb576530c710083b2ef765b0808301636078e2ff16304cc8c0f73fe27bea45"
+    },
+    "research-center.html": {
+      "before": "1cc841fadc7572b354bd819f36c3664b68628cef041014460e5c0e5a8bab0043",
+      "after": "03c604a4f3cbbacf4365ae0fc3121074d4408d76671145be76a072c0e1e0b564"
+    },
+    "tucson/index.html": {
+      "before": "884dadd0d3f5907430e3a58cc6dc3c262b311e66b38ed59ee6405bd7eeef8602",
+      "after": "ba5950c58900a12da6f9e8944b7e787957eb9f8dbbda40297d6cabd2b7224258"
+    },
+    "scripts/build-phoenix-records.py": {
+      "before": "134d9b1ec89dbaa3c4dc6aa929adc9278f51a911b2d4c5064f2af68967226795",
+      "after": "5229584824f623796a5f018790141b61e16484ea75a578c4a18323737af5db51"
+    },
+    "scripts/city_reader_guide.py": {
+      "before": "c373883ae9ed0be51267c40877e2ae7429864a1e13414bde1fea039fdc1ae514",
+      "after": "3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011"
+    }
+  },
+  "verifier": {
+    "before": "c5c43248a4838a685ffab0992f19760498ee468211c6b4fb8b773da5b010d681",
+    "after": "92b7e60b03efaf334c0ebf7d75d80b9d5d1ba0a0edcc825724fb5fbc865cecb8"
+  }
+}
