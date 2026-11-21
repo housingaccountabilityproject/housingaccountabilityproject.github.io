@@ -44,7 +44,7 @@ for (const width of [390,1280]) {
       : '';
     const sr=stamp?.getBoundingClientRect(),tr=title?.getBoundingClientRect();
     return {count:times.length,inStamp:times.length===1&&times[0]===date,visibleText:!!expected&&date.textContent.trim()===expected,
-      labeled:stamp?.textContent.includes('Research inventory checked'),fits:!!sr&&sr.left>=0&&sr.right<=innerWidth,
+      labeled:stamp?.textContent.includes('Historical inventory check'),fits:!!sr&&sr.left>=0&&sr.right<=innerWidth,
       rightDesktop:!!sr&&!!tr&&sr.left>tr.left&&sr.top<tr.bottom,
       stackedMobile:!!sr&&!!tr&&sr.top>=tr.bottom};
   });

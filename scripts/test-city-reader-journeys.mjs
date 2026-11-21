@@ -74,7 +74,9 @@ try {
       appearance.push(await page.evaluate(()=>({body:getComputedStyle(document.body).backgroundColor,font:getComputedStyle(document.body).fontFamily,heading:getComputedStyle(document.querySelector('h1')).fontFamily,nav:getComputedStyle(document.querySelector('.city-header')).backgroundColor})));
       assert.equal(await page.locator('.city-learning-grid>a').count(),4);
       assert.equal(await page.locator('.city-hero-copy>.hero-intro').count(),1);
-      assert(await page.locator('.city-hero-date').isVisible());
+      const overviewDate=page.locator('.city-overview-hero .city-hero-date').filter({has:page.locator('time')});
+      assert.equal(await overviewDate.count(),1,'one overview snapshot date block');
+      assert(await overviewDate.isVisible());
       assert.equal(await page.locator('.city-about').getAttribute('open'),null);
       assert.deepEqual(await page.locator('.city-reading-guide>section').evaluateAll(nodes=>nodes.map(node=>node.id)),['guide-findings','guide-projects','guide-questions','guide-sources']);
       assert.equal(await page.locator('.city-project-grid>.city-project-card').count(),2);
