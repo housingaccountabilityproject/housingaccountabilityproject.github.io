@@ -36,7 +36,7 @@ assert review['base']=='776a12b556b5757820b7d03637184bf664a18249'
 assert review['addedRecordKeys']==['phoenix:PHX-WEB-037','phoenix:PHX-WEB-038']
 assert review['changedRecordKeys']==['phoenix:MC-PLAN-WEB-001']
 
-# These presentation-only hashes are from the reviewed cleanup commit.
+# Pin only the exact cleanup presentation and derived/test follow-up bytes.
 # Keep both original preservation manifests and all their assertions unchanged.
 cleanup = json.loads((ROOT / 'docs/reviews/cleanup-presentation-preservation.json').read_text())
 assert set(cleanup) == {'base', 'reviewedCandidate', 'files', 'verifier'}
@@ -50,6 +50,13 @@ CLEANUP_AFTER_HASHES = {
     'tucson/index.html': 'ba5950c58900a12da6f9e8944b7e787957eb9f8dbbda40297d6cabd2b7224258',
     'scripts/build-phoenix-records.py': '5229584824f623796a5f018790141b61e16484ea75a578c4a18323737af5db51',
     'scripts/city_reader_guide.py': '3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011',
+    'assets/search-index.js': '804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6',
+    'data/search-coverage.json': '5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0',
+    'scripts/site-smoke-test.mjs': '782f3dc3722a6063b06e708b3c03268346180fde4c0bbd46daab0fe653f96bef',
+    'scripts/test-phoenix-index.mjs': 'b6f768b0bafba4ecc2d0de765041b9a6b58122cd9cf85231dfd639645054ca48',
+    'scripts/check-list-baseline.py': 'd71a7281e00c1f8e8e43672201aa4b9f05acfaaf110233f1e751fbdff628c680',
+    'scripts/reader-browser-test.mjs': 'a3bdaf92b733ab3e926a983208374aa04d72c2f80ba65f1343cc766e29350672',
+    'scripts/test-city-reader-journeys.mjs': '4962f9698633432a156d515c27ae1a73b2ab5ac8814c1da36a6e54167baa4695',
 }
 assert set(cleanup['files']) == set(CLEANUP_AFTER_HASHES), 'Unreviewed cleanup path'
 verifier_path = 'scripts/check-regional-editions.py'

@@ -29,10 +29,38 @@
     "scripts/city_reader_guide.py": {
       "before": "c373883ae9ed0be51267c40877e2ae7429864a1e13414bde1fea039fdc1ae514",
       "after": "3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011"
+    },
+    "assets/search-index.js": {
+      "before": "8924525e92570c9aa4517d1da4c27404c691413b958d3fb92b026b003a355e26",
+      "after": "804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6"
+    },
+    "data/search-coverage.json": {
+      "before": "9d751ce7354b54ba6017a9b0284b4850e7a5cdff25696d71279a4df877b6b9e3",
+      "after": "5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0"
+    },
+    "scripts/site-smoke-test.mjs": {
+      "before": "9130733565fe355e98fac9e7fc8dcbe51d560f23c8ac785218fc5fcc7954b7f9",
+      "after": "782f3dc3722a6063b06e708b3c03268346180fde4c0bbd46daab0fe653f96bef"
+    },
+    "scripts/test-phoenix-index.mjs": {
+      "before": "9cea0a94014f6bdefae3da1bb04ccccc03983be135e557575e232ee13d9d61d4",
+      "after": "b6f768b0bafba4ecc2d0de765041b9a6b58122cd9cf85231dfd639645054ca48"
+    },
+    "scripts/check-list-baseline.py": {
+      "before": "44cd1b9bbffc74bf8afeb64cbf7638f6dde9b100f57068177c3d96c3d7af0d47",
+      "after": "d71a7281e00c1f8e8e43672201aa4b9f05acfaaf110233f1e751fbdff628c680"
+    },
+    "scripts/reader-browser-test.mjs": {
+      "before": "2d9a30f495240f48e777b569ea7ab407e20b6cab221dae530fa18f3d83ff5eed",
+      "after": "a3bdaf92b733ab3e926a983208374aa04d72c2f80ba65f1343cc766e29350672"
+    },
+    "scripts/test-city-reader-journeys.mjs": {
+      "before": "47a6e06960fd8fe6b328e0165e88f3325e1db6b8e58a006d53df0490776e2675",
+      "after": "4962f9698633432a156d515c27ae1a73b2ab5ac8814c1da36a6e54167baa4695"
     }
   },
   "verifier": {
     "before": "c5c43248a4838a685ffab0992f19760498ee468211c6b4fb8b773da5b010d681",
-    "after": "92b7e60b03efaf334c0ebf7d75d80b9d5d1ba0a0edcc825724fb5fbc865cecb8"
+    "after": "4cfbaeda009464075546837bd91d5d5c0dcfc4d1b52bbb015fbca2ffa7cafc1b"
   }
 }

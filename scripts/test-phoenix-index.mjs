@@ -268,7 +268,9 @@ try {
       assert.equal(await page.locator('main h1').count(), 1);
       assert(!await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), `existing page overflow ${path} at ${width}`);
       if(path==='index.html'){
-        assert(await page.locator('.city-hero-date').isVisible(),'overview date is visible before opening the full research');
+        const overviewDate=page.locator('.city-overview-hero .city-hero-date').filter({has:page.locator('time')});
+        assert.equal(await overviewDate.count(),1,'one overview snapshot date block');
+        assert(await overviewDate.isVisible(),'overview date is visible before opening the full research');
         await page.locator('.city-evidence-library>summary').click();
       }
       const reading = await page.locator('.record-text').first().evaluate(el => ({font: parseFloat(getComputedStyle(el).fontSize), line: parseFloat(getComputedStyle(el).lineHeight)}));

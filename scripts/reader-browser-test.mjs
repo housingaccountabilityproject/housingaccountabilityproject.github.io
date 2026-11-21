@@ -31,7 +31,9 @@ for(const width of [390,768,1280]) {
  const closed=page.locator('.topic-status details').filter({has:page.getByText('Allocations and Final Reporting',{exact:true})});await closed.locator('summary').click();assert(await closed.getAttribute('open')!==null);await closed.locator('summary').click();assert.equal(await closed.getAttribute('open'),null);
  await page.goto(localPageUrl('tucson/index.html'));
  assert(await page.locator('.city-landscape img').isVisible());
- assert(await page.locator('.city-hero-date').isVisible());
+ const overviewDate=page.locator('.city-overview-hero .city-hero-date').filter({has:page.locator('time')});
+ assert.equal(await overviewDate.count(),1,'one overview snapshot date block');
+ assert(await overviewDate.isVisible());
  await page.locator('.city-about > summary').click();
  const slogan=page.locator('.city-about .hero-slogan');
  assert.equal(await slogan.textContent(),'Public Funding Deserves Public Understanding');
