@@ -32,6 +32,6 @@ try{
   await page.goto(base+'/'+name);if(name==='phoenix/index.html')await page.locator('.city-evidence-library>summary').click();
   await page.pdf({path:out+'/pdfs/page-'+name.replaceAll('/','-')+'.pdf',format:'Letter',tagged:true,displayHeaderFooter:false});
  }
- await page.goto(base+'/search.html');await page.locator('#print').click();assert.match(await page.locator('.print-header').textContent(),/November 9 and 10 publications/);assert.match(await page.locator('.print-header').textContent(),/2026-11-08/);
+ await page.goto(base+'/search.html');await page.locator('#print').click();assert.match(await page.locator('.print-header').textContent(),/historical baseline/);assert.match(await page.locator('.print-header').textContent(),/2026-11-08/);
  writeFileSync(out+'/eight-review-browser.json',JSON.stringify(results,null,2));console.log('PASS candidate-specific headings, accent labels, footer targets/focus and historical print snapshot; six page PDFs exported for separate audit.');
 }finally{await browser?.close();server.kill();}

@@ -54,18 +54,18 @@
       "tucson",
       "phoenix"
     ],
-    "service_type": "National resource directory · located but unchecked",
+    "service_type": "National housing guides for older adults",
     "description": [
-      "The official AARP Foundation housing-resource page was located. Its full content could not be checked during this review because the page returned HTTP 403."
+      "AARP Foundation publishes guides on affordable housing, eviction and emergency housing for older adults."
     ],
-    "limitation": "This listing is a resource lead. Current services, eligibility, costs and availability remain unchecked. Verify them with the linked organization.",
+    "limitation": "This is national guidance, not a local application, shelter intake service or vacancy listing.",
     "links": [
       {
-        "title": "AARP Foundation housing-resource page · located but unchecked",
-        "url": "https://www.aarp.org/aarp-foundation/find-help/housing/"
+        "title": "AARP Foundation housing guides",
+        "url": "https://my.aarpfoundation.org/housing/"
       }
     ],
-    "check_label": "Access check 2026-11-10T17:40:08-07:00 MST · HTTP 403; content unchecked."
+    "check_label": "Guide page checked November 21, 2026; individual programs and availability were not checked."
   },
   {
     "id": "resource-wvhac",
@@ -75,7 +75,7 @@
     ],
     "service_type": "Housing navigation and shelter referrals · Surprise",
     "description": [
-      "Native American Connections runs the West Valley Housing Assistance Center at 12779 W. Grand Ave. in Surprise. It lists housing navigation and assessment help Monday through Friday, 8 a.m. to 5 p.m. Phoenix Rescue Mission operates eight shelter units at the site but handles shelter eligibility and intake off-site. Families with children under 18 can call the Family Housing Hub at 877-211-8661."
+      "Native American Connections runs the West Valley Housing Assistance Center at 12779 W. Grand Ave. in Surprise. It lists housing navigation and assessment help Monday through Friday, 8 a.m. to 5 p.m. Phoenix Rescue Mission operates eight shelter units for families at the site but handles shelter eligibility and intake off-site. Families with children under 18 can call the Family Housing Hub at 877-211-8661. For single adults, the operator lists the Brian Garcia Welcome Center in Phoenix at 602-229-5155."
     ],
     "limitation": "Check the operator’s current instructions before going. The center’s resource hours are not walk-in shelter intake hours, and eight units is not a vacancy count.",
     "links": [
@@ -86,9 +86,13 @@
       {
         "title": "Historical seven-unit description · July 2023 opening account",
         "url": "https://turnanewleaf.org/west-valley-housing-assistance-center-opening/"
+      },
+      {
+        "title": "Family Housing Hub",
+        "url": "https://www.fhhub.org/"
       }
     ],
-    "check_label": "Sources checked November 19, 2026; no individual eligibility or current availability determination. Historical source note: A New Leaf’s account of the July 2023 opening described seven apartment-style units. The current operator page lists eight on-site shelter units operated by Phoenix Rescue Mission. The earlier seven-unit count is retained as history; neither count establishes vacancies."
+    "check_label": "Current operator and Family Housing Hub checked November 21, 2026; no individual eligibility or current availability determination. Historical source note: A New Leaf’s account of the July 2023 opening described seven apartment-style units. The current operator page lists eight on-site shelter units operated by Phoenix Rescue Mission. The earlier seven-unit count is retained as history; neither count establishes vacancies."
   },
   {
     "id": "resource-motel-eligibility",

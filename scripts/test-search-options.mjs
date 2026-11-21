@@ -71,7 +71,8 @@ try {
       assert(!header.includes('Search:'),'Typed terms omitted from default print');
       assert(header.includes('MST (UTC−7)'),'Print preparation time is MST even in a Tokyo browser');
       assert.equal(await page.locator('.print-record').count(),total);
-      if(scope==='phoenix') assert(header.includes('Research snapshot: 2026-11-10'));
+      assert(header.includes('Research snapshot: '+(scope==='phoenix'?'2026-11-10':'2026-11-08')+' (historical baseline)'));
+      assert(header.includes('this is not a last-updated date.'));
       const pdf=await inspectPDF('privacy-'+scope+'-'+mode);
       assert(pdf.includes(total+' matching records'));
       assert(!pdf.includes('Search: '+query));

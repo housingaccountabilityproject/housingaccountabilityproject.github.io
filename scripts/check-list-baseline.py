@@ -27,8 +27,25 @@ CLEANUP_DERIVED = {
  'assets/search-index.js': ('8924525e92570c9aa4517d1da4c27404c691413b958d3fb92b026b003a355e26', '804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6'),
  'data/search-coverage.json': ('9d751ce7354b54ba6017a9b0284b4850e7a5cdff25696d71279a4df877b6b9e3', '5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0'),
 }
+# Preserve the historical baselines; exact reviewed audit transitions are
+# checked before all previously approved hash and record checks.
+AUDIT_REVIEW_BASE = '69843d7d301fc980b08da6a235b9859bd8e14156'
+AUDIT_REVIEW_OUTPUTS = {
+    'assets/category-search-data.js': ('32a95c829e0276471e4688c79ccb6a5b8c6c1c977043ebd4b1d6dd8dcd4cff33', 'c82df15091eea44b011294f33328f2d7e3fcce0b2bad5c554d0d2b5f2a003e24'),
+    'assets/search-index.js': ('804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6', 'eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e'),
+    'assets/search-source-urls.js': ('2db8ca212b34c31e47f273899703e1df6e343207a4b270c75437cf6933cd2523', '5bc41e0f62db35732b011ca8e9cbd75bc49f6bb49a729e43030ac0ff4fc5bfe3'),
+    'data/category-search.json': ('66b69c2c26eef81d926ea312908490ed403f3cb5a4316e64e01156eecfdd4706', '0eecbbe4395c172cfb1c75740fb1a150b47efa3d0f9f2216170cefa975b63107'),
+    'data/housing-help-resources.json': ('ef9d80fd55e06e8d0321b23e21003cc7558c5f6d442801669c5f4ba64ab278c6', 'dff56e2d999a396a08f3cf484ba93078f3bfcfcbcb2413cfe564cd24722a2794'),
+    'data/search-coverage.json': ('5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0', '1aed08c184334f470c9ad612865d7c2d54d50cfb7c0e2fbb78961306edd45ec5'),
+    'feed.xml': ('7adb0d857035bea876550fae53587e6559bc33828130fa346367a78ee8bb1b3c', 'c0c531deb513876cf3c7b486981829cff4fa2b01afd56c83ee698bcdd8372233'),
+}
+for name,(before,after) in AUDIT_REVIEW_OUTPUTS.items():
+ assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==after,('Unexpected audit-review bytes',name)
+ assert hashlib.sha256(subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)).hexdigest()==before,('Unverified pre-audit-review bytes',name)
 for name,sha in fixture['files'].items():
  content=(ROOT/name).read_bytes()
+ if name in AUDIT_REVIEW_OUTPUTS:
+  content=subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)
  if name in CLEANUP_DERIVED:
   before,after=CLEANUP_DERIVED[name]
   assert hashlib.sha256(content).hexdigest()==after,('Unreviewed generated cleanup bytes',name)
