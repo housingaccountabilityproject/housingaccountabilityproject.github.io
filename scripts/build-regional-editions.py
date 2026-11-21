@@ -158,13 +158,13 @@ def library_cards(routes):
 
 def paths_for(region):
     if region == 'tucson':
-        return [('Regional overview', 'tucson/index.html', 'Original reporting, historical notes and dated updates.'),
+        return [('Older regional overview', 'tucson/index.html', 'Original reporting, historical notes and dated updates.'),
                 ('Findings', 'findings.html', 'Published findings and the limits of each source.'),
                 ('Evidence & questions', 'evidence.html', 'Original source register and numbered research questions.'),
                 ('Housing projects', 'housing-projects.html', 'Project records and separate outcome measures.'),
                 ('Funding & outcomes report', 'reports/tucson-housing-funding-outcomes-2026.html', 'The dated report with its corrections and qualifications.'),
                 ('Search Tucson records', 'search.html', 'Sources, Funding, Questions and Updates, with print tools.')]
-    return [('Regional overview', 'phoenix/index.html', 'Original reporting, historical notes and dated updates.'),
+    return [('Older regional overview', 'phoenix/index.html', 'Original reporting, historical notes and dated updates.'),
             ('Evidence & records', 'phoenix/records.html', 'Published evidence, source references and open questions.'),
             ('Housing projects', 'phoenix/projects.html', 'Project profiles with dates and financing distinctions.'),
             ('Questions & records needed', 'phoenix/questions.html', 'Published questions and the evidence needed to answer them.'),
@@ -177,21 +177,22 @@ def front(stories, region):
     reads = picks(stories, region, 'reading')
     watches = picks(stories, region, 'watch')[:3]
     intro = '<div class="identity"><div><div class="edition">Regional edition</div><h1>' + escape(REGIONS[region]) + '</h1><p class="deck">Local housing, public money and the records behind both.</p></div>' + link('housing-help.html' if region == 'tucson' else 'phoenix/housing-help.html', 'Find Housing Help', 'help') + '</div>'
-    lead_body = f'<article class="lead" data-story="{lead["key"]}"><p class="meta">{escape(lead["label"])}</p><h2>{link(lead["destination"], lead["title"])}</h2><p>{escape(" ".join(lead["summary"]))}</p><p class="qualification">{escape(" ".join(lead["caveats"]))}</p>{link(lead["destination"], "Read the story & sources", "storylink")}{source_details(lead)}</article>'
+    lead_cta = "See shelter contacts and sources" if lead["key"] == "approved-nov19-02" else "Read the story & sources"
+    lead_body = f'<article class="lead" data-story="{lead["key"]}"><p class="meta">{escape(lead["label"])}</p><h2>{escape(lead["title"])}</h2><p>{escape(" ".join(lead["summary"]))}</p><p class="qualification">{escape(" ".join(lead["caveats"]))}</p>{link(lead["destination"], lead_cta, "storylink")}{source_details(lead)}</article>'
     art = illustration(lead)
     if not art and lead.get('related'):
         more = lead['related']
         art = '<aside class="lead-record"><p class="kicker">From the published record</p><h3>' + link(more['url'], more['title']) + '</h3><p>' + escape(more['summary'][0]) + '</p><p class="qualification">' + escape(' '.join(more['caveats'])) + '</p>' + link('phoenix/projects/moreland.html#sources', 'Open the source appendix', 'storylink') + '</aside>'
-    rundown = ''.join('<li>' + link(s['destination'], s['title']) + '</li>' for s in [lead, *reads])
+    rundown = ''.join('<li>' + link(s['destination'], s['title']) + '</li>' for s in reads)
     content = intro + edition_nav(region) + '<section aria-labelledby="latest"><div class="bar"><span id="latest">Lead Story</span><span>Published reporting · source dates vary</span></div><div class="storygrid">' + lead_body + art + '</div></section>'
-    content += '<aside class="dispatch" aria-label="In this edition"><div><div class="kicker">This edition in one minute</div><ul class="edition-links">' + rundown + '</ul></div>' + link(lead['source'], 'See what the records say', 'storylink') + '</aside>'
+    content += '<aside class="dispatch" aria-label="In this edition"><div><div class="kicker">Edition highlights</div><ul class="edition-links">' + rundown + '</ul></div>' + '</aside>'
     content += '<div class="columns"><section class="news" id="keep-reading"><header class="section-head"><h2>Keep Reading</h2><p>Published stories worth a closer look.</p></header>' + ''.join(teaser(s) for s in reads) + '</section><section class="following"><header class="section-head"><h2>Things We’re Following</h2><p>Published open questions and the records that could answer them.</p></header>' + ''.join(teaser(s) for s in watches) + link('watch-' + region + '.html', 'See the full watchlist', 'storylink') + '</section></div>'
-    content += '<section class="archive"><div><h2>' + link('archive-' + region + '.html', 'Research Archive') + '</h2><p>Earlier reporting and historical context, with dates and sources intact.</p></div>' + link('archive-' + region + '.html', 'Browse archive', 'storylink') + '</section><section class="edition-library"><header class="section-head"><h2>Explore the research</h2><p>The original records, source dates and qualifications remain available.</p></header>' + library_cards(paths_for(region)) + '</section>'
+    content += '<section class="archive"><div><h2>Research Archive</h2><p>Earlier reporting and historical context, with dates and sources intact.</p></div>' + link('archive-' + region + '.html', 'Browse archive', 'storylink') + '</section><section class="edition-library"><header class="section-head"><h2>Explore the research</h2><p>The original records, source dates and qualifications remain available.</p></header>' + library_cards(paths_for(region)) + '</section>'
     return shell(region, REGIONS[region], '<main id="main" class="wrap" tabindex="-1">' + content + '</main>')
 
 
 def reading(region, title, content):
-    return shell(region, title + ' · ' + REGIONS[region], '<main id="main" class="wrap reading" tabindex="-1"><p class="breadcrumbs">' + link(region + '.html', REGIONS[region] + ' front page') + '</p><p class="kicker">' + escape(REGIONS[region]) + '</p><h1>' + escape(title) + '</h1>' + edition_nav(region) + content + '</main>', page=('watch-' if title == 'Things We’re Following' else 'archive-') + region + '.html')
+    return shell(region, title + ' · ' + REGIONS[region], '<main id="main" class="wrap reading" tabindex="-1"><p class="breadcrumbs">' + link(region + '.html', 'Current ' + REGIONS[region] + ' edition') + '</p><p class="kicker">' + escape(REGIONS[region]) + '</p><h1>' + escape(title) + '</h1>' + edition_nav(region) + content + '</main>', page=('watch-' if title == 'Things We’re Following' else 'archive-') + region + '.html')
 
 
 def watch(stories, region):
@@ -210,10 +211,10 @@ def archive(stories, region):
 
 
 def library():
-    common = [('Research Center', 'research-center.html', 'Browse published research by topic.'), ('Funding Explorer', 'funding-explorer.html', 'Keep periods, commitments and spending distinct.'), ('Research updates', 'research-updates.html', 'Dated reporting with earlier wording and corrections retained.'), ('Methods & definitions', 'research.html', 'How claims and incomplete records are handled.')]
-    content = '<p class="edition">Arizona / Research Library</p><h1>Research Library</h1><p class="deck">Published findings, project records and reader tools.</p><section class="edition-library"><header class="section-head"><h2>Across Arizona</h2></header>' + library_cards(common) + '</section>'
+    common = [('Tucson Research Center', 'research-center.html', 'Browse published Tucson-area research by topic.'), ('Tucson Funding Explorer', 'funding-explorer.html', 'Keep periods, commitments and spending distinct.'), ('Tucson research updates', 'research-updates.html', 'Dated reporting with earlier wording and corrections retained.'), ('Tucson reports & research methods', 'research.html', 'Tucson reports and the methods behind them.')]
+    content = '<p class="edition">Arizona / Research Library</p><h1>Research Library</h1><p class="deck">Published findings, project records and reader tools.</p><section class="edition-library"><header class="section-head"><h2>Tucson reports and tools</h2></header>' + library_cards(common) + '</section>'
     for region in REGIONS:
-        extra = [('Regional front page', region + '.html', 'Lead Story, Keep Reading and the regional watchlist.'), ('Research Archive', 'archive-' + region + '.html', 'The full published regional record index.'), ('Watchlist', 'watch-' + region + '.html', 'Published open questions.'), ('Glossary', 'glossary.html' if region == 'tucson' else 'phoenix/glossary.html', 'Research definitions.')]
+        extra = [('Current regional edition', region + '.html', 'Lead Story, Keep Reading and the regional watchlist.'), ('Research Archive', 'archive-' + region + '.html', 'The full published regional record index.'), ('Watchlist', 'watch-' + region + '.html', 'Published open questions.'), ('Glossary', 'glossary.html' if region == 'tucson' else 'phoenix/glossary.html', 'Research definitions.')]
         if region == 'phoenix':
             extra += [('Corrections', 'phoenix/corrections.html', 'The public correction log.'), ('Comparisons', 'phoenix/comparisons.html', 'Dated source statements side by side.'), ('Inaugural report', 'phoenix/inaugural-report.html', 'The original regional report.')]
         content += '<section class="edition-library" id="' + region + '"><header class="section-head"><h2>' + escape(REGIONS[region]) + '</h2></header>' + library_cards(paths_for(region) + extra) + '</section>'
