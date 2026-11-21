@@ -107,7 +107,7 @@ def insert_panel(output, panel):
 def resource_panel(output,path):
     if path in ['housing-help.html','phoenix/housing-help.html']:
         output=flag(output,'city-help-page')
-        body='<strong>Find official housing resources.</strong><p>Housing Accountability Project publishes research. Providers determine eligibility, services and availability. Check the provider’s current information.</p>'
+        body='<p>HAP publishes research; it does not provide housing, take applications, determine eligibility or offer legal advice.</p>'
     elif path in ['research.html','phoenix/inaugural-report.html','reports/tucson-housing-funding-outcomes-2026.html']:
         output=flag(output,'city-report-page')
         target='reports/tucson-housing-funding-outcomes-2026.html' if path=='research.html' else 'phoenix/inaugural-report.html' if path.startswith('phoenix/') else path

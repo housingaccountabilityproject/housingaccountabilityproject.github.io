@@ -39,8 +39,21 @@ AUDIT_REVIEW_OUTPUTS = {
     'data/search-coverage.json': ('5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0', '1aed08c184334f470c9ad612865d7c2d54d50cfb7c0e2fbb78961306edd45ec5'),
     'feed.xml': ('7adb0d857035bea876550fae53587e6559bc33828130fa346367a78ee8bb1b3c', 'c0c531deb513876cf3c7b486981829cff4fa2b01afd56c83ee698bcdd8372233'),
 }
+# Round 1 navigation only: verify exact candidate bytes against exact deployed
+# #46 originals, then apply every pre-existing preservation guard unchanged.
+ROUND1_BASE = '595471cc45fc217c8b27edeb5fd1c120f924ad6a'
+ROUND1_TRANSITIONS = {
+    'assets/search-index.js': ('eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e', 'ff4ac60c1396050ed9a0986d84803339fd00c6f18bf4bfcf0fcea148abfca973'),
+}
+round1_prior = {}
+for name, (before, after) in ROUND1_TRANSITIONS.items():
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
+    round1_prior[name] = original
+
 for name,(before,after) in AUDIT_REVIEW_OUTPUTS.items():
- assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==after,('Unexpected audit-review bytes',name)
+ assert hashlib.sha256(round1_prior.get(name, (ROOT/name).read_bytes())).hexdigest()==after,('Unexpected audit-review bytes',name)
  assert hashlib.sha256(subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)).hexdigest()==before,('Unverified pre-audit-review bytes',name)
 for name,sha in fixture['files'].items():
  content=(ROOT/name).read_bytes()

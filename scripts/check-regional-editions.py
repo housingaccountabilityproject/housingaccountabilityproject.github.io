@@ -100,16 +100,45 @@ AUDIT_REVIEW_TRANSITIONS = {
     'tucson.html': ('4a6a530588f1bce85b759220867b0494771d03d6e63d17469d32cc0a8afa779a', 'bbebc35eb6b108217a673fe52800d0f09490dc13d66cdcdc8d1f28523cd43922'),
     'tucson/index.html': ('ba5950c58900a12da6f9e8944b7e787957eb9f8dbbda40297d6cabd2b7224258', '5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92'),
 }
+# Round 1 navigation only: verify exact candidate bytes against exact deployed
+# #46 originals, then apply every pre-existing preservation guard unchanged.
+ROUND1_BASE = '595471cc45fc217c8b27edeb5fd1c120f924ad6a'
+ROUND1_TRANSITIONS = {
+    'archive-phoenix.html': ('dddf3b1e6577d13001e366eadbb75e81a164bcd205581ee4681bd5283a55d6b2', '8f5e7eab91db836ca74956657ada18d830c3db972bd364ff5828dda84e2c1687'),
+    'archive-tucson.html': ('bdc37102dd4dcaa923d0ca6d9f62b74de3634877b43a6e42d78b8a062ad95774', '2bd5a32a4a33c34b9fc38112c86ba74a9933aabd70e827fbb1ba1974110d2fd7'),
+    'assets/search-index.js': ('eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e', 'ff4ac60c1396050ed9a0986d84803339fd00c6f18bf4bfcf0fcea148abfca973'),
+    'housing-help.html': ('d7ff1a76923f2c8c2fcec7ae9c10b3230eef5cb95967075fac91ec6c00c265ea', '02fc7cbc1f3925008402db5e59bed86b24708f056bcdd50af02c5c8e9b49d6b5'),
+    'phoenix.html': ('97855d745df44ebe49d49ceef7a1f6bd90dc9ef2d60eebeb6e4a17cbfc35ac62', 'ab56f83258cf69ce0cbe1d10cd44877602373de868925cc383412a2c249d8e02'),
+    'phoenix/housing-help.html': ('1d5ad3143e66f9885ede915d2455375d29cf78ee27d1cb256c9bd4c74ab68b97', '315946073a53672095ca691b6efe1c8e9558b8b39d7e99c82fdf569ec2c3c35f'),
+    'scripts/build-regional-editions.py': ('eafb74ed64dbeffbf6ab9e49c5eeb8cfec82d9ca440371cd518b77057e4778fc', 'e1dadc99ac1a89b9565b05c9117fa230ee74f34a22796f059cb196fc04de30eb'),
+    'tucson.html': ('bbebc35eb6b108217a673fe52800d0f09490dc13d66cdcdc8d1f28523cd43922', '740b426a890420f9e116b78ac1c1c6ea8147d7ece629c4a595a2fa9079f8773e'),
+    'research.html': ('aa3ba5ec5a10a62500058ca464d09e3e2b340da395d0f53b50f89c0e09535417', '20a3de5e1005ae349b68a35a4ffe0e672193c2f4900541c4f837289f9bc9f97c'),
+    'research-center.html': ('03c604a4f3cbbacf4365ae0fc3121074d4408d76671145be76a072c0e1e0b564', 'f78b4f154af744e4341253cca630ca35c1ed452ac28433ddd41a90f3607028b0'),
+    'scripts/check-list-baseline.py': ('83879dd488eb4c4bb25967ee94d9d9da0468ffd8833aea3be107f1abac180341', 'b7cac756265c9e27c13b0dc20b1b40bd7ab30691e0f83c88f284790697faacbe'),
+}
+# The verifier's own exact after-hash lives outside its bytes.
+round1_verifier = json.loads((ROOT / 'scripts/fixtures/round1-verifier-transition.json').read_text())
+assert round1_verifier['base'] == ROUND1_BASE
+assert set(round1_verifier) == {'base', 'before', 'after'}
+assert round1_verifier['before'] == cleanup['verifier']['after']
+ROUND1_TRANSITIONS[verifier_path] = (round1_verifier['before'], round1_verifier['after'])
+round1_prior = {}
+for name, (before, after) in ROUND1_TRANSITIONS.items():
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
+    round1_prior[name] = original
+
 audit_review_prior = {}
 for name, (before, after) in AUDIT_REVIEW_TRANSITIONS.items():
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected audit-review bytes', name)
+    assert hashlib.sha256(round1_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected audit-review bytes', name)
     original = subprocess.check_output(['git', 'show', AUDIT_REVIEW_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified pre-audit-review bytes', name)
     audit_review_prior[name] = original
 
 
 def preservation_bytes(name):
-    content = audit_review_prior[name] if name in audit_review_prior else (ROOT / name).read_bytes()
+    content = audit_review_prior[name] if name in audit_review_prior else round1_prior.get(name, (ROOT / name).read_bytes())
     if name in cleanup_transitions:
         assert hashlib.sha256(content).hexdigest() == cleanup_transitions[name]['after'], ('Unreviewed cleanup change', name)
         return cleanup_prior_bytes[name]

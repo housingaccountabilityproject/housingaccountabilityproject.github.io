@@ -14,3 +14,5 @@ exclude:
   - docs/reviews/cleanup-presentation-preservation.json
   - scripts/private-eight-review.mjs
   - scripts/private-hosted-print.mjs
+
+  - scripts/fixtures/round1-verifier-transition.json
