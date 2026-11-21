@@ -73,8 +73,43 @@ for name, transition in cleanup_transitions.items():
     cleanup_prior_bytes[name] = prior
 
 
+# Accept only the reviewed live-audit transitions (including historical labels).
+# Each pre-review file is independently verified before every existing guard.
+AUDIT_REVIEW_BASE = '69843d7d301fc980b08da6a235b9859bd8e14156'
+AUDIT_REVIEW_TRANSITIONS = {
+    'archive-phoenix.html': ('6b30c838f1f4e9a8a707c8e773f81e4959d48dc4d35eab8760767e36fb9fb433', 'dddf3b1e6577d13001e366eadbb75e81a164bcd205581ee4681bd5283a55d6b2'),
+    'archive-tucson.html': ('e6aa677a2e8a0fdf8dd72628beb318d3692502eb1eb410e3581924b2c799bef8', 'bdc37102dd4dcaa923d0ca6d9f62b74de3634877b43a6e42d78b8a062ad95774'),
+    'assets/category-search-data.js': ('32a95c829e0276471e4688c79ccb6a5b8c6c1c977043ebd4b1d6dd8dcd4cff33', 'c82df15091eea44b011294f33328f2d7e3fcce0b2bad5c554d0d2b5f2a003e24'),
+    'assets/category-search.js': ('e80afebec177b0ec1b1fb4550e4b2a760e942df0c3f4b72a7684d1f686785ef6', '4aed326aeaecb1325567f221f96fbf9e402a442c32986f585d109b732f45698f'),
+    'assets/phoenix-records.js': ('eb20e018a8a5aabf7fcd4535a8f1533fdb727a0d85920803f88cbc6b008e6010', '97aa89a347bc6ecd66953b9380f3e765a10c857227657321a4685ceebd7b2156'),
+    'assets/search-index.js': ('804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6', 'eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e'),
+    'assets/search-source-urls.js': ('2db8ca212b34c31e47f273899703e1df6e343207a4b270c75437cf6933cd2523', '5bc41e0f62db35732b011ca8e9cbd75bc49f6bb49a729e43030ac0ff4fc5bfe3'),
+    'data/category-search.json': ('66b69c2c26eef81d926ea312908490ed403f3cb5a4316e64e01156eecfdd4706', '0eecbbe4395c172cfb1c75740fb1a150b47efa3d0f9f2216170cefa975b63107'),
+    'data/housing-help-resources.json': ('ef9d80fd55e06e8d0321b23e21003cc7558c5f6d442801669c5f4ba64ab278c6', 'dff56e2d999a396a08f3cf484ba93078f3bfcfcbcb2413cfe564cd24722a2794'),
+    'data/search-coverage.json': ('5556448be11c5552d8ff3d51ecaed6b71874971a5ceda0fe033bb74e2d1ed6e0', '1aed08c184334f470c9ad612865d7c2d54d50cfb7c0e2fbb78961306edd45ec5'),
+    'feed.xml': ('7adb0d857035bea876550fae53587e6559bc33828130fa346367a78ee8bb1b3c', 'c0c531deb513876cf3c7b486981829cff4fa2b01afd56c83ee698bcdd8372233'),
+    'findings.html': ('9eb78010984bdc2194fd7240a6508aa6a9a1eda24b01d574888f835cdf276268', '0c3060ec6c0c050e6affafca4e535c7e4b775b01474dc748af89372c70cb5a8b'),
+    'housing-help.html': ('9793cc8d0d062020b96f4e81d6ad567930a77ba94106bf328ec4a90adb4b197b', 'd7ff1a76923f2c8c2fcec7ae9c10b3230eef5cb95967075fac91ec6c00c265ea'),
+    'phoenix.html': ('337060f3cac6ae4d9c4f8aa1d1f45bf4ff1468d82dd7d20bba8c1aed1e2a1ffc', '97855d745df44ebe49d49ceef7a1f6bd90dc9ef2d60eebeb6e4a17cbfc35ac62'),
+    'phoenix/housing-help.html': ('f74687a502bdbe409d36c03ef3f2a93aead197aee5c2809645238a5dd7ff7008', '1d5ad3143e66f9885ede915d2455375d29cf78ee27d1cb256c9bd4c74ab68b97'),
+    'phoenix/records.html': ('65ab34ea3e3c7d5ce1ccf095ba3f33a1f1b9b0cbd3393d0563de752be7d13ec2', '9262a0c9833fd7d2741a620cfe5871d04fadb634b74847702ba6d812405a2624'),
+    'research-updates.html': ('7ce49c3ea07ae4170681704f35093a9b754195a8b46c5627a7170f29d78bc58f', '76ae44be2856be20a30e10f3dc922cadf7df3706bd1a12049c508a2cc352f2cf'),
+    'scripts/build-phoenix-records.py': ('5229584824f623796a5f018790141b61e16484ea75a578c4a18323737af5db51', 'a037ec582fa00d81a38e94ab28871007692c0231b84c965eb5844d942873d1eb'),
+    'scripts/check-list-baseline.py': ('d71a7281e00c1f8e8e43672201aa4b9f05acfaaf110233f1e751fbdff628c680', '83879dd488eb4c4bb25967ee94d9d9da0468ffd8833aea3be107f1abac180341'),
+    'sitemap.xml': ('3bbdc87ca7b88635450c330710cd33d277296b30698ec32ec37ee3518c22bcd6', '37c1766dfbdb184439ca401fcbf12c837b5860809fdd2bff12fab8f51be65081'),
+    'tucson.html': ('4a6a530588f1bce85b759220867b0494771d03d6e63d17469d32cc0a8afa779a', 'bbebc35eb6b108217a673fe52800d0f09490dc13d66cdcdc8d1f28523cd43922'),
+    'tucson/index.html': ('ba5950c58900a12da6f9e8944b7e787957eb9f8dbbda40297d6cabd2b7224258', '5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92'),
+}
+audit_review_prior = {}
+for name, (before, after) in AUDIT_REVIEW_TRANSITIONS.items():
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected audit-review bytes', name)
+    original = subprocess.check_output(['git', 'show', AUDIT_REVIEW_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(original).hexdigest() == before, ('Unverified pre-audit-review bytes', name)
+    audit_review_prior[name] = original
+
+
 def preservation_bytes(name):
-    content = (ROOT / name).read_bytes()
+    content = audit_review_prior[name] if name in audit_review_prior else (ROOT / name).read_bytes()
     if name in cleanup_transitions:
         assert hashlib.sha256(content).hexdigest() == cleanup_transitions[name]['after'], ('Unreviewed cleanup change', name)
         return cleanup_prior_bytes[name]
@@ -156,7 +191,16 @@ for route in baseline['routes']:
     assert set(route['ids']) <= set(doc.xpath('//@id')), ('Lost saved fragment', path)
     assert len(doc.xpath('//@id')) == len(set(doc.xpath('//@id'))), ('Duplicated fragment', path)
     if path != 'index.html':
-        assert set(route['citations']) <= set(doc.xpath('//a/@href')), ('Lost original citation', path)
+        expected_citations = set(route['citations'])
+        if path in {'housing-help.html', 'phoenix/housing-help.html'}:
+            # One reviewed replacement of an inaccessible provider guide.
+            old_guide = 'https://www.aarp.org/aarp-foundation/find-help/housing/'
+            new_guide = 'https://my.aarpfoundation.org/housing/'
+            assert old_guide in expected_citations, ('Changed baseline guide', path)
+            expected_citations.remove(old_guide)
+            expected_citations.add(new_guide)
+            assert old_guide not in doc.xpath('//a/@href'), ('Retired guide still linked', path)
+        assert expected_citations <= set(doc.xpath('//a/@href')), ('Lost original citation', path)
     for href in doc.xpath('//a/@href'):
         destination(path, href)
     inventory['routes'].append({'path': path, 'sha256': hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
@@ -187,8 +231,23 @@ assert set(original_keys) <= set(current_keys) and all(count == 1 for count in c
 assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']+review['addedRecordKeys']), 'Unreviewed record addition'
 old_records = {r['key']: r for r in original_records}
 for row in api['CATALOG']:
+    if row['key'] == 'phoenix:resource-wvhac':
+        # Only the checked family/single-adult operator access wording changed.
+        # All other keys and catalog records retain their existing assertions.
+        prior_catalog = json.loads(audit_review_prior['data/category-search.json'])['records']
+        prior = next(record for record in prior_catalog if record['key'] == row['key'])
+        expected_changed = {'summary', 'label', 'links', 'originals', 'searchText', 'yearNote'}
+        assert {name for name in prior.keys() | row.keys() if prior.get(name) != row.get(name)} == expected_changed
+        assert hashlib.sha256(json.dumps(row, sort_keys=True, ensure_ascii=False).encode()).hexdigest() == '7e6b30a31393b311f5dbbf0cdd89d8a844ac632a6a8770673a8206e7206072ef'
     if row['key'] in old_records and row['key'] not in research['changedRecordKeys']+review['changedRecordKeys']:
-        assert row == old_records[row['key']], ('Unreviewed record change', row['key'])
+        expected = old_records[row['key']]
+        if row['key'] == 'tucson:research-updates.html#county-housing-funding-2026-11-08':
+            previous = 'The latest returned reporting period is August 2026, before the September County approvals.'
+            historical = 'In the November 8 research snapshot, the latest returned reporting period was August 2026, before the September County approvals.'
+            encoded = json.dumps(expected, ensure_ascii=False)
+            assert encoded.count(previous) == 8, 'Changed historical PRICE baseline'
+            expected = json.loads(encoded.replace(previous, historical))
+        assert row == expected, ('Unreviewed record change', row['key'])
 
 for record in api['CATALOG']:
     destination('index.html', record['url'])

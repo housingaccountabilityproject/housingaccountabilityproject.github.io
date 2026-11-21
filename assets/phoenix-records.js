@@ -136,7 +136,7 @@
     const primer=document.getElementById('city-funding-primer');
     if(primer)primer.hidden=view!=='funding';
     const title=document.querySelector('.records-intro h1');
-    if(title)title.textContent=view==='funding'?'Understand Phoenix and Maricopa County funding':view==='source'?'Phoenix and Maricopa County source index':view==='question'?'Phoenix and Maricopa County research questions':'Search Phoenix and Maricopa County research';
+    if(title)title.textContent=view==='funding'?'Understand Phoenix and Maricopa County funding':view==='source'?'Phoenix and Maricopa County source index':view==='question'?'Phoenix and Maricopa County research questions':'Phoenix & Maricopa County evidence browser';
     if (sourceControls) sourceControls.hidden = view !== 'source';
     generalControls.hidden = view === 'source';
     form.dataset.fundingView=String(view==='funding');
@@ -234,6 +234,6 @@
       ...(view==='funding'&&fundingYear?[`Funding year / period: ${periods.optionLabel(fundingYear.value)}`]:[]),
       ...(view === 'source' ? sourceFacets.map(({element,label}) => `${label}: ${selectedLabel(element)}`) : [])
     ] , results: pager.matches, currentResults: pager.current,
-    snapshot: () => 'Published research snapshot: '+document.querySelector('[data-research-snapshot]').dataset.researchSnapshot+'. Funding stages and project counts remain separate; source qualifications are retained.'
+    snapshot: () => 'Published research snapshot: '+document.querySelector('[data-research-snapshot]').dataset.researchSnapshot+' (historical baseline). Records and later releases keep their own dates; this is not a last-updated date. Funding stages and project counts remain separate; source qualifications are retained.'
   });
 })();
