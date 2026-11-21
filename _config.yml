@@ -11,3 +11,4 @@ exclude:
   - scripts/check-regional-editions.py
   - scripts/check-regional-release-output.py
   - scripts/test-regional-editions.mjs
+  - docs/reviews/cleanup-presentation-preservation.json
