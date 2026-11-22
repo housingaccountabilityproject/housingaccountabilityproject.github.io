@@ -43,7 +43,9 @@ scopeControl.append(printScopeSelect);$('print-compact').closest('.results-top')
 const printHelp=document.createElement('p');printHelp.className='list-print-help screen-only';printHelp.textContent='The print buttons use the scope selected above. Ctrl+P on this search page prints all matches with Full evidence. In a print preview, Ctrl+P prints the selected scope and detail. Printing preserves the search, filters and page.';scopeControl.after(printHelp);
 
 function node(tag,text,cls){let e=document.createElement(tag);if(text!==undefined)e.textContent=String(text).replace(/this preview/gi,'this search').replace(/preview supplies/g,'search supplies').replace(/four-category preview/g,'four-category search');if(cls)e.className=cls;return e;}
-function link(label,url,cls){let a=node('a',label,cls);a.href=url;a.target='_blank';a.rel='noopener';return a;}
+const historicalSrc100Url='https://cpd.hud.gov/cpd-public/api/env-reviews/downloads/8818?fileName=ERR_900000010528814_Craycroft-Towers-and-Lee-Street-Duplexes_Tucson_AZ_CEST_AN_09012027_1788285600223.docx';
+function retainedHistoricalSrc100(url){const p=paragraph('Historical URL (not a source for this record): The former /8818 download returned unrelated reviews. It is retained below for the correction record only.','print-url');const value=node('code',url);value.style.overflowWrap='anywhere';p.append(' ',value);return p;}
+function link(label,url,cls){if(url===historicalSrc100Url)return retainedHistoricalSrc100(url);let a=node('a',label,cls);a.href=url;a.target='_blank';a.rel='noopener';return a;}
 function excerpt(s,n=210){s=String(s||'');if(s.length<=n)return s;let end=s.lastIndexOf(' ',n);return s.slice(0,end>n/2?end:n)+'…';}
 function paragraph(text,cls){return node('p',text,cls);}
 function fieldValue(r,label,value){
@@ -72,8 +74,8 @@ function body(r,print=false){let box=node('div');
   if(r.notes.length){box.append(node('h4','Full record notes & context'));if(r.yearSourceCheck)box.append(paragraph('Earlier review and access notes are retained below. See the date check above for the newer, date-specific check.'));r.notes.forEach(v=>box.append(paragraph(v)));}
   if(r.sourceIds.length){box.append(node('h4','Source / related record IDs'),paragraph(r.sourceIds.join(' · ')));}
   if(r.aliases.length)box.append(paragraph('Other published identifiers: '+r.aliases.join(' · ')));
-  const links=[...(r.correctedSourceUrl?[{title:'Corrected Craycroft archive link',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,{title:'Read this record on the live site',url:r.url},{title:'Read the finding in context',url:r.contextUrl}];let seen=new Set(),ul=node('ul');
-  for(const l of links){if(seen.has(l.url))continue;seen.add(l.url);let li=node('li');const warning=r.linkWarnings?.find(w=>w.url===l.url);li.append(link(warning?'Mismatched source link · '+l.title:l.title,l.url));if(warning)li.append(paragraph(warning.text,'caution'));if(print)li.append(paragraph(l.url,'print-url'));ul.append(li);}
+  const links=[...(r.correctedSourceUrl?[{title:'Verified HUD environmental review (Craycroft/Lee Street)',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,{title:'Read this record on the live site',url:r.url},{title:'Read the finding in context',url:r.contextUrl}];let seen=new Set(),ul=node('ul');
+  for(const l of links){if(seen.has(l.url))continue;seen.add(l.url);let li=node('li');const warning=r.linkWarnings?.find(w=>w.url===l.url);li.append(link(warning?'Mismatched source link · '+l.title:l.title,l.url));if(warning)li.append(paragraph(warning.text,'caution'));if(print&&l.url!==historicalSrc100Url)li.append(paragraph(l.url,'print-url'));ul.append(li);}
   box.append(node('h4','Original sources & linked context'),ul);return box;
 }
 function card(r){const a=node('article',undefined,'card');a.dataset.recordKey=r.key;let m=node('div',undefined,'card-main'),head=node('div',undefined,'card-head');
@@ -111,8 +113,8 @@ function compactRecord(r){
  a.append(paragraph(standard.summary(r)));
  for(const caution of r.caveats)a.append(paragraph(caution,'caution'));
  if(r.sourceIds.length)a.append(paragraph('Source / related IDs: '+r.sourceIds.join(' · ')));
- const links=[...(r.correctedSourceUrl?[{title:'Corrected source',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(annotation?.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
- const seen=new Set();for(const l of links){if(!l.url||seen.has(l.url))continue;seen.add(l.url);const warning=r.linkWarnings?.find(w=>w.url===l.url);const p=paragraph((warning?'Mismatched historical link · ':'')+l.title+' ','print-url');p.append(link(l.url,l.url));a.append(p);if(warning)a.append(paragraph(warning.text,'caution'));}
+ const links=[...(r.correctedSourceUrl?[{title:'Verified HUD environmental review (Craycroft/Lee Street)',url:r.correctedSourceUrl}]:[]),...r.originals,...r.links,...(annotation?.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),...(r.programPeriod?.evidence||[]).map(e=>({title:e.locator||'Period evidence',url:e.url})),{title:'Full record and evidence notes',url:r.url},{title:'Finding in context',url:r.contextUrl}];
+ const seen=new Set();for(const l of links){if(!l.url||seen.has(l.url))continue;seen.add(l.url);const warning=r.linkWarnings?.find(w=>w.url===l.url);const p=l.url===historicalSrc100Url?retainedHistoricalSrc100(l.url):paragraph((warning?'Mismatched historical link · ':'')+l.title+' ','print-url');if(l.url!==historicalSrc100Url)p.append(link(l.url,l.url));a.append(p);if(warning)a.append(paragraph(warning.text,'caution'));}
  return a;
 }
 function recordScopeName(r){return r.regionalScopes?.length>1?'Arizona · Shared reference':scopeNames[r.scope];}

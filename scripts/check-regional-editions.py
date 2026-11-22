@@ -122,23 +122,44 @@ assert round1_verifier['base'] == ROUND1_BASE
 assert set(round1_verifier) == {'base', 'before', 'after'}
 assert round1_verifier['before'] == cleanup['verifier']['after']
 ROUND1_TRANSITIONS[verifier_path] = (round1_verifier['before'], round1_verifier['after'])
+
+# Round 2 E/F verifies its exact tracked delta before the prior gates.
+ROUND2_BASE = '8a621f0eecf6c3fa5d2e51619d8562d13422efca'
+round2 = json.loads((ROOT / 'scripts/fixtures/round2-ef-transition.json').read_text())
+assert round2['base'] == ROUND2_BASE
+assert round2['tree'] == 'e4d5a3e23d77ef7e41f12dbea9a08abd31bce23f'
+assert subprocess.check_output(['git', 'rev-parse', ROUND2_BASE + '^{tree}'], cwd=ROOT, text=True).strip() == round2['tree']
+assert set(round2['files']) == {'assets/help-navigation.css', 'assets/search-source-urls.js', 'research-updates.html', 'assets/search-index.js', 'evidence.html', 'feed.xml', 'contact.html', 'data/search-coverage.json', 'assets/category-search.js', 'reports/tucson-housing-funding-outcomes-2026.html'}
+round2_prior = {}
+for name, hashes in round2['files'].items():
+    prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
+    round2_prior[name] = prior
+assert set(round2['checkers']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py'}
+for name, hashes in round2['checkers'].items():
+    prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 verifier base', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 verifier', name)
+    round2_prior[name] = prior
+
 round1_prior = {}
 for name, (before, after) in ROUND1_TRANSITIONS.items():
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    assert hashlib.sha256(round2_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected Round 1 bytes', name)
     original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
     round1_prior[name] = original
 
 audit_review_prior = {}
 for name, (before, after) in AUDIT_REVIEW_TRANSITIONS.items():
-    assert hashlib.sha256(round1_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected audit-review bytes', name)
+    assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, (ROOT / name).read_bytes()))).hexdigest() == after, ('Unexpected audit-review bytes', name)
     original = subprocess.check_output(['git', 'show', AUDIT_REVIEW_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified pre-audit-review bytes', name)
     audit_review_prior[name] = original
 
 
 def preservation_bytes(name):
-    content = audit_review_prior[name] if name in audit_review_prior else round1_prior.get(name, (ROOT / name).read_bytes())
+    content = audit_review_prior[name] if name in audit_review_prior else round1_prior.get(name, round2_prior.get(name, (ROOT / name).read_bytes()))
     if name in cleanup_transitions:
         assert hashlib.sha256(content).hexdigest() == cleanup_transitions[name]['after'], ('Unreviewed cleanup change', name)
         return cleanup_prior_bytes[name]
@@ -229,6 +250,17 @@ for route in baseline['routes']:
             expected_citations.remove(old_guide)
             expected_citations.add(new_guide)
             assert old_guide not in doc.xpath('//a/@href'), ('Retired guide still linked', path)
+        if path in {'evidence.html', 'research-updates.html'}:
+            obsolete = {href for href in expected_citations if urlsplit(href).hostname == 'cpd.hud.gov'
+                        and urlsplit(href).path == '/cpd-public/api/env-reviews/downloads/8818'}
+            assert len(obsolete) <= 1, ('Unexpected historic HUD target in baseline', path)
+            correction = doc.xpath('//*[@id="src-100-citation-correction"]')
+            assert len(correction) == 1
+            provenance = correction[0].xpath('.//code/text()')
+            assert len(provenance) == 1 and urlsplit(provenance[0]).path == '/cpd-public/api/env-reviews/downloads/8818'
+            assert not obsolete or obsolete == set(provenance), ('Historical URL not preserved verbatim', path)
+            assert provenance[0] not in doc.xpath('//a/@href'), ('Obsolete URL is still actionable', path)
+            expected_citations -= obsolete
         assert expected_citations <= set(doc.xpath('//a/@href')), ('Lost original citation', path)
     for href in doc.xpath('//a/@href'):
         destination(path, href)

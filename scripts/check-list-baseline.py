@@ -45,18 +45,33 @@ ROUND1_BASE = '595471cc45fc217c8b27edeb5fd1c120f924ad6a'
 ROUND1_TRANSITIONS = {
     'assets/search-index.js': ('eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e', 'ff4ac60c1396050ed9a0986d84803339fd00c6f18bf4bfcf0fcea148abfca973'),
 }
+
+# Round 2 E/F verifies its exact tracked delta before the prior gates.
+ROUND2_BASE = '8a621f0eecf6c3fa5d2e51619d8562d13422efca'
+round2 = json.loads((ROOT / 'scripts/fixtures/round2-ef-transition.json').read_text())
+assert round2['base'] == ROUND2_BASE
+assert round2['tree'] == 'e4d5a3e23d77ef7e41f12dbea9a08abd31bce23f'
+assert subprocess.check_output(['git', 'rev-parse', ROUND2_BASE + '^{tree}'], cwd=ROOT, text=True).strip() == round2['tree']
+assert set(round2['files']) == {'assets/help-navigation.css', 'assets/search-source-urls.js', 'research-updates.html', 'assets/search-index.js', 'evidence.html', 'feed.xml', 'contact.html', 'data/search-coverage.json', 'assets/category-search.js', 'reports/tucson-housing-funding-outcomes-2026.html'}
+round2_prior = {}
+for name, hashes in round2['files'].items():
+    prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
+    round2_prior[name] = prior
+
 round1_prior = {}
 for name, (before, after) in ROUND1_TRANSITIONS.items():
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    assert hashlib.sha256(round2_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected Round 1 bytes', name)
     original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
     round1_prior[name] = original
 
 for name,(before,after) in AUDIT_REVIEW_OUTPUTS.items():
- assert hashlib.sha256(round1_prior.get(name, (ROOT/name).read_bytes())).hexdigest()==after,('Unexpected audit-review bytes',name)
+ assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, (ROOT/name).read_bytes()))).hexdigest()==after,('Unexpected audit-review bytes',name)
  assert hashlib.sha256(subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)).hexdigest()==before,('Unverified pre-audit-review bytes',name)
 for name,sha in fixture['files'].items():
- content=(ROOT/name).read_bytes()
+ content=round2_prior.get(name, (ROOT/name).read_bytes())
  if name in AUDIT_REVIEW_OUTPUTS:
   content=subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)
  if name in CLEANUP_DERIVED:
