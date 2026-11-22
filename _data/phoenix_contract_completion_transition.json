@@ -1,0 +1,18 @@
+{
+  "base": "c084755f583cafa7c6d9fc0c749f73c573fb971c",
+  "reviewedContentCandidate": "e5d78434c041f3c2403b3d94b9ed0f0b4b8b013f",
+  "files": {
+    "phoenix/projects.html": {
+      "before": "340af44010846c7cf52623ddf69c60c9d527e3c96dcc8c31e2d7568c28aa1835",
+      "after": "674e6c831c4d768d25f56215a6696f3039bcaa8cd89f353c93f7e6dc31ff8868"
+    },
+    "scripts/build-phoenix-connections.py": {
+      "before": "9f0103a648c9ba3b8377251d1aeeb1b46763d226b2ed8d6eb8ed1e2e25a697f2",
+      "after": "69a91c2637791979d745e4049948172dfb2834a59ef7098f23359994e2a305b8"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "6d8b956ad0ae739e9517a5ba831496d50df089da2343cba97a3a62fd2be594bb",
+      "after": "78a47026e1ce643ad43cff5b196e93ee3e89d55c8dd12827ce33c03104300265"
+    }
+  }
+}
