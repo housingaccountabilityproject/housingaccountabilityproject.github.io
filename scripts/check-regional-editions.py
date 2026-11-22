@@ -17,6 +17,26 @@ ROOT = Path(__file__).resolve().parents[1]
 # _data is a Jekyll input directory; this review manifest is not a served file.
 NOV22_BASE = 'c084755f583cafa7c6d9fc0c749f73c573fb971c'
 nov22 = json.loads((ROOT / '_data/phoenix_contract_completion_transition.json').read_text())
+# Preserve the reviewed 15d019b transition while pinning only its print fix.
+print_fix = nov22.pop('printFix')
+PRINT_FIX_BASE = '15d019bdeb4eb56de181ffdc795a00159c31c4b9'
+assert set(print_fix) == {'base', 'files'}
+assert print_fix['base'] == PRINT_FIX_BASE
+assert set(print_fix['files']) == {'assets/search-print.js', 'scripts/check-regional-editions.py'}
+assert print_fix['files']['assets/search-print.js'] == {'before': '680bee0b2c7d77d6199ab0f8b192c5471b6fcb60860c02f170e4353804831dab', 'after': 'c5aee4ab79786a878d788c55e86d3d9f4ec68be1cdf1df184f7100a4c85ce588'}
+print_fix_prior = {}
+for name, transition in print_fix['files'].items():
+    assert set(transition) == {'before', 'after'}, ('Invalid print-fix transition', name)
+    prior = subprocess.check_output(['git', 'show', PRINT_FIX_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == transition['before'], ('Unverified print-fix base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == transition['after'], ('Unreviewed print-fix bytes', name)
+    print_fix_prior[name] = prior
+
+
+def print_fix_preserved_bytes(name):
+    return print_fix_prior[name] if name in print_fix_prior else (ROOT / name).read_bytes()
+
+
 assert set(nov22) == {'base', 'reviewedContentCandidate', 'files'}
 assert nov22['base'] == NOV22_BASE
 assert nov22['reviewedContentCandidate'] == 'e5d78434c041f3c2403b3d94b9ed0f0b4b8b013f'
@@ -28,12 +48,12 @@ for name, transition in nov22['files'].items():
     assert set(transition) == {'before', 'after'}, ('Invalid November 22 transition', name)
     prior = subprocess.check_output(['git', 'show', NOV22_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == transition['before'], ('Unverified November 22 base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == transition['after'], ('Unreviewed November 22 bytes', name)
+    assert hashlib.sha256(print_fix_preserved_bytes(name)).hexdigest() == transition['after'], ('Unreviewed November 22 bytes', name)
     nov22_prior[name] = prior
 
 
 def nov22_preserved_bytes(name):
-    return nov22_prior[name] if name in nov22_prior else (ROOT / name).read_bytes()
+    return nov22_prior[name] if name in nov22_prior else print_fix_preserved_bytes(name)
 
 
 BASE = 'ba87383359bdc0ba3de5042533dd7d78f720918d'

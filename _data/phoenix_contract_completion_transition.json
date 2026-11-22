@@ -14,5 +14,18 @@
       "before": "6d8b956ad0ae739e9517a5ba831496d50df089da2343cba97a3a62fd2be594bb",
       "after": "78a47026e1ce643ad43cff5b196e93ee3e89d55c8dd12827ce33c03104300265"
     }
+  },
+  "printFix": {
+    "base": "15d019bdeb4eb56de181ffdc795a00159c31c4b9",
+    "files": {
+      "assets/search-print.js": {
+        "before": "680bee0b2c7d77d6199ab0f8b192c5471b6fcb60860c02f170e4353804831dab",
+        "after": "c5aee4ab79786a878d788c55e86d3d9f4ec68be1cdf1df184f7100a4c85ce588"
+      },
+      "scripts/check-regional-editions.py": {
+        "before": "78a47026e1ce643ad43cff5b196e93ee3e89d55c8dd12827ce33c03104300265",
+        "after": "971aa803d5f2d5b9d39a4ae746a88c06b2f4dd786a9d436f82699e141544139a"
+      }
+    }
   }
 }
