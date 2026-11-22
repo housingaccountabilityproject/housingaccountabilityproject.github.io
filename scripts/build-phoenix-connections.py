@@ -108,6 +108,12 @@ def build():
     introduction = 'Follow a development across phases, funding records and reported results. Each observation keeps its own date and evidence status.'
     development_count = sum(project['kind'] == 'development' for project in data['projects'])
     note = f'''<section class="connections-note"><div class="wrap"><h2>One place can appear in several records.</h2><p>{development_count} developments and one neighborhood planning area are listed here. They are a selected research set, not a complete Phoenix inventory. Phase, inventory, designation and completion figures are not additive.</p></div></section>'''
+    note += '''<section class="connections-note" id="city-home-contract-completions" aria-labelledby="city-home-contract-completions-title"><div class="wrap">
+<h2 id="city-home-contract-completions-title">Two Phoenix housing projects: What the City certified</h2>
+<p>Phoenix certified that Phoenix Scholar House, a 56-home development, met the terms of its City HOME development loan agreement as of October 26, 2026. The certificate was recorded November 6, 2026. <a href="https://apps-secure.phoenix.gov/PublicRecordsSearch/Home/RenderPDF/?id=Gki72MrYkHRZQ5ofb0Qw9knNVDoaYq60m0rWk52DQhQ%3D">City certificate of completion, p. 1 (20260641371)</a>.</p>
+<p>The City separately certified contractual completion for La Esperanza Terrace as of January 12, 2026. The certificate covers 96 homes and was recorded January 29, 2026. <a href="https://apps-secure.phoenix.gov/PublicRecordsSearch/Home/RenderPDF/?id=n3t8IFi4DcAQsaHFlzG7Do73KflUroVAHoBo4qAasZg%3D">City certificate of completion, p. 1 (20260052973)</a>.</p>
+<p>These certificates document completion under the respective City agreements. They do not establish final payments, HUD financial closeout, current occupancy or apartment availability.</p>
+</div></section>'''
     controls = filters('Phoenix projects', [('development', 'Developments'), ('planning-area', 'Neighborhood planning areas')])
     (ROOT / 'phoenix/projects.html').write_text(city_layout(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/projects.html'))
 
