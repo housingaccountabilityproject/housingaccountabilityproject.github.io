@@ -1,0 +1,60 @@
+{
+  "base": "8a621f0eecf6c3fa5d2e51619d8562d13422efca",
+  "tree": "e4d5a3e23d77ef7e41f12dbea9a08abd31bce23f",
+  "files": {
+    "assets/category-search.js": {
+      "before": "4aed326aeaecb1325567f221f96fbf9e402a442c32986f585d109b732f45698f",
+      "after": "3f2426570a38206e637bf9aa9c325c524f8d0d81f28fb092d466fe13bfa1d48c"
+    },
+    "assets/search-index.js": {
+      "before": "ff4ac60c1396050ed9a0986d84803339fd00c6f18bf4bfcf0fcea148abfca973",
+      "after": "4002ec4ba2a00861bff33d72f6787697e271aa3028d6aff49d5ad4f8348075eb"
+    },
+    "assets/search-source-urls.js": {
+      "before": "5bc41e0f62db35732b011ca8e9cbd75bc49f6bb49a729e43030ac0ff4fc5bfe3",
+      "after": "b35818423b75887852b78da7d163804ea8bc0c6da6446a405ebfa26487f6f10d"
+    },
+    "contact.html": {
+      "before": "5f6262b07a9a48fde96c4ad06d41b6df13fd4e5004e7c9e308d9388d59393021",
+      "after": "ea767ab05330b288e87365e9b904f9876c9e4cf9be3563aa5bdd8c32e1317197"
+    },
+    "data/search-coverage.json": {
+      "before": "1aed08c184334f470c9ad612865d7c2d54d50cfb7c0e2fbb78961306edd45ec5",
+      "after": "07fc0ea231f033d6f7528f5822db66796f91edaf40f68f75c4b582ed212d2d74"
+    },
+    "evidence.html": {
+      "before": "aadbbb68657d5c86ce64c5c4542fb0ebc56c74b53d1a83b8018b5ea6acd18de1",
+      "after": "8320de6debac975eea5e87e24b954841b32433db6d06bfa12f49999f5b409171"
+    },
+    "feed.xml": {
+      "before": "c0c531deb513876cf3c7b486981829cff4fa2b01afd56c83ee698bcdd8372233",
+      "after": "7469effb7f04e410b182d395cd8cbe5cc3f551a1f76a52c2f1e967e71b945e88"
+    },
+    "reports/tucson-housing-funding-outcomes-2026.html": {
+      "before": "d07f1b020b25847f9611acf7d95f4f65043d4bcd9d2b91f52aed5b1cd86cef17",
+      "after": "1546b6f0035e77ebc891ca3b07f9acdfe1a3276d6c79b290a6126504c9998a96"
+    },
+    "research-updates.html": {
+      "before": "76ae44be2856be20a30e10f3dc922cadf7df3706bd1a12049c508a2cc352f2cf",
+      "after": "556e3ae63fb1c495b9e9654fe8cd45fbaf5ade4da5d2cd56ef0a194db44bf831"
+    },
+    "assets/help-navigation.css": {
+      "before": "f67b2f00548fb4137d91f297ef09663f0b4c7d4c55fb6f12c6880fdfe9aae96e",
+      "after": "914351a272600b20b92fd308f4cd8b422e96ee6509e0d70b559a89b9f86cd4c7"
+    },
+    "scripts/test-category-search.mjs": {
+      "before": "3748b4fda4ade116c235a6e55ab06b55072a10f6ef93b6c4e350ca65cd9bbc82",
+      "after": "653fdb1b1ba89eaa07ec8ea818d641436bce2ebd6f43a29c6d31c1f765561a6b"
+    }
+  },
+  "checkers": {
+    "scripts/check-list-baseline.py": {
+      "before": "b7cac756265c9e27c13b0dc20b1b40bd7ab30691e0f83c88f284790697faacbe",
+      "after": "15bbfa427326ecac1a5a8e712e9683ce1a9a93e2eb6f0520b7f670394798f4ad"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "4163d0b7d3c697d62a7cf5a5d2e0b71033c8b70e0706c594519c681e991fcaa0",
+      "after": "6d8b956ad0ae739e9517a5ba831496d50df089da2343cba97a3a62fd2be594bb"
+    }
+  }
+}

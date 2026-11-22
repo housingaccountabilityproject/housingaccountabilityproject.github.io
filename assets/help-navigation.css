@@ -10,3 +10,12 @@
 main [id^="help-"],#hamc-waitlist-notice,#resource-marana-school-support {scroll-margin-top: 5rem}
 .city-site .context-note:has(> section:only-child) {grid-template-columns: 1fr}
 @media print {.help-quick-entry,.help-task-jumps,.help-edition-return {display: none !important}}
+
+/* Match the adjacent Phoenix Housing Help content gutter on small screens. */
+@media screen and (max-width: 700px) {
+  .city-site.city-phoenix.city-help-page > main > :is(.help-task-jumps,.help-edition-return,#reviewed-resource-additions) {
+    width: calc(100% - 40px);
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+  }
+}

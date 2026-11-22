@@ -162,7 +162,12 @@ try{
   if(width===1280&&scope==='tucson'){
    await input.fill('SRC-100');
    const source=data.records.find(r=>r.id==='SRC-100');
-   assert(await page.locator('#results a[href*="/erlink?f=ERR_900000010528814_"]').count());
+   assert(source?.correctedSourceUrl,'SRC-100 has a verified HUD source URL');
+   const historicalUrl=source.linkWarnings[0]?.url;
+   assert(historicalUrl&&historicalUrl!==source.correctedSourceUrl,'SRC-100 has a distinct historical HUD URL');
+   const screenLinks=await page.locator('#results a[href]').evaluateAll(links=>links.map(a=>a.href));
+   assert(screenLinks.includes(source.correctedSourceUrl),'On-screen results link to the verified HUD source');
+   assert(!screenLinks.includes(historicalUrl),'On-screen results do not link to the obsolete HUD source');
    for(const mode of ['compact','full']){
     await page.locator(mode==='compact'?'#print-compact':'#print').click();
     const path=`${output}/src100-${mode}.pdf`;
@@ -170,8 +175,10 @@ try{
     const text=pdfText(path);
     for(const fact of ['Solera','August 11, 2026','September 1, 2026','posting end','separate final signed','occupancy'])assert(text.includes(fact),fact);
     const urls=pdfLinks(path);
-    assert(urls.includes(source.correctedSourceUrl));
-    assert(urls.includes(source.linkWarnings[0].url));
+    assert(urls.includes(source.correctedSourceUrl),'PDF links to the verified HUD source');
+    assert(!urls.includes(historicalUrl),'PDF does not link to the obsolete HUD source');
+    // The extracted PDF may insert whitespace at a visual line wrap inside the URL.
+    assert(text.replace(/\s+/g,'').includes(historicalUrl),'PDF retains the exact obsolete HUD URL as text');
     await page.getByRole('button',{name:'← Back to search',exact:true}).click();
    }
    await page.locator('#reset').click();
