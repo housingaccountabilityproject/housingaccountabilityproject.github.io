@@ -41,16 +41,20 @@
     "assets/help-navigation.css": {
       "before": "f67b2f00548fb4137d91f297ef09663f0b4c7d4c55fb6f12c6880fdfe9aae96e",
       "after": "914351a272600b20b92fd308f4cd8b422e96ee6509e0d70b559a89b9f86cd4c7"
+    },
+    "scripts/test-category-search.mjs": {
+      "before": "3748b4fda4ade116c235a6e55ab06b55072a10f6ef93b6c4e350ca65cd9bbc82",
+      "after": "653fdb1b1ba89eaa07ec8ea818d641436bce2ebd6f43a29c6d31c1f765561a6b"
     }
   },
   "checkers": {
     "scripts/check-list-baseline.py": {
       "before": "b7cac756265c9e27c13b0dc20b1b40bd7ab30691e0f83c88f284790697faacbe",
-      "after": "3216385a51a2a698f17e03a1db6d40699fe1582c95971956cdb6f2dd3c683f47"
+      "after": "15bbfa427326ecac1a5a8e712e9683ce1a9a93e2eb6f0520b7f670394798f4ad"
     },
     "scripts/check-regional-editions.py": {
       "before": "4163d0b7d3c697d62a7cf5a5d2e0b71033c8b70e0706c594519c681e991fcaa0",
-      "after": "b86736c232d21b2144289670c576bfe7285fe36c91f357b9b41dcfdd75fced18"
+      "after": "6d8b956ad0ae739e9517a5ba831496d50df089da2343cba97a3a62fd2be594bb"
     }
   }
 }
