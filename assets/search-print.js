@@ -32,7 +32,7 @@
         document.getElementById('search-print-preview-controls')?.remove();document.body.classList.remove('previewing-search-results');
         privacy?.leavePrint();returnFocus?.focus({preventScroll:true});window.scrollTo({top:returnScroll,left:0,behavior:'instant'});
       }
-      function clone(entry, mode) {
+      function clone(entry, mode, record = true) {
         let copy;
         if(entry.tagName==='TR'){
           copy=make('article');copy.className='index-print-record';
@@ -42,7 +42,7 @@
             const content=make('div');for(const child of cell.childNodes)content.append(child.cloneNode(true));copy.append(content);
           });
         }else copy=entry.cloneNode(true);
-        copy.hidden=false;copy.dataset.printRecordId=entry.id||entry.dataset.recordKey||'';
+        copy.hidden=false;if(record)copy.dataset.printRecordId=entry.id||entry.dataset.recordKey||'';
         if(entry.tagName==='TR'){
           // Keep the identifier and the first two cells (ID and title) together.
           // The remaining evidence may still flow across as many pages as needed.
@@ -57,7 +57,7 @@
           // Keep that small heading together while the evidence still flows.
           for(const node of [...copy.children]){lead.append(node);if(node.tagName==='H2')break;}
           copy.prepend(lead);
-        }else if(entry.id)copy.prepend(make('p','Record ID: '+entry.id));
+        }else if(entry.id && record)copy.prepend(make('p','Record ID: '+entry.id));
         copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
         copy.querySelectorAll('details').forEach(n=>{n.open=true;});
         copy.querySelectorAll('.search-why,.city-project-permalink,.question-permalink').forEach(n=>n.remove());
@@ -69,7 +69,7 @@
           if(href.startsWith('#') && link.textContent.trim()==='Direct link')link.remove();
           else link.href=new URL(href,referenceURL).href;
         });
-        if(entry.id){const p=make('p'),link=make('a','Full record in context');link.href=new URL('#'+entry.id,referenceURL).href;p.append(link);copy.append(p);}
+        if(entry.id && record){const p=make('p'),link=make('a','Full record in context');link.href=new URL('#'+entry.id,referenceURL).href;p.append(link);copy.append(p);}
         return copy;
       }
       function choose(selectedScope=scope.value,selectedDetail=detail.value){
@@ -89,6 +89,16 @@
         const snapshotText=value(snapshot);if(snapshotText)report.append(make('p',snapshotText));
         report.append(make('p',`Print prepared: ${window.HAPSearchOptions.preparedAt()} · America/Phoenix, year-round. This is a print time; research dates remain attached to the records.`));
         if(choice.detail==='compact')report.append(make('p','Condensed evidence: dates, source notes and qualifications are retained. Full evidence also retains connected navigation context.'));
+        // This Phoenix page-level note is evidence context, not a twelfth result.
+        if(choice.detail==='full' && choice.scope==='all'){
+          const note=document.getElementById('city-home-contract-completions');
+          if(note){
+            const context=clone(note,choice.detail,false);
+            context.removeAttribute('aria-labelledby');
+            context.dataset.printContext='city-home-contract-completions';
+            report.append(context);
+          }
+        }
         for(const entry of entries)report.append(clone(entry,choice.detail));
         if(!entries.length)report.append(make('p','No results match the active search.'));
         document.body.append(report);privacy?.showPrint(report);document.body.classList.add('printing-search-results');

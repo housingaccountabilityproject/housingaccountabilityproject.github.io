@@ -12,6 +12,50 @@ import sys
 from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
+# Exact November 22 certificate-note transition. Verify the current bytes first,
+# then apply every historical assertion to its independently verified base.
+# _data is a Jekyll input directory; this review manifest is not a served file.
+NOV22_BASE = 'c084755f583cafa7c6d9fc0c749f73c573fb971c'
+nov22 = json.loads((ROOT / '_data/phoenix_contract_completion_transition.json').read_text())
+# Preserve the reviewed 15d019b transition while pinning only its print fix.
+print_fix = nov22.pop('printFix')
+PRINT_FIX_BASE = '15d019bdeb4eb56de181ffdc795a00159c31c4b9'
+assert set(print_fix) == {'base', 'files'}
+assert print_fix['base'] == PRINT_FIX_BASE
+assert set(print_fix['files']) == {'assets/search-print.js', 'scripts/check-regional-editions.py'}
+assert print_fix['files']['assets/search-print.js'] == {'before': '680bee0b2c7d77d6199ab0f8b192c5471b6fcb60860c02f170e4353804831dab', 'after': 'c5aee4ab79786a878d788c55e86d3d9f4ec68be1cdf1df184f7100a4c85ce588'}
+print_fix_prior = {}
+for name, transition in print_fix['files'].items():
+    assert set(transition) == {'before', 'after'}, ('Invalid print-fix transition', name)
+    prior = subprocess.check_output(['git', 'show', PRINT_FIX_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == transition['before'], ('Unverified print-fix base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == transition['after'], ('Unreviewed print-fix bytes', name)
+    print_fix_prior[name] = prior
+
+
+def print_fix_preserved_bytes(name):
+    return print_fix_prior[name] if name in print_fix_prior else (ROOT / name).read_bytes()
+
+
+assert set(nov22) == {'base', 'reviewedContentCandidate', 'files'}
+assert nov22['base'] == NOV22_BASE
+assert nov22['reviewedContentCandidate'] == 'e5d78434c041f3c2403b3d94b9ed0f0b4b8b013f'
+assert set(nov22['files']) == {'phoenix/projects.html', 'scripts/build-phoenix-connections.py', 'scripts/check-regional-editions.py'}
+assert nov22['files']['phoenix/projects.html'] == {'before': '340af44010846c7cf52623ddf69c60c9d527e3c96dcc8c31e2d7568c28aa1835', 'after': '674e6c831c4d768d25f56215a6696f3039bcaa8cd89f353c93f7e6dc31ff8868'}
+assert nov22['files']['scripts/build-phoenix-connections.py'] == {'before': '9f0103a648c9ba3b8377251d1aeeb1b46763d226b2ed8d6eb8ed1e2e25a697f2', 'after': '69a91c2637791979d745e4049948172dfb2834a59ef7098f23359994e2a305b8'}
+nov22_prior = {}
+for name, transition in nov22['files'].items():
+    assert set(transition) == {'before', 'after'}, ('Invalid November 22 transition', name)
+    prior = subprocess.check_output(['git', 'show', NOV22_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == transition['before'], ('Unverified November 22 base bytes', name)
+    assert hashlib.sha256(print_fix_preserved_bytes(name)).hexdigest() == transition['after'], ('Unreviewed November 22 bytes', name)
+    nov22_prior[name] = prior
+
+
+def nov22_preserved_bytes(name):
+    return nov22_prior[name] if name in nov22_prior else print_fix_preserved_bytes(name)
+
+
 BASE = 'ba87383359bdc0ba3de5042533dd7d78f720918d'
 SITE = 'https://housingaccountabilityproject.github.io/'
 api = runpy.run_path(str(ROOT / 'scripts/build-regional-editions.py'))
@@ -140,7 +184,7 @@ assert set(round2['checkers']) == {'scripts/check-list-baseline.py', 'scripts/ch
 for name, hashes in round2['checkers'].items():
     prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 verifier base', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 verifier', name)
+    assert hashlib.sha256(nov22_preserved_bytes(name)).hexdigest() == hashes['after'], ('Unverified Round 2 verifier', name)
     round2_prior[name] = prior
 
 round1_prior = {}
@@ -159,7 +203,7 @@ for name, (before, after) in AUDIT_REVIEW_TRANSITIONS.items():
 
 
 def preservation_bytes(name):
-    content = audit_review_prior[name] if name in audit_review_prior else round1_prior.get(name, round2_prior.get(name, (ROOT / name).read_bytes()))
+    content = audit_review_prior[name] if name in audit_review_prior else round1_prior.get(name, round2_prior.get(name, nov22_preserved_bytes(name)))
     if name in cleanup_transitions:
         assert hashlib.sha256(content).hexdigest() == cleanup_transitions[name]['after'], ('Unreviewed cleanup change', name)
         return cleanup_prior_bytes[name]
