@@ -195,7 +195,8 @@ def phoenix_page_navigation(output):
             + main + '</ul><details class="phoenix-more-jumps"><summary>More sections</summary><ul>'
             + items + '</ul></details></details></nav>')
     style = '''<style id="phoenix-page-contents-style">
-.phoenix-overview .phoenix-overview-layout{width:min(1240px,100% - 40px);margin-inline:auto;display:grid;grid-template-columns:minmax(12rem,14rem) minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start}
+.phoenix-overview .phoenix-overview-shell{container:phoenix-overview / inline-size;width:min(1240px,100% - 40px);margin-inline:auto}
+.phoenix-overview .phoenix-overview-layout{display:grid;grid-template-columns:minmax(12rem,14rem) minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start}
 .phoenix-overview .phoenix-overview-reading{min-width:0}
 .phoenix-overview .phoenix-overview-reading .wrap,.phoenix-overview .phoenix-overview-reading .city-wrap{width:100%}
 .phoenix-overview .phoenix-page-nav{position:sticky;top:1rem;align-self:start;z-index:2;box-sizing:border-box;padding:.75rem;margin-block:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
@@ -210,7 +211,7 @@ def phoenix_page_navigation(output):
 .phoenix-page-nav .phoenix-more-jumps>summary{min-height:44px;padding:.65rem .4rem;cursor:pointer}
 .phoenix-page-nav .phoenix-more-jumps>ul>li{margin-bottom:.5rem}
 .phoenix-source-choices{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-bottom:1rem}
-@media(max-width:52rem){
+@container phoenix-overview (max-width:52rem){
  .phoenix-overview .phoenix-overview-layout{display:block}
  .phoenix-overview .phoenix-page-nav{position:static;margin:.7rem 0;padding:.15rem .5rem}
  .phoenix-overview.phoenix-sticky-enhanced .phoenix-page-nav{position:sticky;top:0}
@@ -220,7 +221,7 @@ def phoenix_page_navigation(output):
 }
 @media(prefers-reduced-motion:reduce){html:has(.phoenix-overview){scroll-behavior:auto}}
 @media print{
- .phoenix-overview .phoenix-overview-layout{display:block;width:100%}
+ .phoenix-overview .phoenix-overview-shell,.phoenix-overview .phoenix-overview-layout{display:block;width:100%}
  .phoenix-page-nav,.phoenix-source-choices{display:none!important}
 }
 </style>'''
@@ -232,7 +233,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const summary=menu.querySelector(':scope>summary');
  const primary=Array.from(nav.querySelectorAll('.phoenix-primary-jumps a'));
  const links=Array.from(nav.querySelectorAll('a[href^="#"]'));
- const mobile=matchMedia('(max-width:52rem)');
+ const shell=nav.closest('.phoenix-overview-shell');
+ let compact=null;
  const group=new Map();
  links.forEach(link=>group.set(link.hash.slice(1),link.dataset.primary||link.closest('[data-primary]')?.dataset.primary));
  const targetFor=id=>{try{return document.getElementById(decodeURIComponent(id.replace(/^#/,'')))}catch{return null}};
@@ -244,7 +246,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  function paint(){
   frame=0;
   let active=primary[0].hash.slice(1);let closest=-Infinity;
-  const line=(mobile.matches?nav.getBoundingClientRect().height:0)+140;
+  const line=(compact?nav.getBoundingClientRect().height:0)+140;
   for(const [id,key] of group){
    const node=targetFor(id);
    if(!node?.getClientRects().length)continue;
@@ -256,22 +258,26 @@ document.addEventListener('DOMContentLoaded',()=>{
   primary.forEach(a=>{if(a.hash==='#'+active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
  }
  function queue(){if(!frame)frame=requestAnimationFrame(paint)}
- function screen(){menu.open=!mobile.matches;queue()}
+ function screen(){
+  const next=getComputedStyle(summary).display!=='none';
+  if(compact!==next){compact=next;menu.open=!compact}
+  queue();
+ }
  document.body.classList.add('phoenix-sticky-enhanced');
  screen();
- mobile.addEventListener('change',screen);
+ if(shell&&'ResizeObserver' in window)new ResizeObserver(screen).observe(shell);
  links.forEach(link=>link.addEventListener('click',event=>{
   if(event.button!==0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;
   const target=targetFor(link.hash);if(!target)return;
   event.preventDefault();openAncestors(target);
-  if(mobile.matches)menu.open=false;
+  if(compact)menu.open=false;
   if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');
   if(location.hash!==link.hash){try{history.pushState(null,'',link.hash)}catch{location.hash=link.hash}}
   target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});
   selected={key:groupFor(target),top:scrollY};queue();
  }));
  nav.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&mobile.matches&&menu.open){event.preventDefault();menu.open=false;summary.focus()}
+  if(event.key==='Escape'&&compact&&menu.open){event.preventDefault();menu.open=false;summary.focus()}
  });
  const fromHash=()=>{
   const target=targetFor(location.hash);
@@ -279,7 +285,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   queue();
  };
  addEventListener('scroll',queue,{passive:true});
- addEventListener('resize',queue);
+ addEventListener('resize',screen);
  addEventListener('hashchange',fromHash);
  addEventListener('popstate',fromHash);
  fromHash();
@@ -288,14 +294,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     changes = [
         (r'<nav class="city-guide-jump" aria-label="Overview sections">.*?</nav>', ''),
         (r'<nav class="section-nav" aria-label="Phoenix sections">.*?</nav>', ''),
-        (r'<section class="city-learning city-wrap"', '<div class="phoenix-overview-layout">' + menu + '<div class="phoenix-overview-reading"><section class="city-learning city-wrap"'),
+        (r'<section class="city-learning city-wrap"', '<div class="phoenix-overview-shell"><div class="phoenix-overview-layout">' + menu + '<div class="phoenix-overview-reading"><section class="city-learning city-wrap"'),
         (r'<section class="wrap"><h2>Source-Checked Research Notes · November 19, 2026', '<section class="wrap" id="phoenix-research-notes-nov19"><h2>Source-Checked Research Notes · November 19, 2026'),
         (r'<section class="wrap"><h2>Source Notes · November 19, 2026', '<section class="wrap" id="phoenix-source-notes-nov19"><h2>Source Notes · November 19, 2026'),
         (r'(<section id="sources" class="section"><div class="wrap sources"><div><span class="eyebrow accent">06 / Sources &amp; method</span><h2>Sources and method</h2>)',
          r'\g<1><div class="phoenix-source-choices"><a href="records.html#view-source">Browse original source records</a><a href="#phoenix-overview-method">Read the method on this page</a><a href="#phoenix-page-contents">Back to On this page</a></div>'),
         (r'<p>Each finding above links directly to its official source\.', '<p id="phoenix-overview-method">Each finding above links directly to its official source.'),
         (r'</head>', style + script + '</head>'),
-        (r'</main>', '</div></div></main>'),
+        (r'</main>', '</div></div></div></main>'),
     ]
     for pattern, replacement in changes:
         output, count = re.subn(pattern, replacement, output, flags=re.S)

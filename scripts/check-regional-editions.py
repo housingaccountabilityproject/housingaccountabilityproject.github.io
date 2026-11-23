@@ -19,11 +19,11 @@ PHOENIX_NAV_BASE = 'c1d270ffc57f4ca1de0c7ce7e2ee21e7bb6804b8'
 PHOENIX_NAV_PINS = {
     'phoenix/index.html': (
         'd33233c37741638ac357929580bb4bec6bdb4e6b383214d95cf6f1ff5144c300',
-        '8eab3d9779791805bf2c2c2ce15590c6ffbed1ae4e78f9c61b89bebd44dccb51',
+        'd168e498c6288c33aea11e6366da0c8f70ec9bbed160747a80d9a9e6cd7405f3',
     ),
     'scripts/city_reader_guide.py': (
         '3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011',
-        '052991bf5460d3a487956930c9eb91471bfad53d58eeea2d977b989673fc1d29',
+        '69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0',
     ),
 }
 phoenix_nav = json.loads((ROOT / '_data/phoenix_overview_navigation_transition.json').read_text())
