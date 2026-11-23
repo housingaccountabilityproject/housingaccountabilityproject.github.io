@@ -12,6 +12,41 @@ import sys
 from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
+# The Phoenix overview navigation changes presentation only. Read exact approved
+# successor bytes now, then feed the verified pre-change bytes to every prior
+# preservation check. The manifest is Jekyll data, not a served file.
+PHOENIX_NAV_BASE = 'c1d270ffc57f4ca1de0c7ce7e2ee21e7bb6804b8'
+PHOENIX_NAV_PINS = {
+    'phoenix/index.html': (
+        'd33233c37741638ac357929580bb4bec6bdb4e6b383214d95cf6f1ff5144c300',
+        'd168e498c6288c33aea11e6366da0c8f70ec9bbed160747a80d9a9e6cd7405f3',
+    ),
+    'scripts/city_reader_guide.py': (
+        '3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011',
+        '69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0',
+    ),
+}
+phoenix_nav = json.loads((ROOT / '_data/phoenix_overview_navigation_transition.json').read_text())
+assert set(phoenix_nav) == {'base', 'files'}, 'Invalid Phoenix overview navigation manifest'
+assert phoenix_nav['base'] == PHOENIX_NAV_BASE, 'Wrong Phoenix overview navigation base'
+nav_verifier = 'scripts/check-regional-editions.py'
+assert set(phoenix_nav['files']) == {*PHOENIX_NAV_PINS, nav_verifier}, 'Unreviewed Phoenix overview navigation path'
+assert phoenix_nav['files'][nav_verifier]['before'] == '971aa803d5f2d5b9d39a4ae746a88c06b2f4dd786a9d436f82699e141544139a'
+for name, (before, after) in PHOENIX_NAV_PINS.items():
+    assert phoenix_nav['files'][name] == {'before': before, 'after': after}, ('Unexpected Phoenix overview navigation pin', name)
+phoenix_nav_prior = {}
+for name, hashes in phoenix_nav['files'].items():
+    assert set(hashes) == {'before', 'after'}, ('Invalid Phoenix overview navigation transition', name)
+    prior = subprocess.check_output(['git', 'show', PHOENIX_NAV_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Phoenix overview navigation base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phoenix overview navigation bytes', name)
+    phoenix_nav_prior[name] = prior
+
+
+def phoenix_nav_preserved_bytes(name):
+    return phoenix_nav_prior[name] if name in phoenix_nav_prior else (ROOT / name).read_bytes()
+
+
 # Exact November 22 certificate-note transition. Verify the current bytes first,
 # then apply every historical assertion to its independently verified base.
 # _data is a Jekyll input directory; this review manifest is not a served file.
@@ -29,12 +64,12 @@ for name, transition in print_fix['files'].items():
     assert set(transition) == {'before', 'after'}, ('Invalid print-fix transition', name)
     prior = subprocess.check_output(['git', 'show', PRINT_FIX_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == transition['before'], ('Unverified print-fix base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == transition['after'], ('Unreviewed print-fix bytes', name)
+    assert hashlib.sha256(phoenix_nav_preserved_bytes(name)).hexdigest() == transition['after'], ('Unreviewed print-fix bytes', name)
     print_fix_prior[name] = prior
 
 
 def print_fix_preserved_bytes(name):
-    return print_fix_prior[name] if name in print_fix_prior else (ROOT / name).read_bytes()
+    return print_fix_prior[name] if name in print_fix_prior else phoenix_nav_preserved_bytes(name)
 
 
 assert set(nov22) == {'base', 'reviewedContentCandidate', 'files'}

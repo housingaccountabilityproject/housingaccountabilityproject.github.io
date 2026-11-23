@@ -1,0 +1,17 @@
+{
+  "base": "c1d270ffc57f4ca1de0c7ce7e2ee21e7bb6804b8",
+  "files": {
+    "phoenix/index.html": {
+      "before": "d33233c37741638ac357929580bb4bec6bdb4e6b383214d95cf6f1ff5144c300",
+      "after": "d168e498c6288c33aea11e6366da0c8f70ec9bbed160747a80d9a9e6cd7405f3"
+    },
+    "scripts/city_reader_guide.py": {
+      "before": "3521e2f8da8e9871d352d382153e92f4bffd9b0ae280f3c8fe5b5a29518e8011",
+      "after": "69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "971aa803d5f2d5b9d39a4ae746a88c06b2f4dd786a9d436f82699e141544139a",
+      "after": "d082dd25bfe40b1a4f8d41c66ef6779158e97bde89954597c0bc1505acb39f0f"
+    }
+  }
+}
