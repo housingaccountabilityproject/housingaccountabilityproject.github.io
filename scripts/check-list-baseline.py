@@ -4,6 +4,28 @@ import hashlib,json,subprocess
 from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
+# Phase 3 changes shared shell URLs without changing records. Pin the exact
+# navigation-only set and use verified predecessors for old byte assertions.
+PHASE3_BASE = 'a28da08067c7db82ea545129b06c1ea430d556c8'
+PHASE3_DIGEST = '6a2ec3cd24c862d9b15a3ab41e5c6efe693d6006c6442c70f426c94d2e8fac59'
+phase3 = json.loads((ROOT / '_data/phase3_shared_navigation_transition.json').read_text())
+assert set(phase3) == {'base', 'files'} and phase3['base'] == PHASE3_BASE
+phase3_guard_names = {'scripts/check-regional-editions.py', 'scripts/check-list-baseline.py'}
+assert phase3_guard_names <= set(phase3['files'])
+phase3_content = {'base': PHASE3_BASE, 'files': {k:v for k,v in phase3['files'].items() if k not in phase3_guard_names}}
+assert hashlib.sha256(json.dumps(phase3_content,sort_keys=True,separators=(',',':')).encode()).hexdigest() == PHASE3_DIGEST
+phase3_prior = {}
+for name, hashes in phase3['files'].items():
+    assert set(hashes) == {'before', 'after'}
+    old = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(old).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    phase3_prior[name] = old
+
+
+def phase3_preserved_bytes(name):
+    return phase3_prior[name] if name in phase3_prior else (ROOT / name).read_bytes()
+
 fixture=json.loads((ROOT/'scripts/fixtures/six-entry-baseline.json').read_text())
 # Keep the earlier reviewed fixture unchanged. This supplemental, dated fixture
 # enumerates only this private candidate's two records, six references and the
@@ -57,21 +79,21 @@ round2_prior = {}
 for name, hashes in round2['files'].items():
     prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
+    assert hashlib.sha256(phase3_preserved_bytes(name)).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
     round2_prior[name] = prior
 
 round1_prior = {}
 for name, (before, after) in ROUND1_TRANSITIONS.items():
-    assert hashlib.sha256(round2_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    assert hashlib.sha256(round2_prior.get(name, phase3_preserved_bytes(name))).hexdigest() == after, ('Unexpected Round 1 bytes', name)
     original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
     round1_prior[name] = original
 
 for name,(before,after) in AUDIT_REVIEW_OUTPUTS.items():
- assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, (ROOT/name).read_bytes()))).hexdigest()==after,('Unexpected audit-review bytes',name)
+ assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, phase3_preserved_bytes(name)))).hexdigest()==after,('Unexpected audit-review bytes',name)
  assert hashlib.sha256(subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)).hexdigest()==before,('Unverified pre-audit-review bytes',name)
 for name,sha in fixture['files'].items():
- content=round2_prior.get(name, (ROOT/name).read_bytes())
+ content=round2_prior.get(name, phase3_preserved_bytes(name))
  if name in AUDIT_REVIEW_OUTPUTS:
   content=subprocess.check_output(['git','show',AUDIT_REVIEW_BASE+':'+name],cwd=ROOT)
  if name in CLEANUP_DERIVED:

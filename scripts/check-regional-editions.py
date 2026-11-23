@@ -13,6 +13,106 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Exact Phase 3 navigation-only successor. Validate the new scope and bytes,
+# then run all earlier checks on verified predecessor bytes as before.
+PHASE3_BASE = 'a28da08067c7db82ea545129b06c1ea430d556c8'
+PHASE3_NAV_DIGEST = '6a2ec3cd24c862d9b15a3ab41e5c6efe693d6006c6442c70f426c94d2e8fac59'
+PHASE3_NAV_PATHS = {
+    'about.html',
+    'contact.html',
+    'evidence.html',
+    'findings.html',
+    'funding-explorer.html',
+    'glossary.html',
+    'housing-help.html',
+    'housing-projects.html',
+    'phoenix/capital-fund.html',
+    'phoenix/comparisons.html',
+    'phoenix/corrections.html',
+    'phoenix/glossary.html',
+    'phoenix/housing-help.html',
+    'phoenix/inaugural-report.html',
+    'phoenix/index.html',
+    'phoenix/projects.html',
+    'phoenix/projects/25th-at-bell.html',
+    'phoenix/projects/moreland.html',
+    'phoenix/questions.html',
+    'phoenix/records.html',
+    'phoenix/search.html',
+    'privacy.html',
+    'questions-records.html',
+    'reports/tucson-housing-funding-outcomes-2026.html',
+    'research-center.html',
+    'research-updates.html',
+    'research.html',
+    'scripts/city_layout.py',
+    'scripts/test-city-reader-journeys.mjs',
+    'search-all.html',
+    'search.html',
+    'tucson/index.html',
+}
+phase3_nav = json.loads((ROOT / '_data/phase3_shared_navigation_transition.json').read_text())
+phase3_verifier = 'scripts/check-regional-editions.py'
+assert set(phase3_nav) == {'base', 'files'} and phase3_nav['base'] == PHASE3_BASE, 'Invalid Phase 3 navigation transition'
+assert set(phase3_nav['files']) == {*PHASE3_NAV_PATHS, phase3_verifier, 'scripts/check-list-baseline.py'}, 'Unexpected Phase 3 navigation path'
+phase3_content = {'base': PHASE3_BASE, 'files': {name: phase3_nav['files'][name] for name in PHASE3_NAV_PATHS}}
+assert hashlib.sha256(json.dumps(phase3_content, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == PHASE3_NAV_DIGEST, 'Unexpected Phase 3 navigation pins'
+phase3_prior = {}
+for name, hashes in phase3_nav['files'].items():
+    assert set(hashes) == {'before', 'after'}, ('Invalid Phase 3 navigation hash pair', name)
+    prior = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    phase3_prior[name] = prior
+
+
+def phase3_preserved_bytes(name):
+    return phase3_prior[name] if name in phase3_prior else (ROOT / name).read_bytes()
+
+
+def phase3_nav_signature(doc, path, *, current):
+    edition_titles = {'Tucson & Pima County': 'tucson.html', 'Phoenix & Maricopa County': 'phoenix.html'}
+    head = doc.xpath('//header//nav[@class="city-switcher"]')
+    footer = doc.xpath('//footer//nav[@aria-label="Research area links"]')
+    learn = doc.xpath('//header//details[@class="city-more"]')
+    assert len(head) == len(footer) == len(learn) == 1, ('Missing existing Phase 3 shell', path)
+    for position, group in enumerate((head[0], footer[0], learn[0])):
+        seen = []
+        library = []
+        for a in group.xpath('.//a[@href]'):
+            title = a.text_content().strip()
+            target = edition_titles.get(title)
+            if target:
+                seen.append(title)
+                url = urlsplit(urljoin('https://housingaccountabilityproject.github.io/' + path, a.get('href')))
+                assert url.netloc == 'housingaccountabilityproject.github.io' and not url.fragment and not url.query
+                if current:
+                    assert url.path == '/' + target and a.get('aria-current') is None, ('Unexpected Phase 3 edition link', path, title)
+                else:
+                    assert url.path in {'/' + target, '/' + target.replace('.html','/index.html'), '/' + target.replace('.html','/')}
+                a.drop_tree()
+            elif position == 2 and title == 'Research Library':
+                library.append(a)
+                url = urlsplit(urljoin('https://housingaccountabilityproject.github.io/' + path, a.get('href')))
+                assert (url.netloc, url.path, url.query, url.fragment) == ('housingaccountabilityproject.github.io', '/library.html', '', '')
+                a.drop_tree()
+        if position < 2:
+            assert seen == list(edition_titles), ('Unexpected Phase 3 regional link list', path, position)
+        else:
+            assert len(library) == (1 if current else 0), ('Unexpected Phase 3 library count', path)
+    return html.tostring(doc)
+
+
+for phase3_name in PHASE3_NAV_PATHS:
+    if phase3_name.endswith('.html'):
+        before = html.fromstring(phase3_prior[phase3_name])
+        after = html.fromstring((ROOT / phase3_name).read_bytes())
+        assert before.xpath('//@id') == after.xpath('//@id'), ('Changed Phase 3 anchor', phase3_name)
+        assert phase3_nav_signature(before, phase3_name, current=False) == phase3_nav_signature(after, phase3_name, current=True), ('Change outside exact Phase 3 navigation', phase3_name)
+
+print('PASS Phase 3: exact header/footer edition and library changes only; all other HTML, links, and anchors unchanged.')
+
+
 # Exact successor Tucson navigation transition. Feed the verified Phase 1
 # bytes to the unchanged Phoenix transition and every historical assertion.
 TUCSON_NAV_BASE = 'd6912c0e4a6cd6f5368a63275cb27781e459394e'
@@ -33,12 +133,12 @@ for name, hashes in tucson_nav['files'].items():
     assert set(hashes) == {'before', 'after'}, ('Invalid Tucson overview navigation transition', name)
     prior = subprocess.check_output(['git', 'show', TUCSON_NAV_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Tucson overview navigation base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Tucson overview navigation bytes', name)
+    assert hashlib.sha256(phase3_preserved_bytes(name)).hexdigest() == hashes['after'], ('Unreviewed Tucson overview navigation bytes', name)
     tucson_nav_prior[name] = prior
 
 
 def tucson_nav_preserved_bytes(name):
-    return tucson_nav_prior[name] if name in tucson_nav_prior else (ROOT / name).read_bytes()
+    return tucson_nav_prior[name] if name in tucson_nav_prior else phase3_preserved_bytes(name)
 
 # The Phoenix overview navigation changes presentation only. Read exact approved
 # successor bytes now, then feed the verified pre-change bytes to every prior
@@ -368,7 +468,11 @@ for route in baseline['routes']:
             assert not obsolete or obsolete == set(provenance), ('Historical URL not preserved verbatim', path)
             assert provenance[0] not in doc.xpath('//a/@href'), ('Obsolete URL is still actionable', path)
             expected_citations -= obsolete
-        assert expected_citations <= set(doc.xpath('//a/@href')), ('Lost original citation', path)
+        # Historic inventory includes the two replaced shell destinations.
+        # Preserve its complete assertion on verified predecessor bytes,
+        # while the new verified transition checks actual shell and body.
+        citation_doc = html.fromstring(phase3_preserved_bytes(path)) if path in PHASE3_NAV_PATHS else doc
+        assert expected_citations <= set(citation_doc.xpath('//a/@href')), ('Lost original citation', path)
     for href in doc.xpath('//a/@href'):
         destination(path, href)
     inventory['routes'].append({'path': path, 'sha256': hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
