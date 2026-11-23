@@ -98,6 +98,8 @@ try {
     assert.deepEqual(appearance[0],appearance[1],'both cities share a theme');
     await openNavigation(page);
     await page.locator('.city-switcher').getByRole('link',{name:'Tucson & Pima County',exact:true}).click();
+    assert(page.url().endsWith('/tucson.html'));
+    await page.getByRole('link',{name:'Older regional overview',exact:true}).click();
     assert(page.url().endsWith('/tucson/index.html'));
     await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Search',exact:true}).click();
@@ -108,6 +110,9 @@ try {
     assert.equal(await page.locator('#query').inputValue(),'');
     await openNavigation(page);
     await page.locator('.city-switcher').getByRole('link',{name:'Phoenix & Maricopa County',exact:true}).click();
+    assert(page.url().endsWith('/phoenix.html'));
+    await page.getByRole('link',{name:'Older regional overview',exact:true}).click();
+    assert(page.url().endsWith('/phoenix/index.html'));
     await openNavigation(page);
     await page.locator('.city-main-nav').getByRole('link',{name:'Funding',exact:true}).click();
     await page.locator('[data-view="funding"][aria-pressed="true"]').waitFor();
