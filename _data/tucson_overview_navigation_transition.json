@@ -1,0 +1,17 @@
+{
+  "base": "d6912c0e4a6cd6f5368a63275cb27781e459394e",
+  "files": {
+    "tucson/index.html": {
+      "before": "5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92",
+      "after": "700fe175d434742fc3967d8de97ff3d94a70dae959d741a82198bcfc1939d5b0"
+    },
+    "scripts/city_reader_guide.py": {
+      "before": "69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0",
+      "after": "c36b2d5c3315f311b928c9ba0ab794befd6d94caffafcf0581343a3ca3d0a627"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "d082dd25bfe40b1a4f8d41c66ef6779158e97bde89954597c0bc1505acb39f0f",
+      "after": "0b054357ef8f4686ef67217ab706698b9f990fc9be06d27436c114741acace91"
+    }
+  }
+}

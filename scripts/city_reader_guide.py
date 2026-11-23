@@ -170,30 +170,8 @@ def project_file_intro(output,path,all_data):
 
 
 
-def phoenix_page_navigation(output):
-    """Consolidate only the Phoenix overview's in-page wayfinding."""
-    if 'id="phoenix-page-contents"' in output:
-        return re.sub(r'<nav class="city-guide-jump" aria-label="Overview sections">.*?</nav>', '', output, count=1, flags=re.S)
-    primary = [
-        ('Findings & Updates', 'guide-findings'),
-        ('Projects & Housing Results', 'delivery'),
-        ('Open Questions', 'questions'),
-        ('Sources & Methods', 'sources'),
-    ]
-    groups = [
-        ('Findings and dated updates', 'guide-findings', [('Key findings', 'guide-findings'), ('November 20', 'research-update-2026-11-20'), ('November 19', 'phoenix-research-notes-nov19'), ('November 14', 'research-update-2026-11-14'), ('November 10', 'project-counts-and-shelter-funding'), ('November 9', 'research-update-2026-11-09'), ('Proposed County plan changes', 'maricopa-proposed-plan-amendment')]),
-        ('Projects, results, funding and need', 'delivery', [('Project overview', 'guide-projects'), ('Reported results', 'delivery'), ('Projects & plans', 'planned'), ('Funding records', 'funding'), ('Housing need', 'need')]),
-        ('Open questions', 'questions', [('Questions at a glance', 'guide-questions'), ('Detailed questions', 'questions')]),
-        ('Sources and method', 'sources', [('Source tools', 'guide-sources'), ('Sources and method', 'sources'), ('November 19 source notes', 'phoenix-source-notes-nov19')]),
-    ]
-    main = ''.join(f'<li><a data-primary="{target}" href="#{target}">{escape(label)}</a></li>' for label, target in primary)
-    items = ''.join(f'<li data-primary="{key}"><strong>{escape(label)}</strong><ul>' +
-                    ''.join(f'<li><a href="#{target}">{escape(text)}</a></li>' for text, target in links)
-                    + '</ul></li>' for label, key, links in groups)
-    menu = ('<nav id="phoenix-page-contents" tabindex="-1" class="phoenix-page-nav" aria-label="On this page">'
-            '<h2>On this page</h2><details open><summary>On this page</summary><ul class="phoenix-primary-jumps">'
-            + main + '</ul><details class="phoenix-more-jumps"><summary>More sections</summary><ul>'
-            + items + '</ul></details></details></nav>')
+def overview_navigation_assets(city):
+    """Reuse the exact Phase 1 responsive behavior without altering Phoenix output."""
     style = '''<style id="phoenix-page-contents-style">
 .phoenix-overview .phoenix-overview-shell{container:phoenix-overview / inline-size;width:min(1240px,100% - 40px);margin-inline:auto}
 .phoenix-overview .phoenix-overview-layout{display:grid;grid-template-columns:minmax(12rem,14rem) minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start}
@@ -291,6 +269,59 @@ document.addEventListener('DOMContentLoaded',()=>{
  fromHash();
 });
 </script>'''
+    if city == 'phoenix':
+        return style, script
+    assert city == 'tucson'
+    style = style.replace('phoenix', city).replace(
+        '.tucson-overview .tucson-overview-shell,.tucson-overview .tucson-overview-layout{display:block;width:100%}',
+        '.tucson-overview :is(.tucson-overview-shell,.tucson-overview-layout,.tucson-overview-reading){display:contents}'
+    ).replace(
+        '.tucson-overview .tucson-overview-reading .wrap,.tucson-overview .tucson-overview-reading .city-wrap{width:100%}',
+        '@media screen{.tucson-overview .tucson-overview-reading :is(.wrap,.city-wrap){width:100%}}'
+    ).replace(
+        '.tucson-page-nav,.tucson-source-choices{display:none!important}',
+        '.tucson-page-nav,.tucson-source-choices,.tucson-help-entry{display:none!important}'
+    ).replace(
+        ' .tucson-page-nav h2{display:none}',
+        ' .tucson-overview.tucson-sticky-enhanced .tucson-overview-reading [id]{scroll-margin-top:4rem}\n .tucson-page-nav h2{display:none}'
+    ).replace(
+        ' .tucson-page-nav>details{max-height:min(60vh,22rem);overflow:auto}',
+        ' .tucson-page-nav>details{max-height:min(60vh,22rem);overflow:auto}\n .tucson-overview:not(.tucson-sticky-enhanced) .tucson-page-nav>details{max-height:none}'
+    )
+    style = style.replace('</style>', '.tucson-help-entry{margin-block:1rem}.tucson-help-entry a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.18em}.tucson-help-entry a:focus-visible{outline:3px solid currentColor;outline-offset:2px}</style>')
+    style = style.replace('</style>', '''/* The compact summary must show focus even when :focus-visible is unavailable. */
+.tucson-overview .tucson-page-nav>details>summary:focus{outline:3px solid #124e52;outline-offset:-3px;background:#e4f2ec;color:#124e52;border-radius:4px}
+@media(forced-colors:active){.tucson-overview .tucson-page-nav>details>summary:focus{outline-color:Highlight;background:Canvas;color:CanvasText}}
+</style>''')
+    script = script.replace('phoenix', city)
+    return style, script
+
+
+def phoenix_page_navigation(output):
+    """Consolidate only the Phoenix overview's in-page wayfinding."""
+    if 'id="phoenix-page-contents"' in output:
+        return re.sub(r'<nav class="city-guide-jump" aria-label="Overview sections">.*?</nav>', '', output, count=1, flags=re.S)
+    primary = [
+        ('Findings & Updates', 'guide-findings'),
+        ('Projects & Housing Results', 'delivery'),
+        ('Open Questions', 'questions'),
+        ('Sources & Methods', 'sources'),
+    ]
+    groups = [
+        ('Findings and dated updates', 'guide-findings', [('Key findings', 'guide-findings'), ('November 20', 'research-update-2026-11-20'), ('November 19', 'phoenix-research-notes-nov19'), ('November 14', 'research-update-2026-11-14'), ('November 10', 'project-counts-and-shelter-funding'), ('November 9', 'research-update-2026-11-09'), ('Proposed County plan changes', 'maricopa-proposed-plan-amendment')]),
+        ('Projects, results, funding and need', 'delivery', [('Project overview', 'guide-projects'), ('Reported results', 'delivery'), ('Projects & plans', 'planned'), ('Funding records', 'funding'), ('Housing need', 'need')]),
+        ('Open questions', 'questions', [('Questions at a glance', 'guide-questions'), ('Detailed questions', 'questions')]),
+        ('Sources and method', 'sources', [('Source tools', 'guide-sources'), ('Sources and method', 'sources'), ('November 19 source notes', 'phoenix-source-notes-nov19')]),
+    ]
+    main = ''.join(f'<li><a data-primary="{target}" href="#{target}">{escape(label)}</a></li>' for label, target in primary)
+    items = ''.join(f'<li data-primary="{key}"><strong>{escape(label)}</strong><ul>' +
+                    ''.join(f'<li><a href="#{target}">{escape(text)}</a></li>' for text, target in links)
+                    + '</ul></li>' for label, key, links in groups)
+    menu = ('<nav id="phoenix-page-contents" tabindex="-1" class="phoenix-page-nav" aria-label="On this page">'
+            '<h2>On this page</h2><details open><summary>On this page</summary><ul class="phoenix-primary-jumps">'
+            + main + '</ul><details class="phoenix-more-jumps"><summary>More sections</summary><ul>'
+            + items + '</ul></details></details></nav>')
+    style, script = overview_navigation_assets("phoenix")
     changes = [
         (r'<nav class="city-guide-jump" aria-label="Overview sections">.*?</nav>', ''),
         (r'<nav class="section-nav" aria-label="Phoenix sections">.*?</nav>', ''),
@@ -310,6 +341,51 @@ document.addEventListener('DOMContentLoaded',()=>{
     return output
 
 
+def tucson_page_navigation(output):
+    """Add an in-page Tucson menu without changing the research or saved URLs."""
+    old_nav = r'<nav class="city-guide-jump" aria-label="Overview sections">.*?</nav>'
+    if 'id="tucson-page-contents"' in output:
+        return re.sub(old_nav, '', output, count=1, flags=re.S)
+    primary = [
+        ('Findings & Updates', 'guide-findings'),
+        ('Projects & Funding', 'guide-projects'),
+        ('Open Questions', 'guide-questions'),
+        ('Sources & Methods', 'guide-sources'),
+    ]
+    groups = [
+        ('Findings and dated updates', 'guide-findings', [('Key findings', 'guide-findings'), ('Earlier updates', 'latest-updates'), ('Research at a glance', 'dashboard'), ('Correction history', 'correction-history'), ('Historical notes', 'findings')]),
+        ('Projects and funding', 'guide-projects', [('Projects and funding', 'guide-projects')]),
+        ('Open questions', 'guide-questions', [('Open questions', 'guide-questions'), ('Research priorities', 'research')]),
+        ('Sources and methods', 'guide-sources', [('Source tools', 'guide-sources'), ('Public records and primary sources', 'records'), ('Research methodology', 'methodology'), ('Project background', 'about')]),
+    ]
+    main = ''.join(f'<li><a data-primary="{target}" href="#{target}">{escape(label)}</a></li>' for label, target in primary)
+    items = ''.join(f'<li data-primary="{key}"><strong>{escape(label)}</strong><ul>' +
+                    ''.join(f'<li><a href="#{target}">{escape(text)}</a></li>' for text, target in links)
+                    + '</ul></li>' for label, key, links in groups)
+    menu = ('<nav id="tucson-page-contents" tabindex="-1" class="tucson-page-nav" aria-label="On this page">'
+            '<h2>On this page</h2><details open><summary>On this page</summary><ul class="tucson-primary-jumps">'
+            + main + '</ul><details class="tucson-more-jumps"><summary>More sections</summary><ul>'
+            + items + '</ul></details></details></nav>')
+    style, script = overview_navigation_assets('tucson')
+    help_link = '<nav class="tucson-help-entry city-wrap" aria-label="Housing help"><a href="../housing-help.html">Get Tucson &amp; Pima County housing help</a></nav>'
+    source_choices = ('<nav class="tucson-source-choices" aria-label="Source tools"><a href="../evidence.html#sources-section">Browse original source records</a>'
+                      '<a href="#methodology">Read the method on this page</a><a href="#tucson-page-contents">Back to On this page</a></nav>')
+    changes = [
+        (old_nav, ''),
+        (r'(<body\b[^>]*class="[^"]*\bcity-tucson\b)', r'\1 tucson-overview'),
+        (r'<section class="city-learning city-wrap"', help_link + '<div class="tucson-overview-shell"><div class="tucson-overview-layout">' + menu + '<div class="tucson-overview-reading"><section class="city-learning city-wrap"'),
+        (r'(<section id="records"[^>]*>.*?<h2>Public Records and Primary Sources</h2>)', r'\g<1>' + source_choices),
+        (r'<head>', '<head>' + style),
+        (r'</head>', script + '</head>'),
+        (r'</main>', '</div></div></div></main>'),
+    ]
+    for pattern, replacement in changes:
+        output, count = re.subn(pattern, replacement, output, flags=re.S)
+        if count != 1:
+            raise ValueError(f'Tucson overview navigation expected one match, got {count}: {pattern}')
+    return output
+
+
 def apply(output,path):
     if path not in ['index.html','tucson/index.html','phoenix/index.html','housing-projects.html','phoenix/projects.html','phoenix/projects/moreland.html','phoenix/projects/25th-at-bell.html']:
         return output
@@ -318,7 +394,7 @@ def apply(output,path):
         return homepage(output,path)
     if path in ['tucson/index.html','phoenix/index.html']:
         output = overviews(output,path,all_data)
-        return phoenix_page_navigation(output) if path == "phoenix/index.html" else output
+        return phoenix_page_navigation(output) if path == "phoenix/index.html" else tucson_page_navigation(output)
     if path in ['housing-projects.html','phoenix/projects.html']:
         return project_summaries(output,path,all_data)
     return project_file_intro(output,path,all_data)
