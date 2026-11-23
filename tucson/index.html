@@ -33,7 +33,10 @@
  .tucson-overview :is(.tucson-overview-shell,.tucson-overview-layout,.tucson-overview-reading){display:contents}
  .tucson-page-nav,.tucson-source-choices,.tucson-help-entry{display:none!important}
 }
-.tucson-help-entry{margin-block:1rem}.tucson-help-entry a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.18em}.tucson-help-entry a:focus-visible{outline:3px solid currentColor;outline-offset:2px}</style>
+.tucson-help-entry{margin-block:1rem}.tucson-help-entry a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.18em}.tucson-help-entry a:focus-visible{outline:3px solid currentColor;outline-offset:2px}/* The compact summary must show focus even when :focus-visible is unavailable. */
+.tucson-overview .tucson-page-nav>details>summary:focus{outline:3px solid #124e52;outline-offset:-3px;background:#e4f2ec;color:#124e52;border-radius:4px}
+@media(forced-colors:active){.tucson-overview .tucson-page-nav>details>summary:focus{outline-color:Highlight;background:Canvas;color:CanvasText}}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Independent research into housing funding, transparency, and outcomes, beginning in Tucson, Arizona.">

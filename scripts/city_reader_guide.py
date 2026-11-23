@@ -289,6 +289,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         ' .tucson-page-nav>details{max-height:min(60vh,22rem);overflow:auto}\n .tucson-overview:not(.tucson-sticky-enhanced) .tucson-page-nav>details{max-height:none}'
     )
     style = style.replace('</style>', '.tucson-help-entry{margin-block:1rem}.tucson-help-entry a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.18em}.tucson-help-entry a:focus-visible{outline:3px solid currentColor;outline-offset:2px}</style>')
+    style = style.replace('</style>', '''/* The compact summary must show focus even when :focus-visible is unavailable. */
+.tucson-overview .tucson-page-nav>details>summary:focus{outline:3px solid #124e52;outline-offset:-3px;background:#e4f2ec;color:#124e52;border-radius:4px}
+@media(forced-colors:active){.tucson-overview .tucson-page-nav>details>summary:focus{outline-color:Highlight;background:Canvas;color:CanvasText}}
+</style>''')
     script = script.replace('phoenix', city)
     return style, script
 

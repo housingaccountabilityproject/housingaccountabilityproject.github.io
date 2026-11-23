@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 # bytes to the unchanged Phoenix transition and every historical assertion.
 TUCSON_NAV_BASE = 'd6912c0e4a6cd6f5368a63275cb27781e459394e'
 TUCSON_NAV_PINS = {
-    'tucson/index.html': ('5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92', 'da4144cda5a522444e968dc9a78be203de97ca00399dceb952b81960a160be30'),
-    'scripts/city_reader_guide.py': ('69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0', 'facc3f1e69be33e1056fe6133d2fd1546580c7d931d6fba9c5a7554fa6ca279f'),
+    'tucson/index.html': ('5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92', '700fe175d434742fc3967d8de97ff3d94a70dae959d741a82198bcfc1939d5b0'),
+    'scripts/city_reader_guide.py': ('69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0', 'c36b2d5c3315f311b928c9ba0ab794befd6d94caffafcf0581343a3ca3d0a627'),
 }
 tucson_nav = json.loads((ROOT / '_data/tucson_overview_navigation_transition.json').read_text())
 assert set(tucson_nav) == {'base', 'files'}, 'Invalid Tucson overview navigation manifest'
