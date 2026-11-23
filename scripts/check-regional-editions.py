@@ -12,6 +12,34 @@ import sys
 from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Exact successor Tucson navigation transition. Feed the verified Phase 1
+# bytes to the unchanged Phoenix transition and every historical assertion.
+TUCSON_NAV_BASE = 'd6912c0e4a6cd6f5368a63275cb27781e459394e'
+TUCSON_NAV_PINS = {
+    'tucson/index.html': ('5f1c7ad0b3841161fc5b4899664a6b625083a09ac98aadfd9e424dcef3549c92', 'da4144cda5a522444e968dc9a78be203de97ca00399dceb952b81960a160be30'),
+    'scripts/city_reader_guide.py': ('69f665b53918adc1e18183ae5837311a73f3275aee7049114e5f55713c1e76a0', 'facc3f1e69be33e1056fe6133d2fd1546580c7d931d6fba9c5a7554fa6ca279f'),
+}
+tucson_nav = json.loads((ROOT / '_data/tucson_overview_navigation_transition.json').read_text())
+assert set(tucson_nav) == {'base', 'files'}, 'Invalid Tucson overview navigation manifest'
+assert tucson_nav['base'] == TUCSON_NAV_BASE, 'Wrong Tucson overview navigation base'
+tucson_nav_verifier = 'scripts/check-regional-editions.py'
+assert set(tucson_nav['files']) == {*TUCSON_NAV_PINS, tucson_nav_verifier}, 'Unreviewed Tucson overview navigation path'
+assert tucson_nav['files'][tucson_nav_verifier]['before'] == 'd082dd25bfe40b1a4f8d41c66ef6779158e97bde89954597c0bc1505acb39f0f'
+for name, (before, after) in TUCSON_NAV_PINS.items():
+    assert tucson_nav['files'][name] == {'before': before, 'after': after}, ('Unexpected Tucson overview navigation pin', name)
+tucson_nav_prior = {}
+for name, hashes in tucson_nav['files'].items():
+    assert set(hashes) == {'before', 'after'}, ('Invalid Tucson overview navigation transition', name)
+    prior = subprocess.check_output(['git', 'show', TUCSON_NAV_BASE + ':' + name], cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Tucson overview navigation base bytes', name)
+    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Tucson overview navigation bytes', name)
+    tucson_nav_prior[name] = prior
+
+
+def tucson_nav_preserved_bytes(name):
+    return tucson_nav_prior[name] if name in tucson_nav_prior else (ROOT / name).read_bytes()
+
 # The Phoenix overview navigation changes presentation only. Read exact approved
 # successor bytes now, then feed the verified pre-change bytes to every prior
 # preservation check. The manifest is Jekyll data, not a served file.
@@ -39,12 +67,12 @@ for name, hashes in phoenix_nav['files'].items():
     assert set(hashes) == {'before', 'after'}, ('Invalid Phoenix overview navigation transition', name)
     prior = subprocess.check_output(['git', 'show', PHOENIX_NAV_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Phoenix overview navigation base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phoenix overview navigation bytes', name)
+    assert hashlib.sha256(tucson_nav_preserved_bytes(name)).hexdigest() == hashes['after'], ('Unreviewed Phoenix overview navigation bytes', name)
     phoenix_nav_prior[name] = prior
 
 
 def phoenix_nav_preserved_bytes(name):
-    return phoenix_nav_prior[name] if name in phoenix_nav_prior else (ROOT / name).read_bytes()
+    return phoenix_nav_prior[name] if name in phoenix_nav_prior else tucson_nav_preserved_bytes(name)
 
 
 # Exact November 22 certificate-note transition. Verify the current bytes first,
@@ -213,7 +241,7 @@ round2_prior = {}
 for name, hashes in round2['files'].items():
     prior = subprocess.check_output(['git', 'show', ROUND2_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unexpected Round 2 base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
+    assert hashlib.sha256(tucson_nav_preserved_bytes(name)).hexdigest() == hashes['after'], ('Unverified Round 2 candidate bytes', name)
     round2_prior[name] = prior
 assert set(round2['checkers']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py'}
 for name, hashes in round2['checkers'].items():
@@ -224,14 +252,14 @@ for name, hashes in round2['checkers'].items():
 
 round1_prior = {}
 for name, (before, after) in ROUND1_TRANSITIONS.items():
-    assert hashlib.sha256(round2_prior.get(name, (ROOT / name).read_bytes())).hexdigest() == after, ('Unexpected Round 1 bytes', name)
+    assert hashlib.sha256(round2_prior.get(name, tucson_nav_preserved_bytes(name))).hexdigest() == after, ('Unexpected Round 1 bytes', name)
     original = subprocess.check_output(['git', 'show', ROUND1_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified deployed Round 1 base bytes', name)
     round1_prior[name] = original
 
 audit_review_prior = {}
 for name, (before, after) in AUDIT_REVIEW_TRANSITIONS.items():
-    assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, (ROOT / name).read_bytes()))).hexdigest() == after, ('Unexpected audit-review bytes', name)
+    assert hashlib.sha256(round1_prior.get(name, round2_prior.get(name, tucson_nav_preserved_bytes(name)))).hexdigest() == after, ('Unexpected audit-review bytes', name)
     original = subprocess.check_output(['git', 'show', AUDIT_REVIEW_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(original).hexdigest() == before, ('Unverified pre-audit-review bytes', name)
     audit_review_prior[name] = original
