@@ -2,7 +2,7 @@
   "added": {
     "assets/coc-court-tracker.css": "1699b4585d6f0a00aa54315450e0a8aafe6c0c52a5886e5da7b0d83d29428c55",
     "assets/coc-court-tracker.js": "5c89111cd90accade5450a80e9490a7e3fde9c8bf6e1864f57cd9df8cfa710af",
-    "hud-coc-funding-court-tracker.html": "cd49badc32d7f644529b25bcf9935af88d8cecbcfc1d4135087116c72fc7ae6c"
+    "hud-coc-funding-court-tracker.html": "eac95fce91cf4a3f6a140f8b343ad1e1fd8615f02907842e7e95487abeff3b5a"
   },
   "base": "a296733f1a4c1695d3f640a914b4a7bbde8d5e3b",
   "files": {
@@ -23,15 +23,15 @@
       "before": "e1dadc99ac1a89b9565b05c9117fa230ee74f34a22796f059cb196fc04de30eb"
     },
     "scripts/check-list-baseline.py": {
-      "after": "dc28ae33125a68683c0d8a9a0dfc345043b1520ecb2e1d7ce21b20e40d440e58",
+      "after": "34dfd861300e2686446d79d9e774ac72e8d17c60020d9b21b4825eafb87fc201",
       "before": "7b8c6d4a9a3abd0417cc0fdeecb60849fbeefafc0ced587a1b189280b036e6a5"
     },
     "scripts/check-reader-data.py": {
-      "after": "fd76d61b5b6e65fe00b1a5d7227951a7c079c9815dcf6f42cb997ac957a6b512",
+      "after": "6b0752e8af56bd7a60c2790035e9913b6f2fe75c77c6b93a7a5884d0a93479ab",
       "before": "b8bb64f85919db781261a3b20227d6a3b5f99bc4e7bfbf190f58f604d538d8bc"
     },
     "scripts/check-regional-editions.py": {
-      "after": "2da2e482a825c380d5b6cff8fe28266174d673c815cabb1f2a86fcdb99ece318",
+      "after": "7e133830ddedd3d403837b182b8c4149e23c780936d8cccc51c741ee5c2b9fd5",
       "before": "31ba8f7db0a396ca5508e9a2d1fb3a2815d33d46696989a4bde17d5c10b11cfa"
     },
     "sitemap.xml": {
