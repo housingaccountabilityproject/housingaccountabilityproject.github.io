@@ -1,0 +1,46 @@
+{
+  "added": {
+    "assets/coc-court-tracker.css": "1699b4585d6f0a00aa54315450e0a8aafe6c0c52a5886e5da7b0d83d29428c55",
+    "assets/coc-court-tracker.js": "5c89111cd90accade5450a80e9490a7e3fde9c8bf6e1864f57cd9df8cfa710af",
+    "hud-coc-funding-court-tracker.html": "cd49badc32d7f644529b25bcf9935af88d8cecbcfc1d4135087116c72fc7ae6c"
+  },
+  "base": "a296733f1a4c1695d3f640a914b4a7bbde8d5e3b",
+  "files": {
+    "index.html": {
+      "after": "c30d29c141c4301a47c6ad5ab92d05262692a3bf248a61e258d0a564cf560023",
+      "before": "3d6561bca40ae166d91a04b20c923cba5830a8d5c1264ccaf0be1baa5594bdb4"
+    },
+    "phoenix.html": {
+      "after": "e2d6e634891983b4e04552cbc854a93dd649b9c0a2f9a0e64b4c7d907ac54de4",
+      "before": "ab56f83258cf69ce0cbe1d10cd44877602373de868925cc383412a2c249d8e02"
+    },
+    "research-updates.html": {
+      "after": "3cb6e468438cb7986afaaee4311df43e8ce7990f458022db0a9ec69b954ff562",
+      "before": "1ecd5c23e7c61024ab7ff40b14d348247b4297df1ded1e885b7a63ea3b6c30b6"
+    },
+    "scripts/build-regional-editions.py": {
+      "after": "3f81e6d52d8cce1f3157c7de5704a3146a491f0b54f166b3028e2cf8eefc5f51",
+      "before": "e1dadc99ac1a89b9565b05c9117fa230ee74f34a22796f059cb196fc04de30eb"
+    },
+    "scripts/check-list-baseline.py": {
+      "after": "dc28ae33125a68683c0d8a9a0dfc345043b1520ecb2e1d7ce21b20e40d440e58",
+      "before": "7b8c6d4a9a3abd0417cc0fdeecb60849fbeefafc0ced587a1b189280b036e6a5"
+    },
+    "scripts/check-reader-data.py": {
+      "after": "fd76d61b5b6e65fe00b1a5d7227951a7c079c9815dcf6f42cb997ac957a6b512",
+      "before": "b8bb64f85919db781261a3b20227d6a3b5f99bc4e7bfbf190f58f604d538d8bc"
+    },
+    "scripts/check-regional-editions.py": {
+      "after": "2da2e482a825c380d5b6cff8fe28266174d673c815cabb1f2a86fcdb99ece318",
+      "before": "31ba8f7db0a396ca5508e9a2d1fb3a2815d33d46696989a4bde17d5c10b11cfa"
+    },
+    "sitemap.xml": {
+      "after": "b64b604e2014ebb92e4dc53de5141f6b7082a96b35c624a2561ddef655934525",
+      "before": "37c1766dfbdb184439ca401fcbf12c837b5860809fdd2bff12fab8f51be65081"
+    },
+    "tucson.html": {
+      "after": "6c1daff1e393b5fbce8dcbf7c0e81bd8f1337c393f6b2e0696ac339e377a078a",
+      "before": "740b426a890420f9e116b78ac1c1c6ea8147d7ece629c4a595a2fa9079f8773e"
+    }
+  }
+}

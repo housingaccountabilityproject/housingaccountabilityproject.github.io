@@ -13,6 +13,62 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Approved CoC tracker: pin only its own additions and exact changed bytes;
+# feed the actual verified predecessor to every existing historical gate.
+COC_BASE = 'a296733f1a4c1695d3f640a914b4a7bbde8d5e3b'
+COC_PUBLIC_PATHS = ('index.html', 'phoenix.html', 'research-updates.html', 'scripts/build-regional-editions.py', 'scripts/check-reader-data.py', 'sitemap.xml', 'tucson.html')
+COC_GUARD_PATHS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+COC_NEW_PATHS = ('assets/coc-court-tracker.css', 'assets/coc-court-tracker.js', 'hud-coc-funding-court-tracker.html')
+coc_transition = json.loads((ROOT / '_data/coc_court_tracker_transition.json').read_text())
+assert set(coc_transition) == {'base', 'files', 'added'} and coc_transition['base'] == COC_BASE
+assert set(coc_transition['files']) == set(COC_PUBLIC_PATHS + COC_GUARD_PATHS)
+assert set(coc_transition['added']) == set(COC_NEW_PATHS)
+coc_pins = {'base': COC_BASE, 'files': {p:coc_transition['files'][p] for p in COC_PUBLIC_PATHS}, 'added':coc_transition['added']}
+assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == 'f25ac86e4d474cd6bfc9a1feca9cfbffe7535756d2c98352623086556a57bcc3', 'Unexpected CoC release pins'
+coc_prior = {}
+for coc_path, coc_hash in coc_transition['files'].items():
+    assert set(coc_hash) == {'before','after'}
+    coc_old = subprocess.check_output(['git','show',COC_BASE+':'+coc_path], cwd=ROOT)
+    assert hashlib.sha256(coc_old).hexdigest() == coc_hash['before'], ('Unverified CoC predecessor',coc_path)
+    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
+    coc_prior[coc_path] = coc_old
+for coc_path, coc_hash in coc_transition['added'].items():
+    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
+
+
+def coc_preserved_bytes(name):
+    return coc_prior[name] if name in coc_prior else (ROOT / name).read_bytes()
+
+
+coc_url = 'hud-coc-funding-court-tracker.html'
+coc_doc = html.parse(str(ROOT / coc_url))
+assert len(coc_doc.xpath('//h1')) == len(coc_doc.xpath('//main')) == 1
+coc_anchor_ids = ['what-happened','timeline','tucson-pima','phoenix-maricopa','next','sources']
+for coc_nav in coc_doc.xpath('//aside[@class="jump"]//nav'):
+    assert coc_nav.xpath('.//a/@href') == ['#' + ident for ident in coc_anchor_ids]
+for coc_region, coc_anchor in [('tucson','tucson-pima'),('phoenix','phoenix-maricopa')]:
+    coc_region_doc = html.parse(str(ROOT / (coc_region + '.html')))
+    assert len(coc_region_doc.xpath('//section[@id="keep-reading"]//a[@href=$url]', url=coc_url+'#'+coc_anchor)) == 1
+    assert len(coc_doc.xpath('//*[@id=$anchor]', anchor=coc_anchor)) == 1
+coc_home = html.parse(str(ROOT / 'index.html'))
+coc_home_feature = coc_home.xpath('//main/section[@aria-labelledby="featured-coc-court-tracker-title"]')
+assert len(coc_home_feature) == 1
+coc_home_feature = coc_home_feature[0]
+assert 'city-home-hero' in coc_home_feature.getprevious().get('class', '').split()
+assert coc_home_feature.getnext().get('id') == 'research-areas'
+assert coc_home_feature.xpath('.//h2/text()') == coc_doc.xpath('//h1/text()')
+assert coc_home_feature.xpath('.//a/@href') == [coc_url]
+def coc_home_original(doc):
+    for extra in doc.xpath('//section[@aria-labelledby="featured-coc-court-tracker-title"] | //link[@href="assets/coc-court-tracker.css"]'):
+        extra.drop_tree()
+    return html.tostring(doc)
+assert coc_home_original(coc_home.getroot()) == coc_home_original(html.fromstring(coc_prior['index.html'])), 'Unexpected changes outside approved secondary home feature'
+coc_journal = html.parse(str(ROOT / 'research-updates.html'))
+assert coc_journal.xpath('//nav[@aria-label="Federal housing policy update"]/p/a/@href') == [coc_url, coc_url+'#tucson-pima', coc_url+'#phoenix-maricopa']
+assert 'Private website preview' not in coc_doc.xpath('//body')[0].text_content()
+assert (ROOT / 'feed.xml').read_bytes() == subprocess.check_output(['git','show',COC_BASE+':feed.xml'],cwd=ROOT)
+print('PASS CoC: pinned article and release scope, both navigators and both regional links, historic feed unchanged.')
+
 # Dated successor: restrict public changes to the approved HAMC notice, and
 # feed independently verified predecessor bytes to all historical Phase 3 checks.
 HAMC_NOTICE_BASE = '3b5dd9a9e179cda3156f5df0d2bfac0185b6c5d2'
@@ -26,7 +82,7 @@ for hamc_path, hamc_hashes in hamc_notice_manifest['files'].items():
     assert set(hamc_hashes) == {'before', 'after'}
     hamc_old = subprocess.check_output(['git', 'show', HAMC_NOTICE_BASE + ':' + hamc_path], cwd=ROOT)
     assert hashlib.sha256(hamc_old).hexdigest() == hamc_hashes['before'], ('Unverified HAMC baseline', hamc_path)
-    assert hashlib.sha256((ROOT / hamc_path).read_bytes()).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
+    assert hashlib.sha256(coc_preserved_bytes(hamc_path)).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
     hamc_notice_predecessor[hamc_path] = hamc_old
 # Independent release check: the one approved span changes, with every other byte retained.
 hamc_notice_old_text = b'<p>HAMC has announced that applications for four property waitlists will close at 8 a.m. Arizona time on December 1, 2026. Property-specific application limits may apply earlier. Read the official closure notice and check HAMC\xe2\x80\x99s latest schedule before applying. These are HAMC property lists, separate from City of Phoenix housing programs.</p><p>This notice does not guarantee an apartment. Sources checked November 9, 2026 Arizona time; other resource links retain their earlier review date.</p>'
@@ -86,12 +142,12 @@ for name, hashes in phase3_nav['files'].items():
     assert set(hashes) == {'before', 'after'}, ('Invalid Phase 3 navigation hash pair', name)
     prior = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
-    assert hashlib.sha256(hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    assert hashlib.sha256(hamc_notice_predecessor.get(name, coc_preserved_bytes(name))).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
     phase3_prior[name] = prior
 
 
 def phase3_preserved_bytes(name):
-    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())
+    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, coc_preserved_bytes(name))
 
 
 def phase3_nav_signature(doc, path, *, current):
@@ -130,7 +186,7 @@ def phase3_nav_signature(doc, path, *, current):
 for phase3_name in PHASE3_NAV_PATHS:
     if phase3_name.endswith('.html'):
         before = html.fromstring(phase3_prior[phase3_name])
-        after = html.fromstring(hamc_notice_predecessor.get(phase3_name, (ROOT / phase3_name).read_bytes()))
+        after = html.fromstring(hamc_notice_predecessor.get(phase3_name, coc_preserved_bytes(phase3_name)))
         assert before.xpath('//@id') == after.xpath('//@id'), ('Changed Phase 3 anchor', phase3_name)
         assert phase3_nav_signature(before, phase3_name, current=False) == phase3_nav_signature(after, phase3_name, current=True), ('Change outside exact Phase 3 navigation', phase3_name)
 

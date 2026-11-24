@@ -40,7 +40,9 @@ index=json.loads(idx)
 # duplicate research results. They still receive all landmark/link checks above.
 editorial={p for p,d in pages.items() if d.xpath('//body[@data-editorial-navigation="true"]')}
 assert editorial == {'tucson.html','phoenix.html','watch-tucson.html','watch-phoenix.html','archive-tucson.html','archive-phoenix.html','library.html'}
-expected=set(pages)-{'search.html','search-all.html'}-editorial
+# The cross-regional court tracker has its own publication and is not a
+# Tucson-only search record. Its live links still receive the same checks.
+expected=set(pages)-{'search.html','search-all.html','hud-coc-funding-court-tracker.html'}-editorial
 assert set(x['page'] for x in index['coverage'])==expected
 for r in index['records']:
  path,_,anchor=r['url'].partition('#');assert path in expected
