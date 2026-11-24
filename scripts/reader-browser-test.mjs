@@ -128,9 +128,18 @@ for(const width of [390,1280]) {
  for(const [file,id,label] of [['phoenix/index.html','MC-HAMC-WEB-001','hamc-overview'],['phoenix/housing-help.html','hamc-waitlist-notice','hamc-help']]) {
   await page.goto(localPageUrl(file));const notice=page.locator('#'+id);
   assert(await notice.isVisible());const content=await notice.textContent();
-  assert(content.includes('December 1, 2026')&&content.includes('8 a.m. Arizona time'));
-  assert(content.includes('application limits may apply earlier'));
-  assert(content.includes('does not guarantee an apartment'));
+  assert(content.includes('December 1, 2026'));
+  if (label==='hamc-help') {
+   assert(content.includes('8 a.m. MST'));
+   assert(content.includes('property-specific limits that may take effect earlier'));
+   assert(content.includes('A waitlist is not a vacancy'));
+   assert(content.includes('all bedroom sizes')&&content.includes('paper applications will not be accepted'));
+   for(const property of ['Casa Bonitas Apartments','Clare Feldstadt Apartments','Heritage at Surprise Apartments','Heritage Senior Apartments']) assert(content.includes(property));
+  } else {
+   assert(content.includes('8 a.m. Arizona time'));
+   assert(content.includes('application limits may apply earlier'));
+   assert(content.includes('does not guarantee an apartment'));
+  }
   assert.equal(await notice.locator('a[href="https://maricopahousing.org/news/"]').count(),1);
   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2));
   await notice.screenshot({path:`reader-qa-screenshots/${label}-${width}.png`});

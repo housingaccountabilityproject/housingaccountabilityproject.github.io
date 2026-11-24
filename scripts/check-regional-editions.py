@@ -19,7 +19,7 @@ HAMC_NOTICE_BASE = '3b5dd9a9e179cda3156f5df0d2bfac0185b6c5d2'
 hamc_notice_manifest = json.loads((ROOT / '_data/hamc_waitlist_notice_transition.json').read_text())
 assert set(hamc_notice_manifest) == {'base', 'files'}
 assert hamc_notice_manifest['base'] == HAMC_NOTICE_BASE
-assert set(hamc_notice_manifest['files']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py', 'phoenix/housing-help.html'}
+assert set(hamc_notice_manifest['files']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py', 'phoenix/housing-help.html', 'scripts/reader-browser-test.mjs'}
 assert hamc_notice_manifest['files']['phoenix/housing-help.html'] == {'before': '689d5ddf49128fda14c76da0cd4731e08d0d293c15548d98a7722b2582f26a7a', 'after': '83141790242fce4d1fd5b8c5b662f1ea61dba5dadff44a186169c0caa3ee0756'}
 hamc_notice_predecessor = {}
 for hamc_path, hamc_hashes in hamc_notice_manifest['files'].items():
@@ -91,7 +91,7 @@ for name, hashes in phase3_nav['files'].items():
 
 
 def phase3_preserved_bytes(name):
-    return phase3_prior[name] if name in phase3_prior else (ROOT / name).read_bytes()
+    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())
 
 
 def phase3_nav_signature(doc, path, *, current):
