@@ -4,6 +4,23 @@ import hashlib,json,subprocess
 from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
+
+# Dated successor: restrict public changes to the approved HAMC notice, and
+# feed independently verified predecessor bytes to all historical Phase 3 checks.
+HAMC_NOTICE_BASE = '3b5dd9a9e179cda3156f5df0d2bfac0185b6c5d2'
+hamc_notice_manifest = json.loads((ROOT / '_data/hamc_waitlist_notice_transition.json').read_text())
+assert set(hamc_notice_manifest) == {'base', 'files'}
+assert hamc_notice_manifest['base'] == HAMC_NOTICE_BASE
+assert set(hamc_notice_manifest['files']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py', 'phoenix/housing-help.html', 'scripts/reader-browser-test.mjs'}
+assert hamc_notice_manifest['files']['phoenix/housing-help.html'] == {'before': '689d5ddf49128fda14c76da0cd4731e08d0d293c15548d98a7722b2582f26a7a', 'after': '83141790242fce4d1fd5b8c5b662f1ea61dba5dadff44a186169c0caa3ee0756'}
+hamc_notice_predecessor = {}
+for hamc_path, hamc_hashes in hamc_notice_manifest['files'].items():
+    assert set(hamc_hashes) == {'before', 'after'}
+    hamc_old = subprocess.check_output(['git', 'show', HAMC_NOTICE_BASE + ':' + hamc_path], cwd=ROOT)
+    assert hashlib.sha256(hamc_old).hexdigest() == hamc_hashes['before'], ('Unverified HAMC baseline', hamc_path)
+    assert hashlib.sha256((ROOT / hamc_path).read_bytes()).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
+    hamc_notice_predecessor[hamc_path] = hamc_old
+
 # Phase 3 changes shared shell URLs without changing records. Pin the exact
 # navigation-only set and use verified predecessors for old byte assertions.
 PHASE3_BASE = 'a28da08067c7db82ea545129b06c1ea430d556c8'
@@ -19,12 +36,12 @@ for name, hashes in phase3['files'].items():
     assert set(hashes) == {'before', 'after'}
     old = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(old).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    assert hashlib.sha256(hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
     phase3_prior[name] = old
 
 
 def phase3_preserved_bytes(name):
-    return phase3_prior[name] if name in phase3_prior else (ROOT / name).read_bytes()
+    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())
 
 fixture=json.loads((ROOT/'scripts/fixtures/six-entry-baseline.json').read_text())
 # Keep the earlier reviewed fixture unchanged. This supplemental, dated fixture
