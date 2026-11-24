@@ -13,6 +13,30 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Dated successor: restrict public changes to the approved HAMC notice, and
+# feed independently verified predecessor bytes to all historical Phase 3 checks.
+HAMC_NOTICE_BASE = '3b5dd9a9e179cda3156f5df0d2bfac0185b6c5d2'
+hamc_notice_manifest = json.loads((ROOT / '_data/hamc_waitlist_notice_transition.json').read_text())
+assert set(hamc_notice_manifest) == {'base', 'files'}
+assert hamc_notice_manifest['base'] == HAMC_NOTICE_BASE
+assert set(hamc_notice_manifest['files']) == {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py', 'phoenix/housing-help.html'}
+assert hamc_notice_manifest['files']['phoenix/housing-help.html'] == {'before': '689d5ddf49128fda14c76da0cd4731e08d0d293c15548d98a7722b2582f26a7a', 'after': '83141790242fce4d1fd5b8c5b662f1ea61dba5dadff44a186169c0caa3ee0756'}
+hamc_notice_predecessor = {}
+for hamc_path, hamc_hashes in hamc_notice_manifest['files'].items():
+    assert set(hamc_hashes) == {'before', 'after'}
+    hamc_old = subprocess.check_output(['git', 'show', HAMC_NOTICE_BASE + ':' + hamc_path], cwd=ROOT)
+    assert hashlib.sha256(hamc_old).hexdigest() == hamc_hashes['before'], ('Unverified HAMC baseline', hamc_path)
+    assert hashlib.sha256((ROOT / hamc_path).read_bytes()).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
+    hamc_notice_predecessor[hamc_path] = hamc_old
+# Independent release check: the one approved span changes, with every other byte retained.
+hamc_notice_old_text = b'<p>HAMC has announced that applications for four property waitlists will close at 8 a.m. Arizona time on December 1, 2026. Property-specific application limits may apply earlier. Read the official closure notice and check HAMC\xe2\x80\x99s latest schedule before applying. These are HAMC property lists, separate from City of Phoenix housing programs.</p><p>This notice does not guarantee an apartment. Sources checked November 9, 2026 Arizona time; other resource links retain their earlier review date.</p>'
+hamc_notice_new_text = b'<p>The Housing Authority of Maricopa County says applications for Casa Bonitas Apartments, Clare Feldstadt Apartments, Heritage at Surprise Apartments, and Heritage Senior Apartments close at 8 a.m. MST on December 1, 2026, until further notice. The closure covers all bedroom sizes at these properties, and paper applications will not be accepted. Check HAMC\xe2\x80\x99s current schedule for how to apply and for property-specific limits that may take effect earlier. These are HAMC property lists, separate from City of Phoenix housing programs.</p><p>A waitlist is not a vacancy. Sources checked November 9, 2026 Arizona time; other resource links retain their earlier review date.</p>'
+hamc_public_path = 'phoenix/housing-help.html'
+assert hamc_notice_predecessor[hamc_public_path].count(hamc_notice_old_text) == 1
+assert (ROOT / hamc_public_path).read_bytes() == hamc_notice_predecessor[hamc_public_path].replace(hamc_notice_old_text, hamc_notice_new_text, 1)
+print('PASS HAMC notice: approved waitlist wording only; all publication history, links, and unrelated content preserved.')
+
+
 # Exact Phase 3 navigation-only successor. Validate the new scope and bytes,
 # then run all earlier checks on verified predecessor bytes as before.
 PHASE3_BASE = 'a28da08067c7db82ea545129b06c1ea430d556c8'
@@ -62,7 +86,7 @@ for name, hashes in phase3_nav['files'].items():
     assert set(hashes) == {'before', 'after'}, ('Invalid Phase 3 navigation hash pair', name)
     prior = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    assert hashlib.sha256(hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
     phase3_prior[name] = prior
 
 
@@ -106,7 +130,7 @@ def phase3_nav_signature(doc, path, *, current):
 for phase3_name in PHASE3_NAV_PATHS:
     if phase3_name.endswith('.html'):
         before = html.fromstring(phase3_prior[phase3_name])
-        after = html.fromstring((ROOT / phase3_name).read_bytes())
+        after = html.fromstring(hamc_notice_predecessor.get(phase3_name, (ROOT / phase3_name).read_bytes()))
         assert before.xpath('//@id') == after.xpath('//@id'), ('Changed Phase 3 anchor', phase3_name)
         assert phase3_nav_signature(before, phase3_name, current=False) == phase3_nav_signature(after, phase3_name, current=True), ('Change outside exact Phase 3 navigation', phase3_name)
 
