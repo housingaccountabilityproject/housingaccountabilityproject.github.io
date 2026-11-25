@@ -52,7 +52,7 @@ hamc = next(r for r in records if r['id'] == 'MC-HAMC-WEB-001')
 assert hamc['kind'] == 'notice' and hamc['topic'] == 'waitlists'
 assert hamc['source_ids'] == ['PHX-HAMC-001', 'PHX-HAMC-002']
 assert 'December 1, 2026' in ' '.join(hamc['summary'])
-assert '8 a.m. Arizona time' in ' '.join(hamc['summary'])
+assert '8 a.m. MST' in ' '.join(hamc['summary'])
 assert 'application limits may apply earlier' in ' '.join(hamc['limitations'])
 assert 'does not guarantee an apartment' in ' '.join(hamc['limitations'])
 home = html.parse(str(ROOT / 'index.html'))

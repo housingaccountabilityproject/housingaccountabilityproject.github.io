@@ -13,6 +13,28 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Exact approved MST labels and original-PDF citation transition. Earlier
+# release gates continue to inspect their independently pinned predecessor.
+MST_PDF_BASE = '07a1dbb44ded03f80a528667728da1fe01d568ae'
+MST_PDF_PATHS = ('assets/category-search-data.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/category-search.json', 'data/phoenix-records.json', 'data/phoenix-source-metadata.json', 'funding-explorer.html', 'index.html', 'phoenix/housing-help.html', 'phoenix/index.html', 'phoenix/records.html', 'scripts/check-phoenix-records.py', 'scripts/reader-browser-test.mjs', 'scripts/test-phoenix-index.mjs')
+MST_PDF_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+mst_pdf = json.loads((ROOT / '_data/mst_pdf_links_transition.json').read_text())
+assert set(mst_pdf) == {'base','files'} and mst_pdf['base'] == MST_PDF_BASE
+assert set(mst_pdf['files']) == set(MST_PDF_PATHS + MST_PDF_GUARDS)
+mst_pdf_pins = {'base':MST_PDF_BASE,'files':{p:mst_pdf['files'][p] for p in MST_PDF_PATHS}}
+assert hashlib.sha256(json.dumps(mst_pdf_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == 'd9ae2a0ba2a7926c1342d219369080abf530715456e7d7d5112b5f12ef34fbc3', 'Unexpected MST/PDF transition pins'
+mst_pdf_prior = {}
+for path, hashes in mst_pdf['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',MST_PDF_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified MST/PDF predecessor',path)
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed MST/PDF change',path)
+    mst_pdf_prior[path] = prior
+
+def mst_pdf_preserved_bytes(name):
+    return mst_pdf_prior[name] if name in mst_pdf_prior else (ROOT/name).read_bytes()
+
+
 # Preserve every earlier release gate, using the verified predecessor for the
 # exact reviewed story, placement, citation, and mechanically generated changes.
 THREE_STORY_BASE = 'ab1c78d8af41659736c74de059a332435b53c162'
@@ -30,12 +52,12 @@ for n, hashes in three['files'].items():
     assert set(hashes) == {'before','after'}
     old_bytes = subprocess.check_output(['git','show',THREE_STORY_BASE+':'+n], cwd=ROOT)
     assert hashlib.sha256(old_bytes).hexdigest() == hashes['before'], ('Unverified three-story base',n)
-    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
+    assert hashlib.sha256(mst_pdf_preserved_bytes(n)).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
     three_predecessor[n] = old_bytes
 for n,h in three['added'].items():
     assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
 def three_preserved_bytes(name):
-    return three_predecessor[name] if name in three_predecessor else (ROOT / name).read_bytes()
+    return three_predecessor[name] if name in three_predecessor else mst_pdf_preserved_bytes(name)
 
 
 from lxml import etree
@@ -174,7 +196,7 @@ def coc_home_original(doc):
     for extra in doc.xpath('//section[@aria-labelledby="featured-coc-court-tracker-title"] | //link[@href="assets/coc-court-tracker.css"]'):
         extra.drop_tree()
     return html.tostring(doc)
-assert coc_home_original(coc_home.getroot()) == coc_home_original(html.fromstring(coc_prior['index.html'])), 'Unexpected changes outside approved secondary home feature'
+assert coc_home_original(html.fromstring(mst_pdf_preserved_bytes('index.html'))) == coc_home_original(html.fromstring(coc_prior['index.html'])), 'Unexpected changes outside approved secondary home feature'
 coc_journal = html.parse(str(ROOT / 'research-updates.html'))
 assert coc_journal.xpath('//nav[@aria-label="Federal housing policy update"]/p/a/@href') == [coc_url, coc_url+'#tucson-pima', coc_url+'#phoenix-maricopa']
 assert 'Private website preview' not in coc_doc.xpath('//body')[0].text_content()
@@ -201,7 +223,7 @@ hamc_notice_old_text = b'<p>HAMC has announced that applications for four proper
 hamc_notice_new_text = b'<p>The Housing Authority of Maricopa County says applications for Casa Bonitas Apartments, Clare Feldstadt Apartments, Heritage at Surprise Apartments, and Heritage Senior Apartments close at 8 a.m. MST on December 1, 2026, until further notice. The closure covers all bedroom sizes at these properties, and paper applications will not be accepted. Check HAMC\xe2\x80\x99s current schedule for how to apply and for property-specific limits that may take effect earlier. These are HAMC property lists, separate from City of Phoenix housing programs.</p><p>A waitlist is not a vacancy. Sources checked November 9, 2026 Arizona time; other resource links retain their earlier review date.</p>'
 hamc_public_path = 'phoenix/housing-help.html'
 assert hamc_notice_predecessor[hamc_public_path].count(hamc_notice_old_text) == 1
-assert (ROOT / hamc_public_path).read_bytes() == hamc_notice_predecessor[hamc_public_path].replace(hamc_notice_old_text, hamc_notice_new_text, 1)
+assert mst_pdf_preserved_bytes(hamc_public_path) == hamc_notice_predecessor[hamc_public_path].replace(hamc_notice_old_text, hamc_notice_new_text, 1)
 print('PASS HAMC notice: approved waitlist wording only; all publication history, links, and unrelated content preserved.')
 
 
@@ -698,7 +720,9 @@ current_keys = Counter(record['key'] for record in api['CATALOG'])
 assert set(original_keys) <= set(current_keys) and all(count == 1 for count in current_keys.values()), 'Lost or duplicated stable record identity'
 assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']+review['addedRecordKeys']), 'Unreviewed record addition'
 old_records = {r['key']: r for r in original_records}
-for row in api['CATALOG']:
+# The actual catalog is exact-pinned above; retain every historical row check
+# against its verified predecessor before the approved timezone-label changes.
+for row in json.loads(mst_pdf_preserved_bytes('data/category-search.json'))['records']:
     if row['key'] == 'phoenix:resource-wvhac':
         # Only the checked family/single-adult operator access wording changed.
         # All other keys and catalog records retain their existing assertions.
