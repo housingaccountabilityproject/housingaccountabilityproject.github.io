@@ -21,6 +21,7 @@ def shell(filename, title, intro, body):
     header = '<header' + original.split('<header', 1)[1].split('</header>', 1)[0] + '</header>'
     header = header.replace(' aria-current="page"', '').replace('href="#sources"', 'href="index.html#sources"')
     footer = '<footer' + original.split('<footer', 1)[1]
+    extra_styles = '<link rel="stylesheet" href="../assets/arizona-cdbg-allocations.css">' if filename == 'projects.html' else ''
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} | Housing Accountability Project</title>
@@ -29,7 +30,7 @@ def shell(filename, title, intro, body):
 <link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css">
 <link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">
-<link rel="stylesheet" href="../assets/search-text.css"><script src="../assets/search-text.js" defer></script><script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
+<link rel="stylesheet" href="../assets/search-text.css"><script src="../assets/search-text.js" defer></script><script src="../assets/search-print.js" defer></script><script src="../assets/phoenix-connections.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script>{extra_styles}</head>
 <body id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / {escape(title)}</div>
 {navigation(filename)}<section class="wrap connections-intro"><span class="eyebrow accent">Phoenix / Connected evidence</span><h1>{escape(title)}</h1><p class="hero-intro">{escape(intro)}</p><p class="connection-snapshot">Original research snapshot: November 8, 2026. Later findings retain their own source dates.</p></section>
@@ -114,6 +115,7 @@ def build():
 <p>The City separately certified contractual completion for La Esperanza Terrace as of January 12, 2026. The certificate covers 96 homes and was recorded January 29, 2026. <a href="https://apps-secure.phoenix.gov/PublicRecordsSearch/Home/RenderPDF/?id=n3t8IFi4DcAQsaHFlzG7Do73KflUroVAHoBo4qAasZg%3D">City certificate of completion, p. 1 (20260052973)</a>.</p>
 <p>These certificates document completion under the respective City agreements. They do not establish final payments, HUD financial closeout, current occupancy or apartment availability.</p>
 </div></section>'''
+    note += (ROOT / '_data/goodyear_action_plan_feature.html').read_text()
     controls = filters('Phoenix projects', [('development', 'Developments'), ('planning-area', 'Neighborhood planning areas')])
     (ROOT / 'phoenix/projects.html').write_text(city_layout(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/projects.html'))
 

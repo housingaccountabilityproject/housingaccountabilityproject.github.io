@@ -15,6 +15,8 @@ for scope, filename in [('tucson', 'housing-help.html'), ('phoenix', 'phoenix/ho
         links = ' · '.join(f'<a href="{escape(link["url"], quote=True)}">{escape(link["title"])}</a>' for link in resource['links'])
         paragraphs = ''.join(f'<p>{escape(text)}</p>' for text in resource['description'])
         cards.append(f'<article class="resource" id="{escape(resource["id"])}"><p class="tag">{escape(resource["service_type"])}</p><h3>{escape(resource["name"])}</h3>{paragraphs}<p>{escape(resource["limitation"])}</p><p>{links}</p><p class="small">{escape(resource["check_label"])}</p></article>')
+    if scope == 'tucson':
+        cards.append((ROOT / '_data/tucson_weatherization_and_vail_resources.html').read_text().rstrip())
     section = '<section id="reviewed-resource-additions"><h2>More resource contacts</h2>' + ''.join(cards) + '</section>'
     path = ROOT / filename
     text = path.read_text()

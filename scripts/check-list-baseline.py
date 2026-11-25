@@ -5,6 +5,32 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 
+# Approved next website set. Validate exact successor bytes while retaining
+# every earlier gate, including the CoC and HAMC transition checks.
+NEXT_REGIONAL_BASE = '88e06b446bcdee446ad069d932f9fd21d292787d'
+NEXT_REGIONAL_PUBLIC = ('assets/search-index.js', 'assets/search-source-urls.js', 'data/search-coverage.json', 'housing-help.html', 'phoenix.html', 'phoenix/projects.html', 'research-updates.html', 'scripts/build-housing-help.py', 'scripts/build-phoenix-connections.py', 'scripts/build-regional-editions.py')
+NEXT_REGIONAL_ADDED = ('_data/goodyear_action_plan_feature.html', '_data/tucson_weatherization_and_vail_resources.html', 'assets/arizona-cdbg-allocations.css', 'data/arizona-cdbg-formula-allocation-source-rows.csv')
+NEXT_REGIONAL_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+next_regional = json.loads((ROOT / '_data/regional_research_resources_transition.json').read_text())
+assert set(next_regional) == {'base','files','added'} and next_regional['base'] == NEXT_REGIONAL_BASE
+assert set(next_regional['files']) == set(NEXT_REGIONAL_PUBLIC + NEXT_REGIONAL_GUARDS)
+assert set(next_regional['added']) == set(NEXT_REGIONAL_ADDED)
+next_regional_pins = {'base':NEXT_REGIONAL_BASE,'files':{p:next_regional['files'][p] for p in NEXT_REGIONAL_PUBLIC},'added':next_regional['added']}
+assert hashlib.sha256(json.dumps(next_regional_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == '19c9b571dffae6dc263d57f67a78e11809f5f1b0bde24c61b348bfacb1d86206', 'Unexpected next regional release pins'
+next_regional_prior = {}
+for path, hashes in next_regional['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',NEXT_REGIONAL_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified next regional baseline',path)
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
+    next_regional_prior[path] = prior
+for path, sha in next_regional['added'].items():
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed next regional addition',path)
+
+def next_regional_preserved_bytes(name):
+    return next_regional_prior[name] if name in next_regional_prior else (ROOT/name).read_bytes()
+
+
 # Approved CoC tracker: pin only its own additions and exact changed bytes;
 # feed the actual verified predecessor to every existing historical gate.
 COC_BASE = 'a296733f1a4c1695d3f640a914b4a7bbde8d5e3b'
@@ -22,14 +48,14 @@ for coc_path, coc_hash in coc_transition['files'].items():
     assert set(coc_hash) == {'before','after'}
     coc_old = subprocess.check_output(['git','show',COC_BASE+':'+coc_path], cwd=ROOT)
     assert hashlib.sha256(coc_old).hexdigest() == coc_hash['before'], ('Unverified CoC predecessor',coc_path)
-    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
+    assert hashlib.sha256(next_regional_preserved_bytes(coc_path)).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
     coc_prior[coc_path] = coc_old
 for coc_path, coc_hash in coc_transition['added'].items():
     assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
 
 
 def coc_preserved_bytes(name):
-    return coc_prior[name] if name in coc_prior else (ROOT / name).read_bytes()
+    return coc_prior[name] if name in coc_prior else next_regional_preserved_bytes(name)
 
 
 # Dated successor: restrict public changes to the approved HAMC notice, and
