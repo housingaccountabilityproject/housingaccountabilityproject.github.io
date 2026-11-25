@@ -186,6 +186,11 @@ def front(stories, region):
     coc_target = 'hud-coc-funding-court-tracker.html#' + ({'tucson': 'tucson-pima', 'phoenix': 'phoenix-maricopa'}[region])
     target(coc_target)
     coc_link = '<p class="meta">Federal housing policy · Research Updates</p><h3>' + link(coc_target, 'Who Gets HUD Homelessness Funding? The Court Fight and Arizona’s Next Steps') + '</h3>'
+    craycroft_followup = ''
+    if region == 'tucson':
+        craycroft_url = 'research-updates.html#craycroft-towers-board-action-2026-11-18'
+        target(craycroft_url)
+        craycroft_followup = '<article><p class="meta">Tucson · Project update</p><h3>' + link(craycroft_url, 'Craycroft Towers: Board authorizes steps toward closing') + '</h3></article>'
     additional_reading = ''
     if region == 'phoenix':
         goal = 'phoenix/projects.html#goodyear-cdbg-action-plan-2026-27'
@@ -194,7 +199,7 @@ def front(stories, region):
     rundown = ''.join('<li>' + link(s['destination'], s['title']) + '</li>' for s in reads)
     content = intro + edition_nav(region) + '<section aria-labelledby="latest"><div class="bar"><span id="latest">Lead Story</span><span>Published reporting · source dates vary</span></div><div class="storygrid">' + lead_body + art + '</div></section>'
     content += '<aside class="dispatch" aria-label="In this edition"><div><div class="kicker">Edition highlights</div><ul class="edition-links">' + rundown + '</ul></div>' + '</aside>'
-    content += '<div class="columns"><section class="news" id="keep-reading"><header class="section-head"><h2>Keep Reading</h2><p>Published stories worth a closer look.</p></header>' + '<article class="federal-policy-update">' + coc_link + '</article>' + additional_reading + ''.join(teaser(s) for s in reads) + '</section><section class="following"><header class="section-head"><h2>Things We’re Following</h2><p>Published open questions and the records that could answer them.</p></header>' + ''.join(teaser(s) for s in watches) + link('watch-' + region + '.html', 'See the full watchlist', 'storylink') + '</section></div>'
+    content += '<div class="columns"><section class="news" id="keep-reading"><header class="section-head"><h2>Keep Reading</h2><p>Published stories worth a closer look.</p></header>' + '<article class="federal-policy-update">' + coc_link + '</article>' + additional_reading + craycroft_followup + ''.join(teaser(s) for s in reads) + '</section><section class="following"><header class="section-head"><h2>Things We’re Following</h2><p>Published open questions and the records that could answer them.</p></header>' + ''.join(teaser(s) for s in watches) + link('watch-' + region + '.html', 'See the full watchlist', 'storylink') + '</section></div>'
     content += '<section class="archive"><div><h2>Research Archive</h2><p>Earlier reporting and historical context, with dates and sources intact.</p></div>' + link('archive-' + region + '.html', 'Browse archive', 'storylink') + '</section><section class="edition-library"><header class="section-head"><h2>Explore the research</h2><p>The original records, source dates and qualifications remain available.</p></header>' + library_cards(paths_for(region)) + '</section>'
     return shell(region, REGIONS[region], '<main id="main" class="wrap" tabindex="-1">' + content + '</main>')
 

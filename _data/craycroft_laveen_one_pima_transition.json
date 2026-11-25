@@ -1,0 +1,76 @@
+{
+  "added": {
+    "docs/reports/one-pima-fy2027-q1-original.pdf": "957a2d84fd4d2b52325cd674210ab3bea77070e562aac5831b6fa6384d6654de"
+  },
+  "base": "ab1c78d8af41659736c74de059a332435b53c162",
+  "files": {
+    "assets/category-search-coverage.js": {
+      "after": "f9869c1209defa1272d96a586497279012a0a995141ad920373685985dc692e8",
+      "before": "6a5f87e98abf80d323913e97cae1dbe85caa8efb067b434df823aa35aa73eb19"
+    },
+    "assets/search-index.js": {
+      "after": "0d442c2a1500355ff84f94fce3418ae4f2a668fc967478aaf183f47686778a8f",
+      "before": "65da0f75ff806930d6176f78bae6477e7e63af8ceeed20a3bd07f4328ec2856b"
+    },
+    "assets/search-source-urls.js": {
+      "after": "e801a08db1b11c12937d2aa2b180cfb2bff5eb227b4218bf518d592b8771c06f",
+      "before": "bbd3d93599b869ade6c060ae89bb822331794a2659a713930ccc3c1850327111"
+    },
+    "data/search-coverage.json": {
+      "after": "912ddce64e5db7a251e76eb49a5290fd9a6d42c7e0bed7e68d7e73d1a0821467",
+      "before": "294c77337798a89be8551bf06ef577a75648166fb91ee3427a3257f116a77559"
+    },
+    "evidence.html": {
+      "after": "e011818dc4a86a82a502d762ed9b2fc8166a3d57079bc2f8c7aa66cd963fa2d4",
+      "before": "342f684dab3d5c37673f2506424cf0948f3eca4d219a5fd9d2e8aa418e43c2b3"
+    },
+    "feed.xml": {
+      "after": "e7fd890dd59417fb9e77f4511baaa553a5ca690a10029b74ba82a8995780db67",
+      "before": "7469effb7f04e410b182d395cd8cbe5cc3f551a1f76a52c2f1e967e71b945e88"
+    },
+    "phoenix/projects.html": {
+      "after": "3181b05a887c05d7eb5125a6e71d6ebbeceeed6df857836254a77d32a6e0208b",
+      "before": "22232077d78e0e6beba2e023dcfe4682066183f412df2b11e1964cec5f35cda0"
+    },
+    "phoenix/records.html": {
+      "after": "a961bb835a8392ebae7e3a78fe12a325f0517a59a64ff363f473974466e2b6ce",
+      "before": "55853a1cbc2e76202c478e10017e54633be8121c92eb683135e37a6217cefa56"
+    },
+    "questions-records.html": {
+      "after": "47f8d6a25c4f23462f909a2bec6ce72ae5ce78dd702ca432de4bc4c6b61b008e",
+      "before": "c9ab769a868cd711ec9cfd6191380cef4f03ef5b0d35e06a206a636d29ebf7f5"
+    },
+    "research-updates.html": {
+      "after": "63d961558f780ee429fd06f6b18bdc6cbfb27a7511e3a4a09a8a4915f2472979",
+      "before": "f8b59a9bb1db4aac2d7c2627c2fc8095a6897cc19d660cc59e7e82ac37befc25"
+    },
+    "scripts/build-phoenix-connections.py": {
+      "after": "2e684436c60b15f4ab69f87457d1ca3eb26290205a4f68076c8e0b650857b2db",
+      "before": "6e554b9a5ddd24286f73ba2663a4c769ef7f12d19650ba227468e71b93d2c7f4"
+    },
+    "scripts/build-phoenix-records.py": {
+      "after": "3652fb9901399be46f5276267b311e49ec8a0df29d582215e6e15cd2c14256f3",
+      "before": "a037ec582fa00d81a38e94ab28871007692c0231b84c965eb5844d942873d1eb"
+    },
+    "scripts/build-regional-editions.py": {
+      "after": "d084db8213abd9d49fbbaa8da5835828ef40145582eab1bf67953074cf0b0b07",
+      "before": "eafbd42137c8d25eb4b4b890659ee2cd8444e012c3a7b523fef8143e441796e6"
+    },
+    "scripts/check-list-baseline.py": {
+      "after": "9a21e1123afb97f2f845f7e1fd31dba2ba0e18630f65cd438f673bd40e67c181",
+      "before": "ab2b620f690cd30de51ee44140f980a505a74a2f37580bf797978f42369d420d"
+    },
+    "scripts/check-regional-editions.py": {
+      "after": "4801285bc98277a7c2a2c29afd00a530f1e2066bb79a058e985489720db4d0cf",
+      "before": "60f37a17d9ba8adec2d05798ed8c842c3bb4c5c82ef420452e061835f11fc161"
+    },
+    "scripts/test-search.cjs": {
+      "after": "b8823883fa69d5928bdf929ec4c6cbe89cad4a222ca1fd2b024169831d346691",
+      "before": "96324a850e86fc9a52ad6487b6a2f60365607453eae410d2a50da5be594b5e4d"
+    },
+    "tucson.html": {
+      "after": "fc7e8143e0ca891afba7dfa540c3c9030ba5bdda7801850301a7fd6fda62dfd4",
+      "before": "6c1daff1e393b5fbce8dcbf7c0e81bd8f1337c393f6b2e0696ac339e377a078a"
+    }
+  }
+}

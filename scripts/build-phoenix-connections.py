@@ -117,6 +117,11 @@ def build():
 </div></section>'''
     note += (ROOT / '_data/goodyear_action_plan_feature.html').read_text()
     controls = filters('Phoenix projects', [('development', 'Developments'), ('planning-area', 'Neighborhood planning areas')])
+    note += '''<section class="connections-note" id="laveen-commons-preliminary-bond-financing" aria-labelledby="laveen-commons-title"><div class="wrap">
+<h2 id="laveen-commons-title">Laveen Commons: Up to $40 million in preliminary bond financing</h2>
+<p>On November 19, the Phoenix Industrial Development Authority gave preliminary approval to up to $40 million in bond financing for Laveen Commons at 7260 South 59th Avenue. This is a separate project from <a href="records.html#PHX-WEB-034">Laveen Park Place</a>. The approval does not show that bonds were issued, financing closed, or homes were delivered.</p>
+<p><a href="https://phoenixida.com/wp-content/uploads/2026/11/11192026-Board-of-Directors-Meeting-Results_POSTED.pdf#page=2">Board results, page 2, item 6 (PDF)</a></p>
+</div></section>'''
     (ROOT / 'phoenix/projects.html').write_text(city_layout(shell('projects.html', 'Projects & phases', introduction, note + workspace(controls, cards, len(cards))), 'phoenix/projects.html'))
 
     cards = []

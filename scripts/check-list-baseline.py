@@ -5,6 +5,31 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 
+# Preserve every earlier release gate, using the verified predecessor for the
+# exact reviewed story, placement, citation, and mechanically generated changes.
+THREE_STORY_BASE = 'ab1c78d8af41659736c74de059a332435b53c162'
+THREE_STORY_PATHS = ('assets/category-search-coverage.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/search-coverage.json', 'evidence.html', 'feed.xml', 'phoenix/projects.html', 'phoenix/records.html', 'questions-records.html', 'research-updates.html', 'scripts/build-phoenix-connections.py', 'scripts/build-phoenix-records.py', 'scripts/build-regional-editions.py', 'tucson.html', 'scripts/test-search.cjs')
+THREE_STORY_NEW = ('docs/reports/one-pima-fy2027-q1-original.pdf',)
+THREE_STORY_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+three = json.loads((ROOT / '_data/craycroft_laveen_one_pima_transition.json').read_text())
+assert set(three) == {'base', 'files', 'added'} and three['base'] == THREE_STORY_BASE
+assert set(three['files']) == set(THREE_STORY_PATHS + THREE_STORY_GUARDS)
+assert set(three['added']) == set(THREE_STORY_NEW)
+three_pins = {'base': THREE_STORY_BASE, 'files': {n: three['files'][n] for n in THREE_STORY_PATHS}, 'added': three['added']}
+assert hashlib.sha256(json.dumps(three_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == 'ab90c63e6b5075b183d4d2c6a81dc3a8332867001e226027d6ac73eab39f46df'
+three_predecessor = {}
+for n, hashes in three['files'].items():
+    assert set(hashes) == {'before','after'}
+    old_bytes = subprocess.check_output(['git','show',THREE_STORY_BASE+':'+n], cwd=ROOT)
+    assert hashlib.sha256(old_bytes).hexdigest() == hashes['before'], ('Unverified three-story base',n)
+    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
+    three_predecessor[n] = old_bytes
+for n,h in three['added'].items():
+    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
+def three_preserved_bytes(name):
+    return three_predecessor[name] if name in three_predecessor else (ROOT / name).read_bytes()
+
+
 # Approved next website set. Validate exact successor bytes while retaining
 # every earlier gate, including the CoC and HAMC transition checks.
 NEXT_REGIONAL_BASE = '88e06b446bcdee446ad069d932f9fd21d292787d'
@@ -22,13 +47,13 @@ for path, hashes in next_regional['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',NEXT_REGIONAL_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified next regional baseline',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
+    assert hashlib.sha256(three_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
     next_regional_prior[path] = prior
 for path, sha in next_regional['added'].items():
     assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed next regional addition',path)
 
 def next_regional_preserved_bytes(name):
-    return next_regional_prior[name] if name in next_regional_prior else (ROOT/name).read_bytes()
+    return next_regional_prior[name] if name in next_regional_prior else three_preserved_bytes(name)
 
 
 # Approved CoC tracker: pin only its own additions and exact changed bytes;
@@ -181,6 +206,18 @@ for name,sha in fixture['files'].items():
 count=0
 for name,queries in selectors.items():
  doc=html.parse(str(ROOT/name))
+ if name=='phoenix/records.html':
+  followups=doc.xpath('//*[@id="PHX-WEB-034"]/p[@class="record-next"][a[@href="projects.html#laveen-commons-preliminary-bond-financing"]]')
+  assert len(followups)==1 and followups[0].text_content()=='Related project: Laveen Commons (separate financing action)'
+  followups[0].drop_tree()
+ if name in ('evidence.html','questions-records.html'):
+  ids={'evidence.html': ['county-fy27-q1-source'], 'questions-records.html': ['q-013','q-015','county-questions-fy27-q1']}[name]
+  prior_doc=html.fromstring(three_predecessor[name])
+  for ident in ids:
+   current=doc.xpath('//*[@id=$id]',id=ident)
+   prior=prior_doc.xpath('//*[@id=$id]',id=ident)
+   assert len(current)==len(prior)==1
+   current[0].getparent().replace(current[0],prior[0])
  for i,query in enumerate(queries):
   records=[]
   for e in doc.xpath(query):
