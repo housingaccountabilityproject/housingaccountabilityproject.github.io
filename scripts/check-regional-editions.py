@@ -371,6 +371,8 @@ ILLUSTRATION_TRANSITIONS = {
     'phoenix.html': ('33a4b5f530811fcfcb31e67b167f79b3221d2722d891c61640ef889c74e7acb9', 'f7221a321bae1b767f0475a7c7a538a53fa0c4a169e1868ed6665d33df787933'),
     'scripts/build-regional-editions.py': ('ea95dfee3efba5c92a15b691ef80a8b69293334127e783d59caf07e8bc9061af', 'eafb74ed64dbeffbf6ab9e49c5eeb8cfec82d9ca440371cd518b77057e4778fc'),
     'scripts/test-regional-editions.mjs': ('d4020e11c53d64e5bfb3ba8e4a1aff7e1611399ee3bee89020f1c2d94807538e', '529f501d7d30855295c3cc93994f33ee34bd12f4771399f248070d0dca5f3482'),
+    # Approved count-only search inventory change; retain the historical pin.
+    'scripts/test-search.cjs': ('e79c443934494f007642f38831bee757af5960c9b287e5b2479b0c02069b4f1a', '96324a850e86fc9a52ad6487b6a2f60365607453eae410d2a50da5be594b5e4d'),
 }
 
 review=json.loads((ROOT/'docs/reviews/phoenix-batch-a-nov20-preservation.json').read_text())

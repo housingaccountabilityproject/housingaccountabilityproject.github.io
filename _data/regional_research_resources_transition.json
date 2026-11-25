@@ -52,7 +52,7 @@
       "before": "fdbaac16675f5614a895328a5f0defe4ad1cf96408d177541794b45bca2404e9"
     },
     "scripts/check-regional-editions.py": {
-      "after": "119ab1ff31825dc607fea5417e62f94be802db0c45642f447f2a9b0ad179b119",
+      "after": "4ea4ab1277c27966258fb7173e5853b0d3ff6e3787b70289b91abfd99905f632",
       "before": "181bea6ff725a071888a927dbc6ff24c8b36764898b92e2d20724fa9dbaaa188"
     }
   }
