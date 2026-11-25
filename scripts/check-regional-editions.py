@@ -24,7 +24,7 @@ assert set(coc_transition) == {'base', 'files', 'added'} and coc_transition['bas
 assert set(coc_transition['files']) == set(COC_PUBLIC_PATHS + COC_GUARD_PATHS)
 assert set(coc_transition['added']) == set(COC_NEW_PATHS)
 coc_pins = {'base': COC_BASE, 'files': {p:coc_transition['files'][p] for p in COC_PUBLIC_PATHS}, 'added':coc_transition['added']}
-assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == 'e60eb0d69c27a70ac011bcb5008c5b76ee8a9eb19949a1e22f2ff0a529c3d1c2', 'Unexpected CoC release pins'
+assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == '1f7007ab71230056727c678a3cfb37d808444eecf688de36ad10cc93559fde2d', 'Unexpected CoC release pins'
 coc_prior = {}
 for coc_path, coc_hash in coc_transition['files'].items():
     assert set(coc_hash) == {'before','after'}
