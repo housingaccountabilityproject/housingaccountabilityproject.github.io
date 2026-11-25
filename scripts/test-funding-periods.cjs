@@ -47,7 +47,15 @@ equal(published.records.length,expectedTotal,'existing annotations plus independ
 equal(published.requiredKeys,approved.baselinePeriodKeys,'required baseline identities are unchanged');
 for(const [key,hash] of Object.entries(approved.baselinePeriodHashes)){
  const row=published.records.find(r=>r.key===key);assert(row,key+' baseline row retained');assertions++;
- equal(createHash('sha256').update(JSON.stringify(row)).digest('hex'),hash,key+' baseline metadata unchanged');
+ let historical=row;
+ if(key==='tucson:funding-explorer.html#county-funding-fy27-q1'){
+  const archive='https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf';
+  const retired='https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf';
+  equal((JSON.stringify(row).match(new RegExp(archive.replaceAll('.','\\.'),'g'))||[]).length,3,'Exactly three original date/period citations repaired');
+  assert(!JSON.stringify(row).includes(retired),'No retired active period citation');assertions++;
+  historical=JSON.parse(JSON.stringify(row).replaceAll(archive,retired));
+ }
+ equal(createHash('sha256').update(JSON.stringify(historical)).digest('hex'),hash,key+' baseline metadata unchanged after the exact citation-only transition');
 }
 const bundle=vm.createContext({window:{}});vm.runInContext(read('assets/funding-periods-data.js'),bundle);
 equal(bundle.window.HAP_FUNDING_PERIODS_DATA,published,'production bundle matches the handoff ledger exactly');

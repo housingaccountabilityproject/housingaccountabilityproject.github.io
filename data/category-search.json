@@ -10914,7 +10914,8 @@
       ],
       "label": "Tucson / Pima County · FY2027 Q1",
       "summary": [
-        "Memo dated November 5, 2026, pages 2–3."
+        "Memo dated November 5, 2026, pages 2–3.",
+        "The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved."
       ],
       "caveats": [
         "Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse."
@@ -10923,7 +10924,8 @@
         "Memo dated November 5, 2026, pages 2–3.",
         "Published November 6, 2026 at 4:48 p.m. MST (Tucson).",
         "Carried forward from published County update f69fd33af440c114402f2179f3d18d768a8c9ef3; no new source-content verification.",
-        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
+        "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified.",
+        "The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved."
       ],
       "metadata": [
         [
@@ -10943,18 +10945,30 @@
       "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06",
       "originals": [
         {
-          "title": "Original source 1",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "title": "Original County PDF (archived copy), page 2",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
-          "title": "Original source 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "title": "Original County PDF (archived copy), page 3",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2 (928 entries; 98 rapid rehousing)",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
         }
       ],
       "links": [
         {
           "title": "Website / workbook source ID crosswalk",
           "url": "https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk"
+        },
+        {
+          "title": "Revised County PDF, Table 2",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
+        },
+        {
+          "title": "Compare the original and revised One Pima reports",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison"
         }
       ],
       "sourceIds": [
@@ -10966,11 +10980,12 @@
         "title": "One Pima Initiative: Fiscal Year 27 First Quarter Update",
         "period": "FY2027 Q1",
         "topic": "cdbg county",
-        "source_context": "Memo dated November 5, 2026, pages 2–3.",
+        "source_context": "Memo dated November 5, 2026, pages 2–3. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved.",
         "limitations": "Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse.",
         "urls": [
-          "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2",
-          "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
+          "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3",
+          "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
         ],
         "citation_url": "research-updates.html#county-housing-fy27-q1-2026-11-06",
         "aliases": [],
@@ -10984,29 +10999,33 @@
         "crosswalk_url": "evidence.html#source-id-crosswalk",
         "workbook_mapping_basis": "Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified."
       },
-      "searchText": "tucson:evidence.html#county-fy27-q1-source County FY27 Q1 memo county-fy27-q1-source tucson sources One Pima Initiative: Fiscal Year 27 First Quarter Update Source reference CDBG County funding Not separately tagged 2026 2027 Tucson / Pima County · FY2027 Q1 Memo dated November 5, 2026, pages 2–3. Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse. Memo dated November 5, 2026, pages 2–3. Published November 6, 2026 at 4:48 p.m. MST (Tucson). Carried forward from published County update f69fd33af440c114402f2179f3d18d768a8c9ef3; no new source-content verification. Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. Period FY2027 Q1 Website ID County FY27 Q1 memo Workbook IDs (separate namespace) SRC-116 https://housingaccountabilityproject.github.io/evidence.html#county-fy27-q1-source https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Original source 1 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 Original source 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 Website / workbook source ID crosswalk https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk County FY27 Q1 memo Document date and fiscal reporting period The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027. Other source records Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The public original was retrieved and its cited date evidence checked. The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027. This is not a full audit of the financial or housing claims. https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 The public original was retrieved and its cited date evidence checked.",
+      "searchText": "tucson:evidence.html#county-fy27-q1-source County FY27 Q1 memo county-fy27-q1-source tucson sources One Pima Initiative: Fiscal Year 27 First Quarter Update Source reference CDBG County funding Not separately tagged 2026 2027 Tucson / Pima County · FY2027 Q1 Memo dated November 5, 2026, pages 2–3. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved. Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse. Memo dated November 5, 2026, pages 2–3. Published November 6, 2026 at 4:48 p.m. MST (Tucson). Carried forward from published County update f69fd33af440c114402f2179f3d18d768a8c9ef3; no new source-content verification. Registered public URL match; page fragments, query order and share-tracking parameter ignored. Source content not newly reverified. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved. Period FY2027 Q1 Website ID County FY27 Q1 memo Workbook IDs (separate namespace) SRC-116 https://housingaccountabilityproject.github.io/evidence.html#county-fy27-q1-source https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Original County PDF (archived copy), page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 Original County PDF (archived copy), page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 (928 entries; 98 rapid rehousing) https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Website / workbook source ID crosswalk https://housingaccountabilityproject.github.io/evidence.html#source-id-crosswalk Revised County PDF, Table 2 https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Compare the original and revised One Pima reports https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison County FY27 Q1 memo Document date and fiscal reporting period The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027. Other source records Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The public original was retrieved and its cited date evidence checked. The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 The public original was retrieved and its cited date evidence checked. Original County PDF (archived copy), Table 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
       "yearBasis": "Document date and fiscal reporting period",
       "yearNote": "The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027.",
       "sourceType": "Other source records",
       "yearSourceCheck": "Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The public original was retrieved and its cited date evidence checked. The memo is dated November 5, 2026 and reports FY27 Q1. Its first-quarter table explicitly covers July–September 2026. FY2027 is a fiscal label, not a claim that the reported activity occurred in calendar 2027. This is not a full audit of the financial or housing claims.",
       "yearEvidence": [
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, memo Date and Re lines",
           "quote": "Date: November 5, 2026"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Re line",
           "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Table 1 heading",
           "quote": "Maintenance Totals from July 2026 through end of September 2026"
         }
       ],
-      "dateCheckMethod": "The public original was retrieved and its cited date evidence checked."
+      "dateCheckMethod": "The public original was retrieved and its cited date evidence checked.",
+      "primarySource": {
+        "title": "Original County PDF (archived copy), Table 2",
+        "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
+      }
     },
     {
       "key": "tucson:evidence.html#src-023",
@@ -19056,19 +19075,24 @@
         "Keep the original period, scope and measurement limits attached. This preview does not newly verify the research."
       ],
       "notes": [
-        "What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3."
+        "What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3.",
+        "The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved."
       ],
       "metadata": [],
       "url": "https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1",
       "contextUrl": "https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1",
       "originals": [
         {
-          "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "title": "Original County PDF (archived copy), page 2",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
-          "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "title": "Original County PDF (archived copy), page 3",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2 (928 entries; 98 rapid rehousing)",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
         }
       ],
       "links": [
@@ -19078,11 +19102,19 @@
         },
         {
           "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
           "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
+        },
+        {
+          "title": "Compare the original and revised One Pima reports",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison"
         }
       ],
       "sourceIds": [],
@@ -19096,15 +19128,15 @@
           },
           {
             "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
           },
           {
             "title": "rapid-rehousing narrative, page 3",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
           }
         ]
       },
-      "searchText": "tucson:funding-explorer.html#county-funding-fy27-q1 county-funding-fy27-q1 county-funding-fy27-q1 tucson funding What Funding Is Involved in the County’s Housing Report? Funding context County funding Not separately tagged 2026 2027 Tucson / Pima County · Published research What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. Keep the original period, scope and measurement limits attached. This preview does not newly verify the research. What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 Read the County Report Review and Its Reconciliation Limits https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 FY27 first-quarter reporting; calendar 2026 document and quarter The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 Public record county-funding-fy27-q1; heading, dated scope and narrative What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics A retained original source copy was checked for the cited dates. 2026 2027 County FY27 Q1: July–September 2026 quarterly_reporting_window published_report The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits. https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics County FY2027 Q1 2026-07 2026-09 month 2026 2027 source_memo_date County memo date 2026-11-05 2026 verified_date https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, memo Date and Re lines Date: November 5, 2026",
+      "searchText": "tucson:funding-explorer.html#county-funding-fy27-q1 county-funding-fy27-q1 county-funding-fy27-q1 tucson funding What Funding Is Involved in the County’s Housing Report? Funding context County funding Not separately tagged 2026 2027 Tucson / Pima County · Published research What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. Keep the original period, scope and measurement limits attached. This preview does not newly verify the research. What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved. https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 Original County PDF (archived copy), page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 Original County PDF (archived copy), page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 (928 entries; 98 rapid rehousing) https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Read the County Report Review and Its Reconciliation Limits https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 rapid-rehousing narrative, page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Compare the original and revised One Pima reports https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison FY27 first-quarter reporting; calendar 2026 document and quarter The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/funding-explorer.html#county-funding-fy27-q1 Public record county-funding-fy27-q1; heading, dated scope and narrative What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics A retained original source copy was checked for the cited dates. 2026 2027 County FY27 Q1: July–September 2026 quarterly_reporting_window published_report The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits. https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics County FY2027 Q1 2026-07 2026-09 month 2026 2027 source_memo_date County memo date 2026-11-05 2026 verified_date https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, memo Date and Re lines Date: November 5, 2026 Original County PDF (archived copy), Table 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
       "yearBasis": "FY27 first-quarter reporting; calendar 2026 document and quarter",
       "yearNote": "The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits.",
       "yearSourceCheck": "Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims.",
@@ -19115,22 +19147,22 @@
           "quote": "What Funding Is Involved in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work.Read the County Report Review and Its Reconciliation Limits.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3."
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, memo Date and Re lines",
           "quote": "Date: November 5, 2026"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Re line",
           "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Table 1 heading",
           "quote": "Maintenance Totals from July 2026 through end of September 2026"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading",
           "quote": "Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics"
         }
@@ -19147,17 +19179,17 @@
         "explanation": "The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits.",
         "evidence": [
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 1, Re line",
             "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
           },
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 1, Table 1 heading",
             "quote": "Maintenance Totals from July 2026 through end of September 2026"
           },
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading",
             "quote": "Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics"
           }
@@ -19184,14 +19216,18 @@
           "status": "verified_date",
           "evidence": [
             {
-              "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+              "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
               "locator": "PDF page 1, memo Date and Re lines",
               "quote": "Date: November 5, 2026"
             }
           ]
         }
       ],
-      "periodLeads": []
+      "periodLeads": [],
+      "primarySource": {
+        "title": "Original County PDF (archived copy), Table 2",
+        "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
+      }
     },
     {
       "key": "tucson:questions-records.html#q-001",
@@ -21497,19 +21533,24 @@
         "Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records."
       ],
       "notes": [
-        "What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3."
+        "What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3.",
+        "The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved."
       ],
       "metadata": [],
       "url": "https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1",
       "contextUrl": "https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1",
       "originals": [
         {
-          "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "title": "Original County PDF (archived copy), page 2",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
-          "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "title": "Original County PDF (archived copy), page 3",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2 (928 entries; 98 rapid rehousing)",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
         }
       ],
       "links": [
@@ -21519,11 +21560,19 @@
         },
         {
           "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
           "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
+        },
+        {
+          "title": "Compare the original and revised One Pima reports",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison"
         }
       ],
       "sourceIds": [],
@@ -21537,15 +21586,15 @@
           },
           {
             "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
           },
           {
             "title": "rapid-rehousing narrative, page 3",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
           }
         ]
       },
-      "searchText": "tucson:questions-records.html#county-questions-fy27-q1 county-questions-fy27-q1 county-questions-fy27-q1 tucson questions What Needs Clarification in the County’s Housing Report? Additional research questions County funding Not separately tagged 2026 2027 Tucson / Pima County · Published research What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records. What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 Read the Complete County Report Review https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 FY27 first-quarter reporting; calendar 2026 document and quarter The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 Public record county-questions-fy27-q1; heading, dated scope and narrative What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics A retained original source copy was checked for the cited dates.",
+      "searchText": "tucson:questions-records.html#county-questions-fy27-q1 county-questions-fy27-q1 county-questions-fy27-q1 tucson questions What Needs Clarification in the County’s Housing Report? Additional research questions County funding Not separately tagged 2026 2027 Tucson / Pima County · Published research What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records. What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved. https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 Original County PDF (archived copy), page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 Original County PDF (archived copy), page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 (928 entries; 98 rapid rehousing) https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Read the Complete County Report Review https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 rapid-rehousing narrative, page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Compare the original and revised One Pima reports https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison FY27 first-quarter reporting; calendar 2026 document and quarter The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/questions-records.html#county-questions-fy27-q1 Public record county-questions-fy27-q1; heading, dated scope and narrative What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3. https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, memo Date and Re lines Date: November 5, 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Re line One Pima Initiative: Fiscal Year 27 First Quarter Update https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 1, Table 1 heading Maintenance Totals from July 2026 through end of September 2026 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics A retained original source copy was checked for the cited dates. Original County PDF (archived copy), Table 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
       "yearBasis": "FY27 first-quarter reporting; calendar 2026 document and quarter",
       "yearNote": "The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits.",
       "yearSourceCheck": "Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). A retained original source copy was checked for the cited dates. The exact County memo is dated November 5, 2026, identifies FY27 Q1 and explicitly places first-quarter reporting in July–September 2026. The housing table on page 2 is labeled FY27 First-Quarter. Index 2026 plus the fiscal label 2027, without suggesting the activity took place in calendar 2027. Preserve the unreconciled housing counts/averages and privacy limits. This is not a full audit of the financial or housing claims.",
@@ -21556,27 +21605,31 @@
           "quote": "What Needs Clarification in the County’s Housing Report?Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3.Rapid-Rehousing: The table lists 95 households, but the narrative totals 98.Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42.Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52.A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds.The report does not say whether households appear in more than one category.Resident privacy: Reconciliation should use aggregate counts, not residents’ identities or individual records.Read the Complete County Report Review.Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2; rapid-rehousing narrative, page 3."
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, memo Date and Re lines",
           "quote": "Date: November 5, 2026"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Re line",
           "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 1, Table 1 heading",
           "quote": "Maintenance Totals from July 2026 through end of September 2026"
         },
         {
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
           "locator": "PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading",
           "quote": "Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics"
         }
       ],
-      "dateCheckMethod": "A retained original source copy was checked for the cited dates."
+      "dateCheckMethod": "A retained original source copy was checked for the cited dates.",
+      "primarySource": {
+        "title": "Original County PDF (archived copy), Table 2",
+        "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
+      }
     },
     {
       "key": "tucson:questions-records.html#county-price-records-2026",
@@ -22808,7 +22861,8 @@
         "A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds."
       ],
       "notes": [
-        "Pima County’s Housing Report: Counts and Averages Need Clarification Published: November 6, 2026, 4:48 p.m. MST (Tucson) . Source: November 5, 2026 County memo, pages 2–3. What Did the County Report? Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. What Doesn’t Add Up? Rapid-Rehousing: The table lists 95 households, but the narrative totals 98. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. What Funding Is Involved? The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work. What’s Next? A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 ; rapid-rehousing narrative, page 3 ."
+        "Pima County’s Housing Report: Counts and Averages Need Clarification Published: November 6, 2026, 4:48 p.m. MST (Tucson) . Source: November 5, 2026 County memo, pages 2–3. What Did the County Report? Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. What Doesn’t Add Up? Rapid-Rehousing: The table lists 95 households, but the narrative totals 98. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. What Funding Is Involved? The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work. What’s Next? A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 ; rapid-rehousing narrative, page 3 .",
+        "The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved."
       ],
       "metadata": [
         [
@@ -22828,22 +22882,34 @@
       "contextUrl": "https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06",
       "originals": [
         {
-          "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "title": "Original County PDF (archived copy), page 2",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
-          "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "title": "Original County PDF (archived copy), page 3",
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2 (928 entries; 98 rapid rehousing)",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
         }
       ],
       "links": [
         {
           "title": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
         },
         {
           "title": "rapid-rehousing narrative, page 3",
-          "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+          "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
+        },
+        {
+          "title": "Revised County PDF, Table 2",
+          "url": "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
+        },
+        {
+          "title": "Compare the original and revised One Pima reports",
+          "url": "https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison"
         }
       ],
       "sourceIds": [],
@@ -22869,13 +22935,13 @@
         "links": [
           {
             "text": "Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2",
-            "href": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2"
+            "href": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
           },
           {
             "text": "rapid-rehousing narrative, page 3",
-            "href": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3",
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+            "href": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3"
           }
         ],
         "caveats": [
@@ -22923,7 +22989,7 @@
         ],
         "year_note": "Years come from explicitly labeled publication/review timestamps or written fiscal/program-year labels. They are not all publication years. No year is inferred from anchors/headings. Short two-digit range endpoints are not expanded."
       },
-      "searchText": "tucson:research-updates.html#county-housing-fy27-q1-2026-11-06 county-housing-fy27-q1-2026-11-06 county-housing-fy27-q1-2026-11-06 tucson updates Pima County’s Housing Report: Counts and Averages Need Clarification Research update Not separately tagged 2026 Website publication date The cached public Atom feed explicitly supplies publication 2026-11-06T16:48:48-07:00 for this exact entry. Keep 2026 as the HAP update publication year; source coverage, source-check dates and later corrections remain distinct. Published research update Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Pima County’s Housing Report: Counts and Averages Need Clarification Published: November 6, 2026, 4:48 p.m. MST (Tucson) . Source: November 5, 2026 County memo, pages 2–3. What Did the County Report? Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. What Doesn’t Add Up? Rapid-Rehousing: The table lists 95 households, but the narrative totals 98. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. What Funding Is Involved? The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work. What’s Next? A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 ; rapid-rehousing narrative, page 3 . Website publication timestamp 2026-11-06T16:48:48-07:00 Website update timestamp 2026-11-06T16:48:48-07:00 Publication date context Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3. https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2 rapid-rehousing narrative, page 3 https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3 Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The stated HAP publication date was checked. The cached public Atom feed explicitly supplies publication 2026-11-06T16:48:48-07:00 for this exact entry. Keep 2026 as the HAP update publication year; source coverage, source-check dates and later corrections remain distinct. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/feed.xml Atom entry id https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06; published element 2026-11-06T16:48:48-07:00 The stated HAP publication date was checked.",
+      "searchText": "tucson:research-updates.html#county-housing-fy27-q1-2026-11-06 county-housing-fy27-q1-2026-11-06 county-housing-fy27-q1-2026-11-06 tucson updates Pima County’s Housing Report: Counts and Averages Need Clarification Research update Not separately tagged 2026 Website publication date The cached public Atom feed explicitly supplies publication 2026-11-06T16:48:48-07:00 for this exact entry. Keep 2026 as the HAP update publication year; source coverage, source-check dates and later corrections remain distinct. Published research update Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Pima County’s Housing Report: Counts and Averages Need Clarification Published: November 6, 2026, 4:48 p.m. MST (Tucson) . Source: November 5, 2026 County memo, pages 2–3. What Did the County Report? Pima County reported $2.49 million spent and 925 households served across six housing assistance strategies in the first quarter of FY27. The figures are subject to reconciliation; the report does not say whether households appear in more than one category. What Doesn’t Add Up? Rapid-Rehousing: The table lists 95 households, but the narrative totals 98. Rapid-Rehousing Average: The reported costs divided by 95 equal $3,671.42, not the printed $3,290.42. Home-Repair Average: The reported costs divided by 91 equal $2,279.52, not the printed $2,280.52. What Funding Is Involved? The $207,436 home-repair line is listed under County CDBG agencies. CDBG is a federal HUD program, but the memo doesn’t identify the specific award. It separately lists $111,045 as the County-funded portion of Affordable Housing Fund repair and weatherization work. What’s Next? A reconciled table and an explanation of the counts and calculations would clarify the results. The discrepancies alone do not establish misuse of funds. Source: Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 ; rapid-rehousing narrative, page 3 . The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved. Website publication timestamp 2026-11-06T16:48:48-07:00 Website update timestamp 2026-11-06T16:48:48-07:00 Publication date context Published: November 6, 2026, 4:48 p.m. MST (Tucson). Source: November 5, 2026 County memo, pages 2–3. https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06 Original County PDF (archived copy), page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 Original County PDF (archived copy), page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 (928 entries; 98 rapid rehousing) https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Pima County, One Pima Initiative: Fiscal Year 27 First Quarter Update, November 5, 2026, page 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2 rapid-rehousing narrative, page 3 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3 Revised County PDF, Table 2 https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2 Compare the original and revised One Pima reports https://housingaccountabilityproject.github.io/research-updates.html#one-pima-fy27-q1-version-comparison Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The stated HAP publication date was checked. The cached public Atom feed explicitly supplies publication 2026-11-06T16:48:48-07:00 for this exact entry. Keep 2026 as the HAP update publication year; source coverage, source-check dates and later corrections remain distinct. This is not a full audit of the financial or housing claims. https://housingaccountabilityproject.github.io/feed.xml Atom entry id https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06; published element 2026-11-06T16:48:48-07:00 The stated HAP publication date was checked. Original County PDF (archived copy), Table 2 https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
       "yearSourceCheck": "Date-basis review, November 10, 2026 (recorded date; exact check instant was not retained). The stated HAP publication date was checked. The cached public Atom feed explicitly supplies publication 2026-11-06T16:48:48-07:00 for this exact entry. Keep 2026 as the HAP update publication year; source coverage, source-check dates and later corrections remain distinct. This is not a full audit of the financial or housing claims.",
       "yearEvidence": [
         {
@@ -22932,7 +22998,11 @@
           "quote": "2026-11-06T16:48:48-07:00"
         }
       ],
-      "dateCheckMethod": "The stated HAP publication date was checked."
+      "dateCheckMethod": "The stated HAP publication date was checked.",
+      "primarySource": {
+        "title": "Original County PDF (archived copy), Table 2",
+        "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2"
+      }
     },
     {
       "key": "tucson:research-updates.html#audit-corrections-2026-11-06",

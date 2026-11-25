@@ -13,6 +13,29 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Approved November 25 website release: verify each exact new byte sequence,
+# then give all existing preservation assertions their verified predecessor.
+NOV25_BASE = '152ab9b5f38556e14fd3de5b938033c0de5e8da9'
+NOV25_PUBLIC = ('assets/category-search-card.js', 'assets/category-search-data.js', 'assets/category-search.js', 'assets/funding-periods-data.js', 'data/category-search.json', 'data/funding-browser-periods.json', 'data/funding-periods.json', 'data/source-id-crosswalk.csv', 'data/source-id-crosswalk.json', 'data/source-register.json', 'phoenix/index.html', 'scripts/test-category-search.cjs', 'scripts/test-category-search.mjs', 'scripts/test-funding-periods.cjs', 'sitemap.xml')
+NOV25_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+nov25 = json.loads((ROOT / '_data/nov25_one_pima_transition.json').read_text())
+assert set(nov25) == {'base','files'} and nov25['base'] == NOV25_BASE
+assert set(nov25['files']) == set(NOV25_PUBLIC + NOV25_GUARDS)
+nov25_pins = {'base':NOV25_BASE,'files':{p:nov25['files'][p] for p in NOV25_PUBLIC}}
+assert hashlib.sha256(json.dumps(nov25_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == '986844d24f5b9f82d1894df4a47fac6fc7274b31922cb17242f65e839fc71b1b', 'Unexpected November 25 release pins'
+nov25_prior = {}
+for path, hashes in nov25['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',NOV25_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified November 25 predecessor',path)
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed November 25 successor',path)
+    nov25_prior[path] = prior
+
+def nov25_preserved_bytes(name):
+    return nov25_prior[name] if name in nov25_prior else (ROOT/name).read_bytes()
+
+
+
 # Approved HUD Oversight release. Validate exact successor bytes while retaining
 # every earlier gate, including the CoC and HAMC transition checks.
 HUD_OVERSIGHT_BASE = '730b36fd60e3af3c02852b0dcb787973b5cf1104'
@@ -30,13 +53,13 @@ for path, hashes in hud_oversight['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',HUD_OVERSIGHT_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified HUD Oversight baseline',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
+    assert hashlib.sha256(nov25_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
     hud_oversight_prior[path] = prior
 for path, sha in hud_oversight['added'].items():
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
+    assert hashlib.sha256(nov25_preserved_bytes(path)).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
 
 def hud_oversight_preserved_bytes(name):
-    return hud_oversight_prior[name] if name in hud_oversight_prior else (ROOT/name).read_bytes()
+    return hud_oversight_prior[name] if name in hud_oversight_prior else nov25_preserved_bytes(name)
 
 
 # Verify the approved oversight placement and searchable source route.
@@ -94,7 +117,7 @@ for n, hashes in three['files'].items():
     assert hashlib.sha256(mst_pdf_preserved_bytes(n)).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
     three_predecessor[n] = old_bytes
 for n,h in three['added'].items():
-    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
+    assert hashlib.sha256(nov25_preserved_bytes(n)).hexdigest() == h, ('Unreviewed three-story addition',n)
 def three_preserved_bytes(name):
     return three_predecessor[name] if name in three_predecessor else mst_pdf_preserved_bytes(name)
 
@@ -151,7 +174,7 @@ for path, hashes in next_regional['files'].items():
     assert hashlib.sha256(three_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
     next_regional_prior[path] = prior
 for path, sha in next_regional['added'].items():
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed next regional addition',path)
+    assert hashlib.sha256(nov25_preserved_bytes(path)).hexdigest() == sha, ('Unreviewed next regional addition',path)
 
 def next_regional_preserved_bytes(name):
     return next_regional_prior[name] if name in next_regional_prior else three_preserved_bytes(name)
@@ -203,7 +226,7 @@ for coc_path, coc_hash in coc_transition['files'].items():
     assert hashlib.sha256(next_regional_preserved_bytes(coc_path)).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
     coc_prior[coc_path] = coc_old
 for coc_path, coc_hash in coc_transition['added'].items():
-    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
+    assert hashlib.sha256(nov25_preserved_bytes(coc_path)).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
 
 
 def coc_preserved_bytes(name):

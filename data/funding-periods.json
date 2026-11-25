@@ -1322,17 +1322,17 @@
         "explanation": "The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits.",
         "evidence": [
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 1, Re line",
             "quote": "One Pima Initiative: Fiscal Year 27 First Quarter Update"
           },
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 1, Table 1 heading",
             "quote": "Maintenance Totals from July 2026 through end of September 2026"
           },
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 2, Priority Area No. 4 housing narrative and Table 2 heading",
             "quote": "Table 2: FY27 First-Quarter Housing Stability & Homeless Prevention Metrics"
           }
@@ -1359,7 +1359,7 @@
           "status": "verified_date",
           "evidence": [
             {
-              "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+              "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
               "locator": "PDF page 1, memo Date and Re lines",
               "quote": "Date: November 5, 2026"
             }

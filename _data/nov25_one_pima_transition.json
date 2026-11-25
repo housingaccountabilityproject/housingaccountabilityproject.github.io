@@ -1,0 +1,73 @@
+{
+  "base": "152ab9b5f38556e14fd3de5b938033c0de5e8da9",
+  "files": {
+    "assets/category-search-card.js": {
+      "before": "a66fc6682c6d674c8ce11b8d576c5401c3841da145e46157e795130f0a0f35de",
+      "after": "93c0ea9e5a778af51c25cf10cb0aefec0914b738404f4557d0362c7c0ed3cad2"
+    },
+    "assets/category-search-data.js": {
+      "before": "776dd1a30f207db6a5cd4d8e236595c2892a42e6f2310a76318d4f18f15c6db8",
+      "after": "f743ed8cb78e9249dc7c5ce703770b5a5c2c22862d76790c2634043885abf33d"
+    },
+    "assets/category-search.js": {
+      "before": "3f2426570a38206e637bf9aa9c325c524f8d0d81f28fb092d466fe13bfa1d48c",
+      "after": "e3fba1430a8e6666701ae2af2dd2fa60b20f0825966d2efc609007d677e00b27"
+    },
+    "assets/funding-periods-data.js": {
+      "before": "d450d627a9d0849c14704d34ac7f648b0f6e1ef84cecf168fdaf6d55eaa63b13",
+      "after": "a5fff339392b11677c9eae33c4adeeb5533a0a9498a708b38c03b6c2a50f35b7"
+    },
+    "data/category-search.json": {
+      "before": "ccca62f461c6b05376def66eebe521736bd1c480ff201ace71ca49eeabc62fa3",
+      "after": "bd5df893d419dc4a30856f2bfd848210887237cbf3e691355faa81f77d9a2fde"
+    },
+    "data/funding-browser-periods.json": {
+      "before": "11ff857f300fa3739baeffbc88ba0199012d77b73b650fa368c1d2bae4998802",
+      "after": "6d0259e3899f4c1b3cd461302ef90a6f9ef25cab73e875be2f16d0bafba54671"
+    },
+    "data/funding-periods.json": {
+      "before": "ddb2eec2a1762f61618238744de8a5638d1cc821ab45ec563052d8e3863fdb61",
+      "after": "8a57eab1d1c991e70b5b2ed5d2c374601a02f9d57299c240c7b013061e71fc85"
+    },
+    "data/source-id-crosswalk.csv": {
+      "before": "209c0b904e9c712e0003fd373c10c3275e0b1430ac08d5b33ea0ef5fb9b126c5",
+      "after": "7360ca8150e666066bb8ca43b5dae67d461cb19fdfdc6c7dcfe5e2834ec237fa"
+    },
+    "data/source-id-crosswalk.json": {
+      "before": "84080cb101150fdb0275794baacf7d77866de68e13f3b57d728a0ca60cac4698",
+      "after": "9a5631df84e5f46797e991f49fbbd7f08b1d9a6060f423e43daa39df7d38bb75"
+    },
+    "data/source-register.json": {
+      "before": "84d259c54657e3c07cda7086b359f6a28cf5d4f4661e474423b17142f7656a32",
+      "after": "7d1a5c60db95f0c585e9abd6d5785793e5e55c0533093509cb256421811a174a"
+    },
+    "phoenix/index.html": {
+      "before": "f03928e316d355901e5f9877251f32cb0f5f93fe925f3e63417ea5eeef738c0d",
+      "after": "650f4b59fd23938772f93c41c83f4df5b5470feddc16a4d4997c8493de2a1871"
+    },
+    "scripts/test-category-search.cjs": {
+      "before": "f2949346e28849f9216170e031a4602afa43655c940bf05c6372dcfb336bb656",
+      "after": "6cca630e87d9e30fa6ac4d5d49ec0cd678af92346139f14f3a20ac3641acdea9"
+    },
+    "scripts/test-category-search.mjs": {
+      "before": "653fdb1b1ba89eaa07ec8ea818d641436bce2ebd6f43a29c6d31c1f765561a6b",
+      "after": "410fb4138c954e9c54a094227d552e1648b67793c84c1f282fadd8c1c5235698"
+    },
+    "scripts/test-funding-periods.cjs": {
+      "before": "c6ca6300f35748451e5bc8e39a277f03d9467a8762bbab6fd0794708aeb4ca67",
+      "after": "9938c3704fa8b15e5174cfd5a1185a2eff866caa53c5badf94779c170502fde8"
+    },
+    "sitemap.xml": {
+      "before": "b64b604e2014ebb92e4dc53de5141f6b7082a96b35c624a2561ddef655934525",
+      "after": "b5b9a175b2a33cb33f43797ca4e618518382b4a0b1efd1e874218b4987ec81d3"
+    },
+    "scripts/check-list-baseline.py": {
+      "before": "309d40c5bbec5631258c99753641e5aa073ac781ac46ba7e0f85b87123392713",
+      "after": "19cccbe8a6e7668886bafd4485abfb7b1efbbad4ea747f5a7b3dbdb11475f40e"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "9ce8b50b817e58fbd9372b7c40af1c56bb03e7636b8598fcc8d6afeb8f4fa2d1",
+      "after": "1f6555f6d8e6a95eb30635bf69325afc153939c02bdb13c6b8facc632f12b9c7"
+    }
+  }
+}

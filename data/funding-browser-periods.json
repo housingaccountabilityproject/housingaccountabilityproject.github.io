@@ -2709,7 +2709,7 @@
             "matchingBasis": "calendar year overlapping explicit July–September 2026 reporting quarter; County FY2027 Q1 is a separate fiscal label",
             "evidence": [
               {
-                "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+                "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
                 "locator": "PDF page 1 Re line and Table 1 interval; PDF page 2 Priority Area No.4 and Table 2; PDF page 3 RRH narrative",
                 "basis": "FY27 Q1 is expressly labeled; July–September 2026 dates are stated for the same quarterly report. Housing table gives County CDBG $207,436 and County-funded AHF $111,045; no specific federal grant identity is established.",
                 "checkedOn": "2026-11-13",
@@ -2726,7 +2726,7 @@
         "explanation": "The memo labels the housing table FY27 first-quarter and places its first-quarter reporting in July–September 2026. The 2027 selector value is a fiscal-year label, not calendar-2027 activity. CDBG award identity is not specified. Retain reporting-scope and unreconciled-count limits. A year match identifies a source year label or coverage of an explicitly dated period; it does not prove an award, payment or expenditure in that calendar year.",
         "evidence": [
           {
-            "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+            "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
             "locator": "PDF page 1 Re line and Table 1 interval; PDF page 2 Priority Area No.4 and Table 2; PDF page 3 RRH narrative",
             "basis": "FY27 Q1 is expressly labeled; July–September 2026 dates are stated for the same quarterly report. Housing table gives County CDBG $207,436 and County-funded AHF $111,045; no specific federal grant identity is established.",
             "checkedOn": "2026-11-13",
@@ -2750,7 +2750,7 @@
           "status": "verified_date",
           "evidence": [
             {
-              "url": "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf",
+              "url": "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf",
               "locator": "PDF page 1, memo Date and Re lines",
               "quote": "Date: November 5, 2026"
             }

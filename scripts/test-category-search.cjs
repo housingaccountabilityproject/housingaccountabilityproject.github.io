@@ -69,3 +69,14 @@ for(const scope of ['tucson','phoenix']){
 check(dataset.annualReportCoverage.regions.phoenix.reporting_periods[0].status.includes('unchecked'),'Broken 2019–20 locator is not treated as currently verified');
 
 check(standard.summary(indexed.get('Q-020')).includes('fully reallocates')&&standard.summary(indexed.get('Q-020')).includes('initial $792,695 partial'),'Short SAAF summary preserves the submitted full reallocation after the partial step');
+
+// Original claims retain their exact archived source while revised figures link separately.
+const onePimaIds=['County FY27 Q1 memo','county-funding-fy27-q1','county-questions-fy27-q1','county-housing-fy27-q1-2026-11-06'];
+for(const id of onePimaIds){
+ const r=records.find(row=>row.scope==='tucson'&&row.id===id);check(!!r,id+' remains existing');
+ check(standard.original(r).url==='https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2',id+' original claim opens archived original');
+ check(r.originals.some(link=>link.url==='https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2'),id+' revised table remains separately linked');
+ check(r.links.some(link=>link.url.endsWith('#one-pima-fy27-q1-version-comparison')),id+' existing version comparison linked');
+ check(!JSON.stringify(r).includes('506bd603-1c7d-4568-b6a5-4084878d74bf'),id+' no obsolete source/date citation');
+}
+console.log('PASS One Pima: four existing identities retain archived originals, revised tables and the existing comparison.');

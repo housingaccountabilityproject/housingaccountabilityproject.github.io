@@ -47,7 +47,7 @@ async function inspectPDF(page, scope, category, mode, expected, suffix=''){
  const path=`${output}/${scope}-${category}-${mode}${suffix}.pdf`;
  await page.pdf({path,...pdfOptions});
  const text=pdfText(path);
- assert(text.includes(expected.length+' matching records'));
+ assert(text.includes(expected.length+' matching '+(expected.length===1?'record':'records')));
  for(const r of expected)assert(text.includes('Record ID: '+r.id),`PDF retains ${r.id}`);
  assert(!text.includes('working preview'));
  if(category==='funding'){

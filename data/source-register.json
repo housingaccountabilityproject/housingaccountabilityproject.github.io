@@ -26,11 +26,12 @@
       "title": "One Pima Initiative: Fiscal Year 27 First Quarter Update",
       "period": "FY2027 Q1",
       "topic": "cdbg county",
-      "source_context": "Memo dated November 5, 2026, pages 2–3.",
+      "source_context": "Memo dated November 5, 2026, pages 2–3. The original One Pima memo lists 925 entries across six strategies, including 95 for rapid rehousing. The revised memo lists 928 entries, including 98 for rapid rehousing. These are strategy entries, not a count of unique households. Household overlap, the reported averages and the specific CDBG award remain unresolved.",
       "limitations": "Counts and averages need reconciliation; household overlap and the specific CDBG award are not established. Discrepancies alone do not establish misuse.",
       "urls": [
-        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=2",
-        "https://content.civicplus.com/api/assets/506bd603-1c7d-4568-b6a5-4084878d74bf#page=3"
+        "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=2",
+        "https://housingaccountabilityproject.github.io/docs/reports/one-pima-fy2027-q1-original.pdf#page=3",
+        "https://content.civicplus.com/api/assets/71f15fe4-af8e-4a50-b63d-0265f9f50189#page=2"
       ],
       "citation_url": "research-updates.html#county-housing-fy27-q1-2026-11-06",
       "aliases": [],
