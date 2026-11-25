@@ -5,6 +5,33 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 
+# Approved CoC tracker: pin only its own additions and exact changed bytes;
+# feed the actual verified predecessor to every existing historical gate.
+COC_BASE = 'a296733f1a4c1695d3f640a914b4a7bbde8d5e3b'
+COC_PUBLIC_PATHS = ('index.html', 'phoenix.html', 'research-updates.html', 'scripts/build-regional-editions.py', 'scripts/check-reader-data.py', 'sitemap.xml', 'tucson.html')
+COC_GUARD_PATHS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+COC_NEW_PATHS = ('assets/coc-court-tracker.css', 'assets/coc-court-tracker.js', 'hud-coc-funding-court-tracker.html')
+coc_transition = json.loads((ROOT / '_data/coc_court_tracker_transition.json').read_text())
+assert set(coc_transition) == {'base', 'files', 'added'} and coc_transition['base'] == COC_BASE
+assert set(coc_transition['files']) == set(COC_PUBLIC_PATHS + COC_GUARD_PATHS)
+assert set(coc_transition['added']) == set(COC_NEW_PATHS)
+coc_pins = {'base': COC_BASE, 'files': {p:coc_transition['files'][p] for p in COC_PUBLIC_PATHS}, 'added':coc_transition['added']}
+assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == '1f7007ab71230056727c678a3cfb37d808444eecf688de36ad10cc93559fde2d', 'Unexpected CoC release pins'
+coc_prior = {}
+for coc_path, coc_hash in coc_transition['files'].items():
+    assert set(coc_hash) == {'before','after'}
+    coc_old = subprocess.check_output(['git','show',COC_BASE+':'+coc_path], cwd=ROOT)
+    assert hashlib.sha256(coc_old).hexdigest() == coc_hash['before'], ('Unverified CoC predecessor',coc_path)
+    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
+    coc_prior[coc_path] = coc_old
+for coc_path, coc_hash in coc_transition['added'].items():
+    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
+
+
+def coc_preserved_bytes(name):
+    return coc_prior[name] if name in coc_prior else (ROOT / name).read_bytes()
+
+
 # Dated successor: restrict public changes to the approved HAMC notice, and
 # feed independently verified predecessor bytes to all historical Phase 3 checks.
 HAMC_NOTICE_BASE = '3b5dd9a9e179cda3156f5df0d2bfac0185b6c5d2'
@@ -18,7 +45,7 @@ for hamc_path, hamc_hashes in hamc_notice_manifest['files'].items():
     assert set(hamc_hashes) == {'before', 'after'}
     hamc_old = subprocess.check_output(['git', 'show', HAMC_NOTICE_BASE + ':' + hamc_path], cwd=ROOT)
     assert hashlib.sha256(hamc_old).hexdigest() == hamc_hashes['before'], ('Unverified HAMC baseline', hamc_path)
-    assert hashlib.sha256((ROOT / hamc_path).read_bytes()).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
+    assert hashlib.sha256(coc_preserved_bytes(hamc_path)).hexdigest() == hamc_hashes['after'], ('Unreviewed HAMC candidate', hamc_path)
     hamc_notice_predecessor[hamc_path] = hamc_old
 
 # Phase 3 changes shared shell URLs without changing records. Pin the exact
@@ -36,12 +63,12 @@ for name, hashes in phase3['files'].items():
     assert set(hashes) == {'before', 'after'}
     old = subprocess.check_output(['git', 'show', PHASE3_BASE + ':' + name], cwd=ROOT)
     assert hashlib.sha256(old).hexdigest() == hashes['before'], ('Unverified Phase 3 base bytes', name)
-    assert hashlib.sha256(hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
+    assert hashlib.sha256(hamc_notice_predecessor.get(name, coc_preserved_bytes(name))).hexdigest() == hashes['after'], ('Unreviewed Phase 3 navigation bytes', name)
     phase3_prior[name] = old
 
 
 def phase3_preserved_bytes(name):
-    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, (ROOT / name).read_bytes())
+    return phase3_prior[name] if name in phase3_prior else hamc_notice_predecessor.get(name, coc_preserved_bytes(name))
 
 fixture=json.loads((ROOT/'scripts/fixtures/six-entry-baseline.json').read_text())
 # Keep the earlier reviewed fixture unchanged. This supplemental, dated fixture
