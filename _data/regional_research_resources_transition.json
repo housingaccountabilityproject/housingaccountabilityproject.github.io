@@ -1,0 +1,59 @@
+{
+  "added": {
+    "_data/goodyear_action_plan_feature.html": "e056c3d2721d5ebec16308c7c3f8dd79bfaf3718fa65a31b500bcd1df5741971",
+    "_data/tucson_weatherization_and_vail_resources.html": "775b69c178effa55cb96351a8c31dd73c83f6e1f6a69420a8e6fc110a43913ae",
+    "assets/arizona-cdbg-allocations.css": "d1ff70b0fcaf10b89374a40651b9a32c7466a2159906d2308d1085b5c199619b",
+    "data/arizona-cdbg-formula-allocation-source-rows.csv": "3ba59d7aac1f359c05811e3d5dec6af65f919920a9a2f05b73c4f2cb824f1bfe"
+  },
+  "base": "88e06b446bcdee446ad069d932f9fd21d292787d",
+  "files": {
+    "assets/search-index.js": {
+      "after": "65da0f75ff806930d6176f78bae6477e7e63af8ceeed20a3bd07f4328ec2856b",
+      "before": "4002ec4ba2a00861bff33d72f6787697e271aa3028d6aff49d5ad4f8348075eb"
+    },
+    "assets/search-source-urls.js": {
+      "after": "bbd3d93599b869ade6c060ae89bb822331794a2659a713930ccc3c1850327111",
+      "before": "b35818423b75887852b78da7d163804ea8bc0c6da6446a405ebfa26487f6f10d"
+    },
+    "data/search-coverage.json": {
+      "after": "294c77337798a89be8551bf06ef577a75648166fb91ee3427a3257f116a77559",
+      "before": "07fc0ea231f033d6f7528f5822db66796f91edaf40f68f75c4b582ed212d2d74"
+    },
+    "housing-help.html": {
+      "after": "64b4bd42efa0865226ab94030675efcbefb0c07c384ed0fa78a4a7d4763f11cc",
+      "before": "916c36b5eb8681c9795cbc8e90570331ea2cb1a7acc453cacb813d7f31345fa2"
+    },
+    "phoenix.html": {
+      "after": "8913df57adda2f7b7f5c59d525408df00ce014a422f04d2cdd584b7392a5c9b8",
+      "before": "e2d6e634891983b4e04552cbc854a93dd649b9c0a2f9a0e64b4c7d907ac54de4"
+    },
+    "phoenix/projects.html": {
+      "after": "22232077d78e0e6beba2e023dcfe4682066183f412df2b11e1964cec5f35cda0",
+      "before": "bc140dd5d0c0809ffb5f244d62e399a174228659fc8dd698d030fbd5362f6271"
+    },
+    "research-updates.html": {
+      "after": "f8b59a9bb1db4aac2d7c2627c2fc8095a6897cc19d660cc59e7e82ac37befc25",
+      "before": "3cb6e468438cb7986afaaee4311df43e8ce7990f458022db0a9ec69b954ff562"
+    },
+    "scripts/build-housing-help.py": {
+      "after": "37bc96b19dadb84743a0ceaadb3f1dc388c261cf1a0c8f127a040e6791aa223a",
+      "before": "ba76cd64ece37fba136716d14310aff313856293df13bfb605a8828f1ba3a85a"
+    },
+    "scripts/build-phoenix-connections.py": {
+      "after": "6e554b9a5ddd24286f73ba2663a4c769ef7f12d19650ba227468e71b93d2c7f4",
+      "before": "69a91c2637791979d745e4049948172dfb2834a59ef7098f23359994e2a305b8"
+    },
+    "scripts/build-regional-editions.py": {
+      "after": "eafbd42137c8d25eb4b4b890659ee2cd8444e012c3a7b523fef8143e441796e6",
+      "before": "3f81e6d52d8cce1f3157c7de5704a3146a491f0b54f166b3028e2cf8eefc5f51"
+    },
+    "scripts/check-list-baseline.py": {
+      "after": "ab2b620f690cd30de51ee44140f980a505a74a2f37580bf797978f42369d420d",
+      "before": "fdbaac16675f5614a895328a5f0defe4ad1cf96408d177541794b45bca2404e9"
+    },
+    "scripts/check-regional-editions.py": {
+      "after": "60f37a17d9ba8adec2d05798ed8c842c3bb4c5c82ef420452e061835f11fc161",
+      "before": "181bea6ff725a071888a927dbc6ff24c8b36764898b92e2d20724fa9dbaaa188"
+    }
+  }
+}

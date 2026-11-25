@@ -1,0 +1,23 @@
+.hap-allocation-note { scroll-margin-top: 2rem; }
+.hap-allocation-details { margin-block: 1rem; min-width: 0; }
+.hap-allocation-details > summary { cursor: pointer; font-weight: 700; padding: .65rem; }
+.hap-allocation-details :is(summary, a, [tabindex]):focus-visible { outline: 3px solid #87430f; outline-offset: 2px; }
+.hap-chart-body { min-width: 0; }
+.hap-chart-body section { margin-block: 1.15rem; }
+.hap-chart-body figure { margin: 1rem 0; }
+.hap-chart-body svg { display: block; width: min(100%, 35rem); height: auto; }
+.hap-chart-body .hap-chart-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; padding: 0; list-style: none; }
+.hap-chart-legend span { margin-inline-end: .35rem; }
+.hap-chart-scroll { overflow-x: auto; max-width: 100%; }
+.hap-chart-scroll table { border-collapse: collapse; width: 100%; }
+.hap-chart-scroll caption { text-align: left; font-weight: 700; }
+.hap-chart-scroll :is(th,td) { padding: .3rem .45rem; border-bottom: 1px solid #b7cbd1; }
+.hap-chart-scroll td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media print {
+  .hap-allocation-details > summary { display: none; }
+  .hap-allocation-details > .hap-chart-body { display: block; }
+  .hap-allocation-details::details-content { display: block; content-visibility: visible; }
+  .hap-chart-scroll { overflow: visible; }
+  .hap-chart-scroll :is(th,td){ font-size: 9pt; padding: .2rem .3rem; }
+  .hap-chart-body figure { break-inside: avoid; }
+}
