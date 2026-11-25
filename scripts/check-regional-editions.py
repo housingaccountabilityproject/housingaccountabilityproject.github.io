@@ -373,6 +373,8 @@ ILLUSTRATION_TRANSITIONS = {
     'scripts/test-regional-editions.mjs': ('d4020e11c53d64e5bfb3ba8e4a1aff7e1611399ee3bee89020f1c2d94807538e', '529f501d7d30855295c3cc93994f33ee34bd12f4771399f248070d0dca5f3482'),
     # Approved count-only search inventory change; retain the historical pin.
     'scripts/test-search.cjs': ('e79c443934494f007642f38831bee757af5960c9b287e5b2479b0c02069b4f1a', '96324a850e86fc9a52ad6487b6a2f60365607453eae410d2a50da5be594b5e4d'),
+    # Builder-derived full-search coverage for the same three approved records.
+    'assets/category-search-coverage.js': ('9aed376d4ee95652662359d64669ef78eb0e024aa8f179c59d245fcba33832ed', '6a5f87e98abf80d323913e97cae1dbe85caa8efb067b434df823aa35aa73eb19'),
 }
 
 review=json.loads((ROOT/'docs/reviews/phoenix-batch-a-nov20-preservation.json').read_text())

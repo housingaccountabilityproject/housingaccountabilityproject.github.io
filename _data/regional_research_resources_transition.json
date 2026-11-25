@@ -48,11 +48,11 @@
       "before": "3f81e6d52d8cce1f3157c7de5704a3146a491f0b54f166b3028e2cf8eefc5f51"
     },
     "scripts/check-list-baseline.py": {
-      "after": "ceeca43f8a771ef07a018bf672fc2cefbd388717d7d597cd2e643ee2d24bd5d5",
+      "after": "ab2b620f690cd30de51ee44140f980a505a74a2f37580bf797978f42369d420d",
       "before": "fdbaac16675f5614a895328a5f0defe4ad1cf96408d177541794b45bca2404e9"
     },
     "scripts/check-regional-editions.py": {
-      "after": "4ea4ab1277c27966258fb7173e5853b0d3ff6e3787b70289b91abfd99905f632",
+      "after": "60f37a17d9ba8adec2d05798ed8c842c3bb4c5c82ef420452e061835f11fc161",
       "before": "181bea6ff725a071888a927dbc6ff24c8b36764898b92e2d20724fa9dbaaa188"
     }
   }

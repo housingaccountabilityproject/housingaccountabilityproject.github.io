@@ -123,6 +123,8 @@ CLEANUP_DERIVED = {
 # checked before all previously approved hash and record checks.
 AUDIT_REVIEW_BASE = '69843d7d301fc980b08da6a235b9859bd8e14156'
 AUDIT_REVIEW_OUTPUTS = {
+    # Exact coverage rebundle; the preserved audit-base bytes match the old pin.
+    'assets/category-search-coverage.js': ('9aed376d4ee95652662359d64669ef78eb0e024aa8f179c59d245fcba33832ed', '6a5f87e98abf80d323913e97cae1dbe85caa8efb067b434df823aa35aa73eb19'),
     'assets/category-search-data.js': ('32a95c829e0276471e4688c79ccb6a5b8c6c1c977043ebd4b1d6dd8dcd4cff33', 'c82df15091eea44b011294f33328f2d7e3fcce0b2bad5c554d0d2b5f2a003e24'),
     'assets/search-index.js': ('804b0cebbc523c2056222597df25be3a0a5383860430d1accd5b1b7e050ef6a6', 'eb68503d9c4636f105d87e84c317de7b0001e76bb0802914aefc088b2cace07e'),
     'assets/search-source-urls.js': ('2db8ca212b34c31e47f273899703e1df6e343207a4b270c75437cf6933cd2523', '5bc41e0f62db35732b011ca8e9cbd75bc49f6bb49a729e43030ac0ff4fc5bfe3'),
