@@ -5,6 +5,28 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 
+# Exact approved MST labels and original-PDF citation transition. Earlier
+# release gates continue to inspect their independently pinned predecessor.
+MST_PDF_BASE = '07a1dbb44ded03f80a528667728da1fe01d568ae'
+MST_PDF_PATHS = ('assets/category-search-data.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/category-search.json', 'data/phoenix-records.json', 'data/phoenix-source-metadata.json', 'funding-explorer.html', 'index.html', 'phoenix/housing-help.html', 'phoenix/index.html', 'phoenix/records.html', 'scripts/check-phoenix-records.py', 'scripts/reader-browser-test.mjs', 'scripts/test-phoenix-index.mjs')
+MST_PDF_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+mst_pdf = json.loads((ROOT / '_data/mst_pdf_links_transition.json').read_text())
+assert set(mst_pdf) == {'base','files'} and mst_pdf['base'] == MST_PDF_BASE
+assert set(mst_pdf['files']) == set(MST_PDF_PATHS + MST_PDF_GUARDS)
+mst_pdf_pins = {'base':MST_PDF_BASE,'files':{p:mst_pdf['files'][p] for p in MST_PDF_PATHS}}
+assert hashlib.sha256(json.dumps(mst_pdf_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == 'd9ae2a0ba2a7926c1342d219369080abf530715456e7d7d5112b5f12ef34fbc3', 'Unexpected MST/PDF transition pins'
+mst_pdf_prior = {}
+for path, hashes in mst_pdf['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',MST_PDF_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified MST/PDF predecessor',path)
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed MST/PDF change',path)
+    mst_pdf_prior[path] = prior
+
+def mst_pdf_preserved_bytes(name):
+    return mst_pdf_prior[name] if name in mst_pdf_prior else (ROOT/name).read_bytes()
+
+
 # Preserve every earlier release gate, using the verified predecessor for the
 # exact reviewed story, placement, citation, and mechanically generated changes.
 THREE_STORY_BASE = 'ab1c78d8af41659736c74de059a332435b53c162'
@@ -22,12 +44,12 @@ for n, hashes in three['files'].items():
     assert set(hashes) == {'before','after'}
     old_bytes = subprocess.check_output(['git','show',THREE_STORY_BASE+':'+n], cwd=ROOT)
     assert hashlib.sha256(old_bytes).hexdigest() == hashes['before'], ('Unverified three-story base',n)
-    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
+    assert hashlib.sha256(mst_pdf_preserved_bytes(n)).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
     three_predecessor[n] = old_bytes
 for n,h in three['added'].items():
     assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
 def three_preserved_bytes(name):
-    return three_predecessor[name] if name in three_predecessor else (ROOT / name).read_bytes()
+    return three_predecessor[name] if name in three_predecessor else mst_pdf_preserved_bytes(name)
 
 
 # Approved next website set. Validate exact successor bytes while retaining
@@ -205,7 +227,7 @@ for name,sha in fixture['files'].items():
  assert hashlib.sha256(content).hexdigest()==sha,('Public research/data/download changed',name)
 count=0
 for name,queries in selectors.items():
- doc=html.parse(str(ROOT/name))
+ doc=html.fromstring(mst_pdf_preserved_bytes(name))
  if name=='phoenix/records.html':
   followups=doc.xpath('//*[@id="PHX-WEB-034"]/p[@class="record-next"][a[@href="projects.html#laveen-commons-preliminary-bond-financing"]]')
   assert len(followups)==1 and followups[0].text_content()=='Related project: Laveen Commons (separate financing action)'

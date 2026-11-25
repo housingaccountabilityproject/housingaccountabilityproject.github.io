@@ -147,7 +147,7 @@ try {
     await page.locator('#record-kind').selectOption('notice', {force:true});
     assert.equal(await visible.count(), 1);
     assert((await visible.first().textContent()).includes('application limits may apply earlier'));
-    assert((await visible.first().textContent()).includes('8 a.m. Arizona time'));
+    assert((await visible.first().textContent()).includes('8 a.m. MST'));
     await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
     await page.getByRole('searchbox').fill('<img src=x onerror=alert(1)>');
     assert.equal(await visible.count(), 0);

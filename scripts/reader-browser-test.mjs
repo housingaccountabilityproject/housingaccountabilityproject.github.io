@@ -136,7 +136,7 @@ for(const width of [390,1280]) {
    assert(content.includes('all bedroom sizes')&&content.includes('paper applications will not be accepted'));
    for(const property of ['Casa Bonitas Apartments','Clare Feldstadt Apartments','Heritage at Surprise Apartments','Heritage Senior Apartments']) assert(content.includes(property));
   } else {
-   assert(content.includes('8 a.m. Arizona time'));
+   assert(content.includes('8 a.m. MST'));
    assert(content.includes('application limits may apply earlier'));
    assert(content.includes('does not guarantee an apartment'));
   }

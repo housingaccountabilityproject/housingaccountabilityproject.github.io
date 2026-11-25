@@ -111,7 +111,7 @@
       "id": "PHX-HAMC-001",
       "title": "HAMC four-property waitlist closure notice",
       "url": "https://maricopahousing.org/wp-content/uploads/2026/10/Public-Notice-Arizona-Republic-10.15.2026.pdf",
-      "note": "PHX-HAMC-001 · Page 1: applications close December 1, 2026 at 8 a.m. Arizona time until further notice; paper applications not accepted. Not a City of Phoenix program notice.",
+      "note": "PHX-HAMC-001 · Page 1: applications close December 1, 2026 at 8 a.m. MST until further notice; paper applications not accepted. Not a City of Phoenix program notice.",
       "page_url": "index.html#source-PHX-HAMC-001",
       "metadata": {
         "agency": "hamc",
@@ -123,7 +123,7 @@
           "2026"
         ],
         "year_status": "stated",
-        "date_basis": "October 2026 closure notice states December 1, 2026 at 8 a.m. Arizona time; this is an application cutoff, not an occupancy or vacancy date.",
+        "date_basis": "October 2026 closure notice states December 1, 2026 at 8 a.m. MST; this is an application cutoff, not an occupancy or vacancy date.",
         "date_basis_url": "index.html#MC-HAMC-WEB-001",
         "retrieved_on": "2026-11-09"
       }
@@ -1866,12 +1866,12 @@
         "Housing Authority of Maricopa County · Dated property-waitlist notice"
       ],
       "summary": [
-        "The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. Arizona time on December 1, 2026, until further notice.",
+        "The Housing Authority of Maricopa County says it will stop accepting applications for four property waitlists at 8 a.m. MST on December 1, 2026, until further notice.",
         "The notice names Casa Bonitas Apartments, Clare Feldstadt Apartments in Mesa, Heritage at Surprise Apartments, and Heritage Senior Apartments in Surprise. Paper applications will not be accepted.",
         "The existing notice was checked on November 9, 2026; it was not newly issued."
       ],
       "context": [
-        "Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026 Arizona time",
+        "Scope Four HAMC property waitlists, separate from City of Phoenix programs Source dates October 2026 closure notice and November 5, 2026 waitlist schedule; checked November 9, 2026",
         "MC-HAMC-WEB-001 · PHX-HAMC-001 and PHX-HAMC-002 · Application closure notice, not a vacancy or eligibility determination"
       ],
       "limitations": [
