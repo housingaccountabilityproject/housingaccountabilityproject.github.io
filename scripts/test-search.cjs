@@ -51,7 +51,7 @@ for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
  assert(found.some(x=>x.querySelector('a').href===expected),expected);
 }
 assert(data.some(r=>r.url==='privacy.html#search-privacy-choices'&&r.text.includes('typed terms starts off')));
-assert(data.length===371);assert(data.every(r=>!r.url.startsWith('phoenix/')));
+assert(data.length===374);assert(data.every(r=>!r.url.startsWith('phoenix/')));
 for(const [term,url] of [
  ['"Desert Cove"','research-updates.html#desert-cove-approvals-2026-11-19'],
  ['"Marana"','housing-help.html#resource-marana-school-support']
