@@ -51,10 +51,11 @@ for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
  assert(found.some(x=>x.querySelector('a').href===expected),expected);
 }
 assert(data.some(r=>r.url==='privacy.html#search-privacy-choices'&&r.text.includes('typed terms starts off')));
-assert(data.length===378);assert(data.every(r=>!r.url.startsWith('phoenix/')));
+assert(data.length===381);assert(data.every(r=>!r.url.startsWith('phoenix/')));
 for(const [term,url] of [
  ['"Desert Cove"','research-updates.html#desert-cove-approvals-2026-11-19'],
- ['"Marana"','housing-help.html#resource-marana-school-support']
+ ['"Marana"','housing-help.html#resource-marana-school-support'],
+ ['"42 of 83"','research-updates.html#hud-oversight']
 ])assert(query(term).some(r=>r.querySelector('a').href===url),url);
 // Missing-index state must be useful and must not submit a query.
 const failContext={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),failContext);assert(elements['site-search-form'].hidden);assert.match(elements['search-status'].textContent,/could not load/);
