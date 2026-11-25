@@ -24,7 +24,7 @@ assert set(coc_transition) == {'base', 'files', 'added'} and coc_transition['bas
 assert set(coc_transition['files']) == set(COC_PUBLIC_PATHS + COC_GUARD_PATHS)
 assert set(coc_transition['added']) == set(COC_NEW_PATHS)
 coc_pins = {'base': COC_BASE, 'files': {p:coc_transition['files'][p] for p in COC_PUBLIC_PATHS}, 'added':coc_transition['added']}
-assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == '152285cf29e8712bdbeb88880b3b118a15681a82110691478f5b933b597a35a7', 'Unexpected CoC release pins'
+assert hashlib.sha256(json.dumps(coc_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == 'e60eb0d69c27a70ac011bcb5008c5b76ee8a9eb19949a1e22f2ff0a529c3d1c2', 'Unexpected CoC release pins'
 coc_prior = {}
 for coc_path, coc_hash in coc_transition['files'].items():
     assert set(coc_hash) == {'before','after'}
@@ -50,13 +50,16 @@ for coc_region, coc_anchor in [('tucson','tucson-pima'),('phoenix','phoenix-mari
     coc_region_doc = html.parse(str(ROOT / (coc_region + '.html')))
     assert len(coc_region_doc.xpath('//section[@id="keep-reading"]//a[@href=$url]', url=coc_url+'#'+coc_anchor)) == 1
     assert len(coc_doc.xpath('//*[@id=$anchor]', anchor=coc_anchor)) == 1
+    assert coc_region_doc.xpath('//section[@id="keep-reading"]//a[@href=$url]/text()', url=coc_url+'#'+coc_anchor) == coc_doc.xpath('//h1/text()')
 coc_home = html.parse(str(ROOT / 'index.html'))
 coc_home_feature = coc_home.xpath('//main/section[@aria-labelledby="featured-coc-court-tracker-title"]')
 assert len(coc_home_feature) == 1
 coc_home_feature = coc_home_feature[0]
 assert 'city-home-hero' in coc_home_feature.getprevious().get('class', '').split()
 assert coc_home_feature.getnext().get('id') == 'research-areas'
-assert coc_home_feature.xpath('.//h2/text()') == coc_doc.xpath('//h1/text()')
+assert coc_home_feature.xpath('.//h2/text()') == ['The $1.3 Billion Fight Over Homelessness Funding']
+assert coc_home_feature.xpath('./p[2]/text()') == ['A federal judge struck down HUD’s plan to give certain new projects first shot at $1.3 billion. See who was competing, why the rule mattered to programs that keep people housed, and what Arizona communities are watching next.']
+assert coc_home_feature.xpath('.//a/strong/text()') == ['Read the Arizona funding explainer']
 assert coc_home_feature.xpath('.//a/@href') == [coc_url]
 def coc_home_original(doc):
     for extra in doc.xpath('//section[@aria-labelledby="featured-coc-court-tracker-title"] | //link[@href="assets/coc-court-tracker.css"]'):

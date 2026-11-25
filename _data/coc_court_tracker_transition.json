@@ -1,13 +1,13 @@
 {
   "added": {
-    "assets/coc-court-tracker.css": "1699b4585d6f0a00aa54315450e0a8aafe6c0c52a5886e5da7b0d83d29428c55",
+    "assets/coc-court-tracker.css": "a6846800fff43492540c0ae99275d8968d44a6b8914576fbb42ffeb82bcda932",
     "assets/coc-court-tracker.js": "5c89111cd90accade5450a80e9490a7e3fde9c8bf6e1864f57cd9df8cfa710af",
-    "hud-coc-funding-court-tracker.html": "b6ec03f0f773547d557e508a30a7376db0efcdff93b93ceeffe599464e49797d"
+    "hud-coc-funding-court-tracker.html": "0b6a8708b17484a304c11e990989cba661c470f09c3c2988c5c62045306f6ac5"
   },
   "base": "a296733f1a4c1695d3f640a914b4a7bbde8d5e3b",
   "files": {
     "index.html": {
-      "after": "c30d29c141c4301a47c6ad5ab92d05262692a3bf248a61e258d0a564cf560023",
+      "after": "caf7063076b8ff8b443c1a09fab203388df6026436477b35c4fd43e59c416066",
       "before": "3d6561bca40ae166d91a04b20c923cba5830a8d5c1264ccaf0be1baa5594bdb4"
     },
     "phoenix.html": {
@@ -23,7 +23,7 @@
       "before": "e1dadc99ac1a89b9565b05c9117fa230ee74f34a22796f059cb196fc04de30eb"
     },
     "scripts/check-list-baseline.py": {
-      "after": "9846426612d0e6a41d34c41d4a895ed32d6c077a85e24872d3cf4b8e80739a8e",
+      "after": "e5a5380a1b0b1bee789c1a303be378602cdd7fbcd17296bc061b0be28291cf5a",
       "before": "7b8c6d4a9a3abd0417cc0fdeecb60849fbeefafc0ced587a1b189280b036e6a5"
     },
     "scripts/check-reader-data.py": {
@@ -31,7 +31,7 @@
       "before": "b8bb64f85919db781261a3b20227d6a3b5f99bc4e7bfbf190f58f604d538d8bc"
     },
     "scripts/check-regional-editions.py": {
-      "after": "3ff3234488f4717b9f093296989a045142b173ca3e966ad8a630fa30431a8671",
+      "after": "2c9f91c66fc536670bc7ae78800f3b8b7fadcc04b82f0a75c0b25a162f18a062",
       "before": "31ba8f7db0a396ca5508e9a2d1fb3a2815d33d46696989a4bde17d5c10b11cfa"
     },
     "sitemap.xml": {

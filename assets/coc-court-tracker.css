@@ -18,7 +18,7 @@
 .coc-court-tracker .jump-mobile { display:none; }
 .coc-court-tracker .jump a { display:block; padding:.13rem .2rem; }
 .coc-court-tracker main a:focus-visible, .coc-court-tracker summary:focus-visible, .coc-court-tracker [tabindex="-1"]:focus-visible { outline:3px solid #9b4a12; outline-offset:3px; }
-.coc-court-tracker .card[id], .coc-court-tracker .reader-content section { scroll-margin-top:1.4rem; }
+.coc-court-tracker .reader-content [id], .coc-court-tracker .reader-content section { scroll-margin-top:1.4rem; }
 .coc-court-tracker .entries { padding-left:1.4rem; }
 .coc-court-tracker .entries li { padding:.3rem 0 .6rem; }
 .coc-court-tracker .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,21rem),1fr)); gap:1rem; }
@@ -31,12 +31,12 @@
   .coc-court-tracker .jump-mobile { display:block; background:white; border:1px solid #c7d9cf; box-shadow:0 .1rem .35rem #123d3922; }
   .coc-court-tracker summary { cursor:pointer; font-weight:700; padding:.45rem .85rem; }
   .coc-court-tracker .jump-mobile nav { margin:0; padding:.25rem .65rem; max-height:55vh; overflow:auto; border-width:1px 0 0; }
-  .coc-court-tracker .card[id], .coc-court-tracker .reader-content section { scroll-margin-top:4.4rem; }
+  .coc-court-tracker .reader-content [id], .coc-court-tracker .reader-content section { scroll-margin-top:4.4rem; }
 }
 @media print {
   .coc-court-tracker .jump { display:none; }
   .coc-court-tracker .reader-grid, .coc-court-tracker .cards { display:block; }
-  .coc-court-tracker .reader-content section, .coc-court-tracker .card[id] { scroll-margin-top:0; }
+  .coc-court-tracker .reader-content section, .coc-court-tracker .reader-content [id] { scroll-margin-top:0; }
   .coc-court-tracker .card { break-inside:avoid; }
 }
 
