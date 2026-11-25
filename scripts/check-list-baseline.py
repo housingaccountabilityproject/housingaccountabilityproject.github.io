@@ -5,6 +5,32 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 
+# Approved HUD Oversight release. Validate exact successor bytes while retaining
+# every earlier gate, including the CoC and HAMC transition checks.
+HUD_OVERSIGHT_BASE = '730b36fd60e3af3c02852b0dcb787973b5cf1104'
+HUD_OVERSIGHT_PUBLIC = ('assets/category-search-coverage.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/search-coverage.json', 'phoenix.html', 'research-updates.html', 'scripts/build-regional-editions.py', 'scripts/test-search.cjs', 'tucson.html')
+HUD_OVERSIGHT_ADDED = ()
+HUD_OVERSIGHT_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+hud_oversight = json.loads((ROOT / '_data/hud_oversight_transition.json').read_text())
+assert set(hud_oversight) == {'base','files','added'} and hud_oversight['base'] == HUD_OVERSIGHT_BASE
+assert set(hud_oversight['files']) == set(HUD_OVERSIGHT_PUBLIC + HUD_OVERSIGHT_GUARDS)
+assert set(hud_oversight['added']) == set(HUD_OVERSIGHT_ADDED)
+hud_oversight_pins = {'base':HUD_OVERSIGHT_BASE,'files':{p:hud_oversight['files'][p] for p in HUD_OVERSIGHT_PUBLIC},'added':hud_oversight['added']}
+assert hashlib.sha256(json.dumps(hud_oversight_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == '315bb7c007035536463fdb73f5963b5d9f6625d34aedd6f8562eea618d8dc76e', 'Unexpected HUD Oversight release pins'
+hud_oversight_prior = {}
+for path, hashes in hud_oversight['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',HUD_OVERSIGHT_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified HUD Oversight baseline',path)
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
+    hud_oversight_prior[path] = prior
+for path, sha in hud_oversight['added'].items():
+    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
+
+def hud_oversight_preserved_bytes(name):
+    return hud_oversight_prior[name] if name in hud_oversight_prior else (ROOT/name).read_bytes()
+
+
 # Exact approved MST labels and original-PDF citation transition. Earlier
 # release gates continue to inspect their independently pinned predecessor.
 MST_PDF_BASE = '07a1dbb44ded03f80a528667728da1fe01d568ae'
@@ -20,11 +46,11 @@ for path, hashes in mst_pdf['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',MST_PDF_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified MST/PDF predecessor',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed MST/PDF change',path)
+    assert hashlib.sha256(hud_oversight_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed MST/PDF change',path)
     mst_pdf_prior[path] = prior
 
 def mst_pdf_preserved_bytes(name):
-    return mst_pdf_prior[name] if name in mst_pdf_prior else (ROOT/name).read_bytes()
+    return mst_pdf_prior[name] if name in mst_pdf_prior else hud_oversight_preserved_bytes(name)
 
 
 # Preserve every earlier release gate, using the verified predecessor for the

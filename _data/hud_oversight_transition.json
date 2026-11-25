@@ -1,0 +1,50 @@
+{
+  "added": {},
+  "base": "730b36fd60e3af3c02852b0dcb787973b5cf1104",
+  "files": {
+    "assets/category-search-coverage.js": {
+      "after": "c8d62688c6ee73631503ee8cd3ea0ffc5a82a9ad23a08358e87bab89f3d53b5b",
+      "before": "f9869c1209defa1272d96a586497279012a0a995141ad920373685985dc692e8"
+    },
+    "assets/search-index.js": {
+      "after": "cf1b9525a7361239a9b2047f4ae6a825b95ca8d8b181d797d6a9bae4fb3b13be",
+      "before": "4ef8aed2f0cfcb5d807900614c4fecbfa02d28b373fbac2ad8402e0e348cbb36"
+    },
+    "assets/search-source-urls.js": {
+      "after": "0138bf432636b6d3ac67f3e230647190dd49a4157ab7167d5121c93674776f13",
+      "before": "28b7863c20591939039e4a0b21b074f0ed0a33d4e7e8515ed7ec2afb11328a3d"
+    },
+    "data/search-coverage.json": {
+      "after": "c7411b7cafaf6f8f34ecae15bfbbd8dbc6c42ed2d723a88838beea72b6e7f324",
+      "before": "912ddce64e5db7a251e76eb49a5290fd9a6d42c7e0bed7e68d7e73d1a0821467"
+    },
+    "phoenix.html": {
+      "after": "c6213514d3f463a0c751834d1330fa497563522399a006815c7045ebde563ec0",
+      "before": "8913df57adda2f7b7f5c59d525408df00ce014a422f04d2cdd584b7392a5c9b8"
+    },
+    "research-updates.html": {
+      "after": "ae95e2cf7b9a8216007c3e668b03538d5bf6008864f079f9f37995a88c28b024",
+      "before": "63d961558f780ee429fd06f6b18bdc6cbfb27a7511e3a4a09a8a4915f2472979"
+    },
+    "scripts/build-regional-editions.py": {
+      "after": "580ceb7800550b0ad959f53273007f9b6176d33efa17ea8311a25036ab7db1d3",
+      "before": "d084db8213abd9d49fbbaa8da5835828ef40145582eab1bf67953074cf0b0b07"
+    },
+    "scripts/check-list-baseline.py": {
+      "after": "309d40c5bbec5631258c99753641e5aa073ac781ac46ba7e0f85b87123392713",
+      "before": "51dc2518fb346177cac7cd4ce146b69813e8a0933f35db8ec6fd483c29c8975e"
+    },
+    "scripts/check-regional-editions.py": {
+      "after": "9ce8b50b817e58fbd9372b7c40af1c56bb03e7636b8598fcc8d6afeb8f4fa2d1",
+      "before": "d725d475058f7dc9f6ad811b7ade5742c51faeefebbba4b115a9e23bc22f8c35"
+    },
+    "scripts/test-search.cjs": {
+      "after": "726c3d7c257d36c5db4cc447331d29703fc072edf05eb6a7a6f9b13ec272469f",
+      "before": "b8823883fa69d5928bdf929ec4c6cbe89cad4a222ca1fd2b024169831d346691"
+    },
+    "tucson.html": {
+      "after": "f394e50d5e9e267a79c8f7e357c615e9a227cf077536d43c256505b46046966b",
+      "before": "fc7e8143e0ca891afba7dfa540c3c9030ba5bdda7801850301a7fd6fda62dfd4"
+    }
+  }
+}
