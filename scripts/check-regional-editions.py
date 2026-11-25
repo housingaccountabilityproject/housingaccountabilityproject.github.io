@@ -13,6 +13,63 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Preserve every earlier release gate, using the verified predecessor for the
+# exact reviewed story, placement, citation, and mechanically generated changes.
+THREE_STORY_BASE = 'ab1c78d8af41659736c74de059a332435b53c162'
+THREE_STORY_PATHS = ('assets/category-search-coverage.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/search-coverage.json', 'evidence.html', 'feed.xml', 'phoenix/projects.html', 'phoenix/records.html', 'questions-records.html', 'research-updates.html', 'scripts/build-phoenix-connections.py', 'scripts/build-phoenix-records.py', 'scripts/build-regional-editions.py', 'tucson.html', 'scripts/test-search.cjs')
+THREE_STORY_NEW = ('docs/reports/one-pima-fy2027-q1-original.pdf',)
+THREE_STORY_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+three = json.loads((ROOT / '_data/craycroft_laveen_one_pima_transition.json').read_text())
+assert set(three) == {'base', 'files', 'added'} and three['base'] == THREE_STORY_BASE
+assert set(three['files']) == set(THREE_STORY_PATHS + THREE_STORY_GUARDS)
+assert set(three['added']) == set(THREE_STORY_NEW)
+three_pins = {'base': THREE_STORY_BASE, 'files': {n: three['files'][n] for n in THREE_STORY_PATHS}, 'added': three['added']}
+assert hashlib.sha256(json.dumps(three_pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == 'ab90c63e6b5075b183d4d2c6a81dc3a8332867001e226027d6ac73eab39f46df'
+three_predecessor = {}
+for n, hashes in three['files'].items():
+    assert set(hashes) == {'before','after'}
+    old_bytes = subprocess.check_output(['git','show',THREE_STORY_BASE+':'+n], cwd=ROOT)
+    assert hashlib.sha256(old_bytes).hexdigest() == hashes['before'], ('Unverified three-story base',n)
+    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
+    three_predecessor[n] = old_bytes
+for n,h in three['added'].items():
+    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
+def three_preserved_bytes(name):
+    return three_predecessor[name] if name in three_predecessor else (ROOT / name).read_bytes()
+
+
+from lxml import etree
+three_journal=html.parse(str(ROOT/'research-updates.html'))
+three_pima=three_journal.xpath('//*[@id="one-pima-fy27-q1-version-comparison"]')
+assert len(three_pima)==1 and three_pima[0].getparent().get('id')=='county-housing-fy27-q1-2026-11-06'
+assert [r.xpath('td/text()') for r in three_pima[0].xpath('.//tbody/tr')]==[
+ ['Nov. 5, 2026','Nov. 5, 2026'],['Nov. 6, 2026','Nov. 22, 2026'],['925','928'],['95','98'],['98','98']]
+assert three_pima[0].xpath('./p/a[1]/@href')==['docs/reports/one-pima-fy2027-q1-original.pdf#page=2']
+three_cray='research-updates.html#craycroft-towers-board-action-2026-11-18'
+assert len(html.parse(str(ROOT/'tucson.html')).xpath('//*[@id="keep-reading"]//a[@href=$link]',link=three_cray))==1
+three_project=html.parse(str(ROOT/'phoenix/projects.html'))
+three_lav='laveen-commons-preliminary-bond-financing'
+assert three_project.xpath('//*[@id=$lid]//a[@href="records.html#PHX-WEB-034"]', lid=three_lav)
+assert html.parse(str(ROOT/'phoenix/records.html')).xpath('//*[@id="PHX-WEB-034"]//a[@href=$link]', link='projects.html#'+three_lav)
+qpage=html.parse(str(ROOT/'questions-records.html'))
+for ident in ('q-013','q-015'):
+    assert len(qpage.xpath('//*[@id=$id]//a[@href=$url]',id=ident,url=three_cray))==1
+assert qpage.xpath('//*[@id="county-questions-fy27-q1"]//a[@href="research-updates.html#one-pima-fy27-q1-version-comparison"]')
+assert html.parse(str(ROOT/'evidence.html')).xpath('//*[@id="county-fy27-q1-source"]//a[@href="research-updates.html#one-pima-fy27-q1-version-comparison"]')
+def three_atom(contents):
+    ns={'a':'http://www.w3.org/2005/Atom'}
+    root=etree.fromstring(contents)
+    return {e.xpath('string(a:id)',namespaces=ns):e for e in root.xpath('//a:entry',namespaces=ns)}
+three_old_feed=three_atom(three_predecessor['feed.xml'])
+three_new_feed=three_atom((ROOT/'feed.xml').read_bytes())
+assert list(three_old_feed)==list(three_new_feed)
+for url,old_item in three_old_feed.items():
+    if url.endswith('#county-housing-fy27-q1-2026-11-06'):
+        for node in (old_item,three_new_feed[url]):
+            node.remove(node.find('{http://www.w3.org/2005/Atom}content'))
+    assert etree.tostring(old_item)==etree.tostring(three_new_feed[url]), ('Unreviewed feed change',url)
+print('PASS three-story placement, version-date distinctions, cross-links and historical feed metadata.')
+
 # Approved next website set. Validate exact successor bytes while retaining
 # every earlier gate, including the CoC and HAMC transition checks.
 NEXT_REGIONAL_BASE = '88e06b446bcdee446ad069d932f9fd21d292787d'
@@ -30,13 +87,13 @@ for path, hashes in next_regional['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',NEXT_REGIONAL_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified next regional baseline',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
+    assert hashlib.sha256(three_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
     next_regional_prior[path] = prior
 for path, sha in next_regional['added'].items():
     assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed next regional addition',path)
 
 def next_regional_preserved_bytes(name):
-    return next_regional_prior[name] if name in next_regional_prior else (ROOT/name).read_bytes()
+    return next_regional_prior[name] if name in next_regional_prior else three_preserved_bytes(name)
 
 
 # Observable contract for reader routes, source-linked figures, and no scope creep.
@@ -121,7 +178,7 @@ assert coc_home_original(coc_home.getroot()) == coc_home_original(html.fromstrin
 coc_journal = html.parse(str(ROOT / 'research-updates.html'))
 assert coc_journal.xpath('//nav[@aria-label="Federal housing policy update"]/p/a/@href') == [coc_url, coc_url+'#tucson-pima', coc_url+'#phoenix-maricopa']
 assert 'Private website preview' not in coc_doc.xpath('//body')[0].text_content()
-assert (ROOT / 'feed.xml').read_bytes() == subprocess.check_output(['git','show',COC_BASE+':feed.xml'],cwd=ROOT)
+assert three_preserved_bytes('feed.xml') == subprocess.check_output(['git','show',COC_BASE+':feed.xml'],cwd=ROOT)
 print('PASS CoC: pinned article and release scope, both navigators and both regional links, historic feed unchanged.')
 
 # Dated successor: restrict public changes to the approved HAMC notice, and

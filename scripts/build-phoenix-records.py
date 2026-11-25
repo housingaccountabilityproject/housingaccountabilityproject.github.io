@@ -187,6 +187,8 @@ def render(data):
   for comparison in connections.get('comparisons', []):
    if r['id'] in comparison['record_ids'] or r['id'] in comparison['question_ids']:
     connected += f'<p class="record-next"><a href="comparisons.html#comparison-{escape(comparison["id"])}">Compare the dated source statements</a></p>'
+  if r['id'] == 'PHX-WEB-034':
+   connected += '<p class="record-next"><a href="projects.html#laveen-commons-preliminary-bond-financing">Related project: Laveen Commons (separate financing action)</a></p>'
   source_attributes = ''
   source_facts = ''
   if r['kind'] == 'source':
