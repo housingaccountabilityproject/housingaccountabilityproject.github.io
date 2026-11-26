@@ -4,6 +4,8 @@ import hashlib,json,subprocess
 from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
+from org_search_preservation import verify_transition
+org_search_preserved_bytes = verify_transition(ROOT, '07054993546de85746e1fdf1615f3c38e3a8b27ba58a74cc919f3afd1bec9dfa')
 
 # Approved HUD Oversight release. Validate exact successor bytes while retaining
 # every earlier gate, including the CoC and HAMC transition checks.
@@ -22,13 +24,13 @@ for path, hashes in hud_oversight['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',HUD_OVERSIGHT_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified HUD Oversight baseline',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
+    assert hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
     hud_oversight_prior[path] = prior
 for path, sha in hud_oversight['added'].items():
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
+    assert hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
 
 def hud_oversight_preserved_bytes(name):
-    return hud_oversight_prior[name] if name in hud_oversight_prior else (ROOT/name).read_bytes()
+    return hud_oversight_prior[name] if name in hud_oversight_prior else org_search_preserved_bytes(name)
 
 
 # Exact approved MST labels and original-PDF citation transition. Earlier
@@ -73,7 +75,7 @@ for n, hashes in three['files'].items():
     assert hashlib.sha256(mst_pdf_preserved_bytes(n)).hexdigest() == hashes['after'], ('Unreviewed three-story change',n)
     three_predecessor[n] = old_bytes
 for n,h in three['added'].items():
-    assert hashlib.sha256((ROOT / n).read_bytes()).hexdigest() == h, ('Unreviewed three-story addition',n)
+    assert hashlib.sha256(org_search_preserved_bytes(n)).hexdigest() == h, ('Unreviewed three-story addition',n)
 def three_preserved_bytes(name):
     return three_predecessor[name] if name in three_predecessor else mst_pdf_preserved_bytes(name)
 
@@ -98,7 +100,7 @@ for path, hashes in next_regional['files'].items():
     assert hashlib.sha256(three_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed next regional change',path)
     next_regional_prior[path] = prior
 for path, sha in next_regional['added'].items():
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha, ('Unreviewed next regional addition',path)
+    assert hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == sha, ('Unreviewed next regional addition',path)
 
 def next_regional_preserved_bytes(name):
     return next_regional_prior[name] if name in next_regional_prior else three_preserved_bytes(name)
@@ -124,7 +126,7 @@ for coc_path, coc_hash in coc_transition['files'].items():
     assert hashlib.sha256(next_regional_preserved_bytes(coc_path)).hexdigest() == coc_hash['after'], ('Unreviewed CoC change',coc_path)
     coc_prior[coc_path] = coc_old
 for coc_path, coc_hash in coc_transition['added'].items():
-    assert hashlib.sha256((ROOT / coc_path).read_bytes()).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
+    assert hashlib.sha256(org_search_preserved_bytes(coc_path)).hexdigest() == coc_hash, ('Unreviewed CoC addition',coc_path)
 
 
 def coc_preserved_bytes(name):
