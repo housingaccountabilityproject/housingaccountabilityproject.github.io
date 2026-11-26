@@ -16,7 +16,7 @@ for(const scope of ['tucson','phoenix'])for(const category of ['funding','source
   const actual=core.search(records,{...base,scope,category,query,[field]:value});check(actual.length===expected.length,'filter count');check(actual.every(r=>expected.includes(r)),'filter members');
  }
 }
-check(records.length===235,'233 preserved records plus the Phoenix survey and housing-count clarification');check(new Set(records.map(r=>r.key)).size===235,'Unique stable keys');
+check(records.length===236,'235 preserved records plus one Tucson P-CHIP applicant update');check(new Set(records.map(r=>r.key)).size===236,'Unique stable keys');
 check(JSON.stringify(core.search(records,{...base,category:'updates',query:'"Desert Cove"'}).map(r=>r.key))===JSON.stringify(['tucson:desert-cove-approvals-2026-11-19']),'One canonical Desert Cove story');
 check(core.search(records,{...base,category:'funding',query:'"Desert Cove"'}).length===0,'No new Desert Cove funding entry where the baseline has none');
 check(core.search(records,{...base,category:'funding',query:'"September 2026"'}).some(r=>r.id==='county-price-funding-2026'),'September cutoff searchable on the existing PRICE funding entry');
@@ -69,3 +69,11 @@ for(const scope of ['tucson','phoenix']){
 check(dataset.annualReportCoverage.regions.phoenix.reporting_periods[0].status.includes('unchecked'),'Broken 2019–20 locator is not treated as currently verified');
 
 check(standard.summary(indexed.get('Q-020')).includes('fully reallocates')&&standard.summary(indexed.get('Q-020')).includes('initial $792,695 partial'),'Short SAAF summary preserves the submitted full reallocation after the partial step');
+
+const pchipKey='tucson:research-updates.html#pchip-qa-2026-11-24';
+check(JSON.stringify(core.search(records,{...base,category:'updates',query:'PCHIP'}).map(r=>r.key))===JSON.stringify([pchipKey]),'One Tucson P-CHIP applicant-guidance update');
+check(core.search(records,{...base,category:'funding',query:'PCHIP'}).length===0,'P-CHIP guidance is not a funding result');
+check(core.search(records,{...base,scope:'phoenix',category:'updates',query:'PCHIP'}).length===0,'P-CHIP guidance stays Tucson-only');
+const pchipRecord=records.find(r=>r.key===pchipKey);
+check(pchipRecord.originals.length===2 && pchipRecord.originals[0].url.endsWith('fy28_pchip_hcdgrants_qa_nov_24_26-1.pdf'),'Direct dated City Q&A citation retained');
+check(pchipRecord.caveats.some(s=>s.includes('eligible organizations') && s.includes('Residents seeking housing')),'Organizational grant and resident-help distinction retained');
