@@ -2,6 +2,7 @@ name: Phoenix evidence index checks
 on:
   pull_request:
     paths:
+      - 'CNAME'
       - '_config.yml'
       - 'phoenix/**'
       - 'data/phoenix-*.json'
