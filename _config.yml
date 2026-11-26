@@ -1,4 +1,5 @@
 exclude:
+  - scripts/fixtures/research-update-new-article.json
   - scripts/fixtures/funding-period-framework.html
   - scripts/fixtures/funding-period-framework.json
   - scripts/test-funding-framework.mjs

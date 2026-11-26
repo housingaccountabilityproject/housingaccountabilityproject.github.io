@@ -1,0 +1,44 @@
+{
+  "base": "8cdea3fc518f327c45c372e6905d8488b9df42cc",
+  "files": {
+    ".github/workflows/reader-tools-qa.yml": {
+      "before": "5540dfa9f51ea208a77d21bcacdc4fdc5329dddcee44e62a2e13bde9dff64c68",
+      "after": "f34bdacc784ae709f5a0a5c79c5527286c4b47d57948b06e6c3a726811d54c7f"
+    },
+    "_config.yml": {
+      "before": "9736f0a1541bd5340e4e40ad70ced8d914a12d01f2efe6cc8b151a20d8c0de8f",
+      "after": "b4e90b7bbde32f9f74c788925aaf9219afa62632946ae9cb14450c71ac5ed8be"
+    },
+    "research-updates.html": {
+      "before": "0b145c067d3cd35a52fcb3fbfbace27fc225ac712a3ac4c8d2dd2e78662fe3a3",
+      "after": "07dfd3b39b962f44743ca5b6c7c44d07707b304281c65e7880068e14f1a1e2d6"
+    },
+    "scripts/check-reader-data.py": {
+      "before": "6b0752e8af56bd7a60c2790035e9913b6f2fe75c77c6b93a7a5884d0a93479ab",
+      "after": "894ab46f4383d4c8b3109f6852eac6b0c0b823fdc5a234c81fe8c1fa836966ac"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "76fa9d72de75adf1b070a6290294d31b1db406109912870355dc5d69bf2ad945",
+      "after": "50abdb64c6bb62353d9819f55d2dd5ef6b58c28c0559d7a4b77e3372b1356046"
+    },
+    "scripts/check-list-baseline.py": {
+      "before": "5fde303299866d6692db044b30fdfdea72f8483a2f2aa2a47492d05a3414ffa4",
+      "after": "b646a79fc008f3db803cfb603cfbd1d19450f1be65e8177387365853afd6d67a"
+    }
+  },
+  "added": {
+    "_data/research_updates_inventory.json": "349d21e738fcc00ff6a66c85d682b47920a91709155cfe84fd8718bcfaf78133",
+    "assets/research-updates.css": "00b025459484e44c303aa434ab8390868cd640a9146a915d1b2122c440753537",
+    "assets/research-updates.js": "4fdcfc78501811432668e16b4d08b7e377fcfe23356f14453d184b98f58f063d",
+    "research-updates-archive-2.html": "72802a169eff6045271aec03b91c0bf1ad334dc5e8c7262162a4a20b36f751b5",
+    "research-updates-archive-3.html": "38fd5d537426b833c4a43e744cb937b6068c7684203565f51bd617d4a028bbda",
+    "research-updates-archive-4.html": "d2d47e5a73204f75517f6ce22d3451bb71b09aa3f074c1af426d8c5012601be9",
+    "research-updates-archive-5.html": "f6b5b9804905c95b323f892c073c6c720ff607107aa2a5aa9aa0be4c201c486c",
+    "research-updates-archive-6.html": "5673bbbf89541159136f0ba1d816ea86b8070bf1fef3593123ab2e2ff296bc77",
+    "research-updates-archive.html": "39fb58b4d2198c0065cf7f31bbae7aa091adb77505adaba89ed835ad38fa081e",
+    "scripts/build-research-updates.py": "ca8a8d22b19ca0a8fe59fd586d6284cb6a4c5954a9bf610dedfb61b49eb9dff3",
+    "scripts/fixtures/research-update-new-article.json": "928b824c0ef3bff55e76e1b3f48defb18aa8eea46502686f0dcdea49d880607d",
+    "scripts/research_updates_preservation.py": "fde430b7134c8875cb48eefc4954acd2be64d76230b656c8b15fe97b7e784ce3",
+    "scripts/test-research-updates.mjs": "e4c0ea726b4fdb73ead4741737f5e4f0950a126180f7ad9b4b85b47fd158bfcb"
+  }
+}

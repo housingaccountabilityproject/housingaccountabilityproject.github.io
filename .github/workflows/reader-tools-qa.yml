@@ -58,6 +58,8 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install chromium
+      - name: Verify short Research Updates, preservation and automatic archive growth
+        run: node scripts/test-research-updates.mjs
       - run: node scripts/test-portable-print.mjs
       - run: node scripts/test-review-print.mjs
       - run: node scripts/test-fragment-navigation.mjs
@@ -88,6 +90,7 @@ jobs:
             /tmp/hap-category-search/
             /tmp/hap-list-browser/
             /tmp/hap-regional-editions/
+            /tmp/hap-research-updates/
             reader-qa-screenshots/
             report-qa-screenshots/
             organization-qa-screenshots/

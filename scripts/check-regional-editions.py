@@ -13,6 +13,13 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Research Updates presentation-only successor. Earlier guards remain intact.
+from research_updates_preservation import verify_transition
+short_updates_prior = verify_transition(ROOT, '92cda63abbc221b2cf53bec527edcb84362c5b7315c978d88da028b5d938d7a4')
+def short_updates_bytes(name):
+    return short_updates_prior[name] if name in short_updates_prior else (ROOT/name).read_bytes()
+
+
 # P-CHIP applicant guidance: exact content, generated output and focused tests.
 # Keep all historical release manifests and assertions intact below.
 PCHIP_BASE = '025be3b3ae0375a6b5f33eb4ae18d0abdcac7af6'
@@ -29,11 +36,11 @@ for path, hashes in pchip['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',PCHIP_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified P-CHIP predecessor',path)
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed P-CHIP change',path)
+    assert hashlib.sha256(short_updates_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed P-CHIP change',path)
     pchip_prior[path] = prior
 
 def pchip_preserved_bytes(name):
-    return pchip_prior[name] if name in pchip_prior else (ROOT/name).read_bytes()
+    return pchip_prior[name] if name in pchip_prior else short_updates_bytes(name)
 
 
 # Approved HUD Oversight release. Validate exact successor bytes while retaining
