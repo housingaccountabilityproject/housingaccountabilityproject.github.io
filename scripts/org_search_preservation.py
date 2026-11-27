@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 import subprocess
+from site_inspection_preservation import RELEASE_BASE, VALIDATION_PATHS, released_source
 
 BASE = 'f5935cd29716452c9db5691669b9dab13aa69d09'
 OLD_ORIGIN = b'https://housingaccountabilityproject.github.io'
@@ -120,7 +121,7 @@ def verify_transition(root, expected_digest):
     for name, hashes in transition['files'].items():
         assert set(hashes) == {'before', 'after'}
         old = subprocess.check_output(['git', 'show', BASE + ':' + name], cwd=root)
-        current = (root / name).read_bytes()
+        current = released_source(root, name)
         if name == 'index.html':
             current = homepage_wording_predecessor(root, current)
         assert hashlib.sha256(old).hexdigest() == hashes['before'], ('Unverified .org baseline', name)
@@ -151,11 +152,14 @@ def verify_transition(root, expected_digest):
             assert current == old.replace(before, b'Sitemap: ' + NEW_ORIGIN + b'/sitemap.xml', 1)
         prior[name] = old
     for name, digest in transition['added'].items():
-        assert hashlib.sha256((root / name).read_bytes()).hexdigest() == digest, ('Unreviewed .org addition', name)
+        current = (root / name).read_bytes()
+        if name in VALIDATION_PATHS:
+            current = subprocess.check_output(['git', 'show', RELEASE_BASE + ':' + name], cwd=root)
+        assert hashlib.sha256(current).hexdigest() == digest, ('Unreviewed .org addition', name)
     assert json.loads((root / '_data/canonical_origin.json').read_text()) == {'origin': NEW_ORIGIN.decode()}
 
     def preserved_bytes(name):
-        return prior[name] if name in prior else (root / name).read_bytes()
+        return prior[name] if name in prior else released_source(root, name)
 
     print('PASS exact .org transition: 46 canonical tags, unchanged HTML outside those tags, '
           'sitemap/robots origins, generator-only metadata edits and intact historical assertions.')

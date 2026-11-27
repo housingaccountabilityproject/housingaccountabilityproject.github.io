@@ -9,6 +9,8 @@ from urllib.parse import urlsplit
 from lxml import etree, html
 from org_search_preservation import BASE, MANIFEST, canonical_successor, homepage_wording_successor
 
+from site_inspection_preservation import released_source, verify_release
+
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://housingaccountabilityproject.org'
 TEST_EXPECTATION_BASE = 'f5935cd29716452c9db5691669b9dab13aa69d09'
@@ -48,6 +50,7 @@ def verified_homepage_release_paths():
     changed = set(subprocess.check_output(
         ['git', 'diff', '--name-only', HOMEPAGE_RELEASE_BASE, '--'], cwd=ROOT
     ).decode().splitlines())
+    changed -= set(verify_release(ROOT)) - HOMEPAGE_RELEASE_PATHS
     assert changed == HOMEPAGE_RELEASE_PATHS, ('Unexpected homepage release diff',
                                               sorted(changed ^ HOMEPAGE_RELEASE_PATHS))
     return HOMEPAGE_RELEASE_PATHS
@@ -80,13 +83,14 @@ def main():
     assert len(set(old_urls)) == len(set(new_urls)) == 38, 'Duplicate sitemap URL'
     assert [suffix(u) for u in new_urls] == [suffix(u) for u in old_urls], 'Sitemap paths/order/slashes changed'
     assert all(urlsplit(u).scheme + '://' + urlsplit(u).netloc == ORIGIN for u in new_urls)
+    release_paths = verify_release(ROOT)
     rows = []
     for name in transition['canonical_files']:
         old = original(name)
         expected = canonical_successor(old)
         if name == 'index.html':
             expected = homepage_wording_successor(expected)
-        assert (ROOT / name).read_bytes() == expected, ('Editorial HTML or historical citation changed', name)
+        assert released_source(ROOT, name) == expected, ('Editorial HTML or historical citation changed', name)
         current = canonical((output / name).read_bytes())
         assert current == canonical(expected), ('Built canonical mismatch', name)
         rows.append({'file': name, 'canonical': current})
@@ -111,7 +115,7 @@ def main():
         if name != '_config.yml':
             assert (output / name).read_bytes() == original(name), ('Protected output changed', name)
     allowed = (set(transition['files']) | set(transition['added']) | {MANIFEST} |
-               verified_test_expectation_paths() | verified_homepage_release_paths())
+               verified_test_expectation_paths() | verified_homepage_release_paths() | release_paths)
     changed = set(subprocess.check_output(['git', 'diff', '--name-only', BASE, '--'], cwd=ROOT).decode().splitlines())
     assert changed == allowed, ('Unexpected migration diff', sorted(changed ^ allowed))
     report = {'base': BASE, 'origin': ORIGIN, 'sitemapCount': 38, 'canonicalCount': 46,

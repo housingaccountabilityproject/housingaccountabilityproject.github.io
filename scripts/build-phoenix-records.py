@@ -210,7 +210,7 @@ def render(data):
    source_facts += f'<p class="source-verification"><strong>Separate source check:</strong> {esc(check["checked_at"])} MST · {esc(check["outcome"])} · {esc(check["scope"])}</p>'
   cards.append(f'''<article class="record-card" id="{esc(r['id'])}" data-topic="{topic_keys}" data-group="{group}" data-kind="{r['kind']}" data-search="{esc(search, quote=True)}" {source_attributes}>
 <div class="record-heading"><span>{esc(TOPICS[r['topic']])}</span><a href="#{esc(r['id'])}" aria-label="Direct link to {esc(r['title'], quote=True)}">{esc(r['id'])}</a></div>
-<h2>{esc(r['title'])}</h2><p class="record-type">{esc(KINDS[r['kind']])}</p><div class="record-labels">{labels}</div><div class="record-summary">{summary}</div>{source_facts}
+<h2>{esc(r['title'])}</h2><p class="record-type">{esc('Public-input notice' if r['id'] == 'PHX-WEB-037' else KINDS[r['kind']])}</p><div class="record-labels">{labels}</div><div class="record-summary">{summary}</div>{source_facts}
 <div class="record-limits">{("<strong>Keep in mind</strong>" + limitations) if limitations else ""}</div>{details}{connected}<a class="record-reading" href="{esc(r['page_url'], quote=True)}">Read in context <span aria-hidden="true">→</span></a></article>''')
  original = (ROOT/'phoenix/index.html').read_text()
  header = '<header' + original.split('<header', 1)[1].split('</header>', 1)[0] + '</header>'
