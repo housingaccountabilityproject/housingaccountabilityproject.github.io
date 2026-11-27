@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Research Updates presentation-only successor. Earlier guards remain intact.
 from research_updates_preservation import verify_transition
-short_updates_prior = verify_transition(ROOT, 'fe5125356e7570cbc2841c27496665d627887f662ea246056b48d6a39fd55b20')
+short_updates_prior = verify_transition(ROOT, '60074490ea88bbd72969a99f753f9e1ed91b1f4d3801288ff9974c71884e7ed9')
 def short_updates_bytes(name):
     return short_updates_prior[name] if name in short_updates_prior else (ROOT/name).read_bytes()
 

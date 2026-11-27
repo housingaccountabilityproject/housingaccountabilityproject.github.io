@@ -55,9 +55,11 @@ try {
   assert(await first.evaluate(node => node === document.activeElement), 'Summary reached with Tab');
   assert(await first.evaluate(node => getComputedStyle(node).outlineStyle !== 'none'), 'Visible focus');
   await page.keyboard.press('Enter');
+  await page.waitForFunction(id => location.hash === '#' + id && document.activeElement.id === id, current);
   assert.equal(await page.evaluate(() => document.activeElement.id), current);
   assert(await page.locator('#' + current).isVisible());
   await page.locator('#updates-reading-tools a').first().press('Enter');
+  await page.locator('#updates-recent').waitFor({state: 'visible'});
   assert.equal(await page.locator('[data-update-summary]:visible').count(), 6);
   checks.push('keyboard navigation and focus');
 
@@ -76,6 +78,7 @@ try {
 
   // 4. Older deep link; repeat the archive path with JavaScript disabled.
   await page.goto(base + '/' + source + '#' + olderAnchor);
+  await page.waitForFunction(id => location.hash === '#' + id && document.activeElement.id === id, olderAnchor);
   assert(await page.locator('#' + older).isVisible());
   assert(await page.locator('#' + olderAnchor).isVisible(), 'Non-article legacy destination');
   assert.equal(await page.locator('.updates-content article:visible').count(), 1);
