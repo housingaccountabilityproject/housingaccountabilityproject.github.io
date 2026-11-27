@@ -19,13 +19,18 @@ jobs:
       MANIFEST_SHA256: 320b51d73f0b799244aeb2c22444f0f8d9d5b25e01ef5c9e60bb981c13fdc2a6
       BUNDLE_SHA256: 0652e77811dd79b46300b3f698adfca527e983a56aae2d4634abbbc5628a5a48
       HARNESS_SHA256: 903d116ac292bd3e7fb2cef6818c27264dc3cf361eec04759089eb08b6151641
-      PLAYWRIGHT_PACKAGE_PATH: ${{ runner.temp }}/pr60-tools/node_modules/playwright/package.json
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/pr60-browsers
       PDF_TEST_PYTHON: python
-      PORTABLE_PRINT_OUTPUT: ${{ runner.temp }}/pr60-qa/results/portable
-      FUNDING_TEST_OUTPUT: ${{ runner.temp }}/pr60-qa/results/funding
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
+      - name: Initialize runner paths
+        shell: bash
+        run: |
+          {
+            printf 'PLAYWRIGHT_PACKAGE_PATH=%s\n' "$RUNNER_TEMP/pr60-tools/node_modules/playwright/package.json"
+            printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "$RUNNER_TEMP/pr60-browsers"
+            printf 'PORTABLE_PRINT_OUTPUT=%s\n' "$RUNNER_TEMP/pr60-qa/results/portable"
+            printf 'FUNDING_TEST_OUTPUT=%s\n' "$RUNNER_TEMP/pr60-qa/results/funding"
+          } >> "$GITHUB_ENV"
       - name: Fetch the approved QA payload and complete baseline history
         uses: actions/checkout@v4
         with:
