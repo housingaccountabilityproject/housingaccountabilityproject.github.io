@@ -7,11 +7,20 @@ from pathlib import Path
 import subprocess
 from urllib.parse import urlsplit
 from lxml import etree, html
-from org_search_preservation import BASE, MANIFEST, canonical_successor
+from org_search_preservation import BASE, MANIFEST, canonical_successor, homepage_wording_successor
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://housingaccountabilityproject.org'
 TEST_EXPECTATION_BASE = 'f5935cd29716452c9db5691669b9dab13aa69d09'
+HOMEPAGE_RELEASE_BASE = '1c9d6146757bc03c358cdfb01c7f260b46a82264'
+HOMEPAGE_RELEASE_PATHS = {
+    'index.html',
+    '_data/org_search_transition.json',
+    'scripts/check-list-baseline.py',
+    'scripts/check-regional-editions.py',
+    'scripts/org_search_preservation.py',
+    'scripts/check-org-search.py',
+}
 TEST_EXPECTATION_EDITS = {
     'scripts/test-portable-print.mjs': (
         b"new URL(href,'https://housingaccountabilityproject.github.io/evidence.html')",
@@ -31,6 +40,17 @@ def verified_test_expectation_paths():
         assert prior.count(before) == 1, ('Ambiguous saved test expectation', name)
         assert (ROOT / name).read_bytes() == prior.replace(before, after, 1), ('Unexpected test expectation edit', name)
     return set(TEST_EXPECTATION_EDITS)
+
+
+def verified_homepage_release_paths():
+    # Keep the original migration inventory exact and separately constrain the
+    # later homepage release to its reviewed HTML and preservation-validation files.
+    changed = set(subprocess.check_output(
+        ['git', 'diff', '--name-only', HOMEPAGE_RELEASE_BASE, '--'], cwd=ROOT
+    ).decode().splitlines())
+    assert changed == HOMEPAGE_RELEASE_PATHS, ('Unexpected homepage release diff',
+                                              sorted(changed ^ HOMEPAGE_RELEASE_PATHS))
+    return HOMEPAGE_RELEASE_PATHS
 
 
 def locs(content):
@@ -64,6 +84,8 @@ def main():
     for name in transition['canonical_files']:
         old = original(name)
         expected = canonical_successor(old)
+        if name == 'index.html':
+            expected = homepage_wording_successor(expected)
         assert (ROOT / name).read_bytes() == expected, ('Editorial HTML or historical citation changed', name)
         current = canonical((output / name).read_bytes())
         assert current == canonical(expected), ('Built canonical mismatch', name)
@@ -88,7 +110,8 @@ def main():
         assert (ROOT / name).read_bytes() == original(name), ('Protected source changed', name)
         if name != '_config.yml':
             assert (output / name).read_bytes() == original(name), ('Protected output changed', name)
-    allowed = set(transition['files']) | set(transition['added']) | {MANIFEST} | verified_test_expectation_paths()
+    allowed = (set(transition['files']) | set(transition['added']) | {MANIFEST} |
+               verified_test_expectation_paths() | verified_homepage_release_paths())
     changed = set(subprocess.check_output(['git', 'diff', '--name-only', BASE, '--'], cwd=ROOT).decode().splitlines())
     assert changed == allowed, ('Unexpected migration diff', sorted(changed ^ allowed))
     report = {'base': BASE, 'origin': ORIGIN, 'sitemapCount': 38, 'canonicalCount': 46,
