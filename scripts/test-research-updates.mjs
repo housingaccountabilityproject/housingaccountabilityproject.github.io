@@ -101,16 +101,42 @@ try {
 
   // 5. One full-article PDF: every substantive paragraph and source, no other article.
   const olderArticle = page.locator('#' + older);
-  const expectedText = await olderArticle.textContent();
-  const allSources = await olderArticle.locator('a[href^="https://"]').evaluateAll(nodes => nodes.map(node => node.href));
+  const paragraphs = await olderArticle.locator('h2,h3,h4,p,li,caption').evaluateAll(nodes => nodes.map(node => node.textContent));
+  const tables = await olderArticle.locator('table').evaluateAll(nodes => nodes.map(table =>
+    [...table.rows].map(row => [...row.cells].map(cell => cell.textContent))));
+  const allSources = await olderArticle.locator('a[href]').evaluateAll(nodes => nodes.map(node =>
+    new URL(node.getAttribute('href'), document.querySelector('link[rel="canonical"]').href).href).filter(url => url.startsWith('https://')));
   const originalDisclosure = await olderArticle.locator('details').evaluateAll(nodes => nodes.map(node => node.open));
   const pdf = output + '/full-article-with-sources.pdf';
   await page.pdf({path: pdf, format: 'Letter', printBackground: false, displayHeaderFooter: false});
   const audit = JSON.parse(execPDF('audit', [pdf], {encoding: 'utf8', maxBuffer: 20 * 1024 * 1024}));
   const pdfText = audit.pages.map(sheet => sheet.text).join(' ').replace(/\s+/g, ' ');
-  for (const paragraph of expectedText.split(/\n+/).map(text => text.replace(/\s+/g, ' ').trim()).filter(text => text.length > 35)) {
-    // PDF line breaks can add spaces at source punctuation; compare text without whitespace.
-    assert(pdfText.replace(/\s/g, '').includes(paragraph.replace(/\s/g, '')), 'Full article paragraph retained: ' + paragraph.slice(0, 70));
+  const normalize = text => text.normalize('NFKC').replace(/\s/g, '');
+  for (const paragraph of paragraphs.filter(text => text.trim().length > 35)) {
+    assert(normalize(pdfText).includes(normalize(paragraph)), 'Full article paragraph retained: ' + paragraph.slice(0, 70));
+  }
+  // Wrapped table labels interleave with adjacent values in whole-page text.
+  // Read each actual PDF column by word coordinates and require every cell in order.
+  for (const rows of tables) {
+    let located = false;
+    for (const sheet of audit.pages) {
+      const first = sheet.words.find(word => normalize(word[4]) === normalize(rows[0][0]));
+      if (!first) continue;
+      const headers = rows[0].map(label => sheet.words.find(word =>
+        normalize(word[4]) === normalize(label) && Math.abs(word[1] - first[1]) < 2));
+      if (headers.some(word => !word)) continue;
+      for (let column = 0; column < headers.length; column++) {
+        const words = sheet.words.filter(word => word[1] >= first[1] - 1 &&
+          word[0] >= headers[column][0] - 2 &&
+          (column === headers.length - 1 || word[0] < headers[column + 1][0] - 2));
+        const actual = normalize(words.map(word => word[4]).join(' '));
+        const expected = normalize(rows.map(row => row[column]).join(' '));
+        assert(actual.startsWith(expected), 'Complete table cells and order in PDF column ' + (column + 1));
+      }
+      located = true;
+      break;
+    }
+    assert(located, 'Table headers and all columns are present in the PDF');
   }
   const links = audit.pages.flatMap(sheet => sheet.links).map(link => link.uri).filter(Boolean);
   for (const url of allSources) assert(links.includes(url), 'Clickable source in PDF: ' + url);

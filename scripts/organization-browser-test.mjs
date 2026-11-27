@@ -20,6 +20,18 @@ for(const {width,zoom} of [{width:320,zoom:1},{width:390,zoom:1},{width:1280,zoo
   await page.keyboard.press('Tab');assert(await page.locator('a.skip').evaluate(el=>document.activeElement===el),`${file}: first tab skip link`);
   await page.keyboard.press('Enter');assert(await page.locator('main').evaluate(el=>document.activeElement===el),`${file}: skip moves focus to main`);
   for(const region of await page.locator('.table-wrap,.table-scroll').all()){
+   // Journal articles now open individually. Visit the table's original article
+   // before retaining every existing disclosure, focus and scrolling assertion.
+   if(file==='research-updates.html'){
+    const target=await region.evaluate(el=>{
+     const content=el.closest('.updates-content');if(!content)return null;
+     const article=el.closest('article[id]');if(article)return article.id;
+     let parent=el;while(parent.parentElement!==content)parent=parent.parentElement;
+     return parent.id;
+    });
+    assert(target,'Journal table retains a destination');
+    await page.evaluate(id=>{location.hash=id;},target);
+   }
    assert.equal(await region.getAttribute('tabindex'),'0');assert.equal(await region.getAttribute('role'),'region');assert(await region.getAttribute('aria-label'));
    // Historical tables can be inside a collapsed disclosure. Open it by keyboard first.
    for(const disclosure of await region.locator('xpath=ancestor::details').all()){

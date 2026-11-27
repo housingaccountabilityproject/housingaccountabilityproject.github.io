@@ -7,7 +7,7 @@ import subprocess
 BASE = '8cdea3fc518f327c45c372e6905d8488b9df42cc'
 CHANGED = {'.github/workflows/reader-tools-qa.yml', '_config.yml', 'research-updates.html',
            'scripts/check-reader-data.py', 'scripts/check-list-baseline.py',
-           'scripts/check-regional-editions.py'}
+           'scripts/check-regional-editions.py', 'scripts/organization-browser-test.mjs'}
 GUARDS = {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py'}
 ADDED = {'_data/research_updates_inventory.json', '_data/research_updates_publication_order.json', 'assets/research-updates.css',
          'assets/research-updates.js', 'scripts/build-research-updates.py',

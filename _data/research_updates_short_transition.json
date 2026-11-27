@@ -19,11 +19,15 @@
     },
     "scripts/check-regional-editions.py": {
       "before": "76fa9d72de75adf1b070a6290294d31b1db406109912870355dc5d69bf2ad945",
-      "after": "2ed8419aec0d0251fc3579d175401bd29909deb799071f2fc8d84e18b5de83cc"
+      "after": "404a62b3eeda4f03ea64f5e8169ff49ff3ac4b91ad160a8b64c4880b33b4724a"
     },
     "scripts/check-list-baseline.py": {
       "before": "5fde303299866d6692db044b30fdfdea72f8483a2f2aa2a47492d05a3414ffa4",
-      "after": "8094d0110d2bfe274850461fcb9b49646df661732f059802c5f13375c8000e63"
+      "after": "0e6278ac6a842da5edbf5e287c700e12cfac7cb7b0443798b36cd3b2a50da973"
+    },
+    "scripts/organization-browser-test.mjs": {
+      "before": "76b7074de192aefb942cf09106953922d4f4a1511b40ffe652c9e462866d8d73",
+      "after": "f3daf9e7a6d0f526f82bccb4303f8b11af7ac4cf92369184ba0e29cba5cbcb10"
     }
   },
   "added": {
@@ -39,7 +43,7 @@
     "research-updates-archive.html": "cdb76065e013a0b81d781fe3ef5dd0eb63f5e81fa0aaec41524f871eb2d7ae77",
     "scripts/build-research-updates.py": "da299fba03e103825b7cb859c53337fa9a9201f3bd361b2c9ad3dfc68b4b171a",
     "scripts/fixtures/research-update-new-article.json": "cd7fc4a90c1c06497a9a94d486d23a5d24bfaca2fff608911f235eae5b9ca8d6",
-    "scripts/research_updates_preservation.py": "df781525f14235a362f25d4c9328a211759e911431e274de51555f66e83b93b8",
-    "scripts/test-research-updates.mjs": "f6d3674e397251d7d2bf6e2c01fbb29479b908b334d851b79824259d6ae8104b"
+    "scripts/research_updates_preservation.py": "834e138db7fa8637abb2a0bb562686cb9112d2887260db8d44b3672bc0909959",
+    "scripts/test-research-updates.mjs": "1441f930a0271326145fbd3d062e4d680749b33e07857c0eee3b2663453d892d"
   }
 }
