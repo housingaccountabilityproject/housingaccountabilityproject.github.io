@@ -90,7 +90,14 @@ jobs:
           mkdir -p "$RUNNER_TEMP/pr60-tools"
           npm install --prefix "$RUNNER_TEMP/pr60-tools" --no-save --package-lock=false playwright@1.65.0
           node "$RUNNER_TEMP/pr60-tools/node_modules/playwright/cli.js" install chromium
-          ln -s "$RUNNER_TEMP/pr60-tools/node_modules" node_modules
+          workspace_parent=$(dirname -- "$GITHUB_WORKSPACE")
+          test -d "$workspace_parent" && test -O "$workspace_parent" && test -w "$workspace_parent"
+          dependency_link="$workspace_parent/node_modules"
+          if [[ -e "$dependency_link" || -L "$dependency_link" ]]; then
+            echo "Dependency link destination is occupied: $dependency_link" >&2
+            exit 1
+          fi
+          ln -sT -- "$RUNNER_TEMP/pr60-tools/node_modules" "$dependency_link"
       - name: Prove imports and actual Chromium launch before tests
         shell: bash
         run: |
