@@ -1,0 +1,9 @@
+{
+  "candidate": "b9dfac79ef23676793b26ac259784874d5e4f644",
+  "tree": "b17c8a98ee43cca3b6bd4a09f9bad56bc2abe636",
+  "helper_sha256": "b2ef3cf25a9b5f637d77dcb96014f7bd840b3c1590bb3386a3bb4ac9367ff29d",
+  "tucson_html_sha256": "bf6bcb73a9ebfec2812fc8274a96d16074b5254bc7acfbf99e1686f67cb66fba",
+  "base": "f5935cd29716452c9db5691669b9dab13aa69d09",
+  "remote_pr_head": "e1849fc2921eae1af25611e919f71b545509c511",
+  "bundle_sha256": "0652e77811dd79b46300b3f698adfca527e983a56aae2d4634abbbc5628a5a48"
+}

@@ -1,97 +1,161 @@
-name: Reader tools regression checks
+name: PR60 frozen-candidate browser diagnostics
 on:
-  pull_request:
-    paths:
-      - 'CNAME'
-      - '_config.yml'
-      - '**.html'
-      - 'assets/**'
-      - 'data/**'
-      - 'feed.xml'
-      - 'scripts/**'
-      - 'requirements-dev.txt'
-      - '.github/workflows/reader-tools-qa.yml'
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: pr60-native-print-b9dfac79
+  cancel-in-progress: false
 jobs:
-  reader-tools:
+  pr60-frozen-browser:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/qa/pr60-native-print-b9dfac79' && github.run_attempt == 1
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      EXPECTED_MAIN: f5935cd29716452c9db5691669b9dab13aa69d09
+      EXPECTED_PR_HEAD: e1849fc2921eae1af25611e919f71b545509c511
+      CANDIDATE: b9dfac79ef23676793b26ac259784874d5e4f644
+      CANDIDATE_TREE: b17c8a98ee43cca3b6bd4a09f9bad56bc2abe636
+      MANIFEST_SHA256: 320b51d73f0b799244aeb2c22444f0f8d9d5b25e01ef5c9e60bb981c13fdc2a6
+      BUNDLE_SHA256: 0652e77811dd79b46300b3f698adfca527e983a56aae2d4634abbbc5628a5a48
+      HARNESS_SHA256: 903d116ac292bd3e7fb2cef6818c27264dc3cf361eec04759089eb08b6151641
+      PLAYWRIGHT_PACKAGE_PATH: ${{ runner.temp }}/pr60-tools/node_modules/playwright/package.json
+      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/pr60-browsers
+      PDF_TEST_PYTHON: python
+      PORTABLE_PRINT_OUTPUT: ${{ runner.temp }}/pr60-qa/results/portable
+      FUNDING_TEST_OUTPUT: ${{ runner.temp }}/pr60-qa/results/funding
+      PYTHONDONTWRITEBYTECODE: '1'
     steps:
-      - uses: actions/checkout@v4
+      - name: Fetch the approved QA payload and complete baseline history
+        uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
+          persist-credentials: false
+      - name: Gate main and draft head before installing anything
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,subprocess,sys
+          assert sys.flags.optimize == 0, 'Python assertions must remain enabled'
+          def git(*args):
+              return subprocess.check_output(['git',*args]).decode().strip()
+          repo='https://github.com/housingaccountabilityproject/housingaccountabilityproject.github.io.git'
+          expected={'refs/heads/main':os.environ['EXPECTED_MAIN'],
+                    'refs/heads/review/org-search-migration-2026-11-26':os.environ['EXPECTED_PR_HEAD']}
+          refs=dict(line.split()[::-1] for line in git('ls-remote',repo,*expected).splitlines())
+          assert refs == expected, ('Main or draft head moved; stop',refs)
+          assert git('rev-parse','HEAD') == os.environ['GITHUB_SHA'], 'Unexpected QA payload revision'
+          assert not git('status','--porcelain'), 'QA payload checkout is dirty'
+          target=Path(os.environ['RUNNER_TEMP'])/'pr60-qa';target.mkdir()
+          (target/'results').mkdir()
+          for name,key in [('manifest.json','MANIFEST_SHA256'),('native-print-harness.cjs','HARNESS_SHA256'),('candidate.bundle','BUNDLE_SHA256')]:
+              content=subprocess.check_output(['git','show',os.environ['GITHUB_SHA']+':.github/pr60-qa/'+name])
+              assert hashlib.sha256(content).hexdigest() == os.environ[key], ('QA payload changed',name)
+              (target/name).write_bytes(content)
+          m=json.loads((target/'manifest.json').read_text())
+          assert m['candidate'] == os.environ['CANDIDATE'] and m['tree'] == os.environ['CANDIDATE_TREE']
+          assert m['bundle_sha256'] == os.environ['BUNDLE_SHA256']
+          subprocess.run(['git','bundle','verify',str(target/'candidate.bundle')],check=True)
+          subprocess.run(['git','fetch','--no-tags',str(target/'candidate.bundle'),'HEAD'],check=True)
+          subprocess.run(['git','checkout','--detach',m['candidate']],check=True)
+          assert git('rev-parse','HEAD') == m['candidate']
+          assert git('rev-parse','HEAD^{tree}') == m['tree']
+          assert git('rev-parse','HEAD^') == os.environ['EXPECTED_MAIN']
+          assert not git('status','--porcelain'), 'Imported candidate is dirty'
+          for name,key in [('tucson.html','tucson_html_sha256'),('assets/general-page-print-links.js','helper_sha256')]:
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == m[key], ('Source bytes changed',name)
+          proof={'candidate':m['candidate'],'tree':m['tree'],'base':m['base'],'remoteRefs':refs,
+                 'qaWrapper':os.environ['GITHUB_SHA'],'qaWrapperTested':False,
+                 'nativeHarnessSHA256':os.environ['HARNESS_SHA256'],'deployment':False}
+          (target/'results/source-proof.json').write_text(json.dumps(proof,indent=2)+'\n')
+          print(json.dumps(proof,indent=2))
+          PY
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/check-list-baseline.py
-      - run: python scripts/check-reader-data.py
-      - run: python scripts/check-regional-editions.py
-      - run: python scripts/check-reader-contrast.py
-      - run: node scripts/test-search.cjs
-      - run: node scripts/test-category-search.cjs
-      - run: python scripts/build-category-search.py
-      - run: git diff --exit-code -- assets/category-search-data.js assets/category-search-coverage.js assets/funding-program-names.js
-      - name: Ensure generated files are committed
-        run: git diff --exit-code -- assets/search-index.js data/search-coverage.json feed.xml
-      - name: Build production-equivalent Pages output without deployment
-        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
-        with:
-          source: .
-          destination: ./_site
-          future: false
-          build_revision: ${{ github.sha }}
-      - name: Audit complete PR and production output for retired private references
-        run: python scripts/check-regional-release-output.py --retired-ref c95db77ae5325e723aaff097ab636d416b2a28e6 --output _site --report /tmp/hap-release-audit/production-privacy.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: production-equivalent-audit
-          path: |
-            /tmp/hap-release-audit/
-            _site/
-          if-no-files-found: error
-      - name: Install browser runner
+      - name: Install the proven pinned browser tools on this ephemeral runner
+        shell: bash
         run: |
-          npm install --no-save playwright
-          npx playwright install chromium
-      - name: Verify short Research Updates, preservation and automatic archive growth
-        run: node scripts/test-research-updates.mjs
-      - run: node scripts/test-portable-print.mjs
-      - run: node scripts/test-review-print.mjs
-      - run: node scripts/test-fragment-navigation.mjs
-      - uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: portable-print-verified
-          path: /tmp/hap-portable-print-verified/
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: embedded-review-print-verified
-          path: /tmp/hap-review-print-verified/
-          if-no-files-found: error
-      - run: node scripts/test-list-browser.mjs
-      - run: node scripts/test-search-options.mjs
-      - run: node scripts/test-category-search.mjs
-      - run: node scripts/test-regional-editions.mjs
-      - run: node scripts/reader-browser-test.mjs
-      - run: node scripts/report-smoke-test.mjs
-      - run: node scripts/organization-browser-test.mjs
-      - uses: actions/upload-artifact@v4
+          python -m pip install -r requirements-dev.txt
+          mkdir -p "$RUNNER_TEMP/pr60-tools"
+          npm install --prefix "$RUNNER_TEMP/pr60-tools" --no-save --package-lock=false playwright@1.65.0
+          node "$RUNNER_TEMP/pr60-tools/node_modules/playwright/cli.js" install chromium
+          ln -s "$RUNNER_TEMP/pr60-tools/node_modules" node_modules
+      - name: Prove imports and actual Chromium launch before tests
+        shell: bash
+        run: |
+          python - <<'PY'
+          import fitz,lxml.etree,importlib.metadata as m,json
+          versions={name:m.version(name) for name in ['PyMuPDF','lxml']}
+          assert versions == {'PyMuPDF':'1.26.6','lxml':'6.1.1'}, versions
+          print(json.dumps(versions))
+          PY
+          node <<'JS'
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+          const info=JSON.parse(fs.readFileSync(process.env.PLAYWRIGHT_PACKAGE_PATH));
+          assert.equal(info.version,'1.65.0');
+          const {chromium}=require(path.dirname(process.env.PLAYWRIGHT_PACKAGE_PATH));
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            try {
+              const page=await browser.newPage();await page.setContent('<title>PR60 health</title>');
+              assert.equal(await page.title(),'PR60 health');
+              const proof={playwright:info.version,chromium:await browser.version(),launched:true};
+              fs.writeFileSync(path.join(process.env.RUNNER_TEMP,'pr60-qa/results/browser-health.json'),JSON.stringify(proof,null,2)+'\n');
+              fs.appendFileSync(process.env.GITHUB_ENV,'CHROMIUM_PATH='+chromium.executablePath()+'\n');
+              console.log(JSON.stringify(proof));
+            } finally {await browser.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - name: Native PDF links on org, legacy and unrelated controls
+        shell: bash
+        run: |
+          set -o pipefail
+          node "$RUNNER_TEMP/pr60-qa/native-print-harness.cjs" "$GITHUB_WORKSPACE" "$RUNNER_TEMP/pr60-qa/results" "$PLAYWRIGHT_PACKAGE_PATH" "$CHROMIUM_PATH" python 2>&1 | tee "$RUNNER_TEMP/pr60-qa/results/native-print.log"
+      - name: Portable print suite on the frozen candidate
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/test-portable-print.mjs 2>&1 | tee "$RUNNER_TEMP/pr60-qa/results/test-portable-print.log"
+      - name: Funding framework suite on the frozen candidate
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/test-funding-framework.mjs 2>&1 | tee "$RUNNER_TEMP/pr60-qa/results/test-funding-framework.log"
+      - name: Verify unchanged candidate and record completed checks
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,subprocess
+          def git(*args):return subprocess.check_output(['git',*args]).decode().strip()
+          assert git('rev-parse','HEAD') == os.environ['CANDIDATE']
+          assert git('rev-parse','HEAD^{tree}') == os.environ['CANDIDATE_TREE']
+          assert not git('status','--porcelain'), 'Tests changed candidate source'
+          p=Path(os.environ['RUNNER_TEMP'])/'pr60-qa'
+          m=json.loads((p/'manifest.json').read_text())
+          assert hashlib.sha256(Path('assets/general-page-print-links.js').read_bytes()).hexdigest() == m['helper_sha256']
+          native=json.loads((p/'results/native-print-results.json').read_text())
+          assert native['pass'] and native['candidate'] == os.environ['CANDIDATE']
+          summary={'candidate':m['candidate'],'tree':m['tree'],'nativePDF':True,
+                   'suites':['scripts/test-portable-print.mjs','scripts/test-funding-framework.mjs'],
+                   'runtimeHelperChanged':False,'sourceUnchanged':True,'deployed':False}
+          (p/'results/run-summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Preserve actual native PDFs, traces and first-failure logs
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: reader-tools-browser-qa
+          name: pr60-native-print-b9dfac79
+          retention-days: 1
+          if-no-files-found: warn
           path: |
-            /tmp/hap-category-search/
-            /tmp/hap-list-browser/
-            /tmp/hap-regional-editions/
-            /tmp/hap-research-updates/
-            reader-qa-screenshots/
-            report-qa-screenshots/
-            organization-qa-screenshots/
-          if-no-files-found: ignore
+            ${{ runner.temp }}/pr60-qa/results/*.pdf
+            ${{ runner.temp }}/pr60-qa/results/**/*.json
+            ${{ runner.temp }}/pr60-qa/results/**/*.log
