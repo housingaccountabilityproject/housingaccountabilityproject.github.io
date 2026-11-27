@@ -13,7 +13,7 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 from org_search_preservation import verify_transition
-org_search_preserved_bytes = verify_transition(ROOT, 'ccc8f22c4e7b05c3c472a250b72ce5216339e900a459eeb08110942d56bef676')
+org_search_preserved_bytes = verify_transition(ROOT, 'a1cd4a9127f1a1951104cc8926e8bbc9c51790ddcf0fbadaef6dc086ecc3daf5')
 
 # Research Updates presentation-only successor. Earlier guards remain intact.
 from research_updates_preservation import verify_transition
