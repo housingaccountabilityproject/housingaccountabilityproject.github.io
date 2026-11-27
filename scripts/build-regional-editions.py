@@ -11,6 +11,7 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = 'https://housingaccountabilityproject.github.io/'
+CANONICAL_ORIGIN = json.loads((ROOT / '_data/canonical_origin.json').read_text())['origin']
 REGIONS = {'tucson': 'Tucson & Pima County', 'phoenix': 'Phoenix & Maricopa County'}
 CATALOG = json.loads((ROOT / 'data/category-search.json').read_text())['records']
 RECORDS = {r['key']: r for r in CATALOG}
@@ -128,7 +129,7 @@ def home_brand():
 
 
 def shell(region, title, body, page=None):
-    canonical = SITE + (page or ((region or 'library') + '.html'))
+    canonical = CANONICAL_ORIGIN + '/' + (page or ((region or 'library') + '.html'))
     version = hashlib.sha256((ROOT / 'assets/editorial.css').read_bytes()).hexdigest()[:12]
     tabs = link('index.html', 'Arizona') + ''.join(
         '<a href="' + r + '.html"' + (' aria-current="page"' if region == r else '') + '>' + escape(n.replace(' County', '')) + '</a>'

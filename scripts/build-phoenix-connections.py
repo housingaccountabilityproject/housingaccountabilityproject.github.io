@@ -7,6 +7,7 @@ from phoenix_navigation import navigation
 from city_layout import apply as city_layout
 
 ROOT = Path(__file__).resolve().parents[1]
+CANONICAL_ORIGIN = json.loads((ROOT / '_data/canonical_origin.json').read_text())['origin']
 
 
 def record_links(ids, records):
@@ -26,7 +27,7 @@ def shell(filename, title, intro, body):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} | Housing Accountability Project</title>
 <meta name="description" content="{escape(intro, quote=True)}">
-<link rel="canonical" href="https://housingaccountabilityproject.github.io/phoenix/{filename}">
+<link rel="canonical" href="{CANONICAL_ORIGIN}/phoenix/{filename}">
 <link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css">
 <link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/phoenix-connections.css">

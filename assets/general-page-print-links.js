@@ -5,7 +5,10 @@
   const value = document.querySelector('link[rel="canonical"]')?.getAttribute('href');
   let canonical;
   try { canonical = new URL(value); } catch { return; }
-  if (canonical.origin !== 'https://housingaccountabilityproject.github.io') return;
+  if (![
+    'https://housingaccountabilityproject.github.io',
+    'https://housingaccountabilityproject.org',
+  ].includes(canonical.origin)) return;
   const originals = new Map();
   const labelAttribute = 'data-hap-print-original-href';
   // Directory and index.html spellings identify the same document.
