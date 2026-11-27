@@ -5,7 +5,7 @@ from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
 from org_search_preservation import verify_transition
-org_search_preserved_bytes = verify_transition(ROOT, '043cd2d9f4c24e10db6a7b27d2902fe49727a2f9808e156a26821aea6c98b12b')
+org_search_preserved_bytes = verify_transition(ROOT, 'ccc8f22c4e7b05c3c472a250b72ce5216339e900a459eeb08110942d56bef676')
 
 # Research Updates presentation-only successor. Earlier guards remain intact.
 from research_updates_preservation import verify_transition

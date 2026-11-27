@@ -89,8 +89,9 @@ def verify_transition(root, expected_digest):
     assert transition['base'] == BASE and transition['origin'].encode() == NEW_ORIGIN
     canonical_files = transition['canonical_files']
     assert len(canonical_files) == len(set(canonical_files)) == 46
+    print_helper = 'assets/general-page-print-links.js'
     assert set(transition['files']) == (set(canonical_files) | GENERATORS | GUARDS | SOURCE_ADAPTERS |
-                                      {'sitemap.xml', 'robots.txt', 'scripts/check-regional-release-output.py'})
+                                      {print_helper, 'sitemap.xml', 'robots.txt', 'scripts/check-regional-release-output.py'})
     assert set(transition['added']) == ADDED
     pins = {**transition, 'files': {p: h for p, h in transition['files'].items() if p not in GUARDS}}
     digest = hashlib.sha256(json.dumps(pins, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
@@ -110,6 +111,14 @@ def verify_transition(root, expected_digest):
             assert current == generator_successor(name, old), ('Non-canonical generator change', name)
         elif name in SOURCE_ADAPTERS:
             assert current == source_adapter_successor(old), ('Short-page assertion changed', name)
+        elif name == print_helper:
+            before = b"  if (canonical.origin !== 'https://housingaccountabilityproject.github.io') return;"
+            after = b"""  if (![
+    'https://housingaccountabilityproject.github.io',
+    'https://housingaccountabilityproject.org',
+  ].includes(canonical.origin)) return;"""
+            assert old.count(before) == 1
+            assert current == old.replace(before, after, 1), 'Unexpected print helper change'
         elif name == 'sitemap.xml':
             expected, count = re.subn(rb'(<loc>)' + re.escape(OLD_ORIGIN) + rb'(?=/)',
                                       lambda m: m.group(1) + NEW_ORIGIN, old)
