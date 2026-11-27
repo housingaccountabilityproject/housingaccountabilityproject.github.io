@@ -228,11 +228,11 @@
     },
     "scripts/check-list-baseline.py": {
       "before": "d7bdfef63c46a54207b1c3e604fe3dd16773745d9bc9533397f46af9fcf0650e",
-      "after": "88f36714571467c4b081d1f7b7a8cee121a574911d4473da6ace9618e2f35d85"
+      "after": "3fbb31c9dd7a688b209f37ba370c3966d099551e7d071a518b147487391d4804"
     },
     "scripts/check-regional-editions.py": {
       "before": "131ea66c761204051c17fa0bbcbe89bc97beffd9d085a802b7fb2a2d28beeb12",
-      "after": "8b794685375c971f67e54efb440e055586a85d48f00e45cad4e76deffecc7d11"
+      "after": "a53792b114dbb6eafc8da81e4afad85c6058c4e2faa2602ab779220a6b311885"
     },
     "scripts/check-regional-release-output.py": {
       "before": "c75ed26df7c5476310cca712e04875d223f670e12da762c66a293c608e0e9a06",
@@ -277,7 +277,7 @@
   },
   "added": {
     "_data/canonical_origin.json": "0f577b9b52deb15e76ea515bc023927b3a9b9b82fbb3fe4e549fca95d096e540",
-    "scripts/check-org-search.py": "dd374e9acd54bc0cbaabcc1ea0816cb9c8fe0a2d3228790a45002c35e05d5342",
-    "scripts/org_search_preservation.py": "1c3723d95c34d00f8977ba1e58f69ca1e42160aeb2c433d2fddc11dedb1d2b55"
+    "scripts/check-org-search.py": "e71020a82856afde54425932f044acfc2da9f5556b0591d0c8116e8016c0d573",
+    "scripts/org_search_preservation.py": "2a583a1197f2cc0fed74ad8da62289331542ff5e12e992f0a7654c552cdb651a"
   }
 }
