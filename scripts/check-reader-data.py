@@ -39,7 +39,8 @@ index=json.loads(idx)
 # Editorial views place existing records; indexing their repeated teasers would
 # duplicate research results. They still receive all landmark/link checks above.
 editorial={p for p,d in pages.items() if d.xpath('//body[@data-editorial-navigation="true"]')}
-assert editorial == {'tucson.html','phoenix.html','watch-tucson.html','watch-phoenix.html','archive-tucson.html','archive-phoenix.html','library.html','hud-coc-funding-court-tracker.html'}
+update_archives={p for p in pages if re.fullmatch(r'research-updates-archive(?:-(?:[2-9]|[1-9][0-9]+))?\.html',p)}
+assert editorial == {'tucson.html','phoenix.html','watch-tucson.html','watch-phoenix.html','archive-tucson.html','archive-phoenix.html','library.html','hud-coc-funding-court-tracker.html'} | update_archives
 # The cross-regional court tracker has its own publication and is not a
 # Tucson-only search record. Its live links still receive the same checks.
 expected=set(pages)-{'search.html','search-all.html','hud-coc-funding-court-tracker.html'}-editorial

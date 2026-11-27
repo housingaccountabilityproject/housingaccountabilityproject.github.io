@@ -51,7 +51,7 @@ for(const r of data.filter(r=>r.url.split('#')[0]==='index.html')){
  assert(found.some(x=>x.querySelector('a').href===expected),expected);
 }
 assert(data.some(r=>r.url==='privacy.html#search-privacy-choices'&&r.text.includes('typed terms starts off')));
-assert(data.length===381);assert(data.every(r=>!r.url.startsWith('phoenix/')));
+assert(data.length===382);assert(data.every(r=>!r.url.startsWith('phoenix/')));
 for(const [term,url] of [
  ['"Desert Cove"','research-updates.html#desert-cove-approvals-2026-11-19'],
  ['"Marana"','housing-help.html#resource-marana-school-support'],
@@ -60,3 +60,9 @@ for(const [term,url] of [
 // Missing-index state must be useful and must not submit a query.
 const failContext={window:{},document};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/site-search.js'),'utf8'),failContext);assert(elements['site-search-form'].hidden);assert.match(elements['search-status'].textContent,/could not load/);
 console.log('PASS: search results, titles, current/historical separation, phrases, IDs, amounts, categories, zero results, hostile input, pagination/focus, clear/reset and missing-index fallback. DOM logic test, not visual browser QA.');
+
+const pchip=data.filter(r=>r.url==="research-updates.html#pchip-qa-2026-11-24");
+assert.equal(pchip.length,1);assert.equal(pchip[0].category,"Updates");
+assert.match(pchip[0].text,/December 10, 2026, at 11:59 p.m. MST/);
+assert.match(pchip[0].text,/grant competition for eligible organizations/);
+assert(query('"P-CHIP" "November 24"',"Updates").some(card=>String(card.querySelector("a").href).endsWith("#pchip-qa-2026-11-24")));

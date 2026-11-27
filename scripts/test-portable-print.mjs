@@ -54,7 +54,7 @@ try{
   const during=await page.locator('a[href]').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')));
   before.forEach((href,i)=>{
    if(href.startsWith('#')||/^[a-z][a-z\d+.-]*:/i.test(href))assert.equal(during[i],href,'Preserve fragment/external source: '+href);
-   else {const u=new URL(href,'https://housingaccountabilityproject.github.io/evidence.html');assert.equal(during[i],u.pathname==='/evidence.html'&&u.hash?u.hash:u.href,'Canonical cross-page target');}
+   else {const u=new URL(href,'https://housingaccountabilityproject.org/evidence.html');assert.equal(during[i],u.pathname==='/evidence.html'&&u.hash?u.hash:u.href,'Canonical cross-page target');}
   });
   const expectedTargets=await page.locator('main a[href]:visible').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')).filter(h=>!h.startsWith('#')));
   // Let the PDF engine enter/leave print media itself. Forcing print media

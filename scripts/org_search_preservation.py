@@ -4,12 +4,13 @@ import json
 import re
 import subprocess
 
-BASE = '025be3b3ae0375a6b5f33eb4ae18d0abdcac7af6'
+BASE = 'f5935cd29716452c9db5691669b9dab13aa69d09'
 OLD_ORIGIN = b'https://housingaccountabilityproject.github.io'
 NEW_ORIGIN = b'https://housingaccountabilityproject.org'
 GUARDS = {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py'}
 GENERATORS = {'scripts/build-regional-editions.py', 'scripts/build-phoenix-records.py',
               'scripts/build-phoenix-connections.py'}
+SOURCE_ADAPTERS = {'scripts/research_updates_preservation.py'}
 MANIFEST = '_data/org_search_transition.json'
 ADDED = {'_data/canonical_origin.json', 'scripts/org_search_preservation.py',
          'scripts/check-org-search.py'}
@@ -31,11 +32,13 @@ def guard_successor(content, digest):
                  b"org_search_preserved_bytes = verify_transition(ROOT, '" + digest.encode() + b"')\n")
     assert content.count(marker) == 1
     content = content.replace(marker, marker + insertion, 1)
-    # These are historical byte reads only. Live regeneration snapshots below
-    # remain direct reads, so generator drift still fails the existing checks.
+    # The new layer verifies exact canonical-only successors before supplying
+    # their independently pinned main bytes to the unchanged short-page gates.
+    before = b"short_updates_prior = verify_transition(ROOT, '60074490ea88bbd72969a99f753f9e1ed91b1f4d3801288ff9974c71884e7ed9')"
+    after = before[:-1] + b', org_search_preserved_bytes)'
+    assert content.count(before) == 1
+    content = content.replace(before, after, 1)
     changes = [
-        (b"hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == hashes['after']",
-         b"hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == hashes['after']"),
         (b'hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == sha',
          b'hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == sha'),
         (b'else (ROOT/name).read_bytes()', b'else org_search_preserved_bytes(name)'),
@@ -49,6 +52,18 @@ def guard_successor(content, digest):
         assert content.count(before) == expected, ('Unexpected preservation guard', before)
         content = content.replace(before, after)
     return content
+
+
+def source_adapter_successor(content):
+    before = b'def verify_transition(root: Path, digest: str):\n'
+    after = (b'def verify_transition(root: Path, digest: str, preserved_bytes=None):\n'
+             b'    source_bytes = preserved_bytes if preserved_bytes is not None else lambda path: (root / path).read_bytes()\n')
+    assert content.count(before) == 1
+    content = content.replace(before, after, 1)
+    before = b'hashlib.sha256((root / path).read_bytes()).hexdigest()'
+    after = b'hashlib.sha256(source_bytes(path)).hexdigest()'
+    assert content.count(before) == 2
+    return content.replace(before, after)
 
 
 def generator_successor(name, content):
@@ -73,8 +88,8 @@ def verify_transition(root, expected_digest):
     assert set(transition) == {'base', 'origin', 'canonical_files', 'files', 'added'}
     assert transition['base'] == BASE and transition['origin'].encode() == NEW_ORIGIN
     canonical_files = transition['canonical_files']
-    assert len(canonical_files) == len(set(canonical_files)) == 40
-    assert set(transition['files']) == (set(canonical_files) | GENERATORS | GUARDS |
+    assert len(canonical_files) == len(set(canonical_files)) == 46
+    assert set(transition['files']) == (set(canonical_files) | GENERATORS | GUARDS | SOURCE_ADAPTERS |
                                       {'sitemap.xml', 'robots.txt', 'scripts/check-regional-release-output.py'})
     assert set(transition['added']) == ADDED
     pins = {**transition, 'files': {p: h for p, h in transition['files'].items() if p not in GUARDS}}
@@ -93,6 +108,8 @@ def verify_transition(root, expected_digest):
             assert current == guard_successor(old, expected_digest), ('Historical assertion changed', name)
         elif name in GENERATORS:
             assert current == generator_successor(name, old), ('Non-canonical generator change', name)
+        elif name in SOURCE_ADAPTERS:
+            assert current == source_adapter_successor(old), ('Short-page assertion changed', name)
         elif name == 'sitemap.xml':
             expected, count = re.subn(rb'(<loc>)' + re.escape(OLD_ORIGIN) + rb'(?=/)',
                                       lambda m: m.group(1) + NEW_ORIGIN, old)
@@ -109,6 +126,6 @@ def verify_transition(root, expected_digest):
     def preserved_bytes(name):
         return prior[name] if name in prior else (root / name).read_bytes()
 
-    print('PASS exact .org transition: 40 canonical tags, unchanged HTML outside those tags, '
+    print('PASS exact .org transition: 46 canonical tags, unchanged HTML outside those tags, '
           'sitemap/robots origins, generator-only metadata edits and intact historical assertions.')
     return preserved_bytes

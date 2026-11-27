@@ -1,5 +1,5 @@
 {
-  "base": "025be3b3ae0375a6b5f33eb4ae18d0abdcac7af6",
+  "base": "f5935cd29716452c9db5691669b9dab13aa69d09",
   "origin": "https://housingaccountabilityproject.org",
   "canonical_files": [
     "about.html",
@@ -33,6 +33,12 @@
     "questions-records.html",
     "reports/tucson-housing-funding-outcomes-2026.html",
     "research-center.html",
+    "research-updates-archive-2.html",
+    "research-updates-archive-3.html",
+    "research-updates-archive-4.html",
+    "research-updates-archive-5.html",
+    "research-updates-archive-6.html",
+    "research-updates-archive.html",
     "research-updates.html",
     "research.html",
     "search-all.html",
@@ -53,8 +59,8 @@
       "after": "423031c5d98fa0819b65af5dcbfe90243ea7b31db8ef1533402911dc4bd35e7b"
     },
     "archive-tucson.html": {
-      "before": "2bd5a32a4a33c34b9fc38112c86ba74a9933aabd70e827fbb1ba1974110d2fd7",
-      "after": "a9494728a25e97dc1e2aa6e142dc02ee89bad9daeaa8573450a14e2c057bf8c6"
+      "before": "2abbbf48604484e2b0d44199ef446e191e2de7b6991ef57fcc781c24a7ca4273",
+      "after": "1018c12fcf6f4a2046f19e58502eb05b02f1e746f7b344399eb12104ecf2f4c9"
     },
     "contact.html": {
       "before": "23697b79e5997a45b7d63cf03d23696c1126619b074934357317b81731fb6ff5",
@@ -168,9 +174,33 @@
       "before": "c1199afdd65cb41a54eee37634661f948c6f0a0aaa99bfbd1c0116e3f02fbd11",
       "after": "d65a48ee4dc0b82361bd54f2e8e6a7db55c4e71df3db07d597e79649b097a8e0"
     },
+    "research-updates-archive-2.html": {
+      "before": "b601c4209cec189f2cbb7bfda0d35377d5af495b501887dcd2108a63ac8c90bd",
+      "after": "8ba21af728dbffb957babf8b479ea81022f081e3845fbdff5f66df07044855db"
+    },
+    "research-updates-archive-3.html": {
+      "before": "248b2f7f87d294026cc899c5e04b6e6fa703cccdae872debc95bf107c744a6f6",
+      "after": "ffe409bfe4493688ef74d8260354dc6ff0fa5b49e5ccfbdbcd1f5499267edcf2"
+    },
+    "research-updates-archive-4.html": {
+      "before": "48bb77d5eaf7f18f0296b6c1317d6b71d7206a9abfed7a8b0b42b9f0898a4552",
+      "after": "d16023a48d026c038e07f40bf0f5ee14a48520d7029fdd7c08fd66c63a552251"
+    },
+    "research-updates-archive-5.html": {
+      "before": "60614285b813a4004070a1536999fedddcb35292cb3689e2a5fe6fc818e2eea6",
+      "after": "ea5b6144e4cba12aa3276fdbc9a88929ae07af89b605ea14f3956cc36550245e"
+    },
+    "research-updates-archive-6.html": {
+      "before": "b155c7845f50c779aea6ea2399fdebd9541e1eed1e5dd2e6f5d62e45334a75e0",
+      "after": "4d41bef4e6fa12080e3b160a1f292c0e41b08980838bca7b819287d1347c028f"
+    },
+    "research-updates-archive.html": {
+      "before": "cdb76065e013a0b81d781fe3ef5dd0eb63f5e81fa0aaec41524f871eb2d7ae77",
+      "after": "2b1d6ecee83cfadb523e82b3c9d5c9d764a92da818f9404749bb67aaad639282"
+    },
     "research-updates.html": {
-      "before": "ae95e2cf7b9a8216007c3e668b03538d5bf6008864f079f9f37995a88c28b024",
-      "after": "ecc84220e8cbc3f612715bf4a04e6b8b749db9867ba03cd33b086bc1cdf12ca6"
+      "before": "b7130aff869a8c6a48b16a561d163f66754a74fcbb0945c9e4a630dd08d32773",
+      "after": "a6571baa383f10ba6a2626d9387339a42adf8a9f913d19ccaae39f63fdd23756"
     },
     "research.html": {
       "before": "239bfb747667384c4e75b1bd0ee45053911b5e4522d45278150c7b752623b45a",
@@ -193,16 +223,20 @@
       "after": "15c3321bb5520c9751efd5ceea0003835b9029d72df511e6f5db2bcea2e1bf9c"
     },
     "scripts/check-list-baseline.py": {
-      "before": "309d40c5bbec5631258c99753641e5aa073ac781ac46ba7e0f85b87123392713",
-      "after": "f62fc4921c6bfc0cd3ca86e39f3771c665d3d1d726435840e215ceab82d923ef"
+      "before": "d7bdfef63c46a54207b1c3e604fe3dd16773745d9bc9533397f46af9fcf0650e",
+      "after": "0e3a2696af6003a20a72e192f64e05998b21de37893e715cc3c2d0a6ff4c230b"
     },
     "scripts/check-regional-editions.py": {
-      "before": "9ce8b50b817e58fbd9372b7c40af1c56bb03e7636b8598fcc8d6afeb8f4fa2d1",
-      "after": "ef3739efbec9ddfcfdde8460edc93709a15a8d3f15eda74c6a9fc1e2e263c211"
+      "before": "131ea66c761204051c17fa0bbcbe89bc97beffd9d085a802b7fb2a2d28beeb12",
+      "after": "436f797377fdfb207edf3c2890bfcd1136b89d7a4507e2f62763269074be7c6c"
     },
     "scripts/check-regional-release-output.py": {
       "before": "c75ed26df7c5476310cca712e04875d223f670e12da762c66a293c608e0e9a06",
       "after": "67ab0a85b0147377523582f77315aaa79ea67ce5eefe1ded95f4d415792fdc19"
+    },
+    "scripts/research_updates_preservation.py": {
+      "before": "834e138db7fa8637abb2a0bb562686cb9112d2887260db8d44b3672bc0909959",
+      "after": "c45448936cbdd606f054eb682210728dfb0b81147d2c5b8c246d5467d2aa042b"
     },
     "search-all.html": {
       "before": "fab59c13d31c58f2ddfd0e11ed72aa1d7651b4e9fe2e1774cc9439909d647767",
@@ -239,7 +273,7 @@
   },
   "added": {
     "_data/canonical_origin.json": "0f577b9b52deb15e76ea515bc023927b3a9b9b82fbb3fe4e549fca95d096e540",
-    "scripts/check-org-search.py": "398ea1f9097cfbd51725702d1c9203460f217a31e63c3fa4ace04c6173639d99",
-    "scripts/org_search_preservation.py": "154169378bad9d8313031d39d16c7b45899b24c580f270dbdb83f020fc2cb650"
+    "scripts/check-org-search.py": "dd374e9acd54bc0cbaabcc1ea0816cb9c8fe0a2d3228790a45002c35e05d5342",
+    "scripts/org_search_preservation.py": "2a470ba8e395173a0741e5be109dceae5bcae9324dd7f8f403751c87dc12891b"
   }
 }

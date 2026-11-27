@@ -13,7 +13,37 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
 from org_search_preservation import verify_transition
-org_search_preserved_bytes = verify_transition(ROOT, '07054993546de85746e1fdf1615f3c38e3a8b27ba58a74cc919f3afd1bec9dfa')
+org_search_preserved_bytes = verify_transition(ROOT, '043cd2d9f4c24e10db6a7b27d2902fe49727a2f9808e156a26821aea6c98b12b')
+
+# Research Updates presentation-only successor. Earlier guards remain intact.
+from research_updates_preservation import verify_transition
+short_updates_prior = verify_transition(ROOT, '60074490ea88bbd72969a99f753f9e1ed91b1f4d3801288ff9974c71884e7ed9', org_search_preserved_bytes)
+def short_updates_bytes(name):
+    return short_updates_prior[name] if name in short_updates_prior else org_search_preserved_bytes(name)
+
+
+# P-CHIP applicant guidance: exact content, generated output and focused tests.
+# Keep all historical release manifests and assertions intact below.
+PCHIP_BASE = '025be3b3ae0375a6b5f33eb4ae18d0abdcac7af6'
+PCHIP_PUBLIC = ('archive-tucson.html', 'assets/category-search-coverage.js', 'assets/category-search-data.js', 'assets/search-index.js', 'assets/search-source-urls.js', 'data/category-search.json', 'data/search-coverage.json', 'research-updates.html', 'scripts/test-search.cjs', 'scripts/test-category-search.cjs')
+PCHIP_GUARDS = ('scripts/check-list-baseline.py', 'scripts/check-regional-editions.py')
+pchip = json.loads((ROOT / '_data/pchip_guidance_transition.json').read_text())
+assert set(pchip) == {'base','files','added'} and pchip['base'] == PCHIP_BASE
+assert set(pchip['files']) == set(PCHIP_PUBLIC + PCHIP_GUARDS)
+assert pchip['added'] == {}
+pchip_pins = {'base':PCHIP_BASE,'files':{p:pchip['files'][p] for p in PCHIP_PUBLIC},'added':{}}
+assert hashlib.sha256(json.dumps(pchip_pins,sort_keys=True,separators=(',',':')).encode()).hexdigest() == '4491a401890c73f705d6a9f540caafc38c5fd4a384d38b9508d913acde1af587', 'Unexpected P-CHIP transition pins'
+pchip_prior = {}
+for path, hashes in pchip['files'].items():
+    assert set(hashes) == {'before','after'}
+    prior = subprocess.check_output(['git','show',PCHIP_BASE+':'+path],cwd=ROOT)
+    assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified P-CHIP predecessor',path)
+    assert hashlib.sha256(short_updates_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed P-CHIP change',path)
+    pchip_prior[path] = prior
+
+def pchip_preserved_bytes(name):
+    return pchip_prior[name] if name in pchip_prior else short_updates_bytes(name)
+
 
 # Approved HUD Oversight release. Validate exact successor bytes while retaining
 # every earlier gate, including the CoC and HAMC transition checks.
@@ -32,13 +62,13 @@ for path, hashes in hud_oversight['files'].items():
     assert set(hashes) == {'before','after'}
     prior = subprocess.check_output(['git','show',HUD_OVERSIGHT_BASE+':'+path],cwd=ROOT)
     assert hashlib.sha256(prior).hexdigest() == hashes['before'], ('Unverified HUD Oversight baseline',path)
-    assert hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
+    assert hashlib.sha256(pchip_preserved_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed HUD Oversight change',path)
     hud_oversight_prior[path] = prior
 for path, sha in hud_oversight['added'].items():
     assert hashlib.sha256(org_search_preserved_bytes(path)).hexdigest() == sha, ('Unreviewed HUD Oversight addition',path)
 
 def hud_oversight_preserved_bytes(name):
-    return hud_oversight_prior[name] if name in hud_oversight_prior else org_search_preserved_bytes(name)
+    return hud_oversight_prior[name] if name in hud_oversight_prior else pchip_preserved_bytes(name)
 
 
 # Verify the approved oversight placement and searchable source route.
@@ -757,7 +787,11 @@ for path in api['NEW_PAGES']:
 
 original_records = json.loads(subprocess.check_output(['git', 'show', BASE + ':data/category-search.json'], cwd=ROOT))['records']
 original_keys = Counter(record['key'] for record in original_records)
-current_keys = Counter(record['key'] for record in api['CATALOG'])
+# Check the one exact new identity, then retain the historical addition checks
+# against the verified pre-P-CHIP catalog. The full live catalog is pinned above.
+pchip_previous_catalog = json.loads(pchip_preserved_bytes('data/category-search.json'))['records']
+assert Counter(record['key'] for record in api['CATALOG']) == Counter(record['key'] for record in pchip_previous_catalog) + Counter(['tucson:research-updates.html#pchip-qa-2026-11-24']), 'Unreviewed P-CHIP record identity change'
+current_keys = Counter(record['key'] for record in pchip_previous_catalog)
 assert set(original_keys) <= set(current_keys) and all(count == 1 for count in current_keys.values()), 'Lost or duplicated stable record identity'
 assert set(current_keys) - set(original_keys) == set(research['addedRecordKeys']+review['addedRecordKeys']), 'Unreviewed record addition'
 old_records = {r['key']: r for r in original_records}
