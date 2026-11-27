@@ -9,7 +9,7 @@ CHANGED = {'.github/workflows/reader-tools-qa.yml', '_config.yml', 'research-upd
            'scripts/check-reader-data.py', 'scripts/check-list-baseline.py',
            'scripts/check-regional-editions.py'}
 GUARDS = {'scripts/check-list-baseline.py', 'scripts/check-regional-editions.py'}
-ADDED = {'_data/research_updates_inventory.json', 'assets/research-updates.css',
+ADDED = {'_data/research_updates_inventory.json', '_data/research_updates_publication_order.json', 'assets/research-updates.css',
          'assets/research-updates.js', 'scripts/build-research-updates.py',
          'scripts/test-research-updates.mjs', 'scripts/research_updates_preservation.py',
          'scripts/fixtures/research-update-new-article.json',

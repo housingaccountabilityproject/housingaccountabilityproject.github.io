@@ -1,0 +1,182 @@
+{
+  "base": "8cdea3fc518f327c45c372e6905d8488b9df42cc",
+  "ordering": "Newest first appearance on protected main; articles published in the same release retain their existing order. Review dates, source-check dates and deadlines do not determine order.",
+  "feed_sha256": "e7fd890dd59417fb9e77f4511baaa553a5ca690a10029b74ba82a8995780db67",
+  "feed_destinations": [
+    "https://housingaccountabilityproject.github.io/research-updates.html#src-100-citation-correction",
+    "https://housingaccountabilityproject.github.io/phoenix/index.html#project-counts-and-shelter-funding",
+    "https://housingaccountabilityproject.github.io/research-updates.html#craycroft-council-vote-2026-11-09",
+    "https://housingaccountabilityproject.github.io/research-updates.html#county-housing-funding-2026-11-08",
+    "https://housingaccountabilityproject.github.io/research-updates.html#upcoming-housing-measures-2026-11-07",
+    "https://housingaccountabilityproject.github.io/research-updates.html#payments-projects-outcomes-2026-11-07",
+    "https://housingaccountabilityproject.github.io/research-updates.html#records-clarified-2026-11-07",
+    "https://housingaccountabilityproject.github.io/research-updates.html#housing-questions-2026-11-06",
+    "https://housingaccountabilityproject.github.io/research-updates.html#housing-plans-2026-11-05-0839",
+    "https://housingaccountabilityproject.github.io/research-updates.html#county-housing-fy27-q1-2026-11-06",
+    "https://housingaccountabilityproject.github.io/research-updates.html#audit-corrections-2026-11-06",
+    "https://housingaccountabilityproject.github.io/research-updates.html#privacy-correction-2026-11-06",
+    "https://housingaccountabilityproject.github.io/research-updates.html#cdbg-review-2026-11-06"
+  ],
+  "records": [
+    {
+      "id": "pchip-qa-2026-11-24",
+      "first_main_commit": "8cdea3fc518f327c45c372e6905d8488b9df42cc",
+      "publication_sequence": 54
+    },
+    {
+      "id": "hud-oversight",
+      "first_main_commit": "152ab9b5f38556e14fd3de5b938033c0de5e8da9",
+      "publication_sequence": 53
+    },
+    {
+      "id": "craycroft-towers-board-action-2026-11-18",
+      "first_main_commit": "07a1dbb44ded03f80a528667728da1fe01d568ae",
+      "publication_sequence": 52
+    },
+    {
+      "id": "tep-weatherization-2025",
+      "first_main_commit": "ab1c78d8af41659736c74de059a332435b53c162",
+      "publication_sequence": 51
+    },
+    {
+      "id": "desert-cove-approvals-2026-11-19",
+      "first_main_commit": "5d6037c12745b7df026c044610cba25316456b39",
+      "publication_sequence": 46
+    },
+    {
+      "id": "tucson-house-community-services-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "pima-supportive-services-budget-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "arizona-shelter-reservations-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "tucson-phoenix-rent-benchmarks-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "pima-heat-relief-budget-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "pima-state-reservations-2026-11-19",
+      "first_main_commit": "900774410919a7b1be2bc63c8d429ffc97a40230",
+      "publication_sequence": 45
+    },
+    {
+      "id": "src-100-citation-correction",
+      "first_main_commit": "0b32ae6151289c6fa82b5f480d418a40217d0b60",
+      "publication_sequence": 38
+    },
+    {
+      "id": "craycroft-council-vote-2026-11-09",
+      "first_main_commit": "2c5f35b92c5e1edcfc74ac9aed4986834310e4f7",
+      "publication_sequence": 36
+    },
+    {
+      "id": "county-housing-funding-2026-11-08",
+      "first_main_commit": "f94de9159ce2fc1fec11c9b938a72458dbb70ab2",
+      "publication_sequence": 30
+    },
+    {
+      "id": "payments-projects-outcomes-2026-11-07",
+      "first_main_commit": "c9f789999e5b516f05703b510efe322e8b2a8a4a",
+      "publication_sequence": 27
+    },
+    {
+      "id": "upcoming-housing-measures-2026-11-07",
+      "first_main_commit": "c9f789999e5b516f05703b510efe322e8b2a8a4a",
+      "publication_sequence": 27
+    },
+    {
+      "id": "records-clarified-2026-11-07",
+      "first_main_commit": "d5244aded8f0280f4a7bc8f261d385d128acb33f",
+      "publication_sequence": 24
+    },
+    {
+      "id": "county-housing-fy27-q1-2026-11-06",
+      "first_main_commit": "f69fd33af440c114402f2179f3d18d768a8c9ef3",
+      "publication_sequence": 22
+    },
+    {
+      "id": "audit-corrections-2026-11-06",
+      "first_main_commit": "d6b4a4e2320d8545cfe8231555e56f846d33f609",
+      "publication_sequence": 21
+    },
+    {
+      "id": "privacy-correction-2026-11-06",
+      "first_main_commit": "6d4a81285b3e8c12a023d9ca5093e9cd07cb85ff",
+      "publication_sequence": 18
+    },
+    {
+      "id": "cdbg-review-2026-11-06",
+      "first_main_commit": "58383faeae4836dc7488c811b3885fcf9e4e0fd9",
+      "publication_sequence": 17
+    },
+    {
+      "id": "housing-questions-2026-11-06",
+      "first_main_commit": "58383faeae4836dc7488c811b3885fcf9e4e0fd9",
+      "publication_sequence": 17
+    },
+    {
+      "id": "tracker-sources-2026-11-06",
+      "first_main_commit": "58383faeae4836dc7488c811b3885fcf9e4e0fd9",
+      "publication_sequence": 17
+    },
+    {
+      "id": "housing-outcomes-2026-11-05-1500",
+      "first_main_commit": "2577446d1257852d931a0abcb3568b3dba988581",
+      "publication_sequence": 16
+    },
+    {
+      "id": "housing-plans-2026-11-05-0839",
+      "first_main_commit": "427c643ef0a330c069e58705910f2b0801c3d56d",
+      "publication_sequence": 13
+    },
+    {
+      "id": "verified-funding-2026-11-05",
+      "first_main_commit": "db2bb269761a435c3097b372cfd157061743c50b",
+      "publication_sequence": 11
+    },
+    {
+      "id": "cdbg-review-2026-11-05",
+      "first_main_commit": "2c3be1c00919b22ba938d60e202919ea1bfc69a0",
+      "publication_sequence": 10
+    },
+    {
+      "id": "research-review-2026-11-04",
+      "first_main_commit": "77e26952bc9d5d8934ebb90ae80ec0082ddd3c04",
+      "publication_sequence": 9
+    },
+    {
+      "id": "audit-2026-11-03",
+      "first_main_commit": "841e24b40a311cb9ca9ad23ff42ab34fdcc35731",
+      "publication_sequence": 5
+    },
+    {
+      "id": "pub-001",
+      "first_main_commit": "0ff05a439eca669cc47f47ecda2a3eca359bc64d",
+      "publication_sequence": 0
+    },
+    {
+      "id": "pub-003",
+      "first_main_commit": "0ff05a439eca669cc47f47ecda2a3eca359bc64d",
+      "publication_sequence": 0
+    },
+    {
+      "id": "pub-004",
+      "first_main_commit": "0ff05a439eca669cc47f47ecda2a3eca359bc64d",
+      "publication_sequence": 0
+    }
+  ]
+}

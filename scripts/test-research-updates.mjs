@@ -14,7 +14,8 @@ const base = 'http://127.0.0.1:8797';
 const server = spawn('python3', ['-m', 'http.server', '8797', '--bind', '127.0.0.1'], {cwd: root, stdio: 'ignore'});
 const source = 'research-updates.html';
 const current = 'pchip-qa-2026-11-24';
-const older = 'cdbg-review-2026-11-06';
+const older = 'county-housing-fy27-q1-2026-11-06';
+const olderAnchor = 'one-pima-fy27-q1-version-comparison';
 let browser;
 const checks = [];
 try {
@@ -74,10 +75,11 @@ try {
   checks.push('current P-CHIP deep link');
 
   // 4. Older deep link; repeat the archive path with JavaScript disabled.
-  await page.goto(base + '/' + source + '#' + older);
+  await page.goto(base + '/' + source + '#' + olderAnchor);
   assert(await page.locator('#' + older).isVisible());
+  assert(await page.locator('#' + olderAnchor).isVisible(), 'Non-article legacy destination');
   assert.equal(await page.locator('.updates-content article:visible').count(), 1);
-  assert.equal(await page.evaluate(() => document.activeElement.id), older);
+  assert.equal(await page.evaluate(() => document.activeElement.id), olderAnchor);
   const nojs = await browser.newContext({javaScriptEnabled: false, viewport: {width: 390, height: 844}});
   await nojs.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
   const fallback = await nojs.newPage();
@@ -91,8 +93,11 @@ try {
   }
   assert(found && fallback.url().endsWith('#' + older));
   assert(await fallback.locator('#' + older).isVisible(), 'Old article opens without JavaScript');
+  await fallback.goto(base + '/' + source + '#' + olderAnchor);
+  assert(await fallback.locator('#' + olderAnchor).isVisible(), 'Old non-article anchor opens without JavaScript');
+  assert(await fallback.locator('#' + older).isVisible(), 'Non-article anchor reveals its exact containing article without JavaScript');
   await nojs.close();
-  checks.push('older deep link and archive without JavaScript');
+  checks.push('older article and non-article deep links, plus archive without JavaScript');
 
   // 5. One full-article PDF: every substantive paragraph and source, no other article.
   const olderArticle = page.locator('#' + older);

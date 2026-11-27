@@ -4,7 +4,8 @@ from pathlib import Path
 from html import escape
 from collections import Counter
 from tempfile import TemporaryDirectory
-from lxml import html
+from urllib.parse import urlsplit
+from lxml import html, etree
 import argparse
 import hashlib
 import json
@@ -36,35 +37,24 @@ def original(raw):
     return raw.replace(SOURCE_START, '').replace(SOURCE_END, '')
 
 
-def entries(raw):
-    """Explicit review/publication dates only; deadlines and follow-ups do not sort entries."""
+def entries(raw, root=ROOT):
+    """Use the recorded publication sequence, independently of dates in article text."""
     doc = html.fromstring(original(raw))
-    result = []
-    months = {name: str(i).zfill(2) for i, name in enumerate(
-        ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-         'August', 'September', 'October', 'November', 'December'], 1)}
+    result = {}
     nodes = doc.xpath('//main//article | //main/section[@id="craycroft-towers-board-action-2026-11-18" or @id="hud-oversight"]')
     for node in nodes:
         meta = node.xpath('./p[contains(concat(" ",normalize-space(@class)," ")," meta ")]')
-        times = meta[0].xpath('.//time/@datetime') if meta else []
-        date = max(times) if times else ''
-        if not date:
-            match = re.search(r'\d{4}-\d{2}-\d{2}$', node.get('id'))
-            if match:
-                date = match[0]
-            elif meta:
-                matches = re.findall(r'(' + '|'.join(months) + r') (\d{1,2}), (\d{4})', meta[0].text_content())
-                if matches:
-                    month, day, year = matches[-1]
-                    date = f'{year}-{months[month]}-{int(day):02}'
         headings = node.xpath('./h2|./h3')
         title = clean(headings[0].text_content())
         paragraphs = node.xpath('./p[not(contains(concat(" ",normalize-space(@class)," ")," meta "))]')
         summary = textwrap.shorten(clean(paragraphs[0].text_content()), width=330, placeholder='…') if paragraphs else title
-        result.append({'id': node.get('id'), 'title': title, 'date': date,
-                       'date_label': clean(meta[0].text_content()) if meta else 'Date not specified in entry.',
-                       'summary': summary})
-    return sorted(result, key=lambda entry: entry['date'], reverse=True)
+        result[node.get('id')] = {'id': node.get('id'), 'title': title,
+                                 'date_label': clean(meta[0].text_content()) if meta else 'Original article dates and sources are retained in full.',
+                                 'summary': summary}
+    order = json.loads((root / '_data/research_updates_publication_order.json').read_text())['records']
+    identities = [record['id'] for record in order]
+    assert len(identities) == len(set(identities)) and set(identities) == set(result), 'Record the publication order for every article'
+    return [result[aid] for aid in identities]
 
 
 def archive_path(number):
@@ -81,9 +71,9 @@ def cards(items):
 
 def generated(root=ROOT):
     raw = original((root / PAGE).read_text())
-    items = entries(raw)
+    items = entries(raw, root)
     recent = START + '<section id="updates-recent" class="city-design-ui">' \
-        '<p>Read the six most recent dated research notes. Open an article for its full text, qualifications and sources.</p>' \
+        '<p>Read the six latest published research notes. Open an article for its full text, qualifications and sources.</p>' \
         '<nav class="updates-actions" aria-label="Browse research updates">' \
         '<a href="research-updates-archive.html">Browse all research updates</a>' \
         '<a href="search.html">Search updates</a><a href="#current-research-status">Topic status</a>' \
@@ -115,8 +105,8 @@ def generated(root=ROOT):
             paging += f'<a href="{archive_path(number + 1)}" rel="next">Older entries</a>'
         paging += '</nav>'
         body = '<main id="main" class="wrap" tabindex="-1"><p class="eyebrow">Tucson &amp; Pima County</p>' \
-            '<h1>Research Updates Archive</h1><p>Browse dated research notes, with earlier wording and corrections retained. '
-        body += 'Articles open individually at their original links. Dates describe each entry’s review or publication, not a new announcement.</p>' \
+            '<h1>Research Updates Archive</h1><p>Browse research notes in publication order, newest first, with earlier wording and corrections retained. '
+        body += 'Articles open individually at their original links. Original research and source dates are retained.</p>' \
             '<nav class="updates-actions" aria-label="Research updates"><a href="research-updates.html">Latest six summaries</a>' \
             '<a href="search.html">Search updates</a><a href="research-updates.html#method">Methods &amp; corrections</a></nav>' \
             + paging + cards(items[(number - 1) * LIMIT:number * LIMIT]) + paging + '</main>'
@@ -148,7 +138,33 @@ def verify_inventory(root=ROOT):
         if aid != 'main':
             assert html.tostring(old, with_tail=False) == html.tostring(new, with_tail=False), ('Changed legacy destination', aid)
     assert Counter(doc.xpath('//a/@href')) >= Counter(inventory['links']), 'Lost original destination'
-    print(f'PASS inventory: {len(inventory["entries"])} exact entries, {len(inventory["destinations"])} destinations, {len(inventory["links"])} links.')
+    publication = json.loads((root / '_data/research_updates_publication_order.json').read_text())
+    baseline_ids = [e['id'] for e in inventory['entries'] if e['tag'] == 'article'
+                    or e['id'] in {'hud-oversight', 'craycroft-towers-board-action-2026-11-18'}]
+    if (root / '.git').exists():
+        # Prove the recorded sequence against first appearance on protected main.
+        commits = subprocess.check_output(['git', 'log', '--first-parent', '--reverse', '--format=%H',
+                                           inventory['base'], '--', PAGE], cwd=root, text=True).splitlines()
+        first = {}
+        for sequence, commit in enumerate(commits):
+            prior = html.fromstring(subprocess.check_output(['git', 'show', commit+':'+PAGE], cwd=root))
+            for aid in prior.xpath('//@id'):
+                if aid in baseline_ids and aid not in first:
+                    first[aid] = (sequence, commit)
+        expected_order = sorted(baseline_ids, key=lambda aid: first[aid][0], reverse=True)
+        actual = [record for record in publication['records'] if record['id'] in baseline_ids]
+        assert [record['id'] for record in actual] == expected_order, 'Publication order differs from protected-main history'
+        for record in actual:
+            assert (record['publication_sequence'], record['first_main_commit']) == first[record['id']]
+    assert hashlib.sha256((root / 'feed.xml').read_bytes()).hexdigest() == publication['feed_sha256'], 'Feed bytes changed'
+    ns = {'a': 'http://www.w3.org/2005/Atom'}
+    feed = etree.parse(str(root / 'feed.xml'))
+    assert feed.xpath('//a:entry/a:link/@href', namespaces=ns) == publication['feed_destinations'], 'Feed destinations changed'
+    for url in publication['feed_destinations']:
+        parsed = urlsplit(url)
+        destination = html.parse(str(root / parsed.path.lstrip('/')))
+        assert len(destination.xpath('//*[@id=$id]', id=parsed.fragment)) == 1, ('Lost feed destination', url)
+    print(f'PASS inventory: {len(inventory["entries"])} exact entries, {len(inventory["destinations"])} destinations, {len(inventory["links"])} links; {len(baseline_ids)} article/archive destinations; publication order, feed bytes and all feed destinations preserved.')
 
 
 def verify_outputs(root=ROOT):
@@ -160,7 +176,8 @@ def verify_outputs(root=ROOT):
         assert len(doc.xpath('//*[@data-update-summary]')) <= LIMIT, path
     archive_ids = [aid for path, content in expected.items() if path != PAGE
                    for aid in html.fromstring(content).xpath('//*[@data-update-summary]/@data-update-summary')]
-    assert Counter(archive_ids) == Counter(e['id'] for e in entries((root / PAGE).read_text()))
+    assert Counter(archive_ids) == Counter(e['id'] for e in entries((root / PAGE).read_text(), root))
+    assert archive_ids == [e['id'] for e in entries((root / PAGE).read_text(), root)], 'Archive publication order'
     print(f'PASS deterministic generation: six front summaries; {len(archive_ids)} entries across {len(expected)-1} static archive pages.')
 
 
@@ -170,9 +187,13 @@ def fixture_test():
         shutil.copytree(ROOT, root, dirs_exist_ok=True,
                         ignore=shutil.ignore_patterns('.git', 'node_modules', '_site'))
         source = root / PAGE
-        original_six = entries(source.read_text())[:LIMIT]
+        original_six = entries(source.read_text(), root)[:LIMIT]
         displaced = original_six[-1]['id']
         fixture = json.loads((root / 'scripts/fixtures/research-update-new-article.json').read_text())
+        publication_path = root / '_data/research_updates_publication_order.json'
+        publication = json.loads(publication_path.read_text())
+        publication['records'].insert(0, {'id': fixture['id'], 'first_main_commit': None, 'publication_sequence': 'fixture-newest'})
+        publication_path.write_text(json.dumps(publication, indent=2)+'\n')
         raw = source.read_text().replace('<article id="pchip-qa-2026-11-24">',
                                         fixture['html'] + '<article id="pchip-qa-2026-11-24">', 1)
         source.write_text(raw)
@@ -182,10 +203,12 @@ def fixture_test():
         verify_outputs(root)
         front = html.parse(str(source)).xpath('//*[@data-update-summary]/@data-update-summary')
         assert len(front) == LIMIT and fixture['id'] in front and displaced not in front
+        assert front[0] == fixture['id'], 'New publication sorts first despite its deliberately old source-check date'
         assert len(html.parse(str(source)).xpath('//*[@id=$id]', id=displaced)) == 1
         assert any(html.parse(str(path)).xpath('//*[@data-update-summary=$id]//a[@href=$url]',
                    id=displaced, url=PAGE+'#'+displaced) for path in root.glob('research-updates-archive*.html'))
         subprocess.run([sys.executable, str(root / 'scripts/build-reader-data.py')], cwd=root, check=True)
+        assert (root / 'feed.xml').read_bytes() == (ROOT / 'feed.xml').read_bytes(), 'Adding a fixture changed the feed'
         index = json.loads((root / 'assets/search-index.js').read_text().split('window.HAP_SEARCH_INDEX=', 1)[1].rstrip(';\n'))
         for aid in (displaced, fixture['id']):
             assert len([r for r in index['records'] if r['url'] == PAGE+'#'+aid]) == 1, ('Search reachability / uniqueness', aid)
