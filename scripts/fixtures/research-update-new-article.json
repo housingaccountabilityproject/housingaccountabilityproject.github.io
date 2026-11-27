@@ -1,0 +1,4 @@
+{
+  "id": "fixture-new-update-2099-01-01",
+  "html": "<article id=\"fixture-new-update-2099-01-01\"><h2>New-article regression fixture</h2><p class=\"meta\">Source checked: <time datetime=\"1900-01-01\">January 1, 1900</time>. Deadline: <time datetime=\"9999-12-31\">December 31, 9999</time>.</p><p>Fixture only: the newest publication has an old source-check date and a distant deadline; neither controls its order.</p><p><a href=\"https://example.invalid/fixture-source\">Fixture source</a></p></article>"
+}
