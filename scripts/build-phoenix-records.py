@@ -13,6 +13,7 @@ from city_reader_guide import replace
 from phoenix_navigation import navigation
 
 ROOT = Path(__file__).resolve().parents[1]
+CANONICAL_ORIGIN = json.loads((ROOT / '_data/canonical_origin.json').read_text())['origin']
 PAGES = ['phoenix/index.html', 'phoenix/capital-fund.html', 'phoenix/projects/25th-at-bell.html']
 # Explicit editorial classification. New source articles require a reviewed entry.
 META = {
@@ -230,7 +231,7 @@ def render(data):
  output = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Phoenix and Maricopa County evidence browser | Housing Accountability Project</title><meta name="description" content="Explore published Phoenix housing evidence by topic and record type, with dates, source notes and limitations attached.">
-<link rel="canonical" href="https://housingaccountabilityproject.github.io/phoenix/records.html"><link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{CANONICAL_ORIGIN}/phoenix/records.html"><link rel="icon" href="../assets/phoenix-review/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/phoenix-review/style.css"><link rel="stylesheet" href="../assets/research-detail.css"><link rel="stylesheet" href="../assets/phoenix-records.css"><link rel="stylesheet" href="../assets/search-print.css"><link rel="stylesheet" href="../assets/search-options.css"><script src="../assets/search-options.js"></script><link rel="stylesheet" href="../assets/search-text.css"><script src="../assets/search-text.js" defer></script><script src="../assets/search-print.js" defer></script><link rel="stylesheet" href="../assets/funding-periods.css"><script src="../assets/funding-periods-data.js" defer></script><script src="../assets/funding-periods.js" defer></script><script src="../assets/phoenix-records.js" defer></script><link rel="stylesheet" href="../assets/phoenix-reference.css"><script src="../assets/phoenix-reference.js" defer></script></head>
 <body data-research-snapshot="{data['research_snapshot']}" id="top" class="research-detail"><a class="skip" href="#main">Skip to content</a>{header}
 <main id="main" tabindex="-1"><div class="wrap breadcrumbs"><a href="../index.html">Research areas</a> / <a href="index.html">Phoenix</a> / Evidence browser</div>

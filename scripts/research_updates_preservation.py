@@ -16,7 +16,8 @@ ADDED = {'_data/research_updates_inventory.json', '_data/research_updates_public
          'research-updates-archive.html', *{f'research-updates-archive-{n}.html' for n in range(2, 7)}}
 
 
-def verify_transition(root: Path, digest: str):
+def verify_transition(root: Path, digest: str, preserved_bytes=None):
+    source_bytes = preserved_bytes if preserved_bytes is not None else lambda path: (root / path).read_bytes()
     data = json.loads((root / '_data/research_updates_short_transition.json').read_text())
     assert set(data) == {'base', 'files', 'added'} and data['base'] == BASE
     assert set(data['files']) == CHANGED and set(data['added']) == ADDED
@@ -28,10 +29,10 @@ def verify_transition(root: Path, digest: str):
         assert set(hashes) == {'before', 'after'}
         old = subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=root)
         assert hashlib.sha256(old).hexdigest() == hashes['before'], ('Unverified short-page predecessor', path)
-        assert hashlib.sha256((root / path).read_bytes()).hexdigest() == hashes['after'], ('Unreviewed short-page edit', path)
+        assert hashlib.sha256(source_bytes(path)).hexdigest() == hashes['after'], ('Unreviewed short-page edit', path)
         prior[path] = old
     for path, expected in data['added'].items():
-        assert hashlib.sha256((root / path).read_bytes()).hexdigest() == expected, ('Unreviewed short-page addition', path)
+        assert hashlib.sha256(source_bytes(path)).hexdigest() == expected, ('Unreviewed short-page addition', path)
     assert (root / '_data/research_updates_inventory.json').is_file()
     print('PASS exact short-page transition; all earlier release gates inspect their verified predecessor.')
     return prior

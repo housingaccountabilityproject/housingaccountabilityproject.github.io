@@ -1,0 +1,279 @@
+{
+  "base": "f5935cd29716452c9db5691669b9dab13aa69d09",
+  "origin": "https://housingaccountabilityproject.org",
+  "canonical_files": [
+    "about.html",
+    "archive-phoenix.html",
+    "archive-tucson.html",
+    "contact.html",
+    "evidence.html",
+    "findings.html",
+    "funding-explorer.html",
+    "glossary.html",
+    "housing-help.html",
+    "housing-projects.html",
+    "hud-coc-funding-court-tracker.html",
+    "index.html",
+    "library.html",
+    "phoenix.html",
+    "phoenix/capital-fund.html",
+    "phoenix/comparisons.html",
+    "phoenix/corrections.html",
+    "phoenix/glossary.html",
+    "phoenix/housing-help.html",
+    "phoenix/inaugural-report.html",
+    "phoenix/index.html",
+    "phoenix/projects.html",
+    "phoenix/projects/25th-at-bell.html",
+    "phoenix/projects/moreland.html",
+    "phoenix/questions.html",
+    "phoenix/records.html",
+    "phoenix/search.html",
+    "privacy.html",
+    "questions-records.html",
+    "reports/tucson-housing-funding-outcomes-2026.html",
+    "research-center.html",
+    "research-updates-archive-2.html",
+    "research-updates-archive-3.html",
+    "research-updates-archive-4.html",
+    "research-updates-archive-5.html",
+    "research-updates-archive-6.html",
+    "research-updates-archive.html",
+    "research-updates.html",
+    "research.html",
+    "search-all.html",
+    "search.html",
+    "tucson.html",
+    "tucson/index.html",
+    "updates/2026-11-14-arizona-housing-research.html",
+    "watch-phoenix.html",
+    "watch-tucson.html"
+  ],
+  "files": {
+    "about.html": {
+      "before": "0fdd5136f4415d5471e7f749fc175540561dd719071443945684e901d89ca5a7",
+      "after": "c6c3b66ffb07e541636185e3e4e10484cecab6cb8343b9f2bab6cba91806be09"
+    },
+    "archive-phoenix.html": {
+      "before": "8f5e7eab91db836ca74956657ada18d830c3db972bd364ff5828dda84e2c1687",
+      "after": "423031c5d98fa0819b65af5dcbfe90243ea7b31db8ef1533402911dc4bd35e7b"
+    },
+    "archive-tucson.html": {
+      "before": "2abbbf48604484e2b0d44199ef446e191e2de7b6991ef57fcc781c24a7ca4273",
+      "after": "1018c12fcf6f4a2046f19e58502eb05b02f1e746f7b344399eb12104ecf2f4c9"
+    },
+    "contact.html": {
+      "before": "23697b79e5997a45b7d63cf03d23696c1126619b074934357317b81731fb6ff5",
+      "after": "000ea9d56f050f1ab23a1d9b8b59ed6653aa6d48468be12d7bcdc3203e1b80fe"
+    },
+    "evidence.html": {
+      "before": "e011818dc4a86a82a502d762ed9b2fc8166a3d57079bc2f8c7aa66cd963fa2d4",
+      "after": "4f1847c9ecc75bee4b8ddeab33707a0974c8b28c8369e97fa569c4e882fb1cab"
+    },
+    "findings.html": {
+      "before": "ec0538815bf224f1ed91137ce28797ead5848e3df461883dd271b99633ed7d71",
+      "after": "25a56d94446674b111e5680560f10027a13ecdaf10c6590f7fb0ec24ad280b68"
+    },
+    "funding-explorer.html": {
+      "before": "7e65570469ce38709e98151397f3f3147d19300e8847ab4c77090dbe9cff43b4",
+      "after": "5c2868e563fef8bd50c5c57891faf74da0fcbd461e29c7f7f2b007ae90b17fd7"
+    },
+    "glossary.html": {
+      "before": "c5ef68c0f9bb15d53254e1a4372c576798c59c6a6f38a56f032ab4303a2f12ba",
+      "after": "a9ee0fa096b50ac47be3af1a84908575a26e4993fb1dff1467bb88716f594506"
+    },
+    "housing-help.html": {
+      "before": "64b4bd42efa0865226ab94030675efcbefb0c07c384ed0fa78a4a7d4763f11cc",
+      "after": "7dd30b7acb54fd71e2d68c065c812b3e39636fc0729d5b3ace4a449873420d7f"
+    },
+    "housing-projects.html": {
+      "before": "e5f0e80d6af9c71673c2c22244f9dd340baf43a0fe2ffa2b9c525a9534d9b946",
+      "after": "a5a94327985523c8ae01df862c3a8db2717cfeef6a8e9538e178c677af357ae4"
+    },
+    "hud-coc-funding-court-tracker.html": {
+      "before": "5cac36eb01f243e6be0242e01186417fd39fb8a6dea851da7dcb4349c8e153c2",
+      "after": "481a1fa827e306a6cbe1bca52f2a22a88ee04f3fcbc2fd4a1b95c6ca483f9ec7"
+    },
+    "index.html": {
+      "before": "3067f87ae88c028e74098384c7a68b1114b9fd97990b253e42508b4e2a97a600",
+      "after": "98e285ef28aea56146c91eeb65691dee7b2d76c35b772c96dd36347e1d079b51"
+    },
+    "library.html": {
+      "before": "2dababad40ce6249afda7eb7ebcda02a5281487161da10bb7a8341e2db0bf227",
+      "after": "ff9dc9f2a3d4441540c85e2f18cf6066bc0541f3b8059a3fba3a4a7cccad7ebe"
+    },
+    "phoenix.html": {
+      "before": "c6213514d3f463a0c751834d1330fa497563522399a006815c7045ebde563ec0",
+      "after": "cbd795514f2e48bbc88787820f49ebce1274283ec9d208783fffc0a8e1848ffb"
+    },
+    "phoenix/capital-fund.html": {
+      "before": "446f180b531713fff05b22b619d95ddff0ae3ad070e5d34d5bfa632c4c0659f1",
+      "after": "aca785bf99ea8e5229aa311ec84d4fa2cf3d73092238c64d93973ae500c85bc3"
+    },
+    "phoenix/comparisons.html": {
+      "before": "6611ca28f7e8548b859f3c31018747df00a7a089e48513222b443db8083af7a8",
+      "after": "5d494266bcc7888c61efbbb075cc457b25738b61e9131b008539c9526fd5a98b"
+    },
+    "phoenix/corrections.html": {
+      "before": "b02e8f1e276166ba3b53067e6d5b18b65a82258285d95510903b308f00e60930",
+      "after": "a69b63b0ff4fe3fff66f1c2b61a40a31c92c6153ab374430f315fcf3e2b3e2b1"
+    },
+    "phoenix/glossary.html": {
+      "before": "dd3dfd3fd5e5eb8c3b658f69c03c3e4a558029f6eee143c842830ba5c372ec3b",
+      "after": "8948e666833232fea668dbb2dd191577bece91dafe893e743eb3ca04469f8cd5"
+    },
+    "phoenix/housing-help.html": {
+      "before": "605c6feda7dad9604ee8c15747008d325526d56a9f50579fb9b8fdcbfc2f0e9b",
+      "after": "74fb51611f8d3172f75067366bac416c2d35ec73f75063f6326decff5cac309d"
+    },
+    "phoenix/inaugural-report.html": {
+      "before": "8a52725cdec19c628caad274ff528730f3b8199415df68fba780bbfa13f7274d",
+      "after": "3efde29d7baf97df5b851ae7f0d4dc24f7e7105db750baf875466d2d9c0aba40"
+    },
+    "phoenix/index.html": {
+      "before": "f03928e316d355901e5f9877251f32cb0f5f93fe925f3e63417ea5eeef738c0d",
+      "after": "50d1ba36df59aad93d27c046fff1274937b9fa08931d1fc1e2865b9fbbb92f88"
+    },
+    "phoenix/projects.html": {
+      "before": "3181b05a887c05d7eb5125a6e71d6ebbeceeed6df857836254a77d32a6e0208b",
+      "after": "e1f0c36bf5e36a142000ec42a33842bfb62ed578b0816ac4c5bb87480d88f482"
+    },
+    "phoenix/projects/25th-at-bell.html": {
+      "before": "ccfaada9f9c71c19bcc71379f234deb754becf1278042c9ceac2b29565a7cf10",
+      "after": "5e0dbf23c7c28d37b508980e0c7a0c4b1f2b04621c72c040bad7aeb8ef32828b"
+    },
+    "phoenix/projects/moreland.html": {
+      "before": "f9e4e0b4436d639c0aa8730ce9d5d4cad72f230b484de9979c17f41f721c9f63",
+      "after": "a3d9e17af01c8705737f74b4bef706c95ebf504d3f3f4a0e3466833126b143e3"
+    },
+    "phoenix/questions.html": {
+      "before": "ff086cb2efbd7d588cc1bce1c20f486e2ca7f6d229f1f743a073888b49fd8029",
+      "after": "7edeed520a706cbec896a9fcc6622b443197424297f9bcb6f45a139da60097ad"
+    },
+    "phoenix/records.html": {
+      "before": "5923f373742fa2753503d3995a7b11476c25ba0f67c2856bd6f14d7a49aa9839",
+      "after": "3b665a26ec59d35e5dcdb3c50aa13e79f43752142b29b9129ce8bddf7590323c"
+    },
+    "phoenix/search.html": {
+      "before": "b8e40aaf0814e20b5abeb44f288fdd3de7dd34dd92d06c9ef0b869ea5ca18d8f",
+      "after": "4da963dd2d754497cce6544a26bb89915580933ee907f35b34ec36d5721dc2bf"
+    },
+    "privacy.html": {
+      "before": "0fa63a8b94a74593157ca8276e46ad4f3e74c24dcc56e66af1810f0692b032cb",
+      "after": "0ab2a8546e348f31a74c98af8e23f3fc10b9e321f072278f762dac8fadab94b0"
+    },
+    "questions-records.html": {
+      "before": "47f8d6a25c4f23462f909a2bec6ce72ae5ce78dd702ca432de4bc4c6b61b008e",
+      "after": "706087d3740152fbabb9a222c7ed95f1e801980d92ca2871ad44e5c906ef354c"
+    },
+    "reports/tucson-housing-funding-outcomes-2026.html": {
+      "before": "32c20a6dfb922a488ee733892a724a5fb1ef9059ad4dcbd275e55812f786536e",
+      "after": "484b6eb097b2df913b9cb61f0075bd8db8e3cedfbcc5b9d5a7119957710e3379"
+    },
+    "research-center.html": {
+      "before": "c1199afdd65cb41a54eee37634661f948c6f0a0aaa99bfbd1c0116e3f02fbd11",
+      "after": "d65a48ee4dc0b82361bd54f2e8e6a7db55c4e71df3db07d597e79649b097a8e0"
+    },
+    "research-updates-archive-2.html": {
+      "before": "b601c4209cec189f2cbb7bfda0d35377d5af495b501887dcd2108a63ac8c90bd",
+      "after": "8ba21af728dbffb957babf8b479ea81022f081e3845fbdff5f66df07044855db"
+    },
+    "research-updates-archive-3.html": {
+      "before": "248b2f7f87d294026cc899c5e04b6e6fa703cccdae872debc95bf107c744a6f6",
+      "after": "ffe409bfe4493688ef74d8260354dc6ff0fa5b49e5ccfbdbcd1f5499267edcf2"
+    },
+    "research-updates-archive-4.html": {
+      "before": "48bb77d5eaf7f18f0296b6c1317d6b71d7206a9abfed7a8b0b42b9f0898a4552",
+      "after": "d16023a48d026c038e07f40bf0f5ee14a48520d7029fdd7c08fd66c63a552251"
+    },
+    "research-updates-archive-5.html": {
+      "before": "60614285b813a4004070a1536999fedddcb35292cb3689e2a5fe6fc818e2eea6",
+      "after": "ea5b6144e4cba12aa3276fdbc9a88929ae07af89b605ea14f3956cc36550245e"
+    },
+    "research-updates-archive-6.html": {
+      "before": "b155c7845f50c779aea6ea2399fdebd9541e1eed1e5dd2e6f5d62e45334a75e0",
+      "after": "4d41bef4e6fa12080e3b160a1f292c0e41b08980838bca7b819287d1347c028f"
+    },
+    "research-updates-archive.html": {
+      "before": "cdb76065e013a0b81d781fe3ef5dd0eb63f5e81fa0aaec41524f871eb2d7ae77",
+      "after": "2b1d6ecee83cfadb523e82b3c9d5c9d764a92da818f9404749bb67aaad639282"
+    },
+    "research-updates.html": {
+      "before": "b7130aff869a8c6a48b16a561d163f66754a74fcbb0945c9e4a630dd08d32773",
+      "after": "a6571baa383f10ba6a2626d9387339a42adf8a9f913d19ccaae39f63fdd23756"
+    },
+    "research.html": {
+      "before": "239bfb747667384c4e75b1bd0ee45053911b5e4522d45278150c7b752623b45a",
+      "after": "2781b974ffca246014408e511f1c0bec401e35a388d2fd2ece70e858f03fbaf6"
+    },
+    "robots.txt": {
+      "before": "e0b0a0fc8a03485e715923f7934a303318c0615a5b0690d65eaea1a1a9b5d549",
+      "after": "3f5496b51919f8b76b36210f17154457a3d7224ea5008479dae5c9366b7d2f31"
+    },
+    "scripts/build-phoenix-connections.py": {
+      "before": "2e684436c60b15f4ab69f87457d1ca3eb26290205a4f68076c8e0b650857b2db",
+      "after": "34ff4ea40b063d6276ee1d6f3f0a9509f55f5ca79e1d9ca3ec9b7385287316a0"
+    },
+    "scripts/build-phoenix-records.py": {
+      "before": "3652fb9901399be46f5276267b311e49ec8a0df29d582215e6e15cd2c14256f3",
+      "after": "90f84fe72882cfe8fbab4754b73e73c509f6d22ac95724478dd70bfe06733ae8"
+    },
+    "scripts/build-regional-editions.py": {
+      "before": "580ceb7800550b0ad959f53273007f9b6176d33efa17ea8311a25036ab7db1d3",
+      "after": "15c3321bb5520c9751efd5ceea0003835b9029d72df511e6f5db2bcea2e1bf9c"
+    },
+    "scripts/check-list-baseline.py": {
+      "before": "d7bdfef63c46a54207b1c3e604fe3dd16773745d9bc9533397f46af9fcf0650e",
+      "after": "0e3a2696af6003a20a72e192f64e05998b21de37893e715cc3c2d0a6ff4c230b"
+    },
+    "scripts/check-regional-editions.py": {
+      "before": "131ea66c761204051c17fa0bbcbe89bc97beffd9d085a802b7fb2a2d28beeb12",
+      "after": "436f797377fdfb207edf3c2890bfcd1136b89d7a4507e2f62763269074be7c6c"
+    },
+    "scripts/check-regional-release-output.py": {
+      "before": "c75ed26df7c5476310cca712e04875d223f670e12da762c66a293c608e0e9a06",
+      "after": "67ab0a85b0147377523582f77315aaa79ea67ce5eefe1ded95f4d415792fdc19"
+    },
+    "scripts/research_updates_preservation.py": {
+      "before": "834e138db7fa8637abb2a0bb562686cb9112d2887260db8d44b3672bc0909959",
+      "after": "c45448936cbdd606f054eb682210728dfb0b81147d2c5b8c246d5467d2aa042b"
+    },
+    "search-all.html": {
+      "before": "fab59c13d31c58f2ddfd0e11ed72aa1d7651b4e9fe2e1774cc9439909d647767",
+      "after": "9f60efd0ead18264a15addb0949835b2a533e44b139f7e8f040fd8330fcfb0ad"
+    },
+    "search.html": {
+      "before": "a7a51d59a4ea5a8db536981e5942c6583334355d77679e4a811f5908a362f4d5",
+      "after": "bfbec6b372282ae5cfc1e5dbc979fb5ea672e57cb1552c3a66d43d356c3fc4ba"
+    },
+    "sitemap.xml": {
+      "before": "b64b604e2014ebb92e4dc53de5141f6b7082a96b35c624a2561ddef655934525",
+      "after": "c421deff55bedba8081eefa14b1160a3072b41720d20b2372431487c73be668d"
+    },
+    "tucson.html": {
+      "before": "f394e50d5e9e267a79c8f7e357c615e9a227cf077536d43c256505b46046966b",
+      "after": "bf6bcb73a9ebfec2812fc8274a96d16074b5254bc7acfbf99e1686f67cb66fba"
+    },
+    "tucson/index.html": {
+      "before": "447baa26b683c1b4466c744c8f9eba399763f68e1e7c540b85b6733769834670",
+      "after": "a226ad56930be628848f7cddcce146cd60bd8b13433beffa62acf8cb14c64cae"
+    },
+    "updates/2026-11-14-arizona-housing-research.html": {
+      "before": "be84a80f1a1bbdb263ab04de8e872eace97cbe4229f3cc73185a4e79d602b58e",
+      "after": "5daa2eb0cab983689c46fa75dc829fc3d352e0a1f1ef49164173c43d408fb344"
+    },
+    "watch-phoenix.html": {
+      "before": "6e25f18b73601dfba4fe00086b1a0b59253de86c04fcf7bf827bdbbb50cdb3b0",
+      "after": "e8d07d3d71d212b5361aa1a19f682545869f302d4f13b3d233b54c647eae5466"
+    },
+    "watch-tucson.html": {
+      "before": "c2ea95ecaa78e3771c99d6404ac326c00b4c0f6057d93e1b8be2d5cc89d3d295",
+      "after": "3186d4ab19f11c4b6e22cdccdee44e061d114bc6ddd73f0e5392189ecd3a2346"
+    }
+  },
+  "added": {
+    "_data/canonical_origin.json": "0f577b9b52deb15e76ea515bc023927b3a9b9b82fbb3fe4e549fca95d096e540",
+    "scripts/check-org-search.py": "dd374e9acd54bc0cbaabcc1ea0816cb9c8fe0a2d3228790a45002c35e05d5342",
+    "scripts/org_search_preservation.py": "2a470ba8e395173a0741e5be109dceae5bcae9324dd7f8f403751c87dc12891b"
+  }
+}

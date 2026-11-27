@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'ba87383359bdc0ba3de5042533dd7d78f720918d'
@@ -69,6 +70,10 @@ def main():
             assert hashlib.sha256((args.output / name).read_bytes()).hexdigest() == digest, ('Production image bytes changed', name)
         assert 'docs/reviews/regional-front-pages.html' in production_files, 'Rendered review documentation was not scanned'
         assert all(name in production_files for name in ['index.html', 'tucson.html', 'phoenix.html', 'feed.xml', 'sitemap.xml', 'assets/search-index.js', 'assets/category-search-data.js'])
+        command = [sys.executable, str(ROOT / 'scripts/check-org-search.py'), '--output', str(args.output)]
+        if args.report:
+            command += ['--report', str(args.report.with_name('org-search.json'))]
+        subprocess.run(command, cwd=ROOT, check=True)
     report = {'base': BASE, 'checkedFilesAndDiff': checked,
               'trackedFiles': len(paths), 'productionFiles': len(production_files),
               'privateReferencesFound': 0, 'unexpectedImages': 0,

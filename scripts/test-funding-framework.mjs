@@ -44,7 +44,7 @@ async function share(page,expected){
  const url=new URL(await page.locator('#shared-search-link').inputValue());
  const payload=JSON.parse(decodeURIComponent(url.hash.slice('#hap-search='.length)));
  for(const [key,value] of Object.entries(expected))assert.equal(payload.state[key],value,'shared '+key);
- assert.equal(url.origin,'https://housingaccountabilityproject.github.io');
+ assert.equal(url.origin,'https://housingaccountabilityproject.org');
  await page.goto(base+url.pathname+url.hash);
  await page.reload(); // An explicit shared URL must also survive a fresh document load.
 }
