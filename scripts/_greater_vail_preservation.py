@@ -156,10 +156,12 @@ def _verify_guard(root, guard_digest):
 
 def predecessor(root, name, guard_digest):
     current = (root / name).read_bytes()
-    if name not in PUBLIC_PATHS:
+    if name not in PUBLIC_PATHS | WORKFLOW_PATHS:
         return current
     _verify_guard(root, guard_digest)
-    assert current == expected_public(root)[name], ('Unreviewed Vail content, record or surrounding bytes', name)
+    expected = expected_public(root)
+    expected.update(expected_workflows(root))
+    assert current == expected[name], ('Unreviewed Vail content, record or surrounding bytes', name)
     return baseline(root, name)
 
 
