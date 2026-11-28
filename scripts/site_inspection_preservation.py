@@ -3,7 +3,7 @@ import hashlib
 import subprocess
 from _greater_vail_preservation import predecessor as vail_predecessor, verify_transition as verify_vail_transition
 
-GREATER_VAIL_GUARD_SHA256 = 'a9a4319931ed9fa6aa0b24f303916d6d18436920b4fa997c61d85738e25397fd'
+GREATER_VAIL_GUARD_SHA256 = '6a3a06ad3372f3927de451ff0ef8b757279219b671b5df45d0128074bae339fc'
 
 RELEASE_BASE = '2986596a080a97ce31222cd4c94a591aea5ec7a6'
 REVIEWED = {

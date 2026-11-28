@@ -82,12 +82,16 @@ jobs:
       - run: node scripts/reader-browser-test.mjs
       - run: node scripts/report-smoke-test.mjs
       - run: node scripts/organization-browser-test.mjs
+      - name: Verify reviewed Greater Vail in production Pages output
+        if: ${{ !cancelled() }}
+        run: node scripts/_test-greater-vail.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: reader-tools-browser-qa
           path: |
             /tmp/hap-category-search/
+            /tmp/hap-greater-vail/
             /tmp/hap-list-browser/
             /tmp/hap-regional-editions/
             /tmp/hap-research-updates/

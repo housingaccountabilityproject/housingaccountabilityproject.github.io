@@ -20,9 +20,16 @@ PUBLIC_PATHS = {
 }
 VALIDATION_PATHS = {
     GUARD_PATH, 'scripts/site_inspection_preservation.py',
-    'scripts/org_search_preservation.py',
+    'scripts/org_search_preservation.py', 'scripts/_test-greater-vail.mjs',
 }
+WORKFLOW_PATHS = {
+    '.github/workflows/phoenix-records-qa.yml',
+    '.github/workflows/reader-tools-qa.yml',
+}
+VAIL_BROWSER_SHA256 = 'ccc7bcaa0ab5060f81df08a71f88e053b7dff04123abf7cdcc95eff95c4bdbc2'
 BASE_SHA256 = {
+    '.github/workflows/phoenix-records-qa.yml': 'cc78bda1f6f94416065103501abc7906a192722954ba34133f0a72fbc8ac319b',
+    '.github/workflows/reader-tools-qa.yml': 'f34bdacc784ae709f5a0a5c79c5527286c4b47d57948b06e6c3a726811d54c7f',
     '_data/tucson_weatherization_and_vail_resources.html': '775b69c178effa55cb96351a8c31dd73c83f6e1f6a69420a8e6fc110a43913ae',
     'housing-help.html': '7dd30b7acb54fd71e2d68c065c812b3e39636fc0729d5b3ace4a449873420d7f',
     'assets/search-index.js': '0f9ab765e7ad88a3a057f17cd70eaf19065092b37a9d753a0799a6f256602890',
@@ -98,6 +105,25 @@ def _replace_once(value, before, after):
     return value.replace(before, after, 1)
 
 
+def expected_workflows(root):
+    # Phoenix is globally required: preserve every job/permission byte and remove
+    # only its PR path restriction. The Reader addition is focused PR evidence.
+    phoenix = baseline(root, '.github/workflows/phoenix-records-qa.yml')
+    start = phoenix.index(b'    paths:\n')
+    end = phoenix.index(b'  workflow_dispatch:\n')
+    phoenix = phoenix[:start] + phoenix[end:]
+    reader = baseline(root, '.github/workflows/reader-tools-qa.yml')
+    marker = b'      - uses: actions/upload-artifact@v4\n        if: always()\n'
+    step = (b'      - name: Verify reviewed Greater Vail in production Pages output\n'
+            b'        if: ${{ !cancelled() }}\n'
+            b'        run: node scripts/_test-greater-vail.mjs\n')
+    reader = _replace_once(reader, marker, step + marker)
+    reader = _replace_once(reader, b'            /tmp/hap-category-search/\n',
+                           b'            /tmp/hap-category-search/\n            /tmp/hap-greater-vail/\n')
+    return {'.github/workflows/phoenix-records-qa.yml': phoenix,
+            '.github/workflows/reader-tools-qa.yml': reader}
+
+
 def org_successor(original):
     original = _replace_once(
         original,
@@ -139,7 +165,7 @@ def predecessor(root, name, guard_digest):
 
 def verify_transition(root, guard_digest):
     _verify_guard(root, guard_digest)
-    expected_paths = PUBLIC_PATHS | VALIDATION_PATHS
+    expected_paths = PUBLIC_PATHS | VALIDATION_PATHS | WORKFLOW_PATHS
     changed = set(subprocess.check_output(['git', 'diff', '--name-only', VAIL_BASE, '--'], cwd=root, text=True).splitlines())
     untracked = set(subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], cwd=root, text=True).splitlines())
     assert changed | untracked == expected_paths, ('Unexpected Vail transition paths', sorted((changed | untracked) ^ expected_paths))
@@ -149,6 +175,8 @@ def verify_transition(root, guard_digest):
         modes = line.split()[:2]
         assert modes in ([':100644', '100644'], [':000000', '100644']), ('Unexpected Vail file mode', line)
     expected = expected_public(root)
+    expected.update(expected_workflows(root))
+    assert hashlib.sha256((root / 'scripts/_test-greater-vail.mjs').read_bytes()).hexdigest() == VAIL_BROWSER_SHA256, 'Unreviewed focused Vail browser test'
     for name, content in expected.items():
         assert (root / name).read_bytes() == content, ('Unreviewed Vail content, record or surrounding bytes', name)
     org = org_successor(baseline(root, 'scripts/org_search_preservation.py'))
