@@ -1,6 +1,9 @@
 """Verify the exact approved Amazon Flats and search-label release."""
 import hashlib
 import subprocess
+from _greater_vail_preservation import predecessor as vail_predecessor, verify_transition as verify_vail_transition
+
+GREATER_VAIL_GUARD_SHA256 = 'a9a4319931ed9fa6aa0b24f303916d6d18436920b4fa997c61d85738e25397fd'
 
 RELEASE_BASE = '2986596a080a97ce31222cd4c94a591aea5ec7a6'
 REVIEWED = {
@@ -22,10 +25,10 @@ VALIDATION_PATHS = {
     'scripts/site_inspection_preservation.py',
 }
 
-VALIDATION_HASHES = {'scripts/check-org-search.py': '32dfe8575f0ad0df1c602d75d9a2025e44696fd18dfd6d080838c37523fc659e', 'scripts/org_search_preservation.py': 'e7c5e0b1950154ac2bf57f314989dea80309f3ad0cf36acfd1515024edc778cd'}
+VALIDATION_HASHES = {'scripts/check-org-search.py': '32dfe8575f0ad0df1c602d75d9a2025e44696fd18dfd6d080838c37523fc659e', 'scripts/org_search_preservation.py': '878f4cee8c89fec61b408caedeed36c35a935c28473133cdf06592a1de17edca'}
 
 def released_source(root, name):
-    current = (root / name).read_bytes()
+    current = vail_predecessor(root, name, GREATER_VAIL_GUARD_SHA256)
     if name not in REVIEWED:
         return current
     assert hashlib.sha256(current).hexdigest() == REVIEWED[name], (
@@ -34,9 +37,10 @@ def released_source(root, name):
 
 
 def verify_release(root):
+    vail_paths = verify_vail_transition(root, GREATER_VAIL_GUARD_SHA256)
     changed = set(subprocess.check_output(
         ['git', 'diff', '--name-only', RELEASE_BASE, '--'], cwd=root, text=True).splitlines())
-    expected = set(REVIEWED) | VALIDATION_PATHS
+    expected = set(REVIEWED) | VALIDATION_PATHS | vail_paths
     assert changed == expected, ('Unexpected inspection release paths', sorted(changed ^ expected))
     for name, digest in VALIDATION_HASHES.items():
         assert hashlib.sha256((root / name).read_bytes()).hexdigest() == digest, (

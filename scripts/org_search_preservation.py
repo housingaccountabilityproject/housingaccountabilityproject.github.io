@@ -3,7 +3,7 @@ import hashlib
 import json
 import re
 import subprocess
-from site_inspection_preservation import RELEASE_BASE, VALIDATION_PATHS, released_source
+from site_inspection_preservation import RELEASE_BASE, VALIDATION_PATHS, released_source, verify_release
 
 BASE = 'f5935cd29716452c9db5691669b9dab13aa69d09'
 OLD_ORIGIN = b'https://housingaccountabilityproject.github.io'
@@ -105,6 +105,7 @@ def generator_successor(name, content):
 
 
 def verify_transition(root, expected_digest):
+    verify_release(root)
     transition = json.loads((root / MANIFEST).read_text())
     assert set(transition) == {'base', 'origin', 'canonical_files', 'files', 'added'}
     assert transition['base'] == BASE and transition['origin'].encode() == NEW_ORIGIN
